@@ -1,0 +1,113 @@
+{
+  "run_id": "run_20260328_143207_6ccb02",
+  "input_summary": "图纸=测试.png, 材料=Z2CN19-10NS 奥氏体不锈钢, 毛坯=锻件毛坯，外径 Φ290，内径 Φ130，厚度 65mm",
+  "start_time": "2026-03-28T14:32:07.295666",
+  "end_time": "2026-03-28T14:39:04.398749",
+  "total_duration_ms": 417103,
+  "stages": [
+    {
+      "name": "Stage1_DrawingAnalysis",
+      "input": "{\"image_path\": \"test-files/测试.png\"}",
+      "reasoning": [
+        "Image loaded: test-files/测试.png (904152 base64 chars, image/png)",
+        "VLM request: model=qwen3.5-plus, max_tokens=8192, temperature=0.3",
+        "VLM response received: 1238 chars. Excerpt: {\n  \"part_type\": \"盘类\",\n  \"main_dimensions\": {\n    \"overall\": \"φ103 x 30.5 mm\",\n    \"key_dimensions\": [\n      \"φ34(+0.25/0) mm\",\n      \"φ103 mm\",\n      \"30.5 mm\",\n      \"φ40 mm\",\n      \"15(+0.3/0) mm\"\n    ]\n  },\n  \"surface_finish\": [\n    {\n      \"surface\": \"其余表面\",\n      \"Ra\": \"Ra3.2\",\n      \"method\":...",
+        "Parsed features: part_type=盘类, material=未标注, features_count=5"
+      ],
+      "searches": [],
+      "output": "{\"part_type\": \"盘类\", \"main_dimensions\": {\"overall\": \"φ103 x 30.5 mm\", \"key_dimensions\": [\"φ34(+0.25/0) mm\", \"φ103 mm\", \"30.5 mm\", \"φ40 mm\", \"15(+0.3/0) mm\"]}, \"surface_finish\": [{\"surface\": \"其余表面\", \"Ra\": \"Ra3.2\", \"method\": \"未标注\"}], \"geometric_tolerances\": [{\"type\": \"位置度\", \"value\": \"φ0.1\", \"datum\": \"B, C\", \"target\": \"φ34孔\"}, {\"type\": \"位置度\", \"value\": \"φ0.1\", \"datum\": \"B, C\", \"target\": \"15mm尺寸特征（键槽/长圆孔）\"}], \"features\": [{\"name\": \"中心孔\", \"specification\": \"φ34(+0.25/0)\", \"quantity\": 1}, {\"name\": \"键槽/长圆孔\", \"specification\": \"宽8mm(2-R4), 半长15mm\", \"quantity\": 1}, {\"name\": \"内凹槽/待焊面\", \"specification\": \"φ40\", \"quantity\": 1}, {\"name\": \"底板\", \"specification\": \"厚度1.5 mm\", \"quantity\": 1}, {\"name\": \"倒角\", \"specification\": \"未注锐边均应倒圆，圆角半径0.1mm~0.5mm\", \"quantity\": \"多处\"}], \"technical_requirements\": [\"在图示位置进行零件标识\", \"未注公差按GB/T1804-2000的m级执行\", \"未注锐边均应倒圆，圆角半径尺寸为0.1mm~0.5mm\", \"待焊面目视检查\", \"待焊面液体渗透检查\"], \"material\": \"未标注\"}",
+      "error": null,
+      "duration_ms": 256245
+    },
+    {
+      "name": "Stage2_WebResearch",
+      "input": "{\"part_type\": \"盘类\", \"material\": \"Z2CN19-10NS 奥氏体不锈钢\"}",
+      "reasoning": [
+        "Search strategy: 3 queries for part_type='盘类', material='Z2CN19-10NS 奥氏体不锈钢'",
+        "DuckDuckGo search: '盘类 Z2CN19-10NS 奥氏体不锈钢 加工工艺路线 工序'",
+        "DuckDuckGo search: '盘类 机加工 工艺卡 工序编排'",
+        "DuckDuckGo search: 'Z2CN19-10NS 奥氏体不锈钢 切削参数 加工性能 注意事项'",
+        "Web search complete: 0 total unique results",
+        "LLM synthesis: model=qwen3.5-plus, timeout=120s, web_results_fed=0",
+        "LLM returned 1844 chars",
+        "LLM output validated: 9 operations, 6 quality notes."
+      ],
+      "searches": [
+        {
+          "source": "DuckDuckGo",
+          "query": "盘类 Z2CN19-10NS 奥氏体不锈钢 加工工艺路线 工序",
+          "results": "0 results, 0 unique new"
+        },
+        {
+          "source": "DuckDuckGo",
+          "query": "盘类 机加工 工艺卡 工序编排",
+          "results": "0 results, 0 unique new"
+        },
+        {
+          "source": "DuckDuckGo",
+          "query": "Z2CN19-10NS 奥氏体不锈钢 切削参数 加工性能 注意事项",
+          "results": "0 results, 0 unique new"
+        }
+      ],
+      "output": "{\"typical_sequence\": [{\"op_name\": \"下料\", \"key_points\": [\"采用带锯床切割，预留加工余量\", \"标识材料炉批号，确保可追溯性\", \"检查材料表面是否有裂纹缺陷\"], \"equipment_type\": \"带锯床\"}, {\"op_name\": \"粗车\", \"key_points\": [\"大切削深度去除氧化皮及余量\", \"避免刀尖在硬化层停留，防止加工硬化\", \"单面预留 3-5mm 余量用于热处理变形修正\"], \"equipment_type\": \"数控车床\"}, {\"op_name\": \"固溶处理\", \"key_points\": [\"加热至 1050-1100℃保温后水淬\", \"消除加工应力，恢复耐蚀性\", \"控制晶粒度，防止碳化物析出\"], \"equipment_type\": \"热处理炉\"}, {\"op_name\": \"半精车\", \"key_points\": [\"修正热处理变形\", \"精加工前预留 0.3-0.5mm 余量\", \"使用锋利刀具，充足冷却液\"], \"equipment_type\": \"数控车床\"}, {\"op_name\": \"精车\", \"key_points\": [\"达到最终尺寸及形位公差\", \"控制表面粗糙度，避免振纹\", \"采用恒线速切削保证端面质量\"], \"equipment_type\": \"数控车床\"}, {\"op_name\": \"钻孔攻丝\", \"key_points\": [\"使用含钴钻头或硬质合金钻头\", \"低转速大进给，防止孔壁硬化\", \"攻丝前倒角，使用专用不锈钢丝锥\"], \"equipment_type\": \"加工中心\"}, {\"op_name\": \"去毛刺清洗\", \"key_points\": [\"去除所有锐边毛刺\", \"酸洗钝化处理，去除铁离子污染\", \"超声波清洗，确保表面无残留\"], \"equipment_type\": \"清洗机\"}, {\"op_name\": \"终检\", \"key_points\": [\"尺寸及形位公差检测\", \"材料牌号光谱复验 (PMI)\", \"表面渗透探伤 (PT) 检查\"], \"equipment_type\": \"三坐标测量机\"}, {\"op_name\": \"包装入库\", \"key_points\": [\"使用中性防锈纸包裹\", \"避免与碳钢直接接触防止电化学腐蚀\", \"标识清晰，分区存放\"], \"equipment_type\": \"包装台\"}], \"quality_notes\": [\"该材料加工硬化倾向严重，切削时需保持连续进给，避免刀具在工件表面摩擦\", \"导热性差，切削热集中，必须使用充足的水溶性冷却液降温\", \"切屑坚韧不易断，需选用断屑槽型合适的刀片并注意排屑安全\", \"严禁铁离子污染，加工设备及工装夹具需专用或彻底清理，防止表面生锈\", \"固溶处理工艺需严格控制，防止敏化导致晶间腐蚀能力下降\", \"NS 级材料要求严格的可追溯性，全过程需保留炉批号标识及检验记录\"]}",
+      "error": null,
+      "duration_ms": 59853
+    },
+    {
+      "name": "Stage 3: Knowledge Base Search",
+      "input": "{\"material\": \"Z2CN19-10NS 奥氏体不锈钢\", \"operation_types\": [\"下料\", \"粗车\", \"固溶处理\", \"半精车\", \"精车\", \"钻孔攻丝\", \"去毛刺清洗\", \"终检\", \"包装入库\"]}",
+      "reasoning": [
+        "Querying process_params for material LIKE '%Z2CN19-10NS 奥氏体不锈钢%'",
+        "Querying experience_log for top 20 process-domain experiences",
+        "FTS5 search on kb_chunks: 'Z2CN19-10NS 奥氏体不锈钢 OR 下料 OR 粗车 OR 固溶处理 OR 半精车 OR 精车 OR 钻孔攻丝 OR 去毛刺清洗 OR 终检 OR 包装入库'",
+        "FTS5 search failed: no such column: 10NS, trying LIKE fallback"
+      ],
+      "searches": [
+        {
+          "source": "SQLite / process_params",
+          "query": "material_grade LIKE '%Z2CN19-10NS 奥氏体不锈钢%'",
+          "results": "0 rows"
+        },
+        {
+          "source": "SQLite / experience_log",
+          "query": "expert_domain = 'process' ORDER BY confidence DESC LIMIT 20",
+          "results": "20 rows"
+        },
+        {
+          "source": "SQLite / kb_chunks (LIKE fallback)",
+          "query": "LIKE search for ['Z2CN19-10NS 奥氏体不锈钢', '下料', '粗车']",
+          "results": "9 chunks matched"
+        }
+      ],
+      "output": "{\"params_by_operation\": {}, \"total_param_rows\": 0, \"experience_count\": 20, \"manual_excerpt_count\": 9}",
+      "error": null,
+      "duration_ms": 3
+    },
+    {
+      "name": "Stage4-RouteGeneration",
+      "input": "{\"part_features_keys\": [\"part_type\", \"main_dimensions\", \"surface_finish\", \"geometric_tolerances\", \"features\", \"technical_requirements\", \"material\", \"cad_dimensions\", \"cad_features\", \"cad_tolerances\", \"cad_sequence\"], \"framework_keys\": [\"typical_sequence\", \"quality_notes\"], \"kb_keys\": [\"params\", \"experiences\", \"manual_excerpts\"], \"blank_info\": \"锻件毛坯，外径 Φ290，内径 Φ130，厚度 65mm\", \"equipment\": \"C6140 车床, X52K 铣床, M1432A 外圆磨床\", \"material\": \"Z2CN19-10NS 奥氏体不锈钢\"}",
+      "reasoning": [
+        "Context token estimates: part=1338, framework=1229, kb=1352, total_context~=3919",
+        "Context char lengths: part=2008/2000, framework=1844/3000, kb=2028/3000",
+        "Prompt strategy: system+user ~4476 tokens, max_tokens=8192, model=qwen3.5-plus",
+        "Parsed 9 operations from LLM response",
+        "Validation passed. Operations: ['领料', '下料', '粗车', '热处理', '精车', '铣削', '钳工', '检验', '入库']"
+      ],
+      "searches": [],
+      "output": "{\"operation_count\": 9, \"operations\": [\"领料\", \"下料\", \"粗车\", \"热处理\", \"精车\", \"铣削\", \"钳工\", \"检验\", \"入库\"], \"first_op\": {\"seq\": \"05\", \"op_name\": \"领料\", \"op_type\": \"领料\", \"content\": [\"核对材料质量证明书，确认牌号为 Z2CN19-10NS 奥氏体不锈钢\", \"检查炉批号标识，确保全过程可追溯性\", \"目视检查锻件毛坯表面，确认无裂纹、折叠等缺陷\"], \"equipment\": \"材料库\", \"tooling\": \"光谱仪（必要时）\", \"inspection\": \"材料牌号复验，表面质量目视合格\"}, \"last_op\": {\"seq\": \"45\", \"op_name\": \"入库\", \"op_type\": \"入库\", \"content\": [\"使用中性防锈纸包裹零件，避免与碳钢直接接触\", \"标识清晰，注明炉批号及检验状态\", \"分区存放于不锈钢专用货架，防止电化学腐蚀\"], \"equipment\": \"包装台\", \"tooling\": \"防锈纸，标签\", \"inspection\": \"检查包装完整性及标识准确性\"}}",
+      "error": null,
+      "duration_ms": 100897
+    },
+    {
+      "name": "Stage5_CardRendering",
+      "input": "{\"num_steps\": 9, \"output_path\": \"output/test2_v2kb_with_json/工艺卡_20260328_143904.docx\", \"part_type\": \"盘类\"}",
+      "reasoning": [
+        "Process card rendered: output/test2_v2kb_with_json/工艺卡_20260328_143904.docx | Total table rows (incl. inspection): 18 | Process steps: 9"
+      ],
+      "searches": [],
+      "output": "{\"output_file\": \"output/test2_v2kb_with_json/工艺卡_20260328_143904.docx\", \"total_rows\": 18, \"process_steps\": 9}",
+      "error": null,
+      "duration_ms": 101
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-output/
+# output/  — sample outputs are tracked for reference
 __pycache__/
 *.pyc
 *.pyo
