@@ -1,0 +1,262 @@
+{
+ "entities": {
+  "F8yS0AXfNo2eKAd_0": {
+   "name": "\u8349\u56fe 1", 
+   "construction_elements": {}, 
+   "transform": {
+    "origin": { "y": 0.0, "x": 0.0, "z": 0.0 }, 
+    "y_axis": { "y": 1.0, "x": 0.0, "z": 0.0 }, 
+    "x_axis": { "y": 0.0, "x": 1.0, "z": 0.0 }, 
+    "z_axis": { "y": 0.0, "x": 0.0, "z": 1.0 }
+   }, 
+   "profiles": {
+    "JGC": {
+     "loops": [
+      {
+       "profile_curves": [
+        {
+         "center_point": { "y": 0.0, "x": 0.0, "z": 0.0 }, 
+         "radius": 0.0515, 
+         "type": "Circle3D", 
+         "curve": "JGB", 
+         "manufacturing_info": {
+           "description": "对应图纸尺寸 Φ103 (未注公差)",
+           "tolerance_grade": "GB/T 1804-m",
+           "tolerance_type": "general"
+         },
+         "normal": { "y": 0.0, "x": 0.0, "z": 1.0 }
+        }
+       ], 
+       "is_outer": true
+      }
+     ], 
+     "properties": {}
+    }
+   }, 
+   "reference_plane": {}, 
+   "type": "Sketch"
+  }, 
+  "FNg7Xn9PuGy6ok5_0": {
+   "extent_two": {
+    "distance": { "role": "AgainstDistance", "type": "ModelParameter", "name": "none", "value": 0.0 }, 
+    "type": "DistanceExtentDefinition", 
+    "taper_angle": { "role": "Side2TaperAngle", "type": "ModelParameter", "name": "none", "value": 0.0 }
+   }, 
+   "name": "\u62c9\u4f38 1", 
+   "extent_one": {
+    "distance": { "role": "AlongDistance", "type": "ModelParameter", "name": "none", "value": 0.0305 }, 
+    "type": "DistanceExtentDefinition", 
+    "taper_angle": { "role": "TaperAngle", "type": "ModelParameter", "name": "none", "value": 0.0 }
+   }, 
+   "extent_type": "OneSideFeatureExtentType", 
+   "operation": "NewBodyFeatureOperation", 
+   "start_extent": { "type": "ProfilePlaneStartDefinition" }, 
+   "type": "ExtrudeFeature", 
+   "profiles": [ { "profile": "JGC", "sketch": "F8yS0AXfNo2eKAd_0" } ]
+  }, 
+  "FXFKjOtX1JkT6Il_1": {
+   "name": "\u8349\u56fe 2", 
+   "construction_elements": {}, 
+   "transform": {
+    "origin": { "y": 0.0, "x": 0.0, "z": 0.0305 }, 
+    "y_axis": { "y": 1.0, "x": 0.0, "z": 0.0 }, 
+    "x_axis": { "y": 0.0, "x": 1.0, "z": 0.0 }, 
+    "z_axis": { "y": 0.0, "x": 0.0, "z": 1.0 }
+   }, 
+   "profiles": {
+    "JJC": {
+     "loops": [
+      {
+       "profile_curves": [
+        {
+         "start_point": { "y": -0.008, "x": -0.015, "z": 0.0 }, 
+         "type": "Line3D", 
+         "curve": "JJB", 
+         "manufacturing_info": {
+           "description": "对应图纸尺寸 15 (+0.3/0)",
+           "tolerance_grade": "IT13",
+           "tolerance_value_mm": "+0.3/0",
+           "dimension_target": "distance_from_center"
+         },
+         "end_point": { "y": 0.008, "x": -0.015, "z": 0.0 }
+        }, 
+        {
+         "center_point": { "y": 0.0, "x": 0.0, "z": 0.0 }, 
+         "start_angle": 0.0, 
+         "radius": 0.017, 
+         "manufacturing_info": {
+           "description": "对应图纸尺寸 Φ34 (+0.25/0)",
+           "tolerance_grade": "IT12",
+           "tolerance_value_mm": "+0.25/0",
+           "dimension_target": "radius"
+         },
+         "end_point": { "y": 0.008, "x": -0.015, "z": 0.0 }, 
+         "start_point": { "y": -0.008, "x": -0.015, "z": 0.0 }, 
+         "normal": { "y": 0.0, "x": 0.0, "z": 1.0 }, 
+         "type": "Arc3D", 
+         "curve": "JJF", 
+         "end_angle": 5.303270654672129, 
+         "reference_vector": { "y": -0.4705882352941177, "x": -0.8823529411764707, "z": 0.0 }
+        }
+       ], 
+       "is_outer": true
+      }
+     ], 
+     "properties": {}
+    }
+   }, 
+   "reference_plane": {}, 
+   "type": "Sketch"
+  }, 
+  "FkWyddNOqUxqbkq_1": {
+   "extent_two": {
+    "distance": { "role": "AgainstDistance", "type": "ModelParameter", "name": "none", "value": 0.0 }, 
+    "type": "DistanceExtentDefinition", 
+    "taper_angle": { "role": "Side2TaperAngle", "type": "ModelParameter", "name": "none", "value": 0.0 }
+   }, 
+   "name": "\u62c9\u4f38 2", 
+   "extent_one": {
+    "distance": { "role": "AlongDistance", "type": "ModelParameter", "name": "none", "value": -0.0305 }, 
+    "type": "DistanceExtentDefinition", 
+    "taper_angle": { "role": "TaperAngle", "type": "ModelParameter", "name": "none", "value": 0.0 }
+   }, 
+   "extent_type": "OneSideFeatureExtentType", 
+   "operation": "CutFeatureOperation", 
+   "start_extent": { "type": "ProfilePlaneStartDefinition" }, 
+   "type": "ExtrudeFeature", 
+   "profiles": [ { "profile": "JJC", "sketch": "FXFKjOtX1JkT6Il_1" } ]
+  }, 
+  "FPgrk6YkO02mxaz_1": {
+   "name": "\u8349\u56fe 3", 
+   "construction_elements": {}, 
+   "transform": {
+    "origin": { "y": 0.0, "x": 0.0, "z": 0.0 }, 
+    "y_axis": { "y": -1.0, "x": 0.0, "z": 0.0 }, 
+    "x_axis": { "y": 0.0, "x": 1.0, "z": 0.0 }, 
+    "z_axis": { "y": 0.0, "x": 0.0, "z": -1.0 }
+   }, 
+   "profiles": {
+    "JNK": {
+     "loops": [
+      {
+       "profile_curves": [
+        {
+         "center_point": { "y": 0.0, "x": 0.0, "z": 0.0 }, 
+         "radius": 0.02, 
+         "type": "Circle3D", 
+         "curve": "JNB", 
+         "manufacturing_info": {
+           "description": "对应图纸尺寸 Φ40 (未注公差)",
+           "tolerance_grade": "GB/T 1804-m",
+           "tolerance_type": "general"
+         },
+         "normal": { "y": 0.0, "x": 0.0, "z": -1.0 }
+        }
+       ], 
+       "is_outer": true
+      }, 
+      {
+       "profile_curves": [
+        {
+         "start_point": { "y": 0.008, "x": -0.015, "z": 0.0 }, 
+         "type": "Line3D", 
+         "curve": "JNJ", 
+         "end_point": { "y": -0.008, "x": -0.015, "z": 0.0 }
+        }, 
+        {
+         "center_point": { "y": 0.0, "x": 0.0, "z": 0.0 }, 
+         "start_angle": 0.0, 
+         "radius": 0.017, 
+         "end_point": { "y": -0.008, "x": -0.015, "z": 0.0 }, 
+         "start_point": { "y": 0.008, "x": -0.015, "z": 0.0 }, 
+         "normal": { "y": 0.0, "x": 0.0, "z": 1.0 }, 
+         "type": "Arc3D", 
+         "curve": "JNN", 
+         "end_angle": 5.303270654672129, 
+         "reference_vector": { "y": -0.4705882352941177, "x": -0.8823529411764707, "z": 0.0 }
+        }
+       ], 
+       "is_outer": true
+      }
+     ], 
+     "properties": {}
+    }, 
+    "JNG": {
+     "loops": [
+      {
+       "profile_curves": [
+        {
+         "start_point": { "y": 0.008, "x": -0.015, "z": 0.0 }, 
+         "type": "Line3D", 
+         "curve": "JNJ", 
+         "end_point": { "y": -0.008, "x": -0.015, "z": 0.0 }
+        }, 
+        {
+         "center_point": { "y": 0.0, "x": 0.0, "z": 0.0 }, 
+         "start_angle": 0.0, 
+         "radius": 0.017, 
+         "end_point": { "y": -0.008, "x": -0.015, "z": 0.0 }, 
+         "start_point": { "y": 0.008, "x": -0.015, "z": 0.0 }, 
+         "normal": { "y": 0.0, "x": 0.0, "z": 1.0 }, 
+         "type": "Arc3D", 
+         "curve": "JNN", 
+         "end_angle": 5.303270654672129, 
+         "reference_vector": { "y": -0.4705882352941177, "x": -0.8823529411764707, "z": 0.0 }
+        }
+       ], 
+       "is_outer": true
+      }
+     ], 
+     "properties": {}
+    }
+   }, 
+   "reference_plane": {}, 
+   "type": "Sketch"
+  }, 
+  "FgKsgZn5qR2mr2W_1": {
+   "extent_two": {
+    "distance": { "role": "AgainstDistance", "type": "ModelParameter", "name": "none", "value": 0.0 }, 
+    "type": "DistanceExtentDefinition", 
+    "taper_angle": { "role": "Side2TaperAngle", "type": "ModelParameter", "name": "none", "value": 0.0 }
+   }, 
+   "name": "\u62c9\u4f38 3", 
+   "extent_one": {
+    "distance": { "role": "AlongDistance", "type": "ModelParameter", "name": "none", "value": -0.003 }, 
+    "type": "DistanceExtentDefinition", 
+    "taper_angle": { "role": "TaperAngle", "type": "ModelParameter", "name": "none", "value": 0.0 }
+   }, 
+   "extent_type": "OneSideFeatureExtentType", 
+   "operation": "CutFeatureOperation", 
+   "start_extent": { "type": "ProfilePlaneStartDefinition" }, 
+   "type": "ExtrudeFeature", 
+   "profiles": [ { "profile": "JNG", "sketch": "FPgrk6YkO02mxaz_1" }, { "profile": "JNK", "sketch": "FPgrk6YkO02mxaz_1" } ]
+  }, 
+  "F3eOkMZ6sgHwbt5_1": {
+   "radius": { "role": "FilletRadius", "type": "ModelParameter", "name": "none", "value": 0.004 }, 
+   "name": "\u5706\u89d2 1", 
+   "variable_radius": false, 
+   "blend_control_type": "RADIUS", 
+   "entities": [ { "entity": "JPV" }, { "entity": "JPR" } ], 
+   "tangent_propagation": true, 
+   "fillet_type": "EDGE", 
+   "cross_section": "CIRCULAR", 
+   "type": "FilletFeature"
+  }
+ }, 
+ "properties": {
+  "bounding_box": {
+   "max_point": { "y": 0.0515, "x": 0.0515, "z": 0.0305 }, 
+   "type": "BoundingBox3D", 
+   "min_point": { "y": -0.0515, "x": -0.0515, "z": 0.0 }
+  }
+ }, 
+ "sequence": [
+  { "index": 0, "type": "Sketch", "entity": "F8yS0AXfNo2eKAd_0" }, 
+  { "index": 1, "type": "ExtrudeFeature", "entity": "FNg7Xn9PuGy6ok5_0" }, 
+  { "index": 2, "type": "Sketch", "entity": "FXFKjOtX1JkT6Il_1" }, 
+  { "index": 3, "type": "ExtrudeFeature", "entity": "FkWyddNOqUxqbkq_1" }, 
+  { "index": 4, "type": "Sketch", "entity": "FPgrk6YkO02mxaz_1" }, 
+  { "index": 5, "type": "ExtrudeFeature", "entity": "FgKsgZn5qR2mr2W_1" }, 
+  { "index": 6, "type": "FilletFeature", "entity": "F3eOkMZ6sgHwbt5_1" }
+ ]
+}
