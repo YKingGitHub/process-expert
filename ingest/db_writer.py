@@ -5,10 +5,54 @@ from datetime import datetime
 
 from ingest.schemas import KnowledgeChunk, ProcessParam
 
+_INIT_SQL = """
+CREATE TABLE IF NOT EXISTS process_params (
+    id INTEGER PRIMARY KEY,
+    material_grade TEXT NOT NULL DEFAULT '',
+    material_category TEXT DEFAULT '',
+    operation_type TEXT NOT NULL DEFAULT '',
+    parameter_name TEXT NOT NULL DEFAULT '',
+    parameter_value TEXT NOT NULL DEFAULT '',
+    parameter_unit TEXT DEFAULT '',
+    equipment TEXT DEFAULT '',
+    surface_finish TEXT DEFAULT '',
+    tolerance TEXT DEFAULT '',
+    conditions TEXT DEFAULT '',
+    source_doc TEXT DEFAULT '',
+    confidence REAL DEFAULT 0.5,
+    chapter TEXT DEFAULT '',
+    table_ref TEXT DEFAULT '',
+    source_page INTEGER DEFAULT 0,
+    extraction_method TEXT DEFAULT 'llm_extracted',
+    cross_validated INTEGER DEFAULT 0
+);
+CREATE TABLE IF NOT EXISTS kb_chunks (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    content TEXT NOT NULL,
+    source_file TEXT DEFAULT '',
+    domain TEXT DEFAULT 'process',
+    doc_type TEXT DEFAULT 'manual',
+    chapter_title TEXT DEFAULT '',
+    page_start INTEGER DEFAULT 0,
+    page_end INTEGER DEFAULT 0,
+    source_page INTEGER NOT NULL DEFAULT 0,
+    chapter TEXT DEFAULT '',
+    source TEXT DEFAULT '',
+    created_at TEXT DEFAULT NULL
+);
+"""
+
+
+def _ensure_schema(conn: sqlite3.Connection) -> None:
+    """Create tables if they don't already exist."""
+    conn.executescript(_INIT_SQL)
+    conn.commit()
+
 
 def write_params(db_path: str, params: list[ProcessParam]) -> tuple[int, int]:
     """写入参数到 process_params。返回 (inserted, skipped)。"""
     conn = sqlite3.connect(db_path)
+    _ensure_schema(conn)
     inserted = skipped = 0
     for p in params:
         # 先检查是否已存在（利用唯一索引字段）
@@ -39,6 +83,7 @@ def write_params(db_path: str, params: list[ProcessParam]) -> tuple[int, int]:
 def write_chunks(db_path: str, chunks: list[KnowledgeChunk]) -> tuple[int, int]:
     """写入知识块到 kb_chunks。返回 (inserted, skipped)。"""
     conn = sqlite3.connect(db_path)
+    _ensure_schema(conn)
     inserted = skipped = 0
     now = datetime.utcnow().isoformat()
     for c in chunks:

@@ -18,7 +18,7 @@ if _repo_root not in sys.path:
 import fitz  # PyMuPDF
 
 from ingest.cross_validator import cross_validate
-from ingest.db_writer import write_chunks, write_params
+from ingest.db_writer import _ensure_schema, write_chunks, write_params
 from ingest.knowledge_extractor import extract_knowledge
 from ingest.llm_client import get_client
 from ingest.multimodal_fallback import VLMFallback
@@ -71,6 +71,13 @@ def main():
     if not os.environ.get("DASHSCOPE_API_KEY"):
         print("ERROR: DASHSCOPE_API_KEY not set — abort", file=sys.stderr)
         sys.exit(1)
+
+    # 1b. Ensure DB schema exists (safe no-op if tables already present)
+    import sqlite3 as _sqlite3
+    _conn = _sqlite3.connect(args.db)
+    _ensure_schema(_conn)
+    _conn.close()
+    del _conn, _sqlite3
 
     client = get_client()
 
