@@ -1,0 +1,35 @@
+[pipeline] Page range filter: 1-10
+
+[pipeline] Extracting pages from references/金属切削工艺技术手册.pdf ...
+[pdf_extractor] Extracted 777 pages from 金属切削工艺技术手册.pdf
+[pipeline] After range filter: 10 pages
+
+[pipeline] Classifying 10 pages ...
+[pipeline] Classification: {'param_table': 0, 'knowledge_table': 6, 'plain_text': 4, 'unknown': 0}
+
+[pipeline] Processing 10 pages (Tier1/2/3 fallback) ...
+[pipeline] Progress: 10/10 pages | t1=0 t2=0 t3=0 unresolved=0 skipped=9
+
+[pipeline] Writing 0 params and 6 chunks to data/knowledge.db ...
+[pipeline] params: inserted=0 skipped=0
+[pipeline] chunks: inserted=0 skipped=6
+
+============================================================
+质量报告
+============================================================
+  generated_at: 2026-04-15T04:37:50.584450
+  total_pages: 10
+  processed_pages: 0
+  skipped_plain_text_pages: 10
+  tier1_success: 0
+  tier2_success: 0
+  tier3_vlm_success: 0
+  unresolved_count: 0
+  cross_validation_pass_rate: 0.0
+  vlm_fallback_count: 0
+  unresolved_rate: 0.0
+  total_process_params: 127
+  llm_extracted_count: 36
+============================================================
+
+质量报告已写入: output/quality_report_20260415_043750.json

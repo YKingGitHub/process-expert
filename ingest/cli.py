@@ -87,17 +87,16 @@ def main():
         page_range = parse_pages_range(args.pages)
         print(f"[pipeline] Page range filter: {page_range[0]}-{page_range[1]}")
 
-    # 3. Extract pages (batch — loads full PDF markdown at once)
+    # 3. Extract pages — pass page_range to avoid loading the full PDF into memory
     print(f"\n[pipeline] Extracting pages from {args.pdf} ...")
-    pages = extract_pages(args.pdf)
+    pages = extract_pages(args.pdf, page_range=page_range)
 
-    # Apply --max-pages or --pages filter
-    if page_range:
-        pages = [p for p in pages if page_range[0] <= p.page_num <= page_range[1]]
-        print(f"[pipeline] After range filter: {len(pages)} pages")
-    elif args.max_pages:
+    # Apply --max-pages filter (page_range already applied inside extract_pages)
+    if args.max_pages:
         pages = pages[:args.max_pages]
         print(f"[pipeline] Limited to {args.max_pages} pages for testing")
+    elif page_range:
+        print(f"[pipeline] Extracted {len(pages)} pages for range {page_range[0]}-{page_range[1]}")
 
     total_pages = len(pages)
 

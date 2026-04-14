@@ -9,14 +9,24 @@ import pymupdf4llm
 from ingest.schemas import PageMarkdown
 
 
-def extract_pages(pdf_path: str) -> list[PageMarkdown]:
-    """逐页提取 PDF 为 Markdown。返回 List[PageMarkdown]。"""
+def extract_pages(pdf_path: str, page_range: tuple = None) -> list[PageMarkdown]:
+    """逐页提取 PDF 为 Markdown。返回 List[PageMarkdown]。
+
+    page_range: optional (start, end) tuple, 1-indexed inclusive. If provided,
+    only extracts those pages (saves memory for large PDFs with --pages filter).
+    """
     path = Path(pdf_path)
     if not path.exists():
         raise FileNotFoundError(f"PDF not found: {pdf_path}")
 
+    # Build 0-indexed page list if range specified (saves memory on large PDFs)
+    pages_kwarg = None
+    if page_range:
+        start, end = page_range
+        pages_kwarg = list(range(start - 1, end))  # 0-indexed
+
     # pymupdf4llm 按页提取，page_chunks=True 返回 list of dict
-    pages_md = pymupdf4llm.to_markdown(str(path), page_chunks=True)
+    pages_md = pymupdf4llm.to_markdown(str(path), page_chunks=True, pages=pages_kwarg)
 
     result = []
     for chunk in pages_md:
