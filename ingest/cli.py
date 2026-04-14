@@ -167,7 +167,20 @@ def main():
                 stats["skipped_plain_text"] += 1
                 continue
 
-            # param_table pages — three-tier extraction
+            # param_table pages — skip if already processed (idempotent re-run / resume)
+            import sqlite3 as _sl3
+            _conn_check = _sl3.connect(args.db)
+            _existing = _conn_check.execute(
+                "SELECT COUNT(*) FROM process_params WHERE source_page=? "
+                "AND extraction_method IN ('llm_extracted','vlm_fallback')",
+                (page.page_num,)
+            ).fetchone()[0]
+            _conn_check.close()
+            if _existing > 0:
+                stats["tier1_success"] += 1  # Already processed — count as success
+                continue
+
+            # Three-tier extraction
             raw_params = extract_params(page, client)
 
             # Tier 1: validate extracted params
