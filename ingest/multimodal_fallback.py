@@ -54,6 +54,7 @@ class VLMFallback:
                     messages=messages,
                     response_format={"type": "json_object"},
                     max_tokens=4096,
+                    extra_body={"enable_thinking": False},
                 )
                 raw_content = resp.choices[0].message.content
                 return self._validate(raw_content, page_num)
