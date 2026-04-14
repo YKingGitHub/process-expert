@@ -29,21 +29,32 @@ def _connect(config: dict) -> sqlite3.Connection:
     return conn
 
 
-def _query_params(conn: sqlite3.Connection, material: str, tracer) -> dict:
+def _query_params(
+    conn: sqlite3.Connection, material: str, operation_types: list, tracer
+) -> dict:
     """Query process_params for material-matching parameters."""
-    sql = """
+    base_sql = """
         SELECT material_grade, operation_type, parameter_name,
-               parameter_value, parameter_unit, equipment, surface_finish
+               parameter_value, parameter_unit, equipment, surface_finish,
+               conditions, table_ref, source_page, chapter
         FROM process_params
-        WHERE material_grade LIKE ? OR material_grade = ?
-        ORDER BY operation_type, parameter_name
+        WHERE (material_grade LIKE ? OR material_grade = ?)
     """
-    like_pattern = f"%{material}%"
+    params = [f"%{material}%", material]
+
+    if operation_types:
+        placeholders = ", ".join("?" * len(operation_types))
+        base_sql += f" AND operation_type IN ({placeholders})"
+        params.extend(operation_types)
+
+    base_sql += " ORDER BY operation_type, parameter_name"
+
     tracer.log_reasoning(
         f"Querying process_params for material LIKE '%{material}%'"
+        + (f", operation_types={operation_types}" if operation_types else "")
     )
 
-    cur = conn.execute(sql, (like_pattern, material))
+    cur = conn.execute(base_sql, params)
     rows = [dict(r) for r in cur.fetchall()]
 
     tracer.log_search_result(
@@ -193,7 +204,7 @@ def search_knowledge_base(
 
     try:
         # Query 1: process_params
-        result["params"] = _query_params(conn, material, tracer)
+        result["params"] = _query_params(conn, material, operation_types, tracer)
 
         # Query 2: experience_log
         result["experiences"] = _query_experiences(conn, tracer)
