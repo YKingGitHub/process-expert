@@ -31,6 +31,7 @@ from ingest.text_chunker import chunk_text
 from ingest.validator import validate_param
 
 _PROGRESS_INTERVAL = 50  # Print progress every N pages
+_FLUSH_INTERVAL = 10    # Write to DB every N pages (incremental flush)
 
 
 def parse_pages_range(pages_arg: str) -> tuple:
@@ -129,6 +130,13 @@ def main():
 
     with open(unresolved_path, "a", encoding="utf-8") as f_unresolved:
         for idx, page in enumerate(pages):
+            # Incremental flush every _FLUSH_INTERVAL pages so partial results survive timeouts
+            if idx > 0 and idx % _FLUSH_INTERVAL == 0 and (all_params or all_chunks):
+                pi, ps = write_params(args.db, all_params)
+                ci, cs = write_chunks(args.db, all_chunks)
+                print(f"[pipeline] Flush @page {idx}: params+={pi} chunks+={ci}", flush=True)
+                all_params.clear()
+                all_chunks.clear()
             # Progress reporting
             if (idx + 1) % _PROGRESS_INTERVAL == 0 or (idx + 1) == total_pages:
                 print(
