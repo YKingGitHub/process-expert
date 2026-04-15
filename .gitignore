@@ -1,13 +1,13 @@
-# output/  — sample outputs are tracked for reference
+.env
+*.db
+*.pdf
 __pycache__/
 *.pyc
 *.pyo
-.env
+output/
+data/seeds/extracted/
+config.local.yaml
 *.egg-info/
 dist/
 build/
 .pytest_cache/
-*.db
-*.pdf
-config.local.yaml
-data/seeds/extracted/

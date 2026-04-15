@@ -1,61 +1,46 @@
-# 工艺卡生成系统 (Process Card Generator)
+# Process Expert — 工艺知识库 & 工艺卡生成系统
 
-从工程图纸 + 毛坯/设备信息，自动生成标准工艺卡 Word 文件。
+基于 LLM 的金属切削工艺知识库，支持精确参数查询 + 自动工艺卡生成。
 
-## 流水线架构
+## Quick Start（5 分钟上手）
 
-```
-输入:
-  - 工程图纸 (PNG/JPG)
-  - 毛坯信息 (文本)
-  - 设备清单 (文本)
-  - 材料牌号 (文本)
-  - [可选] CAD 模型 JSON (精确几何数据)
-
-流水线:
-  Stage 1   图纸解析 (VLM)            → 零件特征 JSON (类型/尺寸/公差/特征)
-  Stage 1.5 CAD JSON 增强 [可选]      → 合并精确几何数据到零件特征
-  Stage 2   工艺框架检索 (Web + LLM)  → 典型加工路线骨架
-  Stage 3   知识库检索 (PostgreSQL)    → 切削参数 + 加工经验
-  Stage 4   工艺路线生成 (LLM)        → 结构化工序列表
-  Stage 5   工艺卡渲染 (python-docx)  → 标准工艺卡 .docx
-
-输出:
-  - 工艺卡 Word 文件
-  - Trace JSON (机器可读)
-  - Trace Markdown 报告 (人可读)
-```
-
-全程带结构化追踪日志，方便团队逐环节审核和优化。
-
-## 快速开始
-
-### 1. 安装依赖
+### 1. 克隆 & 安装依赖
 
 ```bash
+git clone https://github.com/YKingGitHub/process-expert.git
+cd process-expert
 pip install -r requirements.txt
 ```
 
-### 2. 配置
-
-复制并编辑 `config.yaml`：
-
-| 配置项 | 说明 | 如何获取 |
-|--------|------|---------|
-| `llm.api_key` | DashScope API Key | 阿里云 DashScope 控制台 |
-| `llm.base_url` | API 端点 | Coding Plan: `https://coding.dashscope.aliyuncs.com/v1` |
-| `llm.model` | VLM 模型 (图纸解析) | 默认 `qwen3.5-plus` |
-| `llm.text_model` | 文本 LLM (路线生成) | 默认 `qwen3.5-plus` |
-| `database.path` | SQLite 知识库路径 | 默认 `data/knowledge.db`（自带，无需配置） |
-| `web_search.enabled` | 是否启用网络搜索 | `true` / `false` |
-| `web_search.llm_timeout` | LLM 调用超时(秒) | 默认 120 |
-
-### 3. 运行
-
-**基本用法** — 仅图纸 + 毛坯信息：
+### 2. 配置 API Key
 
 ```bash
-python3 main.py \
+export DASHSCOPE_API_KEY=<DASHSCOPE_API_KEY>
+```
+
+> 或将 `DASHSCOPE_API_KEY=<DASHSCOPE_API_KEY>` 写入项目根目录的 `.env` 文件（`python-dotenv` 已包含在依赖中）。
+
+### 3. 构建知识库
+
+```bash
+python data/build_db.py
+# 输出: process_params: 63 rows, experience_log: 23 rows, kb_chunks: 0 rows
+```
+
+无需 API Key，零配置，纯本地构建。
+
+### 4. 查询参数
+
+```bash
+python query.py --material 45钢
+python query.py --material 45钢 --operation 车削
+python query.py --help
+```
+
+### 5. 生成工艺卡（需图纸）
+
+```bash
+python main.py \
   --drawing 图纸.png \
   --blank-info "⌀103.5×L, L为零件长度" \
   --equipment "数控车床, 三轴加工中心, 车床" \
@@ -63,147 +48,237 @@ python3 main.py \
   --output output/
 ```
 
-**增强模式** — 图纸 + CAD JSON（提供精确尺寸和公差）：
+---
+
+## 环境变量
+
+| 变量名 | 必需 | 说明 | 示例 |
+|--------|:----:|------|------|
+| `DASHSCOPE_API_KEY` | 是（LLM功能） | 阿里云 DashScope API Key，用于图纸解析、工艺路线生成、工艺卡生成 | `<DASHSCOPE_API_KEY>` |
+
+> `data/build_db.py` 和 `query.py --material` 基础查询**不需要** API Key，可离线运行。
+> 仅 `main.py`（工艺卡生成）和 `query.py` LLM 增强模式需要 `DASHSCOPE_API_KEY`。
+
+---
+
+## 知识库管理
+
+### 构建知识库
 
 ```bash
-python3 main.py \
-  --drawing 图纸.png \
-  --blank-info "⌀103.5×L, L为零件长度" \
-  --equipment "数控车床, 三轴加工中心, 车床" \
-  --material "Z2CN19-10NS" \
-  --cad-json 模型导出.json \
-  --output output/
+# 仅加载手工种子数据（63条参数 + 23条经验，无需API Key）
+python data/build_db.py
+
+# 指定输出路径
+python data/build_db.py --db path/to/my.db
+
+# 额外加载本地提取结果（需先在本地运行 ingest 管线）
+python data/build_db.py --include-extracted
 ```
 
-### 4. 查看结果
+每次运行都是确定性重建（DROP + CREATE + INSERT），幂等无副作用。
 
-运行后在输出目录生成：
+### 添加手工数据（贡献指南）
 
-| 文件 | 说明 |
-|------|------|
-| `工艺卡_YYYYMMDD_HHMMSS.docx` | 标准工艺卡 Word 文件 |
-| `trace_YYYYMMDD_HHMMSS.json` | 完整 trace (机器可读) |
-| `trace_YYYYMMDD_HHMMSS.md` | Trace 报告 (人可读，推荐先看这个) |
+手工种子数据存放在 `data/seeds/` 目录，使用 JSON 格式，可 code review、可 git blame。
 
-## CLI 参数
+**添加工艺参数**：编辑 `data/seeds/manual_params.json`，在 `records` 数组末尾追加：
 
-| 参数 | 必填 | 说明 | 示例 |
-|------|:----:|------|------|
-| `--drawing` | 是 | 工程图纸路径 (PNG/JPG) | `图纸.png` |
-| `--blank-info` | 是 | 毛坯信息 | `"⌀103.5×L, L为零件长度"` |
-| `--equipment` | 是 | 可用设备，逗号分隔 | `"数控车床, 三轴加工中心"` |
-| `--material` | 是 | 材料牌号 | `"Z2CN19-10NS"` |
-| `--cad-json` | 否 | CAD 模型 JSON 文件 | `模型.json` |
-| `--output` | 否 | 输出目录 (默认 `output`) | `output/` |
-| `--config` | 否 | 配置文件 (默认 `config.yaml`) | `config.yaml` |
+```json
+{
+  "material_grade": "45钢",
+  "material_category": "碳钢",
+  "operation_type": "车削（粗加工）",
+  "parameter_name": "推荐切削速度",
+  "parameter_value": "120-180",
+  "parameter_unit": "m/min",
+  "equipment": "",
+  "surface_finish": "",
+  "tolerance": "",
+  "conditions": "",
+  "source_doc": "来源文献",
+  "confidence": 0.9,
+  "chapter": "",
+  "table_ref": "",
+  "source_page": 0,
+  "extraction_method": "manual_seed",
+  "cross_validated": 0
+}
+```
 
-## Trace 报告说明
+**添加工艺经验**：编辑 `data/seeds/manual_experience.json`，在 `records` 数组末尾追加：
 
-Markdown trace 报告展示每个 Stage 的：
-- **输入数据** — 该阶段接收到的参数
-- **推理过程** — VLM/LLM 的分析逻辑和中间决策
-- **搜索记录** — DuckDuckGo 搜索查询、知识库 SQL 查询及结果
-- **输出结果** — 该阶段的结构化输出
-- **耗时** — 各阶段耗时分布，便于定位性能瓶颈
+```json
+{
+  "expert_domain": "金属切削",
+  "category": "刀具管理",
+  "situation": "高速切削时刀具出现积屑瘤",
+  "action_taken": "降低切削速度至60m/min以下，使用切削液",
+  "outcome": "积屑瘤消除，表面粗糙度改善",
+  "outcome_type": "positive",
+  "lesson": "积屑瘤形成区间约80-120m/min，避开该区间",
+  "confidence": 0.85,
+  "times_applied": 0,
+  "tags": "[]",
+  "source": ""
+}
+```
 
-用于团队逐环节审核和优化，每次优化可对比前后 trace 差异。
+添加后重新运行 `python data/build_db.py` 使变更生效。提交时只需提交 JSON 文件，`knowledge.db` 由 `.gitignore` 排除。
+
+### 运行入库管线（LLM 提取）
+
+```bash
+# 将 PDF 参考资料提取入库（需要 DASHSCOPE_API_KEY）
+python ingest/cli.py --pdf references/工艺知识库.pdf --output data/seeds/extracted/
+
+# 入库后重建 DB（包含提取结果）
+python data/build_db.py --include-extracted
+```
+
+提取结果保存在 `data/seeds/extracted/`（本地保留，不纳入 git），团队协作时各自本地重跑。
+
+---
 
 ## 项目结构
 
 ```
-services/process-expert/
-├── main.py                          # 主入口，CLI 参数解析 + 5阶段编排
-├── config.yaml                      # 配置文件（需填入 API Key 和数据库密码）
+process-expert/
+├── main.py                          # 主入口：CLI 参数解析 + 5阶段编排
+├── query.py                         # 知识库查询 CLI
+├── config.yaml                      # 配置文件（API 端点、模型、数据库路径）
 ├── requirements.txt                 # Python 依赖
 │
-├── stages/                          # 5 个处理阶段
-│   ├── stage1_drawing_analysis.py   # VLM 图纸解析 (qwen3.5-plus)
-│   ├── cad_json_parser.py           # CAD JSON 精确几何解析
-│   ├── stage2_web_research.py       # DuckDuckGo 搜索 + LLM 框架综合
-│   ├── stage3_kb_search.py          # SQLite 本地知识库检索
-│   ├── stage4_route_generation.py   # LLM 工艺路线生成
-│   └── stage5_card_rendering.py     # python-docx 工艺卡渲染
+├── data/
+│   ├── build_db.py                  # 知识库构建脚本（确定性重建）
+│   └── seeds/
+│       ├── manual_params.json       # 手工工艺参数种子（63条，git 跟踪）
+│       ├── manual_experience.json   # 手工工艺经验种子（23条，git 跟踪）
+│       └── extracted/               # LLM 提取结果（本地保留，.gitignore）
+│
+├── stages/                          # 5个处理阶段
+│   ├── stage1_drawing_analysis.py   # Stage 1: VLM 图纸解析
+│   ├── cad_json_parser.py           # Stage 1.5: CAD JSON 增强
+│   ├── stage2_web_research.py       # Stage 2: 网络搜索 + LLM 框架
+│   ├── stage3_kb_search.py          # Stage 3: 知识库检索
+│   ├── stage4_route_generation.py   # Stage 4: 工艺路线生成
+│   └── stage5_card_rendering.py     # Stage 5: 工艺卡渲染
+│
+├── ingest/                          # 入库管线（PDF → 知识库）
+│   └── cli.py                       # 入库 CLI
 │
 ├── tracer/                          # 追踪日志引擎
 │   └── pipeline_tracer.py           # JSON + Markdown 双格式输出
 │
 ├── templates/                       # Word 模板（预留扩展）
-│
-└── output/                          # 输出目录（自动创建）
-    ├── test1_no_cad/                # 测试1: 仅图纸
-    └── test2_with_cad/              # 测试2: 图纸 + CAD JSON
+└── references/                      # 参考 PDF（本地保留，.gitignore）
 ```
 
-## 各阶段详解
+---
 
-### Stage 1: 图纸解析 (VLM)
-- 调用 DashScope VLM API (qwen3.5-plus)，发送图纸图片
-- 提取：零件类型、主要尺寸、表面粗糙度、形位公差、几何特征、技术要求
-- VLM 识别的尺寸为近似值（受图片分辨率和标注清晰度影响）
+## CLI 参考
 
-### Stage 1.5: CAD JSON 增强（可选）
-- 解析 Fusion 360 等 CAD 软件导出的 JSON 模型文件
-- 提取精确几何数据：直径、长度、公差等级、制造信息
-- 与 VLM 结果合并，补充精确尺寸和公差数据
+### query.py — 参数查询
 
-### Stage 2: 工艺框架检索 (Web + LLM)
-- DuckDuckGo 搜索材料+零件类型相关的工艺路线信息
-- 搜索结果作为上下文输入 LLM，综合生成典型加工框架
-- 降级策略：搜索/LLM 失败时使用预置通用框架
+```bash
+python query.py --help
+python query.py --material 45钢
+python query.py --material 45钢 --operation 车削
+python query.py --material Z2CN19-10NS --operation 铣削
+```
 
-### Stage 3: 知识库检索 (SQLite)
-- 自带本地 SQLite 知识库，无需额外数据库配置
-- 三路查询：`process_params`（切削参数）+ `experience_log`（工艺经验）+ `kb_chunks` FTS5 全文检索（手册知识）
-- 手册知识由 VLM 多模态管道提取（保留表格结构，非纯文本 OCR）
+| 参数 | 说明 |
+|------|------|
+| `--material` | 材料牌号（模糊匹配） |
+| `--operation` | 工序类型（可选，进一步过滤） |
 
-### Stage 4: 工艺路线生成 (LLM)
-- 组装 Stage 1-3 全部结果 + 用户输入（毛坯/设备/材料）
-- LLM 生成结构化工序列表（JSON 格式）
-- 自动校验：工序数 >= 6、必须含领料+入库
-- Token 截断策略：Stage1 2000 / Stage2 3000 / Stage3 3000 字符
+### ingest/cli.py — 知识库入库
 
-### Stage 5: 工艺卡渲染 (python-docx)
-- A4 横排 Word 文档
-- 标准工艺卡表格：工序号、工序名、加工内容、设备、工装、检验要求
-- 每道工序自动附带检验行
-- 签名栏：编制/审核/批准
+```bash
+python ingest/cli.py --pdf references/工艺知识库.pdf
+python ingest/cli.py --help
+```
 
-## 降级策略
+需要 `DASHSCOPE_API_KEY`。
 
-每个阶段都有独立的错误处理和降级方案：
+### main.py — 工艺卡生成
 
-| 阶段 | 失败场景 | 降级行为 |
-|------|---------|---------|
-| Stage 1 | VLM API 不可用 | 返回 "回转体零件" 默认类型 |
-| Stage 1.5 | CAD JSON 解析失败 | 跳过，仅用 VLM 结果 |
-| Stage 2 | 网络搜索/LLM 超时 | 使用预置通用框架（7道工序） |
-| Stage 3 | 数据库连接失败 | 返回空结果，不阻塞流程 |
-| Stage 4 | LLM 输出格式异常 | 抛出异常，不生成工艺卡 |
-| Stage 5 | Word 渲染失败 | 跳过，trace 仍然生成 |
+```bash
+python main.py \
+  --drawing 图纸.png \
+  --blank-info "⌀103.5×L, L为零件长度" \
+  --equipment "数控车床, 三轴加工中心, 车床" \
+  --material "Z2CN19-10NS" \
+  [--cad-json 模型.json] \
+  [--output output/] \
+  [--config config.yaml]
+```
+
+| 参数 | 必填 | 说明 |
+|------|:----:|------|
+| `--drawing` | 是 | 工程图纸路径 (PNG/JPG) |
+| `--blank-info` | 是 | 毛坯信息 |
+| `--equipment` | 是 | 可用设备，逗号分隔 |
+| `--material` | 是 | 材料牌号 |
+| `--cad-json` | 否 | CAD 模型 JSON（Fusion 360 导出） |
+| `--output` | 否 | 输出目录（默认 `output/`） |
+| `--config` | 否 | 配置文件（默认 `config.yaml`） |
+
+---
+
+## 流水线架构
+
+```
+输入: 工程图纸 + 毛坯/设备/材料信息
+
+Stage 1   图纸解析 (VLM)            → 零件特征 JSON
+Stage 1.5 CAD JSON 增强 [可选]      → 合并精确几何数据
+Stage 2   工艺框架检索 (Web + LLM)  → 典型加工路线骨架
+Stage 3   知识库检索 (SQLite)       → 切削参数 + 加工经验 + 手册全文
+Stage 4   工艺路线生成 (LLM)        → 结构化工序列表
+Stage 5   工艺卡渲染 (python-docx)  → 标准工艺卡 .docx
+
+输出: 工艺卡 Word 文件 + Trace JSON + Trace Markdown 报告
+```
+
+---
+
+## 贡献指南
+
+### 添加手工参数种子
+
+1. 编辑 `data/seeds/manual_params.json` 或 `data/seeds/manual_experience.json`
+2. 在 `records` 数组末尾追加新记录（参考上方字段说明）
+3. 运行 `python data/build_db.py` 验证构建成功
+4. 提交 JSON 文件：`git add data/seeds/ && git commit -m "feat(seeds): 添加XX材料XX工序参数"`
+
+### 提交入库结果
+
+LLM 提取结果（`data/seeds/extracted/`）不纳入 git，团队各自本地保留。如需共享提取结果，将对应 JSON 文件整理后移入 `data/seeds/` 并提交。
+
+### 代码贡献
+
+- 各 Stage 逻辑独立，新增功能优先在对应 `stages/stage*.py` 中扩展
+- 保持每个 Stage 的降级策略：失败时返回空结果，不阻塞后续阶段
+
+---
 
 ## 依赖说明
 
 | 包名 | 用途 |
 |------|------|
-| `openai` | 调用 DashScope API (OpenAI 兼容协议) |
-| `duckduckgo-search` | 免费网络搜索（无需 API Key） |
+| `openai` | 调用 DashScope API（OpenAI 兼容协议） |
+| `duckduckgo-search` | 网络搜索（无需 API Key） |
 | `python-docx` | 工艺卡 Word 文件生成 |
-| `docxtpl` | Word 模板渲染（预留扩展） |
 | `pyyaml` | 配置文件解析 |
-| `requests` | HTTP 请求 |
+| `python-dotenv` | 读取 `.env` 环境变量 |
+
+---
 
 ## 已知限制
 
 - VLM 尺寸提取为近似值（零件类型识别可靠，具体尺寸可能有偏差）
-- 知识库数据量受源 PDF 内容限制（切削参数 + 经验记录 + 手册全文检索）
-- 工时估算功能尚未实现
-- DuckDuckGo 搜索在国内网络可能需要代理
+- clone 后知识库仅含 63 条手工参数 + 23 条经验；完整数据需本地重跑 `ingest/cli.py`
+- DuckDuckGo 搜索在部分网络环境可能需要代理
 - CAD JSON 目前仅支持 Fusion 360 导出格式
-
-## 外部依赖
-
-| 服务 | 必需 | 用途 | 获取方式 |
-|------|:----:|------|---------|
-| DashScope API | 是 | VLM 图纸解析 + LLM 工艺路线生成 | 阿里云 DashScope 控制台申请 |
-| 互联网连接 | 否 | Stage 2 DuckDuckGo 搜索（可关闭） | 关闭: `config.yaml` 设 `web_search.enabled: false` |
-| PostgreSQL | 否 | 不需要，知识库自带 SQLite | — |
+- 工时估算功能尚未实现
