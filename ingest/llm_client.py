@@ -16,8 +16,8 @@ def get_client() -> OpenAI:
 
 
 def chat_json(client: OpenAI, model: str, system: str, user: str,
-              max_tokens: int = 4096) -> dict:
-    """发起 JSON mode 请求，返回解析后的 dict。失败时抛出异常。"""
+              max_tokens: int = 4096) -> tuple[dict, str]:
+    """发起 JSON mode 请求，返回 (解析后的 dict, finish_reason)。失败时抛出异常。"""
     resp = client.chat.completions.create(
         model=model,
         messages=[{"role": "system", "content": system},
@@ -26,4 +26,5 @@ def chat_json(client: OpenAI, model: str, system: str, user: str,
         max_tokens=max_tokens,
         extra_body={"enable_thinking": False},
     )
-    return json.loads(resp.choices[0].message.content)
+    finish_reason = resp.choices[0].finish_reason or "unknown"
+    return json.loads(resp.choices[0].message.content), finish_reason

@@ -24,7 +24,7 @@ def extract_params(page: PageMarkdown, client) -> list[dict]:
     """从 param_table 页面提取参数记录列表。返回 raw dict 列表（含 source_page）。"""
     user_content = f"--- Page {page.page_num} ---\n{page.markdown_text}"
     try:
-        result = chat_json(client, "qwen3.5-plus", SYSTEM_PROMPT, user_content, max_tokens=4096)
+        result, finish_reason = chat_json(client, "qwen3.5-plus", SYSTEM_PROMPT, user_content, max_tokens=4096)
         params = result.get("params", [])
         source_page = result.get("source_page", page.page_num)
         # 附加 source_page 到每条记录

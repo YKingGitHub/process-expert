@@ -50,5 +50,12 @@ done
 
 log "=== ALL BATCHES COMPLETE ==="
 [ -n "$FAILED_BATCHES" ] && log "FAILED batches:$FAILED_BATCHES"
-sqlite3 "$DB" "SELECT extraction_method, COUNT(*) FROM process_params GROUP BY extraction_method;" 2>/dev/null
+echo "=== DB Summary ==="
+sqlite3 "$DB" "SELECT 'cutting_params', COUNT(*) FROM cutting_params;" 2>/dev/null
+sqlite3 "$DB" "SELECT 'tolerance_fits', COUNT(*) FROM tolerance_fits;" 2>/dev/null
+sqlite3 "$DB" "SELECT 'surface_standards', COUNT(*) FROM surface_standards;" 2>/dev/null
+sqlite3 "$DB" "SELECT 'equipment_specs', COUNT(*) FROM equipment_specs;" 2>/dev/null
+sqlite3 "$DB" "SELECT 'experience_log', COUNT(*) FROM experience_log;" 2>/dev/null
+sqlite3 "$DB" "SELECT 'kb_chunks', COUNT(*) FROM kb_chunks;" 2>/dev/null
+sqlite3 "$DB" "SELECT extraction_method, COUNT(*) FROM cutting_params GROUP BY extraction_method;" 2>/dev/null
 log "Done."

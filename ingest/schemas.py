@@ -41,4 +41,90 @@ class KnowledgeChunk(BaseModel):
 class PageMarkdown(BaseModel):
     page_num: int
     markdown_text: str
-    page_type: str = "unknown"  # "param_table" | "knowledge_table" | "plain_text"
+    page_type: str = "unknown"  # "cutting_params" | "tolerance_fits" | "equipment_specs" | "surface_standards" | "unit_conversion" | "knowledge_table" | "plain_text"
+
+
+class ToleranceFit(BaseModel):
+    nominal_min: float
+    nominal_max: float
+    fit_code: str
+    fit_type: str | None = None
+    upper_deviation: float | None = None
+    lower_deviation: float | None = None
+    tolerance_grade: str | None = None
+    standard_ref: str | None = None
+    source_page: int
+    chapter: str = ""
+    table_ref: str = ""
+    extraction_method: str = "llm_extracted"
+
+    @field_validator("fit_code")
+    @classmethod
+    def fit_code_must_not_be_empty(cls, v):
+        if not v.strip():
+            raise ValueError("fit_code must not be empty")
+        return v.strip()
+
+    @field_validator("source_page")
+    @classmethod
+    def tf_page_must_be_positive(cls, v):
+        if v <= 0:
+            raise ValueError("source_page must be > 0")
+        return v
+
+    @field_validator("nominal_max")
+    @classmethod
+    def nominal_max_must_exceed_min(cls, v, info):
+        nominal_min = info.data.get("nominal_min")
+        if nominal_min is not None and v <= nominal_min:
+            raise ValueError(f"nominal_max ({v}) must be > nominal_min ({nominal_min})")
+        return v
+
+
+class EquipmentSpec(BaseModel):
+    equipment_type: str | None = None
+    model_number: str | None = None
+    param_name: str
+    param_value: str | None = None
+    param_unit: str | None = None
+    source_page: int
+    chapter: str = ""
+    table_ref: str = ""
+    extraction_method: str = "llm"
+
+
+class SurfaceStandard(BaseModel):
+    machining_method: str
+    process_condition: str | None = None
+    ra_min: float | None = None
+    ra_max: float | None = None
+    rz_min: float | None = None
+    rz_max: float | None = None
+    applicable_material: str | None = None
+    standard_ref: str | None = None
+    source_page: int
+    chapter: str = ""
+    table_ref: str = ""
+    extraction_method: str = "llm_extracted"
+
+    @field_validator("machining_method")
+    @classmethod
+    def machining_method_must_not_be_empty(cls, v):
+        if not v.strip():
+            raise ValueError("machining_method must not be empty")
+        return v.strip()
+
+    @field_validator("source_page")
+    @classmethod
+    def ss_page_must_be_positive(cls, v):
+        if v <= 0:
+            raise ValueError("source_page must be > 0")
+        return v
+
+    @field_validator("ra_max")
+    @classmethod
+    def ra_max_must_exceed_min(cls, v, info):
+        ra_min = info.data.get("ra_min")
+        if v is not None and ra_min is not None and v < ra_min:
+            raise ValueError(f"ra_max ({v}) must be >= ra_min ({ra_min})")
+        return v

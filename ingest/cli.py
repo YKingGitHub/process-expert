@@ -18,7 +18,7 @@ if _repo_root not in sys.path:
 import fitz  # PyMuPDF
 
 from ingest.cross_validator import cross_validate
-from ingest.db_writer import _ensure_schema, write_chunks, write_params
+from ingest.db_writer import _ensure_schema, write_chunks, write_equipment, write_params, write_tolerance, write_surface
 from ingest.knowledge_extractor import extract_knowledge
 from ingest.llm_client import get_client
 from ingest.multimodal_fallback import VLMFallback
@@ -27,11 +27,25 @@ from ingest.param_extractor import extract_params
 from ingest.pdf_extractor import extract_pages
 from ingest.quality_reporter import QualityReporter
 from ingest.schemas import PageMarkdown
+from ingest.equipment_extractor import extract_equipment
+from ingest.surface_extractor import extract_surface
 from ingest.text_chunker import chunk_text
-from ingest.validator import validate_param
+from ingest.tolerance_extractor import extract_tolerance
+from ingest.validator import validate_param, validate_tolerance as vt_tolerance, validate_surface as vt_surface, validate_equipment as vt_equipment
 
 _PROGRESS_INTERVAL = 50  # Print progress every N pages
 _FLUSH_INTERVAL = 10    # Write to DB every N pages (incremental flush)
+
+# Route dispatch table: page_type → handler name
+PAGE_HANDLERS = {
+    'cutting_params':    'extract_cutting',     # 现有 3-tier
+    'tolerance_fits':    'extract_tolerance',   # Sprint 2: LLM + VLM
+    'equipment_specs':   'extract_equipment',   # Sprint 3: LLM only
+    'surface_standards': 'extract_surface',     # Sprint 2: LLM only
+    'unit_conversion':   'fallback_to_chunks',  # 永久
+    'knowledge_table':   'extract_knowledge',   # 现有
+    'plain_text':        'chunk_text',           # 现有
+}
 
 
 def parse_pages_range(pages_arg: str) -> tuple:
@@ -104,7 +118,7 @@ def main():
     print(f"\n[pipeline] Classifying {total_pages} pages ...")
     pages = classify_pages(pages, client)
 
-    type_counts = {"param_table": 0, "knowledge_table": 0, "plain_text": 0, "unknown": 0}
+    type_counts = {}
     for p in pages:
         type_counts[p.page_type] = type_counts.get(p.page_type, 0) + 1
     print(f"[pipeline] Classification: {type_counts}")
@@ -116,7 +130,9 @@ def main():
     # 6. Prepare output directory and unresolved writer
     output_dir = "output"
     os.makedirs(output_dir, exist_ok=True)
-    unresolved_path = os.path.join(output_dir, "unresolved.jsonl")
+    from datetime import datetime as _dt
+    _unresolved_ts = _dt.now().strftime("%Y%m%d_%H%M%S")
+    unresolved_path = os.path.join(output_dir, f"unresolved_{_unresolved_ts}.jsonl")
 
     # 7. Stats counters
     stats = {
@@ -126,23 +142,47 @@ def main():
         "tier3_success": 0,
         "unresolved": 0,
         "skipped_plain_text": 0,
+        "tolerance_success": 0,
+        "tolerance_vlm": 0,
+        "surface_success": 0,
+        "equipment_success": 0,
     }
+    # Per-type page counts
+    type_processed = {t: 0 for t in PAGE_HANDLERS}
 
     all_params = []
     all_chunks = []
+    all_tolerance = []
+    all_surface = []
+    all_equipment = []
+    filename = os.path.basename(args.pdf)
 
-    # 8. Main extraction loop — Tier 1 → Tier 2 → Tier 3 → unresolved
-    print(f"\n[pipeline] Processing {total_pages} pages (Tier1/2/3 fallback) ...")
+    def fallback_to_chunks(page, all_chunks_ref):
+        """兜底路径：将页面内容走 chunk_text 存入 kb_chunks，标记 source 含 page_type。"""
+        source_tag = f"fallback:{page.page_type}:p{page.page_num}"
+        chunks = chunk_text(page.markdown_text, page.page_num)
+        for c in chunks:
+            c.source = source_tag
+        all_chunks_ref.extend(chunks)
 
-    with open(unresolved_path, "a", encoding="utf-8") as f_unresolved:
+    # 8. Main extraction loop — route-based dispatch
+    print(f"\n[pipeline] Processing {total_pages} pages (route-based dispatch) ...")
+
+    with open(unresolved_path, "w", encoding="utf-8") as f_unresolved:
         for idx, page in enumerate(pages):
             # Incremental flush every _FLUSH_INTERVAL pages so partial results survive timeouts
-            if idx > 0 and idx % _FLUSH_INTERVAL == 0 and (all_params or all_chunks):
-                pi, ps = write_params(args.db, all_params)
-                ci, cs = write_chunks(args.db, all_chunks)
-                print(f"[pipeline] Flush @page {idx}: params+={pi} chunks+={ci}", flush=True)
+            if idx > 0 and idx % _FLUSH_INTERVAL == 0 and (all_params or all_chunks or all_tolerance or all_surface or all_equipment):
+                pi, _ = write_params(args.db, all_params) if all_params else (0, 0)
+                ci, _ = write_chunks(args.db, all_chunks) if all_chunks else (0, 0)
+                ti, _ = write_tolerance(args.db, all_tolerance) if all_tolerance else (0, 0)
+                si, _ = write_surface(args.db, all_surface) if all_surface else (0, 0)
+                ei, _ = write_equipment(args.db, all_equipment) if all_equipment else (0, 0)
+                print(f"[pipeline] Flush @page {idx}: params+={pi} chunks+={ci} tol+={ti} surf+={si} equip+={ei}", flush=True)
                 all_params.clear()
                 all_chunks.clear()
+                all_tolerance.clear()
+                all_surface.clear()
+                all_equipment.clear()
             # Progress reporting
             if (idx + 1) % _PROGRESS_INTERVAL == 0 or (idx + 1) == total_pages:
                 print(
@@ -152,32 +192,173 @@ def main():
                     f"skipped={stats['skipped_plain_text']}"
                 )
 
-            if page.page_type == "plain_text":
+            # Map legacy param_table to cutting_params
+            page_type = page.page_type
+            if page_type == "param_table":
+                page_type = "cutting_params"
+
+            handler = PAGE_HANDLERS.get(page_type, 'chunk_text')
+            type_processed[page_type] = type_processed.get(page_type, 0) + 1
+
+            if handler == 'chunk_text':
                 chunks = chunk_text(page.markdown_text, page.page_num)
                 all_chunks.extend(chunks)
                 stats["skipped_plain_text"] += 1
                 continue
 
-            if page.page_type == "knowledge_table":
+            if handler == 'extract_knowledge':
                 chunks = extract_knowledge(page, client)
                 all_chunks.extend(chunks)
-                # knowledge_table pages are processed as chunks; VLM only handles param extraction
-                # If a knowledge_table page might also have params, it falls through to param path
-                # For now: treat as processed (skipped for param tier tracking)
                 stats["skipped_plain_text"] += 1
                 continue
 
-            # param_table pages — skip if already processed (idempotent re-run / resume)
+            if handler == 'fallback_to_chunks':
+                fallback_to_chunks(page, all_chunks)
+                stats["skipped_plain_text"] += 1
+                continue
+
+            # handler == 'extract_equipment' — equipment_specs pages (LLM only)
+            if handler == 'extract_equipment':
+                import sqlite3 as _sl3e
+                _conn_e = _sl3e.connect(args.db)
+                _existing_e = _conn_e.execute(
+                    "SELECT COUNT(*) FROM equipment_specs WHERE source_page=?",
+                    (page.page_num,)
+                ).fetchone()[0]
+                _conn_e.close()
+                if _existing_e > 0:
+                    stats["equipment_success"] += 1
+                    continue
+
+                raw_equip = extract_equipment(page, client)
+                valid_equip = []
+                for raw in raw_equip:
+                    ok, result = vt_equipment(raw)
+                    if ok:
+                        valid_equip.append(result)
+
+                if valid_equip:
+                    all_equipment.extend(valid_equip)
+                    stats["equipment_success"] += 1
+                else:
+                    record = {
+                        "page_num": page.page_num,
+                        "page_markdown_snippet": page.markdown_text[:500],
+                        "page_type": page.page_type,
+                        "fail_reason": "equipment_extraction_failed",
+                    }
+                    f_unresolved.write(json.dumps(record, ensure_ascii=False) + "\n")
+                    stats["unresolved"] += 1
+                continue
+
+            # handler == 'extract_tolerance' — tolerance_fits pages (LLM + VLM)
+            if handler == 'extract_tolerance':
+                import sqlite3 as _sl3t
+                _conn_t = _sl3t.connect(args.db)
+                _existing_t = _conn_t.execute(
+                    "SELECT COUNT(*) FROM tolerance_fits WHERE source_page=? "
+                    "AND extraction_method IN ('llm_extracted','vlm_fallback')",
+                    (page.page_num,)
+                ).fetchone()[0]
+                _conn_t.close()
+                if _existing_t > 0:
+                    stats["tolerance_success"] += 1
+                    continue
+
+                # Tier 1: LLM extraction
+                raw_tol = extract_tolerance(page, client)
+                tier1_valid = []
+                for raw in raw_tol:
+                    ok, result = vt_tolerance(raw)
+                    if ok:
+                        tier1_valid.append(result)
+
+                # Estimate expected rows from markdown table lines
+                md_lines = page.markdown_text.split('\n')
+                expected_rows = sum(1 for line in md_lines
+                                    if '|' in line and not line.strip().startswith('|--')
+                                    and not line.strip().startswith('|-'))
+                expected_rows = max(expected_rows - 1, 1)  # subtract header
+
+                # Check if VLM fallback needed
+                use_vlm = len(tier1_valid) == 0 or (expected_rows > 2 and len(tier1_valid) < expected_rows * 0.5)
+                vlm_valid = []
+                if use_vlm:
+                    fitz_page_t = fitz_doc[page.page_num - 1]
+                    vlm_raw = vlm.extract_tolerance_vlm(fitz_page_t, page.page_num)
+                    for raw in vlm_raw:
+                        ok, result = vt_tolerance(raw)
+                        if ok:
+                            vlm_valid.append(result)
+
+                # Take the set with more valid rows
+                if vlm_valid and len(vlm_valid) > len(tier1_valid):
+                    final = vlm_valid
+                    stats["tolerance_vlm"] += 1
+                else:
+                    final = tier1_valid
+
+                if final:
+                    all_tolerance.extend(final)
+                    stats["tolerance_success"] += 1
+                else:
+                    record = {
+                        "page_num": page.page_num,
+                        "page_markdown_snippet": page.markdown_text[:500],
+                        "page_type": page.page_type,
+                        "fail_reason": "tolerance_all_tiers_failed",
+                    }
+                    f_unresolved.write(json.dumps(record, ensure_ascii=False) + "\n")
+                    stats["unresolved"] += 1
+                continue
+
+            # handler == 'extract_surface' — surface_standards pages (LLM only)
+            if handler == 'extract_surface':
+                import sqlite3 as _sl3s
+                _conn_s = _sl3s.connect(args.db)
+                _existing_s = _conn_s.execute(
+                    "SELECT COUNT(*) FROM surface_standards WHERE source_page=? "
+                    "AND extraction_method IN ('llm_extracted','vlm_fallback')",
+                    (page.page_num,)
+                ).fetchone()[0]
+                _conn_s.close()
+                if _existing_s > 0:
+                    stats["surface_success"] += 1
+                    continue
+
+                raw_surf = extract_surface(page, client)
+                valid_surf = []
+                for raw in raw_surf:
+                    ok, result = vt_surface(raw)
+                    if ok:
+                        valid_surf.append(result)
+
+                if valid_surf:
+                    all_surface.extend(valid_surf)
+                    stats["surface_success"] += 1
+                else:
+                    record = {
+                        "page_num": page.page_num,
+                        "page_markdown_snippet": page.markdown_text[:500],
+                        "page_type": page.page_type,
+                        "fail_reason": "surface_extraction_failed",
+                    }
+                    f_unresolved.write(json.dumps(record, ensure_ascii=False) + "\n")
+                    stats["unresolved"] += 1
+                continue
+
+            # handler == 'extract_cutting' — cutting_params pages
+            # Skip if already processed (idempotent re-run / resume)
             import sqlite3 as _sl3
             _conn_check = _sl3.connect(args.db)
             _existing = _conn_check.execute(
-                "SELECT COUNT(*) FROM process_params WHERE source_page=? "
+                "SELECT COUNT(*) FROM cutting_params WHERE source_page=? "
                 "AND extraction_method IN ('llm_extracted','vlm_fallback')",
                 (page.page_num,)
             ).fetchone()[0]
             _conn_check.close()
             if _existing > 0:
-                stats["tier1_success"] += 1  # Already processed — count as success
+                stats["tier1_success"] += 1
                 continue
 
             # Three-tier extraction
@@ -212,12 +393,10 @@ def main():
                     continue
 
             # Tier 3: VLM multimodal fallback
-            # fitz_page is 0-indexed; page.page_num is 1-indexed
             fitz_page = fitz_doc[page.page_num - 1]
             vlm_results = vlm.extract_with_vlm(fitz_page, page.page_num, page.page_type)
 
             if vlm_results:
-                # Convert dicts back to ProcessParam objects for db_writer
                 from ingest.validator import validate_param as vp
                 validated_vlm = []
                 for item in vlm_results:
@@ -242,12 +421,21 @@ def main():
     fitz_doc.close()
 
     # 9. Write to database
-    print(f"\n[pipeline] Writing {len(all_params)} params and {len(all_chunks)} chunks to {args.db} ...")
-    params_inserted, params_skipped = write_params(args.db, all_params)
-    chunks_inserted, chunks_skipped = write_chunks(args.db, all_chunks)
+    print(f"\n[pipeline] Writing {len(all_params)} params, {len(all_chunks)} chunks, "
+          f"{len(all_tolerance)} tolerance, {len(all_surface)} surface, "
+          f"{len(all_equipment)} equipment to {args.db} ...")
+    params_inserted, _ = write_params(args.db, all_params) if all_params else (0, 0)
+    chunks_inserted, _ = write_chunks(args.db, all_chunks) if all_chunks else (0, 0)
+    tol_inserted, _ = write_tolerance(args.db, all_tolerance) if all_tolerance else (0, 0)
+    surf_inserted, _ = write_surface(args.db, all_surface) if all_surface else (0, 0)
+    equip_inserted, _ = write_equipment(args.db, all_equipment) if all_equipment else (0, 0)
 
-    print(f"[pipeline] params: inserted={params_inserted} skipped={params_skipped}")
-    print(f"[pipeline] chunks: inserted={chunks_inserted} skipped={chunks_skipped}")
+    print(f"[pipeline] params: inserted={params_inserted}")
+    print(f"[pipeline] chunks: inserted={chunks_inserted}")
+    print(f"[pipeline] tolerance: inserted={tol_inserted}")
+    print(f"[pipeline] surface: inserted={surf_inserted}")
+    print(f"[pipeline] equipment: inserted={equip_inserted}")
+    print(f"[pipeline] Per-type page counts: {type_processed}")
 
     # 10. Quality report
     reporter = QualityReporter(output_dir=output_dir)

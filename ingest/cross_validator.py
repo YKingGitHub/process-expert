@@ -40,7 +40,7 @@ def cross_validate(page: PageMarkdown, raw: dict, client,
         f"原始提取（包含错误）: {json.dumps(raw, ensure_ascii=False)}"
     )
     try:
-        result = chat_json(client, fallback_model, SYSTEM_PROMPT, user_content, max_tokens=4096)
+        result, finish_reason = chat_json(client, fallback_model, SYSTEM_PROMPT, user_content, max_tokens=4096)
         params = result.get("params", [])
         source_page = result.get("source_page", page.page_num)
         for p in params:

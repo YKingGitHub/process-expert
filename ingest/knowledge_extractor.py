@@ -18,7 +18,7 @@ def extract_knowledge(page: PageMarkdown, client) -> list[KnowledgeChunk]:
     """从 knowledge_table 页面提取知识块列表。"""
     user_content = f"--- Page {page.page_num} ---\n{page.markdown_text}"
     try:
-        result = chat_json(client, "qwen3.5-plus", SYSTEM_PROMPT, user_content, max_tokens=4096)
+        result, _ = chat_json(client, "qwen3.5-plus", SYSTEM_PROMPT, user_content, max_tokens=4096)
         chunks = result.get("chunks", [])
         source_page = result.get("source_page", page.page_num)
         return [

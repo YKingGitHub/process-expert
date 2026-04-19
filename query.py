@@ -26,7 +26,7 @@ def query_params(db_path, material, operation=None, conditions=None):
         SELECT material_grade, operation_type, parameter_name,
                parameter_value, parameter_unit, conditions,
                table_ref, source_page, chapter
-        FROM process_params
+        FROM cutting_params
         WHERE (material_grade LIKE ? OR material_grade = ?)
     """
     params = [f"%{material}%", material]
@@ -53,6 +53,54 @@ def query_params(db_path, material, operation=None, conditions=None):
 
     elapsed_ms = (time.perf_counter() - t0) * 1000
     return rows, elapsed_ms
+
+
+def query_tolerance(db_path, fit_code=None, nominal_size=None):
+    """查询公差配合数据。fit_code 如 'H7'，nominal_size 如 50。"""
+    conn = sqlite3.connect(str(db_path))
+    conn.row_factory = sqlite3.Row
+    sql = "SELECT * FROM tolerance_fits WHERE 1=1"
+    params = []
+    if fit_code:
+        sql += " AND fit_code = ?"
+        params.append(fit_code)
+    if nominal_size is not None:
+        sql += " AND ? BETWEEN nominal_min AND nominal_max"
+        params.append(nominal_size)
+    rows = [dict(r) for r in conn.execute(sql, params).fetchall()]
+    conn.close()
+    return rows
+
+
+def query_equipment(db_path, model_number=None, equipment_type=None):
+    """查询设备规格。"""
+    conn = sqlite3.connect(str(db_path))
+    conn.row_factory = sqlite3.Row
+    sql = "SELECT * FROM equipment_specs WHERE 1=1"
+    params = []
+    if model_number:
+        sql += " AND model_number LIKE ?"
+        params.append(f"%{model_number}%")
+    if equipment_type:
+        sql += " AND equipment_type LIKE ?"
+        params.append(f"%{equipment_type}%")
+    rows = [dict(r) for r in conn.execute(sql, params).fetchall()]
+    conn.close()
+    return rows
+
+
+def query_surface_standard(db_path, machining_method=None):
+    """查询表面粗糙度标准。"""
+    conn = sqlite3.connect(str(db_path))
+    conn.row_factory = sqlite3.Row
+    sql = "SELECT * FROM surface_standards WHERE 1=1"
+    params = []
+    if machining_method:
+        sql += " AND machining_method LIKE ?"
+        params.append(f"%{machining_method}%")
+    rows = [dict(r) for r in conn.execute(sql, params).fetchall()]
+    conn.close()
+    return rows
 
 
 def print_table(rows):

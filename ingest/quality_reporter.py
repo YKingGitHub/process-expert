@@ -18,22 +18,38 @@ class QualityReporter:
         unresolved = stats.get("unresolved", 0)
         skipped = stats.get("skipped_plain_text", 0)
 
-        processed = t1 + t2 + t3 + unresolved
-        cv_pass_rate = (t1 + t2) / max(processed, 1)
-        unresolved_rate = unresolved / max(total, 1)
+        tol_success = stats.get("tolerance_success", 0)
+        tol_vlm = stats.get("tolerance_vlm", 0)
+        surf_success = stats.get("surface_success", 0)
+
+        processed = t1 + t2 + t3 + unresolved  # param_table pages only (excludes tolerance/surface)
+        tier1_rate = t1 / max(processed, 1)
+        overall_extraction_rate = (t1 + t2 + t3) / max(processed, 1)
+        unresolved_rate = unresolved / max(processed, 1)
+        vlm_dependency_rate = t3 / max(processed, 1)
+        # Deprecated — kept for transition (was misnamed; actually = (t1+t2)/processed)
+        cv_pass_rate_deprecated = (t1 + t2) / max(processed, 1)
 
         report = {
             "generated_at": datetime.now().isoformat(),
             "total_pages": total,
-            "processed_pages": processed,
-            "skipped_plain_text_pages": skipped,
+            "param_table_pages": processed,
+            "non_param_pages": skipped,
             "tier1_success": t1,
             "tier2_success": t2,
             "tier3_vlm_success": t3,
             "unresolved_count": unresolved,
-            "cross_validation_pass_rate": round(cv_pass_rate, 4),
-            "vlm_fallback_count": t3,
+            # Core metrics
+            "tier1_rate": round(tier1_rate, 4),
+            "overall_extraction_rate": round(overall_extraction_rate, 4),
             "unresolved_rate": round(unresolved_rate, 4),
+            "vlm_dependency_rate": round(vlm_dependency_rate, 4),
+            # Deprecated — kept for transition
+            "cross_validation_pass_rate_DEPRECATED": round(cv_pass_rate_deprecated, 4),
+            # Tolerance & surface stats
+            "tolerance_success_pages": tol_success,
+            "tolerance_vlm_pages": tol_vlm,
+            "surface_success_pages": surf_success,
         }
 
         # Optional: read DB counts for context
@@ -41,14 +57,39 @@ class QualityReporter:
             try:
                 import sqlite3
                 conn = sqlite3.connect(db_path)
-                report["total_process_params"] = conn.execute(
-                    "SELECT COUNT(*) FROM process_params "
+                report["total_cutting_params"] = conn.execute(
+                    "SELECT COUNT(*) FROM cutting_params "
                     "WHERE extraction_method IN ('llm_extracted','vlm_fallback')"
                 ).fetchone()[0]
                 report["llm_extracted_count"] = conn.execute(
-                    "SELECT COUNT(*) FROM process_params "
+                    "SELECT COUNT(*) FROM cutting_params "
                     "WHERE extraction_method='llm_extracted'"
                 ).fetchone()[0]
+                # Per-table row counts
+                for tbl in ("cutting_params", "tolerance_fits", "equipment_specs", "surface_standards"):
+                    try:
+                        report[f"rows_{tbl}"] = conn.execute(
+                            f"SELECT COUNT(*) FROM {tbl}"
+                        ).fetchone()[0]
+                    except Exception:
+                        report[f"rows_{tbl}"] = "N/A"
+                # Coverage: distinct pages with valid data / classified pages
+                try:
+                    tol_pages_with_data = conn.execute(
+                        "SELECT COUNT(DISTINCT source_page) FROM tolerance_fits"
+                    ).fetchone()[0]
+                    tol_classified = stats.get("tolerance_success", 0) + stats.get("unresolved", 0)
+                    report["tolerance_coverage"] = round(tol_pages_with_data / max(tol_classified, 1), 4)
+                except Exception:
+                    report["tolerance_coverage"] = "N/A"
+                try:
+                    surf_pages_with_data = conn.execute(
+                        "SELECT COUNT(DISTINCT source_page) FROM surface_standards"
+                    ).fetchone()[0]
+                    surf_classified = stats.get("surface_success", 0)
+                    report["surface_coverage"] = round(surf_pages_with_data / max(surf_classified, 1), 4)
+                except Exception:
+                    report["surface_coverage"] = "N/A"
                 conn.close()
             except Exception as e:
                 report["db_stats_error"] = str(e)
