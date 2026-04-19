@@ -7,7 +7,7 @@ import time
 import fitz  # PyMuPDF
 from pydantic import ValidationError
 
-from ingest.schemas import ProcessParam, ToleranceFit
+from ingest.schemas import ProcessParam, ToleranceFit, SurfaceStandard, EquipmentSpec
 
 
 class VLMFallback:
@@ -153,6 +153,179 @@ class VLMFallback:
             "\n"
             "若无公差表可提取，返回 {\"tolerances\": []}。"
         )
+
+    def extract_surface_vlm(self, fitz_page, page_num: int,
+                            max_retries: int = 2) -> list:
+        """VLM 表面粗糙度提取兜底：渲染页面 PNG → surface 专用 prompt → 校验。"""
+        for attempt in range(max_retries + 1):
+            try:
+                img_b64 = self.render_page_image(fitz_page)
+                prompt = self._build_surface_prompt(page_num)
+                messages = [
+                    {
+                        "role": "user",
+                        "content": [
+                            {
+                                "type": "image_url",
+                                "image_url": {"url": f"data:image/png;base64,{img_b64}"},
+                            },
+                            {"type": "text", "text": prompt},
+                        ],
+                    }
+                ]
+                resp = self.client.chat.completions.create(
+                    model=self.model,
+                    messages=messages,
+                    response_format={"type": "json_object"},
+                    max_tokens=32768,
+                    extra_body={"enable_thinking": False},
+                )
+                finish_reason = getattr(resp.choices[0], 'finish_reason', 'stop')
+                if finish_reason != 'stop':
+                    print(f"[vlm_surface] Page {page_num} output truncated (finish_reason={finish_reason})")
+                raw_content = resp.choices[0].message.content
+                return self._validate_surface(raw_content, page_num)
+            except Exception as e:
+                print(f"[vlm_surface] Page {page_num} attempt {attempt + 1} failed: {e}")
+                if attempt < max_retries:
+                    time.sleep(2 ** attempt)
+                    continue
+                return []
+
+    def extract_equipment_vlm(self, fitz_page, page_num: int,
+                              max_retries: int = 2) -> list:
+        """VLM 设备规格提取兜底：渲染页面 PNG → equipment 专用 prompt → 校验。"""
+        for attempt in range(max_retries + 1):
+            try:
+                img_b64 = self.render_page_image(fitz_page)
+                prompt = self._build_equipment_prompt(page_num)
+                messages = [
+                    {
+                        "role": "user",
+                        "content": [
+                            {
+                                "type": "image_url",
+                                "image_url": {"url": f"data:image/png;base64,{img_b64}"},
+                            },
+                            {"type": "text", "text": prompt},
+                        ],
+                    }
+                ]
+                resp = self.client.chat.completions.create(
+                    model=self.model,
+                    messages=messages,
+                    response_format={"type": "json_object"},
+                    max_tokens=32768,
+                    extra_body={"enable_thinking": False},
+                )
+                finish_reason = getattr(resp.choices[0], 'finish_reason', 'stop')
+                if finish_reason != 'stop':
+                    print(f"[vlm_equipment] Page {page_num} output truncated (finish_reason={finish_reason})")
+                raw_content = resp.choices[0].message.content
+                return self._validate_equipment(raw_content, page_num)
+            except Exception as e:
+                print(f"[vlm_equipment] Page {page_num} attempt {attempt + 1} failed: {e}")
+                if attempt < max_retries:
+                    time.sleep(2 ** attempt)
+                    continue
+                return []
+
+    def _build_surface_prompt(self, page_num: int) -> str:
+        return (
+            f"这是工艺技术手册第{page_num}页（类型：surface_standards 表面粗糙度标准表）的截图。\n"
+            "请仔细分析图中的表面粗糙度表格，提取所有记录。只输出 JSON，不要任何解释文字。\n"
+            "输出 JSON 对象，格式：{\"surfaces\": [...]}\n"
+            "surfaces 数组中每项格式：\n"
+            '{"machining_method":"","process_condition":"","ra_min":null,"ra_max":null,'
+            '"rz_min":null,"rz_max":null,"applicable_material":"","standard_ref":"",'
+            '"table_ref":"","source_page":0}\n'
+            "\n"
+            "【关键规则】\n"
+            "1. machining_method: 加工方法（如\"精车\"、\"粗铣\"），必须非空\n"
+            "2. ra_min/ra_max: Ra 粗糙度范围（μm），数值型\n"
+            "3. rz_min/rz_max: Rz 粗糙度范围（μm），数值型\n"
+            "4. table_ref 不得为空，无编号时用页码格式如\"P42\"\n"
+            "5. 多列宽表必须逐列提取\n"
+            "\n"
+            "若无表面粗糙度表可提取，返回 {\"surfaces\": []}。"
+        )
+
+    def _build_equipment_prompt(self, page_num: int) -> str:
+        return (
+            f"这是工艺技术手册第{page_num}页（类型：equipment_specs 设备规格参数表）的截图。\n"
+            "请仔细分析图中的设备规格表格，提取所有参数记录。只输出 JSON，不要任何解释文字。\n"
+            "输出 JSON 对象，格式：{\"equipment\": [...]}\n"
+            "equipment 数组中每项格式：\n"
+            '{"equipment_type":"","model_number":"","param_name":"","param_value":"",'
+            '"param_unit":"","table_ref":"","source_page":0}\n'
+            "\n"
+            "【关键规则】\n"
+            "1. equipment_type: 设备类型（如\"车床\"、\"铣床\"）\n"
+            "2. model_number: 设备型号（如\"CA6140\"）\n"
+            "3. param_name: 参数名（如\"最大加工直径\"），必须非空\n"
+            "4. param_value: 参数值（如\"400\"或\"10~1400\"）\n"
+            "5. param_unit: 单位（如\"mm\"、\"r/min\"）\n"
+            "6. table_ref 不得为空，无编号时用页码格式如\"P42\"\n"
+            "7. 每个参数独立一条记录\n"
+            "\n"
+            "若无设备规格表可提取，返回 {\"equipment\": []}。"
+        )
+
+    def _validate_surface(self, raw: str, page_num: int) -> list:
+        """JSON 解析 + SurfaceStandard schema 校验。"""
+        try:
+            data = json.loads(raw) if isinstance(raw, str) else raw
+            if isinstance(data, dict):
+                data = data.get("surfaces", data.get("data", []))
+            if not isinstance(data, list):
+                return []
+            results = []
+            for item in data:
+                item["source_page"] = page_num
+                item["extraction_method"] = "vlm_fallback"
+                if not item.get("table_ref", "").strip() or item.get("table_ref") in ("未标注", "无", ""):
+                    item["table_ref"] = f"P{page_num}"
+                if item.get("machining_method"):
+                    item["machining_method"] = item["machining_method"].strip()
+                for key in ("ra_min", "ra_max", "rz_min", "rz_max"):
+                    if item.get(key) is not None:
+                        try:
+                            item[key] = float(item[key])
+                        except (ValueError, TypeError):
+                            item[key] = None
+                try:
+                    obj = SurfaceStandard.model_validate(item)
+                    results.append(obj)
+                except (ValidationError, Exception):
+                    continue
+            return results
+        except (json.JSONDecodeError, Exception):
+            return []
+
+    def _validate_equipment(self, raw: str, page_num: int) -> list:
+        """JSON 解析 + EquipmentSpec schema 校验。"""
+        try:
+            data = json.loads(raw) if isinstance(raw, str) else raw
+            if isinstance(data, dict):
+                data = data.get("equipment", data.get("data", []))
+            if not isinstance(data, list):
+                return []
+            results = []
+            for item in data:
+                item["source_page"] = page_num
+                item["extraction_method"] = "vlm_fallback"
+                if not item.get("table_ref", "").strip() or item.get("table_ref") in ("未标注", "无", ""):
+                    item["table_ref"] = f"P{page_num}"
+                if item.get("param_name"):
+                    item["param_name"] = item["param_name"].strip()
+                try:
+                    obj = EquipmentSpec.model_validate(item)
+                    results.append(obj)
+                except (ValidationError, Exception):
+                    continue
+            return results
+        except (json.JSONDecodeError, Exception):
+            return []
 
     def _validate_tolerance(self, raw: str, page_num: int) -> list[dict]:
         """JSON 解析 + ToleranceFit schema 校验，返回校验通过的 raw dicts。"""

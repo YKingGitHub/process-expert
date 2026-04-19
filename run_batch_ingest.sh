@@ -5,7 +5,13 @@
 # Periodic backups protect against external DB wipes (e.g. build_db.py).
 
 cd /root/process-expert
-export DASHSCOPE_API_KEY=<DASHSCOPE_API_KEY>
+if [ -f .env ]; then
+    source .env
+fi
+if [ -z "$DASHSCOPE_API_KEY" ]; then
+    echo "ERROR: DASHSCOPE_API_KEY not set. Create .env with: DASHSCOPE_API_KEY=your-key"
+    exit 1
+fi
 
 PDF="references/金属切削工艺技术手册.pdf"
 DB="data/knowledge.db"

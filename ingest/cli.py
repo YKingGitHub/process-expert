@@ -17,7 +17,6 @@ if _repo_root not in sys.path:
 
 import fitz  # PyMuPDF
 
-from ingest.cross_validator import cross_validate
 from ingest.db_writer import _ensure_schema, write_chunks, write_equipment, write_params, write_tolerance, write_surface
 from ingest.knowledge_extractor import extract_knowledge
 from ingest.llm_client import get_client
@@ -38,10 +37,10 @@ _FLUSH_INTERVAL = 10    # Write to DB every N pages (incremental flush)
 
 # Route dispatch table: page_type → handler name
 PAGE_HANDLERS = {
-    'cutting_params':    'extract_cutting',     # 现有 3-tier
-    'tolerance_fits':    'extract_tolerance',   # Sprint 2: LLM + VLM
-    'equipment_specs':   'extract_equipment',   # Sprint 3: LLM only
-    'surface_standards': 'extract_surface',     # Sprint 2: LLM only
+    'cutting_params':    'extract_cutting',     # 2-tier: LLM + VLM
+    'tolerance_fits':    'extract_tolerance',   # LLM + VLM
+    'equipment_specs':   'extract_equipment',   # LLM + VLM
+    'surface_standards': 'extract_surface',     # LLM + VLM
     'unit_conversion':   'fallback_to_chunks',  # 永久
     'knowledge_table':   'extract_knowledge',   # 现有
     'plain_text':        'chunk_text',           # 现有
@@ -138,7 +137,6 @@ def main():
     stats = {
         "total_pages": total_pages,
         "tier1_success": 0,
-        "tier2_success": 0,
         "tier3_success": 0,
         "unresolved": 0,
         "skipped_plain_text": 0,
@@ -187,7 +185,7 @@ def main():
             if (idx + 1) % _PROGRESS_INTERVAL == 0 or (idx + 1) == total_pages:
                 print(
                     f"[pipeline] Progress: {idx + 1}/{total_pages} pages | "
-                    f"t1={stats['tier1_success']} t2={stats['tier2_success']} "
+                    f"t1={stats['tier1_success']} "
                     f"t3={stats['tier3_success']} unresolved={stats['unresolved']} "
                     f"skipped={stats['skipped_plain_text']}"
                 )
@@ -237,18 +235,35 @@ def main():
                     if ok:
                         valid_equip.append(result)
 
-                if valid_equip:
+                # VLM fallback: trigger if empty or rows < 50% of expected
+                md_lines = page.markdown_text.split('\n')
+                expected_rows = sum(1 for line in md_lines
+                                    if '|' in line and not line.strip().startswith('|--')
+                                    and not line.strip().startswith('|-'))
+                expected_rows = max(expected_rows - 1, 1)
+                use_vlm = not valid_equip or (expected_rows > 0 and len(valid_equip) < expected_rows * 0.5)
+
+                if valid_equip and not use_vlm:
                     all_equipment.extend(valid_equip)
                     stats["equipment_success"] += 1
-                else:
-                    record = {
-                        "page_num": page.page_num,
-                        "page_markdown_snippet": page.markdown_text[:500],
-                        "page_type": page.page_type,
-                        "fail_reason": "equipment_extraction_failed",
-                    }
-                    f_unresolved.write(json.dumps(record, ensure_ascii=False) + "\n")
-                    stats["unresolved"] += 1
+                elif use_vlm:
+                    fitz_page_e = fitz_doc[page.page_num - 1]
+                    vlm_results = vlm.extract_equipment_vlm(fitz_page_e, page.page_num)
+                    if vlm_results and len(vlm_results) > len(valid_equip):
+                        all_equipment.extend(vlm_results)
+                        stats["equipment_success"] += 1
+                    elif valid_equip:
+                        all_equipment.extend(valid_equip)
+                        stats["equipment_success"] += 1
+                    else:
+                        record = {
+                            "page_num": page.page_num,
+                            "page_markdown_snippet": page.markdown_text[:500],
+                            "page_type": page.page_type,
+                            "fail_reason": "equipment_extraction_failed",
+                        }
+                        f_unresolved.write(json.dumps(record, ensure_ascii=False) + "\n")
+                        stats["unresolved"] += 1
                 continue
 
             # handler == 'extract_tolerance' — tolerance_fits pages (LLM + VLM)
@@ -333,18 +348,35 @@ def main():
                     if ok:
                         valid_surf.append(result)
 
-                if valid_surf:
+                # VLM fallback: trigger if empty or rows < 50% of expected
+                md_lines_s = page.markdown_text.split('\n')
+                expected_rows_s = sum(1 for line in md_lines_s
+                                      if '|' in line and not line.strip().startswith('|--')
+                                      and not line.strip().startswith('|-'))
+                expected_rows_s = max(expected_rows_s - 1, 1)
+                use_vlm_s = not valid_surf or (expected_rows_s > 0 and len(valid_surf) < expected_rows_s * 0.5)
+
+                if valid_surf and not use_vlm_s:
                     all_surface.extend(valid_surf)
                     stats["surface_success"] += 1
-                else:
-                    record = {
-                        "page_num": page.page_num,
-                        "page_markdown_snippet": page.markdown_text[:500],
-                        "page_type": page.page_type,
-                        "fail_reason": "surface_extraction_failed",
-                    }
-                    f_unresolved.write(json.dumps(record, ensure_ascii=False) + "\n")
-                    stats["unresolved"] += 1
+                elif use_vlm_s:
+                    fitz_page_s = fitz_doc[page.page_num - 1]
+                    vlm_results_s = vlm.extract_surface_vlm(fitz_page_s, page.page_num)
+                    if vlm_results_s and len(vlm_results_s) > len(valid_surf):
+                        all_surface.extend(vlm_results_s)
+                        stats["surface_success"] += 1
+                    elif valid_surf:
+                        all_surface.extend(valid_surf)
+                        stats["surface_success"] += 1
+                    else:
+                        record = {
+                            "page_num": page.page_num,
+                            "page_markdown_snippet": page.markdown_text[:500],
+                            "page_type": page.page_type,
+                            "fail_reason": "surface_extraction_failed",
+                        }
+                        f_unresolved.write(json.dumps(record, ensure_ascii=False) + "\n")
+                        stats["unresolved"] += 1
                 continue
 
             # handler == 'extract_cutting' — cutting_params pages
@@ -379,20 +411,7 @@ def main():
                 stats["tier1_success"] += 1
                 continue
 
-            # Tier 2: cross-validate if Tier 1 produced no valid params
-            if raw_params:
-                cv_ok_params = []
-                for raw, _ in tier1_fail:
-                    cv_ok, cv_result = cross_validate(page, raw, client)
-                    if cv_ok:
-                        cv_ok_params.append(cv_result)
-
-                if cv_ok_params:
-                    all_params.extend(cv_ok_params)
-                    stats["tier2_success"] += 1
-                    continue
-
-            # Tier 3: VLM multimodal fallback
+            # Tier 2: VLM multimodal fallback
             fitz_page = fitz_doc[page.page_num - 1]
             vlm_results = vlm.extract_with_vlm(fitz_page, page.page_num, page.page_type)
 
