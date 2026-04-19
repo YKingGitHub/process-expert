@@ -11,3 +11,5 @@ config.local.yaml
 dist/
 build/
 .pytest_cache/
+*.db.*
+data/knowledge.db.sprint*
