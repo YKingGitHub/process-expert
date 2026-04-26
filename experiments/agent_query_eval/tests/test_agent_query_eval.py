@@ -1,12 +1,23 @@
 from __future__ import annotations
 
-from experiments.agent_query_eval.src.data_loader import load_gold_seed, load_questions
+import json
+from pathlib import Path
+
+from experiments.agent_query_eval.src.data_loader import (
+    load_gold_seed,
+    load_questions,
+    load_source_replaced_seed,
+)
 from experiments.agent_query_eval.src.evaluator import evaluate_questions
 from experiments.agent_query_eval.src.query_api import KnowledgeQuery
 
 
+EXPERIMENT_ROOT = Path(__file__).resolve().parents[1]
+SOURCE_REPORT_PATH = EXPERIMENT_ROOT / "data" / "source_replacement_report.json"
+
+
 def make_query() -> KnowledgeQuery:
-    return KnowledgeQuery(load_gold_seed())
+    return KnowledgeQuery(load_source_replaced_seed())
 
 
 def test_question_set_has_expected_coverage():
@@ -81,3 +92,53 @@ def test_full_evaluation_passes_thresholds():
     assert report["intent_accuracy"] >= 0.9
     assert report["pass_rate"] >= 0.9
     assert all(item["passed"] for item in report["results"])
+
+
+def test_original_gold_seed_still_passes_as_baseline():
+    report = evaluate_questions(load_questions(), KnowledgeQuery(load_gold_seed()))
+
+    assert report["intent_accuracy"] >= 0.9
+    assert report["pass_rate"] >= 0.9
+    assert all(item["passed"] for item in report["results"])
+
+
+def test_source_replaced_seed_tracks_replacements_and_limits():
+    seed = load_source_replaced_seed()
+    report = json.loads(SOURCE_REPORT_PATH.read_text(encoding="utf-8"))
+
+    replaced = {
+        record["id"]
+        for records in seed.values()
+        if isinstance(records, list)
+        for record in records
+        if record.get("source_replacement_status") == "source_pdf_vlm_replaced"
+    }
+
+    assert report["replaced_count"] == 10
+    assert "PR-DATUM-AXIS-001" in replaced
+    assert "PR-THIN-WALL-001" in replaced
+    assert "LU-ALLOW-GRIND-001" in replaced
+    assert "CM-ALLOW-FINISH-GRIND-001" in replaced
+    assert "CASE-CYLINDER-LINER-001" in replaced
+
+    keyslot = next(
+        item for item in seed["principle_records"] if item["id"] == "PR-INSPECTION-KEYSLOT-001"
+    )
+    assert keyslot["source_replacement_status"] == "manual_seed_retained"
+    assert "偏摆仪及量块" in keyslot["replacement_blocker"]
+    assert report["source_quality"]["status"] == "passed_with_flags"
+
+
+def test_source_replaced_allowance_comes_from_vlm_dimensions():
+    seed = load_source_replaced_seed()
+    lookup = next(item for item in seed["lookup_records"] if item["id"] == "LU-ALLOW-GRIND-001")
+    method = next(
+        item for item in seed["computation_methods"] if item["id"] == "CM-ALLOW-FINISH-GRIND-001"
+    )
+
+    assert lookup["source_replacement_status"] == "source_pdf_vlm_replaced"
+    assert lookup["result_json"]["diameter_allowance_mm"] == 0.8
+    assert lookup["result_json"]["single_side_allowance_mm"] == 0.4
+    assert "φ279.2 ±0.05" in lookup["source_text"]
+    assert "φ280 +0.08/0" in lookup["source_text"]
+    assert method["example_json"]["inner_finish_to_grind_allowance"]["status"] == "passed"

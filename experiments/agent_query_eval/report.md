@@ -195,17 +195,108 @@ The seed is manual. That is intentional at this stage.
 
 ## Next Step
 
-Proceed to Sprint B:
+Sprint A is complete.
+
+## Sprint B Update
+
+Implemented:
 
 ```text
-Source PDF Extraction Seed Replacement
+experiments/agent_query_eval/src/source_seed_builder.py
+experiments/agent_query_eval/scripts/build_source_seed.py
+experiments/agent_query_eval/data/source_replaced_seed.json
+experiments/agent_query_eval/data/source_replacement_report.json
 ```
 
-Recommended first replacement targets:
+The builder uses:
 
-1. Replace `PR-THIN-WALL-001` from p108 source text.
-2. Replace `PR-INSPECTION-KEYSLOT-001` from p107 source text.
-3. Replace `LU-ALLOW-GRIND-001` from p108 VLM dimensions/calculation.
-4. Replace `CASE-SHAFT-OUTPUT-001`, `CASE-CYLINDER-LINER-001`, `CASE-SEAL-SLEEVE-001` from VLM process-card outputs.
+```text
+experiments/vlm_source_pdf_process_cards/output/vlm_page_106.json
+experiments/vlm_source_pdf_process_cards/output/vlm_page_107.json
+experiments/vlm_source_pdf_process_cards/output/vlm_page_108.json
+experiments/vlm_source_pdf_process_cards/output/vlm_page_109.json
+experiments/vlm_source_pdf_process_cards/output/vlm_page_110.json
+```
+
+It merges process-card pages into three source-backed cases:
+
+| Case | Pages | Steps | Status |
+| --- | ---: | ---: | --- |
+| 输出轴 | 106-107 | 12 | accepted |
+| 缸套 | 108 | 13 | needs_human_review |
+| 密封件定位套 | 109-110 | 13 | accepted |
+
+Source replacement result:
+
+| Group | Replaced |
+| --- | ---: |
+| principle_records | 3 |
+| lookup_records | 3 |
+| computation_methods | 1 |
+| case_records | 3 |
+| total | 10 |
+
+The retained manual record is:
+
+```text
+PR-INSPECTION-KEYSLOT-001
+```
+
+Reason:
+
+```text
+Current process-card VLM output only has generic inspection text.
+It does not contain the page prose about 偏摆仪及量块.
+```
+
+This is intentional. The test should not pretend that a process-card-only extractor has captured prose knowledge that it has not actually extracted.
+
+Sprint B evaluation:
+
+```bash
+python3 experiments/agent_query_eval/scripts/build_source_seed.py
+python3 experiments/agent_query_eval/scripts/evaluate.py
+python3 experiments/agent_query_eval/scripts/evaluate.py --seed gold
+python3 -m pytest experiments/agent_query_eval/tests -q
+```
+
+Results:
+
+```text
+source seed: 21/21 passed, intent_accuracy 1.0
+gold seed:   21/21 passed, intent_accuracy 1.0
+tests:       10 passed
+```
+
+The evaluation reports are written separately:
+
+```text
+experiments/agent_query_eval/output/agent_query_eval_report_source.json
+experiments/agent_query_eval/output/agent_query_eval_report_gold.json
+```
+
+Important quality finding:
+
+```text
+source_quality.status = passed_with_flags
+source_quality.flag_count = 8
+```
+
+The flags are inherited from the existing source-PDF VLM validation, including p108 dimension mismatches. Therefore the cylinder-liner case is query-usable but marked `needs_human_review`; downstream Agent logic should not treat it as fully accepted calculation evidence without checking quality flags.
+
+## Next Step
+
+Proceed to the remaining Sprint B extractor gap:
+
+```text
+Full-page principle/prose extraction
+```
+
+Recommended targets:
+
+1. Extract prose around p107 keyslot symmetry inspection.
+2. Extract prose around baseline-first / datum-first route principles.
+3. Add a quality gate that requires principle records to cite actual prose, not only inferred process-card patterns.
+4. Keep the same 21-question evaluation as the regression gate.
 
 Keep the same 21-question evaluation as the regression gate.
