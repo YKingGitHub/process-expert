@@ -1,0 +1,132 @@
+{
+  "datums": [
+    {
+      "description": "Section view cutting plane.",
+      "name": "A",
+      "source_text": "A-A"
+    },
+    {
+      "description": "Datum B (likely the bottom face of the step).",
+      "name": "B",
+      "source_text": "[B]"
+    },
+    {
+      "description": "Datum C (likely the outer diameter or axis).",
+      "name": "C",
+      "source_text": "[C]"
+    }
+  ],
+  "dimensions": [
+    {
+      "name": "Outer Diameter",
+      "source_text": "φ103",
+      "tolerance": "",
+      "unit": "mm",
+      "value": "103"
+    },
+    {
+      "name": "Step Diameter",
+      "source_text": "φ40",
+      "tolerance": "",
+      "unit": "mm",
+      "value": "40"
+    },
+    {
+      "name": "Total Thickness",
+      "source_text": "30.5",
+      "tolerance": "",
+      "unit": "mm",
+      "value": "30.5"
+    },
+    {
+      "name": "Inner Bore Diameter",
+      "source_text": "φ34 +0.25/0",
+      "tolerance": "+0.25/0",
+      "unit": "mm",
+      "value": "34"
+    },
+    {
+      "name": "Step Height",
+      "source_text": "1.5",
+      "tolerance": "",
+      "unit": "mm",
+      "value": "1.5"
+    },
+    {
+      "name": "Feature Offset",
+      "source_text": "15 +0.3/0",
+      "tolerance": "+0.3/0",
+      "unit": "mm",
+      "value": "15"
+    }
+  ],
+  "extraction_mode": "drawing_png_vlm",
+  "features": [
+    {
+      "description": "Circular surface designated for welding.",
+      "feature_type": "Surface",
+      "name": "Welding Surface",
+      "related_dimensions": [],
+      "source_text": "待焊面(整圆)"
+    },
+    {
+      "description": "Designated area for part identification marking.",
+      "feature_type": "Surface",
+      "name": "Marking Area",
+      "related_dimensions": [],
+      "source_text": "标识处"
+    },
+    {
+      "description": "Radius fillet on the inner bore.",
+      "feature_type": "Edge Treatment",
+      "name": "Fillet",
+      "related_dimensions": [],
+      "source_text": "2-R4"
+    }
+  ],
+  "geometric_tolerances": [
+    {
+      "applies_to": "Inner Bore (φ34)",
+      "datums": [
+        "B",
+        "C"
+      ],
+      "source_text": "⊕ | φ0.1 | B | C",
+      "type": "Position",
+      "value": "0.1"
+    },
+    {
+      "applies_to": "Feature at offset 15",
+      "datums": [
+        "B",
+        "C"
+      ],
+      "source_text": "⊕ | 0.1 | B | C",
+      "type": "Position",
+      "value": "0.1"
+    }
+  ],
+  "manufacturing_notes": [],
+  "overall_geometry": "Cylindrical disc with a central bore and a stepped feature.",
+  "part": {
+    "blank": "",
+    "material": "",
+    "part_category": ""
+  },
+  "source_file": "test-files/测试.png",
+  "surface_roughness": [
+    {
+      "applies_to": "General / Unspecified",
+      "source_text": "3.2",
+      "value": "3.2"
+    }
+  ],
+  "technical_requirements": [
+    "1. 在图示位置进行零件标识;",
+    "2. 未注公差按GB/T1804-2000的m级执行;",
+    "3. 未注锐边均应倒圆, 圆角半径尺寸为0.1mm~0.5mm;",
+    "4. 待焊面目视检查;",
+    "5. 待焊面液体渗透检查。"
+  ],
+  "warnings": []
+}
