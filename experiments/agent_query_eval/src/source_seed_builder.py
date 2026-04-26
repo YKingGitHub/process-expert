@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import copy
+import json
 from dataclasses import dataclass
+from pathlib import Path
 
 from experiments.calculation_ready_extraction.src.calculation import (
     calculate_cylinder_liner_allowance,
@@ -18,6 +20,16 @@ from experiments.calculation_ready_extraction.src.route_merge import Route, merg
 
 SOURCE_DOC = "工艺知识库.pdf"
 SOURCE_KIND = "source_pdf_vlm_process_card"
+PROSE_SOURCE_KIND = "source_pdf_vlm_prose"
+REPO_ROOT = Path(__file__).resolve().parents[3]
+P107_PROSE_FIXTURE = (
+    REPO_ROOT
+    / "experiments"
+    / "prose_principle_extraction"
+    / "fixtures"
+    / "source"
+    / "p107_principles.json"
+)
 
 
 @dataclass(frozen=True)
@@ -40,6 +52,7 @@ def build_source_replaced_seed(base_seed: dict) -> BuildResult:
     cylinder_liner = require_route(routes_by_part, "缸套")
     seal_sleeve = require_route(routes_by_part, "密封件定位套")
     allowance = calculate_cylinder_liner_allowance(cylinder_liner)
+    prose_principles = load_prose_principles()
 
     replace_record(
         seed,
@@ -62,12 +75,12 @@ def build_source_replaced_seed(base_seed: dict) -> BuildResult:
         heat_treatment_principle(output_shaft, cylinder_liner, seal_sleeve),
         replacements,
     )
-    mark_retained(
+    replace_record(
         seed,
         "principle_records",
         "PR-INSPECTION-KEYSLOT-001",
-        "Current process-card VLM output only has generic inspection text; it does not contain the page prose about 偏摆仪及量块.",
-        retained,
+        keyslot_principle(prose_principles),
+        replacements,
     )
 
     replace_record(
@@ -277,6 +290,34 @@ def case_record(route: Route, part_category: str, quality_status: str = "accepte
     }
 
 
+def load_prose_principles(path: Path = P107_PROSE_FIXTURE) -> list[dict]:
+    data = json.loads(path.read_text(encoding="utf-8"))
+    return data["payload"]["principle_records"]
+
+
+def keyslot_principle(prose_principles: list[dict]) -> dict:
+    record = next(item for item in prose_principles if item["id"] == "PR-INSPECTION-KEYSLOT-001")
+    return {
+        "source_doc": SOURCE_DOC,
+        "source_page": 107,
+        "chapter_path": "第3章 机械加工工艺规程制订",
+        "topic": record["topic"],
+        "subtype": record["principle_type"],
+        "principle_text": record["principle_text"],
+        "applicable_scenario": record["applicable_scenario"],
+        "source_text": record["source_text"],
+        "quality_status": "accepted",
+        "tags": record["tags"],
+        "extraction_source": {
+            "kind": PROSE_SOURCE_KIND,
+            "source_pages": [107],
+            "fixture": str(P107_PROSE_FIXTURE.relative_to(REPO_ROOT)),
+            "evidence_region": record["evidence_region"],
+            "confidence": record["confidence"],
+        },
+    }
+
+
 def replace_record(
     seed: dict, collection: str, record_id: str, updates: dict, replacements: list[dict]
 ) -> None:
@@ -361,7 +402,8 @@ def build_report(
     total_records = sum(len(records) for records in seed.values() if isinstance(records, list))
     return {
         "title": "Agent query source seed replacement report",
-        "source": SOURCE_KIND,
+        "source": "source_pdf_vlm_process_card+prose",
+        "source_kinds": [SOURCE_KIND, PROSE_SOURCE_KIND],
         "record_count": total_records,
         "replaced_count": len(replacements),
         "retained_manual_count": len(retained),
@@ -383,8 +425,8 @@ def build_report(
             "flags": quality["flags"],
         },
         "known_limits": [
-            "The source replacement currently uses process-card VLM outputs only, not full-page prose extraction.",
-            "Records whose evidence exists only in prose remain manual until a page-level principle extractor is added.",
+            "The source replacement currently combines process-card VLM outputs with a targeted p107 prose-principle fixture.",
+            "The prose extractor is proven for p107 only; broader prose extraction still needs page-range expansion and quality gates.",
             "The cylinder liner route is retained for query testing but marked with source quality flags from p108 validation.",
         ],
     }

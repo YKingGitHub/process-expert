@@ -206,9 +206,11 @@ experiments/agent_query_eval/src/source_seed_builder.py
 experiments/agent_query_eval/scripts/build_source_seed.py
 experiments/agent_query_eval/data/source_replaced_seed.json
 experiments/agent_query_eval/data/source_replacement_report.json
+experiments/prose_principle_extraction/fixtures/source/p107_principles.json
+experiments/prose_principle_extraction/scripts/vlm_extract_principles.py
 ```
 
-The builder uses:
+The builder uses process-card VLM outputs:
 
 ```text
 experiments/vlm_source_pdf_process_cards/output/vlm_page_106.json
@@ -216,6 +218,12 @@ experiments/vlm_source_pdf_process_cards/output/vlm_page_107.json
 experiments/vlm_source_pdf_process_cards/output/vlm_page_108.json
 experiments/vlm_source_pdf_process_cards/output/vlm_page_109.json
 experiments/vlm_source_pdf_process_cards/output/vlm_page_110.json
+```
+
+It also uses the p107 prose-principle fixture:
+
+```text
+experiments/prose_principle_extraction/fixtures/source/p107_principles.json
 ```
 
 It merges process-card pages into three source-backed cases:
@@ -230,26 +238,27 @@ Source replacement result:
 
 | Group | Replaced |
 | --- | ---: |
-| principle_records | 3 |
+| principle_records | 4 |
 | lookup_records | 3 |
 | computation_methods | 1 |
 | case_records | 3 |
-| total | 10 |
+| total | 11 |
 
-The retained manual record is:
+The p107 prose fixture replaced:
 
 ```text
 PR-INSPECTION-KEYSLOT-001
 ```
 
-Reason:
+Evidence:
 
 ```text
-Current process-card VLM output only has generic inspection text.
-It does not contain the page prose about 偏摆仪及量块.
+图样中键槽未标注对称度要求，但在实际加工中应保证±0.025mm的对称度。
+这样便于与齿轮的装配，键槽对称度的检查，可采用偏摆仪及量块配合完成，
+也可采用专用对称度检具进行检查。
 ```
 
-This is intentional. The test should not pretend that a process-card-only extractor has captured prose knowledge that it has not actually extracted.
+There are now no manual retained records in the source-replaced seed. The important distinction remains: process-card evidence and prose evidence are extracted by different tools and tagged with different `extraction_source.kind` values.
 
 Sprint B evaluation:
 
@@ -265,7 +274,7 @@ Results:
 ```text
 source seed: 21/21 passed, intent_accuracy 1.0
 gold seed:   21/21 passed, intent_accuracy 1.0
-tests:       10 passed
+tests:       12 passed
 ```
 
 The evaluation reports are written separately:
@@ -289,14 +298,14 @@ The flags are inherited from the existing source-PDF VLM validation, including p
 Proceed to the remaining Sprint B extractor gap:
 
 ```text
-Full-page principle/prose extraction
+Scale full-page principle/prose extraction beyond p107
 ```
 
 Recommended targets:
 
-1. Extract prose around p107 keyslot symmetry inspection.
-2. Extract prose around baseline-first / datum-first route principles.
-3. Add a quality gate that requires principle records to cite actual prose, not only inferred process-card patterns.
+1. Extract prose around baseline-first / datum-first route principles.
+2. Extract thin-wall prose paragraphs, not only process-card-inferred principles.
+3. Add a quality gate that requires principle records to cite actual prose when the source claim is not directly represented by table rows.
 4. Keep the same 21-question evaluation as the regression gate.
 
 Keep the same 21-question evaluation as the regression gate.

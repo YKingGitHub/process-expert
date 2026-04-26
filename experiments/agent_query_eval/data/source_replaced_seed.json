@@ -943,23 +943,33 @@
       "topic": "热处理工序安排"
     },
     {
-      "applicable_scenario": "轴类零件键槽检验",
+      "applicable_scenario": "轴类零件键槽加工后的对称度检验",
       "chapter_path": "第3章 机械加工工艺规程制订",
+      "extraction_source": {
+        "confidence": 1.0,
+        "evidence_region": "表 3-89 下方正文第 2 条",
+        "fixture": "experiments/prose_principle_extraction/fixtures/source/p107_principles.json",
+        "kind": "source_pdf_vlm_prose",
+        "source_pages": [
+          107
+        ]
+      },
       "id": "PR-INSPECTION-KEYSLOT-001",
       "knowledge_type": "principle",
-      "principle_text": "键槽对称度检查可采用偏摆仪及量块配合完成，也可采用专用对称度检具进行检查。",
+      "principle_text": "图样未标注键槽对称度时，实际加工仍应保证装配所需的对称度；键槽对称度可用偏摆仪与量块配合检查，也可用专用对称度检具检查。",
       "quality_status": "accepted",
-      "replacement_blocker": "Current process-card VLM output only has generic inspection text; it does not contain the page prose about 偏摆仪及量块.",
       "source_doc": "工艺知识库.pdf",
       "source_page": 107,
-      "source_replacement_status": "manual_seed_retained",
-      "source_text": "键槽对称度的检查，可采用偏摆仪及量块配合完成，也可采用专用对称度检具进行检查。",
+      "source_replacement_status": "source_pdf_vlm_replaced",
+      "source_text": "图样中键槽未标注对称度要求，但在实际加工中应保证±0.025mm的对称度。这样便于与齿轮的装配，键槽对称度的检查，可采用偏摆仪及量块配合完成，也可采用专用对称度检具进行检查。",
       "subtype": "inspection_method",
       "tags": [
         "键槽",
         "对称度",
         "检验",
-        "偏摆仪"
+        "偏摆仪",
+        "量块",
+        "专用检具"
       ],
       "topic": "键槽对称度检查"
     }

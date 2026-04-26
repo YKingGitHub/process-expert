@@ -40,11 +40,11 @@ Expected:
 - case answers are marked `reference_case`
 - out-of-taxonomy questions can return `unknown_query` or `mixed_query` with `candidate_type`
 
-Sprint B source replacement currently covers 10 records:
+Sprint B source replacement currently covers 11 records:
 
-- 3 principle records
+- 4 principle records
 - 3 lookup records
 - 1 computation method
 - 3 case records
 
-The keyslot symmetry inspection record is intentionally retained as manual seed because the current process-card VLM output does not include the full prose evidence for `偏摆仪及量块`.
+The keyslot symmetry inspection record is backed by the p107 prose-principle fixture from `experiments/prose_principle_extraction/fixtures/source/p107_principles.json`.

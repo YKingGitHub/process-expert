@@ -1,11 +1,11 @@
 {
   "known_limits": [
-    "The source replacement currently uses process-card VLM outputs only, not full-page prose extraction.",
-    "Records whose evidence exists only in prose remain manual until a page-level principle extractor is added.",
+    "The source replacement currently combines process-card VLM outputs with a targeted p107 prose-principle fixture.",
+    "The prose extractor is proven for p107 only; broader prose extraction still needs page-range expansion and quality gates.",
     "The cylinder liner route is retained for query testing but marked with source quality flags from p108 validation."
   ],
   "record_count": 20,
-  "replaced_count": 10,
+  "replaced_count": 11,
   "replacements": [
     {
       "collection": "principle_records",
@@ -34,6 +34,14 @@
         108,
         109,
         110
+      ]
+    },
+    {
+      "collection": "principle_records",
+      "id": "PR-INSPECTION-KEYSLOT-001",
+      "quality_status": "accepted",
+      "source_pages": [
+        107
       ]
     },
     {
@@ -98,14 +106,8 @@
       ]
     }
   ],
-  "retained_manual_count": 1,
-  "retained_manual_records": [
-    {
-      "collection": "principle_records",
-      "id": "PR-INSPECTION-KEYSLOT-001",
-      "reason": "Current process-card VLM output only has generic inspection text; it does not contain the page prose about 偏摆仪及量块."
-    }
-  ],
+  "retained_manual_count": 0,
+  "retained_manual_records": [],
   "routes": [
     {
       "part_name": "输出轴",
@@ -149,7 +151,11 @@
       "table_ref": "表 3-91"
     }
   ],
-  "source": "source_pdf_vlm_process_card",
+  "source": "source_pdf_vlm_process_card+prose",
+  "source_kinds": [
+    "source_pdf_vlm_process_card",
+    "source_pdf_vlm_prose"
+  ],
   "source_quality": {
     "flag_count": 8,
     "flags": [

@@ -1,0 +1,47 @@
+{
+  "payload": {
+    "page_title": "第3章 机械加工工艺规程制订",
+    "principle_records": [
+      {
+        "applicable_scenario": "轴类零件键槽加工后的对称度检验",
+        "confidence": 1.0,
+        "evidence_region": "表 3-89 下方正文第 2 条",
+        "id": "PR-INSPECTION-KEYSLOT-001",
+        "principle_text": "图样未标注键槽对称度时，实际加工仍应保证装配所需的对称度；键槽对称度可用偏摆仪与量块配合检查，也可用专用对称度检具检查。",
+        "principle_type": "inspection_method",
+        "quality_flags": [],
+        "source_text": "图样中键槽未标注对称度要求，但在实际加工中应保证±0.025mm的对称度。这样便于与齿轮的装配，键槽对称度的检查，可采用偏摆仪及量块配合完成，也可采用专用对称度检具进行检查。",
+        "tags": [
+          "键槽",
+          "对称度",
+          "检验",
+          "偏摆仪",
+          "量块",
+          "专用检具"
+        ],
+        "topic": "键槽对称度检查"
+      },
+      {
+        "applicable_scenario": "输出轴各段同轴度检验",
+        "confidence": 1.0,
+        "evidence_region": "表 3-89 下方正文第 3 条",
+        "id": "PR-INSPECTION-OUTPUT-SHAFT-CONCENTRICITY-001",
+        "principle_text": "输出轴各部同轴度可采用偏摆仪和百分表结合进行检查。",
+        "principle_type": "inspection_method",
+        "quality_flags": [],
+        "source_text": "输出轴各部同轴度的检查，可采用偏摆仪和百分表结合进行检查。",
+        "tags": [
+          "输出轴",
+          "同轴度",
+          "检验",
+          "偏摆仪",
+          "百分表"
+        ],
+        "topic": "输出轴同轴度检查"
+      }
+    ],
+    "source_page": 107,
+    "warnings": []
+  },
+  "validation_errors": []
+}

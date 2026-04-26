@@ -114,9 +114,11 @@ def test_source_replaced_seed_tracks_replacements_and_limits():
         if record.get("source_replacement_status") == "source_pdf_vlm_replaced"
     }
 
-    assert report["replaced_count"] == 10
+    assert report["replaced_count"] == 11
+    assert report["retained_manual_count"] == 0
     assert "PR-DATUM-AXIS-001" in replaced
     assert "PR-THIN-WALL-001" in replaced
+    assert "PR-INSPECTION-KEYSLOT-001" in replaced
     assert "LU-ALLOW-GRIND-001" in replaced
     assert "CM-ALLOW-FINISH-GRIND-001" in replaced
     assert "CASE-CYLINDER-LINER-001" in replaced
@@ -124,8 +126,9 @@ def test_source_replaced_seed_tracks_replacements_and_limits():
     keyslot = next(
         item for item in seed["principle_records"] if item["id"] == "PR-INSPECTION-KEYSLOT-001"
     )
-    assert keyslot["source_replacement_status"] == "manual_seed_retained"
-    assert "偏摆仪及量块" in keyslot["replacement_blocker"]
+    assert keyslot["source_replacement_status"] == "source_pdf_vlm_replaced"
+    assert keyslot["extraction_source"]["kind"] == "source_pdf_vlm_prose"
+    assert "偏摆仪及量块" in keyslot["source_text"]
     assert report["source_quality"]["status"] == "passed_with_flags"
 
 
