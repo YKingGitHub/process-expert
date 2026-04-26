@@ -1,9 +1,16 @@
 {
   "known_limits": [
     "The source replacement currently combines process-card VLM outputs with a targeted p107 prose-principle fixture.",
-    "The prose extractor is proven for p107 only; broader prose extraction still needs page-range expansion and quality gates.",
+    "The prose fixture loader and quality gate are directory-based, but only p107 has checked-in prose evidence so far.",
     "The cylinder liner route is retained for query testing but marked with source quality flags from p108 validation."
   ],
+  "prose_quality": {
+    "fixture_count": 1,
+    "flag_count": 0,
+    "flags": [],
+    "record_count": 2,
+    "status": "accepted"
+  },
   "record_count": 20,
   "replaced_count": 11,
   "replacements": [

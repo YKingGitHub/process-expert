@@ -128,8 +128,11 @@ def test_source_replaced_seed_tracks_replacements_and_limits():
     )
     assert keyslot["source_replacement_status"] == "source_pdf_vlm_replaced"
     assert keyslot["extraction_source"]["kind"] == "source_pdf_vlm_prose"
+    assert keyslot["extraction_source"]["fixture"].endswith("p107_principles.json")
     assert "偏摆仪及量块" in keyslot["source_text"]
     assert report["source_quality"]["status"] == "passed_with_flags"
+    assert report["prose_quality"]["status"] == "accepted"
+    assert report["prose_quality"]["fixture_count"] == 1
 
 
 def test_source_replaced_allowance_comes_from_vlm_dimensions():

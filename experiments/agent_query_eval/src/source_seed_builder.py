@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import copy
-import json
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -16,19 +15,20 @@ from experiments.calculation_ready_extraction.src.loader import (
 )
 from experiments.calculation_ready_extraction.src.quality_gate import evaluate_pages
 from experiments.calculation_ready_extraction.src.route_merge import Route, merge_routes
+from experiments.prose_principle_extraction.src.loader import records_by_id
+from experiments.prose_principle_extraction.src.quality_gate import evaluate_prose_fixtures
 
 
 SOURCE_DOC = "工艺知识库.pdf"
 SOURCE_KIND = "source_pdf_vlm_process_card"
 PROSE_SOURCE_KIND = "source_pdf_vlm_prose"
 REPO_ROOT = Path(__file__).resolve().parents[3]
-P107_PROSE_FIXTURE = (
+PROSE_FIXTURE_DIR = (
     REPO_ROOT
     / "experiments"
     / "prose_principle_extraction"
     / "fixtures"
     / "source"
-    / "p107_principles.json"
 )
 
 
@@ -42,6 +42,7 @@ def build_source_replaced_seed(base_seed: dict) -> BuildResult:
     pages = load_vlm_pages()
     routes = merge_routes(pages)
     quality = evaluate_pages(pages, gold_payloads=[load_p108_gold()])
+    prose_quality = evaluate_prose_fixtures(PROSE_FIXTURE_DIR)
     routes_by_part = {route.part_name: route for route in routes}
 
     seed = copy.deepcopy(base_seed)
@@ -52,7 +53,7 @@ def build_source_replaced_seed(base_seed: dict) -> BuildResult:
     cylinder_liner = require_route(routes_by_part, "缸套")
     seal_sleeve = require_route(routes_by_part, "密封件定位套")
     allowance = calculate_cylinder_liner_allowance(cylinder_liner)
-    prose_principles = load_prose_principles()
+    prose_records = records_by_id(PROSE_FIXTURE_DIR)
 
     replace_record(
         seed,
@@ -79,7 +80,7 @@ def build_source_replaced_seed(base_seed: dict) -> BuildResult:
         seed,
         "principle_records",
         "PR-INSPECTION-KEYSLOT-001",
-        keyslot_principle(prose_principles),
+        prose_principle(prose_records, "PR-INSPECTION-KEYSLOT-001"),
         replacements,
     )
 
@@ -135,7 +136,7 @@ def build_source_replaced_seed(base_seed: dict) -> BuildResult:
         replacements,
     )
 
-    report = build_report(seed, replacements, retained, routes, quality)
+    report = build_report(seed, replacements, retained, routes, quality, prose_quality)
     return BuildResult(seed=seed, report=report)
 
 
@@ -290,16 +291,12 @@ def case_record(route: Route, part_category: str, quality_status: str = "accepte
     }
 
 
-def load_prose_principles(path: Path = P107_PROSE_FIXTURE) -> list[dict]:
-    data = json.loads(path.read_text(encoding="utf-8"))
-    return data["payload"]["principle_records"]
-
-
-def keyslot_principle(prose_principles: list[dict]) -> dict:
-    record = next(item for item in prose_principles if item["id"] == "PR-INSPECTION-KEYSLOT-001")
+def prose_principle(prose_records: dict[str, dict], record_id: str) -> dict:
+    record = prose_records[record_id]
+    fixture_path = Path(record["_fixture_path"])
     return {
         "source_doc": SOURCE_DOC,
-        "source_page": 107,
+        "source_page": record["_source_page"],
         "chapter_path": "第3章 机械加工工艺规程制订",
         "topic": record["topic"],
         "subtype": record["principle_type"],
@@ -310,8 +307,8 @@ def keyslot_principle(prose_principles: list[dict]) -> dict:
         "tags": record["tags"],
         "extraction_source": {
             "kind": PROSE_SOURCE_KIND,
-            "source_pages": [107],
-            "fixture": str(P107_PROSE_FIXTURE.relative_to(REPO_ROOT)),
+            "source_pages": [record["_source_page"]],
+            "fixture": str(fixture_path.relative_to(REPO_ROOT)),
             "evidence_region": record["evidence_region"],
             "confidence": record["confidence"],
         },
@@ -398,6 +395,7 @@ def build_report(
     retained: list[dict],
     routes: list[Route],
     quality: dict,
+    prose_quality: dict,
 ) -> dict:
     total_records = sum(len(records) for records in seed.values() if isinstance(records, list))
     return {
@@ -424,9 +422,10 @@ def build_report(
             "flag_count": quality["flag_count"],
             "flags": quality["flags"],
         },
+        "prose_quality": prose_quality,
         "known_limits": [
             "The source replacement currently combines process-card VLM outputs with a targeted p107 prose-principle fixture.",
-            "The prose extractor is proven for p107 only; broader prose extraction still needs page-range expansion and quality gates.",
+            "The prose fixture loader and quality gate are directory-based, but only p107 has checked-in prose evidence so far.",
             "The cylinder liner route is retained for query testing but marked with source quality flags from p108 validation.",
         ],
     }

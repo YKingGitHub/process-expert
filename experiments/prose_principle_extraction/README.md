@@ -13,7 +13,16 @@ python3 experiments/prose_principle_extraction/scripts/vlm_extract_principles.py
 Validate the checked-in fixture:
 
 ```bash
+python3 experiments/prose_principle_extraction/scripts/check_prose_fixtures.py
 python3 experiments/prose_principle_extraction/scripts/validate_principle_json.py \
   experiments/prose_principle_extraction/fixtures/source/p107_principles.json
 python3 -m pytest experiments/prose_principle_extraction/tests -q
 ```
+
+The checked-in fixtures are loaded directory-wide from:
+
+```text
+experiments/prose_principle_extraction/fixtures/source/
+```
+
+Downstream seed replacement should consume records by stable `id`, not by hardcoded page paths.

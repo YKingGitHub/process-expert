@@ -226,6 +226,14 @@ It also uses the p107 prose-principle fixture:
 experiments/prose_principle_extraction/fixtures/source/p107_principles.json
 ```
 
+Prose fixtures are now loaded directory-wide from:
+
+```text
+experiments/prose_principle_extraction/fixtures/source/
+```
+
+The quality gate checks schema validity, duplicate record ids, confidence, and whether `source_text` contains actual Chinese source evidence.
+
 It merges process-card pages into three source-backed cases:
 
 | Case | Pages | Steps | Status |
@@ -274,7 +282,8 @@ Results:
 ```text
 source seed: 21/21 passed, intent_accuracy 1.0
 gold seed:   21/21 passed, intent_accuracy 1.0
-tests:       12 passed
+focused tests: 14 passed
+full tests:    32 passed
 ```
 
 The evaluation reports are written separately:
@@ -289,6 +298,9 @@ Important quality finding:
 ```text
 source_quality.status = passed_with_flags
 source_quality.flag_count = 8
+prose_quality.status = accepted
+prose_quality.fixture_count = 1
+prose_quality.record_count = 2
 ```
 
 The flags are inherited from the existing source-PDF VLM validation, including p108 dimension mismatches. Therefore the cylinder-liner case is query-usable but marked `needs_human_review`; downstream Agent logic should not treat it as fully accepted calculation evidence without checking quality flags.

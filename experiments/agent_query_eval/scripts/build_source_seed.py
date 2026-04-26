@@ -35,6 +35,8 @@ def main() -> int:
                 "replaced_count": result.report["replaced_count"],
                 "retained_manual_count": result.report["retained_manual_count"],
                 "source_quality_status": result.report["source_quality"]["status"],
+                "prose_quality_status": result.report["prose_quality"]["status"],
+                "prose_fixture_count": result.report["prose_quality"]["fixture_count"],
             },
             ensure_ascii=False,
             indent=2,
