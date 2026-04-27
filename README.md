@@ -167,11 +167,48 @@ process-expert/
 ├── ingest/                          # 入库管线（PDF → 知识库）
 │   └── cli.py                       # 入库 CLI
 │
+├── experiments/                     # 知识库正确性、Agent 查询、计算能力 POC
+│   ├── README.md                    # 实验阅读入口和推荐顺序
+│   ├── agent_query_eval/            # Agent 查询 family/contract/citation 评测
+│   ├── vlm_source_pdf_process_cards/ # 源 PDF 工艺卡 VLM 抽取与 gold 对比
+│   ├── calculation_ready_extraction/# 质量门禁、路线合并、确定性余量计算
+│   ├── prose_principle_extraction/  # 正文原则类知识抽取
+│   └── real_drawing_knowledge_planning/ # 真实图纸知识需求与 gap report
+│
 ├── tracer/                          # 追踪日志引擎
 │   └── pipeline_tracer.py           # JSON + Markdown 双格式输出
 │
 ├── templates/                       # Word 模板（预留扩展）
 └── references/                      # 参考 PDF（本地保留，.gitignore）
+```
+
+### 实验目录怎么读
+
+`experiments/` 是本周知识库正确性工作的主要可复现产物。它不直接改生产 Stage 1-5 流程，而是把关键假设拆成可读报告、固定 fixture 和 pytest：
+
+- `experiments/README.md`：总入口，说明阅读顺序、目录结构、样例发现和测试命令
+- `experiments/vlm_source_pdf_process_cards/report.md`：说明为什么旧 POC 提取不能直接作为计算真值
+- `experiments/calculation_ready_extraction/report.md`：说明如何从源 PDF VLM 输出进入质量门禁和确定性计算
+- `experiments/agent_query_eval/report.md`：说明 Agent 查询知识时需要满足的 family、contract、citation 要求
+- `experiments/real_drawing_knowledge_planning/report.md`：说明真实图纸能暴露哪些知识缺口
+
+完整回归命令：
+
+```bash
+python3 -m pytest \
+  experiments/process_calc_extracted_content/tests \
+  experiments/vlm_source_pdf_process_cards/tests \
+  experiments/calculation_ready_extraction/tests \
+  experiments/prose_principle_extraction/tests \
+  experiments/agent_query_eval/tests \
+  experiments/real_drawing_knowledge_planning/tests \
+  -q
+```
+
+当前期望结果：
+
+```text
+39 passed
 ```
 
 ---
