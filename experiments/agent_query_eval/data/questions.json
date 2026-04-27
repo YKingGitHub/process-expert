@@ -1,0 +1,149 @@
+[
+  {
+    "id": "P1",
+    "question": "轴类零件制定工艺路线时，基准应如何选择？",
+    "expected_intent": "principle_query",
+    "expected_knowledge_type": "principle",
+    "expected_status": "answered"
+  },
+  {
+    "id": "P2",
+    "question": "为什么机械加工通常要先加工基准面？",
+    "expected_intent": "principle_query",
+    "expected_knowledge_type": "principle",
+    "expected_status": "answered"
+  },
+  {
+    "id": "P3",
+    "question": "薄壁缸套加工为什么要粗精分开？",
+    "expected_intent": "principle_query",
+    "expected_knowledge_type": "principle",
+    "expected_status": "answered"
+  },
+  {
+    "id": "P4",
+    "question": "有热处理要求的零件，热处理工序如何安排？",
+    "expected_intent": "principle_query",
+    "expected_knowledge_type": "principle",
+    "expected_status": "answered"
+  },
+  {
+    "id": "P5",
+    "question": "键槽加工后应如何检查对称度？",
+    "expected_intent": "principle_query",
+    "expected_knowledge_type": "principle",
+    "expected_status": "answered"
+  },
+  {
+    "id": "L1",
+    "question": "φ50H7 的上下偏差是多少？",
+    "expected_intent": "lookup_query",
+    "expected_knowledge_type": "lookup",
+    "expected_status": "answered"
+  },
+  {
+    "id": "L2",
+    "question": "精车外圆通常能达到的 Ra 范围是多少？",
+    "expected_intent": "lookup_query",
+    "expected_knowledge_type": "lookup",
+    "expected_status": "answered"
+  },
+  {
+    "id": "L3",
+    "question": "精车后准备磨削，磨削余量推荐范围是多少？",
+    "expected_intent": "lookup_query",
+    "expected_knowledge_type": "lookup",
+    "expected_status": "answered"
+  },
+  {
+    "id": "L4",
+    "question": "CA6140 适用于哪些典型车削工序？",
+    "expected_intent": "lookup_query",
+    "expected_knowledge_type": "lookup",
+    "expected_status": "answered"
+  },
+  {
+    "id": "L5",
+    "question": "45 钢调质后常见硬度范围如何表示？",
+    "expected_intent": "lookup_query",
+    "expected_knowledge_type": "lookup",
+    "expected_status": "answered"
+  },
+  {
+    "id": "C1",
+    "question": "尺寸链封闭环基本尺寸怎么计算？",
+    "expected_intent": "computation_query",
+    "expected_knowledge_type": "computation",
+    "expected_status": "answered"
+  },
+  {
+    "id": "C2",
+    "question": "封闭环极值公差怎么计算？",
+    "expected_intent": "computation_query",
+    "expected_knowledge_type": "computation",
+    "expected_status": "answered"
+  },
+  {
+    "id": "C3",
+    "question": "基准不重合时工序尺寸公差如何分配？",
+    "expected_intent": "computation_query",
+    "expected_knowledge_type": "computation",
+    "expected_status": "answered"
+  },
+  {
+    "id": "C4",
+    "question": "精车到磨削的直径余量和单边余量怎么计算？",
+    "expected_intent": "computation_query",
+    "expected_knowledge_type": "computation",
+    "expected_status": "answered"
+  },
+  {
+    "id": "C5",
+    "question": "连杆大、小头孔平行度误差如何计算？",
+    "expected_intent": "computation_query",
+    "expected_knowledge_type": "computation",
+    "expected_status": "answered"
+  },
+  {
+    "id": "E1",
+    "question": "有没有轴类零件工艺过程卡案例？",
+    "expected_intent": "case_query",
+    "expected_knowledge_type": "case",
+    "expected_status": "answered"
+  },
+  {
+    "id": "E2",
+    "question": "缸套薄壁件案例中工序是如何安排的？",
+    "expected_intent": "case_query",
+    "expected_knowledge_type": "case",
+    "expected_status": "answered"
+  },
+  {
+    "id": "E3",
+    "question": "密封件定位套案例里粗车和磨削余量如何安排？",
+    "expected_intent": "case_query",
+    "expected_knowledge_type": "case",
+    "expected_status": "answered"
+  },
+  {
+    "id": "E4",
+    "question": "输出轴案例中键槽安排在什么阶段？",
+    "expected_intent": "case_query",
+    "expected_knowledge_type": "case",
+    "expected_status": "answered"
+  },
+  {
+    "id": "E5",
+    "question": "书中有哪些能说明案例不能照抄，需要按图纸重新分析的内容？",
+    "expected_intent": "mixed_query",
+    "expected_knowledge_type": "mixed",
+    "expected_status": "answered"
+  },
+  {
+    "id": "X1",
+    "question": "某张图纸上的焊接符号应该如何按国家标准完整解释？",
+    "expected_intent": "unknown_query",
+    "expected_knowledge_type": "candidate:drawing_requirement",
+    "expected_status": "not_found"
+  }
+]

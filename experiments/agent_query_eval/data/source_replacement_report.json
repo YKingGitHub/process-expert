@@ -1,0 +1,290 @@
+{
+  "known_limits": [
+    "The source replacement currently combines process-card VLM outputs with a targeted p107 prose-principle fixture.",
+    "The prose fixture loader and quality gate are directory-based, but only p107 has checked-in prose evidence so far.",
+    "The cylinder liner route is retained for query testing but marked with source quality flags from p108 validation."
+  ],
+  "prose_quality": {
+    "fixture_count": 1,
+    "flag_count": 0,
+    "flags": [],
+    "record_count": 2,
+    "status": "accepted"
+  },
+  "record_count": 20,
+  "replaced_count": 11,
+  "replacements": [
+    {
+      "collection": "principle_records",
+      "id": "PR-DATUM-AXIS-001",
+      "quality_status": "accepted",
+      "source_pages": [
+        106,
+        107
+      ]
+    },
+    {
+      "collection": "principle_records",
+      "id": "PR-THIN-WALL-001",
+      "quality_status": "accepted",
+      "source_pages": [
+        108
+      ]
+    },
+    {
+      "collection": "principle_records",
+      "id": "PR-HEAT-TREAT-001",
+      "quality_status": "accepted",
+      "source_pages": [
+        106,
+        107,
+        108,
+        109,
+        110
+      ]
+    },
+    {
+      "collection": "principle_records",
+      "id": "PR-INSPECTION-KEYSLOT-001",
+      "quality_status": "accepted",
+      "source_pages": [
+        107
+      ]
+    },
+    {
+      "collection": "lookup_records",
+      "id": "LU-ALLOW-GRIND-001",
+      "quality_status": "accepted",
+      "source_pages": [
+        108
+      ]
+    },
+    {
+      "collection": "lookup_records",
+      "id": "LU-EQUIP-CA6140-001",
+      "quality_status": "accepted",
+      "source_pages": [
+        106,
+        107,
+        108
+      ]
+    },
+    {
+      "collection": "lookup_records",
+      "id": "LU-HEAT-45-TEMPER-001",
+      "quality_status": "accepted",
+      "source_pages": [
+        106,
+        107
+      ]
+    },
+    {
+      "collection": "computation_methods",
+      "id": "CM-ALLOW-FINISH-GRIND-001",
+      "quality_status": "accepted",
+      "source_pages": [
+        108
+      ]
+    },
+    {
+      "collection": "case_records",
+      "id": "CASE-SHAFT-OUTPUT-001",
+      "quality_status": "accepted",
+      "source_pages": [
+        106,
+        107
+      ]
+    },
+    {
+      "collection": "case_records",
+      "id": "CASE-CYLINDER-LINER-001",
+      "quality_status": "needs_human_review",
+      "source_pages": [
+        108
+      ]
+    },
+    {
+      "collection": "case_records",
+      "id": "CASE-SEAL-SLEEVE-001",
+      "quality_status": "accepted",
+      "source_pages": [
+        109,
+        110
+      ]
+    }
+  ],
+  "retained_manual_count": 0,
+  "retained_manual_records": [],
+  "routes": [
+    {
+      "part_name": "输出轴",
+      "route_flags": [
+        {
+          "card_index": 0,
+          "code": "continuation_merged",
+          "source_page": 107
+        }
+      ],
+      "source_pages": [
+        106,
+        107
+      ],
+      "step_count": 12,
+      "table_ref": "表 3-89"
+    },
+    {
+      "part_name": "缸套",
+      "route_flags": [],
+      "source_pages": [
+        108
+      ],
+      "step_count": 13,
+      "table_ref": "表 3-90"
+    },
+    {
+      "part_name": "密封件定位套",
+      "route_flags": [
+        {
+          "card_index": 0,
+          "code": "continuation_merged",
+          "source_page": 110
+        }
+      ],
+      "source_pages": [
+        109,
+        110
+      ],
+      "step_count": 13,
+      "table_ref": "表 3-91"
+    }
+  ],
+  "source": "source_pdf_vlm_process_card+prose",
+  "source_kinds": [
+    "source_pdf_vlm_process_card",
+    "source_pdf_vlm_prose"
+  ],
+  "source_quality": {
+    "flag_count": 8,
+    "flags": [
+      {
+        "card_index": 0,
+        "code": "continuation_part_missing",
+        "message": "Continuation card has empty part_name",
+        "source_page": 107
+      },
+      {
+        "actual": {
+          "part_name": "缸套",
+          "table_no": "表 3-90"
+        },
+        "card_index": 1,
+        "code": "zero_step_card",
+        "message": "Card has no process steps",
+        "source_page": 107
+      },
+      {
+        "card_index": 0,
+        "code": "continuation_part_missing",
+        "message": "Continuation card has empty part_name",
+        "source_page": 110
+      },
+      {
+        "code": "gold_dimension_missing",
+        "expected": {
+          "lower_deviation": null,
+          "nominal": 315.0,
+          "operation_name": "铸",
+          "source_text": "φ315mm",
+          "step_no": 1,
+          "surface": "outer",
+          "upper_deviation": null
+        },
+        "field": "dimensions",
+        "source_page": 108,
+        "step_no": 1
+      },
+      {
+        "code": "gold_dimension_missing",
+        "expected": {
+          "lower_deviation": null,
+          "nominal": 265.0,
+          "operation_name": "铸",
+          "source_text": "φ265mm",
+          "step_no": 1,
+          "surface": "inner",
+          "upper_deviation": null
+        },
+        "field": "dimensions",
+        "source_page": 108,
+        "step_no": 1
+      },
+      {
+        "code": "gold_dimension_missing",
+        "expected": {
+          "lower_deviation": null,
+          "nominal": 515.0,
+          "operation_name": "铸",
+          "source_text": "515mm",
+          "step_no": 1,
+          "surface": "length",
+          "upper_deviation": null
+        },
+        "field": "dimensions",
+        "source_page": 108,
+        "step_no": 1
+      },
+      {
+        "actual": {
+          "lower_deviation": 0.0,
+          "nominal": 305.0,
+          "operation_name": "粗车",
+          "source_text": "φ305 +0.5",
+          "step_no": 7,
+          "surface": "outer",
+          "upper_deviation": 0.5
+        },
+        "code": "gold_dimension_mismatch",
+        "expected": {
+          "lower_deviation": -0.5,
+          "nominal": 305.0,
+          "operation_name": "粗车",
+          "source_text": "φ305±0.5mm",
+          "step_no": 7,
+          "surface": "outer",
+          "upper_deviation": 0.5
+        },
+        "field": "dimensions",
+        "message": "VLM dimension differs from manual gold",
+        "source_page": 108,
+        "step_no": 7
+      },
+      {
+        "actual": {
+          "lower_deviation": 0.04,
+          "nominal": 300.0,
+          "operation_name": "磨",
+          "source_text": "φ300 +0.08/+0.04",
+          "step_no": 11,
+          "surface": "outer",
+          "upper_deviation": 0.08
+        },
+        "code": "gold_dimension_mismatch",
+        "expected": {
+          "lower_deviation": 0.0,
+          "nominal": 300.0,
+          "operation_name": "磨",
+          "source_text": "φ300+0.04/0mm",
+          "step_no": 11,
+          "surface": "outer",
+          "upper_deviation": 0.04
+        },
+        "field": "dimensions",
+        "message": "VLM dimension differs from manual gold",
+        "source_page": 108,
+        "step_no": 11
+      }
+    ],
+    "status": "passed_with_flags"
+  },
+  "title": "Agent query source seed replacement report"
+}

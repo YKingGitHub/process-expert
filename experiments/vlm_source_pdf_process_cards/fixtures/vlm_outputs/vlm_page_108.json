@@ -1,0 +1,339 @@
+{
+  "payload": {
+    "cards": [
+      {
+        "continuation_of": "",
+        "is_continuation": false,
+        "part_name": "缸套",
+        "steps": [
+          {
+            "allowances": [],
+            "dimensions": [],
+            "equipment": "",
+            "operation_content": "铸造尺寸 φ315mm×φ265mm×515mm",
+            "operation_name": "铸",
+            "step_no": 1
+          },
+          {
+            "allowances": [],
+            "dimensions": [],
+            "equipment": "",
+            "operation_content": "人工时效处理",
+            "operation_name": "热处理",
+            "step_no": 2
+          },
+          {
+            "allowances": [],
+            "dimensions": [
+              {
+                "lower_deviation": -1.0,
+                "nominal": 270.0,
+                "source_text": "φ270 ±1",
+                "surface": "inner",
+                "tolerance_text": "±1",
+                "unit": "mm",
+                "upper_deviation": 1.0
+              },
+              {
+                "lower_deviation": -1.0,
+                "nominal": 310.0,
+                "source_text": "φ310 ±1",
+                "surface": "outer",
+                "tolerance_text": "±1",
+                "unit": "mm",
+                "upper_deviation": 1.0
+              }
+            ],
+            "equipment": "CA6140",
+            "operation_content": "夹工件一端外圆，车内径至尺寸 φ270 ±1 mm，车外圆至尺寸 φ310 ±1 mm，车端面见平即可",
+            "operation_name": "粗车",
+            "step_no": 3
+          },
+          {
+            "allowances": [],
+            "dimensions": [
+              {
+                "lower_deviation": -1.0,
+                "nominal": 270.0,
+                "source_text": "φ270 ±1",
+                "surface": "inner",
+                "tolerance_text": "±1",
+                "unit": "mm",
+                "upper_deviation": 1.0
+              },
+              {
+                "lower_deviation": -1.0,
+                "nominal": 310.0,
+                "source_text": "φ310 ±1",
+                "surface": "outer",
+                "tolerance_text": "±1",
+                "unit": "mm",
+                "upper_deviation": 1.0
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 508.0,
+                "source_text": "总长 508mm",
+                "surface": "length",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              }
+            ],
+            "equipment": "CA6140",
+            "operation_content": "倒头装夹工件外圆，车另一端内径尺寸至 φ270 ±1 mm 接刀，车外圆至尺寸 φ310 ±1 mm 接刀，车端面保证尺寸总长 508mm",
+            "operation_name": "粗车",
+            "step_no": 4
+          },
+          {
+            "allowances": [],
+            "dimensions": [],
+            "equipment": "",
+            "operation_content": "正火 190~207HBW",
+            "operation_name": "热处理",
+            "step_no": 5
+          },
+          {
+            "allowances": [],
+            "dimensions": [
+              {
+                "lower_deviation": -0.5,
+                "nominal": 275.0,
+                "source_text": "φ275 ±0.5",
+                "surface": "inner",
+                "tolerance_text": "±0.5",
+                "unit": "mm",
+                "upper_deviation": 0.5
+              },
+              {
+                "lower_deviation": -0.5,
+                "nominal": 305.0,
+                "source_text": "φ305 ±0.5",
+                "surface": "outer",
+                "tolerance_text": "±0.5",
+                "unit": "mm",
+                "upper_deviation": 0.5
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 506.0,
+                "source_text": "总长 506mm",
+                "surface": "length",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              }
+            ],
+            "equipment": "CA6140",
+            "operation_content": "夹工件一端外圆，车内径至尺寸 φ275 ±0.5 mm，车外圆至 φ305 ±0.5 mm，车端面保证总长 506mm（注：车内径和外圆时，长度应超过总长的一半）",
+            "operation_name": "粗车",
+            "step_no": 6
+          },
+          {
+            "allowances": [],
+            "dimensions": [
+              {
+                "lower_deviation": -0.5,
+                "nominal": 275.0,
+                "source_text": "φ275 ±0.5",
+                "surface": "inner",
+                "tolerance_text": "±0.5",
+                "unit": "mm",
+                "upper_deviation": 0.5
+              },
+              {
+                "lower_deviation": 0.0,
+                "nominal": 305.0,
+                "source_text": "φ305 +0.5",
+                "surface": "outer",
+                "tolerance_text": "+0.5",
+                "unit": "mm",
+                "upper_deviation": 0.5
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 504.0,
+                "source_text": "总长 504mm",
+                "surface": "length",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              }
+            ],
+            "equipment": "CA6140",
+            "operation_content": "倒头装夹工件外圆，车另一端内径尺寸至 φ275 ±0.5 mm 平滑接刀，车外圆至尺寸 φ305 +0.5 mm 平滑接刀，车端面，保证工件总长 504mm",
+            "operation_name": "粗车",
+            "step_no": 7
+          },
+          {
+            "allowances": [],
+            "dimensions": [
+              {
+                "lower_deviation": -0.05,
+                "nominal": 279.2,
+                "source_text": "φ279.2 ±0.05",
+                "surface": "inner",
+                "tolerance_text": "±0.05",
+                "unit": "mm",
+                "upper_deviation": 0.05
+              },
+              {
+                "lower_deviation": -0.05,
+                "nominal": 300.8,
+                "source_text": "φ300.8 ±0.05",
+                "surface": "outer",
+                "tolerance_text": "±0.05",
+                "unit": "mm",
+                "upper_deviation": 0.05
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 502.0,
+                "source_text": "总长尺寸 502mm",
+                "surface": "length",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              }
+            ],
+            "equipment": "CA6140",
+            "operation_content": "夹工件一端外圆。（注意合理的夹紧力，防止工件变形。）车内径至 φ279.2 ±0.05 mm；车外圆至 φ300.8 ±0.05 mm，（注意长度尺寸要超过 250mm），车端面，保证总长尺寸 502mm",
+            "operation_name": "精车",
+            "step_no": 8
+          },
+          {
+            "allowances": [],
+            "dimensions": [
+              {
+                "lower_deviation": -0.05,
+                "nominal": 279.2,
+                "source_text": "φ279.2 ±0.05",
+                "surface": "inner",
+                "tolerance_text": "±0.05",
+                "unit": "mm",
+                "upper_deviation": 0.05
+              },
+              {
+                "lower_deviation": -0.05,
+                "nominal": 300.8,
+                "source_text": "φ300.8 ±0.05",
+                "surface": "outer",
+                "tolerance_text": "±0.05",
+                "unit": "mm",
+                "upper_deviation": 0.05
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 500.8,
+                "source_text": "总长尺寸 500.8mm",
+                "surface": "length",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              }
+            ],
+            "equipment": "CA6140",
+            "operation_content": "倒头装夹工件外圆，车另一端内径尺寸至 φ279.2 ±0.05 mm 平滑接刀，车外圆至尺寸 φ300.8 ±0.05 mm 平滑接刀，保证总长尺寸 500.8mm",
+            "operation_name": "精车",
+            "step_no": 9
+          },
+          {
+            "allowances": [],
+            "dimensions": [
+              {
+                "lower_deviation": 0.0,
+                "nominal": 280.0,
+                "source_text": "φ280 +0.08/0",
+                "surface": "inner",
+                "tolerance_text": "+0.08/0",
+                "unit": "mm",
+                "upper_deviation": 0.08
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 500.4,
+                "source_text": "总长 500.4mm",
+                "surface": "length",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              }
+            ],
+            "equipment": "中心架",
+            "operation_content": "以外圆定位装夹工件，另一端采用中心架支承，磨内径至图样尺寸 φ280 +0.08/0 mm，磨端面保证工件总长 500.4mm",
+            "operation_name": "磨",
+            "step_no": 10
+          },
+          {
+            "allowances": [],
+            "dimensions": [
+              {
+                "lower_deviation": 0.04,
+                "nominal": 300.0,
+                "source_text": "φ300 +0.08/+0.04",
+                "surface": "outer",
+                "tolerance_text": "+0.08/+0.04",
+                "unit": "mm",
+                "upper_deviation": 0.08
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 500.0,
+                "source_text": "500mm",
+                "surface": "length",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              },
+              {
+                "lower_deviation": 0.0,
+                "nominal": 300.0,
+                "source_text": "φ300 +0.04/0",
+                "surface": "outer",
+                "tolerance_text": "+0.04/0",
+                "unit": "mm",
+                "upper_deviation": 0.04
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 5.0,
+                "source_text": "长度为 5mm",
+                "surface": "length",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              }
+            ],
+            "equipment": "专用工装",
+            "operation_content": "倒头，以内孔定位装夹工件，尾座采用专用工装辅助支承，磨外圆至图样尺寸 φ300 +0.08/+0.04，松开尾座磨端面，保证图样尺寸 500mm，磨外圆 φ300 +0.04/0 mm，长度为 5mm",
+            "operation_name": "磨",
+            "step_no": 11
+          },
+          {
+            "allowances": [],
+            "dimensions": [],
+            "equipment": "",
+            "operation_content": "按图样检查各部尺寸精度",
+            "operation_name": "检验",
+            "step_no": 12
+          },
+          {
+            "allowances": [],
+            "dimensions": [],
+            "equipment": "",
+            "operation_content": "涂油入库",
+            "operation_name": "入库",
+            "step_no": 13
+          }
+        ],
+        "table_no": "表 3-90",
+        "table_title": "缸套机械加工工艺过程卡",
+        "technical_requirements": []
+      }
+    ],
+    "page_title": "金属切削工艺技术手册",
+    "source_page": 108,
+    "warnings": []
+  },
+  "validation_errors": []
+}

@@ -1,0 +1,62 @@
+{
+  "output_shaft": {
+    "canonical_part_name": "输出轴",
+    "expected_categories": [
+      "blank_preparation",
+      "treatment_or_auxiliary",
+      "rough_or_general_machining",
+      "finish_machining",
+      "inspection",
+      "storage"
+    ],
+    "expected_step_count": 12,
+    "expected_step_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "source_part_names": [
+      "输出轴",
+      "轴类零件（续）"
+    ]
+  },
+  "seal_positioning_sleeve": {
+    "canonical_part_name": "密封件定位套",
+    "expected_categories": [
+      "blank_preparation",
+      "treatment_or_auxiliary",
+      "rough_or_general_machining",
+      "finish_machining",
+      "inspection",
+      "storage"
+    ],
+    "expected_step_count": 13,
+    "expected_step_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "source_part_names": [
+      "密封件定位套"
+    ]
+  }
+}

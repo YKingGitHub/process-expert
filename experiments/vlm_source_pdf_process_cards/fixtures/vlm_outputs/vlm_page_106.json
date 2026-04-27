@@ -1,0 +1,261 @@
+{
+  "payload": {
+    "cards": [
+      {
+        "continuation_of": "",
+        "is_continuation": false,
+        "part_name": "输出轴",
+        "steps": [
+          {
+            "allowances": [],
+            "dimensions": [],
+            "equipment": "锯床",
+            "operation_content": "棒料 φ90mm × 400mm",
+            "operation_name": "下料",
+            "step_no": 1
+          },
+          {
+            "allowances": [],
+            "dimensions": [],
+            "equipment": "",
+            "operation_content": "调质处理 28 ~ 32HRC",
+            "operation_name": "热处理",
+            "step_no": 2
+          },
+          {
+            "allowances": [
+              {
+                "allowance_type": "finishing",
+                "max_value": null,
+                "source_text": "留精加工余量 3mm",
+                "unit": "mm",
+                "value": 3.0
+              }
+            ],
+            "dimensions": [
+              {
+                "lower_deviation": null,
+                "nominal": 88,
+                "source_text": "φ88mm",
+                "surface": "outer",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              }
+            ],
+            "equipment": "CA6140",
+            "operation_content": "夹左端，车右端面，见平即可。钻中心孔 B2.5，粗车右端各部，φ88mm 见圆即可，其余均留精加工余量 3mm",
+            "operation_name": "车",
+            "step_no": 3
+          },
+          {
+            "allowances": [
+              {
+                "allowance_type": "finishing",
+                "max_value": null,
+                "source_text": "留精加工余量 3mm",
+                "unit": "mm",
+                "value": 3.0
+              }
+            ],
+            "dimensions": [
+              {
+                "lower_deviation": null,
+                "nominal": 380,
+                "source_text": "总长 380mm",
+                "surface": "length",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              }
+            ],
+            "equipment": "CA6140",
+            "operation_content": "倒头装夹工件，车端面保证总长 380mm，钻中心孔 B2.5，粗车外圆各部，留精加工余量 3mm，与工序 3 加工部分相接",
+            "operation_name": "车",
+            "step_no": 4
+          },
+          {
+            "allowances": [
+              {
+                "allowance_type": "grinding",
+                "max_value": null,
+                "source_text": "留磨削余量 0.8mm",
+                "unit": "mm",
+                "value": 0.8
+              }
+            ],
+            "dimensions": [
+              {
+                "lower_deviation": 0.011,
+                "nominal": 60,
+                "source_text": "φ60 +0.024/+0.011 mm",
+                "surface": "outer",
+                "tolerance_text": "+0.024/+0.011",
+                "unit": "mm",
+                "upper_deviation": 0.024
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 35,
+                "source_text": "35mm",
+                "surface": "length",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              },
+              {
+                "lower_deviation": 0.002,
+                "nominal": 80,
+                "source_text": "φ80 +0.021/+0.002 mm",
+                "surface": "outer",
+                "tolerance_text": "+0.021/+0.002",
+                "unit": "mm",
+                "upper_deviation": 0.021
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 78,
+                "source_text": "78mm",
+                "surface": "length",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              }
+            ],
+            "equipment": "CA6140",
+            "operation_content": "夹左端，顶右端，精车右端各部，其中 φ60 +0.024/+0.011 mm × 35mm、φ80 +0.021/+0.002 mm × 78mm 处分别留磨削余量 0.8mm",
+            "operation_name": "精车",
+            "step_no": 5
+          },
+          {
+            "allowances": [
+              {
+                "allowance_type": "grinding",
+                "max_value": null,
+                "source_text": "留磨削余量 0.8mm",
+                "unit": "mm",
+                "value": 0.8
+              }
+            ],
+            "dimensions": [
+              {
+                "lower_deviation": 0,
+                "nominal": 54.4,
+                "source_text": "φ54.4 +0.05/0 mm",
+                "surface": "outer",
+                "tolerance_text": "+0.05/0",
+                "unit": "mm",
+                "upper_deviation": 0.05
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 85,
+                "source_text": "85mm",
+                "surface": "length",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              },
+              {
+                "lower_deviation": 0.011,
+                "nominal": 60,
+                "source_text": "φ60 +0.024/+0.011 mm",
+                "surface": "outer",
+                "tolerance_text": "+0.024/+0.011",
+                "unit": "mm",
+                "upper_deviation": 0.024
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 77,
+                "source_text": "77mm",
+                "surface": "length",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              }
+            ],
+            "equipment": "CA6140",
+            "operation_content": "倒头，一夹一顶精车另一端各部，其中 φ54.4 +0.05/0 mm × 85mm、φ60 +0.024/+0.011 mm × 77mm 处分别留磨削余量 0.8mm",
+            "operation_name": "精车",
+            "step_no": 6
+          },
+          {
+            "allowances": [],
+            "dimensions": [
+              {
+                "lower_deviation": 0.011,
+                "nominal": 60,
+                "source_text": "φ60 +0.024/+0.011 mm",
+                "surface": "outer",
+                "tolerance_text": "+0.024/+0.011",
+                "unit": "mm",
+                "upper_deviation": 0.024
+              },
+              {
+                "lower_deviation": 0.002,
+                "nominal": 80,
+                "source_text": "φ80 +0.021/+0.002 mm",
+                "surface": "outer",
+                "tolerance_text": "+0.021/+0.002",
+                "unit": "mm",
+                "upper_deviation": 0.021
+              }
+            ],
+            "equipment": "M1432A",
+            "operation_content": "用两顶尖装夹工件，磨削 φ60 +0.024/+0.011 mm 两处，φ80 +0.021/+0.002 mm 至图样要求尺寸",
+            "operation_name": "磨",
+            "step_no": 7
+          },
+          {
+            "allowances": [],
+            "dimensions": [
+              {
+                "lower_deviation": 0,
+                "nominal": 54.4,
+                "source_text": "φ54.4 +0.05/0 mm",
+                "surface": "outer",
+                "tolerance_text": "+0.05/0",
+                "unit": "mm",
+                "upper_deviation": 0.05
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 85,
+                "source_text": "85mm",
+                "surface": "length",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              }
+            ],
+            "equipment": "M1432A",
+            "operation_content": "倒头，用两顶尖装夹工件，磨削 φ54.4 +0.05/0 mm × 85mm 至图样要求尺寸",
+            "operation_name": "磨",
+            "step_no": 8
+          },
+          {
+            "allowances": [],
+            "dimensions": [],
+            "equipment": "",
+            "operation_content": "划两处键槽线",
+            "operation_name": "划线",
+            "step_no": 9
+          }
+        ],
+        "table_no": "表 3-89",
+        "table_title": "输出轴机械加工工艺过程卡",
+        "technical_requirements": [
+          "未注圆角 R1。",
+          "保留中心孔。",
+          "调质处理 28~32HRC。",
+          "材料 45 钢。"
+        ]
+      }
+    ],
+    "page_title": "金属切削工艺技术手册",
+    "source_page": 106,
+    "warnings": []
+  },
+  "validation_errors": []
+}

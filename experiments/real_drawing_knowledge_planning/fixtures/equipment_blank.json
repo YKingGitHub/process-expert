@@ -1,0 +1,13 @@
+{
+  "blank": {
+    "diameter_mm": 103.5,
+    "length_expression": "L为零件长度",
+    "source_text": "₲103.5 × (L)， L为零件长度"
+  },
+  "equipment": [
+    "数控车床",
+    "三轴加工中心",
+    "车床"
+  ],
+  "source_file": "test-files/设备毛胚信息-随测试图片一起发送.md"
+}

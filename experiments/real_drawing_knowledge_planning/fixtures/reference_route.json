@@ -1,0 +1,46 @@
+{
+  "source_file": "test-files/测试结果对照工艺卡.pdf",
+  "source_type": "manual_reference_from_rendered_pdf",
+  "operations": [
+    {
+      "step_no": 5,
+      "operation": "领料",
+      "summary": "领取客户来料毛坯，材质 Z2CN19-10NS，规格 φ103.5×L。"
+    },
+    {
+      "step_no": 10,
+      "operation": "车",
+      "summary": "三爪夹持外圆，中心架或轴承座支撑，钻中心孔并车外圆至 φ103。"
+    },
+    {
+      "step_no": 15,
+      "operation": "线切割",
+      "summary": "按图纸切割长度，保证端面与外圆垂直度小于 0.1。"
+    },
+    {
+      "step_no": 20,
+      "operation": "车",
+      "summary": "车沉孔 φ40、深度 1.5±0.1，并保证总长 30.5。"
+    },
+    {
+      "step_no": 25,
+      "operation": "铣",
+      "summary": "三爪软爪夹持外圆，基准面朝上，按图纸铣 D 型孔，保证 φ34、15、2-R4 和位置度。"
+    },
+    {
+      "step_no": 30,
+      "operation": "钳",
+      "summary": "去毛刺、倒圆，并按图示端面刻标记。"
+    },
+    {
+      "step_no": 35,
+      "operation": "检验",
+      "summary": "成品检验，配合客户检查及见证。"
+    },
+    {
+      "step_no": 40,
+      "operation": "入库",
+      "summary": "清洗、包装、入库。"
+    }
+  ]
+}
