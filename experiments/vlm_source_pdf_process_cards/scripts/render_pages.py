@@ -8,7 +8,8 @@ import subprocess
 from pathlib import Path
 
 
-DEFAULT_PDF = Path("references/工艺知识库.pdf")
+REPO_ROOT = Path(__file__).resolve().parents[3]
+DEFAULT_PDF = REPO_ROOT / "references" / "工艺知识库.pdf"
 EXPERIMENT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = EXPERIMENT_ROOT / "fixtures" / "page_images"
 

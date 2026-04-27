@@ -26,7 +26,7 @@ DEFAULT_ENV_FILE = Path("/opt/ai-stack/compose/.env")
 REPO_CONFIG = REPO_ROOT / "config.yaml"
 EXPERIMENT_ROOT = Path(__file__).resolve().parents[1]
 PROMPT_PATH = EXPERIMENT_ROOT / "prompts" / "drawing_vlm_prompt.md"
-DEFAULT_IMAGE = Path("test-files/测试.png")
+DEFAULT_IMAGE = REPO_ROOT / "test-files" / "测试.png"
 OUTPUT_PATH = EXPERIMENT_ROOT / "fixtures" / "drawing_analysis.json"
 
 
