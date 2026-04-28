@@ -1,0 +1,202 @@
+[
+  {
+    "id": "DRI-001",
+    "capability": "drawing_requirement_interpretation",
+    "question": "未注公差按 GB/T1804-m 执行时，普通线性尺寸公差应如何查询？",
+    "expected_family": "standard_clause_records",
+    "expected_subtype": "general_tolerance_standard",
+    "expected_contract": "standard_clause_lookup",
+    "required": true,
+    "candidate_type": "standard_clause_records"
+  },
+  {
+    "id": "DRI-002",
+    "capability": "drawing_requirement_interpretation",
+    "question": "图纸技术要求中的待焊面应如何解释并影响工艺安排？",
+    "expected_family": "drawing_requirement_records",
+    "expected_subtype": "weld_surface_requirement",
+    "expected_contract": "drawing_requirement_interpretation",
+    "required": true,
+    "candidate_type": "drawing_requirement_records"
+  },
+  {
+    "id": "DRI-003",
+    "capability": "drawing_requirement_interpretation",
+    "question": "图纸上的焊接符号应该如何按国家标准完整解释？",
+    "expected_family": "drawing_requirement_records",
+    "expected_subtype": "symbol_standard_interpretation",
+    "expected_contract": "drawing_requirement_interpretation",
+    "required": false,
+    "candidate_type": "drawing_requirement_records"
+  },
+  {
+    "id": "GTI-001",
+    "capability": "geometric_tolerance_inspection",
+    "question": "图纸中的位置度 φ0.1 B C 应如何解释、加工保证和检验？",
+    "expected_family": "inspection_records",
+    "expected_subtype": "position_tolerance_inspection",
+    "expected_contract": "inspection_method_with_datum",
+    "required": true,
+    "candidate_type": "inspection_records"
+  },
+  {
+    "id": "GTI-002",
+    "capability": "geometric_tolerance_inspection",
+    "question": "键槽加工后应如何检查对称度？",
+    "expected_family": "principle_records",
+    "expected_subtype": "inspection_principle",
+    "expected_contract": "citation_contract",
+    "required": true
+  },
+  {
+    "id": "GTI-003",
+    "capability": "geometric_tolerance_inspection",
+    "question": "以 B、C 为基准检验内轮廓位置度时需要哪些检具或测量方法？",
+    "expected_family": "inspection_records",
+    "expected_subtype": "datum_based_position_inspection",
+    "expected_contract": "inspection_method_with_datum",
+    "required": true,
+    "candidate_type": "inspection_records"
+  },
+  {
+    "id": "EOC-001",
+    "capability": "equipment_operation_capability",
+    "question": "CA6140 适用于哪些典型车削工序？",
+    "expected_family": "lookup_records",
+    "expected_subtype": "equipment_capability",
+    "expected_contract": "lookup_result_contract",
+    "required": true
+  },
+  {
+    "id": "EOC-002",
+    "capability": "equipment_operation_capability",
+    "question": "三轴加工中心适合本零件 D 型孔、R4 和位置度相关的哪些铣削工序？",
+    "expected_family": "equipment_capability_records",
+    "expected_subtype": "machining_center_capability",
+    "expected_contract": "equipment_operation_match",
+    "required": true,
+    "candidate_type": "equipment_capability_records"
+  },
+  {
+    "id": "EOC-003",
+    "capability": "equipment_operation_capability",
+    "question": "数控车床、普通车床和三轴加工中心之间应如何分配本零件工序？",
+    "expected_family": "equipment_capability_records",
+    "expected_subtype": "equipment_route_assignment",
+    "expected_contract": "equipment_operation_match",
+    "required": true,
+    "candidate_type": "equipment_capability_records"
+  },
+  {
+    "id": "FPS-001",
+    "capability": "feature_process_selection",
+    "question": "D 型孔应选择线切割、铣削还是其他方法加工？",
+    "expected_family": "feature_process_records",
+    "expected_subtype": "d_shaped_hole_process_selection",
+    "expected_contract": "feature_to_process_contract",
+    "required": true,
+    "candidate_type": "feature_process_records"
+  },
+  {
+    "id": "FPS-002",
+    "capability": "feature_process_selection",
+    "question": "2-R4 内轮廓圆角应如何安排铣削和检验？",
+    "expected_family": "milling_process_records",
+    "expected_subtype": "inner_radius_milling_inspection",
+    "expected_contract": "feature_to_process_contract",
+    "required": true,
+    "candidate_type": "milling_process_records"
+  },
+  {
+    "id": "FPS-003",
+    "capability": "feature_process_selection",
+    "question": "输出轴案例中键槽安排在什么阶段？",
+    "expected_family": "case_records",
+    "expected_subtype": "feature_sequence_case",
+    "expected_contract": "case_reference_contract",
+    "required": false
+  },
+  {
+    "id": "MAP-001",
+    "capability": "machining_allowance_planning",
+    "question": "精车后准备磨削，磨削余量推荐范围是多少？",
+    "expected_family": "lookup_records",
+    "expected_subtype": "finish_to_grind_allowance",
+    "expected_contract": "lookup_result_contract",
+    "required": true
+  },
+  {
+    "id": "MAP-002",
+    "capability": "machining_allowance_planning",
+    "question": "精车到磨削的直径余量和单边余量怎么计算？",
+    "expected_family": "computation_methods",
+    "expected_subtype": "finish_to_grind_allowance_calculation",
+    "expected_contract": "method_contract",
+    "required": true
+  },
+  {
+    "id": "MAP-003",
+    "capability": "machining_allowance_planning",
+    "question": "毛坯 φ103.5 加工到外圆 φ103 时，车削余量和装夹方案需要哪些知识？",
+    "expected_family": "machining_allowance_records",
+    "expected_subtype": "blank_to_finished_diameter_allowance",
+    "expected_contract": "allowance_planning_contract",
+    "required": true,
+    "candidate_type": "machining_allowance_records"
+  },
+  {
+    "id": "RPL-001",
+    "capability": "route_planning",
+    "question": "轴类零件制定工艺路线时，基准应如何选择？",
+    "expected_family": "principle_records",
+    "expected_subtype": "datum_selection",
+    "expected_contract": "citation_contract",
+    "required": true
+  },
+  {
+    "id": "RPL-002",
+    "capability": "route_planning",
+    "question": "薄壁缸套加工为什么要粗精分开？",
+    "expected_family": "principle_records",
+    "expected_subtype": "rough_finish_separation",
+    "expected_contract": "citation_contract",
+    "required": true
+  },
+  {
+    "id": "RPL-003",
+    "capability": "route_planning",
+    "question": "书中有哪些能说明案例不能照抄，需要按图纸重新分析的内容？",
+    "expected_family": "mixed",
+    "expected_subtype": "case_reuse_boundary",
+    "expected_contract": "mixed_reference_contract",
+    "required": false
+  },
+  {
+    "id": "DCA-001",
+    "capability": "deterministic_calculation",
+    "question": "尺寸链封闭环基本尺寸怎么计算？",
+    "expected_family": "computation_methods",
+    "expected_subtype": "closed_loop_basic_size",
+    "expected_contract": "method_contract",
+    "required": true
+  },
+  {
+    "id": "DCA-002",
+    "capability": "deterministic_calculation",
+    "question": "封闭环极值公差怎么计算？",
+    "expected_family": "computation_methods",
+    "expected_subtype": "extreme_tolerance",
+    "expected_contract": "method_contract",
+    "required": true
+  },
+  {
+    "id": "DCA-003",
+    "capability": "deterministic_calculation",
+    "question": "φ50H7 的上下偏差能否由 Python 返回 result、steps、formula 和 warnings？",
+    "expected_family": "computation_methods",
+    "expected_subtype": "python_executable_tolerance_lookup",
+    "expected_contract": "implemented_calculation_contract",
+    "required": true,
+    "candidate_type": "process_calc_methods"
+  }
+]

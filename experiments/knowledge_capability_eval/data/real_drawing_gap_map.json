@@ -1,0 +1,44 @@
+[
+  {
+    "source_need_id": "KN-GTOL-POSITION-001",
+    "capability": "geometric_tolerance_inspection",
+    "candidate_type": "inspection_records",
+    "gap_summary": "位置度 φ0.1 B C 的解释、加工保证和检验方法缺失。"
+  },
+  {
+    "source_need_id": "KN-GENERAL-TOL-001",
+    "capability": "drawing_requirement_interpretation",
+    "candidate_type": "standard_clause_records",
+    "gap_summary": "GB/T1804-m 未注公差查询缺失。"
+  },
+  {
+    "source_need_id": "KN-BLANK-ALLOWANCE-001",
+    "capability": "machining_allowance_planning",
+    "candidate_type": "machining_allowance_records",
+    "gap_summary": "毛坯 φ103.5 到外圆 φ103 的余量、装夹和工艺判断缺失。"
+  },
+  {
+    "source_need_id": "KN-EQUIPMENT-001",
+    "capability": "equipment_operation_capability",
+    "candidate_type": "equipment_capability_records",
+    "gap_summary": "数控车床、三轴加工中心、普通车床的能力匹配缺失。"
+  },
+  {
+    "source_need_id": "KN-WIRECUT-001",
+    "capability": "feature_process_selection",
+    "candidate_type": "wire_cut_process_records",
+    "gap_summary": "线切割工序安排知识缺失。"
+  },
+  {
+    "source_need_id": "KN-MILL-D-SHAPE-001",
+    "capability": "feature_process_selection",
+    "candidate_type": "milling_process_records",
+    "gap_summary": "D 型孔、2-R4、位置度相关铣削与检验知识缺失。"
+  },
+  {
+    "source_need_id": "DRAWING-QUALITY-D-SHAPE",
+    "capability": "drawing_requirement_interpretation",
+    "candidate_type": "drawing_quality_gate",
+    "gap_summary": "图纸 VLM 漏掉 D 型/非圆内轮廓，质量门禁需要阻止直接生成工艺卡。"
+  }
+]

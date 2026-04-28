@@ -173,7 +173,8 @@ process-expert/
 │   ├── vlm_source_pdf_process_cards/ # 源 PDF 工艺卡 VLM 抽取与 gold 对比
 │   ├── calculation_ready_extraction/# 质量门禁、路线合并、确定性余量计算
 │   ├── prose_principle_extraction/  # 正文原则类知识抽取
-│   └── real_drawing_knowledge_planning/ # 真实图纸知识需求与 gap report
+│   ├── real_drawing_knowledge_planning/ # 真实图纸知识需求与 gap report
+│   └── knowledge_capability_eval/  # 泛化能力 baseline 与 gap_count_by_capability
 │
 ├── tracer/                          # 追踪日志引擎
 │   └── pipeline_tracer.py           # JSON + Markdown 双格式输出
@@ -202,13 +203,14 @@ python3 -m pytest \
   experiments/prose_principle_extraction/tests \
   experiments/agent_query_eval/tests \
   experiments/real_drawing_knowledge_planning/tests \
+  experiments/knowledge_capability_eval/tests \
   -q
 ```
 
 当前期望结果：
 
 ```text
-39 passed
+44 passed
 ```
 
 ---

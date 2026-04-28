@@ -50,7 +50,11 @@ Additional candidate families are allowed when evidence shows a repeated need, f
    - Uses the real test drawing as a held-out integration case to generate knowledge needs and gap reports.
    - Key report: `real_drawing_knowledge_planning/report.md`
 
-6. `process_calc_extracted_content/`
+6. `knowledge_capability_eval/`
+   - Converts real-drawing gaps into reusable capability questions and reports `gap_count_by_capability`.
+   - Key report: `knowledge_capability_eval/report.md`
+
+7. `process_calc_extracted_content/`
    - Earlier deterministic-calculation feasibility test using frozen `unified_extract.db` fixtures.
    - Useful as background, but source-PDF-backed extraction is preferred for calculation-grade truth.
 
@@ -87,6 +91,12 @@ experiments/
 │   ├── fixtures/             # deterministic drawing, CAD, equipment, reference-route summaries
 │   ├── prompts/
 │   ├── src/                  # planner, package builder, evaluator
+│   ├── tests/
+│   └── report.md
+│
+├── knowledge_capability_eval/
+│   ├── data/                 # capability questions and real-drawing gap map
+│   ├── src/                  # capability evaluator
 │   ├── tests/
 │   └── report.md
 │
@@ -166,14 +176,14 @@ python3 -m pytest \
   experiments/prose_principle_extraction/tests \
   experiments/agent_query_eval/tests \
   experiments/real_drawing_knowledge_planning/tests \
+  experiments/knowledge_capability_eval/tests \
   -q
 ```
 
 Expected result at merge time:
 
 ```text
-39 passed
+44 passed
 ```
 
 Live extraction scripts are optional and require `DASHSCOPE_API_KEY`.
-
