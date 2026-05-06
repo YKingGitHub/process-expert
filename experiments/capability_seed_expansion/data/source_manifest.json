@@ -1,0 +1,332 @@
+[
+  {
+    "record_id": "STD-1804-LIN-F-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GB T 1804-2000线性和角度公差标准.pdf",
+    "source_page": 5,
+    "source_ref": "表1 线性尺寸的极限偏差数值 / f 级",
+    "evidence_type": "structured_table_paraphrase",
+    "copyright_note": "GB/T 1804-2000 published values; paraphrased to structured JSON, no long verbatim text",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "STD-1804-LIN-M-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GB T 1804-2000线性和角度公差标准.pdf",
+    "source_page": 5,
+    "source_ref": "表1 线性尺寸的极限偏差数值 / m 级",
+    "evidence_type": "structured_table_paraphrase",
+    "copyright_note": "GB/T 1804-2000 published values; paraphrased to structured JSON, no long verbatim text",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "STD-1804-LIN-C-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GB T 1804-2000线性和角度公差标准.pdf",
+    "source_page": 5,
+    "source_ref": "表1 线性尺寸的极限偏差数值 / c 级",
+    "evidence_type": "structured_table_paraphrase",
+    "copyright_note": "GB/T 1804-2000 published values; paraphrased to structured JSON, no long verbatim text",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "STD-1804-LIN-V-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GB T 1804-2000线性和角度公差标准.pdf",
+    "source_page": 5,
+    "source_ref": "表1 线性尺寸的极限偏差数值 / v 级",
+    "evidence_type": "structured_table_paraphrase",
+    "copyright_note": "GB/T 1804-2000 published values; paraphrased to structured JSON, no long verbatim text",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "STD-1804-EDGE-FM-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GB T 1804-2000线性和角度公差标准.pdf",
+    "source_page": 5,
+    "source_ref": "表2 倒圆半径和倒角高度 / f, m 级",
+    "evidence_type": "structured_table_paraphrase",
+    "copyright_note": "GB/T 1804-2000 published values; paraphrased",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "STD-1804-EDGE-CV-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GB T 1804-2000线性和角度公差标准.pdf",
+    "source_page": 5,
+    "source_ref": "表2 倒圆半径和倒角高度 / c, v 级",
+    "evidence_type": "structured_table_paraphrase",
+    "copyright_note": "GB/T 1804-2000 published values; paraphrased",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "STD-1804-ANG-FM-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GB T 1804-2000线性和角度公差标准.pdf",
+    "source_page": 6,
+    "source_ref": "表3 角度尺寸的极限偏差数值 / f, m 级",
+    "evidence_type": "structured_table_paraphrase",
+    "copyright_note": "GB/T 1804-2000 published values; paraphrased",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "STD-1804-ANG-C-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GB T 1804-2000线性和角度公差标准.pdf",
+    "source_page": 6,
+    "source_ref": "表3 角度尺寸的极限偏差数值 / c 级",
+    "evidence_type": "structured_table_paraphrase",
+    "copyright_note": "GB/T 1804-2000 published values; paraphrased",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "STD-1804-ANG-V-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GB T 1804-2000线性和角度公差标准.pdf",
+    "source_page": 6,
+    "source_ref": "表3 角度尺寸的极限偏差数值 / v 级",
+    "evidence_type": "structured_table_paraphrase",
+    "copyright_note": "GB/T 1804-2000 published values; paraphrased",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "STD-1804-NOTATION-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GB T 1804-2000线性和角度公差标准.pdf",
+    "source_page": 6,
+    "source_ref": "§6 一般公差的图样表示法",
+    "evidence_type": "rule_paraphrase",
+    "copyright_note": "GB/T 1804-2000 notation rule; paraphrased",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "STD-1184-LF-H-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GBT1184-1996 形位公差.pdf",
+    "source_page": 4,
+    "source_ref": "表1 直线度和平面度的未注公差值 / H 级",
+    "evidence_type": "structured_table_paraphrase",
+    "copyright_note": "GB/T 1184-1996 published values; paraphrased",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "STD-1184-LF-K-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GBT1184-1996 形位公差.pdf",
+    "source_page": 4,
+    "source_ref": "表1 直线度和平面度的未注公差值 / K 级",
+    "evidence_type": "structured_table_paraphrase",
+    "copyright_note": "GB/T 1184-1996 published values; paraphrased",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "STD-1184-LF-L-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GBT1184-1996 形位公差.pdf",
+    "source_page": 4,
+    "source_ref": "表1 直线度和平面度的未注公差值 / L 级",
+    "evidence_type": "structured_table_paraphrase",
+    "copyright_note": "GB/T 1184-1996 published values; paraphrased",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "STD-1184-PERP-H-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GBT1184-1996 形位公差.pdf",
+    "source_page": 4,
+    "source_ref": "表2 垂直度未注公差值 / H 级",
+    "evidence_type": "structured_table_paraphrase",
+    "copyright_note": "GB/T 1184-1996 published values; paraphrased",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "STD-1184-PERP-K-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GBT1184-1996 形位公差.pdf",
+    "source_page": 4,
+    "source_ref": "表2 垂直度未注公差值 / K 级",
+    "evidence_type": "structured_table_paraphrase",
+    "copyright_note": "GB/T 1184-1996 published values; paraphrased",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "STD-1184-PERP-L-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GBT1184-1996 形位公差.pdf",
+    "source_page": 4,
+    "source_ref": "表2 垂直度未注公差值 / L 级",
+    "evidence_type": "structured_table_paraphrase",
+    "copyright_note": "GB/T 1184-1996 published values; paraphrased",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "STD-1184-SYM-H-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GBT1184-1996 形位公差.pdf",
+    "source_page": 4,
+    "source_ref": "表3 对称度未注公差值 / H 级",
+    "evidence_type": "structured_table_paraphrase",
+    "copyright_note": "GB/T 1184-1996 published values; paraphrased",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "STD-1184-SYM-K-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GBT1184-1996 形位公差.pdf",
+    "source_page": 4,
+    "source_ref": "表3 对称度未注公差值 / K 级",
+    "evidence_type": "structured_table_paraphrase",
+    "copyright_note": "GB/T 1184-1996 published values; paraphrased",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "STD-1184-SYM-L-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GBT1184-1996 形位公差.pdf",
+    "source_page": 4,
+    "source_ref": "表3 对称度未注公差值 / L 级",
+    "evidence_type": "structured_table_paraphrase",
+    "copyright_note": "GB/T 1184-1996 published values; paraphrased",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "STD-1184-RUNOUT-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GBT1184-1996 形位公差.pdf",
+    "source_page": 5,
+    "source_ref": "表4 圆跳动的未注公差值",
+    "evidence_type": "structured_table_paraphrase",
+    "copyright_note": "GB/T 1184-1996 published values; paraphrased",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "STD-1184-COAX-RULE-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GBT1184-1996 形位公差.pdf",
+    "source_page": 5,
+    "source_ref": "§5.2.4 同轴度",
+    "evidence_type": "rule_paraphrase",
+    "copyright_note": "GB/T 1184-1996 rule paraphrase",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "STD-1184-PARA-RULE-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GBT1184-1996 形位公差.pdf",
+    "source_page": 4,
+    "source_ref": "§5.2.1 平行度",
+    "evidence_type": "rule_paraphrase",
+    "copyright_note": "GB/T 1184-1996 rule paraphrase",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "STD-1184-ROUND-RULE-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GBT1184-1996 形位公差.pdf",
+    "source_page": 4,
+    "source_ref": "§5.1.2 圆度",
+    "evidence_type": "rule_paraphrase",
+    "copyright_note": "GB/T 1184-1996 rule paraphrase",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "STD-1184-CYL-RULE-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GBT1184-1996 形位公差.pdf",
+    "source_page": 4,
+    "source_ref": "§5.1.3 圆柱度",
+    "evidence_type": "rule_paraphrase",
+    "copyright_note": "GB/T 1184-1996 rule paraphrase",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "STD-1184-NOTATION-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GBT1184-1996 形位公差.pdf",
+    "source_page": 5,
+    "source_ref": "§6 未注公差值的图样表示法",
+    "evidence_type": "rule_paraphrase",
+    "copyright_note": "GB/T 1184-1996 notation rule; paraphrased",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "INSP-SYM-KEYSLOT-001",
+    "source_kind": "vlm_extracted_prose",
+    "source_path_or_doc": "Projects/process-expert/references/工艺知识库.pdf",
+    "source_page": 107,
+    "source_ref": "p107 表3-89 下方正文第2条 (existing prose_principle_extraction fixture)",
+    "evidence_type": "verbatim_short_quote",
+    "copyright_note": "Short verbatim sentence from PROCESS reference textbook (already used in prose_principle_extraction)",
+    "review_status": "auditable_short_quote"
+  },
+  {
+    "record_id": "INSP-RUNOUT-DATUM-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GBT1184-1996 形位公差.pdf",
+    "source_page": 4,
+    "source_ref": "§5.2.5 圆跳动",
+    "evidence_type": "rule_paraphrase",
+    "copyright_note": "GB/T 1184-1996 rule paraphrase",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "INSP-POSITION-DATUM-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GBT1184-1996 形位公差.pdf",
+    "source_page": 6,
+    "source_ref": "§7 + 附录A 独立原则",
+    "evidence_type": "rule_paraphrase",
+    "copyright_note": "Paraphrased; references GB/T 1182 which is not loaded — flagged",
+    "review_status": "auditable_paraphrase_with_external_ref_flag"
+  },
+  {
+    "record_id": "INSP-COAX-RULE-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GBT1184-1996 形位公差.pdf",
+    "source_page": 5,
+    "source_ref": "§5.2.4 同轴度",
+    "evidence_type": "rule_paraphrase",
+    "copyright_note": "GB/T 1184-1996 rule + general inspection-instrument paraphrase",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "EQUIP-CNC-LATHE-001",
+    "source_kind": "user_provided_md",
+    "source_path_or_doc": "Projects/process-expert/test-files/设备毛胚信息-随测试图片一起发送.md",
+    "source_page": 1,
+    "source_ref": "## 设备信息 line",
+    "evidence_type": "structured_paraphrase_with_general_capability",
+    "copyright_note": "User-provided fixture, no copyright concern; equipment names verbatim, capabilities paraphrased from general machining knowledge",
+    "review_status": "needs_expert_review_for_completeness"
+  },
+  {
+    "record_id": "EQUIP-3AXIS-MC-001",
+    "source_kind": "user_provided_md",
+    "source_path_or_doc": "Projects/process-expert/test-files/设备毛胚信息-随测试图片一起发送.md",
+    "source_page": 1,
+    "source_ref": "## 设备信息 line",
+    "evidence_type": "structured_paraphrase_with_general_capability",
+    "copyright_note": "User-provided fixture, no copyright concern; equipment names verbatim, capabilities paraphrased from general machining knowledge",
+    "review_status": "needs_expert_review_for_completeness"
+  },
+  {
+    "record_id": "EQUIP-LATHE-001",
+    "source_kind": "user_provided_md",
+    "source_path_or_doc": "Projects/process-expert/test-files/设备毛胚信息-随测试图片一起发送.md",
+    "source_page": 1,
+    "source_ref": "## 设备信息 line",
+    "evidence_type": "structured_paraphrase_with_general_capability",
+    "copyright_note": "User-provided fixture, no copyright concern; equipment names verbatim, capabilities paraphrased from general machining knowledge",
+    "review_status": "needs_expert_review_for_completeness"
+  },
+  {
+    "record_id": "EQUIP-ROUTE-ASSIGN-001",
+    "source_kind": "user_provided_md",
+    "source_path_or_doc": "Projects/process-expert/test-files/设备毛胚信息-随测试图片一起发送.md",
+    "source_page": 1,
+    "source_ref": "## 设备信息 line + general route-planning practice",
+    "evidence_type": "rule_paraphrase",
+    "copyright_note": "Assignment rules paraphrased from general process route practice; equipment list verbatim",
+    "review_status": "needs_expert_review_for_completeness"
+  }
+]
