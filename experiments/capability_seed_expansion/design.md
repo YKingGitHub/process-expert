@@ -1,8 +1,9 @@
 ---
 id: D-PROCESS-20260428-01-capability-seed-expansion-b1
 title: PROCESS B1 Capability Seed Expansion
-status: draft
-approved_by_user: false
+status: approved
+approved_by_user: true
+approved_date: 2026-05-06
 quality_gate: plan-v1
 created: 2026-04-28
 workflow_baseline: A18
