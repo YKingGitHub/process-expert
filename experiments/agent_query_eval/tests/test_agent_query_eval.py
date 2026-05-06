@@ -62,8 +62,13 @@ def test_computation_query_returns_method_contract():
     assert answer["intent"] == "computation_query"
     hit = answer["hits"][0]
     assert hit["knowledge_type"] == "computation"
-    assert hit["method_id"] == "calculate_closed_loop_basic_size"
-    assert hit["implementation_status"] == "not_implemented"
+    # Sprint C renamed the method_id to match the process_calc registry naming
+    # policy ({module}_{operation} without the legacy ``calculate_`` prefix).
+    assert hit["method_id"] == "closed_loop_basic_size"
+    # Sprint C also flipped the implementation_status from not_implemented to
+    # verified now that process_calc.closed_loop_basic_size is implemented and
+    # textbook-verified.
+    assert hit["implementation_status"] == "verified"
     assert hit["formula"]
 
 

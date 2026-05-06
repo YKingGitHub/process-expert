@@ -116,15 +116,17 @@ def test_b2_no_regression_to_baseline_covered_questions():
     )
 
 
-def test_b2_only_dca_003_remains_uncovered_in_expanded():
-    """Only DCA-003 (deterministic_calculation) should remain uncovered;
-    it requires Sprint C process_calc.calculate() implementation."""
+def test_b2_uncovered_set_at_most_two_questions():
+    """Post-B2 design contract: at most 2 questions remain uncovered.
+    Sprint C subsequently closes DCA-003 via process_calc.tolerance_lookup_iso,
+    so the actual count drops to 0; this test stays loose so it does not
+    regress when later rounds drive the count further down."""
     _, expanded, _ = make_reports()
     uncovered = [r for r in expanded["results"] if not r["covered"]]
     uncovered_ids = sorted(r["id"] for r in uncovered)
-    # Allow up to 2 uncovered (per design); DCA-003 must be among them.
-    assert "DCA-003" in uncovered_ids
-    assert len(uncovered_ids) <= 2
+    assert len(uncovered_ids) <= 2, (
+        f"more than 2 uncovered questions: {uncovered_ids}"
+    )
 
 
 def test_evaluate_script_produces_b2_report_fields():
