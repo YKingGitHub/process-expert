@@ -1,12 +1,12 @@
-"""Experimental query adapter that adds three B1 candidate families on top of
-the existing four-family ``KnowledgeQuery``.
+"""Experimental query adapter that adds B1 + B2 candidate families on top of
+the four-family ``KnowledgeQuery``.
 
 This is intentionally **not** production retrieval. It exists so that the B1
-evaluation script can measure whether source-backed candidate seeds reduce
-``gap_count_by_capability``. Routing is deterministic and keyword-driven; once a
-question is recognized as a candidate-family question it bypasses the base
-classifier and returns auditable hits drawn from ``candidate_seed.json``. All
-other questions delegate to ``KnowledgeQuery`` unchanged.
+and B2 evaluation scripts can measure whether source-backed candidate seeds
+reduce ``gap_count_by_capability``. Routing is deterministic and keyword-driven;
+once a question is recognized as a candidate-family question it bypasses the
+base classifier and returns auditable hits drawn from ``candidate_seed.json``.
+All other questions delegate to ``KnowledgeQuery`` unchanged.
 """
 
 from __future__ import annotations
@@ -20,9 +20,22 @@ B1_CANDIDATE_FAMILIES = (
     "equipment_capability_records",
 )
 
+B2_CANDIDATE_FAMILIES = (
+    "drawing_requirement_records",
+    "machining_allowance_records",
+    "feature_process_records",
+    "milling_process_records",
+)
+
+ALL_CANDIDATE_FAMILIES = B1_CANDIDATE_FAMILIES + B2_CANDIDATE_FAMILIES
+
 INTENT_STANDARD_CLAUSE = "standard_clause_query"
 INTENT_INSPECTION = "inspection_query"
 INTENT_EQUIPMENT = "equipment_capability_query"
+INTENT_DRAWING_REQUIREMENT = "drawing_requirement_query"
+INTENT_MACHINING_ALLOWANCE = "machining_allowance_query"
+INTENT_FEATURE_PROCESS = "feature_process_query"
+INTENT_MILLING_PROCESS = "milling_process_query"
 
 
 class ExpandedKnowledgeQuery:
@@ -42,6 +55,8 @@ class ExpandedKnowledgeQuery:
         return self._delegate.classify_intent(question)
 
     def _match_candidate_family(self, question: str) -> dict | None:
+        # B1 routing first — these are the higher-confidence keyword anchors
+        # (国标 references, datum-aware inspection, named equipment).
         std = _match_standard_clause(question, self.seed.get("standard_clause_records", []))
         if std:
             return {"family": "standard_clause_records", "intent": INTENT_STANDARD_CLAUSE, "hits": std}
@@ -53,6 +68,33 @@ class ExpandedKnowledgeQuery:
         equip = _match_equipment(question, self.seed.get("equipment_capability_records", []))
         if equip:
             return {"family": "equipment_capability_records", "intent": INTENT_EQUIPMENT, "hits": equip}
+
+        # B2 routing — narrower triggers, ordered by signal specificity.
+        # Welding signals are the most explicit ("焊"); allowance/feature/milling
+        # routing avoids B1's standard_clause and equipment domains.
+        drw = _match_drawing_requirement(
+            question, self.seed.get("drawing_requirement_records", [])
+        )
+        if drw:
+            return {"family": "drawing_requirement_records", "intent": INTENT_DRAWING_REQUIREMENT, "hits": drw}
+
+        allow = _match_machining_allowance(
+            question, self.seed.get("machining_allowance_records", [])
+        )
+        if allow:
+            return {"family": "machining_allowance_records", "intent": INTENT_MACHINING_ALLOWANCE, "hits": allow}
+
+        feat = _match_feature_process(
+            question, self.seed.get("feature_process_records", [])
+        )
+        if feat:
+            return {"family": "feature_process_records", "intent": INTENT_FEATURE_PROCESS, "hits": feat}
+
+        mill = _match_milling_process(
+            question, self.seed.get("milling_process_records", [])
+        )
+        if mill:
+            return {"family": "milling_process_records", "intent": INTENT_MILLING_PROCESS, "hits": mill}
 
         return None
 
@@ -267,6 +309,182 @@ def _match_equipment(question: str, records: list[dict]) -> list[dict]:
             score += 10
         if has_capability_signal and "capability" in subtype:
             score += 3
+        if score > 0:
+            scored.append((score, record))
+
+    scored.sort(key=lambda item: (-item[0], item[1]["id"]))
+    return [_format_candidate_hit(record) for _, record in scored[:3]]
+
+
+# ---------------------------------------------------------------------------
+# B2 routing functions — added 2026-05-06 per design_b2.md.
+# ---------------------------------------------------------------------------
+
+
+def _match_drawing_requirement(question: str, records: list[dict]) -> list[dict]:
+    """Welding-related drawing-requirement questions (DRI-002, DRI-003).
+
+    Triggers on '焊' family keywords. Stays away from DRI-001 which is GB/T
+    1804 standard_clause territory (B1 already routes that).
+    """
+    if not records:
+        return []
+    text = question
+    has_weld = any(
+        k in text for k in ("焊缝", "焊接符号", "待焊面", "焊接", "焊")
+    )
+    if not has_weld:
+        return []
+
+    is_symbol_explanation = (
+        ("焊接符号" in text or "焊缝符号" in text)
+        and any(k in text for k in ("解释", "国家标准", "如何", "标注"))
+    )
+    is_weld_surface = "待焊面" in text
+
+    scored: list[tuple[int, dict]] = []
+    for record in records:
+        subtype = record.get("subtype", "")
+        score = 0
+        if is_symbol_explanation and (
+            "symbol_standard_interpretation" in subtype
+            or "weld_symbol_standard_catalog" in subtype
+        ):
+            score += 12
+        if is_weld_surface and "weld_surface" in subtype:
+            score += 12
+        # Generic welding signal: lower boost, lets all welding records
+        # surface as candidates if both signals are present.
+        if "焊" in text and "weld" in subtype.lower():
+            score += 2
+        if score > 0:
+            scored.append((score, record))
+
+    scored.sort(key=lambda item: (-item[0], item[1]["id"]))
+    return [_format_candidate_hit(record) for _, record in scored[:3]]
+
+
+def _match_machining_allowance(question: str, records: list[dict]) -> list[dict]:
+    """Blank-to-finished allowance planning (MAP-003).
+
+    Distinctive trigger: '毛坯' AND '余量'. Avoids MAP-001 (lookup with
+    '推荐范围') and MAP-002 ('怎么计算' computation).
+    """
+    if not records:
+        return []
+    text = question
+    has_blank = "毛坯" in text or "blank" in text.lower()
+    has_allowance = "余量" in text or "allowance" in text.lower()
+    has_outer = "外圆" in text or "外径" in text
+    has_lookup_signal = any(k in text for k in ("推荐范围", "推荐多少", "范围是多少"))
+    has_computation_signal = any(k in text for k in ("怎么计算", "如何计算", "公式"))
+
+    if has_lookup_signal or has_computation_signal:
+        return []
+    if not (has_blank and has_allowance):
+        return []
+
+    scored: list[tuple[int, dict]] = []
+    for record in records:
+        subtype = record.get("subtype", "")
+        score = 0
+        if has_blank and "blank_to_finished" in subtype:
+            score += 12
+        if has_outer and "blank_to_finished" in subtype:
+            score += 4
+        if "finish_to_grind" in subtype:
+            score += 1
+        if score > 0:
+            scored.append((score, record))
+
+    scored.sort(key=lambda item: (-item[0], item[1]["id"]))
+    return [_format_candidate_hit(record) for _, record in scored[:3]]
+
+
+def _match_feature_process(question: str, records: list[dict]) -> list[dict]:
+    """Feature-to-process selection (FPS-001 D-shape hole).
+
+    Distinctive trigger: 'D 型孔' / 'D形孔' / 非圆 + 加工/选择/方法. FPS-002
+    (内轮廓圆角) is handled by `_match_milling_process`. EOC-002 (mentions
+    D 型孔 but expects equipment_capability) is already routed by B1
+    `_match_equipment` because it contains the equipment name '三轴加工中心'.
+    """
+    if not records:
+        return []
+    text = question
+    has_d_shape = (
+        "D 型孔" in text
+        or "D型孔" in text
+        or "D形孔" in text
+        or "D-shape" in text
+    )
+    has_non_circular = any(k in text for k in ("非圆", "异形孔", "异形腔"))
+    has_process_question = any(
+        k in text for k in ("选择", "应选", "如何加工", "加工方法", "其他方法", "线切割")
+    )
+    if not has_process_question:
+        return []
+    if not (has_d_shape or has_non_circular):
+        return []
+
+    scored: list[tuple[int, dict]] = []
+    for record in records:
+        subtype = record.get("subtype", "")
+        score = 0
+        if has_d_shape and "d_shaped" in subtype:
+            score += 12
+        if has_non_circular and "non_circular" in subtype:
+            score += 10
+        if has_d_shape and "non_circular" in subtype:
+            score += 4  # generic non-circular fallback for D-shape
+        if score > 0:
+            scored.append((score, record))
+
+    scored.sort(key=lambda item: (-item[0], item[1]["id"]))
+    return [_format_candidate_hit(record) for _, record in scored[:3]]
+
+
+def _match_milling_process(question: str, records: list[dict]) -> list[dict]:
+    """Milling-process specific questions (FPS-002 inner-radius R milling).
+
+    Distinctive trigger: ('R' + 数字) AND '铣' AND ('内轮廓' OR '圆角'). EOC-002
+    contains '铣削' but is routed to equipment_capability_records by B1
+    `_match_equipment` (because of the explicit '三轴加工中心' equipment name).
+    """
+    if not records:
+        return []
+    text = question
+    has_milling = "铣" in text
+    has_inner_radius_topic = (
+        "内轮廓" in text
+        or "圆角" in text
+        or "型腔" in text
+    )
+    has_radius_callout = "R" in text and any(c.isdigit() for c in text)
+    has_equipment_name = any(
+        k in text
+        for k in ("数控车床", "三轴加工中心", "加工中心", "普通车床")
+    )
+
+    if has_equipment_name:
+        return []  # let B1 equipment routing handle these
+    if not has_milling:
+        return []
+    if not (has_inner_radius_topic or has_radius_callout):
+        return []
+
+    scored: list[tuple[int, dict]] = []
+    for record in records:
+        subtype = record.get("subtype", "")
+        score = 0
+        if has_radius_callout and "inner_radius" in subtype:
+            score += 12
+        if has_inner_radius_topic and "internal_contour" in subtype:
+            score += 6
+        if has_inner_radius_topic and "inner_radius" in subtype:
+            score += 4
+        if "plane_milling" in subtype:
+            score += 1
         if score > 0:
             scored.append((score, record))
 
