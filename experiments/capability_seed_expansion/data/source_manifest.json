@@ -328,5 +328,125 @@
     "evidence_type": "rule_paraphrase",
     "copyright_note": "Assignment rules paraphrased from general process route practice; equipment list verbatim",
     "review_status": "needs_expert_review_for_completeness"
+  },
+  {
+    "record_id": "ALLOW-CYLINDER-FINISH-GRIND-001",
+    "source_kind": "vlm_extracted_process_card_with_gold",
+    "source_path_or_doc": "Projects/process-expert/references/工艺知识库.pdf",
+    "source_page": 108,
+    "source_ref": "p108 缸套工艺过程卡 (VLM + manual gold + smoke calc)",
+    "evidence_type": "verified_dimension_pair_with_calculated_allowance",
+    "copyright_note": "Dimensions extracted from textbook process card; allowance computed deterministically",
+    "review_status": "auditable_calc"
+  },
+  {
+    "record_id": "ALLOW-OUTPUT-SHAFT-FINISH-GRIND-001",
+    "source_kind": "vlm_extracted_process_card",
+    "source_path_or_doc": "Projects/process-expert/references/工艺知识库.pdf",
+    "source_page": 106,
+    "source_ref": "p106-107 输出轴工艺过程卡 (existing route fixture)",
+    "evidence_type": "range_summary_from_extracted_route",
+    "copyright_note": "Range summary paraphrased from extracted process card; specific values not verbatim",
+    "review_status": "needs_expert_review_for_specific_values"
+  },
+  {
+    "record_id": "ALLOW-SEAL-SLEEVE-FINISH-GRIND-001",
+    "source_kind": "vlm_extracted_process_card",
+    "source_path_or_doc": "Projects/process-expert/references/工艺知识库.pdf",
+    "source_page": 109,
+    "source_ref": "p109-110 密封件定位套工艺过程卡 (existing route fixture)",
+    "evidence_type": "range_summary_from_extracted_route",
+    "copyright_note": "Range summary paraphrased from extracted process card",
+    "review_status": "needs_expert_review_for_specific_values"
+  },
+  {
+    "record_id": "ALLOW-BLANK-TO-FINISHED-001",
+    "source_kind": "general_practice_with_case_validation",
+    "source_path_or_doc": "Projects/process-expert/references/工艺知识库.pdf",
+    "source_page": 82,
+    "source_ref": "Ch3 余量章节 起始页 + 缸套 p108 案例验证 + 真实图纸 0.5mm 实测",
+    "evidence_type": "rule_paraphrase_with_real_drawing_validation",
+    "copyright_note": "Range from general process planning practice; verified against real-drawing 103.5→103",
+    "review_status": "needs_expert_review_for_blank_type_specificity"
+  },
+  {
+    "record_id": "FEAT-D-HOLE-001",
+    "source_kind": "general_machining_practice",
+    "source_path_or_doc": "Projects/process-expert/references/金属切削工艺技术手册.pdf",
+    "source_page": 655,
+    "source_ref": "Ch6 铣削加工 + general feature-process matrix",
+    "evidence_type": "feature_to_process_paraphrase",
+    "copyright_note": "Equipment names from existing equipment_blank fixture; process steps paraphrased from general milling practice",
+    "review_status": "needs_expert_review_for_completeness"
+  },
+  {
+    "record_id": "FEAT-NON-CIRCULAR-INNER-001",
+    "source_kind": "general_machining_practice",
+    "source_path_or_doc": "Projects/process-expert/references/金属切削工艺技术手册.pdf",
+    "source_page": 655,
+    "source_ref": "Ch6 铣削加工 + general feature-to-process matrix",
+    "evidence_type": "feature_to_process_paraphrase",
+    "copyright_note": "Process steps paraphrased from general milling practice for non-circular internal contours",
+    "review_status": "needs_expert_review_for_completeness"
+  },
+  {
+    "record_id": "MILL-INNER-RADIUS-R-001",
+    "source_kind": "general_machining_practice",
+    "source_path_or_doc": "Projects/process-expert/references/金属切削工艺技术手册.pdf",
+    "source_page": 660,
+    "source_ref": "Ch6 铣削加工 + general inner-radius practice",
+    "evidence_type": "tool_selection_rule_paraphrase",
+    "copyright_note": "Tool radius constraint is general practice (tool_R <= design_R)",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "MILL-INTERNAL-CONTOUR-001",
+    "source_kind": "general_machining_practice",
+    "source_path_or_doc": "Projects/process-expert/references/金属切削工艺技术手册.pdf",
+    "source_page": 658,
+    "source_ref": "Ch6 铣削加工 内轮廓节",
+    "evidence_type": "rough_finish_allowance_paraphrase",
+    "copyright_note": "Allowance ranges from general milling practice",
+    "review_status": "needs_expert_review_for_specific_materials"
+  },
+  {
+    "record_id": "MILL-PLANE-001",
+    "source_kind": "general_machining_practice",
+    "source_path_or_doc": "Projects/process-expert/references/金属切削工艺技术手册.pdf",
+    "source_page": 656,
+    "source_ref": "Ch6 铣削加工 平面铣节",
+    "evidence_type": "tool_and_depth_paraphrase",
+    "copyright_note": "Tool diameter factor and depth ranges from general milling practice",
+    "review_status": "needs_expert_review_for_specific_materials"
+  },
+  {
+    "record_id": "WELD-SYMBOL-CATALOG-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GBT 324 焊缝符号表示法.pdf",
+    "source_page": 1,
+    "source_ref": "§4.1 表1 + §4.2 表2 + §4.3 表3",
+    "evidence_type": "structured_symbol_catalog_paraphrase",
+    "copyright_note": "GB/T 324-2008 published symbols; paraphrased to structured JSON, no long verbatim text",
+    "review_status": "auditable_paraphrase"
+  },
+  {
+    "record_id": "WELD-SURFACE-REQUIREMENT-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GBT 324 焊缝符号表示法.pdf",
+    "source_page": 1,
+    "source_ref": "§3 总则 + general welding practice",
+    "evidence_type": "rule_plus_practice_paraphrase",
+    "copyright_note": "Symbol meaning from GB/T 324; process consequence from general welding practice",
+    "review_status": "auditable_paraphrase_with_practice_flag"
+  },
+  {
+    "record_id": "WELD-SYMBOL-CALLOUT-001",
+    "source_kind": "national_standard_pdf",
+    "source_path_or_doc": "Projects/process-expert/references/GBT 324 焊缝符号表示法.pdf",
+    "source_page": 1,
+    "source_ref": "§3 总则 + §4 符号; cites GB/T 12212",
+    "evidence_type": "interpretation_decomposition_paraphrase",
+    "copyright_note": "Decomposition rule from GB/T 324 §3-§4 paraphrase",
+    "review_status": "auditable_paraphrase"
   }
 ]

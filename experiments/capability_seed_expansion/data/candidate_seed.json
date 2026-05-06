@@ -12,7 +12,12 @@
       "source_text": "线性尺寸 f 级极限偏差: 0.5~3 ±0.05; 3~6 ±0.05; 6~30 ±0.1; 30~120 ±0.15; 120~400 ±0.2; 400~1000 ±0.3; 1000~2000 ±0.5 (mm) (GB/T 1804-2000 表1)",
       "quality_status": "accepted",
       "quality_flags": [],
-      "tags": ["GB/T 1804", "未注公差", "线性尺寸", "精密"],
+      "tags": [
+        "GB/T 1804",
+        "未注公差",
+        "线性尺寸",
+        "精密"
+      ],
       "result_json": {
         "standard": "GB/T 1804-2000",
         "level_code": "f",
@@ -20,13 +25,41 @@
         "kind": "linear",
         "unit": "mm",
         "size_segments": [
-          {"min": 0.5, "max": 3, "deviation": 0.05},
-          {"min": 3, "max": 6, "deviation": 0.05},
-          {"min": 6, "max": 30, "deviation": 0.1},
-          {"min": 30, "max": 120, "deviation": 0.15},
-          {"min": 120, "max": 400, "deviation": 0.2},
-          {"min": 400, "max": 1000, "deviation": 0.3},
-          {"min": 1000, "max": 2000, "deviation": 0.5}
+          {
+            "min": 0.5,
+            "max": 3,
+            "deviation": 0.05
+          },
+          {
+            "min": 3,
+            "max": 6,
+            "deviation": 0.05
+          },
+          {
+            "min": 6,
+            "max": 30,
+            "deviation": 0.1
+          },
+          {
+            "min": 30,
+            "max": 120,
+            "deviation": 0.15
+          },
+          {
+            "min": 120,
+            "max": 400,
+            "deviation": 0.2
+          },
+          {
+            "min": 400,
+            "max": 1000,
+            "deviation": 0.3
+          },
+          {
+            "min": 1000,
+            "max": 2000,
+            "deviation": 0.5
+          }
         ]
       }
     },
@@ -42,7 +75,13 @@
       "source_text": "线性尺寸 m 级极限偏差: 0.5~3 ±0.1; 3~6 ±0.1; 6~30 ±0.2; 30~120 ±0.3; 120~400 ±0.5; 400~1000 ±0.8; 1000~2000 ±1.2; 2000~4000 ±2 (mm) (GB/T 1804-2000 表1)",
       "quality_status": "accepted",
       "quality_flags": [],
-      "tags": ["GB/T 1804", "GB/T1804-m", "未注公差", "线性尺寸", "中等"],
+      "tags": [
+        "GB/T 1804",
+        "GB/T1804-m",
+        "未注公差",
+        "线性尺寸",
+        "中等"
+      ],
       "result_json": {
         "standard": "GB/T 1804-2000",
         "level_code": "m",
@@ -50,14 +89,46 @@
         "kind": "linear",
         "unit": "mm",
         "size_segments": [
-          {"min": 0.5, "max": 3, "deviation": 0.1},
-          {"min": 3, "max": 6, "deviation": 0.1},
-          {"min": 6, "max": 30, "deviation": 0.2},
-          {"min": 30, "max": 120, "deviation": 0.3},
-          {"min": 120, "max": 400, "deviation": 0.5},
-          {"min": 400, "max": 1000, "deviation": 0.8},
-          {"min": 1000, "max": 2000, "deviation": 1.2},
-          {"min": 2000, "max": 4000, "deviation": 2.0}
+          {
+            "min": 0.5,
+            "max": 3,
+            "deviation": 0.1
+          },
+          {
+            "min": 3,
+            "max": 6,
+            "deviation": 0.1
+          },
+          {
+            "min": 6,
+            "max": 30,
+            "deviation": 0.2
+          },
+          {
+            "min": 30,
+            "max": 120,
+            "deviation": 0.3
+          },
+          {
+            "min": 120,
+            "max": 400,
+            "deviation": 0.5
+          },
+          {
+            "min": 400,
+            "max": 1000,
+            "deviation": 0.8
+          },
+          {
+            "min": 1000,
+            "max": 2000,
+            "deviation": 1.2
+          },
+          {
+            "min": 2000,
+            "max": 4000,
+            "deviation": 2.0
+          }
         ]
       }
     },
@@ -73,7 +144,12 @@
       "source_text": "线性尺寸 c 级极限偏差: 0.5~3 ±0.2; 3~6 ±0.3; 6~30 ±0.5; 30~120 ±0.8; 120~400 ±1.2; 400~1000 ±2; 1000~2000 ±3; 2000~4000 ±4 (mm) (GB/T 1804-2000 表1)",
       "quality_status": "accepted",
       "quality_flags": [],
-      "tags": ["GB/T 1804", "未注公差", "线性尺寸", "粗糙"],
+      "tags": [
+        "GB/T 1804",
+        "未注公差",
+        "线性尺寸",
+        "粗糙"
+      ],
       "result_json": {
         "standard": "GB/T 1804-2000",
         "level_code": "c",
@@ -81,14 +157,46 @@
         "kind": "linear",
         "unit": "mm",
         "size_segments": [
-          {"min": 0.5, "max": 3, "deviation": 0.2},
-          {"min": 3, "max": 6, "deviation": 0.3},
-          {"min": 6, "max": 30, "deviation": 0.5},
-          {"min": 30, "max": 120, "deviation": 0.8},
-          {"min": 120, "max": 400, "deviation": 1.2},
-          {"min": 400, "max": 1000, "deviation": 2.0},
-          {"min": 1000, "max": 2000, "deviation": 3.0},
-          {"min": 2000, "max": 4000, "deviation": 4.0}
+          {
+            "min": 0.5,
+            "max": 3,
+            "deviation": 0.2
+          },
+          {
+            "min": 3,
+            "max": 6,
+            "deviation": 0.3
+          },
+          {
+            "min": 6,
+            "max": 30,
+            "deviation": 0.5
+          },
+          {
+            "min": 30,
+            "max": 120,
+            "deviation": 0.8
+          },
+          {
+            "min": 120,
+            "max": 400,
+            "deviation": 1.2
+          },
+          {
+            "min": 400,
+            "max": 1000,
+            "deviation": 2.0
+          },
+          {
+            "min": 1000,
+            "max": 2000,
+            "deviation": 3.0
+          },
+          {
+            "min": 2000,
+            "max": 4000,
+            "deviation": 4.0
+          }
         ]
       }
     },
@@ -104,7 +212,12 @@
       "source_text": "线性尺寸 v 级极限偏差: 3~6 ±0.5; 6~30 ±1; 30~120 ±1.5; 120~400 ±2.5; 400~1000 ±4; 1000~2000 ±6; 2000~4000 ±8 (mm) (GB/T 1804-2000 表1)",
       "quality_status": "accepted",
       "quality_flags": [],
-      "tags": ["GB/T 1804", "未注公差", "线性尺寸", "最粗"],
+      "tags": [
+        "GB/T 1804",
+        "未注公差",
+        "线性尺寸",
+        "最粗"
+      ],
       "result_json": {
         "standard": "GB/T 1804-2000",
         "level_code": "v",
@@ -112,13 +225,41 @@
         "kind": "linear",
         "unit": "mm",
         "size_segments": [
-          {"min": 3, "max": 6, "deviation": 0.5},
-          {"min": 6, "max": 30, "deviation": 1.0},
-          {"min": 30, "max": 120, "deviation": 1.5},
-          {"min": 120, "max": 400, "deviation": 2.5},
-          {"min": 400, "max": 1000, "deviation": 4.0},
-          {"min": 1000, "max": 2000, "deviation": 6.0},
-          {"min": 2000, "max": 4000, "deviation": 8.0}
+          {
+            "min": 3,
+            "max": 6,
+            "deviation": 0.5
+          },
+          {
+            "min": 6,
+            "max": 30,
+            "deviation": 1.0
+          },
+          {
+            "min": 30,
+            "max": 120,
+            "deviation": 1.5
+          },
+          {
+            "min": 120,
+            "max": 400,
+            "deviation": 2.5
+          },
+          {
+            "min": 400,
+            "max": 1000,
+            "deviation": 4.0
+          },
+          {
+            "min": 1000,
+            "max": 2000,
+            "deviation": 6.0
+          },
+          {
+            "min": 2000,
+            "max": 4000,
+            "deviation": 8.0
+          }
         ]
       }
     },
@@ -134,17 +275,41 @@
       "source_text": "倒圆/倒角 f, m 级极限偏差: 0.5~3 ±0.2; 3~6 ±0.5; 6~30 ±1; >30 ±2 (mm) (GB/T 1804-2000 表2)",
       "quality_status": "accepted",
       "quality_flags": [],
-      "tags": ["GB/T 1804", "未注公差", "倒圆", "倒角"],
+      "tags": [
+        "GB/T 1804",
+        "未注公差",
+        "倒圆",
+        "倒角"
+      ],
       "result_json": {
         "standard": "GB/T 1804-2000",
-        "level_codes": ["f", "m"],
+        "level_codes": [
+          "f",
+          "m"
+        ],
         "kind": "edge_round_chamfer",
         "unit": "mm",
         "size_segments": [
-          {"min": 0.5, "max": 3, "deviation": 0.2},
-          {"min": 3, "max": 6, "deviation": 0.5},
-          {"min": 6, "max": 30, "deviation": 1.0},
-          {"min": 30, "max": null, "deviation": 2.0}
+          {
+            "min": 0.5,
+            "max": 3,
+            "deviation": 0.2
+          },
+          {
+            "min": 3,
+            "max": 6,
+            "deviation": 0.5
+          },
+          {
+            "min": 6,
+            "max": 30,
+            "deviation": 1.0
+          },
+          {
+            "min": 30,
+            "max": null,
+            "deviation": 2.0
+          }
         ]
       }
     },
@@ -160,17 +325,41 @@
       "source_text": "倒圆/倒角 c, v 级极限偏差: 0.5~3 ±0.4; 3~6 ±1; 6~30 ±2; >30 ±4 (mm) (GB/T 1804-2000 表2)",
       "quality_status": "accepted",
       "quality_flags": [],
-      "tags": ["GB/T 1804", "未注公差", "倒圆", "倒角"],
+      "tags": [
+        "GB/T 1804",
+        "未注公差",
+        "倒圆",
+        "倒角"
+      ],
       "result_json": {
         "standard": "GB/T 1804-2000",
-        "level_codes": ["c", "v"],
+        "level_codes": [
+          "c",
+          "v"
+        ],
         "kind": "edge_round_chamfer",
         "unit": "mm",
         "size_segments": [
-          {"min": 0.5, "max": 3, "deviation": 0.4},
-          {"min": 3, "max": 6, "deviation": 1.0},
-          {"min": 6, "max": 30, "deviation": 2.0},
-          {"min": 30, "max": null, "deviation": 4.0}
+          {
+            "min": 0.5,
+            "max": 3,
+            "deviation": 0.4
+          },
+          {
+            "min": 3,
+            "max": 6,
+            "deviation": 1.0
+          },
+          {
+            "min": 6,
+            "max": 30,
+            "deviation": 2.0
+          },
+          {
+            "min": 30,
+            "max": null,
+            "deviation": 4.0
+          }
         ]
       }
     },
@@ -186,18 +375,45 @@
       "source_text": "角度 f, m 级极限偏差按短边长度: ≤10 ±1°; 10~50 ±30'; 50~120 ±20'; 120~400 ±10'; >400 ±5' (GB/T 1804-2000 表3)",
       "quality_status": "accepted",
       "quality_flags": [],
-      "tags": ["GB/T 1804", "未注公差", "角度"],
+      "tags": [
+        "GB/T 1804",
+        "未注公差",
+        "角度"
+      ],
       "result_json": {
         "standard": "GB/T 1804-2000",
-        "level_codes": ["f", "m"],
+        "level_codes": [
+          "f",
+          "m"
+        ],
         "kind": "angular",
         "measured_by": "short_edge_length_mm",
         "size_segments": [
-          {"length_min": 0, "length_max": 10, "deviation_text": "±1°"},
-          {"length_min": 10, "length_max": 50, "deviation_text": "±30'"},
-          {"length_min": 50, "length_max": 120, "deviation_text": "±20'"},
-          {"length_min": 120, "length_max": 400, "deviation_text": "±10'"},
-          {"length_min": 400, "length_max": null, "deviation_text": "±5'"}
+          {
+            "length_min": 0,
+            "length_max": 10,
+            "deviation_text": "±1°"
+          },
+          {
+            "length_min": 10,
+            "length_max": 50,
+            "deviation_text": "±30'"
+          },
+          {
+            "length_min": 50,
+            "length_max": 120,
+            "deviation_text": "±20'"
+          },
+          {
+            "length_min": 120,
+            "length_max": 400,
+            "deviation_text": "±10'"
+          },
+          {
+            "length_min": 400,
+            "length_max": null,
+            "deviation_text": "±5'"
+          }
         ]
       }
     },
@@ -213,18 +429,42 @@
       "source_text": "角度 c 级极限偏差: ≤10 ±1°30'; 10~50 ±1°; 50~120 ±30'; 120~400 ±15'; >400 ±10' (GB/T 1804-2000 表3)",
       "quality_status": "accepted",
       "quality_flags": [],
-      "tags": ["GB/T 1804", "未注公差", "角度"],
+      "tags": [
+        "GB/T 1804",
+        "未注公差",
+        "角度"
+      ],
       "result_json": {
         "standard": "GB/T 1804-2000",
         "level_code": "c",
         "kind": "angular",
         "measured_by": "short_edge_length_mm",
         "size_segments": [
-          {"length_min": 0, "length_max": 10, "deviation_text": "±1°30'"},
-          {"length_min": 10, "length_max": 50, "deviation_text": "±1°"},
-          {"length_min": 50, "length_max": 120, "deviation_text": "±30'"},
-          {"length_min": 120, "length_max": 400, "deviation_text": "±15'"},
-          {"length_min": 400, "length_max": null, "deviation_text": "±10'"}
+          {
+            "length_min": 0,
+            "length_max": 10,
+            "deviation_text": "±1°30'"
+          },
+          {
+            "length_min": 10,
+            "length_max": 50,
+            "deviation_text": "±1°"
+          },
+          {
+            "length_min": 50,
+            "length_max": 120,
+            "deviation_text": "±30'"
+          },
+          {
+            "length_min": 120,
+            "length_max": 400,
+            "deviation_text": "±15'"
+          },
+          {
+            "length_min": 400,
+            "length_max": null,
+            "deviation_text": "±10'"
+          }
         ]
       }
     },
@@ -240,18 +480,42 @@
       "source_text": "角度 v 级极限偏差: ≤10 ±3°; 10~50 ±2°; 50~120 ±1°; 120~400 ±30'; >400 ±20' (GB/T 1804-2000 表3)",
       "quality_status": "accepted",
       "quality_flags": [],
-      "tags": ["GB/T 1804", "未注公差", "角度"],
+      "tags": [
+        "GB/T 1804",
+        "未注公差",
+        "角度"
+      ],
       "result_json": {
         "standard": "GB/T 1804-2000",
         "level_code": "v",
         "kind": "angular",
         "measured_by": "short_edge_length_mm",
         "size_segments": [
-          {"length_min": 0, "length_max": 10, "deviation_text": "±3°"},
-          {"length_min": 10, "length_max": 50, "deviation_text": "±2°"},
-          {"length_min": 50, "length_max": 120, "deviation_text": "±1°"},
-          {"length_min": 120, "length_max": 400, "deviation_text": "±30'"},
-          {"length_min": 400, "length_max": null, "deviation_text": "±20'"}
+          {
+            "length_min": 0,
+            "length_max": 10,
+            "deviation_text": "±3°"
+          },
+          {
+            "length_min": 10,
+            "length_max": 50,
+            "deviation_text": "±2°"
+          },
+          {
+            "length_min": 50,
+            "length_max": 120,
+            "deviation_text": "±1°"
+          },
+          {
+            "length_min": 120,
+            "length_max": 400,
+            "deviation_text": "±30'"
+          },
+          {
+            "length_min": 400,
+            "length_max": null,
+            "deviation_text": "±20'"
+          }
         ]
       }
     },
@@ -267,11 +531,23 @@
       "source_text": "采用 GB/T 1804 一般公差时, 在图样标题栏附近或技术要求中注出标准号及公差等级代号, 例如选取中等级标注为 GB/T 1804—m。",
       "quality_status": "accepted",
       "quality_flags": [],
-      "tags": ["GB/T 1804", "标注语法", "GB/T1804-m"],
+      "tags": [
+        "GB/T 1804",
+        "标注语法",
+        "GB/T1804-m"
+      ],
       "guidance_json": {
         "syntax_pattern": "GB/T 1804—{level}",
-        "level_choices": ["f", "m", "c", "v"],
-        "examples": ["GB/T 1804—m", "GB/T 1804—f"],
+        "level_choices": [
+          "f",
+          "m",
+          "c",
+          "v"
+        ],
+        "examples": [
+          "GB/T 1804—m",
+          "GB/T 1804—f"
+        ],
         "placement": "title_block_or_technical_requirements"
       }
     },
@@ -287,19 +563,48 @@
       "source_text": "直线度/平面度 H 级未注公差: ≤10 0.02; 10~30 0.05; 30~100 0.1; 100~300 0.2; 300~1000 0.3; 1000~3000 0.4 (mm) (GB/T 1184-1996 表1)",
       "quality_status": "accepted",
       "quality_flags": [],
-      "tags": ["GB/T 1184", "未注形位公差", "直线度", "平面度"],
+      "tags": [
+        "GB/T 1184",
+        "未注形位公差",
+        "直线度",
+        "平面度"
+      ],
       "result_json": {
         "standard": "GB/T 1184-1996",
         "level_code": "H",
         "kind": "linearity_flatness",
         "unit": "mm",
         "size_segments": [
-          {"min": 0, "max": 10, "deviation": 0.02},
-          {"min": 10, "max": 30, "deviation": 0.05},
-          {"min": 30, "max": 100, "deviation": 0.1},
-          {"min": 100, "max": 300, "deviation": 0.2},
-          {"min": 300, "max": 1000, "deviation": 0.3},
-          {"min": 1000, "max": 3000, "deviation": 0.4}
+          {
+            "min": 0,
+            "max": 10,
+            "deviation": 0.02
+          },
+          {
+            "min": 10,
+            "max": 30,
+            "deviation": 0.05
+          },
+          {
+            "min": 30,
+            "max": 100,
+            "deviation": 0.1
+          },
+          {
+            "min": 100,
+            "max": 300,
+            "deviation": 0.2
+          },
+          {
+            "min": 300,
+            "max": 1000,
+            "deviation": 0.3
+          },
+          {
+            "min": 1000,
+            "max": 3000,
+            "deviation": 0.4
+          }
         ]
       }
     },
@@ -315,19 +620,48 @@
       "source_text": "直线度/平面度 K 级未注公差: ≤10 0.05; 10~30 0.1; 30~100 0.2; 100~300 0.4; 300~1000 0.6; 1000~3000 0.8 (mm) (GB/T 1184-1996 表1)",
       "quality_status": "accepted",
       "quality_flags": [],
-      "tags": ["GB/T 1184", "未注形位公差", "直线度", "平面度"],
+      "tags": [
+        "GB/T 1184",
+        "未注形位公差",
+        "直线度",
+        "平面度"
+      ],
       "result_json": {
         "standard": "GB/T 1184-1996",
         "level_code": "K",
         "kind": "linearity_flatness",
         "unit": "mm",
         "size_segments": [
-          {"min": 0, "max": 10, "deviation": 0.05},
-          {"min": 10, "max": 30, "deviation": 0.1},
-          {"min": 30, "max": 100, "deviation": 0.2},
-          {"min": 100, "max": 300, "deviation": 0.4},
-          {"min": 300, "max": 1000, "deviation": 0.6},
-          {"min": 1000, "max": 3000, "deviation": 0.8}
+          {
+            "min": 0,
+            "max": 10,
+            "deviation": 0.05
+          },
+          {
+            "min": 10,
+            "max": 30,
+            "deviation": 0.1
+          },
+          {
+            "min": 30,
+            "max": 100,
+            "deviation": 0.2
+          },
+          {
+            "min": 100,
+            "max": 300,
+            "deviation": 0.4
+          },
+          {
+            "min": 300,
+            "max": 1000,
+            "deviation": 0.6
+          },
+          {
+            "min": 1000,
+            "max": 3000,
+            "deviation": 0.8
+          }
         ]
       }
     },
@@ -343,19 +677,48 @@
       "source_text": "直线度/平面度 L 级未注公差: ≤10 0.1; 10~30 0.2; 30~100 0.4; 100~300 0.8; 300~1000 1.2; 1000~3000 1.6 (mm) (GB/T 1184-1996 表1)",
       "quality_status": "accepted",
       "quality_flags": [],
-      "tags": ["GB/T 1184", "未注形位公差", "直线度", "平面度"],
+      "tags": [
+        "GB/T 1184",
+        "未注形位公差",
+        "直线度",
+        "平面度"
+      ],
       "result_json": {
         "standard": "GB/T 1184-1996",
         "level_code": "L",
         "kind": "linearity_flatness",
         "unit": "mm",
         "size_segments": [
-          {"min": 0, "max": 10, "deviation": 0.1},
-          {"min": 10, "max": 30, "deviation": 0.2},
-          {"min": 30, "max": 100, "deviation": 0.4},
-          {"min": 100, "max": 300, "deviation": 0.8},
-          {"min": 300, "max": 1000, "deviation": 1.2},
-          {"min": 1000, "max": 3000, "deviation": 1.6}
+          {
+            "min": 0,
+            "max": 10,
+            "deviation": 0.1
+          },
+          {
+            "min": 10,
+            "max": 30,
+            "deviation": 0.2
+          },
+          {
+            "min": 30,
+            "max": 100,
+            "deviation": 0.4
+          },
+          {
+            "min": 100,
+            "max": 300,
+            "deviation": 0.8
+          },
+          {
+            "min": 300,
+            "max": 1000,
+            "deviation": 1.2
+          },
+          {
+            "min": 1000,
+            "max": 3000,
+            "deviation": 1.6
+          }
         ]
       }
     },
@@ -371,17 +734,37 @@
       "source_text": "垂直度 H 级未注公差: ≤100 0.2; 100~300 0.3; 300~1000 0.4; 1000~3000 0.5 (mm) (GB/T 1184-1996 表2)",
       "quality_status": "accepted",
       "quality_flags": [],
-      "tags": ["GB/T 1184", "未注形位公差", "垂直度"],
+      "tags": [
+        "GB/T 1184",
+        "未注形位公差",
+        "垂直度"
+      ],
       "result_json": {
         "standard": "GB/T 1184-1996",
         "level_code": "H",
         "kind": "perpendicularity",
         "unit": "mm",
         "size_segments": [
-          {"min": 0, "max": 100, "deviation": 0.2},
-          {"min": 100, "max": 300, "deviation": 0.3},
-          {"min": 300, "max": 1000, "deviation": 0.4},
-          {"min": 1000, "max": 3000, "deviation": 0.5}
+          {
+            "min": 0,
+            "max": 100,
+            "deviation": 0.2
+          },
+          {
+            "min": 100,
+            "max": 300,
+            "deviation": 0.3
+          },
+          {
+            "min": 300,
+            "max": 1000,
+            "deviation": 0.4
+          },
+          {
+            "min": 1000,
+            "max": 3000,
+            "deviation": 0.5
+          }
         ]
       }
     },
@@ -397,17 +780,37 @@
       "source_text": "垂直度 K 级未注公差: ≤100 0.4; 100~300 0.6; 300~1000 0.8; 1000~3000 1 (mm) (GB/T 1184-1996 表2)",
       "quality_status": "accepted",
       "quality_flags": [],
-      "tags": ["GB/T 1184", "未注形位公差", "垂直度"],
+      "tags": [
+        "GB/T 1184",
+        "未注形位公差",
+        "垂直度"
+      ],
       "result_json": {
         "standard": "GB/T 1184-1996",
         "level_code": "K",
         "kind": "perpendicularity",
         "unit": "mm",
         "size_segments": [
-          {"min": 0, "max": 100, "deviation": 0.4},
-          {"min": 100, "max": 300, "deviation": 0.6},
-          {"min": 300, "max": 1000, "deviation": 0.8},
-          {"min": 1000, "max": 3000, "deviation": 1.0}
+          {
+            "min": 0,
+            "max": 100,
+            "deviation": 0.4
+          },
+          {
+            "min": 100,
+            "max": 300,
+            "deviation": 0.6
+          },
+          {
+            "min": 300,
+            "max": 1000,
+            "deviation": 0.8
+          },
+          {
+            "min": 1000,
+            "max": 3000,
+            "deviation": 1.0
+          }
         ]
       }
     },
@@ -423,17 +826,37 @@
       "source_text": "垂直度 L 级未注公差: ≤100 0.6; 100~300 1; 300~1000 1.5; 1000~3000 2 (mm) (GB/T 1184-1996 表2)",
       "quality_status": "accepted",
       "quality_flags": [],
-      "tags": ["GB/T 1184", "未注形位公差", "垂直度"],
+      "tags": [
+        "GB/T 1184",
+        "未注形位公差",
+        "垂直度"
+      ],
       "result_json": {
         "standard": "GB/T 1184-1996",
         "level_code": "L",
         "kind": "perpendicularity",
         "unit": "mm",
         "size_segments": [
-          {"min": 0, "max": 100, "deviation": 0.6},
-          {"min": 100, "max": 300, "deviation": 1.0},
-          {"min": 300, "max": 1000, "deviation": 1.5},
-          {"min": 1000, "max": 3000, "deviation": 2.0}
+          {
+            "min": 0,
+            "max": 100,
+            "deviation": 0.6
+          },
+          {
+            "min": 100,
+            "max": 300,
+            "deviation": 1.0
+          },
+          {
+            "min": 300,
+            "max": 1000,
+            "deviation": 1.5
+          },
+          {
+            "min": 1000,
+            "max": 3000,
+            "deviation": 2.0
+          }
         ]
       }
     },
@@ -449,17 +872,37 @@
       "source_text": "对称度 H 级未注公差: 0.5 (统一, 适用于 ≤100、100~300、300~1000、1000~3000 mm) (GB/T 1184-1996 表3)",
       "quality_status": "accepted",
       "quality_flags": [],
-      "tags": ["GB/T 1184", "未注形位公差", "对称度"],
+      "tags": [
+        "GB/T 1184",
+        "未注形位公差",
+        "对称度"
+      ],
       "result_json": {
         "standard": "GB/T 1184-1996",
         "level_code": "H",
         "kind": "symmetry",
         "unit": "mm",
         "size_segments": [
-          {"min": 0, "max": 100, "deviation": 0.5},
-          {"min": 100, "max": 300, "deviation": 0.5},
-          {"min": 300, "max": 1000, "deviation": 0.5},
-          {"min": 1000, "max": 3000, "deviation": 0.5}
+          {
+            "min": 0,
+            "max": 100,
+            "deviation": 0.5
+          },
+          {
+            "min": 100,
+            "max": 300,
+            "deviation": 0.5
+          },
+          {
+            "min": 300,
+            "max": 1000,
+            "deviation": 0.5
+          },
+          {
+            "min": 1000,
+            "max": 3000,
+            "deviation": 0.5
+          }
         ]
       }
     },
@@ -475,17 +918,37 @@
       "source_text": "对称度 K 级未注公差: ≤100 0.6; 100~300 0.6; 300~1000 0.8; 1000~3000 1 (mm) (GB/T 1184-1996 表3)",
       "quality_status": "accepted",
       "quality_flags": [],
-      "tags": ["GB/T 1184", "未注形位公差", "对称度"],
+      "tags": [
+        "GB/T 1184",
+        "未注形位公差",
+        "对称度"
+      ],
       "result_json": {
         "standard": "GB/T 1184-1996",
         "level_code": "K",
         "kind": "symmetry",
         "unit": "mm",
         "size_segments": [
-          {"min": 0, "max": 100, "deviation": 0.6},
-          {"min": 100, "max": 300, "deviation": 0.6},
-          {"min": 300, "max": 1000, "deviation": 0.8},
-          {"min": 1000, "max": 3000, "deviation": 1.0}
+          {
+            "min": 0,
+            "max": 100,
+            "deviation": 0.6
+          },
+          {
+            "min": 100,
+            "max": 300,
+            "deviation": 0.6
+          },
+          {
+            "min": 300,
+            "max": 1000,
+            "deviation": 0.8
+          },
+          {
+            "min": 1000,
+            "max": 3000,
+            "deviation": 1.0
+          }
         ]
       }
     },
@@ -501,17 +964,37 @@
       "source_text": "对称度 L 级未注公差: ≤100 0.6; 100~300 1; 300~1000 1.5; 1000~3000 2 (mm) (GB/T 1184-1996 表3)",
       "quality_status": "accepted",
       "quality_flags": [],
-      "tags": ["GB/T 1184", "未注形位公差", "对称度"],
+      "tags": [
+        "GB/T 1184",
+        "未注形位公差",
+        "对称度"
+      ],
       "result_json": {
         "standard": "GB/T 1184-1996",
         "level_code": "L",
         "kind": "symmetry",
         "unit": "mm",
         "size_segments": [
-          {"min": 0, "max": 100, "deviation": 0.6},
-          {"min": 100, "max": 300, "deviation": 1.0},
-          {"min": 300, "max": 1000, "deviation": 1.5},
-          {"min": 1000, "max": 3000, "deviation": 2.0}
+          {
+            "min": 0,
+            "max": 100,
+            "deviation": 0.6
+          },
+          {
+            "min": 100,
+            "max": 300,
+            "deviation": 1.0
+          },
+          {
+            "min": 300,
+            "max": 1000,
+            "deviation": 1.5
+          },
+          {
+            "min": 1000,
+            "max": 3000,
+            "deviation": 2.0
+          }
         ]
       }
     },
@@ -527,13 +1010,25 @@
       "source_text": "圆跳动(径向/端面/斜向)未注公差: H 0.1; K 0.2; L 0.5 (mm) (GB/T 1184-1996 表4)",
       "quality_status": "accepted",
       "quality_flags": [],
-      "tags": ["GB/T 1184", "未注形位公差", "圆跳动"],
+      "tags": [
+        "GB/T 1184",
+        "未注形位公差",
+        "圆跳动"
+      ],
       "result_json": {
         "standard": "GB/T 1184-1996",
         "kind": "runout",
-        "applies_to": ["radial_runout", "axial_runout", "oblique_runout"],
+        "applies_to": [
+          "radial_runout",
+          "axial_runout",
+          "oblique_runout"
+        ],
         "unit": "mm",
-        "by_level": {"H": 0.1, "K": 0.2, "L": 0.5}
+        "by_level": {
+          "H": 0.1,
+          "K": 0.2,
+          "L": 0.5
+        }
       }
     },
     {
@@ -548,7 +1043,11 @@
       "source_text": "同轴度未注公差值未作规定; 极限状况下可与表4径向圆跳动的未注公差值相等; 应取较长要素为基准, 长度相等时可任选 (GB/T 1184-1996 §5.2.4)",
       "quality_status": "accepted",
       "quality_flags": [],
-      "tags": ["GB/T 1184", "未注形位公差", "同轴度"],
+      "tags": [
+        "GB/T 1184",
+        "未注形位公差",
+        "同轴度"
+      ],
       "guidance_json": {
         "rule": "no_explicit_value",
         "extreme_case_falls_back_to": "radial_runout_by_level",
@@ -567,7 +1066,11 @@
       "source_text": "平行度未注公差值等于给出的尺寸公差值, 或直线度和平面度未注公差值中相应公差值取较大者; 应取两要素中较长者为基准 (GB/T 1184-1996 §5.2.1)",
       "quality_status": "accepted",
       "quality_flags": [],
-      "tags": ["GB/T 1184", "未注形位公差", "平行度"],
+      "tags": [
+        "GB/T 1184",
+        "未注形位公差",
+        "平行度"
+      ],
       "guidance_json": {
         "rule": "max(dimension_tolerance, linearity_or_flatness_value_at_same_level)",
         "datum_selection": "longer_feature_or_either_if_equal"
@@ -585,7 +1088,11 @@
       "source_text": "圆度的未注公差值等于标准的直径公差值, 但不能大于表4中的径向圆跳动值 (GB/T 1184-1996 §5.1.2)",
       "quality_status": "accepted",
       "quality_flags": [],
-      "tags": ["GB/T 1184", "未注形位公差", "圆度"],
+      "tags": [
+        "GB/T 1184",
+        "未注形位公差",
+        "圆度"
+      ],
       "guidance_json": {
         "rule": "min(diameter_tolerance, runout_at_same_level)",
         "see_table": "GB/T 1184-1996 表4"
@@ -603,10 +1110,18 @@
       "source_text": "圆柱度的未注公差值不做规定; 由圆度、直线度和相对素线的平行度未注公差综合控制, 必要时可注出圆柱度公差值或采用包容要求 (GB/T 1184-1996 §5.1.3)",
       "quality_status": "accepted",
       "quality_flags": [],
-      "tags": ["GB/T 1184", "未注形位公差", "圆柱度"],
+      "tags": [
+        "GB/T 1184",
+        "未注形位公差",
+        "圆柱度"
+      ],
       "guidance_json": {
         "rule": "no_explicit_value",
-        "controlled_by": ["roundness", "linearity", "parallelism_of_generators"],
+        "controlled_by": [
+          "roundness",
+          "linearity",
+          "parallelism_of_generators"
+        ],
         "fallback": "use_envelope_requirement_or_explicit_callout"
       }
     },
@@ -622,11 +1137,22 @@
       "source_text": "采用 GB/T 1184 未注公差值时, 在标题栏附近或技术要求中注出标准号及公差等级代号: GB/T 1184-X (X∈{H,K,L}) (GB/T 1184-1996 §6)",
       "quality_status": "accepted",
       "quality_flags": [],
-      "tags": ["GB/T 1184", "标注语法", "形位公差"],
+      "tags": [
+        "GB/T 1184",
+        "标注语法",
+        "形位公差"
+      ],
       "guidance_json": {
         "syntax_pattern": "GB/T 1184-{level}",
-        "level_choices": ["H", "K", "L"],
-        "examples": ["GB/T 1184-K", "GB/T 1184-H"],
+        "level_choices": [
+          "H",
+          "K",
+          "L"
+        ],
+        "examples": [
+          "GB/T 1184-K",
+          "GB/T 1184-H"
+        ],
         "placement": "title_block_or_technical_requirements"
       }
     }
@@ -644,12 +1170,22 @@
       "source_text": "键槽对称度可采用偏摆仪及量块配合检查, 也可采用专用对称度检具检查; 图样未标注时实际加工仍应保证装配所需对称度。",
       "quality_status": "accepted",
       "quality_flags": [],
-      "tags": ["对称度", "键槽", "检验", "偏摆仪", "量块"],
+      "tags": [
+        "对称度",
+        "键槽",
+        "检验",
+        "偏摆仪",
+        "量块"
+      ],
       "guidance_json": {
         "feature": "keyslot_symmetry",
         "inspection_method": "indicator_with_gauge_blocks_or_dedicated_symmetry_gauge",
         "datum_basis": "longer_feature_or_either_if_equal_per_GB_T_1184_section_5_2_3",
-        "instruments": ["偏摆仪", "量块", "专用对称度检具"],
+        "instruments": [
+          "偏摆仪",
+          "量块",
+          "专用对称度检具"
+        ],
         "tolerance_source_when_unmarked": "GB/T 1184 表3 对称度未注公差值"
       }
     },
@@ -665,7 +1201,11 @@
       "source_text": "圆跳动未注公差检验应以设计或工艺给出的支承面作为基准; 否则取两要素中较长一个作为基准; 长度相等可任选 (GB/T 1184-1996 §5.2.5)",
       "quality_status": "accepted",
       "quality_flags": [],
-      "tags": ["圆跳动", "检验", "基准选择"],
+      "tags": [
+        "圆跳动",
+        "检验",
+        "基准选择"
+      ],
       "guidance_json": {
         "feature": "circular_runout",
         "inspection_method": "indicator_with_part_rotation_about_datum",
@@ -684,8 +1224,16 @@
       "source_ref": "§7 注出公差值; 附录A 独立原则与基准选择",
       "source_text": "对图样上注出位置度(如 φ0.1 B C)的检验, 应严格按 GB/T 1182 图样标注规则建立基准 B/C 和位置度公差带, 用专用检具/三坐标测量机测量被测要素相对于基准的偏离 (GB/T 1184-1996 附录A 独立原则)",
       "quality_status": "accepted_with_flags",
-      "quality_flags": ["paraphrased_from_appendix_concept", "GB_T_1182_referenced_but_not_loaded"],
-      "tags": ["位置度", "检验", "基准", "三坐标测量机"],
+      "quality_flags": [
+        "paraphrased_from_appendix_concept",
+        "GB_T_1182_referenced_but_not_loaded"
+      ],
+      "tags": [
+        "位置度",
+        "检验",
+        "基准",
+        "三坐标测量机"
+      ],
       "guidance_json": {
         "feature": "geometric_position_tolerance",
         "inspection_method": "dedicated_fixture_or_cmm_relative_to_datums",
@@ -705,8 +1253,14 @@
       "source_ref": "§5.2.4 同轴度",
       "source_text": "同轴度未注公差值未作规定; 极限状况下可取径向圆跳动表4的值; 应取较长要素为基准, 检验可借助 V 形块或专用心轴 (GB/T 1184-1996 §5.2.4)",
       "quality_status": "accepted_with_flags",
-      "quality_flags": ["instrument_choice_paraphrased_from_general_practice"],
-      "tags": ["同轴度", "检验", "径向圆跳动"],
+      "quality_flags": [
+        "instrument_choice_paraphrased_from_general_practice"
+      ],
+      "tags": [
+        "同轴度",
+        "检验",
+        "径向圆跳动"
+      ],
       "guidance_json": {
         "feature": "coaxiality",
         "inspection_method": "v_block_or_dedicated_arbor_with_indicator",
@@ -727,8 +1281,16 @@
       "source_ref": "test-files/设备毛胚信息-随测试图片一起发送.md - 设备信息",
       "source_text": "可使用数控车床、三轴加工中心、车床。数控车床典型加工类型: 外圆/端面/锥面/螺纹/沟槽 (paraphrased)",
       "quality_status": "accepted_with_flags",
-      "quality_flags": ["operations_paraphrased_from_general_machining_knowledge"],
-      "tags": ["数控车床", "外圆", "端面", "螺纹", "设备能力"],
+      "quality_flags": [
+        "operations_paraphrased_from_general_machining_knowledge"
+      ],
+      "tags": [
+        "数控车床",
+        "外圆",
+        "端面",
+        "螺纹",
+        "设备能力"
+      ],
       "result_json": {
         "equipment_name": "数控车床",
         "equipment_class": "cnc_lathe",
@@ -747,7 +1309,10 @@
           "外螺纹",
           "退刀槽"
         ],
-        "limitations": ["不擅长非圆/异形内轮廓 (D 型孔等)", "不直接铣削平面键槽"]
+        "limitations": [
+          "不擅长非圆/异形内轮廓 (D 型孔等)",
+          "不直接铣削平面键槽"
+        ]
       }
     },
     {
@@ -761,8 +1326,16 @@
       "source_ref": "test-files/设备毛胚信息-随测试图片一起发送.md - 设备信息",
       "source_text": "可使用数控车床、三轴加工中心、车床。三轴加工中心典型加工: 平面铣削/钻孔/镗孔/铣槽/型腔/D 型孔 (paraphrased)",
       "quality_status": "accepted_with_flags",
-      "quality_flags": ["operations_paraphrased_from_general_machining_knowledge"],
-      "tags": ["三轴加工中心", "铣削", "钻孔", "D型孔", "设备能力"],
+      "quality_flags": [
+        "operations_paraphrased_from_general_machining_knowledge"
+      ],
+      "tags": [
+        "三轴加工中心",
+        "铣削",
+        "钻孔",
+        "D型孔",
+        "设备能力"
+      ],
       "result_json": {
         "equipment_name": "三轴加工中心",
         "equipment_class": "three_axis_machining_center",
@@ -782,7 +1355,10 @@
           "非圆内轮廓",
           "圆角 (R) 铣削"
         ],
-        "limitations": ["不能车削回转面", "线切割/电火花型轮廓需专机"]
+        "limitations": [
+          "不能车削回转面",
+          "线切割/电火花型轮廓需专机"
+        ]
       }
     },
     {
@@ -796,8 +1372,16 @@
       "source_ref": "test-files/设备毛胚信息-随测试图片一起发送.md - 设备信息",
       "source_text": "可使用数控车床、三轴加工中心、车床。普通车床典型加工: 外圆/端面/钻孔/镗孔/螺纹 (paraphrased)",
       "quality_status": "accepted_with_flags",
-      "quality_flags": ["operations_paraphrased_from_general_machining_knowledge"],
-      "tags": ["普通车床", "外圆", "端面", "孔", "设备能力"],
+      "quality_flags": [
+        "operations_paraphrased_from_general_machining_knowledge"
+      ],
+      "tags": [
+        "普通车床",
+        "外圆",
+        "端面",
+        "孔",
+        "设备能力"
+      ],
       "result_json": {
         "equipment_name": "普通车床",
         "equipment_class": "manual_lathe",
@@ -815,7 +1399,10 @@
           "通孔/盲孔",
           "外螺纹"
         ],
-        "limitations": ["精度低于数控车床", "不能铣削/钻偏置孔"]
+        "limitations": [
+          "精度低于数控车床",
+          "不能铣削/钻偏置孔"
+        ]
       }
     },
     {
@@ -829,20 +1416,599 @@
       "source_ref": "test-files/设备毛胚信息-随测试图片一起发送.md + 一般工艺路线规则",
       "source_text": "对回转体零件: 外圆/端面/螺纹优先安排数控车床或普通车床; 平面铣/D 型孔/键槽/异形轮廓安排三轴加工中心; 线切割工序需专机, 不在该清单内 (paraphrased)",
       "quality_status": "accepted_with_flags",
-      "quality_flags": ["assignment_rule_paraphrased_from_general_practice"],
-      "tags": ["设备分配", "工艺路线", "回转体"],
+      "quality_flags": [
+        "assignment_rule_paraphrased_from_general_practice"
+      ],
+      "tags": [
+        "设备分配",
+        "工艺路线",
+        "回转体"
+      ],
       "guidance_json": {
         "assignment_rules": [
-          {"feature_kind": "外圆柱面", "preferred_equipment": "数控车床"},
-          {"feature_kind": "端面", "preferred_equipment": "数控车床"},
-          {"feature_kind": "外螺纹", "preferred_equipment": "数控车床"},
-          {"feature_kind": "中心孔", "preferred_equipment": "普通车床或数控车床"},
-          {"feature_kind": "平面铣削", "preferred_equipment": "三轴加工中心"},
-          {"feature_kind": "D 型孔/异形内轮廓", "preferred_equipment": "三轴加工中心"},
-          {"feature_kind": "键槽 (插/铣)", "preferred_equipment": "三轴加工中心"},
-          {"feature_kind": "圆角 R 铣削", "preferred_equipment": "三轴加工中心"}
+          {
+            "feature_kind": "外圆柱面",
+            "preferred_equipment": "数控车床"
+          },
+          {
+            "feature_kind": "端面",
+            "preferred_equipment": "数控车床"
+          },
+          {
+            "feature_kind": "外螺纹",
+            "preferred_equipment": "数控车床"
+          },
+          {
+            "feature_kind": "中心孔",
+            "preferred_equipment": "普通车床或数控车床"
+          },
+          {
+            "feature_kind": "平面铣削",
+            "preferred_equipment": "三轴加工中心"
+          },
+          {
+            "feature_kind": "D 型孔/异形内轮廓",
+            "preferred_equipment": "三轴加工中心"
+          },
+          {
+            "feature_kind": "键槽 (插/铣)",
+            "preferred_equipment": "三轴加工中心"
+          },
+          {
+            "feature_kind": "圆角 R 铣削",
+            "preferred_equipment": "三轴加工中心"
+          }
         ],
-        "out_of_scope": ["线切割", "电火花成形"]
+        "out_of_scope": [
+          "线切割",
+          "电火花成形"
+        ]
+      }
+    }
+  ],
+  "machining_allowance_records": [
+    {
+      "id": "ALLOW-CYLINDER-FINISH-GRIND-001",
+      "knowledge_type": "machining_allowance",
+      "family": "machining_allowance_records",
+      "subtype": "finish_to_grind_allowance_cylinder",
+      "topic": "缸套精车到磨削余量(内外径双侧, p108 案例)",
+      "source_doc": "工艺知识库.pdf",
+      "source_page": 108,
+      "source_ref": "p108 缸套工艺过程卡 + experiments/calculation_ready_extraction smoke calc",
+      "source_text": "缸套 p108: 内径 φ279.2±0.05 (精车) → φ280.0 (磨); 外径 φ300.8±0.05 (精车) → φ300.0 (磨)。直径余量 0.8mm, 单边余量 0.4mm。",
+      "quality_status": "accepted",
+      "quality_flags": [],
+      "tags": [
+        "精车到磨削",
+        "余量",
+        "缸套",
+        "finish_to_grind"
+      ],
+      "result_json": {
+        "case": "缸套",
+        "step_pair": {
+          "predecessor": "精车",
+          "successor": "磨削"
+        },
+        "surfaces": [
+          {
+            "surface": "inner",
+            "predecessor_diameter_mm": 279.2,
+            "successor_diameter_mm": 280.0,
+            "diameter_allowance_mm": 0.8,
+            "single_side_allowance_mm": 0.4
+          },
+          {
+            "surface": "outer",
+            "predecessor_diameter_mm": 300.8,
+            "successor_diameter_mm": 300.0,
+            "diameter_allowance_mm": 0.8,
+            "single_side_allowance_mm": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "ALLOW-OUTPUT-SHAFT-FINISH-GRIND-001",
+      "knowledge_type": "machining_allowance",
+      "family": "machining_allowance_records",
+      "subtype": "finish_to_grind_allowance_shaft",
+      "topic": "输出轴精车到磨削余量(典型轴类外圆)",
+      "source_doc": "工艺知识库.pdf",
+      "source_page": 106,
+      "source_ref": "p106-107 输出轴工艺过程卡 (vlm_source_pdf_process_cards 抽取产物)",
+      "source_text": "输出轴 p106-107 工艺过程卡: 各外圆精车到磨削单边余量约 0.15-0.30mm; 直径余量约 0.3-0.6mm。具体值随外圆尺寸和精度等级而定。",
+      "quality_status": "accepted_with_flags",
+      "quality_flags": [
+        "range_summary_paraphrased_from_extracted_route"
+      ],
+      "tags": [
+        "精车到磨削",
+        "余量",
+        "输出轴",
+        "finish_to_grind"
+      ],
+      "result_json": {
+        "case": "输出轴",
+        "step_pair": {
+          "predecessor": "精车",
+          "successor": "磨削"
+        },
+        "typical_diameter_allowance_range_mm": [
+          0.3,
+          0.6
+        ],
+        "typical_single_side_allowance_range_mm": [
+          0.15,
+          0.3
+        ]
+      }
+    },
+    {
+      "id": "ALLOW-SEAL-SLEEVE-FINISH-GRIND-001",
+      "knowledge_type": "machining_allowance",
+      "family": "machining_allowance_records",
+      "subtype": "finish_to_grind_allowance_sleeve",
+      "topic": "密封件定位套精车到磨削余量",
+      "source_doc": "工艺知识库.pdf",
+      "source_page": 109,
+      "source_ref": "p109-110 密封件定位套工艺过程卡",
+      "source_text": "密封件定位套 p109-110: 外圆精车到磨削单边余量 0.2-0.3mm, 内孔类似。13 道工序 route accepted (calculation_ready_extraction)。",
+      "quality_status": "accepted_with_flags",
+      "quality_flags": [
+        "range_summary_paraphrased"
+      ],
+      "tags": [
+        "精车到磨削",
+        "余量",
+        "密封件定位套",
+        "finish_to_grind"
+      ],
+      "result_json": {
+        "case": "密封件定位套",
+        "step_pair": {
+          "predecessor": "精车",
+          "successor": "磨削"
+        },
+        "typical_diameter_allowance_range_mm": [
+          0.4,
+          0.6
+        ],
+        "typical_single_side_allowance_range_mm": [
+          0.2,
+          0.3
+        ]
+      }
+    },
+    {
+      "id": "ALLOW-BLANK-TO-FINISHED-001",
+      "knowledge_type": "machining_allowance",
+      "family": "machining_allowance_records",
+      "subtype": "blank_to_finished_diameter_allowance",
+      "topic": "毛坯外径到精车外径总余量(KN-BLANK-ALLOWANCE-001)",
+      "source_doc": "工艺知识库.pdf",
+      "source_page": 82,
+      "source_ref": "Ch3 余量章节(p82 起) paraphrase + 缸套 p108 案例验证",
+      "source_text": "回转体外圆毛坯到精车总直径余量典型 1-3mm(单边 0.5-1.5mm), 含粗车+半精车+精车; 实测案例缸套 φ315 毛坯 → φ300.8 精车 = 14.2mm 直径(铸件粗大). 精密预加工坯料可低至 0.5-1mm。",
+      "quality_status": "accepted_with_flags",
+      "quality_flags": [
+        "range_from_general_practice",
+        "value_depends_on_blank_type_and_material"
+      ],
+      "tags": [
+        "毛坯余量",
+        "blank_to_finished",
+        "总余量"
+      ],
+      "result_json": {
+        "step_pair": {
+          "predecessor": "毛坯",
+          "successor": "精车"
+        },
+        "typical_diameter_allowance_range_mm": [
+          1,
+          3
+        ],
+        "typical_single_side_allowance_range_mm": [
+          0.5,
+          1.5
+        ],
+        "factors": [
+          "毛坯类型(铸/锻/轧/精密预加工)",
+          "材料硬度",
+          "尺寸大小",
+          "多道粗-半精-精工序累积"
+        ],
+        "real_drawing_example": {
+          "blank_diameter_mm": 103.5,
+          "finished_diameter_mm": 103.0,
+          "diameter_allowance_mm": 0.5,
+          "single_side_allowance_mm": 0.25,
+          "note": "本图纸 0.5mm 直径余量适合精密预加工坯料; 普通铸件需更大余量"
+        }
+      }
+    }
+  ],
+  "feature_process_records": [
+    {
+      "id": "FEAT-D-HOLE-001",
+      "knowledge_type": "feature_process",
+      "family": "feature_process_records",
+      "subtype": "d_shaped_hole_process_selection",
+      "topic": "D 型孔(非圆内轮廓)加工工艺选择",
+      "source_doc": "金属切削工艺技术手册.pdf",
+      "source_page": 655,
+      "source_ref": "Ch6 铣削加工 + general feature-process practice",
+      "source_text": "D 型孔(平面截掉一部分的圆孔)属于非圆内轮廓特征。典型工艺: 钻预孔 → 三轴加工中心立铣轮廓(粗→精) → 必要时铰孔. 数控车床/普通车床不适用。",
+      "quality_status": "accepted_with_flags",
+      "quality_flags": [
+        "paraphrased_from_general_milling_practice"
+      ],
+      "tags": [
+        "D 型孔",
+        "非圆内轮廓",
+        "铣削",
+        "三轴加工中心"
+      ],
+      "result_json": {
+        "feature_kind": "d_shaped_hole",
+        "feature_aliases": [
+          "D 型孔",
+          "D形孔",
+          "非圆内轮廓"
+        ],
+        "recommended_processes": [
+          {
+            "step": "钻预孔",
+            "equipment": "三轴加工中心或钻床",
+            "tool": "麻花钻"
+          },
+          {
+            "step": "粗铣 D 型轮廓",
+            "equipment": "三轴加工中心",
+            "tool": "立铣刀"
+          },
+          {
+            "step": "精铣 D 型轮廓",
+            "equipment": "三轴加工中心",
+            "tool": "立铣刀(精)"
+          },
+          {
+            "step": "尺寸/位置度检验",
+            "equipment": "三坐标测量机或专用样板"
+          }
+        ],
+        "incompatible_equipment": [
+          "数控车床(无法铣非圆内轮廓)",
+          "普通车床"
+        ]
+      }
+    },
+    {
+      "id": "FEAT-NON-CIRCULAR-INNER-001",
+      "knowledge_type": "feature_process",
+      "family": "feature_process_records",
+      "subtype": "non_circular_internal_contour",
+      "topic": "通用非圆内轮廓特征加工策略",
+      "source_doc": "金属切削工艺技术手册.pdf",
+      "source_page": 655,
+      "source_ref": "Ch6 铣削加工 + general feature-to-process matrix",
+      "source_text": "非圆内轮廓(D 型孔, 方孔, 椭圆孔, 异形腔)统一走铣削路线: 钻预孔松开材料 → 粗精铣轮廓 → 必要时光整。设备主选三轴加工中心。",
+      "quality_status": "accepted_with_flags",
+      "quality_flags": [
+        "paraphrased_general_practice"
+      ],
+      "tags": [
+        "非圆内轮廓",
+        "异形孔",
+        "铣削"
+      ],
+      "result_json": {
+        "feature_kind": "non_circular_internal_contour",
+        "feature_aliases": [
+          "D 型孔",
+          "方孔",
+          "椭圆孔",
+          "异形腔"
+        ],
+        "recommended_processes": [
+          {
+            "step": "钻预孔",
+            "equipment": "钻床或加工中心"
+          },
+          {
+            "step": "粗铣轮廓",
+            "equipment": "三轴加工中心"
+          },
+          {
+            "step": "精铣轮廓",
+            "equipment": "三轴加工中心"
+          }
+        ],
+        "incompatible_equipment": [
+          "数控车床",
+          "普通车床"
+        ]
+      }
+    }
+  ],
+  "milling_process_records": [
+    {
+      "id": "MILL-INNER-RADIUS-R-001",
+      "knowledge_type": "milling_process",
+      "family": "milling_process_records",
+      "subtype": "inner_radius_milling_inspection",
+      "topic": "内圆角 R 铣削刀具选择 + 检验",
+      "source_doc": "金属切削工艺技术手册.pdf",
+      "source_page": 660,
+      "source_ref": "Ch6 铣削加工 + general inner-radius practice",
+      "source_text": "内圆角铣削: 刀具半径必须 ≤ 设计 R; 例如设计 R4 应选 ≤R4 圆角铣刀或球头铣刀。设备: 三轴加工中心。检验: 圆弧样板或三坐标轮廓扫描。",
+      "quality_status": "accepted_with_flags",
+      "quality_flags": [
+        "paraphrased_general_milling_practice"
+      ],
+      "tags": [
+        "内圆角",
+        "R 铣削",
+        "刀具选择",
+        "三轴加工中心"
+      ],
+      "result_json": {
+        "feature_kind": "inner_radius_milling",
+        "tool_radius_constraint": "tool_radius <= design_radius",
+        "specific_example_R4": {
+          "design_radius_mm": 4,
+          "recommended_tool_radius_mm_max": 4,
+          "tool_options": [
+            "R4 球头铣刀",
+            "R3 立铣刀+精铣轨迹补偿",
+            "R4 圆角铣刀"
+          ]
+        },
+        "equipment": "三轴加工中心",
+        "inspection_methods": [
+          "圆弧样板",
+          "三坐标测量机轮廓扫描"
+        ]
+      }
+    },
+    {
+      "id": "MILL-INTERNAL-CONTOUR-001",
+      "knowledge_type": "milling_process",
+      "family": "milling_process_records",
+      "subtype": "internal_contour_milling",
+      "topic": "内轮廓铣削通用工艺",
+      "source_doc": "金属切削工艺技术手册.pdf",
+      "source_page": 658,
+      "source_ref": "Ch6 铣削加工 内轮廓节",
+      "source_text": "内轮廓铣削分粗铣(余量 1-3mm/侧)和精铣(余量 0.1-0.5mm/侧)两阶段, 立铣刀直径需 < 内轮廓最小特征宽度。",
+      "quality_status": "accepted_with_flags",
+      "quality_flags": [
+        "paraphrased_general_milling_practice"
+      ],
+      "tags": [
+        "内轮廓",
+        "铣削",
+        "粗精分开"
+      ],
+      "result_json": {
+        "feature_kind": "internal_contour_milling",
+        "rough_milling_side_allowance_mm": [
+          1,
+          3
+        ],
+        "finish_milling_side_allowance_mm": [
+          0.1,
+          0.5
+        ],
+        "tool_diameter_constraint": "tool_diameter < min_internal_feature_width",
+        "equipment": "三轴加工中心"
+      }
+    },
+    {
+      "id": "MILL-PLANE-001",
+      "knowledge_type": "milling_process",
+      "family": "milling_process_records",
+      "subtype": "plane_milling",
+      "topic": "平面铣削通用工艺",
+      "source_doc": "金属切削工艺技术手册.pdf",
+      "source_page": 656,
+      "source_ref": "Ch6 铣削加工 平面铣节",
+      "source_text": "平面铣削主选面铣刀(直径 1.2-1.5 倍工件宽度); 粗铣切深 2-5mm, 精铣切深 0.3-1mm; 设备三轴加工中心或立式铣床。",
+      "quality_status": "accepted_with_flags",
+      "quality_flags": [
+        "paraphrased_general_milling_practice"
+      ],
+      "tags": [
+        "平面铣",
+        "面铣刀",
+        "三轴加工中心"
+      ],
+      "result_json": {
+        "feature_kind": "plane_milling",
+        "tool": "面铣刀",
+        "tool_diameter_factor_of_workpiece_width": [
+          1.2,
+          1.5
+        ],
+        "rough_depth_mm": [
+          2,
+          5
+        ],
+        "finish_depth_mm": [
+          0.3,
+          1
+        ],
+        "equipment": "三轴加工中心或立式铣床"
+      }
+    }
+  ],
+  "drawing_requirement_records": [
+    {
+      "id": "WELD-SYMBOL-CATALOG-001",
+      "knowledge_type": "drawing_requirement",
+      "family": "drawing_requirement_records",
+      "subtype": "weld_symbol_standard_catalog",
+      "topic": "GB/T 324-2008 焊缝符号目录(基本+组合+补充)",
+      "source_doc": "GBT 324 焊缝符号表示法.pdf",
+      "source_page": 1,
+      "source_ref": "§4.1 表1 (20 种基本符号), §4.2 表2 (5 种组合), §4.3 表3 (补充符号)",
+      "source_text": "GB/T 324-2008 §4: 表1 列 20 种基本符号(I/V/单边V/带钝边 V/U/J/封底/角/塞/点/缝/陡边 V/端/堆/钎焊连接); 表2 5 种组合(双面 V=X, 双面单边 V=K, 带钝边双面 V/单边 V, 双面 U); 表3 补充符号(衬垫/三面焊接/周围焊接等)。",
+      "quality_status": "accepted",
+      "quality_flags": [],
+      "tags": [
+        "焊缝符号",
+        "GB/T 324",
+        "标准目录"
+      ],
+      "guidance_json": {
+        "interpretation": "焊缝符号 = 基本符号(必选) + 补充符号(可选) + 指引线 + 尺寸/数据(可选)",
+        "applies_to": "图样上一切焊缝/焊接接头标注",
+        "basic_symbols_count": 20,
+        "combination_symbols_count": 5,
+        "selected_symbols": [
+          {
+            "name": "I 形焊缝",
+            "symbol": "||",
+            "table": "表1 序号 2"
+          },
+          {
+            "name": "V 形焊缝",
+            "symbol": "V",
+            "table": "表1 序号 3"
+          },
+          {
+            "name": "单边 V 形焊缝",
+            "symbol": "V (一边)",
+            "table": "表1 序号 4"
+          },
+          {
+            "name": "带钝边 V 形焊缝",
+            "symbol": "Y",
+            "table": "表1 序号 5"
+          },
+          {
+            "name": "U 形焊缝",
+            "symbol": "U (圆底)",
+            "table": "表1 序号 7"
+          },
+          {
+            "name": "角焊缝",
+            "symbol": "△",
+            "table": "表1 序号 10"
+          },
+          {
+            "name": "塞焊缝/槽焊缝",
+            "symbol": "▢",
+            "table": "表1 序号 11"
+          },
+          {
+            "name": "点焊缝",
+            "symbol": "○",
+            "table": "表1 序号 12"
+          },
+          {
+            "name": "缝焊缝",
+            "symbol": "⊝",
+            "table": "表1 序号 13"
+          },
+          {
+            "name": "堆焊缝",
+            "symbol": "⌒",
+            "table": "表1 序号 17"
+          },
+          {
+            "name": "双面 V (X 焊缝)",
+            "symbol": "X",
+            "table": "表2 序号 1"
+          },
+          {
+            "name": "双面单边 V (K 焊缝)",
+            "symbol": "K",
+            "table": "表2 序号 2"
+          }
+        ],
+        "external_reference": "GB/T 12212-1990 焊缝符号尺寸/比例/简化表示法(尺寸标注规则)"
+      }
+    },
+    {
+      "id": "WELD-SURFACE-REQUIREMENT-001",
+      "knowledge_type": "drawing_requirement",
+      "family": "drawing_requirement_records",
+      "subtype": "weld_surface_requirement",
+      "topic": "图纸标注焊缝符号的待焊面工艺要求",
+      "source_doc": "GBT 324 焊缝符号表示法.pdf",
+      "source_page": 1,
+      "source_ref": "§3 总则 + general welding process practice",
+      "source_text": "焊缝符号指引线箭头所指接头面即待焊面; 工艺安排: 待焊面在焊接前清洁但不要求精加工; 焊接 + 冷却 + 必要热处理后再做最终机加工; 若标注有焊后加工尺寸应预留焊接收缩量。",
+      "quality_status": "accepted_with_flags",
+      "quality_flags": [
+        "process_consequence_paraphrased_from_general_welding_practice"
+      ],
+      "tags": [
+        "待焊面",
+        "焊接工艺",
+        "焊后机加工"
+      ],
+      "guidance_json": {
+        "interpretation": "焊缝符号指引线箭头所指接头面即待焊面",
+        "applies_to": "标注有焊缝符号的接头面",
+        "process_consequence": [
+          "焊接前: 待焊面清洁但不要求精加工(不去毛刺/不打磨光滑)",
+          "焊接中: 按指定焊缝形式 + 焊接工艺规程操作",
+          "焊接后: 冷却 + 必要的热处理(消应力)",
+          "焊后加工: 若有焊后尺寸要求应预留焊接收缩量"
+        ]
+      }
+    },
+    {
+      "id": "WELD-SYMBOL-CALLOUT-001",
+      "knowledge_type": "drawing_requirement",
+      "family": "drawing_requirement_records",
+      "subtype": "symbol_standard_interpretation",
+      "topic": "焊缝符号在图样上的解读规则(完整解读流程)",
+      "source_doc": "GBT 324 焊缝符号表示法.pdf",
+      "source_page": 1,
+      "source_ref": "§3 总则 + §4 符号; 引用 GB/T 12212 尺寸标注",
+      "source_text": "完整焊缝符号 = 基本符号(GB/T 324 表1/表2) + 补充符号(表3) + 指引线 + 尺寸/数据。简化时只画基本符号 + 指引线, 其余在工艺规程文件中明确。尺寸/比例参见 GB/T 12212。",
+      "quality_status": "accepted",
+      "quality_flags": [],
+      "tags": [
+        "焊缝符号",
+        "图样解读",
+        "GB/T 324"
+      ],
+      "guidance_json": {
+        "interpretation": "按 GB/T 324 §4 查焊缝形式 + GB/T 12212 查尺寸标注 + 指引线读接头位置",
+        "applies_to": "图样上一切焊缝符号",
+        "decomposition_steps": [
+          {
+            "step": 1,
+            "part": "基本符号",
+            "lookup": "GB/T 324 §4.1 表1 (20 种) + §4.2 表2 (5 种组合)"
+          },
+          {
+            "step": 2,
+            "part": "补充符号(可选)",
+            "lookup": "GB/T 324 §4.3 表3"
+          },
+          {
+            "step": 3,
+            "part": "指引线",
+            "lookup": "GB/T 12212"
+          },
+          {
+            "step": 4,
+            "part": "尺寸/数据(可选)",
+            "lookup": "GB/T 12212"
+          }
+        ],
+        "external_references": [
+          "GB/T 12212-1990",
+          "GB/T 5185 焊接工艺方法代号",
+          "GB/T 16672 焊缝工作位置"
+        ]
       }
     }
   ]
