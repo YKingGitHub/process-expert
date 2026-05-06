@@ -175,7 +175,18 @@ process-expert/
 │   ├── prose_principle_extraction/  # 正文原则类知识抽取
 │   ├── real_drawing_knowledge_planning/ # 真实图纸知识需求与 gap report
 │   ├── knowledge_capability_eval/   # 泛化能力 baseline 与 gap_count_by_capability
-│   └── capability_seed_expansion/   # B1+B2 候选家族 source-backed 种子扩展 (gap 11→1)
+│   └── capability_seed_expansion/   # B1+B2+Sprint C 候选家族 + DCA-003 集成 (gap 11→0)
+│
+├── process_calc/                    # Sprint C 确定性计算层 (frozen public contract)
+│   ├── __init__.py                  # exports calculate, METHOD_REGISTRY, errors
+│   ├── dispatcher.py                # calculate(method_id, **params) entry
+│   ├── method_registry.py           # method_id → callable
+│   ├── result.py                    # CalculationResult + build_result helper
+│   ├── tolerance_lookup.py          # ISO 286-1 H6/H7/H8 + h6/h7/h8 + g6
+│   ├── dimension_chain.py           # closed_loop_basic_size + extreme_tolerance + reverse
+│   ├── machining_allowance.py       # finish_to_grind_allowance (textbook p.108)
+│   ├── design.md                    # Sprint C Phase 1 design
+│   └── README.md                    # public contract + how to add methods
 │
 ├── tracer/                          # 追踪日志引擎
 │   └── pipeline_tracer.py           # JSON + Markdown 双格式输出
@@ -197,27 +208,28 @@ process-expert/
 完整回归命令：
 
 ```bash
-python3 -m pytest experiments/ -q
+python3 -m pytest experiments/ tests/ -q
 ```
 
 当前期望结果：
 
 ```text
-112 passed
+152 passed
 ```
 
-按实验目录查看测试规模：
+按目录查看测试规模：
 
-| 实验 | 测试数 |
-|------|------:|
-| `agent_query_eval/` | 10 |
-| `calculation_ready_extraction/` | 5 |
-| `capability_seed_expansion/` | 68 (B1+B2) |
-| `knowledge_capability_eval/` | 5 |
-| `process_calc_extracted_content/` | 10 |
-| `prose_principle_extraction/` | 4 |
-| `real_drawing_knowledge_planning/` | 7 |
-| `vlm_source_pdf_process_cards/` | 3 |
+| 测试目录 | 测试数 | Sprint |
+|------|------:|---|
+| `experiments/agent_query_eval/` | 10 | A |
+| `experiments/calculation_ready_extraction/` | 5 | A |
+| `experiments/capability_seed_expansion/` | 75 | B1+B2+C integration |
+| `experiments/knowledge_capability_eval/` | 5 | A |
+| `experiments/process_calc_extracted_content/` | 10 | A |
+| `experiments/prose_principle_extraction/` | 4 | A |
+| `experiments/real_drawing_knowledge_planning/` | 7 | A |
+| `experiments/vlm_source_pdf_process_cards/` | 3 | A |
+| `tests/test_process_calc/` | 33 | C |
 
 ---
 

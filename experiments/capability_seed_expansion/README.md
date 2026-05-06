@@ -1,21 +1,22 @@
-# Capability Seed Expansion (B1 + B2)
+# Capability Seed Expansion (B1 + B2 + Sprint C integration)
 
 This experiment extends the Sprint A capability baseline with source-backed
 candidate-family records, then re-runs the capability evaluator to measure
 whether the additions actually reduce `gap_count_by_capability`.
 
-Two design rounds have shipped:
+Three design rounds have shipped:
 
 | Round | Date | Adds | Result |
 |---|---|---|---|
 | **B1** | 2026-05-06 | 3 candidate families (standard_clause / inspection / equipment_capability), 33 records | gap 11 → 6, real-drawing 3/7 covered |
 | **B2** | 2026-05-06 | 4 candidate families (drawing_requirement / machining_allowance / feature_process / milling_process), 12 records | gap 6 → 1, real-drawing 5/7 covered |
+| **Sprint C integration** | 2026-05-06 | `process_calc.tolerance_lookup_iso` + new `CM-TOL-LOOKUP-ISO-001` record + `_match_python_calculation` route | gap 1 → **0**, real-drawing 5/7 (DCA-003 not in gap_map) |
 
-After B2 only DCA-003 (deterministic_calculation, needs Sprint C
-`process_calc.calculate()`) and FPS-003 (case_records, optional) remain
-uncovered. The two unaddressed real-drawing gaps are KN-WIRECUT-001 (line
-wire EDM, B3 territory) and DRAWING-QUALITY-D-SHAPE (Sprint D drawing
-parser quality gate).
+After Sprint C **all 21 capability questions are covered** (`coverage_rate = 1.0`).
+The two unaddressed real-drawing gaps are KN-WIRECUT-001 (wire EDM, B3
+territory) and DRAWING-QUALITY-D-SHAPE (Sprint D drawing parser quality
+gate). Both require either new sources or a different layer (drawing
+parser); neither is a candidate-seed gap.
 
 ## Family inventory (after B2)
 
@@ -98,18 +99,18 @@ python3 -m pytest experiments/ -q
 | All B1 transitions persist | yes | yes |
 | Only DCA-003 remains uncovered | yes | yes |
 
-## Per-capability gap delta (combined B1 + B2)
+## Per-capability gap delta (B1 + B2 + Sprint C)
 
-| Capability | Baseline | After B1 | After B2 | Total Δ |
-|---|---:|---:|---:|---:|
-| `drawing_requirement_interpretation` | 3 | 2 | 0 | -3 |
-| `equipment_operation_capability` | 2 | 0 | 0 | -2 |
-| `geometric_tolerance_inspection` | 2 | 0 | 0 | -2 |
-| `feature_process_selection` | 2 | 2 | 0 | -2 |
-| `machining_allowance_planning` | 1 | 1 | 0 | -1 |
-| `deterministic_calculation` | 1 | 1 | 1 | 0 (Sprint C) |
-| `route_planning` | 0 | 0 | 0 | 0 |
-| **Total** | **11** | **6** | **1** | **-10** |
+| Capability | Baseline | After B1 | After B2 | After Sprint C | Total Δ |
+|---|---:|---:|---:|---:|---:|
+| `drawing_requirement_interpretation` | 3 | 2 | 0 | 0 | -3 |
+| `equipment_operation_capability` | 2 | 0 | 0 | 0 | -2 |
+| `geometric_tolerance_inspection` | 2 | 0 | 0 | 0 | -2 |
+| `feature_process_selection` | 2 | 2 | 0 | 0 | -2 |
+| `machining_allowance_planning` | 1 | 1 | 0 | 0 | -1 |
+| `deterministic_calculation` | 1 | 1 | 1 | **0** | -1 |
+| `route_planning` | 0 | 0 | 0 | 0 | 0 |
+| **Total** | **11** | **6** | **1** | **0** | **-11** |
 
 ## Routing order (ExpandedKnowledgeQuery)
 
@@ -121,6 +122,7 @@ python3 -m pytest experiments/ -q
 5. _match_machining_allowance   (B2: 毛坯 + 余量, excl. 推荐范围/怎么计算)
 6. _match_feature_process       (B2: D 型孔/非圆 + 加工选择)
 7. _match_milling_process       (B2: 铣 + R/圆角/内轮廓, excl. equipment names)
+8. _match_python_calculation    (Sprint C: Python + tolerance class + result/steps/formula → tolerance_lookup_iso)
 ```
 
 Order matters: B2 routing functions defer to B1 by design (`_match_milling_process`
