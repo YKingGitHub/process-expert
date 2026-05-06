@@ -55,9 +55,12 @@ Additional candidate families are allowed when evidence shows a repeated need, f
    - Key report: `knowledge_capability_eval/report.md`
 
 7. `capability_seed_expansion/`
-   - B1 extends the capability baseline with three source-backed candidate families
-     (`standard_clause_records`, `inspection_records`, `equipment_capability_records`).
-   - Reduces baseline `gap_count` from 11 to 6, recovers 3 of the 7 real-drawing-mapped gaps.
+   - B1 + B2 extend the capability baseline with seven source-backed candidate
+     families (B1: standard_clause / inspection / equipment_capability;
+     B2: drawing_requirement / machining_allowance / feature_process /
+     milling_process).
+   - Reduces baseline `gap_count` from 11 to 1, recovers 5 of the 7
+     real-drawing-mapped gaps. Only DCA-003 (Sprint C process_calc) remains.
    - Key entry: `capability_seed_expansion/README.md`
 
 8. `process_calc_extracted_content/`

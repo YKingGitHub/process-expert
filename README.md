@@ -175,7 +175,7 @@ process-expert/
 │   ├── prose_principle_extraction/  # 正文原则类知识抽取
 │   ├── real_drawing_knowledge_planning/ # 真实图纸知识需求与 gap report
 │   ├── knowledge_capability_eval/   # 泛化能力 baseline 与 gap_count_by_capability
-│   └── capability_seed_expansion/   # B1 候选家族 source-backed 种子扩展 (gap 11→6)
+│   └── capability_seed_expansion/   # B1+B2 候选家族 source-backed 种子扩展 (gap 11→1)
 │
 ├── tracer/                          # 追踪日志引擎
 │   └── pipeline_tracer.py           # JSON + Markdown 双格式输出
@@ -203,7 +203,7 @@ python3 -m pytest experiments/ -q
 当前期望结果：
 
 ```text
-79 passed
+112 passed
 ```
 
 按实验目录查看测试规模：
@@ -212,7 +212,7 @@ python3 -m pytest experiments/ -q
 |------|------:|
 | `agent_query_eval/` | 10 |
 | `calculation_ready_extraction/` | 5 |
-| `capability_seed_expansion/` | 35 (B1) |
+| `capability_seed_expansion/` | 68 (B1+B2) |
 | `knowledge_capability_eval/` | 5 |
 | `process_calc_extracted_content/` | 10 |
 | `prose_principle_extraction/` | 4 |
