@@ -54,7 +54,13 @@ Additional candidate families are allowed when evidence shows a repeated need, f
    - Converts real-drawing gaps into reusable capability questions and reports `gap_count_by_capability`.
    - Key report: `knowledge_capability_eval/report.md`
 
-7. `process_calc_extracted_content/`
+7. `capability_seed_expansion/`
+   - B1 extends the capability baseline with three source-backed candidate families
+     (`standard_clause_records`, `inspection_records`, `equipment_capability_records`).
+   - Reduces baseline `gap_count` from 11 to 6, recovers 3 of the 7 real-drawing-mapped gaps.
+   - Key entry: `capability_seed_expansion/README.md`
+
+8. `process_calc_extracted_content/`
    - Earlier deterministic-calculation feasibility test using frozen `unified_extract.db` fixtures.
    - Useful as background, but source-PDF-backed extraction is preferred for calculation-grade truth.
 
@@ -99,6 +105,14 @@ experiments/
 │   ├── src/                  # capability evaluator
 │   ├── tests/
 │   └── report.md
+│
+├── capability_seed_expansion/   # B1
+│   ├── data/                 # candidate_seed.json + source_manifest.json
+│   ├── src/                  # loader, seed_merge, expanded_query, expanded_evaluator
+│   ├── scripts/              # baseline-vs-expanded evaluator
+│   ├── tests/
+│   ├── design.md
+│   └── README.md
 │
 └── process_calc_extracted_content/
     ├── fixtures/             # frozen extraction fixtures

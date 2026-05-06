@@ -174,7 +174,8 @@ process-expert/
 │   ├── calculation_ready_extraction/# 质量门禁、路线合并、确定性余量计算
 │   ├── prose_principle_extraction/  # 正文原则类知识抽取
 │   ├── real_drawing_knowledge_planning/ # 真实图纸知识需求与 gap report
-│   └── knowledge_capability_eval/  # 泛化能力 baseline 与 gap_count_by_capability
+│   ├── knowledge_capability_eval/   # 泛化能力 baseline 与 gap_count_by_capability
+│   └── capability_seed_expansion/   # B1 候选家族 source-backed 种子扩展 (gap 11→6)
 │
 ├── tracer/                          # 追踪日志引擎
 │   └── pipeline_tracer.py           # JSON + Markdown 双格式输出
@@ -196,22 +197,27 @@ process-expert/
 完整回归命令：
 
 ```bash
-python3 -m pytest \
-  experiments/process_calc_extracted_content/tests \
-  experiments/vlm_source_pdf_process_cards/tests \
-  experiments/calculation_ready_extraction/tests \
-  experiments/prose_principle_extraction/tests \
-  experiments/agent_query_eval/tests \
-  experiments/real_drawing_knowledge_planning/tests \
-  experiments/knowledge_capability_eval/tests \
-  -q
+python3 -m pytest experiments/ -q
 ```
 
 当前期望结果：
 
 ```text
-44 passed
+79 passed
 ```
+
+按实验目录查看测试规模：
+
+| 实验 | 测试数 |
+|------|------:|
+| `agent_query_eval/` | 10 |
+| `calculation_ready_extraction/` | 5 |
+| `capability_seed_expansion/` | 35 (B1) |
+| `knowledge_capability_eval/` | 5 |
+| `process_calc_extracted_content/` | 10 |
+| `prose_principle_extraction/` | 4 |
+| `real_drawing_knowledge_planning/` | 7 |
+| `vlm_source_pdf_process_cards/` | 3 |
 
 ---
 
