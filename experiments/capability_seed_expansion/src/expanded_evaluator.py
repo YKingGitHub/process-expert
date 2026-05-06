@@ -1,10 +1,11 @@
-"""B1 expanded evaluator — extends the base capability evaluator with three
-candidate families and their per-question contract checks.
+"""B1 + B2 expanded evaluator — extends the base capability evaluator with
+seven candidate families and their per-question contract checks.
 
 Strict separation: ``evaluate_baseline`` keeps the base CORE_FAMILIES/contract
-table untouched, so the baseline ``gap_count_by_capability`` for B1 reporting
-matches the Sprint A baseline exactly. ``evaluate_expanded`` swaps in extended
-sets and adds three new contracts.
+table untouched, so the baseline ``gap_count_by_capability`` matches the
+Sprint A baseline exactly (11/21). ``evaluate_expanded`` swaps in extended
+sets that include B1 (3 families, 3 contracts) and B2 (4 families, 3
+contracts).
 """
 
 from __future__ import annotations
@@ -16,16 +17,28 @@ from experiments.knowledge_capability_eval.src import evaluator as base_eval
 
 
 EXPANDED_CORE_FAMILIES = base_eval.CORE_FAMILIES | {
+    # B1
     "standard_clause_records",
     "inspection_records",
     "equipment_capability_records",
+    # B2
+    "drawing_requirement_records",
+    "machining_allowance_records",
+    "feature_process_records",
+    "milling_process_records",
 }
 
 EXPANDED_KNOWLEDGE_TYPE_TO_FAMILY = {
     **base_eval.KNOWLEDGE_TYPE_TO_FAMILY,
+    # B1
     "standard_clause": "standard_clause_records",
     "inspection": "inspection_records",
     "equipment_capability": "equipment_capability_records",
+    # B2
+    "drawing_requirement": "drawing_requirement_records",
+    "machining_allowance": "machining_allowance_records",
+    "feature_process": "feature_process_records",
+    "milling_process": "milling_process_records",
 }
 
 
@@ -217,10 +230,92 @@ def _check_equipment_operation_match(answer: dict, top_hit: dict) -> tuple[bool,
     }
 
 
+def _check_feature_to_process(answer: dict, top_hit: dict) -> tuple[bool, dict]:
+    """B2 — FPS-001 / FPS-002 contract: top hit's result_json must declare
+    `feature_kind` and a non-empty `recommended_processes` list."""
+    citations = answer.get("citations", [])
+    rj = top_hit.get("result_json")
+    has_feature = isinstance(rj, dict) and bool(rj.get("feature_kind"))
+    has_processes = (
+        isinstance(rj, dict)
+        and isinstance(rj.get("recommended_processes"), list)
+        and len(rj["recommended_processes"]) >= 1
+    )
+    has_citations = bool(citations) and all(
+        c.get("source_page") is not None and c.get("source_text") for c in citations
+    )
+    passed = has_feature and has_processes and has_citations
+    return passed, {
+        "has_feature_kind": has_feature,
+        "has_recommended_processes": has_processes,
+        "has_citations": has_citations,
+    }
+
+
+def _check_allowance_planning(answer: dict, top_hit: dict) -> tuple[bool, dict]:
+    """B2 — MAP-003 contract: top hit's result_json must declare a
+    `step_pair` (predecessor + successor) plus at least one numeric allowance
+    field (`single_side_allowance_mm`, `typical_single_side_allowance_range_mm`,
+    or per-surface `single_side_allowance_mm`)."""
+    citations = answer.get("citations", [])
+    rj = top_hit.get("result_json")
+    has_step_pair = (
+        isinstance(rj, dict)
+        and isinstance(rj.get("step_pair"), dict)
+        and bool(rj["step_pair"].get("predecessor"))
+        and bool(rj["step_pair"].get("successor"))
+    )
+    has_value = False
+    if isinstance(rj, dict):
+        if rj.get("single_side_allowance_mm") is not None:
+            has_value = True
+        elif rj.get("typical_single_side_allowance_range_mm") is not None:
+            has_value = True
+        elif isinstance(rj.get("surfaces"), list):
+            has_value = any(
+                isinstance(s, dict) and s.get("single_side_allowance_mm") is not None
+                for s in rj["surfaces"]
+            )
+    has_citations = bool(citations) and all(
+        c.get("source_page") is not None and c.get("source_text") for c in citations
+    )
+    passed = has_step_pair and has_value and has_citations
+    return passed, {
+        "has_step_pair": has_step_pair,
+        "has_allowance_value": has_value,
+        "has_citations": has_citations,
+    }
+
+
+def _check_drawing_requirement_interpretation(
+    answer: dict, top_hit: dict
+) -> tuple[bool, dict]:
+    """B2 — DRI-002 / DRI-003 contract: top hit's guidance_json must declare
+    `interpretation` and `applies_to`."""
+    citations = answer.get("citations", [])
+    gj = top_hit.get("guidance_json")
+    has_interpretation = isinstance(gj, dict) and bool(gj.get("interpretation"))
+    has_applies = isinstance(gj, dict) and bool(gj.get("applies_to"))
+    has_citations = bool(citations) and all(
+        c.get("source_page") is not None and c.get("source_text") for c in citations
+    )
+    passed = has_interpretation and has_applies and has_citations
+    return passed, {
+        "has_interpretation": has_interpretation,
+        "has_applies_to": has_applies,
+        "has_citations": has_citations,
+    }
+
+
 _EXPANDED_CONTRACTS: dict[str, Callable[[dict, dict], tuple[bool, dict]]] = {
+    # B1
     "standard_clause_lookup": _check_standard_clause_lookup,
     "inspection_method_with_datum": _check_inspection_with_datum,
     "equipment_operation_match": _check_equipment_operation_match,
+    # B2
+    "feature_to_process_contract": _check_feature_to_process,
+    "allowance_planning_contract": _check_allowance_planning,
+    "drawing_requirement_interpretation": _check_drawing_requirement_interpretation,
 }
 
 

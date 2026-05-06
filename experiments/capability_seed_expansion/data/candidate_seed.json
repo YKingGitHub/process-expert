@@ -1770,6 +1770,26 @@
         "inspection_methods": [
           "圆弧样板",
           "三坐标测量机轮廓扫描"
+        ],
+        "recommended_processes": [
+          {
+            "step": "选刀",
+            "rule": "tool_radius <= design_radius (设计 R4 选 ≤R4 球头铣刀或圆角铣刀)"
+          },
+          {
+            "step": "粗铣 R 圆角",
+            "equipment": "三轴加工中心",
+            "tool": "立铣刀+精铣轨迹补偿 或 R3 立铣"
+          },
+          {
+            "step": "精铣 R 圆角",
+            "equipment": "三轴加工中心",
+            "tool": "R4 球头铣刀 或 R4 圆角铣刀"
+          },
+          {
+            "step": "圆角检验",
+            "method": "圆弧样板比对 或 三坐标测量机轮廓扫描"
+          }
         ]
       }
     },
@@ -1803,7 +1823,29 @@
           0.5
         ],
         "tool_diameter_constraint": "tool_diameter < min_internal_feature_width",
-        "equipment": "三轴加工中心"
+        "equipment": "三轴加工中心",
+        "recommended_processes": [
+          {
+            "step": "粗铣内轮廓",
+            "equipment": "三轴加工中心",
+            "side_allowance_mm": [
+              1,
+              3
+            ]
+          },
+          {
+            "step": "精铣内轮廓",
+            "equipment": "三轴加工中心",
+            "side_allowance_mm": [
+              0.1,
+              0.5
+            ]
+          },
+          {
+            "step": "尺寸/位置度检验",
+            "method": "三坐标测量机或专用样板"
+          }
+        ]
       }
     },
     {
@@ -1840,7 +1882,31 @@
           0.3,
           1
         ],
-        "equipment": "三轴加工中心或立式铣床"
+        "equipment": "三轴加工中心或立式铣床",
+        "recommended_processes": [
+          {
+            "step": "粗铣平面",
+            "equipment": "三轴加工中心或立式铣床",
+            "tool": "面铣刀",
+            "depth_mm": [
+              2,
+              5
+            ]
+          },
+          {
+            "step": "精铣平面",
+            "equipment": "三轴加工中心或立式铣床",
+            "tool": "面铣刀(精)",
+            "depth_mm": [
+              0.3,
+              1
+            ]
+          },
+          {
+            "step": "平面度检验",
+            "method": "刀口尺 或 三坐标测量机"
+          }
+        ]
       }
     }
   ],
