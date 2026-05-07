@@ -1,0 +1,68 @@
+[
+  {
+    "framework_branch": "2.8.1.1",
+    "table": "Ch4 表4-1",
+    "title": "影响尺寸精度的因素及改善措施",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": "475-476",
+    "extracted_count": 7,
+    "extraction_method": "manual_classification_from_pdf_render",
+    "review_status": "auditable_paraphrase",
+    "copyright_note": "Textbook table paraphrased to structured triples (factor / impact / improvement_actions). No long verbatim text."
+  },
+  {
+    "framework_branch": "2.8.1.2",
+    "table": "Ch4 表4-2",
+    "title": "影响形状精度的因素及改善措施",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": "476-478",
+    "extracted_count": 10,
+    "extraction_method": "manual_classification_from_pdf_render",
+    "review_status": "auditable_paraphrase",
+    "copyright_note": "Textbook table paraphrased to structured triples"
+  },
+  {
+    "framework_branch": "2.8.1.3",
+    "table": "Ch4 表4-3",
+    "title": "影响位置精度的因素及改善措施",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": "479",
+    "extracted_count": 6,
+    "extraction_method": "manual_classification_from_pdf_render",
+    "review_status": "auditable_paraphrase",
+    "copyright_note": "Textbook table paraphrased to structured triples"
+  },
+  {
+    "framework_branch": "2.4.4",
+    "table": "Ch4 表4-19",
+    "title": "米制螺纹加工的经济精度",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": "490",
+    "extracted_count": 1,
+    "extraction_method": "manual_classification_from_pdf_render",
+    "review_status": "auditable_table_paraphrase",
+    "copyright_note": "Single record carries the entire 12-row method×tolerance band table as value_table"
+  },
+  {
+    "framework_branch": "2.8.2.1",
+    "table": "Ch4 表4-31",
+    "title": "各种加工方法能达到的表面粗糙度",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": "495-496",
+    "extracted_count": 12,
+    "extraction_method": "manual_classification_from_pdf_render",
+    "review_status": "auditable_table_paraphrase",
+    "copyright_note": "Pilot extracted 12 of ~50 method rows (turning/reaming/drilling/milling/planing/grinding/lapping/threading). Other methods (broaching/burnishing/honing) deferred to next batch."
+  },
+  {
+    "framework_branch": "2.8.2.2",
+    "table": "Ch4 表4-32 + 4-33",
+    "title": "影响 Ra 因素 (切削+磨削)",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": "496-498",
+    "extracted_count": 8,
+    "extraction_method": "manual_classification_from_pdf_render",
+    "review_status": "auditable_paraphrase",
+    "copyright_note": "Textbook tables paraphrased to factor/impact/actions triples"
+  }
+]
