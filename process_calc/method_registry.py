@@ -20,6 +20,11 @@ from process_calc.dimension_chain import (
     calculate_extreme_tolerance,
     calculate_process_dimension_reverse,
 )
+from process_calc.lookup_kb import (
+    lookup_economic_precision,
+    lookup_method_position_error,
+    lookup_path_precision,
+)
 from process_calc.machining_allowance import calculate_finish_to_grind_allowance
 from process_calc.tolerance_lookup import calculate_tolerance_lookup_iso
 from process_calc.work_hardening import calculate_work_hardening_ratio
@@ -32,4 +37,7 @@ METHOD_REGISTRY: dict[str, Callable[..., dict]] = {
     "process_dimension_reverse": calculate_process_dimension_reverse,
     "finish_to_grind_allowance": calculate_finish_to_grind_allowance,
     "work_hardening_ratio": calculate_work_hardening_ratio,
+    "lookup_economic_precision": lookup_economic_precision,
+    "lookup_path_precision": lookup_path_precision,
+    "lookup_method_position_error": lookup_method_position_error,
 }
