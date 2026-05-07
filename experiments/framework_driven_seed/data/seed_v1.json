@@ -28,15 +28,13 @@
         {
           "text": "根据精度要求合理选用测量方法及量具仪",
           "tags": [
-            "principle",
-            "practice"
+            "principle"
           ]
         },
         {
           "text": "控制测量条件（正确使用量具，控制环境温度）",
           "tags": [
-            "principle",
-            "practice"
+            "principle"
           ]
         }
       ]
@@ -73,8 +71,7 @@
         {
           "text": "试切工件数量按所要求的公差及实际加工尺寸的分散范围而定",
           "tags": [
-            "practice",
-            "observation"
+            "practice"
           ]
         }
       ]
@@ -210,6 +207,7 @@
         {
           "text": "用千分表等直接测量进给量",
           "tags": [
+            "principle",
             "practice"
           ]
         },
@@ -259,13 +257,13 @@
         {
           "text": "合理确定调整尺寸",
           "tags": [
-            "principle",
-            "practice"
+            "principle"
           ]
         },
         {
           "text": "根据工件热变形规律测量时适当补偿，或在冷态(室温)下测量",
           "tags": [
+            "principle",
             "practice"
           ]
         },
@@ -329,13 +327,13 @@
         {
           "text": "合理确定夹紧方法和夹紧力大小",
           "tags": [
-            "principle",
-            "practice"
+            "principle"
           ]
         },
         {
           "text": "仔细找正及装夹",
           "tags": [
+            "principle",
             "practice"
           ]
         }
@@ -373,7 +371,8 @@
         {
           "text": "采用高精度滚动轴承或、静压轴承",
           "tags": [
-            "principle"
+            "principle",
+            "practice"
           ]
         },
         {
@@ -391,7 +390,8 @@
         {
           "text": "工件采用死顶尖支承，镗杆与主轴采用浮动联接，使工件或刀具回转运动精度不依赖于主轴回转精度",
           "tags": [
-            "principle"
+            "principle",
+            "practice"
           ]
         }
       ]
@@ -428,7 +428,8 @@
         {
           "text": "采用高精度滚动轴承或、静压轴承",
           "tags": [
-            "principle"
+            "principle",
+            "practice"
           ]
         },
         {
@@ -481,8 +482,7 @@
         {
           "text": "正确安装、定期检查、及时调整",
           "tags": [
-            "principle",
-            "practice"
+            "principle"
           ]
         }
       ]
@@ -513,6 +513,7 @@
         {
           "text": "找正相互位置关系",
           "tags": [
+            "principle",
             "practice"
           ]
         }
@@ -589,7 +590,8 @@
         {
           "text": "计算其误差，满足工件精度要求时才可采用",
           "tags": [
-            "principle"
+            "principle",
+            "practice"
           ]
         }
       ]
@@ -691,7 +693,8 @@
         {
           "text": "采用辅助支承或跟刀架",
           "tags": [
-            "principle"
+            "principle",
+            "practice"
           ]
         },
         {
@@ -721,8 +724,7 @@
         {
           "text": "合理选择夹紧方法和夹紧力大小",
           "tags": [
-            "principle",
-            "practice"
+            "principle"
           ]
         }
       ]
@@ -771,7 +773,8 @@
         {
           "text": "尽量不采用校直方法，或用热校直代冷校直",
           "tags": [
-            "principle"
+            "principle",
+            "practice"
           ]
         }
       ]
@@ -849,7 +852,8 @@
         {
           "text": "减小刀杆悬伸长度，增大刀杆截面",
           "tags": [
-            "principle"
+            "principle",
+            "practice"
           ]
         }
       ]
@@ -968,22 +972,19 @@
         {
           "text": "提高找正基准面的精度",
           "tags": [
-            "principle",
-            "practice"
+            "principle"
           ]
         },
         {
           "text": "提高找正操作技术水平",
           "tags": [
-            "principle",
-            "practice"
+            "principle"
           ]
         },
         {
           "text": "采用与加工精度要求相适应的找正方法和找正工具",
           "tags": [
-            "principle",
-            "practice"
+            "principle"
           ]
         }
       ]
@@ -1057,7 +1058,8 @@
         {
           "text": "采用可胀心轴或定位在固定方向上施加外力以保证固定边接触等办法，减小该项误差影响",
           "tags": [
-            "principle"
+            "principle",
+            "practice"
           ]
         }
       ]
@@ -1218,19 +1220,22 @@
         {
           "text": "采用较大刀尖圆弧半径 re",
           "tags": [
-            "principle"
+            "principle",
+            "practice"
           ]
         },
         {
           "text": "采用较小副偏角 κr'，使用 κr'=0° 修光刃",
           "tags": [
-            "principle"
+            "principle",
+            "practice"
           ]
         },
         {
           "text": "使用长度比进给量稍大一些的 κr'=0° 修光刃",
           "tags": [
-            "principle"
+            "principle",
+            "practice"
           ]
         }
       ]
@@ -1269,7 +1274,8 @@
         {
           "text": "改善材料金相组织(对低碳钢/低合金钢含铁素体加铁马氏体、素氏体或片状珠光体；高碳钢、高合金钢中应含粒状珠光体)",
           "tags": [
-            "principle"
+            "principle",
+            "practice"
           ]
         },
         {
@@ -1313,6 +1319,7 @@
         {
           "text": "调整切削速度避开积屑瘤生成区(用 YT15 切削35钢，临界切削速度 v_c > 100m/min)",
           "tags": [
+            "principle",
             "practice",
             "observation"
           ]
@@ -1396,15 +1403,14 @@
           "text": "选用与工件材料亲和力小的刀具材料(如金刚石或涂层陶瓷刀加工有色金属等)",
           "tags": [
             "principle",
-            "observation"
+            "practice"
           ]
         },
         {
           "text": "对刀具进行氧化处理(如 20CrMo 与 45 钢齿轮的高速钢插齿刀)",
           "tags": [
             "principle",
-            "practice",
-            "observation"
+            "practice"
           ]
         }
       ]
@@ -1550,7 +1556,6 @@
         {
           "text": "径向进给量 f_r 减小可降低 Ra (例: 磨削18CrNiWA 时 f_r=0.02mm 表面粗糙度 Ra0.6μm; f_r=0.03mm 约 Ra0.75μm)",
           "tags": [
-            "principle",
             "practice",
             "observation"
           ]
@@ -1558,7 +1563,8 @@
         {
           "text": "最后进行5次以上无进给光磨",
           "tags": [
-            "principle"
+            "principle",
+            "practice"
           ]
         },
         {
@@ -1609,7 +1615,7 @@
         {
           "text": "粒度越细 Ra 越小(超 F80 后变化不显著)",
           "tags": [
-            "principle"
+            "observation"
           ]
         },
         {
@@ -1621,7 +1627,8 @@
         {
           "text": "磨削难加工材料应选 J~N 硬度",
           "tags": [
-            "principle"
+            "principle",
+            "practice"
           ]
         },
         {
@@ -1633,12 +1640,14 @@
         {
           "text": "采用耐磨性好的金刚笔，合适刃口形状和安装角度",
           "tags": [
-            "principle"
+            "principle",
+            "practice"
           ]
         },
         {
           "text": "纵向进给量小修整以使磨粒切削刃获得良好等高性",
           "tags": [
+            "principle",
             "practice"
           ]
         }
