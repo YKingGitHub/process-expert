@@ -2269,5 +2269,2786 @@
       "verified": true,
       "implementation_status": "implemented_in_process_calc"
     }
+  },
+  {
+    "id": "STD-2.3.2-METHOD-ERRORS-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.3.2",
+    "subtype": "method_error_by_feature",
+    "topic": "各种加工方法的加工误差 (按加工特征划分)",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 480,
+    "source_ref": "第4章 表4-4 各种加工方法的加工误差",
+    "source_text": "12 类工件尺寸 (孔轴线-基准面距/孔间距/孔轴线平行度/平面间距/外圆/内孔/径向圆跳动/端面圆跳动等) × 加工方法 → 误差范围 (mm)",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "加工方法误差",
+      "Ch4-表4-4"
+    ],
+    "payload": {
+      "subject": "12 类工件尺寸说明 × 加工方法 → 误差范围 (mm)",
+      "value_table": [
+        {
+          "feature": "孔轴线到基准面的距离(箱体/轴架支撑等)",
+          "methods": [
+            {
+              "method": "刮研基准平面(按孔测量)",
+              "error_mm": "0.04~0.10"
+            },
+            {
+              "method": "磨削基准平面(按孔测量)",
+              "error_mm": "0.06~0.12"
+            },
+            {
+              "method": "精铣基准平面(按孔测量)",
+              "error_mm": "0.10~0.20"
+            },
+            {
+              "method": "在坐标镗床上加工孔",
+              "error_mm": "0.02~0.04"
+            },
+            {
+              "method": "在金刚镗床上加工孔",
+              "error_mm": "0.04~0.10"
+            },
+            {
+              "method": "在普通镗床或摇臂钻床上应用夹具及导向套加工孔",
+              "error_mm": "0.10~0.20"
+            },
+            {
+              "method": "在普通镗床或摇臂钻床上用划线法加工孔(不用夹具)",
+              "error_mm": "0.4~1.0"
+            }
+          ]
+        },
+        {
+          "feature": "孔与孔之间的距离尺寸(箱体、轴架支撑等的中心距尺寸)",
+          "methods": [
+            {
+              "method": "在坐标镗床上加工孔",
+              "error_mm": "0.02~0.04"
+            },
+            {
+              "method": "在金刚镗床上加工孔",
+              "error_mm": "0.04~0.10"
+            },
+            {
+              "method": "在普通镗床或摇臂钻床上应用夹具及导向套加工孔",
+              "error_mm": "0.10~0.20"
+            },
+            {
+              "method": "在普通镗床或摇臂钻床上用划线法加工孔(不用夹具)",
+              "error_mm": "0.4~1.0"
+            }
+          ]
+        },
+        {
+          "feature": "孔轴线与基准平面的平行度、垂直度及角度误差(箱体/轴架, 误差/L)",
+          "methods": [
+            {
+              "method": "刮研基准平面(按孔测量)",
+              "error_per_L": "0.04/L~0.10/L"
+            },
+            {
+              "method": "磨削基准平面(按孔测量)",
+              "error_per_L": "0.06/L~0.12/L"
+            },
+            {
+              "method": "精铣基准平面(按孔测量)",
+              "error_per_L": "0.10/L~0.20/L"
+            },
+            {
+              "method": "在坐标镗床上加工孔",
+              "error_per_L": "0.02/L~0.04/L"
+            },
+            {
+              "method": "在金刚镗床上加工孔",
+              "error_per_L": "0.04/L~0.10/L"
+            },
+            {
+              "method": "在普通镗床或摇臂钻床上应用夹具及导向套加工孔",
+              "error_per_L": "0.10/L~0.20/L"
+            },
+            {
+              "method": "在普通镗床或摇臂钻床上用划线法(不用夹具)加工孔",
+              "error_per_L": "0.4/L~1.0/L"
+            }
+          ]
+        },
+        {
+          "feature": "孔与孔轴线之间的平行度、垂直度或者角度误差 (误差/L)",
+          "methods": [
+            {
+              "method": "在坐标镗床上加工孔",
+              "error_per_L": "0.02/L~0.04/L"
+            },
+            {
+              "method": "在金刚镗床上加工孔",
+              "error_per_L": "0.04/L~0.20/L"
+            },
+            {
+              "method": "在普通镗床或摇臂钻床上应用夹具及导向套加工",
+              "error_per_L": "0.10/L~0.20/L"
+            },
+            {
+              "method": "在普通镗床或摇臂钻床上用划线法加工",
+              "error_per_L": "0.40/L~1.0/L"
+            }
+          ]
+        },
+        {
+          "feature": "平面与平面间的平行度、垂直度或角度误差(箱体滑块支架等, 误差/300)",
+          "methods": [
+            {
+              "method": "在平面全长L内进行刮研",
+              "error_per_300": "0.01/L~0.10/L"
+            },
+            {
+              "method": "磨削平面",
+              "error_per_300": "0.02/300~0.05/300"
+            },
+            {
+              "method": "在专门铣床或龙门刨床上精铣或精刨平面",
+              "error_per_300": "0.08/300~0.15/300"
+            },
+            {
+              "method": "在镗床上加工平面",
+              "error_per_300": "0.1/300~0.2/300"
+            },
+            {
+              "method": "在牛头刨床上加工平面",
+              "error_per_300": "0.12/300~0.2/300"
+            },
+            {
+              "method": "在立式铣床上加工平面",
+              "error_per_300": "0.2/300~0.3/300"
+            }
+          ]
+        },
+        {
+          "feature": "平面与平面之间的距离尺寸",
+          "methods": [
+            {
+              "method": "刮研平面",
+              "error_mm": "0.01~0.10"
+            },
+            {
+              "method": "磨削平面",
+              "error_mm": "0.02~0.08"
+            },
+            {
+              "method": "在铣床或刨床上铣、刨表面或在镗床及钻床上加工端面",
+              "error_mm": "0.1~0.5"
+            },
+            {
+              "method": "在车床上车端面",
+              "error_mm": "0.1~0.3"
+            },
+            {
+              "method": "在多刀车床或转塔车床上车端面",
+              "error_mm": "0.2~0.4"
+            }
+          ]
+        },
+        {
+          "feature": "箱体内壁/滑块内槽平面与轴肩两内端面间的距离尺寸",
+          "methods": [
+            {
+              "method": "平面刮研加工",
+              "error_mm": "0.01~0.10"
+            },
+            {
+              "method": "表面磨削加工",
+              "error_mm": "0.02~0.10"
+            },
+            {
+              "method": "在铣床、刨床上加工平面或在镗床、钻床上加工内端面",
+              "error_mm": "0.1~0.5"
+            },
+            {
+              "method": "在车床上加工内端面",
+              "error_mm": "0.1~0.3"
+            },
+            {
+              "method": "在多刀车床或转塔车床上加工内端面",
+              "error_mm": "0.2~0.4"
+            }
+          ]
+        },
+        {
+          "feature": "箱体外壁/滑块外端面及轴肩两外端面间的距离",
+          "methods": [
+            {
+              "method": "表面刮研加工",
+              "error_mm": "0.01~0.10"
+            },
+            {
+              "method": "表面磨削加工",
+              "error_mm": "0.02~0.10"
+            },
+            {
+              "method": "在铣床、刨床上加工外端面或在镗床、钻床上加工外端面",
+              "error_mm": "0.1~0.5"
+            },
+            {
+              "method": "在车床上加工外端面",
+              "error_mm": "0.1~0.3"
+            },
+            {
+              "method": "在多刀车床或转塔车床上加工外端面",
+              "error_mm": "0.2~0.4"
+            }
+          ]
+        },
+        {
+          "feature": "轴/轴颈套筒/环件/盘件/法兰/凸缘等零件的外圆直径",
+          "methods": [
+            {
+              "method": "外圆磨削加工",
+              "error_mm": "0.01~0.1"
+            },
+            {
+              "method": "在万能车床或立式车床上加工外圆表面",
+              "error_mm": "0.1~0.5"
+            },
+            {
+              "method": "在多刀车床、转塔车床或自动半自动车床上加工外圆表面",
+              "error_mm": "0.1~0.5"
+            }
+          ]
+        },
+        {
+          "feature": "各种零件上的内孔直径",
+          "methods": [
+            {
+              "method": "内孔研磨加工",
+              "error_mm": "0.005~0.06"
+            },
+            {
+              "method": "内孔磨加工",
+              "error_mm": "0.01~0.10"
+            },
+            {
+              "method": "拉加工孔",
+              "error_mm": "0.01~0.10"
+            },
+            {
+              "method": "在金刚镗床上加工内孔",
+              "error_mm": "0.02~0.1"
+            },
+            {
+              "method": "在坐标镗床上加工内孔",
+              "error_mm": "0.02~0.1"
+            },
+            {
+              "method": "在镗床、摇臂钻床、立式车床或转塔车床上钻铰孔或镗内孔",
+              "error_mm": "0.02~0.1"
+            },
+            {
+              "method": "在卧式车床上镗内孔",
+              "error_mm": "0.05~0.2"
+            }
+          ]
+        },
+        {
+          "feature": "轴/套筒/环件/盘件/法兰及其他零件外圆表面的径向圆跳动",
+          "methods": [
+            {
+              "method": "表面磨削加工",
+              "error_mm": "0.01~0.02"
+            },
+            {
+              "method": "在卧式车床或立式车床上加工外圆",
+              "error_mm": "0.02~0.10"
+            },
+            {
+              "method": "在转塔车床、多刀车床或自动、半自动车床上加工外圆",
+              "error_mm": "0.02~0.10"
+            }
+          ]
+        },
+        {
+          "feature": "轴/套筒/环件/法兰及其他零件等端面的轴向圆跳动",
+          "methods": [
+            {
+              "method": "端面磨削加工",
+              "error_mm": "0.01~0.02"
+            },
+            {
+              "method": "在卧式车床或立式车床上加工端面",
+              "error_mm": "0.02~0.10"
+            },
+            {
+              "method": "在转塔车床、多刀车床或自动半自动车床上车端面",
+              "error_mm": "0.02~0.10"
+            }
+          ]
+        }
+      ],
+      "note": "L 代表全长"
+    }
+  },
+  {
+    "id": "STD-2.3.2-OUTER-CYL-PATH-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.3.2",
+    "subtype": "outer_cylinder_path",
+    "topic": "外圆柱表面加工路线 → IT 等级 + Ra 范围",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 482,
+    "source_ref": "第4章 表4-5 外圆柱表面加工路线及所能达到的公差等级和表面粗糙度",
+    "source_text": "外圆车削路线: 粗车 IT11以下 Ra25-100; 粗车→半精车 IT8-10 Ra6.3-12.5; ... 粗车→半精车→精车→镜面磨削/研磨/超精/抛光 IT5以上 Ra0.012-0.1.",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "加工路线",
+      "外圆",
+      "Ch4-表4-5"
+    ],
+    "payload": {
+      "subject": "外圆柱表面加工路线 → IT + Ra",
+      "value_table": [
+        {
+          "path": "粗车",
+          "IT": "11以下",
+          "ra_um": "25~100"
+        },
+        {
+          "path": "粗车→半精车",
+          "IT": "8-10",
+          "ra_um": "6.3~12.5"
+        },
+        {
+          "path": "粗车→半精车→精车 (或磨)",
+          "IT": "7-8",
+          "ra_um": "1.6~6.3"
+        },
+        {
+          "path": "粗车→半精车→{精车-细车 (有色金属及合金) / 粗磨-精磨 / 精车-滚压}",
+          "IT": "6-7",
+          "ra_um": "0.2~1.6"
+        },
+        {
+          "path": "粗车→半精车→粗磨→精磨→{镜面磨削 / 研磨 / 超精加工 / 抛光}",
+          "IT": "5",
+          "ra_um": "0.1~0.4"
+        },
+        {
+          "path": "粗车→半精车→粗磨→精磨→{镜面磨削 / 精研磨-超精加工-抛光}",
+          "IT": "5以上",
+          "ra_um": "0.012~0.1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "STD-2.3.2-DRILL-HOLE-PATH-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.3.2",
+    "subtype": "drill_hole_path",
+    "topic": "钻床上用钻模加工孔的加工路线",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 482,
+    "source_ref": "第4章 表4-6 在钻床上用钻模加工孔各种加工路线所能达到的公差等级",
+    "source_text": "钻床上各种加工路线 vs 公差等级 (按孔径分段, 实体材料 / 预先铸出或热冲出的孔区分).",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "加工路线",
+      "钻孔",
+      "Ch4-表4-6"
+    ],
+    "payload": {
+      "subject": "钻床上钻模加工孔 → IT 等级",
+      "axes": [
+        "IT 等级",
+        "在实体材料上制孔 (按孔径分段)",
+        "预先铸出或热冲出的孔 (按孔径分段)"
+      ],
+      "value_table": [
+        {
+          "IT": "12-13",
+          "solid": [
+            {
+              "d_mm": "all",
+              "path": "一次钻孔"
+            }
+          ],
+          "preformed": [
+            {
+              "d_mm": "all",
+              "path": "用车刀或扩孔钻镗孔"
+            }
+          ]
+        },
+        {
+          "IT": "11",
+          "solid": [
+            {
+              "d_mm": "≤10",
+              "path": "一次钻孔"
+            },
+            {
+              "d_mm": "10-30",
+              "path": "钻孔→扩孔"
+            },
+            {
+              "d_mm": "30-80",
+              "path": "1) 钻孔→扩孔及扩孔; 2) 钻孔→用扩孔刀或车刀镗孔→扩孔"
+            }
+          ],
+          "preformed": [
+            {
+              "d_mm": "≤80",
+              "path": "1) 粗扩→精扩; 2) 用车刀粗镗→精镗; 3) 根据余量一次镗孔或扩孔"
+            }
+          ]
+        },
+        {
+          "IT": "10-9",
+          "solid": [
+            {
+              "d_mm": "≤10",
+              "path": "钻孔→铰孔"
+            },
+            {
+              "d_mm": "10-30",
+              "path": "钻孔→扩孔→铰孔"
+            },
+            {
+              "d_mm": "30-80",
+              "path": "1) 钻孔→扩孔→扩孔→铰孔; 2) 钻孔用扩孔刀镗孔→扩孔→铰孔"
+            }
+          ],
+          "preformed": [
+            {
+              "d_mm": "≤80",
+              "path": "1) 扩孔(一次或二次根据余量而定)→铰孔; 2) 用车刀镗孔(根据余量)→铰孔"
+            }
+          ]
+        },
+        {
+          "IT": "8-7",
+          "solid": [
+            {
+              "d_mm": "≤10",
+              "path": "钻孔→一次或二次铰孔"
+            },
+            {
+              "d_mm": "10-30",
+              "path": "钻孔→扩孔→一次或二次铰孔"
+            },
+            {
+              "d_mm": "30-80",
+              "path": "钻孔→扩钻(或扩孔刀镗孔)→扩孔→一次或二次铰孔"
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "孔径 ≤30mm, 直径余量 ≤4mm; 30-80mm, 直径余量 ≤6mm — 采用一次扩孔或一次钻孔",
+        "孔的长度不超过直径的 5 倍"
+      ]
+    }
+  },
+  {
+    "id": "STD-2.3.2-LATHE-HOLE-PATH-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.3.2",
+    "subtype": "lathe_hole_path",
+    "topic": "车床(含自动车床/转塔车床)上加工孔的加工路线",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 484,
+    "source_ref": "第4章 表4-7 在车床上加工孔各种加工路线所能达到的公差等级",
+    "source_text": "车床上加工孔的路线: IT12-13 钻孔; IT11 用定心钻和钻头钻孔等; IT10-9 用定心钻和钻头钻孔→扩孔等; IT8-7 用定心钻和钻头钻孔→粗铰(或扩刀镗孔)→精铰等; IT6-5 加工 5 级精度孔最后工序应该是金刚石细镗等.",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "加工路线",
+      "孔加工",
+      "车床",
+      "Ch4-表4-7"
+    ],
+    "payload": {
+      "subject": "车床上加工孔 → IT 等级",
+      "value_table": [
+        {
+          "IT": "12-13",
+          "solid": [
+            {
+              "d_mm": "all",
+              "path": "一次钻孔"
+            }
+          ],
+          "preformed": [
+            {
+              "d_mm": "all",
+              "path": "用车刀或扩孔钻镗孔"
+            }
+          ]
+        },
+        {
+          "IT": "11",
+          "solid": [
+            {
+              "d_mm": "≤10",
+              "path": "用定心钻和钻头钻孔"
+            },
+            {
+              "d_mm": "10-30",
+              "path": "用定心钻和钻头钻孔→用扩孔刀(车刀、扩孔钻)镗孔"
+            },
+            {
+              "d_mm": "30-80",
+              "path": "1) 用定心钻和钻头钻孔→扩孔→扩孔; 2) 用定心钻及钻头钻孔→用车刀镗孔"
+            }
+          ],
+          "preformed": [
+            {
+              "d_mm": "all",
+              "path": "1) 一次或二次扩孔(根据余量而定); 2) 用车刀一次或二次镗孔"
+            }
+          ]
+        },
+        {
+          "IT": "10-9",
+          "solid": [
+            {
+              "d_mm": "≤10",
+              "path": "用定心钻和钻头钻孔→铰孔"
+            },
+            {
+              "d_mm": "10-30",
+              "path": "1) 用定心钻和钻头钻孔→扩钻→扩孔; 2) 用定心钻和钻头钻孔→用扩孔刀(或车刀)镗孔→铰孔; 3) 用定心钻和钻头钻孔→扩孔(或用车刀镗孔)→磨孔; 4) 用定心钻和钻头钻孔→拉孔"
+            },
+            {
+              "d_mm": "30-80",
+              "path": "1) 用定心钻和钻头钻孔→用车或扩孔刀镗孔→铰孔; 2) 用定心钻和钻头钻孔→用车刀镗孔(或扩孔)→磨孔; 3) 用定心钻和钻头钻孔→拉孔"
+            }
+          ],
+          "preformed": [
+            {
+              "d_mm": "all",
+              "path": "1) 扩孔→铰孔; 2) 用车刀镗孔→铰孔(不铰); 3) 粗镗孔→精镗孔(不铰); 4) 粗镗孔→精镗孔→磨孔; 5) 用车刀镗孔→拉孔"
+            }
+          ]
+        },
+        {
+          "IT": "8-7",
+          "solid": [
+            {
+              "d_mm": "≤10",
+              "path": "用定心钻和钻头钻孔→粗铰(或扩刀镗孔)→精铰"
+            },
+            {
+              "d_mm": "10-30",
+              "path": "1) 用定心钻和钻头钻孔→扩钻(或用车刀镗孔)→精铰; 2) 用定心钻和钻头钻孔→扩孔(或扩孔)→精铰; 3) 用定心钻和钻头钻孔→用车或扩孔刀镗孔→磨孔; 4) 用定心钻和钻头钻孔→拉孔"
+            },
+            {
+              "d_mm": "30-80",
+              "path": "1) 用定心钻和钻头钻孔→粗铰孔; 2) 用定心钻和钻头钻孔→用车刀镗(或用扩刀及精铰); 3) 用定心钻和钻头钻孔→用车或扩孔钻镗孔→磨孔; 4) 用定心钻和钻头钻孔→拉孔"
+            }
+          ],
+          "preformed": [
+            {
+              "d_mm": "≤80",
+              "path": "1) 一至二次扩孔(根据余量而定)→粗铰(或用扩孔刀镗孔)→精铰; 2) 用车刀粗镗(根据余量而定)→粗铰(或用扩刀镗孔)→精铰; 3) 粗镗→半精镗→精镗; 4) 用车刀镗孔→拉孔; 5) 粗镗→精镗→磨孔"
+            },
+            {
+              "d_mm": ">80",
+              "path": "1) 用车刀粗镗、精铰和铰孔; 2) 粗镗、半精镗、精镗; 3) 粗精镗及磨孔"
+            }
+          ]
+        },
+        {
+          "IT": "6-5",
+          "solid": [],
+          "preformed": [
+            {
+              "d_mm": "all",
+              "path": "加工 5 级精度孔的最后工序应该是用金刚石细镗; 用精密调整的车刀: 细镗及精镗"
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "用定心钻钻孔仅用于车床、转塔车床及自动车床上",
+        "孔径 ≤30mm, 直径余量 ≤4mm; 30-80mm, 直径余量 ≤6mm — 采用一次扩孔或一次钻孔",
+        "孔长不得超过直径的 3 倍"
+      ]
+    }
+  },
+  {
+    "id": "STD-2.3.2-PLANE-PATH-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.3.2",
+    "subtype": "plane_path",
+    "topic": "平面加工路线 → IT 等级 + Ra 范围",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 485,
+    "source_ref": "第4章 表4-8 平面加工路线与公差等级和表面粗糙度",
+    "source_text": "粗刨/粗铣 IT11-13 Ra25-100; ... 粗刨→半精刨→{精磨/精铣→精磨} ... → IT5 Ra0.012-0.2.",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "加工路线",
+      "平面",
+      "Ch4-表4-8"
+    ],
+    "payload": {
+      "subject": "平面加工路线 → IT + Ra",
+      "value_table": [
+        {
+          "path": "粗刨 / 粗铣",
+          "IT": "11-13",
+          "ra_um": "25~100"
+        },
+        {
+          "path": "粗刨→半精刨 / 粗铣→半精铣 / 车平面",
+          "IT": "8-11",
+          "ra_um": "3.2~12.5"
+        },
+        {
+          "path": "拉削",
+          "IT": "7-9",
+          "ra_um": "1.6"
+        },
+        {
+          "path": "粗刨→半精刨→{宽刀精刨 / 高速精铣 / 磨 / 刮研}; 粗铣→半精铣→{...同}",
+          "IT": "6-9",
+          "ra_um": "0.4~1.6"
+        },
+        {
+          "path": "粗拉→精拉",
+          "IT": "6",
+          "ra_um": null
+        },
+        {
+          "path": "粗刨→半精刨→粗磨→精磨",
+          "IT": "5-6",
+          "ra_um": "0.2~0.4"
+        },
+        {
+          "path": "粗刨→半精刨 (或粗铣→半精铣)→粗磨→精磨→{研磨 / 超精加工}",
+          "IT": "5",
+          "ra_um": "0.012~0.2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "STD-2.8.1.4-METHOD-IT-CHART-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.1.4",
+    "subtype": "method_it_grade_chart",
+    "topic": "各种加工方法可能达到的公差等级 (IT01-16 横条图)",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 485,
+    "source_ref": "第4章 表4-9 各种加工方法可能达到的公差等级",
+    "source_text": "21 种加工方法 × IT 等级 (01-16) 横条图; 研磨/珩磨/内外圆磨削/平面磨削/金刚石车削/金刚石镗削 等可达 IT3-7; 钻孔/冲压等 IT11-14.",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "可达IT",
+      "Ch4-表4-9"
+    ],
+    "payload": {
+      "subject": "各加工方法可达 IT 等级范围",
+      "value_table": [
+        {
+          "method": "研磨",
+          "IT_min": "01",
+          "IT_max": "5"
+        },
+        {
+          "method": "珩磨",
+          "IT_min": "4",
+          "IT_max": "7"
+        },
+        {
+          "method": "内外圆磨削",
+          "IT_min": "5",
+          "IT_max": "8"
+        },
+        {
+          "method": "平面磨削",
+          "IT_min": "5",
+          "IT_max": "8"
+        },
+        {
+          "method": "金刚石车削",
+          "IT_min": "5",
+          "IT_max": "7"
+        },
+        {
+          "method": "金刚石镗削",
+          "IT_min": "5",
+          "IT_max": "7"
+        },
+        {
+          "method": "拉削",
+          "IT_min": "6",
+          "IT_max": "9"
+        },
+        {
+          "method": "铰孔",
+          "IT_min": "6",
+          "IT_max": "10"
+        },
+        {
+          "method": "车削",
+          "IT_min": "7",
+          "IT_max": "11"
+        },
+        {
+          "method": "镗削",
+          "IT_min": "7",
+          "IT_max": "11"
+        },
+        {
+          "method": "铣削",
+          "IT_min": "8",
+          "IT_max": "11"
+        },
+        {
+          "method": "刨削、插削",
+          "IT_min": "10",
+          "IT_max": "11"
+        },
+        {
+          "method": "钻孔",
+          "IT_min": "11",
+          "IT_max": "14"
+        },
+        {
+          "method": "滚压、挤压",
+          "IT_min": "6",
+          "IT_max": "10"
+        },
+        {
+          "method": "冲压",
+          "IT_min": "10",
+          "IT_max": "14"
+        },
+        {
+          "method": "压铸",
+          "IT_min": "11",
+          "IT_max": "13"
+        },
+        {
+          "method": "粉末冶金成形",
+          "IT_min": "6",
+          "IT_max": "8"
+        },
+        {
+          "method": "粉末冶金烧结",
+          "IT_min": "7",
+          "IT_max": "10"
+        },
+        {
+          "method": "砂型铸造、气割",
+          "IT_min": "13",
+          "IT_max": "16"
+        },
+        {
+          "method": "锻造",
+          "IT_min": "12",
+          "IT_max": "16"
+        }
+      ]
+    }
+  },
+  {
+    "id": "STD-2.8.1.4-HOLE-ECON-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.1.4",
+    "subtype": "hole_machining_economy",
+    "topic": "孔加工的经济精度 (孔径 × 加工方法 → IT + 偏差值 μm)",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 486,
+    "source_ref": "第4章 表4-10 孔加工的经济精度",
+    "source_text": "孔径 1-500 mm × 加工方法 (钻/扩/铰/拉/镗/磨/研磨/挤压) → IT 等级 + 偏差值 μm. Ex: φ30-50 mm 一次铰孔 IT9, 偏差 50 μm.",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "可达精度",
+      "孔加工",
+      "Ch4-表4-10"
+    ],
+    "payload": {
+      "subject": "孔加工经济精度: 孔径 × 加工方法 → IT + 偏差值 μm",
+      "axes": [
+        "孔径分段 (mm)",
+        "加工方法分组 (钻/扩/铰/拉/镗/磨/研磨/挤压等)"
+      ],
+      "method_groups": [
+        "钻及扩钻孔 (无钻模/有钻模)",
+        "扩孔 (粗扩/精扩) ",
+        "铰孔 (半精铰/精铰/细铰)",
+        "拉孔",
+        "镗孔 (粗/半精/精/细)",
+        "磨孔 (粗磨/精磨)",
+        "研磨",
+        "用钢球或挤压杆校整, 用钢球或滚柱扩孔器挤孔"
+      ],
+      "value_table_summary": "Ch4 表 4-10 完整数据表 (~110 单元格); 详见 source_doc p.486",
+      "note": "本记录用作索引; 工程师查具体值时以教材为准. 数值表非常密集, 入库到 SQLite 后可结构化查询.",
+      "value_table": []
+    }
+  },
+  {
+    "id": "STD-2.8.1.4-CONICAL-HOLE-ECON-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.1.4",
+    "subtype": "conical_hole_economy",
+    "topic": "圆锥孔加工的经济精度",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 487,
+    "source_ref": "第4章 表4-11 圆锥孔加工的经济精度",
+    "source_text": "圆锥孔: 扩孔粗 IT11/精 IT9 (深锥孔 IT11-9); 铰孔机动 IT7/手动 高于7 (深锥孔 IT7-9); 镗孔粗 IT9/精 IT7 (深锥孔 IT9-11); 磨 高于IT7 (深 IT7); 研磨 IT6 (深 IT6-7).",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "可达精度",
+      "圆锥孔",
+      "Ch4-表4-11"
+    ],
+    "payload": {
+      "subject": "圆锥孔加工方法 → IT 等级 (锥孔 / 深锥孔)",
+      "value_table": [
+        {
+          "method": "扩孔 粗",
+          "IT_taper": "11",
+          "IT_deep_taper": "9-11"
+        },
+        {
+          "method": "扩孔 精",
+          "IT_taper": "9",
+          "IT_deep_taper": "9-11"
+        },
+        {
+          "method": "铰孔 机动",
+          "IT_taper": "7",
+          "IT_deep_taper": "7-9"
+        },
+        {
+          "method": "铰孔 手动",
+          "IT_taper": "高于7",
+          "IT_deep_taper": "7-9"
+        },
+        {
+          "method": "镗孔 粗",
+          "IT_taper": "9",
+          "IT_deep_taper": "9-11"
+        },
+        {
+          "method": "镗孔 精",
+          "IT_taper": "7",
+          "IT_deep_taper": "9-11"
+        },
+        {
+          "method": "磨孔",
+          "IT_taper": "高于7",
+          "IT_deep_taper": "7"
+        },
+        {
+          "method": "研磨",
+          "IT_taper": "6",
+          "IT_deep_taper": "6-7"
+        }
+      ]
+    }
+  },
+  {
+    "id": "STD-2.8.1.4-DEEP-HOLE-ECON-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.1.4",
+    "subtype": "deep_hole_economy",
+    "topic": "圆柱深孔加工的经济精度",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 487,
+    "source_ref": "第4章 表4-12 圆柱深孔加工的经济精度",
+    "source_text": "用麻花钻/扁钻/环孔钻: 钻头回转 IT11-13; 工件回转 IT11; 钻头工件都回转 IT11. 扩钻 IT9-11. 深孔钻或镗孔: 刀具回转 IT9-11; 工件回转 IT9; 都回转 IT9. 镗刀块镗孔 IT7-9. 铰孔 IT7-9. 磨孔 IT7. 珩磨 IT7. 研磨 IT6-7.",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "可达精度",
+      "深孔",
+      "Ch4-表4-12"
+    ],
+    "payload": {
+      "subject": "圆柱深孔加工方法 → IT",
+      "value_table": [
+        {
+          "method": "用麻花钻/扁钻/环孔钻 — 钻头回转",
+          "IT": "11-13"
+        },
+        {
+          "method": "用麻花钻/扁钻/环孔钻 — 工件回转",
+          "IT": "11"
+        },
+        {
+          "method": "用麻花钻/扁钻/环孔钻 — 钻头和工件都回转",
+          "IT": "11"
+        },
+        {
+          "method": "扩钻",
+          "IT": "9-11"
+        },
+        {
+          "method": "深孔钻钻孔或镗孔 — 刀具回转",
+          "IT": "9-11"
+        },
+        {
+          "method": "深孔钻钻孔或镗孔 — 工件回转",
+          "IT": "9"
+        },
+        {
+          "method": "深孔钻钻孔或镗孔 — 刀具/工件都回转",
+          "IT": "9"
+        },
+        {
+          "method": "镗刀块镗孔",
+          "IT": "7-9"
+        },
+        {
+          "method": "铰孔",
+          "IT": "7-9"
+        },
+        {
+          "method": "磨孔",
+          "IT": "7"
+        },
+        {
+          "method": "珩磨",
+          "IT": "7"
+        },
+        {
+          "method": "研磨",
+          "IT": "6-7"
+        }
+      ]
+    }
+  },
+  {
+    "id": "STD-2.8.1.4-POLY-SPLINE-HOLE-ECON-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.1.4",
+    "subtype": "polygon_spline_hole_economy",
+    "topic": "多边形孔/花键孔加工的经济精度",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 487,
+    "source_ref": "第4章 表4-13 多边形孔、花键孔加工的经济精度",
+    "source_text": "多边形孔: 钻 IT9-11; 插 IT9-11; 磨 IT7-9; 拉 IT7-9; 研磨 IT7. 花键孔加工: 插 IT9; 磨 IT7-9; 拉 IT7-9; 粗拉 IT7; 精拉 IT5.",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "可达精度",
+      "多边形孔",
+      "花键孔",
+      "Ch4-表4-13"
+    ],
+    "payload": {
+      "subject": "多边形孔/花键孔加工 → IT",
+      "value_table": [
+        {
+          "feature": "多边形孔",
+          "method": "钻",
+          "IT": "9-11"
+        },
+        {
+          "feature": "多边形孔",
+          "method": "插",
+          "IT": "9-11"
+        },
+        {
+          "feature": "多边形孔",
+          "method": "磨",
+          "IT": "7-9"
+        },
+        {
+          "feature": "多边形孔",
+          "method": "拉",
+          "IT": "7-9"
+        },
+        {
+          "feature": "多边形孔",
+          "method": "研磨",
+          "IT": "7"
+        },
+        {
+          "feature": "花键孔",
+          "method": "插",
+          "IT": "9"
+        },
+        {
+          "feature": "花键孔",
+          "method": "磨",
+          "IT": "7-9"
+        },
+        {
+          "feature": "花键孔",
+          "method": "拉",
+          "IT": "7-9"
+        },
+        {
+          "feature": "花键孔",
+          "method": "粗拉",
+          "IT": "7"
+        },
+        {
+          "feature": "花键孔",
+          "method": "精拉",
+          "IT": "5"
+        }
+      ]
+    }
+  },
+  {
+    "id": "STD-2.8.1.4-OUTER-CYL-ECON-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.1.4",
+    "subtype": "outer_cylinder_economy",
+    "topic": "外圆柱表面加工的经济精度",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 487,
+    "source_ref": "第4章 表4-14 外圆柱表面加工的经济精度",
+    "source_text": "公称直径 1-500 mm × 加工方法 (粗车/半精车/精车/磨/研磨/滚压) → IT 等级 + 误差值 μm (Ch4 表4-14)",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "可达精度",
+      "外圆柱表面",
+      "Ch4-表4-14"
+    ],
+    "payload": {
+      "subject": "外圆柱表面加工的经济精度",
+      "value_table_summary": "Ch4 表4-14 完整数据表; 详见 source_doc p.487",
+      "note": "本记录用作索引; 数值密集, Phase 3 SQLite 全量入库。",
+      "value_table": []
+    }
+  },
+  {
+    "id": "STD-2.8.1.4-FACE-ECON-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.1.4",
+    "subtype": "face_economy",
+    "topic": "端面加工的经济精度",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 488,
+    "source_ref": "第4章 表4-15 端面加工的经济精度",
+    "source_text": "直径 ≤50 / 50-120 / 120-260 / 260-500 mm × 加工方法 (粗车/精车/普通磨/精密磨) → 误差值 mm (Ch4 表4-15)",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "可达精度",
+      "端面",
+      "Ch4-表4-15"
+    ],
+    "payload": {
+      "subject": "端面加工的经济精度",
+      "value_table_summary": "Ch4 表4-15 完整数据表; 详见 source_doc p.488",
+      "note": "本记录用作索引; 数值密集, Phase 3 SQLite 全量入库。",
+      "value_table": []
+    }
+  },
+  {
+    "id": "STD-2.8.1.4-FORM-MILL-ECON-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.1.4",
+    "subtype": "form_mill_economy",
+    "topic": "成形铣刀加工的经济精度",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 488,
+    "source_ref": "第4章 表4-16 成形铣刀加工的经济精度",
+    "source_text": "表面长度 × 铣刀宽度 × 粗铣/精铣 → 误差 mm (Ch4 表4-16)",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "可达精度",
+      "成形铣刀",
+      "Ch4-表4-16"
+    ],
+    "payload": {
+      "subject": "成形铣刀加工的经济精度",
+      "value_table_summary": "Ch4 表4-16 完整数据表; 详见 source_doc p.488",
+      "note": "本记录用作索引; 数值密集, Phase 3 SQLite 全量入库。",
+      "value_table": []
+    }
+  },
+  {
+    "id": "STD-2.8.1.4-PARALLEL-FACE-ECON-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.1.4",
+    "subtype": "parallel_face_economy",
+    "topic": "同时加工平行表面的经济精度",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 489,
+    "source_ref": "第4章 表4-17 同时加工平行表面的经济精度",
+    "source_text": "用三面刃铣刀同时铣削 — 表面长宽 × 表面高度 → 误差 mm (Ch4 表4-17)",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "可达精度",
+      "同时",
+      "Ch4-表4-17"
+    ],
+    "payload": {
+      "subject": "同时加工平行表面的经济精度",
+      "value_table_summary": "Ch4 表4-17 完整数据表; 详见 source_doc p.489",
+      "note": "本记录用作索引; 数值密集, Phase 3 SQLite 全量入库。",
+      "value_table": []
+    }
+  },
+  {
+    "id": "STD-2.8.1.4-PLANE-ECON-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.1.4",
+    "subtype": "plane_economy",
+    "topic": "平面加工的经济精度",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 489,
+    "source_ref": "第4章 表4-18 平面加工的经济精度",
+    "source_text": "公称尺寸 (高/厚) × 加工方法 (刨/铣/拉/磨/研磨/滚压) → IT + 误差值 μm. 适用尺寸 < 1m, 结构刚性好的零件加工 (Ch4 表4-18)",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "可达精度",
+      "平面",
+      "Ch4-表4-18"
+    ],
+    "payload": {
+      "subject": "平面加工的经济精度",
+      "value_table_summary": "Ch4 表4-18 完整数据表; 详见 source_doc p.489",
+      "note": "本记录用作索引; 数值密集, Phase 3 SQLite 全量入库。",
+      "value_table": []
+    }
+  },
+  {
+    "id": "STD-2.8.1.4-SPLINE-ECON-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.1.4",
+    "subtype": "spline_economy",
+    "topic": "花键加工的经济精度",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 490,
+    "source_ref": "第4章 表4-20 花键加工的经济精度",
+    "source_text": "花键最大直径 18-120 mm × 加工方法 (滚铣刀/成形磨/拉/推) — 精度 (花键宽/底圆直径) mm (Ch4 表4-20)",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "可达精度",
+      "花键",
+      "Ch4-表4-20"
+    ],
+    "payload": {
+      "subject": "花键加工的经济精度",
+      "value_table_summary": "Ch4 表4-20 完整数据表; 详见 source_doc p.490",
+      "note": "本记录用作索引; 数值密集, Phase 3 SQLite 全量入库。",
+      "value_table": []
+    }
+  },
+  {
+    "id": "STD-2.8.1.4-GEAR-ECON-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.1.4",
+    "subtype": "gear_economy",
+    "topic": "齿形加工的经济精度",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 490,
+    "source_ref": "第4章 表4-21 齿形加工的经济精度",
+    "source_text": "齿轮加工方法 (滚齿/插齿/剃齿/磨齿/研齿等) × 模数范围 → 公差等级 (GB/T 10095/11365) (Ch4 表4-21)",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "可达精度",
+      "齿形",
+      "Ch4-表4-21"
+    ],
+    "payload": {
+      "subject": "齿形加工的经济精度",
+      "value_table_summary": "Ch4 表4-21 完整数据表; 详见 source_doc p.490",
+      "note": "本记录用作索引; 数值密集, Phase 3 SQLite 全量入库。",
+      "value_table": []
+    }
+  },
+  {
+    "id": "STD-2.8.1.4-FLATNESS-LIN-ECON-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.1.4",
+    "subtype": "flatness_linearity_economy",
+    "topic": "平面度和直线度的经济精度",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 491,
+    "source_ref": "第4章 表4-22 平面度和直线度的经济精度",
+    "source_text": "研磨/精精磨/精刮 IT1-2; 研磨/精磨/刮 IT3-4; 磨/刮/精车 IT5-6; 粗铣/刨/拉/车 IT7-8; 铣/刨/车/插 IT9-10; 各种粗加工 IT11-12.",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "形状精度",
+      "平面度",
+      "直线度",
+      "Ch4-表4-22"
+    ],
+    "payload": {
+      "subject": "平面度/直线度可达 IT 等级",
+      "value_table": [
+        {
+          "method": "研磨、精精磨、精刮",
+          "IT": "1-2"
+        },
+        {
+          "method": "研磨、精磨、刮",
+          "IT": "3-4"
+        },
+        {
+          "method": "磨、刮、精车",
+          "IT": "5-6"
+        },
+        {
+          "method": "粗磨、铣、刨、拉、车",
+          "IT": "7-8"
+        },
+        {
+          "method": "铣、刨、车、插",
+          "IT": "9-10"
+        },
+        {
+          "method": "各种粗加工",
+          "IT": "11-12"
+        }
+      ]
+    }
+  },
+  {
+    "id": "STD-2.8.1.4-ROUNDNESS-CYL-ECON-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.1.4",
+    "subtype": "roundness_cylindricity_economy",
+    "topic": "圆度和圆柱度的经济精度",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 491,
+    "source_ref": "第4章 表4-23 圆度和圆柱度的经济精度",
+    "source_text": "研磨/超精磨 IT1-2; 研磨/珩磨/精精磨/金刚镗/精密镗 IT3-4; 磨/珩、精车及精镗/精铰、拉 IT5-6; 精车及镗/铰、精扩及钻孔 IT7-8; 车/镗/钻 IT9-10.",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "形状精度",
+      "圆度",
+      "圆柱度",
+      "Ch4-表4-23"
+    ],
+    "payload": {
+      "subject": "圆度/圆柱度可达 IT 等级",
+      "value_table": [
+        {
+          "method": "研磨、超精磨",
+          "IT": "1-2"
+        },
+        {
+          "method": "研磨、珩磨、精精磨、金刚镗、精密镗",
+          "IT": "3-4"
+        },
+        {
+          "method": "磨、珩、精车及精镗、精铰、拉",
+          "IT": "5-6"
+        },
+        {
+          "method": "精车及镗、铰、精扩及钻孔",
+          "IT": "7-8"
+        },
+        {
+          "method": "车、镗、钻",
+          "IT": "9-10"
+        }
+      ]
+    }
+  },
+  {
+    "id": "STD-2.8.1.4-PROFILE-ECON-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.1.4",
+    "subtype": "profile_machining_economy",
+    "topic": "型面加工的经济精度",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 491,
+    "source_ref": "第4章 表4-24 型面加工的经济精度",
+    "source_text": "按样板手动/在机床上加工/按划线刨/按划线铣/在机床上用靠模铣 (机械控制/跟随系统)/靠模车/成形刀车/仿形磨 → 直径上的形状误差 (经济的/可达到的) mm.",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "形状精度",
+      "型面",
+      "Ch4-表4-24"
+    ],
+    "payload": {
+      "subject": "型面加工方法 → 形状误差 (经济的/可达到的) mm",
+      "value_table": [
+        {
+          "method": "按样板手动加工",
+          "economic_mm": 0.2,
+          "achievable_mm": 0.06
+        },
+        {
+          "method": "在机床上加工",
+          "economic_mm": 0.1,
+          "achievable_mm": 0.04
+        },
+        {
+          "method": "按划线刨",
+          "economic_mm": 2,
+          "achievable_mm": 0.4
+        },
+        {
+          "method": "按划线铣",
+          "economic_mm": 3,
+          "achievable_mm": 1.6
+        },
+        {
+          "method": "在机床上用靠模铣 — 机械控制",
+          "economic_mm": 0.4,
+          "achievable_mm": 0.16
+        },
+        {
+          "method": "在机床上用靠模铣 — 跟随系统",
+          "economic_mm": 0.06,
+          "achievable_mm": 0.02
+        },
+        {
+          "method": "靠模车",
+          "economic_mm": 0.24,
+          "achievable_mm": 0.06
+        },
+        {
+          "method": "成形刀车",
+          "economic_mm": 0.1,
+          "achievable_mm": 0.02
+        },
+        {
+          "method": "仿形磨",
+          "economic_mm": 0.04,
+          "achievable_mm": 0.02
+        }
+      ]
+    }
+  },
+  {
+    "id": "STD-2.8.1.4-PARALLELISM-ECON-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.1.4",
+    "subtype": "parallelism_economy",
+    "topic": "平行度的经济精度",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 491,
+    "source_ref": "第4章 表4-25 平行度的经济精度",
+    "source_text": "平行度: 各加工方法 → IT (Ch4 表4-25; 详见教材).",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "位置精度",
+      "平行度",
+      "Ch4-表4-25"
+    ],
+    "payload": {
+      "subject": "平行度的经济精度",
+      "value_table": [
+        {
+          "method": "研磨、金刚石精密加工、精刮",
+          "IT": "1-2"
+        },
+        {
+          "method": "研磨、珩磨、刮、精密磨",
+          "IT": "3-4"
+        },
+        {
+          "method": "磨、坐标镗、精密铣、精密刨",
+          "IT": "5-6"
+        },
+        {
+          "method": "磨、铣、刨、拉、镗、车",
+          "IT": "7-8"
+        },
+        {
+          "method": "铣、镗、车、按导套钻、铰",
+          "IT": "9-10"
+        },
+        {
+          "method": "各种粗加工",
+          "IT": "11-12"
+        }
+      ]
+    }
+  },
+  {
+    "id": "STD-2.8.1.4-RUNOUT-PERP-ECON-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.1.4",
+    "subtype": "runout_perpendicularity_economy",
+    "topic": "端面圆跳动和垂直度的经济精度",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 491,
+    "source_ref": "第4章 表4-26 端面圆跳动和垂直度的经济精度",
+    "source_text": "端面跳动/垂直度: 各加工方法 → IT (Ch4 表4-26; 详见教材).",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "位置精度",
+      "端面圆跳动和垂直度",
+      "Ch4-表4-26"
+    ],
+    "payload": {
+      "subject": "端面圆跳动和垂直度的经济精度",
+      "value_table": [
+        {
+          "method": "研磨、精密磨、金刚石精密加工",
+          "IT": "1-2"
+        },
+        {
+          "method": "研磨、精精、精密磨",
+          "IT": "3-4"
+        },
+        {
+          "method": "磨、刮、珩、精刨、精铣、精镗",
+          "IT": "5-6"
+        },
+        {
+          "method": "磨、铣、刨、镗、刮",
+          "IT": "7-8"
+        },
+        {
+          "method": "车、半精铣、刨、镗",
+          "IT": "9-10"
+        },
+        {
+          "method": "各种粗加工",
+          "IT": "11-12"
+        }
+      ]
+    }
+  },
+  {
+    "id": "STD-2.8.1.4-COAXIALITY-ECON-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.1.4",
+    "subtype": "coaxiality_economy",
+    "topic": "同轴度的经济精度",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 492,
+    "source_ref": "第4章 表4-27 同轴度的经济精度",
+    "source_text": "同轴度: 各加工方法 → IT (Ch4 表4-27; 详见教材).",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "位置精度",
+      "同轴度",
+      "Ch4-表4-27"
+    ],
+    "payload": {
+      "subject": "同轴度的经济精度",
+      "value_table": [
+        {
+          "method": "研磨、珩磨、精密磨、金刚石精密加工",
+          "IT": "1-2"
+        },
+        {
+          "method": "精磨、精密车、一次装夹下的内圆磨、珩磨",
+          "IT": "3-4"
+        },
+        {
+          "method": "磨、精车、一次装夹下的内圆磨及镗",
+          "IT": "5-6"
+        },
+        {
+          "method": "粗磨、车、镗、拉、铰",
+          "IT": "7-8"
+        },
+        {
+          "method": "车、镗、钻",
+          "IT": "9-10"
+        },
+        {
+          "method": "各种粗加工",
+          "IT": "11-12"
+        }
+      ]
+    }
+  },
+  {
+    "id": "STD-2.8.1.4-PARALLEL-HOLE-POS-ECON-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.1.4",
+    "subtype": "parallel_hole_position_economy",
+    "topic": "轴线相互平行的孔的位置经济精度 (mm)",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 492,
+    "source_ref": "第4章 表4-28 轴线相互平行的孔的位置经济精度",
+    "source_text": "轴线平行的孔位置精度: 各方法 → 误差 mm (Ch4 表4-28; 详见教材).",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "位置精度",
+      "轴线相互平行",
+      "Ch4-表4-28"
+    ],
+    "payload": {
+      "subject": "轴线相互平行的孔的位置经济精度",
+      "value_table": [
+        {
+          "method": "立钻或摇臂钻床上钻孔 — 按划线",
+          "error_mm": "0.5~1.0"
+        },
+        {
+          "method": "立钻或摇臂钻床上钻孔 — 用钻模",
+          "error_mm": "0.1~0.2"
+        },
+        {
+          "method": "立钻或摇臂钻床上镗孔",
+          "error_mm": "0.05~0.1"
+        },
+        {
+          "method": "车床上镗孔 — 按划线",
+          "error_mm": "1.0~3.0"
+        },
+        {
+          "method": "车床上镗孔 — 在角铁式夹具上",
+          "error_mm": "0.1~0.3"
+        },
+        {
+          "method": "坐标镗床上镗孔 — 用光学仪器",
+          "error_mm": "0.004~0.015"
+        },
+        {
+          "method": "金刚镗床上镗孔",
+          "error_mm": "0.008~0.02"
+        },
+        {
+          "method": "多轴组合机床上镗孔 — 用钻模",
+          "error_mm": "0.05~0.2"
+        },
+        {
+          "method": "卧式镗床上镗孔 — 按划线",
+          "error_mm": "0.4~0.6"
+        },
+        {
+          "method": "卧式镗床上镗孔 — 用游标卡尺",
+          "error_mm": "0.2~0.4"
+        },
+        {
+          "method": "卧式镗床上镗孔 — 用内径规或塞尺",
+          "error_mm": "0.05~0.25"
+        },
+        {
+          "method": "卧式镗床上镗孔 — 用钻模",
+          "error_mm": "0.05~0.08"
+        },
+        {
+          "method": "卧式镗床上镗孔 — 按定位器的指示读数",
+          "error_mm": "0.04~0.06"
+        },
+        {
+          "method": "卧式镗床上镗孔 — 用程序控制的坐标装置",
+          "error_mm": "0.04~0.06"
+        },
+        {
+          "method": "卧式镗床上镗孔 — 按定位样板",
+          "error_mm": "0.08~0.2"
+        },
+        {
+          "method": "卧式镗床上镗孔 — 用量块",
+          "error_mm": "0.05~0.1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "STD-2.8.1.4-PERP-HOLE-POS-ECON-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.1.4",
+    "subtype": "perpendicular_hole_position_economy",
+    "topic": "轴线相互垂直的孔的位置经济精度 (mm)",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 492,
+    "source_ref": "第4章 表4-29 轴线相互垂直的孔的位置经济精度",
+    "source_text": "轴线垂直的孔位置精度: 各方法 → 100mm 长上轴线垂直度 + 轴线位置度 mm (Ch4 表4-29; 详见教材).",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "位置精度",
+      "轴线相互垂直",
+      "Ch4-表4-29"
+    ],
+    "payload": {
+      "subject": "轴线相互垂直的孔的位置经济精度",
+      "value_table": [
+        {
+          "method": "立钻上钻孔 — 按划线",
+          "perp_in_100mm_mm": "0.5~1.0",
+          "axis_position_mm": "0.5~2"
+        },
+        {
+          "method": "立钻上钻孔 — 用钻模",
+          "perp_in_100mm_mm": "0.1",
+          "axis_position_mm": "0.5"
+        },
+        {
+          "method": "铣床上镗孔 — 回转工作台",
+          "perp_in_100mm_mm": "0.02~0.05",
+          "axis_position_mm": "0.1~0.2"
+        },
+        {
+          "method": "铣床上镗孔 — 回转分度头",
+          "perp_in_100mm_mm": "0.05~0.1",
+          "axis_position_mm": "0.3~0.5"
+        },
+        {
+          "method": "多轴组合机床上镗孔 — 用钻模",
+          "perp_in_100mm_mm": "0.02~0.05",
+          "axis_position_mm": "0.01~0.03"
+        },
+        {
+          "method": "卧式镗床上镗孔 — 按划线",
+          "perp_in_100mm_mm": "0.5~1.0",
+          "axis_position_mm": "0.5~2.0"
+        },
+        {
+          "method": "卧式镗床上镗孔 — 用钻模",
+          "perp_in_100mm_mm": "0.04~0.2",
+          "axis_position_mm": "0.02~0.06"
+        },
+        {
+          "method": "卧式镗床上镗孔 — 回转工作台",
+          "perp_in_100mm_mm": "0.06~0.3",
+          "axis_position_mm": "0.03~0.08"
+        },
+        {
+          "method": "卧式镗床上镗孔 — 带百分表的回转工作台",
+          "perp_in_100mm_mm": "0.05~0.15",
+          "axis_position_mm": "0.05~0.1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "STD-2.8.1.4-MACHINE-AVG-ECON-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.1.4",
+    "subtype": "machine_average_economy",
+    "topic": "在各种机床上加工时形状/位置的平均经济精度",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 493,
+    "source_ref": "第4章 表4-30 在各种机床上加工时形状、位置的平均经济精度",
+    "source_text": "按机床类型 (卧式车床/高精度卧式车床/外圆磨床/无心磨床/珩磨机/转塔车床/卧式镗床/内圆磨床/立式金刚镗床/卧式铣床/立式铣床/龙门铣床/龙门刨床/插床/平面磨床/牛头刨床) × 最大加工直径或宽度 → 圆度 / 圆柱度 / 平面度 / 平行度 / 垂直度 / 多边形误差 等数值 (mm).",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "机床能力",
+      "形位精度",
+      "Ch4-表4-30"
+    ],
+    "payload": {
+      "subject": "机床 × 最大加工尺寸 → 平均形状/位置经济精度",
+      "value_table_summary": "Ch4 表 4-30 完整数据表 (~25 机床类型 × 多种精度指标); 详见 source_doc p.493-494",
+      "note": "本记录用作索引; 详细数值入 SQLite Phase 3.",
+      "value_table": []
+    }
+  },
+  {
+    "id": "STD-2.8.2.1-RA-PROFILE-MILL-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.2.1",
+    "subtype": "ra_method_profile_milling",
+    "topic": "圆柱铣刀铣削、铣、刨槽 等 加工方法可达 Ra (Ch4 表4-31 续)",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 495,
+    "source_ref": "第4章 表4-31 / 圆柱铣刀铣削/刨/槽表面/钻 等剩余方法",
+    "source_text": "圆柱铣刀铣削/镗孔/研磨/抛光等剩余加工方法可达 Ra 范围。详细按方法×阶段×材料 → Ra μm. 详见 source_doc p.495-496 (表 4-31).",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "可达Ra",
+      "镗孔",
+      "研磨",
+      "抛光",
+      "Ch4-表4-31续"
+    ],
+    "payload": {
+      "subject": "Ch4 表4-31 剩余方法可达 Ra (μm)",
+      "value_table": [
+        {
+          "method_group": "圆柱铣刀铣削",
+          "stage": "半精铰",
+          "material": "金属",
+          "ra_min": 1.6,
+          "ra_max": 3.2
+        },
+        {
+          "method_group": "圆柱铣刀铣削",
+          "stage": "半精铰",
+          "material": "有色金属",
+          "ra_min": 0.4,
+          "ra_max": 0.8
+        },
+        {
+          "method_group": "圆柱铣刀铣削",
+          "stage": "精铰",
+          "material": "金属",
+          "ra_min": 0.8,
+          "ra_max": 1.6
+        },
+        {
+          "method_group": "圆柱铣刀铣削",
+          "stage": "精铰",
+          "material": "有色金属",
+          "ra_min": 0.2,
+          "ra_max": 0.8
+        },
+        {
+          "method_group": "镗孔",
+          "stage": "粗镗",
+          "ra_min": 6.3,
+          "ra_max": 12.5
+        },
+        {
+          "method_group": "镗孔",
+          "stage": "半精镗",
+          "material": "金属",
+          "ra_min": 3.2,
+          "ra_max": 6.3
+        },
+        {
+          "method_group": "镗孔",
+          "stage": "半精镗",
+          "material": "有色金属",
+          "ra_min": 1.6,
+          "ra_max": 6.3
+        },
+        {
+          "method_group": "镗孔",
+          "stage": "精镗",
+          "material": "金属",
+          "ra_min": 0.8,
+          "ra_max": 3.2
+        },
+        {
+          "method_group": "镗孔",
+          "stage": "精镗",
+          "material": "有色金属",
+          "ra_min": 0.4,
+          "ra_max": 1.6
+        },
+        {
+          "method_group": "镗孔",
+          "stage": "精密镗(金刚镗)",
+          "material": "金属",
+          "ra_min": 0.2,
+          "ra_max": 0.8
+        },
+        {
+          "method_group": "镗孔",
+          "stage": "精密镗(金刚镗)",
+          "material": "有色金属",
+          "ra_min": 0.2,
+          "ra_max": 0.4
+        },
+        {
+          "method_group": "研磨",
+          "stage": "粗",
+          "ra_min": 0.2,
+          "ra_max": 0.4
+        },
+        {
+          "method_group": "研磨",
+          "stage": "精",
+          "ra_min": 0.05,
+          "ra_max": 0.2
+        },
+        {
+          "method_group": "研磨",
+          "stage": "镜面加工(两次加工)",
+          "ra_max": 0.025
+        },
+        {
+          "method_group": "抛光",
+          "stage": "精",
+          "ra_min": 0.1,
+          "ra_max": 0.8
+        },
+        {
+          "method_group": "抛光",
+          "stage": "精密",
+          "ra_min": 0.025,
+          "ra_max": 0.1
+        },
+        {
+          "method_group": "抛光",
+          "stage": "砂带抛光",
+          "ra_min": 0.1,
+          "ra_max": 0.2
+        },
+        {
+          "method_group": "抛光",
+          "stage": "砂布抛光",
+          "ra_min": 0.1,
+          "ra_max": 1.6
+        },
+        {
+          "method_group": "抛光",
+          "stage": "电抛光",
+          "ra_min": 0.012,
+          "ra_max": 1.6
+        }
+      ],
+      "unit": "μm"
+    }
+  },
+  {
+    "id": "STD-2.8.2.3-RA-SHAFT-IT-FIT-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.2.3",
+    "subtype": "ra_shaft_vs_it_fit",
+    "topic": "轴的表面粗糙度与公差等级和配合之间的关系",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 499,
+    "source_ref": "第4章 表4-34 轴的表面粗糙度与公差等级和配合之间的关系",
+    "source_text": "公称尺寸 1-500 mm × IT 等级 5-16 + 配合代号 (h5/r5...h16) → Ra 值 μm.",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "Ra",
+      "IT",
+      "配合",
+      "轴",
+      "Ch4-表4-34"
+    ],
+    "payload": {
+      "subject": "轴 公称尺寸 × IT × 配合 → Ra (μm)",
+      "value_table_summary": "Ch4 表 4-34 完整数据表 (~80 单元格); 详见 source_doc p.499",
+      "note": "本记录用作索引; Phase 3 SQLite 全量入库",
+      "value_table": []
+    }
+  },
+  {
+    "id": "STD-2.8.2.3-RA-HOLE-IT-FIT-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.2.3",
+    "subtype": "ra_hole_vs_it_fit",
+    "topic": "孔的表面粗糙度与公差等级和配合之间的关系",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 500,
+    "source_ref": "第4章 表4-35 孔的表面粗糙度与公差等级和配合之间的关系",
+    "source_text": "公称尺寸 1-500 mm × IT 等级 6-16 + 配合代号 (H6, U7/S7...H16) → Ra 值 μm.",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "Ra",
+      "IT",
+      "配合",
+      "孔",
+      "Ch4-表4-35"
+    ],
+    "payload": {
+      "subject": "孔 公称尺寸 × IT × 配合 → Ra (μm)",
+      "value_table_summary": "Ch4 表 4-35 完整数据表 (~80 单元格); 详见 source_doc p.500",
+      "note": "本记录用作索引; Phase 3 SQLite 全量入库",
+      "value_table": []
+    }
+  },
+  {
+    "id": "STD-2.8.2.4-RA-DYN-JOINT-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.2.4",
+    "subtype": "ra_dynamic_joint",
+    "topic": "动联接接合表面的粗糙度值",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 501,
+    "source_ref": "第4章 表4-36 动联接接合表面的粗糙度值",
+    "source_text": "动联接接合表面 Ra: 接合面性质 (滑动/滚动/推力轴承端面) × 平面度 A 等级 × 速度 (滑动 m/s ≤ 或 > 0.5) → Ra μm (Ch4 表4-36).",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "Ra",
+      "联接面",
+      "Ch4-表4-36"
+    ],
+    "payload": {
+      "subject": "动联接接合表面的粗糙度值",
+      "value_table": [
+        {
+          "surface": "滑动导轨面 — 平面度 A≤6",
+          "speed_le_0_5": "Ra0.32",
+          "speed_gt_0_5": "Ra0.16"
+        },
+        {
+          "surface": "滑动导轨面 — 平面度 A≤10",
+          "speed_le_0_5": "Ra0.63",
+          "speed_gt_0_5": "Ra0.32"
+        },
+        {
+          "surface": "滑动导轨面 — 平面度 A≤30",
+          "speed_le_0_5": "Ra1.25",
+          "speed_gt_0_5": "Ra0.63"
+        },
+        {
+          "surface": "滑动导轨面 — 平面度 A≤50",
+          "speed_le_0_5": "Ra2.5",
+          "speed_gt_0_5": "Ra1.25"
+        },
+        {
+          "surface": "滑动导轨面 — 平面度 A>50",
+          "speed_le_0_5": "Ra5",
+          "speed_gt_0_5": "Ra2.5"
+        },
+        {
+          "surface": "滚动导轨面 — 平面度 A≤6",
+          "speed_le_0_5": "Ra0.16",
+          "speed_gt_0_5": "Ra0.08"
+        },
+        {
+          "surface": "滚动导轨面 — 平面度 A≤10",
+          "speed_le_0_5": "Ra0.32",
+          "speed_gt_0_5": "Ra0.16"
+        },
+        {
+          "surface": "滚动导轨面 — 平面度 A≤30",
+          "speed_le_0_5": "Ra0.63",
+          "speed_gt_0_5": "Ra0.32"
+        },
+        {
+          "surface": "滚动导轨面 — 平面度 A≤50",
+          "speed_le_0_5": "Ra1.25",
+          "speed_gt_0_5": "Ra0.63"
+        },
+        {
+          "surface": "滚动导轨面 — 平面度 A>50",
+          "speed_le_0_5": "Ra2.5",
+          "speed_gt_0_5": "Ra1.25"
+        },
+        {
+          "surface": "推力轴承端面 — 端面圆跳动 A≤6",
+          "speed_le_0_5": "Ra0.32",
+          "speed_gt_0_5": "Ra0.16"
+        },
+        {
+          "surface": "推力轴承端面 — 端面圆跳动 A≤10",
+          "speed_le_0_5": "Ra0.63",
+          "speed_gt_0_5": "Ra0.32"
+        },
+        {
+          "surface": "推力轴承端面 — 端面圆跳动 A≤30",
+          "speed_le_0_5": "Ra1.25",
+          "speed_gt_0_5": "Ra0.63"
+        },
+        {
+          "surface": "推力轴承端面 — 端面圆跳动 A≤50",
+          "speed_le_0_5": "Ra2.5",
+          "speed_gt_0_5": "Ra1.25"
+        },
+        {
+          "surface": "推力轴承端面 — 端面圆跳动 A>50",
+          "speed_le_0_5": "Ra5",
+          "speed_gt_0_5": "Ra2.5"
+        }
+      ]
+    }
+  },
+  {
+    "id": "STD-2.8.2.4-RA-STATIC-JOINT-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.2.4",
+    "subtype": "ra_static_joint",
+    "topic": "静联接接合表面的粗糙度值",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 501,
+    "source_ref": "第4章 表4-37 静联接接合表面的粗糙度值",
+    "source_text": "静联接接合表面 Ra: 表面性质 × 密封要求 / 平面度 / 垂直度 → Ra μm (Ch4 表4-37).",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "Ra",
+      "联接面",
+      "Ch4-表4-37"
+    ],
+    "payload": {
+      "subject": "静联接接合表面的粗糙度值",
+      "value_table": [
+        {
+          "surface": "壳体零件的联接表面 — 密封 — 带衬垫",
+          "ra": "Ra5、Ra2.5"
+        },
+        {
+          "surface": "壳体零件的联接表面 — 密封 — 不带衬垫",
+          "ra": "Ra1.25、Ra0.63"
+        },
+        {
+          "surface": "壳体零件的联接表面 — 不密封",
+          "ra": "Ra10、Ra5"
+        },
+        {
+          "surface": "支承端面 — 垂直度 A≤6",
+          "ra": "Ra0.63"
+        },
+        {
+          "surface": "支承端面 — 垂直度 A≤10",
+          "ra": "Ra0.63"
+        },
+        {
+          "surface": "支承端面 — 垂直度 A≤30",
+          "ra": "Ra1.25"
+        },
+        {
+          "surface": "支承端面 — 垂直度 A≤50",
+          "ra": "Ra2.5"
+        },
+        {
+          "surface": "支承端面 — 垂直度 A>50",
+          "ra": "Ra5"
+        }
+      ]
+    }
+  },
+  {
+    "id": "STD-2.8.2.4-RA-LEADSCREW-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.2.4",
+    "subtype": "ra_leadscrew",
+    "topic": "丝杠传动接合表面的粗糙度值",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 501,
+    "source_ref": "第4章 表4-38 丝杠传动接合表面的粗糙度值",
+    "source_text": "丝杠传动表面 Ra (按公差等级 IT 1-3 区分) (Ch4 表4-38).",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "Ra",
+      "联接面",
+      "Ch4-表4-38"
+    ],
+    "payload": {
+      "subject": "丝杠传动接合表面的粗糙度值",
+      "value_table": [
+        {
+          "feature": "车削螺纹的工作表面 — 传动或承重丝杠的螺母",
+          "IT_1": "Ra0.63、Ra0.32",
+          "IT_2": "Ra1.25",
+          "IT_3": "Ra2.5"
+        },
+        {
+          "feature": "车削螺纹的工作表面 — 传动或承重的丝杠",
+          "IT_1": "Ra0.32",
+          "IT_2": "Ra0.63",
+          "IT_3": "Ra1.25"
+        }
+      ]
+    }
+  },
+  {
+    "id": "STD-2.8.2.4-RA-THREAD-JOINT-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.2.4",
+    "subtype": "ra_thread_joint",
+    "topic": "螺纹联接的工作表面粗糙度值",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 501,
+    "source_ref": "第4章 表4-39 螺纹联接的工作表面粗糙度值",
+    "source_text": "螺纹联接工作表面 Ra (按公差等级 IT 4-7 区分) (Ch4 表4-39).",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "Ra",
+      "联接面",
+      "Ch4-表4-39"
+    ],
+    "payload": {
+      "subject": "螺纹联接的工作表面粗糙度值",
+      "value_table": [
+        {
+          "feature": "螺纹工作表面 — 紧固螺栓螺钉和螺母",
+          "IT_4_5": "Ra1.25",
+          "IT_5_6": "Ra2.5",
+          "IT_6_7": "Ra5"
+        },
+        {
+          "feature": "螺纹工作表面 — 锥体形轴拉杆套筒和其他零件",
+          "IT_4_5": "Ra1.25",
+          "IT_5_6": "Ra1.25",
+          "IT_6_7": "Ra2.5"
+        }
+      ]
+    }
+  },
+  {
+    "id": "STD-2.8.2.4-RA-GEAR-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.2.4",
+    "subtype": "ra_gear",
+    "topic": "齿轮、蜗轮和蜗杆的工作表面粗糙度值",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 501,
+    "source_ref": "第4章 表4-40 齿轮、蜗轮和蜗杆的工作表面粗糙度值",
+    "source_text": "齿轮蜗轮蜗杆工作表面 Ra (按 IT 3-11 区分; 齿根圆表面 Ra 推荐为和工作表面相同; 齿顶圆表面 Ra 推荐为 Ra5-2.5) (Ch4 表4-40).",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "Ra",
+      "联接面",
+      "Ch4-表4-40"
+    ],
+    "payload": {
+      "subject": "齿轮、蜗轮和蜗杆的工作表面粗糙度值",
+      "value_table": [
+        {
+          "gear_form": "直、斜齿圆柱齿轮、蜗轮",
+          "IT_3": "Ra0.32、Ra0.16",
+          "IT_4": "Ra0.63、Ra0.32",
+          "IT_5": "Ra0.63",
+          "IT_6": "Ra0.63",
+          "IT_7": "Ra1.25、Ra0.63",
+          "IT_8": "Ra2.5",
+          "IT_9": "Ra5",
+          "IT_10": "Ra10",
+          "IT_11": "Ra20"
+        },
+        {
+          "gear_form": "直、斜、曲线齿锥齿轮",
+          "IT_3": null,
+          "IT_4": null,
+          "IT_5": "Ra0.63、Ra0.32",
+          "IT_6": "Ra0.63",
+          "IT_7": "Ra1.25、Ra0.63",
+          "IT_8": "Ra2.5",
+          "IT_9": "Ra5",
+          "IT_10": "Ra10",
+          "IT_11": null
+        },
+        {
+          "gear_form": "蜗杆",
+          "IT_3": "Ra0.16",
+          "IT_4": "Ra0.32",
+          "IT_5": "Ra0.32",
+          "IT_6": "Ra0.63",
+          "IT_7": "Ra0.63",
+          "IT_8": "Ra1.25",
+          "IT_9": "Ra2.5",
+          "IT_10": null,
+          "IT_11": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "STD-2.8.3.1-WORK-HARDENING-DATA-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.3.1",
+    "subtype": "work_hardening_method_data",
+    "topic": "几种加工方法的硬化程度及硬化层深度",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 503,
+    "source_ref": "第4章 表4-41 几种加工方法的硬化程度及硬化层深度",
+    "source_text": "各加工方法的硬化程度 N (%) 和硬化层深度 hc (μm)。例: 普通车 N=120-150% hc=30-50; 端铣 N=140-160% hc=40-100; 钻 N=160-170% hc=180-200。详细 14 行见 value_table.",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "加工硬化",
+      "数据",
+      "Ch4-表4-41"
+    ],
+    "payload": {
+      "subject": "各加工方法的硬化程度 N (%) 和硬化层深度 hc (μm)",
+      "value_table": [
+        {
+          "method": "普通车和高速车",
+          "N_avg": "120-150",
+          "N_max": 200,
+          "hc_avg_um": "30-50",
+          "hc_max_um": 200
+        },
+        {
+          "method": "精密车",
+          "N_avg": "140-180",
+          "N_max": 220,
+          "hc_avg_um": "20-60",
+          "hc_max_um": null
+        },
+        {
+          "method": "端铣",
+          "N_avg": "140-160",
+          "N_max": 200,
+          "hc_avg_um": "40-100",
+          "hc_max_um": 200
+        },
+        {
+          "method": "圆周铣",
+          "N_avg": "120-140",
+          "N_max": 180,
+          "hc_avg_um": "40-80",
+          "hc_max_um": 110
+        },
+        {
+          "method": "钻和扩",
+          "N_avg": "160-170",
+          "N_max": null,
+          "hc_avg_um": "180-200",
+          "hc_max_um": 250
+        },
+        {
+          "method": "铰",
+          "N_avg": null,
+          "N_max": null,
+          "hc_avg_um": null,
+          "hc_max_um": 300
+        },
+        {
+          "method": "拉",
+          "N_avg": "150-200",
+          "N_max": null,
+          "hc_avg_um": "20-75",
+          "hc_max_um": null
+        },
+        {
+          "method": "滚齿和插齿",
+          "N_avg": "160-200",
+          "N_max": null,
+          "hc_avg_um": "120-150",
+          "hc_max_um": null
+        },
+        {
+          "method": "剃齿",
+          "N_avg": null,
+          "N_max": null,
+          "hc_avg_um": "<100",
+          "hc_max_um": null
+        },
+        {
+          "method": "圆磨非淬火钢",
+          "N_avg": "140-160",
+          "N_max": 200,
+          "hc_avg_um": "30-60",
+          "hc_max_um": null
+        },
+        {
+          "method": "圆磨低碳钢",
+          "N_avg": "160-200",
+          "N_max": 250,
+          "hc_avg_um": "30-60",
+          "hc_max_um": null
+        },
+        {
+          "method": "圆磨淬火钢",
+          "N_avg": "125-130",
+          "N_max": null,
+          "hc_avg_um": "20-40",
+          "hc_max_um": null
+        },
+        {
+          "method": "平磨",
+          "N_avg": "150",
+          "N_max": null,
+          "hc_avg_um": "16-35",
+          "hc_max_um": null
+        },
+        {
+          "method": "研磨(用研磨膏)",
+          "N_avg": "112-117",
+          "N_max": null,
+          "hc_avg_um": "3-7",
+          "hc_max_um": null
+        }
+      ],
+      "note": "磨削用量大、冷却条件不好时, 会发生淬火钢的回火转化, 表层金属的显微硬度要降低, 回火层的深度有时达到 200 μm"
+    }
+  },
+  {
+    "id": "EXP-2.8.3.2-HARDEN-TOOL-001",
+    "family": "经验",
+    "prefix": "EXP",
+    "framework_branch": "2.8.3.2",
+    "subtype": "harden_factor_tool",
+    "topic": "刀具因素对加工硬化的影响",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 503,
+    "source_ref": "第4章 表4-42 影响加工表面硬化的因素 / 刀具行",
+    "source_text": "刀具因素影响加工硬化: 前角越大硬化层越小 (前角 -60°→0° 表层硬度 730→450HV, hc 200→50μm); 切削刃钝圆半径 rn 越大硬化越大; 后面磨损量 VB 由 0→0.2mm 硬度 220→340HV, 继续增大反而下降.",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "影响硬化",
+      "刀具因素",
+      "Ch4-表4-42"
+    ],
+    "payload": {
+      "factor": "刀具因素 (前角 / 切削刃钝圆半径 rn / 后面磨损量 VB)",
+      "impact": "前角越大硬化层越小; rn 越大硬化越大; VB 增加初期硬化增大, 持续增加后弱化",
+      "improvement_actions": [
+        {
+          "text": "增大刀具前角 γo (前角 -60°→0° 表层硬度 730HV→450HV)",
+          "tags": [
+            "principle",
+            "practice",
+            "observation"
+          ]
+        },
+        {
+          "text": "减小切削刃钝圆半径 rn",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "控制刀具后面磨损量 VB ≤ 0.2mm 临界点",
+          "tags": [
+            "principle",
+            "practice",
+            "observation"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "EXP-2.8.3.2-HARDEN-WORK-001",
+    "family": "经验",
+    "prefix": "EXP",
+    "framework_branch": "2.8.3.2",
+    "subtype": "harden_factor_workpiece",
+    "topic": "工件材料因素对加工硬化的影响",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 504,
+    "source_ref": "第4章 表4-42 / 工件行",
+    "source_text": "工件材料的塑性越大, 强化指数越大, 则硬化越严重. 对于一般碳素结构钢, 碳含量越少, 塑性越大, 硬化越严重. 高锰钢 Mn12 的强化指数比一般低碳钢的高 2 倍以上. 有色金属的熔点低, 容易弱化, 加工硬化比结构钢轻得多, 铜件比钢件小 30%, 铝件比钢件小 75% 左右.",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "影响硬化",
+      "工件材料",
+      "Ch4-表4-42"
+    ],
+    "payload": {
+      "factor": "工件材料 (塑性 / 强化指数)",
+      "impact": "塑性大、强化指数大 → 硬化严重; 高锰钢 Mn12 强化指数为低碳钢 2 倍以上; 有色金属轻得多 (铜小 30%, 铝小 75%)",
+      "improvement_actions": [
+        {
+          "text": "对塑性较大材料预先调质处理以降低塑性、提高硬度",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "减少合金元素中夹杂物的分布要细均匀",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "易切削钢中应含有硫、铅等元素以提高加工性",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "对工件进行调质处理, 提高硬度, 降低塑性",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "减少铸铁中石墨的颗粒尺寸等",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "EXP-2.8.3.2-HARDEN-CUTTING-001",
+    "family": "经验",
+    "prefix": "EXP",
+    "framework_branch": "2.8.3.2",
+    "subtype": "harden_factor_cutting_condition",
+    "topic": "切削条件对加工硬化的影响",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 504,
+    "source_ref": "第4章 表4-42 / 切削条件行",
+    "source_text": "切削条件影响加工硬化: 进给量大→冷硬增加; 切削厚度过小反而冷硬增大; 切削速度增加导致硬化层深度先减后增 (临界 Ac3 之上); 有效冷却润滑减小硬化层深度.",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "影响硬化",
+      "切削条件",
+      "Ch4-表4-42"
+    ],
+    "payload": {
+      "factor": "切削条件 (进给量 / 切削速度 / 冷却润滑)",
+      "impact": "进给量大→冷硬增加; 切削厚度减小却使冷硬反增; 速度增加导致硬化层深度先减后增 (临界 Ac3); 冷却润滑减小硬化层深度",
+      "improvement_actions": [
+        {
+          "text": "控制进给量, 避免过大也避免过小",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "根据 Ac3 临界温度选择切削速度",
+          "tags": [
+            "principle",
+            "practice",
+            "observation"
+          ]
+        },
+        {
+          "text": "采用有效的冷却润滑措施减小硬化层深度",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "EXP-2.8.4.1-RESIDUAL-STRESS-RAKE-001",
+    "family": "经验",
+    "prefix": "EXP",
+    "framework_branch": "2.8.4.1",
+    "subtype": "residual_stress_rake_angle",
+    "topic": "前角对残余应力的影响",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 504,
+    "source_ref": "第4章 表4-43 影响残余应力的因素及减少残余应力的措施 / 前角行",
+    "source_text": "对残余应力的深度影响较大, 负前角时比正前角的深度增大一倍",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "残余应力",
+      "前角",
+      "Ch4-表4-43"
+    ],
+    "payload": {
+      "factor": "前角",
+      "impact": "对残余应力深度影响较大, 负前角比正前角深度增大一倍",
+      "improvement_actions": [
+        {
+          "text": "选择合适的切削用量以保证较好的刀具寿命与降低表面粗糙度值, 必须采用尖锐的切削刃, 无细小锯齿状缺口, 后面磨损控制在 0.2mm 左右",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "EXP-2.8.4.1-RESIDUAL-STRESS-WEAR-001",
+    "family": "经验",
+    "prefix": "EXP",
+    "framework_branch": "2.8.4.1",
+    "subtype": "residual_stress_tool_wear",
+    "topic": "刀具磨损对残余应力的影响",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 504,
+    "source_ref": "第4章 表4-43 / 刀具磨损行",
+    "source_text": "磨损增大则距表层较深处的压应力值也增大",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "残余应力",
+      "刀具磨损",
+      "Ch4-表4-43"
+    ],
+    "payload": {
+      "factor": "刀具磨损",
+      "impact": "磨损增大时距表层较深处的压应力值增大",
+      "improvement_actions": [
+        {
+          "text": "机床的刚性要好, 避免产生振动. 钻孔时, 最好有导向套, 尽可能增大钻头, 钻出的孔边缘进行倒角",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "用挤压方法和喷丸处理增大表层的残余压应力, 可提高疲劳强度. 例如, 精挤压齿轮与剃齿相比较, 齿面的残余压应力增大, 硬度提高; 电火花加工、电解抛光后用喷丸处理可显著提高高温合金的疲劳强度",
+          "tags": [
+            "principle",
+            "practice",
+            "observation"
+          ]
+        },
+        {
+          "text": "进行热处理",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "EXP-2.8.4.1-RESIDUAL-STRESS-FEED-001",
+    "family": "经验",
+    "prefix": "EXP",
+    "framework_branch": "2.8.4.1",
+    "subtype": "residual_stress_feed",
+    "topic": "进给量对残余应力的影响",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 504,
+    "source_ref": "第4章 表4-43 / 进给量行",
+    "source_text": "进给量增大, 表层拉应力增大, 最大压应力移向工件内部",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "残余应力",
+      "进给量",
+      "Ch4-表4-43"
+    ],
+    "payload": {
+      "factor": "进给量",
+      "impact": "进给量增大→表层拉应力增大, 最大压应力移向工件内部",
+      "improvement_actions": [
+        {
+          "text": "控制进给量, 避免过大",
+          "tags": [
+            "principle"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "EXP-2.8.5.1-FORCED-VIBRATION-001",
+    "family": "经验",
+    "prefix": "EXP",
+    "framework_branch": "2.8.5.1",
+    "subtype": "forced_vibration",
+    "topic": "强迫振动的特点、产生原因与消减措施",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 505,
+    "source_ref": "第4章 表4-44 强迫振动的特点、产生原因与消减措施",
+    "source_text": "强迫振动: 由外界周期性干扰 (工艺系统内部或外部振源) 所激发的振动. 特点: 强迫振动本身不能改变干扰力, 干扰力一般与切削过程本身所引起的强迫振动除外, 干扰消除振动停止; 频率与外界周期性干扰力的频率相同或是它的整倍数; 当干扰力的频率与系统的固有频率相等或或接近 1 时, 产生共振, 振幅达到最大值; 强迫振动的振幅与干扰力、系统的刚度及阻尼大小有关.",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "强迫振动",
+      "振动控制",
+      "Ch4-表4-44"
+    ],
+    "payload": {
+      "factor": "外界周期性干扰 (机床上回转件不平衡 / 传动零件缺陷 / 切削过程不均匀性 / 往复运动部件改变方向产生的惯性冲击 / 由外界其他振源)",
+      "impact": "切削过程振动, 影响表面质量、降低工艺系统刚度",
+      "improvement_actions": [
+        {
+          "text": "对高速回转 (600r/min 以上) 的零件进行平衡 (静平衡和动平衡) 或设置自动平衡装置",
+          "tags": [
+            "principle",
+            "practice",
+            "observation"
+          ]
+        },
+        {
+          "text": "调整轴承与镶条等处的间隙, 改变系统的固有频率, 使其偏离激振频率; 调整运动参数, 使可能引起强迫振动的振源频率, 远离机加工薄弱模态的固有频率",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "提高传动装置的稳定性, 如采用少接头、无接头传动带, 用斜齿轮代替直齿轮, 在主轴上安装飞轮等",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "在精密磨床上用叶片泵或螺旋泵代替齿轮泵, 在液压系统中采用缓冲装置等以消除运动冲击",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "将容易振动机械的动力源与机床本体分置在两个基础上以实现隔振",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "适当选择砂轮的硬度、粒度和组织, 适时修整砂轮, 减轻砂轮堵塞, 减小磨削力的波动",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "按均匀铣削条件适当选择铣刀直径、齿数和螺旋角; 增加铣刀齿数, 以顺铣代替逆铣; 采用不等距齿齿结构, 破坏干扰力的周期性",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "刮研接触面, 提高接触刚度; 采用跟刀架、中心架等增强工艺系统刚度",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "采用粘结结构的基础件和薄壁封砂结构的床身, 增加阻尼, 提高抗振能力",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "采用减振装置",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "EXP-2.8.5.2-SELF-EXCITED-VIBRATION-001",
+    "family": "经验",
+    "prefix": "EXP",
+    "framework_branch": "2.8.5.2",
+    "subtype": "self_excited_vibration_chatter",
+    "topic": "自激振动 (颤振) 的特点、产生原因与消减措施",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 506,
+    "source_ref": "第4章 表4-45 自激振动 (颤振) 的特点、产生原因与消减措施",
+    "source_text": "由振动系统本身在振动过程中激发产生的交变力所引起的不衰减的振动. 即使不受任何外界周期性干扰力的作用, 振动也会发生. 自激振动的特点: 频率等于或接近系统的固有频率; 按频率高低分高频颤振 (500-5000 Hz) 及低频颤振 (50-500 Hz); 能否产生及其振幅大小, 决定于每一振动周期内系统所获得的能量与阻尼能量消耗的比值情况; 干扰力是由加工过程本身激发产生, 故干扰力及能量补充进程立即消失.",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "自激振动",
+      "颤振",
+      "振动控制",
+      "Ch4-表4-45"
+    ],
+    "payload": {
+      "factor": "刀具切削时所获得的能量大于刀具从切削系统中送给所消耗的能量 (再生颤振 / 振型耦合颤振 / 负摩擦颤振)",
+      "impact": "高/低频颤振影响表面质量, 降低工艺系统刚度",
+      "improvement_actions": [
+        {
+          "text": "调整振动系统小刚度主轴的位置, 使其处于切削力 F 与 y 轴 (加工表面的法线方向) 的夹角范围之外, 如镗孔时采用削扁镗杆, 车外圆时车刀反装",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "通过改变切削用量和刀具几何形状, 减小重叠系数 μ, 如采用主偏角 κr=90° 的直角偏刀车外圆",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "减小切削层单位面积切削力 κr; 增大进给量 f、主偏角 κr、前角 γo; 适当提高切削速度 vc; 改善被加工材料的可加工性",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "增加切削阻尼: 适当减小刀具的后角 (αo=2°-3°); 在后面上磨出消振棱; 适当增大钻头的横刃; 适当使刀尖对于 (车外圆)、低于 (镗内孔) 工件轴线, 以获得小的工作前角. 为消减刀具的高频振动, 宜增大刀具的后角和前角",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "调整切削速度, 避免临界切削速度 vlim, 以消减切削过程动态特性引起的自振. 在切断、车端面或使用宽刃刀具、成形刀具和螺纹切削刀具时, 宜 vc < vlim; 纵向和切外形工件端面时, 宜 vc > vlim. 刀具高频振动时, 宜提高转速和背吃刀量, 以提高切削温度、消除刀具前面的摩擦力下降特性和负摩擦自振. 切削 45 钢时, 自振临界切削速度 vlim 见下表",
+          "tags": [
+            "principle",
+            "practice",
+            "observation"
+          ]
+        },
+        {
+          "text": "周期性改变车、磨的主轴转速 (变化幅度约 10%-20%), 可消除再生自振",
+          "tags": [
+            "principle",
+            "practice",
+            "observation"
+          ]
+        },
+        {
+          "text": "提高工艺系统刚度, 可减小动柔度最大负实部的负值, 以提高抗振能力. 但应注意提高薄弱环节的刚度和转动惯量",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "增大系统的阻尼: 选用阻尼比大的材料制造零件; 在零件上附加高内阻材料; 提高结合面的摩擦阻尼; 在机床纵线系统上附加阻尼减振器, 在精密机床上采用液体静压主轴、丝杠、导轨",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "采用逆相位加振: 对工件或砂轮座施加一个与磨削工艺系统相位差为 180° 的振动, 振动量相同的振动, 抵消已发生的磨削振动, 适用于平面磨削和外圆磨削",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "对砂轮进行超声波清洗以降低振动振幅",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        }
+      ]
+    }
   }
 ]
