@@ -64,5 +64,16 @@
     "extraction_method": "manual_classification_from_pdf_render",
     "review_status": "auditable_paraphrase",
     "copyright_note": "Textbook tables paraphrased to factor/impact/actions triples"
+  },
+  {
+    "framework_branch": "2.8.3.3",
+    "table": "Ch4 §4.2.2 公式",
+    "title": "加工硬化程度公式 N=(H-H₀)/H₀×100%",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": "502",
+    "extracted_count": 1,
+    "extraction_method": "manual_formula_paraphrase",
+    "review_status": "auditable_textbook_formula",
+    "copyright_note": "Single formula record; method also implemented in process_calc.work_hardening_ratio with textbook example unit tests"
   }
 ]

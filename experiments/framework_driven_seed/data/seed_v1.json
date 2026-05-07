@@ -12,14 +12,33 @@
     "source_text": "测量误差由量具制造误差、测量方法误差等引起，使测量结果不能正确反映工件实际尺寸，直接影响加工表面的尺寸精度。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响尺寸精度", "测量", "Ch4-表4-1"],
+    "tags": [
+      "影响尺寸精度",
+      "测量",
+      "Ch4-表4-1"
+    ],
     "payload": {
       "factor": "测量误差",
-      "factor_subcauses": ["量具制造误差", "测量方法误差"],
+      "factor_subcauses": [
+        "量具制造误差",
+        "测量方法误差"
+      ],
       "impact": "测量结果不能正确反映工件实际尺寸，直接影响加工表面尺寸精度",
       "improvement_actions": [
-        "根据精度要求合理选用测量方法及量具仪",
-        "控制测量条件（正确使用量具，控制环境温度）"
+        {
+          "text": "根据精度要求合理选用测量方法及量具仪",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "控制测量条件（正确使用量具，控制环境温度）",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        }
       ]
     }
   },
@@ -36,13 +55,28 @@
     "source_text": "采用调整法加工时，由于测量样件不能完全反映加工中各种随机误差造成的尺寸分散，影响调整尺寸的正确性，产生加工尺寸误差。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响尺寸精度", "调整法", "Ch4-表4-1"],
+    "tags": [
+      "影响尺寸精度",
+      "调整法",
+      "Ch4-表4-1"
+    ],
     "payload": {
       "factor": "调整误差",
       "impact": "采用调整法加工时影响调整尺寸的正确性，产生加工尺寸误差",
       "improvement_actions": [
-        "试切一组工件，以其尺寸分布的平均位置为依据调整刀具位置",
-        "试切工件数量按所要求的公差及实际加工尺寸的分散范围而定"
+        {
+          "text": "试切一组工件，以其尺寸分布的平均位置为依据调整刀具位置",
+          "tags": [
+            "practice"
+          ]
+        },
+        {
+          "text": "试切工件数量按所要求的公差及实际加工尺寸的分散范围而定",
+          "tags": [
+            "practice",
+            "observation"
+          ]
+        }
       ]
     }
   },
@@ -59,15 +93,40 @@
     "source_text": "定尺寸刀具误差及磨损直接影响加工尺寸；调整法加工时刀具尺寸磨损会使一批工件的尺寸不同；数控加工时刀具制造、安装、调整误差及刀具磨损等直接影响加工尺寸。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响尺寸精度", "刀具", "磨损", "Ch4-表4-1"],
+    "tags": [
+      "影响尺寸精度",
+      "刀具",
+      "磨损",
+      "Ch4-表4-1"
+    ],
     "payload": {
       "factor": "刀具误差与刀具磨损",
       "impact": "直接影响加工尺寸；批量加工时使一批工件尺寸不同",
       "improvement_actions": [
-        "控制刀具尺寸",
-        "及时调整机床",
-        "保证刀具安装精度",
-        "掌握刀具磨损规律，进行补偿"
+        {
+          "text": "控制刀具尺寸",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "及时调整机床",
+          "tags": [
+            "practice"
+          ]
+        },
+        {
+          "text": "保证刀具安装精度",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "掌握刀具磨损规律，进行补偿",
+          "tags": [
+            "principle"
+          ]
+        }
       ]
     }
   },
@@ -84,14 +143,34 @@
     "source_text": "采用调整法加工时定程机构的重复定位精度差会造成一批工件尺寸不一致。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响尺寸精度", "定程机构", "调整法", "Ch4-表4-1"],
+    "tags": [
+      "影响尺寸精度",
+      "定程机构",
+      "调整法",
+      "Ch4-表4-1"
+    ],
     "payload": {
       "factor": "定程机构重复定位精度",
       "impact": "采用调整法加工时造成一批工件尺寸不一致",
       "improvement_actions": [
-        "提高定程机构的刚性",
-        "提高定程机构精度",
-        "提高操纵机构的灵敏度"
+        {
+          "text": "提高定程机构的刚性",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "提高定程机构精度",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "提高操纵机构的灵敏度",
+          "tags": [
+            "principle"
+          ]
+        }
       ]
     }
   },
@@ -108,15 +187,38 @@
     "source_text": "进给机构传动误差和微量进给时产生的'爬行'，使实际进给量与刻度指示值或程序控制值不符，产生加工尺寸误差。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响尺寸精度", "进给", "爬行", "Ch4-表4-1"],
+    "tags": [
+      "影响尺寸精度",
+      "进给",
+      "爬行",
+      "Ch4-表4-1"
+    ],
     "payload": {
       "factor": "进给误差",
-      "factor_subcauses": ["进给机构传动误差", "微量进给爬行"],
+      "factor_subcauses": [
+        "进给机构传动误差",
+        "微量进给爬行"
+      ],
       "impact": "实际进给量与指示/程序值不符，产生加工尺寸误差",
       "improvement_actions": [
-        "提高进给机构精度",
-        "用千分表等直接测量进给量",
-        "采用闭环控制系统"
+        {
+          "text": "提高进给机构精度",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "用千分表等直接测量进给量",
+          "tags": [
+            "practice"
+          ]
+        },
+        {
+          "text": "采用闭环控制系统",
+          "tags": [
+            "principle"
+          ]
+        }
       ]
     }
   },
@@ -133,17 +235,52 @@
     "source_text": "工件加工刚结束时所测尺寸不能反映实际尺寸；调整法加工一批工件时机床和刀具热变形会使尺寸分散范围加大；定尺寸刀具法加工时刀具热变形直接影响加工尺寸。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响尺寸精度", "热变形", "Ch4-表4-1"],
+    "tags": [
+      "影响尺寸精度",
+      "热变形",
+      "Ch4-表4-1"
+    ],
     "payload": {
       "factor": "工艺系统热变形",
       "impact": "刚加工尺寸不准；批量加工分散范围加大；定尺寸刀具直接受影响",
       "improvement_actions": [
-        "精、粗加工分开",
-        "进行充分、有效的冷却",
-        "合理确定调整尺寸",
-        "根据工件热变形规律测量时适当补偿，或在冷态(室温)下测量",
-        "机床热平衡后再加工",
-        "控制环境温度"
+        {
+          "text": "精、粗加工分开",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "进行充分、有效的冷却",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "合理确定调整尺寸",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "根据工件热变形规律测量时适当补偿，或在冷态(室温)下测量",
+          "tags": [
+            "practice"
+          ]
+        },
+        {
+          "text": "机床热平衡后再加工",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "控制环境温度",
+          "tags": [
+            "principle"
+          ]
+        }
       ]
     }
   },
@@ -160,16 +297,48 @@
     "source_text": "由夹具制造误差、定位误差、导向及对刀误差、夹紧变形及找正误差引起，使加工表面的设计基准与刀具相对位置发生变化，引起加工表面位置尺寸误差。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响尺寸精度", "夹具", "找正", "Ch4-表4-1"],
+    "tags": [
+      "影响尺寸精度",
+      "夹具",
+      "找正",
+      "Ch4-表4-1"
+    ],
     "payload": {
       "factor": "工件安装误差",
-      "factor_subcauses": ["夹具制造误差", "定位误差", "导向及对刀误差", "夹紧变形", "找正误差"],
+      "factor_subcauses": [
+        "夹具制造误差",
+        "定位误差",
+        "导向及对刀误差",
+        "夹紧变形",
+        "找正误差"
+      ],
       "impact": "使加工表面的设计基准与刀具相对位置变化，引起加工表面位置尺寸误差",
       "improvement_actions": [
-        "正确选择定位基准",
-        "提高夹具制造精度",
-        "合理确定夹紧方法和夹紧力大小",
-        "仔细找正及装夹"
+        {
+          "text": "正确选择定位基准",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "提高夹具制造精度",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "合理确定夹紧方法和夹紧力大小",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "仔细找正及装夹",
+          "tags": [
+            "practice"
+          ]
+        }
       ]
     }
   },
@@ -186,16 +355,45 @@
     "source_text": "由轴承滚道圆度差、滚动体形状误差和尺寸不一致、轴颈或箱体孔圆度误差引起。内环滚道或箱体孔的形状误差对工件回转类机床(如车床)影响较大；外环滚道或主轴颈的形状误差对刀具回转类机床(如镗床)影响较大。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响形状精度", "主轴", "径向跳动", "Ch4-表4-2"],
+    "tags": [
+      "影响形状精度",
+      "主轴",
+      "径向跳动",
+      "Ch4-表4-2"
+    ],
     "payload": {
       "factor": "机床主轴径向圆跳动",
-      "factor_subcauses": ["轴承滚道圆度差", "滚动体形状误差", "轴颈/箱体孔圆度误差"],
+      "factor_subcauses": [
+        "轴承滚道圆度差",
+        "滚动体形状误差",
+        "轴颈/箱体孔圆度误差"
+      ],
       "impact": "工件回转类机床产生圆度或波纹度误差；刀具回转类机床产生孔形状误差",
       "improvement_actions": [
-        "采用高精度滚动轴承或、静压轴承",
-        "提高主轴、箱体及有关零件的加工与装配质量",
-        "轴承预加载荷以消除间隙",
-        "工件采用死顶尖支承，镗杆与主轴采用浮动联接，使工件或刀具回转运动精度不依赖于主轴回转精度"
+        {
+          "text": "采用高精度滚动轴承或、静压轴承",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "提高主轴、箱体及有关零件的加工与装配质量",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "轴承预加载荷以消除间隙",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "工件采用死顶尖支承，镗杆与主轴采用浮动联接，使工件或刀具回转运动精度不依赖于主轴回转精度",
+          "tags": [
+            "principle"
+          ]
+        }
       ]
     }
   },
@@ -212,15 +410,39 @@
     "source_text": "由轴承滚道轴向跳动、主轴止推轴肩、过渡套或垫圈等端面圆跳动引起，使加工端面产生平面度误差，加工丝杠时产生一转内螺旋线误差。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响形状精度", "主轴", "端面跳动", "Ch4-表4-2"],
+    "tags": [
+      "影响形状精度",
+      "主轴",
+      "端面跳动",
+      "Ch4-表4-2"
+    ],
     "payload": {
       "factor": "机床主轴端面圆跳动",
-      "factor_subcauses": ["轴承滚道轴向跳动", "主轴止推轴肩端跳", "过渡套/垫圈端跳"],
+      "factor_subcauses": [
+        "轴承滚道轴向跳动",
+        "主轴止推轴肩端跳",
+        "过渡套/垫圈端跳"
+      ],
       "impact": "加工端面产生平面度误差；加工丝杠时产生一转内螺旋线误差",
       "improvement_actions": [
-        "采用高精度滚动轴承或、静压轴承",
-        "提高主轴、箱体及有关零件的加工与装配质量",
-        "轴承预加载荷以消除间隙"
+        {
+          "text": "采用高精度滚动轴承或、静压轴承",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "提高主轴、箱体及有关零件的加工与装配质量",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "轴承预加载荷以消除间隙",
+          "tags": [
+            "principle"
+          ]
+        }
       ]
     }
   },
@@ -237,14 +459,32 @@
     "source_text": "导轨在水平或垂直面内的直线度误差、前后导轨平行度误差(扭曲)，引起工件与切削刃间相对位移，使加工面产生圆柱度或平面度误差。沿加工表面法线方向影响严重；沿切线方向影响甚小，常常可忽略。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响形状精度", "导轨", "Ch4-表4-2"],
+    "tags": [
+      "影响形状精度",
+      "导轨",
+      "Ch4-表4-2"
+    ],
     "payload": {
       "factor": "机床导轨几何误差",
-      "factor_subcauses": ["导轨直线度误差", "前后导轨平行度误差(扭曲)"],
+      "factor_subcauses": [
+        "导轨直线度误差",
+        "前后导轨平行度误差(扭曲)"
+      ],
       "impact": "加工面产生圆柱度或平面度误差；法向影响严重，切向可忽略",
       "improvement_actions": [
-        "提高导轨精度和耐磨性",
-        "正确安装、定期检查、及时调整"
+        {
+          "text": "提高导轨精度和耐磨性",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "正确安装、定期检查、及时调整",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        }
       ]
     }
   },
@@ -261,11 +501,22 @@
     "source_text": "切削刃直线运动轨迹与工件回转轴线不平行将产生圆柱度误差；不垂直将产生平面度误差；丝杠回转轴线与直线进给运动不平行将产生圆度误差。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响形状精度", "进给运动", "Ch4-表4-2"],
+    "tags": [
+      "影响形状精度",
+      "进给运动",
+      "Ch4-表4-2"
+    ],
     "payload": {
       "factor": "进给运动与主运动几何关系不正确",
       "impact": "圆柱度/平面度/圆度误差",
-      "improvement_actions": ["找正相互位置关系"]
+      "improvement_actions": [
+        {
+          "text": "找正相互位置关系",
+          "tags": [
+            "practice"
+          ]
+        }
+      ]
     }
   },
   {
@@ -281,14 +532,35 @@
     "source_text": "由传动元件制造误差与安装误差引起。车螺纹时 v_t/ω_w ≠ 常数将产生螺距误差；展成法铣齿轮时 ω_t/ω_w ≠ 常数将产生齿形和齿距误差。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响形状精度", "传动", "螺纹", "齿轮", "Ch4-表4-2"],
+    "tags": [
+      "影响形状精度",
+      "传动",
+      "螺纹",
+      "齿轮",
+      "Ch4-表4-2"
+    ],
     "payload": {
       "factor": "机床传动误差",
       "impact": "螺距误差(车螺纹)；齿形和齿距误差(展成法铣齿轮)",
       "improvement_actions": [
-        "尽量缩短传动链",
-        "增大末端传动副的降速比，提高末端传动元件的制造及安装精度",
-        "采用校正机构"
+        {
+          "text": "尽量缩短传动链",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "增大末端传动副的降速比，提高末端传动元件的制造及安装精度",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "采用校正机构",
+          "tags": [
+            "principle"
+          ]
+        }
       ]
     }
   },
@@ -305,11 +577,22 @@
     "source_text": "用模数铣刀铣齿轮会产生齿形误差；车多边形时各边为近似的平面。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响形状精度", "成形运动", "Ch4-表4-2"],
+    "tags": [
+      "影响形状精度",
+      "成形运动",
+      "Ch4-表4-2"
+    ],
     "payload": {
       "factor": "成形运动原理误差",
       "impact": "齿形误差(模数铣)、近似平面(车多边形)",
-      "improvement_actions": ["计算其误差，满足工件精度要求时才可采用"]
+      "improvement_actions": [
+        {
+          "text": "计算其误差，满足工件精度要求时才可采用",
+          "tags": [
+            "principle"
+          ]
+        }
+      ]
     }
   },
   {
@@ -325,17 +608,50 @@
     "source_text": "刀具几何形状制造误差与刀具安装误差，采用成形刀具加工或展成法加工时直接影响被加工表面的形状精度。刀尖尺寸磨损在加工大表面或加工难加工材料工件时影响形状精度。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响形状精度", "刀具", "成形刀", "Ch4-表4-2"],
+    "tags": [
+      "影响形状精度",
+      "刀具",
+      "成形刀",
+      "Ch4-表4-2"
+    ],
     "payload": {
       "factor": "刀具误差",
-      "factor_subcauses": ["刀具几何形状制造误差与安装误差", "刀尖尺寸磨损"],
+      "factor_subcauses": [
+        "刀具几何形状制造误差与安装误差",
+        "刀尖尺寸磨损"
+      ],
       "impact": "直接影响被加工表面形状精度",
       "improvement_actions": [
-        "提高成形刀具切削刃的制造精度",
-        "提高刀具安装精度",
-        "改进刀具材料",
-        "选用合理切削用量",
-        "自动补偿刀具磨损"
+        {
+          "text": "提高成形刀具切削刃的制造精度",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "提高刀具安装精度",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "改进刀具材料",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "选用合理切削用量",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "自动补偿刀具磨损",
+          "tags": [
+            "principle"
+          ]
+        }
       ]
     }
   },
@@ -352,19 +668,63 @@
     "source_text": "工艺系统在不同加工位置上静刚度差别较大、毛坯余量不均或材料硬度不均引起切削力变化、传动力惯性力重力夹紧力影响等，会使加工表面产生形状误差(如圆柱度、平面度、圆度等)。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响形状精度", "受力变形", "Ch4-表4-2"],
+    "tags": [
+      "影响形状精度",
+      "受力变形",
+      "Ch4-表4-2"
+    ],
     "payload": {
       "factor": "工艺系统受力变形",
-      "factor_subcauses": ["静刚度差别", "毛坯余量不均/材料硬度不均", "传动力/惯性力/重力/夹紧力"],
+      "factor_subcauses": [
+        "静刚度差别",
+        "毛坯余量不均/材料硬度不均",
+        "传动力/惯性力/重力/夹紧力"
+      ],
       "impact": "圆柱度、平面度、圆度等形状误差",
       "improvement_actions": [
-        "提高工艺系统静刚度，特别是薄弱环节",
-        "采用辅助支承或跟刀架",
-        "改进刀具几何角度以减小切削抗力",
-        "安排预加工工序",
-        "采用双切传动",
-        "进行平衡处理",
-        "合理选择夹紧方法和夹紧力大小"
+        {
+          "text": "提高工艺系统静刚度，特别是薄弱环节",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "采用辅助支承或跟刀架",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "改进刀具几何角度以减小切削抗力",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "安排预加工工序",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "采用双切传动",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "进行平衡处理",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "合理选择夹紧方法和夹紧力大小",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        }
       ]
     }
   },
@@ -381,15 +741,39 @@
     "source_text": "加工时破坏了残余应力的平衡，残余应力的重新分布使工件加工后形状发生变化，产生几何形状误差。自然条件下工件残余应力重新平衡，工件形状缓慢变化，使已加工合格的工件产生几何形状误差。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响形状精度", "残余应力", "Ch4-表4-2"],
+    "tags": [
+      "影响形状精度",
+      "残余应力",
+      "Ch4-表4-2"
+    ],
     "payload": {
       "factor": "工件残余应力",
       "impact": "加工后形状变化、几何形状误差",
       "improvement_actions": [
-        "改善零件结构以减小工件残余应力",
-        "粗、精加工分开",
-        "进行时效处理",
-        "尽量不采用校直方法，或用热校直代冷校直"
+        {
+          "text": "改善零件结构以减小工件残余应力",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "粗、精加工分开",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "进行时效处理",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "尽量不采用校直方法，或用热校直代冷校直",
+          "tags": [
+            "principle"
+          ]
+        }
       ]
     }
   },
@@ -406,20 +790,68 @@
     "source_text": "机床各部分温升不一致，热变形破坏机床静态几何精度；工件受热变形时加工，冷却后出现形状误差(如铣磨平面单面受热产生弯曲；车细长轴顶尖阻碍受热伸长产生圆柱度)；一次走刀时间长，刀具热变形造成形状误差。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响形状精度", "热变形", "Ch4-表4-2"],
+    "tags": [
+      "影响形状精度",
+      "热变形",
+      "Ch4-表4-2"
+    ],
     "payload": {
       "factor": "工艺系统热变形",
-      "factor_subcauses": ["机床热变形", "工件热变形", "刀具热变形"],
+      "factor_subcauses": [
+        "机床热变形",
+        "工件热变形",
+        "刀具热变形"
+      ],
       "impact": "几何形状误差(如平面弯曲、圆柱度、表面形状误差)",
       "improvement_actions": [
-        "寻找热源，移出、隔离、冷却热源",
-        "用补偿法均衡温度场",
-        "空运转机床至接近热平衡再加工",
-        "控制环境温度",
-        "进行充分有效的冷却",
-        "选择适当的切削用量",
-        "充分冷却",
-        "减小刀杆悬伸长度，增大刀杆截面"
+        {
+          "text": "寻找热源，移出、隔离、冷却热源",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "用补偿法均衡温度场",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "空运转机床至接近热平衡再加工",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "控制环境温度",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "进行充分有效的冷却",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "选择适当的切削用量",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "充分冷却",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "减小刀杆悬伸长度，增大刀杆截面",
+          "tags": [
+            "principle"
+          ]
+        }
       ]
     }
   },
@@ -436,15 +868,37 @@
     "source_text": "刀具切削成形面与机床装夹面的位置误差直接影响工件加工表面与定位基准面之间的位置精度。机床热变形与受力变形破坏机床的几何精度，造成加工表面间或加工表面与定位基准面之间位置误差。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响位置精度", "机床误差", "Ch4-表4-3"],
+    "tags": [
+      "影响位置精度",
+      "机床误差",
+      "Ch4-表4-3"
+    ],
     "payload": {
       "factor": "机床误差",
-      "factor_subcauses": ["机床几何误差", "机床热变形与受力变形"],
+      "factor_subcauses": [
+        "机床几何误差",
+        "机床热变形与受力变形"
+      ],
       "impact": "影响加工表面与定位基准面之间位置精度",
       "improvement_actions": [
-        "提高机床几何精度",
-        "减小或补偿机床热变形",
-        "减小或补偿机床受力变形"
+        {
+          "text": "提高机床几何精度",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "减小或补偿机床热变形",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "减小或补偿机床受力变形",
+          "tags": [
+            "principle"
+          ]
+        }
       ]
     }
   },
@@ -461,12 +915,32 @@
     "source_text": "夹具制造误差与夹具安装误差直接影响加工表面与定位基准面之间的位置精度。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响位置精度", "夹具", "Ch4-表4-3"],
+    "tags": [
+      "影响位置精度",
+      "夹具",
+      "Ch4-表4-3"
+    ],
     "payload": {
       "factor": "夹具误差",
-      "factor_subcauses": ["夹具制造误差", "夹具安装误差"],
+      "factor_subcauses": [
+        "夹具制造误差",
+        "夹具安装误差"
+      ],
       "impact": "影响加工表面与定位基准面之间位置精度",
-      "improvement_actions": ["提高夹具制造精度", "提高夹具安装精度"]
+      "improvement_actions": [
+        {
+          "text": "提高夹具制造精度",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "提高夹具安装精度",
+          "tags": [
+            "principle"
+          ]
+        }
+      ]
     }
   },
   {
@@ -482,14 +956,36 @@
     "source_text": "采用找正法(划线找正或直接找正)安装工件时，直接影响加工表面与找正基准面之间位置精度。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响位置精度", "找正", "Ch4-表4-3"],
+    "tags": [
+      "影响位置精度",
+      "找正",
+      "Ch4-表4-3"
+    ],
     "payload": {
       "factor": "找正误差",
       "impact": "影响加工表面与找正基准面之间位置精度",
       "improvement_actions": [
-        "提高找正基准面的精度",
-        "提高找正操作技术水平",
-        "采用与加工精度要求相适应的找正方法和找正工具"
+        {
+          "text": "提高找正基准面的精度",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "提高找正操作技术水平",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "采用与加工精度要求相适应的找正方法和找正工具",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        }
       ]
     }
   },
@@ -506,13 +1002,27 @@
     "source_text": "直接影响加工表面与设计基准面之间的位置精度。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响位置精度", "基准不重合", "Ch4-表4-3"],
+    "tags": [
+      "影响位置精度",
+      "基准不重合",
+      "Ch4-表4-3"
+    ],
     "payload": {
       "factor": "工件定位基准与设计基准不重合",
       "impact": "影响加工表面与设计基准面之间位置精度",
       "improvement_actions": [
-        "以设计基准为定位基准",
-        "提高设计基准与定位基准之间的位置精度"
+        {
+          "text": "以设计基准为定位基准",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "提高设计基准与定位基准之间的位置精度",
+          "tags": [
+            "principle"
+          ]
+        }
       ]
     }
   },
@@ -529,13 +1039,27 @@
     "source_text": "影响加工表面与定位基准面的位置精度；多次安装加工中影响各加工表面之间的位置精度。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响位置精度", "定位基准面", "Ch4-表4-3"],
+    "tags": [
+      "影响位置精度",
+      "定位基准面",
+      "Ch4-表4-3"
+    ],
     "payload": {
       "factor": "工件定位基准面误差",
       "impact": "影响加工表面与定位基准面位置精度；多次安装影响表面间位置精度",
       "improvement_actions": [
-        "提高定位基准面精度",
-        "采用可胀心轴或定位在固定方向上施加外力以保证固定边接触等办法，减小该项误差影响"
+        {
+          "text": "提高定位基准面精度",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "采用可胀心轴或定位在固定方向上施加外力以保证固定边接触等办法，减小该项误差影响",
+          "tags": [
+            "principle"
+          ]
+        }
       ]
     }
   },
@@ -552,14 +1076,33 @@
     "source_text": "在多工序加工中，定位基准转换会加大不同工序或不同安装中加工表面之间的位置误差。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响位置精度", "基准转换", "Ch4-表4-3"],
+    "tags": [
+      "影响位置精度",
+      "基准转换",
+      "Ch4-表4-3"
+    ],
     "payload": {
       "factor": "基准转换",
       "impact": "多工序中加工表面间位置误差加大",
       "improvement_actions": [
-        "尽量采用统一精基准，以避免基准转换",
-        "尽量采用工序集中原则",
-        "提高定位基准面本身的精度和定位基准面之间的位置精度"
+        {
+          "text": "尽量采用统一精基准，以避免基准转换",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "尽量采用工序集中原则",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "提高定位基准面本身的精度和定位基准面之间的位置精度",
+          "tags": [
+            "principle"
+          ]
+        }
       ]
     }
   },
@@ -576,22 +1119,75 @@
     "source_text": "米制螺纹各加工方法可达公差带(GB/T 197-2003): 车削外螺纹4h-6h/内螺纹5H-7H；梳形刀车4h-6h/5H-7H；丝锥攻4H-7H；圆板牙加工外6h-8h；带圆梳刀自动张开式板牙头加工4h-6h；梳形螺纹铣6h-8h。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["螺纹", "M14", "GB/T 197", "Ch4-表4-19"],
+    "tags": [
+      "螺纹",
+      "M14",
+      "GB/T 197",
+      "Ch4-表4-19"
+    ],
     "payload": {
       "subject": "米制螺纹加工方法 vs 公差带 (GB/T 197-2003)",
       "value_table": [
-        {"method": "车削", "external_thread": "4h~6h", "internal_thread": "5H、6H、7H"},
-        {"method": "用梳形刀车螺纹", "external_thread": "4h~6h", "internal_thread": "5H、6H、7H"},
-        {"method": "用丝锥攻内螺纹", "external_thread": null, "internal_thread": "4H、5H、7H"},
-        {"method": "用圆板牙加工外螺纹", "external_thread": "6h~8h", "internal_thread": null},
-        {"method": "带圆梳刀自动张开式板牙头加工外螺纹", "external_thread": "4h~6h", "internal_thread": null},
-        {"method": "梳形螺纹铣刀铣螺纹", "external_thread": "6h~8h", "internal_thread": "6h~8h"},
-        {"method": "带径向或切向梳刀的自动张开式板牙头加工螺纹", "external_thread": "6h", "internal_thread": null},
-        {"method": "旋风切削螺纹", "external_thread": "6h~8h", "internal_thread": "6h~8h"},
-        {"method": "搓丝板搓丝螺纹", "external_thread": "6h", "internal_thread": null},
-        {"method": "滚丝模滚丝螺纹", "external_thread": "4h~6h", "internal_thread": null},
-        {"method": "单线或多线砂轮磨螺纹", "external_thread": "4h以上", "internal_thread": null},
-        {"method": "研磨螺纹", "external_thread": "4h", "internal_thread": null}
+        {
+          "method": "车削",
+          "external_thread": "4h~6h",
+          "internal_thread": "5H、6H、7H"
+        },
+        {
+          "method": "用梳形刀车螺纹",
+          "external_thread": "4h~6h",
+          "internal_thread": "5H、6H、7H"
+        },
+        {
+          "method": "用丝锥攻内螺纹",
+          "external_thread": null,
+          "internal_thread": "4H、5H、7H"
+        },
+        {
+          "method": "用圆板牙加工外螺纹",
+          "external_thread": "6h~8h",
+          "internal_thread": null
+        },
+        {
+          "method": "带圆梳刀自动张开式板牙头加工外螺纹",
+          "external_thread": "4h~6h",
+          "internal_thread": null
+        },
+        {
+          "method": "梳形螺纹铣刀铣螺纹",
+          "external_thread": "6h~8h",
+          "internal_thread": "6h~8h"
+        },
+        {
+          "method": "带径向或切向梳刀的自动张开式板牙头加工螺纹",
+          "external_thread": "6h",
+          "internal_thread": null
+        },
+        {
+          "method": "旋风切削螺纹",
+          "external_thread": "6h~8h",
+          "internal_thread": "6h~8h"
+        },
+        {
+          "method": "搓丝板搓丝螺纹",
+          "external_thread": "6h",
+          "internal_thread": null
+        },
+        {
+          "method": "滚丝模滚丝螺纹",
+          "external_thread": "4h~6h",
+          "internal_thread": null
+        },
+        {
+          "method": "单线或多线砂轮磨螺纹",
+          "external_thread": "4h以上",
+          "internal_thread": null
+        },
+        {
+          "method": "研磨螺纹",
+          "external_thread": "4h",
+          "internal_thread": null
+        }
       ],
       "standard_reference": "GB/T 197-2003"
     }
@@ -609,14 +1205,34 @@
     "source_text": "理论残留面积高度由刀具相对于工件表面的运动轨迹所形成，是影响表面粗糙度的基本因素。其高度可根据刀具的主偏角 κr、副偏角 κr'、刀尖圆弧半径 re 和进给量 f 的几何关系计算。实际粗糙度最大值大于残留面积高度。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响Ra", "切削加工", "残留面积", "Ch4-表4-32"],
+    "tags": [
+      "影响Ra",
+      "切削加工",
+      "残留面积",
+      "Ch4-表4-32"
+    ],
     "payload": {
       "factor": "残留面积",
       "impact": "影响切削表面粗糙度的基本因素",
       "improvement_actions": [
-        "采用较大刀尖圆弧半径 re",
-        "采用较小副偏角 κr'，使用 κr'=0° 修光刃",
-        "使用长度比进给量稍大一些的 κr'=0° 修光刃"
+        {
+          "text": "采用较大刀尖圆弧半径 re",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "采用较小副偏角 κr'，使用 κr'=0° 修光刃",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "使用长度比进给量稍大一些的 κr'=0° 修光刃",
+          "tags": [
+            "principle"
+          ]
+        }
       ]
     }
   },
@@ -633,15 +1249,41 @@
     "source_text": "在较低及中等速度下，用高速钢、硬质合金或陶瓷刀片切削塑性材料(低、中碳钢，铬钢，不锈钢，铝合金及纯铜等)时，在已加工表面常出现鳞片状毛刺，使表面粗糙度数值增大。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响Ra", "切削加工", "鳞刺", "不锈钢", "Ch4-表4-32"],
+    "tags": [
+      "影响Ra",
+      "切削加工",
+      "鳞刺",
+      "不锈钢",
+      "Ch4-表4-32"
+    ],
     "payload": {
       "factor": "鳞刺",
       "impact": "塑性材料中低速切削时已加工表面出现鳞片状毛刺，使表面粗糙度数值增大",
       "improvement_actions": [
-        "提高切削速度避开形成鳞刺的速度区",
-        "改善材料金相组织(对低碳钢/低合金钢含铁素体加铁马氏体、素氏体或片状珠光体；高碳钢、高合金钢中应含粒状珠光体)",
-        "对工件进行调质处理",
-        "提高刀具刃口质量"
+        {
+          "text": "提高切削速度避开形成鳞刺的速度区",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "改善材料金相组织(对低碳钢/低合金钢含铁素体加铁马氏体、素氏体或片状珠光体；高碳钢、高合金钢中应含粒状珠光体)",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "对工件进行调质处理",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "提高刀具刃口质量",
+          "tags": [
+            "principle"
+          ]
+        }
       ]
     }
   },
@@ -658,17 +1300,54 @@
     "source_text": "积屑瘤代切削刃进行切削时，会引起过切，并因积屑瘤的形状不规则，从而在工件表面上刻划出沟纹；当积屑瘤分裂时，可能有一部分留在工件表面上形成鳞片状毛刺，同时引起振动，使加工表面恶化。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响Ra", "切削加工", "积屑瘤", "Ch4-表4-32"],
+    "tags": [
+      "影响Ra",
+      "切削加工",
+      "积屑瘤",
+      "Ch4-表4-32"
+    ],
     "payload": {
       "factor": "积屑瘤",
       "impact": "过切沟纹、鳞片状毛刺、振动，加工表面恶化",
       "improvement_actions": [
-        "调整切削速度避开积屑瘤生成区(用 YT15 切削35钢，临界切削速度 v_c > 100m/min)",
-        "减小进给量",
-        "采用高效切削液(极压切削液，10%~12% 极压乳化液和离子型切削液)",
-        "提高机床的运动精度",
-        "增强工艺系统刚度",
-        "采用超声振动切削加工"
+        {
+          "text": "调整切削速度避开积屑瘤生成区(用 YT15 切削35钢，临界切削速度 v_c > 100m/min)",
+          "tags": [
+            "practice",
+            "observation"
+          ]
+        },
+        {
+          "text": "减小进给量",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "采用高效切削液(极压切削液，10%~12% 极压乳化液和离子型切削液)",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "提高机床的运动精度",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "增强工艺系统刚度",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "采用超声振动切削加工",
+          "tags": [
+            "principle"
+          ]
+        }
       ]
     }
   },
@@ -685,16 +1364,49 @@
     "source_text": "由于切削过程中变形，在挤裂或单元切屑形成过程中，加工表面留下波浪形挤裂痕迹；在崩碎切屑形成过程中，造成加工表面凹凸不平；在切削刃两端的已加工表面及待加工表面处，工件材料被挤压产生隆起。这些均使加工表面粗糙度数值进一步增大。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响Ra", "切削加工", "变形", "Ch4-表4-32"],
+    "tags": [
+      "影响Ra",
+      "切削加工",
+      "变形",
+      "Ch4-表4-32"
+    ],
     "payload": {
       "factor": "切削过程中的变形",
       "impact": "波浪形痕迹、凹凸不平、挤压隆起，使表面粗糙度增大",
       "improvement_actions": [
-        "在工艺系统刚度足够时采用较大的刀尖圆弧半径 re，较小的副偏角 κr'，使用 κr'=0° 修光刃",
-        "采用较大的前角 γo",
-        "提高刀具刃口质量",
-        "选用与工件材料亲和力小的刀具材料(如金刚石或涂层陶瓷刀加工有色金属等)",
-        "对刀具进行氧化处理(如 20CrMo 与 45 钢齿轮的高速钢插齿刀)"
+        {
+          "text": "在工艺系统刚度足够时采用较大的刀尖圆弧半径 re，较小的副偏角 κr'，使用 κr'=0° 修光刃",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "采用较大的前角 γo",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "提高刀具刃口质量",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "选用与工件材料亲和力小的刀具材料(如金刚石或涂层陶瓷刀加工有色金属等)",
+          "tags": [
+            "principle",
+            "observation"
+          ]
+        },
+        {
+          "text": "对刀具进行氧化处理(如 20CrMo 与 45 钢齿轮的高速钢插齿刀)",
+          "tags": [
+            "principle",
+            "practice",
+            "observation"
+          ]
+        }
       ]
     }
   },
@@ -711,14 +1423,34 @@
     "source_text": "刀具在副后面上因磨损而产生的沟槽，会在已加工表面上形成锯齿状的凸出部分，使加工表面粗糙度数值增大。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响Ra", "切削加工", "副后面磨损", "Ch4-表4-32"],
+    "tags": [
+      "影响Ra",
+      "切削加工",
+      "副后面磨损",
+      "Ch4-表4-32"
+    ],
     "payload": {
       "factor": "刀具副后面的磨损",
       "impact": "锯齿状凸出，使表面粗糙度数值增大",
       "improvement_actions": [
-        "限制副切削刃上的磨损量",
-        "选用细颗粒的硬质合金作刀具",
-        "改进刀具几何角度"
+        {
+          "text": "限制副切削刃上的磨损量",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "选用细颗粒的硬质合金作刀具",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "改进刀具几何角度",
+          "tags": [
+            "principle"
+          ]
+        }
       ]
     }
   },
@@ -735,16 +1467,47 @@
     "source_text": "机床主轴回转精度不高、各滑动导轨面的形状误差与润滑状况不良、材料性能的不均匀性、切屑的不连续性等，使刀具与工件间已调好的相对位置发生附加的微量变化，引起切削厚度、切削宽度或切削刃发生变化，甚至诱发自激振动，从而使表面粗糙度数值增大。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响Ra", "切削加工", "相对位置变动", "振动", "Ch4-表4-32"],
+    "tags": [
+      "影响Ra",
+      "切削加工",
+      "相对位置变动",
+      "振动",
+      "Ch4-表4-32"
+    ],
     "payload": {
       "factor": "切削刃与工件相对位置变动",
       "impact": "切削厚度/宽度/刃发生变化，自激振动，表面粗糙度增大",
       "improvement_actions": [
-        "提高机床主轴回转精度",
-        "改善滑动导轨面形状精度与润滑状况",
-        "改善材料组织均匀性",
-        "增强工艺系统刚度",
-        "采用减振装置"
+        {
+          "text": "提高机床主轴回转精度",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "改善滑动导轨面形状精度与润滑状况",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "改善材料组织均匀性",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "增强工艺系统刚度",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "采用减振装置",
+          "tags": [
+            "principle"
+          ]
+        }
       ]
     }
   },
@@ -761,17 +1524,55 @@
     "source_text": "提高砂轮速度 v_s 或降低工件速度 v_w，使 v_w/v_s 比值减小，可获得较小的表面粗糙度值；采用较小的纵向进给量 f_a，减小 f_a/B 的比值；径向进给量 f_r 减小能按一定比例降低表面粗糙度值。最后进行5次以上的无进给光磨，可较好地改善表面粗糙度。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响Ra", "磨削加工", "Ch4-表4-33"],
+    "tags": [
+      "影响Ra",
+      "磨削加工",
+      "Ch4-表4-33"
+    ],
     "payload": {
       "factor": "磨削条件",
       "impact": "v_w/v_s 比、进给量、无进给光磨次数显著影响 Ra",
       "improvement_actions": [
-        "提高砂轮速度 v_s 或降低工件速度 v_w，使 v_w/v_s 比值减小",
-        "采用较小的纵向进给量 f_a，减小 f_a/B 比值",
-        "径向进给量 f_r 减小可降低 Ra (例: 磨削18CrNiWA 时 f_r=0.02mm 表面粗糙度 Ra0.6μm; f_r=0.03mm 约 Ra0.75μm)",
-        "最后进行5次以上无进给光磨",
-        "正确使用切削液的种类、配比、压力、流量和清洁度",
-        "提高砂轮的平衡精度、磨床主轴的回转精度、工作台的运动平稳性及整个工艺系统的刚度，消减磨削时的振动"
+        {
+          "text": "提高砂轮速度 v_s 或降低工件速度 v_w，使 v_w/v_s 比值减小",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "采用较小的纵向进给量 f_a，减小 f_a/B 比值",
+          "tags": [
+            "principle",
+            "practice"
+          ]
+        },
+        {
+          "text": "径向进给量 f_r 减小可降低 Ra (例: 磨削18CrNiWA 时 f_r=0.02mm 表面粗糙度 Ra0.6μm; f_r=0.03mm 约 Ra0.75μm)",
+          "tags": [
+            "principle",
+            "practice",
+            "observation"
+          ]
+        },
+        {
+          "text": "最后进行5次以上无进给光磨",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "正确使用切削液的种类、配比、压力、流量和清洁度",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "提高砂轮的平衡精度、磨床主轴的回转精度、工作台的运动平稳性及整个工艺系统的刚度，消减磨削时的振动",
+          "tags": [
+            "principle"
+          ]
+        }
       ]
     }
   },
@@ -788,18 +1589,59 @@
     "source_text": "一般砂轮粒度越细 Ra 越小，但超过 F80 时变化甚微；磨料应选与工件材料亲和力小的(磨削高速钢宜白刚玉、单晶刚玉或绿碳化硅；磨削硬质合金宜绿碳化硅或碳化硼；立方氮化硼适于磨削不锈钢、高温合金和钛合金)；磨具硬度软材选硬磨具，硬脆时选软磨具；采用直径较大的砂轮、增大砂轮宽度可降低 Ra；采用耐磨性好的金刚笔，合适的刃口形状和安装角度，当修整用量适当(纵向进给量小)时使磨粒切削刃获得良好等高性，降低 Ra。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["影响Ra", "磨削加工", "砂轮", "Ch4-表4-33"],
+    "tags": [
+      "影响Ra",
+      "磨削加工",
+      "砂轮",
+      "Ch4-表4-33"
+    ],
     "payload": {
       "factor": "砂轮特性及修整",
-      "factor_subcauses": ["粒度", "磨料类型", "磨具硬度", "砂轮直径/宽度", "金刚笔修整"],
+      "factor_subcauses": [
+        "粒度",
+        "磨料类型",
+        "磨具硬度",
+        "砂轮直径/宽度",
+        "金刚笔修整"
+      ],
       "impact": "粒度/磨料/硬度/直径/修整质量综合影响 Ra",
       "improvement_actions": [
-        "粒度越细 Ra 越小(超 F80 后变化不显著)",
-        "磨料选与工件材料亲和力小者",
-        "磨削难加工材料应选 J~N 硬度",
-        "采用直径较大、宽度较大的砂轮",
-        "采用耐磨性好的金刚笔，合适刃口形状和安装角度",
-        "纵向进给量小修整以使磨粒切削刃获得良好等高性"
+        {
+          "text": "粒度越细 Ra 越小(超 F80 后变化不显著)",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "磨料选与工件材料亲和力小者",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "磨削难加工材料应选 J~N 硬度",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "采用直径较大、宽度较大的砂轮",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "采用耐磨性好的金刚笔，合适刃口形状和安装角度",
+          "tags": [
+            "principle"
+          ]
+        },
+        {
+          "text": "纵向进给量小修整以使磨粒切削刃获得良好等高性",
+          "tags": [
+            "practice"
+          ]
+        }
       ]
     }
   },
@@ -816,14 +1658,34 @@
     "source_text": "切断: 自动气割/带锯或圆盘锯切断 Ra12.5~Ra50；车切断 Ra12.5~Ra50；铣切断 Ra12.5~Ra25；砂轮切断 Ra1.6~Ra3.2。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["可达Ra", "切断", "Ch4-表4-31"],
+    "tags": [
+      "可达Ra",
+      "切断",
+      "Ch4-表4-31"
+    ],
     "payload": {
       "subject": "切断加工方法可达 Ra (μm)",
       "value_table": [
-        {"method": "自动气割、带锯或圆盘锯切断", "ra_min": 12.5, "ra_max": 50},
-        {"method": "车切断", "ra_min": 12.5, "ra_max": 50},
-        {"method": "铣切断", "ra_min": 12.5, "ra_max": 25},
-        {"method": "砂轮切断", "ra_min": 1.6, "ra_max": 3.2}
+        {
+          "method": "自动气割、带锯或圆盘锯切断",
+          "ra_min": 12.5,
+          "ra_max": 50
+        },
+        {
+          "method": "车切断",
+          "ra_min": 12.5,
+          "ra_max": 50
+        },
+        {
+          "method": "铣切断",
+          "ra_min": 12.5,
+          "ra_max": 25
+        },
+        {
+          "method": "砂轮切断",
+          "ra_min": 1.6,
+          "ra_max": 3.2
+        }
       ],
       "unit": "μm"
     }
@@ -841,17 +1703,56 @@
     "source_text": "车外圆: 粗车 Ra3.2~12.5；半精车金属 Ra3.2~6.3 / 有色金属 Ra1.6~6.3；精车金属 Ra0.8~3.2 / 有色金属 Ra0.4~1.6；精密车(或金刚车)金属 Ra0.2~0.8 / 有色金属 Ra0.1~0.4。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["可达Ra", "外圆车削", "Ch4-表4-31"],
+    "tags": [
+      "可达Ra",
+      "外圆车削",
+      "Ch4-表4-31"
+    ],
     "payload": {
       "subject": "车外圆 各级别可达 Ra (μm)",
       "value_table": [
-        {"stage": "粗车", "material": "any", "ra_min": 3.2, "ra_max": 12.5},
-        {"stage": "半精车", "material": "金属", "ra_min": 3.2, "ra_max": 6.3},
-        {"stage": "半精车", "material": "有色金属", "ra_min": 1.6, "ra_max": 6.3},
-        {"stage": "精车", "material": "金属", "ra_min": 0.8, "ra_max": 3.2},
-        {"stage": "精车", "material": "有色金属", "ra_min": 0.4, "ra_max": 1.6},
-        {"stage": "精密车(或金刚车)", "material": "金属", "ra_min": 0.2, "ra_max": 0.8},
-        {"stage": "精密车(或金刚车)", "material": "有色金属", "ra_min": 0.1, "ra_max": 0.4}
+        {
+          "stage": "粗车",
+          "material": "any",
+          "ra_min": 3.2,
+          "ra_max": 12.5
+        },
+        {
+          "stage": "半精车",
+          "material": "金属",
+          "ra_min": 3.2,
+          "ra_max": 6.3
+        },
+        {
+          "stage": "半精车",
+          "material": "有色金属",
+          "ra_min": 1.6,
+          "ra_max": 6.3
+        },
+        {
+          "stage": "精车",
+          "material": "金属",
+          "ra_min": 0.8,
+          "ra_max": 3.2
+        },
+        {
+          "stage": "精车",
+          "material": "有色金属",
+          "ra_min": 0.4,
+          "ra_max": 1.6
+        },
+        {
+          "stage": "精密车(或金刚车)",
+          "material": "金属",
+          "ra_min": 0.2,
+          "ra_max": 0.8
+        },
+        {
+          "stage": "精密车(或金刚车)",
+          "material": "有色金属",
+          "ra_min": 0.1,
+          "ra_max": 0.4
+        }
       ],
       "unit": "μm"
     }
@@ -869,17 +1770,56 @@
     "source_text": "车端面: 粗车 Ra6.3~12.5；半精车金属 Ra3.2~6.3 / 有色金属 Ra1.6~6.3；精车金属 Ra1.6~6.3 / 有色金属 Ra0.4~1.6；精密车金属 Ra0.4~0.8 / 有色金属 Ra0.2~0.8。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["可达Ra", "端面车削", "Ch4-表4-31"],
+    "tags": [
+      "可达Ra",
+      "端面车削",
+      "Ch4-表4-31"
+    ],
     "payload": {
       "subject": "车端面 各级别可达 Ra (μm)",
       "value_table": [
-        {"stage": "粗车", "material": "any", "ra_min": 6.3, "ra_max": 12.5},
-        {"stage": "半精车", "material": "金属", "ra_min": 3.2, "ra_max": 6.3},
-        {"stage": "半精车", "material": "有色金属", "ra_min": 1.6, "ra_max": 6.3},
-        {"stage": "精车", "material": "金属", "ra_min": 1.6, "ra_max": 6.3},
-        {"stage": "精车", "material": "有色金属", "ra_min": 0.4, "ra_max": 1.6},
-        {"stage": "精密车", "material": "金属", "ra_min": 0.4, "ra_max": 0.8},
-        {"stage": "精密车", "material": "有色金属", "ra_min": 0.2, "ra_max": 0.8}
+        {
+          "stage": "粗车",
+          "material": "any",
+          "ra_min": 6.3,
+          "ra_max": 12.5
+        },
+        {
+          "stage": "半精车",
+          "material": "金属",
+          "ra_min": 3.2,
+          "ra_max": 6.3
+        },
+        {
+          "stage": "半精车",
+          "material": "有色金属",
+          "ra_min": 1.6,
+          "ra_max": 6.3
+        },
+        {
+          "stage": "精车",
+          "material": "金属",
+          "ra_min": 1.6,
+          "ra_max": 6.3
+        },
+        {
+          "stage": "精车",
+          "material": "有色金属",
+          "ra_min": 0.4,
+          "ra_max": 1.6
+        },
+        {
+          "stage": "精密车",
+          "material": "金属",
+          "ra_min": 0.4,
+          "ra_max": 0.8
+        },
+        {
+          "stage": "精密车",
+          "material": "有色金属",
+          "ra_min": 0.2,
+          "ra_max": 0.8
+        }
       ],
       "unit": "μm"
     }
@@ -897,12 +1837,26 @@
     "source_text": "钻孔: 钻头 ≤φ15mm 时 Ra3.2~6.3；>φ15mm 时 Ra6.3~25。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["可达Ra", "钻孔", "Ch4-表4-31"],
+    "tags": [
+      "可达Ra",
+      "钻孔",
+      "Ch4-表4-31"
+    ],
     "payload": {
       "subject": "钻孔可达 Ra (μm)",
       "value_table": [
-        {"method": "钻", "diameter_le_mm": 15, "ra_min": 3.2, "ra_max": 6.3},
-        {"method": "钻", "diameter_gt_mm": 15, "ra_min": 6.3, "ra_max": 25}
+        {
+          "method": "钻",
+          "diameter_le_mm": 15,
+          "ra_min": 3.2,
+          "ra_max": 6.3
+        },
+        {
+          "method": "钻",
+          "diameter_gt_mm": 15,
+          "ra_min": 6.3,
+          "ra_max": 25
+        }
       ],
       "unit": "μm"
     }
@@ -920,18 +1874,62 @@
     "source_text": "铰孔: 半精铰(一次铰)钢/黄铜 Ra3.2~6.3 / Ra1.6~6.3；精铰(二次铰)铸铁 Ra0.8~3.2 / 钢轻合金 Ra0.8~1.6 / 黄铜青铜 Ra0.4~0.8；精密铰钢 Ra0.4~0.8 / 轻合金 Ra0.4~0.8 / 黄铜青铜 Ra0.1~0.2。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["可达Ra", "铰孔", "Ch4-表4-31"],
+    "tags": [
+      "可达Ra",
+      "铰孔",
+      "Ch4-表4-31"
+    ],
     "payload": {
       "subject": "铰孔 各级别可达 Ra (μm)",
       "value_table": [
-        {"stage": "半精铰(一次铰)", "material": "钢", "ra_min": 3.2, "ra_max": 6.3},
-        {"stage": "半精铰(一次铰)", "material": "黄铜", "ra_min": 1.6, "ra_max": 6.3},
-        {"stage": "精铰(二次铰)", "material": "铸铁", "ra_min": 0.8, "ra_max": 3.2},
-        {"stage": "精铰(二次铰)", "material": "钢、轻合金", "ra_min": 0.8, "ra_max": 1.6},
-        {"stage": "精铰(二次铰)", "material": "黄铜、青铜", "ra_min": 0.4, "ra_max": 0.8},
-        {"stage": "精密铰", "material": "钢", "ra_min": 0.4, "ra_max": 0.8},
-        {"stage": "精密铰", "material": "轻合金", "ra_min": 0.4, "ra_max": 0.8},
-        {"stage": "精密铰", "material": "黄铜、青铜", "ra_min": 0.1, "ra_max": 0.2}
+        {
+          "stage": "半精铰(一次铰)",
+          "material": "钢",
+          "ra_min": 3.2,
+          "ra_max": 6.3
+        },
+        {
+          "stage": "半精铰(一次铰)",
+          "material": "黄铜",
+          "ra_min": 1.6,
+          "ra_max": 6.3
+        },
+        {
+          "stage": "精铰(二次铰)",
+          "material": "铸铁",
+          "ra_min": 0.8,
+          "ra_max": 3.2
+        },
+        {
+          "stage": "精铰(二次铰)",
+          "material": "钢、轻合金",
+          "ra_min": 0.8,
+          "ra_max": 1.6
+        },
+        {
+          "stage": "精铰(二次铰)",
+          "material": "黄铜、青铜",
+          "ra_min": 0.4,
+          "ra_max": 0.8
+        },
+        {
+          "stage": "精密铰",
+          "material": "钢",
+          "ra_min": 0.4,
+          "ra_max": 0.8
+        },
+        {
+          "stage": "精密铰",
+          "material": "轻合金",
+          "ra_min": 0.4,
+          "ra_max": 0.8
+        },
+        {
+          "stage": "精密铰",
+          "material": "黄铜、青铜",
+          "ra_min": 0.1,
+          "ra_max": 0.2
+        }
       ],
       "unit": "μm"
     }
@@ -949,13 +1947,29 @@
     "source_text": "端铣刀铣削: 粗 Ra3.2~12.5；精 Ra0.4~3.2；精密 Ra0.2~0.8。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["可达Ra", "端铣", "Ch4-表4-31"],
+    "tags": [
+      "可达Ra",
+      "端铣",
+      "Ch4-表4-31"
+    ],
     "payload": {
       "subject": "端铣刀铣削可达 Ra (μm)",
       "value_table": [
-        {"stage": "粗", "ra_min": 3.2, "ra_max": 12.5},
-        {"stage": "精", "ra_min": 0.4, "ra_max": 3.2},
-        {"stage": "精密", "ra_min": 0.2, "ra_max": 0.8}
+        {
+          "stage": "粗",
+          "ra_min": 3.2,
+          "ra_max": 12.5
+        },
+        {
+          "stage": "精",
+          "ra_min": 0.4,
+          "ra_max": 3.2
+        },
+        {
+          "stage": "精密",
+          "ra_min": 0.2,
+          "ra_max": 0.8
+        }
       ],
       "unit": "μm"
     }
@@ -973,12 +1987,24 @@
     "source_text": "圆柱铣刀铣削: 粗 Ra3.2~12.5；精 Ra0.8~3.2。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["可达Ra", "圆柱铣", "Ch4-表4-31"],
+    "tags": [
+      "可达Ra",
+      "圆柱铣",
+      "Ch4-表4-31"
+    ],
     "payload": {
       "subject": "圆柱铣刀铣削可达 Ra (μm)",
       "value_table": [
-        {"stage": "粗", "ra_min": 3.2, "ra_max": 12.5},
-        {"stage": "精", "ra_min": 0.8, "ra_max": 3.2}
+        {
+          "stage": "粗",
+          "ra_min": 3.2,
+          "ra_max": 12.5
+        },
+        {
+          "stage": "精",
+          "ra_min": 0.8,
+          "ra_max": 3.2
+        }
       ],
       "unit": "μm"
     }
@@ -996,14 +2022,34 @@
     "source_text": "刨削: 粗 Ra6.3~12.5；精 Ra1.6~3.2；精密 Ra0.4~0.8。槽的表面 Ra3.2~6.3。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["可达Ra", "刨削", "Ch4-表4-31"],
+    "tags": [
+      "可达Ra",
+      "刨削",
+      "Ch4-表4-31"
+    ],
     "payload": {
       "subject": "刨削可达 Ra (μm)",
       "value_table": [
-        {"stage": "粗", "ra_min": 6.3, "ra_max": 12.5},
-        {"stage": "精", "ra_min": 1.6, "ra_max": 3.2},
-        {"stage": "精密", "ra_min": 0.4, "ra_max": 0.8},
-        {"stage": "槽的表面", "ra_min": 3.2, "ra_max": 6.3}
+        {
+          "stage": "粗",
+          "ra_min": 6.3,
+          "ra_max": 12.5
+        },
+        {
+          "stage": "精",
+          "ra_min": 1.6,
+          "ra_max": 3.2
+        },
+        {
+          "stage": "精密",
+          "ra_min": 0.4,
+          "ra_max": 0.8
+        },
+        {
+          "stage": "槽的表面",
+          "ra_min": 3.2,
+          "ra_max": 6.3
+        }
       ],
       "unit": "μm"
     }
@@ -1021,14 +2067,34 @@
     "source_text": "外圆磨内圆磨: 半精(一次加工) Ra0.8~6.3；精 Ra0.2~0.8；精密 Ra0.025~0.05；精密、超精密磨削 Ra0.025~0.050；镜面磨削(外圆磨) Ra<0.050。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["可达Ra", "外圆磨", "内圆磨", "Ch4-表4-31"],
+    "tags": [
+      "可达Ra",
+      "外圆磨",
+      "内圆磨",
+      "Ch4-表4-31"
+    ],
     "payload": {
       "subject": "外圆磨/内圆磨可达 Ra (μm)",
       "value_table": [
-        {"stage": "半精(一次加工)", "ra_min": 0.8, "ra_max": 6.3},
-        {"stage": "精", "ra_min": 0.2, "ra_max": 0.8},
-        {"stage": "精密、超精密磨削", "ra_min": 0.025, "ra_max": 0.050},
-        {"stage": "镜面磨削(外圆磨)", "ra_max": 0.050}
+        {
+          "stage": "半精(一次加工)",
+          "ra_min": 0.8,
+          "ra_max": 6.3
+        },
+        {
+          "stage": "精",
+          "ra_min": 0.2,
+          "ra_max": 0.8
+        },
+        {
+          "stage": "精密、超精密磨削",
+          "ra_min": 0.025,
+          "ra_max": 0.05
+        },
+        {
+          "stage": "镜面磨削(外圆磨)",
+          "ra_max": 0.05
+        }
       ],
       "unit": "μm"
     }
@@ -1046,12 +2112,24 @@
     "source_text": "平面磨: 精 Ra0.4~0.8；精密 Ra0.05~0.2。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["可达Ra", "平面磨", "Ch4-表4-31"],
+    "tags": [
+      "可达Ra",
+      "平面磨",
+      "Ch4-表4-31"
+    ],
     "payload": {
       "subject": "平面磨可达 Ra (μm)",
       "value_table": [
-        {"stage": "精", "ra_min": 0.4, "ra_max": 0.8},
-        {"stage": "精密", "ra_min": 0.05, "ra_max": 0.2}
+        {
+          "stage": "精",
+          "ra_min": 0.4,
+          "ra_max": 0.8
+        },
+        {
+          "stage": "精密",
+          "ra_min": 0.05,
+          "ra_max": 0.2
+        }
       ],
       "unit": "μm"
     }
@@ -1069,13 +2147,28 @@
     "source_text": "研磨: 粗 Ra0.2~0.4；精 Ra0.05~0.2；精密 Ra<0.050。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["可达Ra", "研磨", "Ch4-表4-31"],
+    "tags": [
+      "可达Ra",
+      "研磨",
+      "Ch4-表4-31"
+    ],
     "payload": {
       "subject": "研磨可达 Ra (μm)",
       "value_table": [
-        {"stage": "粗", "ra_min": 0.2, "ra_max": 0.4},
-        {"stage": "精", "ra_min": 0.05, "ra_max": 0.2},
-        {"stage": "精密", "ra_max": 0.050}
+        {
+          "stage": "粗",
+          "ra_min": 0.2,
+          "ra_max": 0.4
+        },
+        {
+          "stage": "精",
+          "ra_min": 0.05,
+          "ra_max": 0.2
+        },
+        {
+          "stage": "精密",
+          "ra_max": 0.05
+        }
       ],
       "unit": "μm"
     }
@@ -1093,18 +2186,79 @@
     "source_text": "螺纹切削: 板牙、丝锥、自开式板牙头 Ra0.8~3.2；车刀或梳刀车、铣 Ra0.8~6.3；磨 Ra0.2~0.8；研磨 Ra0.050~0.8。螺纹滚轧: 搓丝模 Ra0.8~1.6；滚丝模 Ra0.2~1.6。",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["可达Ra", "螺纹", "Ch4-表4-31"],
+    "tags": [
+      "可达Ra",
+      "螺纹",
+      "Ch4-表4-31"
+    ],
     "payload": {
       "subject": "螺纹加工可达 Ra (μm)",
       "value_table": [
-        {"method": "切削/板牙、丝锥、自开式板牙头", "ra_min": 0.8, "ra_max": 3.2},
-        {"method": "切削/车刀或梳刀车、铣", "ra_min": 0.8, "ra_max": 6.3},
-        {"method": "切削/磨", "ra_min": 0.2, "ra_max": 0.8},
-        {"method": "切削/研磨", "ra_min": 0.050, "ra_max": 0.8},
-        {"method": "滚轧/搓丝模", "ra_min": 0.8, "ra_max": 1.6},
-        {"method": "滚轧/滚丝模", "ra_min": 0.2, "ra_max": 1.6}
+        {
+          "method": "切削/板牙、丝锥、自开式板牙头",
+          "ra_min": 0.8,
+          "ra_max": 3.2
+        },
+        {
+          "method": "切削/车刀或梳刀车、铣",
+          "ra_min": 0.8,
+          "ra_max": 6.3
+        },
+        {
+          "method": "切削/磨",
+          "ra_min": 0.2,
+          "ra_max": 0.8
+        },
+        {
+          "method": "切削/研磨",
+          "ra_min": 0.05,
+          "ra_max": 0.8
+        },
+        {
+          "method": "滚轧/搓丝模",
+          "ra_min": 0.8,
+          "ra_max": 1.6
+        },
+        {
+          "method": "滚轧/滚丝模",
+          "ra_min": 0.2,
+          "ra_max": 1.6
+        }
       ],
       "unit": "μm"
+    }
+  },
+  {
+    "id": "CALC-2.8.3.3-WORK-HARDEN-001",
+    "family": "计算",
+    "prefix": "CALC",
+    "framework_branch": "2.8.3.3",
+    "subtype": "work_hardening_ratio",
+    "topic": "加工硬化程度公式 N=(H-H₀)/H₀×100%",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 502,
+    "source_ref": "第4章 §4.2.2 加工硬化与残余应力 / 公式",
+    "source_text": "加工硬化常以硬化层深度 hc 及硬化程度 N 表示。N = (H - H₀) / H₀ × 100%；H 为已加工表面显微硬度 (GPa), H₀ 为原始基体显微硬度 (GPa)。",
+    "quality_status": "accepted",
+    "quality_flags": [],
+    "tags": [
+      "加工硬化",
+      "N",
+      "process_calc"
+    ],
+    "payload": {
+      "method_id": "work_hardening_ratio",
+      "formula": "N = (H - H_0) / H_0 * 100",
+      "inputs": {
+        "H_gpa": "已加工表面显微硬度 (GPa)",
+        "H0_gpa": "原始基体显微硬度 (GPa)"
+      },
+      "outputs": {
+        "N_percent": "加工硬化程度 (%)"
+      },
+      "verified_by_textbook": "Ch4 §4.2.2 公式定义；典型值见表 4-41 (普通车 N=120-150%, 端铣 N=140-160% 等)",
+      "verified": true,
+      "implementation_status": "implemented_in_process_calc"
     }
   }
 ]

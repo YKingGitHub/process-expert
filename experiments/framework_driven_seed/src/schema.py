@@ -41,6 +41,15 @@ BASE_REQUIRED_FIELDS = (
 )
 
 EXPERIENCE_PAYLOAD_FIELDS = ("factor", "impact", "improvement_actions")
+
+# Soft tags for individual improvement_actions. Boundaries are fuzzy, multi-tag
+# allowed, empty list = "uncategorized" (matches Sean's caveat that even tags
+# won't have crisp boundaries).
+ALLOWED_ACTION_TAGS = {
+    "principle",    # 规范性陈述 (应当/必须/应保证 语调或逻辑)
+    "practice",     # 具体操作做法 (含工具/参数/步骤)
+    "observation",  # 实测现象描述
+}
 STANDARD_PAYLOAD_FIELDS = ("subject",)  # value or value_table required
 CALC_PAYLOAD_FIELDS = ("method_id", "formula", "inputs", "outputs")
 CASE_PAYLOAD_FIELDS = ("part_name", "route_summary")
@@ -114,8 +123,8 @@ def validate_record(record: dict) -> list[str]:
             if field not in payload:
                 errors.append(f"{rid}: 经验 payload missing {field!r}")
         actions = payload.get("improvement_actions")
-        if actions is not None and not isinstance(actions, list):
-            errors.append(f"{rid}: improvement_actions must be a list")
+        if actions is not None:
+            errors.extend(_validate_actions(rid, actions))
 
     elif family == "标准":
         if "subject" not in payload:
@@ -133,6 +142,35 @@ def validate_record(record: dict) -> list[str]:
             if field not in payload:
                 errors.append(f"{rid}: 案例 payload missing {field!r}")
 
+    return errors
+
+
+def _validate_actions(rid: str, actions) -> list[str]:
+    """Each improvement_action is ``{text: str, tags: list[str]}``. ``tags``
+    is required but may be empty when the action's principle/practice/observation
+    classification is ambiguous (Sean's caveat: even tags don't have crisp
+    boundaries — empty tags is honest about that)."""
+    errors: list[str] = []
+    if not isinstance(actions, list):
+        return [f"{rid}: improvement_actions must be a list"]
+    for index, action in enumerate(actions):
+        prefix = f"{rid}.improvement_actions[{index}]"
+        if not isinstance(action, dict):
+            errors.append(f"{prefix}: must be a dict {{text, tags}}")
+            continue
+        text = action.get("text")
+        if not isinstance(text, str) or not text.strip():
+            errors.append(f"{prefix}: 'text' must be non-empty string")
+        tags = action.get("tags")
+        if not isinstance(tags, list):
+            errors.append(f"{prefix}: 'tags' must be a list (may be empty)")
+            continue
+        unknown = [t for t in tags if t not in ALLOWED_ACTION_TAGS]
+        if unknown:
+            errors.append(
+                f"{prefix}: unknown tags {unknown}; allowed: "
+                f"{sorted(ALLOWED_ACTION_TAGS)}"
+            )
     return errors
 
 

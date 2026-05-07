@@ -20,6 +20,7 @@ PHASE1_METHOD_IDS = {
     "extreme_tolerance",
     "process_dimension_reverse",
     "finish_to_grind_allowance",
+    "work_hardening_ratio",
 }
 
 
@@ -71,6 +72,10 @@ def test_calculate_returns_uniform_shape_for_each_phase1_method():
             "predecessor_diameter_mm": 279.2,
             "successor_diameter_mm": 280.0,
             "surface": "inner",
+        },
+        "work_hardening_ratio": {
+            "H_gpa": 2.6,
+            "H0_gpa": 2.0,
         },
     }
     for method_id in PHASE1_METHOD_IDS:
