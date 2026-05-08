@@ -1,0 +1,769 @@
+{
+  "results": [
+    {
+      "id": "Q01",
+      "step": "S2",
+      "category": "method-candidate",
+      "input": "F2 外圆 φ21.74 +0.05, IT9, Ra1.6",
+      "text": "外圆精车候选路线?",
+      "expected": "粗车→半精车→精车 (IT 7-8, Ra 1.6-6.3)",
+      "kb_call": [
+        "path_precision",
+        "{'path_keyword': '粗车→半精车→精车', 'feature': '外圆'}"
+      ],
+      "actual_match_count": 1,
+      "actual_sample": [
+        {
+          "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
+          "method": "粗车→半精车→精车 (或磨)",
+          "it": "7-8",
+          "it_min": 7,
+          "it_max": 8,
+          "ra_min": 1.6,
+          "ra_max": 6.3,
+          "source_page": 482,
+          "topic": "外圆柱表面加工路线 → IT 等级 + Ra 范围"
+        }
+      ],
+      "actual_error": null,
+      "outcome": "pass"
+    },
+    {
+      "id": "Q02",
+      "step": "S2",
+      "category": "method-candidate",
+      "input": "F1 螺纹 M14-6g (螺距 2)",
+      "text": "螺纹加工候选方法?",
+      "expected": "螺纹: 数控车挑螺纹 / 螺纹梳刀 / 滚丝; ground truth 用挑螺纹",
+      "kb_call": [
+        "raw_sql",
+        "SELECT id, topic FROM kb_records WHERE framework_branch LIKE '2.4.4%' OR topic LIKE '%螺纹%'"
+      ],
+      "actual_match_count": 3,
+      "actual_sample": [
+        {
+          "id": "STD-2.4.4-THREAD-METRIC-001",
+          "topic": "米制螺纹加工的经济精度"
+        },
+        {
+          "id": "STD-2.8.2.1-RA-THREAD-001",
+          "topic": "螺纹加工 加工方法可达表面粗糙度"
+        },
+        {
+          "id": "STD-2.8.2.4-RA-THREAD-JOINT-001",
+          "topic": "螺纹联接的工作表面粗糙度值"
+        }
+      ],
+      "actual_error": null,
+      "outcome": "pass"
+    },
+    {
+      "id": "Q03",
+      "step": "S2",
+      "category": "method-candidate",
+      "input": "F4 球面 SR5.33 / R6.35",
+      "text": "球面/曲面加工方法?",
+      "expected": "数车成形车刀 / 仿形车 / 五轴铣; ground truth 用数车车球面",
+      "kb_call": [
+        "raw_sql",
+        "SELECT DISTINCT method FROM std_value_rows WHERE method LIKE '%球%' OR method LIKE '%成形%'"
+      ],
+      "actual_match_count": 2,
+      "actual_sample": [
+        {
+          "method": "成形刀车"
+        },
+        {
+          "method": "粉末冶金成形"
+        }
+      ],
+      "actual_error": null,
+      "outcome": "pass"
+    },
+    {
+      "id": "Q04",
+      "step": "S2",
+      "category": "method-candidate",
+      "input": "F3 锥面 25°",
+      "text": "锥面加工方法?",
+      "expected": "数车锥度车刀 / 偏置尾座车 / 转角刀架; ground truth 用数车车锥面",
+      "kb_call": [
+        "raw_sql",
+        "SELECT id, topic FROM kb_records WHERE topic LIKE '%锥%'"
+      ],
+      "actual_match_count": 1,
+      "actual_sample": [
+        {
+          "id": "STD-2.8.1.4-CONICAL-HOLE-ECON-001",
+          "topic": "圆锥孔加工的经济精度"
+        }
+      ],
+      "actual_error": null,
+      "outcome": "pass"
+    },
+    {
+      "id": "Q05",
+      "step": "S2",
+      "category": "method-candidate",
+      "input": "F5 铣扁 19±0.025 (形位 ⌖0.12)",
+      "text": "面铣 (扁) 加工方法?",
+      "expected": "粗铣→半精铣 (IT8-11)",
+      "kb_call": [
+        "path_precision",
+        "{'path_keyword': '粗铣'}"
+      ],
+      "actual_match_count": 4,
+      "actual_sample": [
+        {
+          "record_id": "STD-2.3.2-PLANE-PATH-001",
+          "method": "粗刨 / 粗铣",
+          "it": "11-13",
+          "it_min": 11,
+          "it_max": 13,
+          "ra_min": 25.0,
+          "ra_max": 100.0,
+          "source_page": 485,
+          "topic": "平面加工路线 → IT 等级 + Ra 范围"
+        },
+        {
+          "record_id": "STD-2.3.2-PLANE-PATH-001",
+          "method": "粗刨→半精刨 / 粗铣→半精铣 / 车平面",
+          "it": "8-11",
+          "it_min": 8,
+          "it_max": 11,
+          "ra_min": 3.2,
+          "ra_max": 12.5,
+          "source_page": 485,
+          "topic": "平面加工路线 → IT 等级 + Ra 范围"
+        },
+        {
+          "record_id": "STD-2.3.2-PLANE-PATH-001",
+          "method": "粗刨→半精刨→{宽刀精刨 / 高速精铣 / 磨 / 刮研}; 粗铣→半精铣→{...同}",
+          "it": "6-9",
+          "it_min": 6,
+          "it_max": 9,
+          "ra_min": 0.4,
+          "ra_max": 1.6,
+          "source_page": 485,
+          "topic": "平面加工路线 → IT 等级 + Ra 范围"
+        }
+      ],
+      "actual_error": null,
+      "outcome": "pass"
+    },
+    {
+      "id": "Q06",
+      "step": "S3",
+      "category": "precision-it+ra",
+      "input": "F2 路线 '粗车→半精车→精车' 能达 IT9 Ra1.6?",
+      "text": "外圆该路线 IT/Ra?",
+      "expected": "IT 7-8, Ra 1.6-6.3 (满足要求, IT9 比 IT7-8 宽容)",
+      "kb_call": [
+        "path_precision",
+        "{'path_keyword': '粗车→半精车→精车'}"
+      ],
+      "actual_match_count": 1,
+      "actual_sample": [
+        {
+          "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
+          "method": "粗车→半精车→精车 (或磨)",
+          "it": "7-8",
+          "it_min": 7,
+          "it_max": 8,
+          "ra_min": 1.6,
+          "ra_max": 6.3,
+          "source_page": 482,
+          "topic": "外圆柱表面加工路线 → IT 等级 + Ra 范围"
+        }
+      ],
+      "actual_error": null,
+      "outcome": "pass"
+    },
+    {
+      "id": "Q07",
+      "step": "S3",
+      "category": "precision-it",
+      "input": "F1 螺纹 6g 等级 (中等精度)",
+      "text": "M14-6g 螺纹精度 KB 中?",
+      "expected": "螺纹精度表里 6g 是常用外螺纹",
+      "kb_call": [
+        "raw_sql",
+        "SELECT row_index, method, extra_json FROM std_value_rows WHERE record_id = 'STD-2.4.4-THREAD-METRIC-001'"
+      ],
+      "actual_match_count": 12,
+      "actual_sample": [
+        {
+          "row_index": 0,
+          "method": "车削",
+          "extra_json": "{\"external_thread\": \"4h~6h\", \"internal_thread\": \"5H、6H、7H\"}"
+        },
+        {
+          "row_index": 1,
+          "method": "用梳形刀车螺纹",
+          "extra_json": "{\"external_thread\": \"4h~6h\", \"internal_thread\": \"5H、6H、7H\"}"
+        },
+        {
+          "row_index": 2,
+          "method": "用丝锥攻内螺纹",
+          "extra_json": "{\"external_thread\": null, \"internal_thread\": \"4H、5H、7H\"}"
+        }
+      ],
+      "actual_error": null,
+      "outcome": "friction"
+    },
+    {
+      "id": "Q08",
+      "step": "S3",
+      "category": "precision-ra",
+      "input": "F5 铣扁 Ra3.2",
+      "text": "铣可达 Ra?",
+      "expected": "端铣 Ra1.25-5, 圆柱铣 Ra1.6-12.5",
+      "kb_call": [
+        "raw_sql",
+        "SELECT method, ra_min, ra_max FROM std_value_rows WHERE record_id LIKE 'STD-2.8.2.1-RA-MILL%' AND ra_min IS NOT NULL"
+      ],
+      "actual_match_count": 5,
+      "actual_sample": [
+        {
+          "method": null,
+          "ra_min": 3.2,
+          "ra_max": 12.5
+        },
+        {
+          "method": null,
+          "ra_min": 0.4,
+          "ra_max": 3.2
+        },
+        {
+          "method": null,
+          "ra_min": 0.2,
+          "ra_max": 0.8
+        }
+      ],
+      "actual_error": null,
+      "outcome": "pass"
+    },
+    {
+      "id": "Q09",
+      "step": "S3",
+      "category": "precision-position",
+      "input": "F2 形位 ⌖φ0.1 B (位置度)",
+      "text": "车的位置精度 KB 怎么答?",
+      "expected": "外圆同轴/位置精度 — KB 主要是位置度孔的, 外圆少",
+      "kb_call": [
+        "position_error",
+        "{'feature': '外圆'}"
+      ],
+      "actual_match_count": 6,
+      "actual_sample": [
+        {
+          "record_id": "STD-2.3.2-METHOD-ERRORS-001",
+          "method": "外圆磨削加工",
+          "feature": "轴/轴颈套筒/环件/盘件/法兰/凸缘等零件的外圆直径",
+          "error_text": "0.01~0.1",
+          "error_mm_min": 0.01,
+          "error_mm_max": 0.1,
+          "source_page": 480
+        },
+        {
+          "record_id": "STD-2.3.2-METHOD-ERRORS-001",
+          "method": "表面磨削加工",
+          "feature": "轴/套筒/环件/盘件/法兰及其他零件外圆表面的径向圆跳动",
+          "error_text": "0.01~0.02",
+          "error_mm_min": 0.01,
+          "error_mm_max": 0.02,
+          "source_page": 480
+        },
+        {
+          "record_id": "STD-2.3.2-METHOD-ERRORS-001",
+          "method": "在卧式车床或立式车床上加工外圆",
+          "feature": "轴/套筒/环件/盘件/法兰及其他零件外圆表面的径向圆跳动",
+          "error_text": "0.02~0.10",
+          "error_mm_min": 0.02,
+          "error_mm_max": 0.1,
+          "source_page": 480
+        }
+      ],
+      "actual_error": null,
+      "outcome": "partial"
+    },
+    {
+      "id": "Q10",
+      "step": "S3",
+      "category": "precision-position",
+      "input": "F5 铣扁 形位 ⌖0.12 C",
+      "text": "铣扁位置精度?",
+      "expected": "无 '扁' feature 表; 实际靠夹具+找正保证",
+      "kb_call": [
+        "position_error",
+        "{'feature': '扁'}"
+      ],
+      "actual_match_count": 0,
+      "actual_sample": [],
+      "actual_error": null,
+      "outcome": "no_data"
+    },
+    {
+      "id": "Q11",
+      "step": "S3",
+      "category": "precision-ra",
+      "input": "F2 精车外圆 Ra1.6",
+      "text": "精车 Ra?",
+      "expected": "外圆车 各 stage Ra; 但 method 列可能为 null",
+      "kb_call": [
+        "raw_sql",
+        "SELECT row_index, method, stage, ra_min, ra_max FROM std_value_rows WHERE record_id = 'STD-2.8.2.1-RA-OD-TURN-001'"
+      ],
+      "actual_match_count": 7,
+      "actual_sample": [
+        {
+          "row_index": 0,
+          "method": null,
+          "stage": "粗车",
+          "ra_min": 3.2,
+          "ra_max": 12.5
+        },
+        {
+          "row_index": 1,
+          "method": null,
+          "stage": "半精车",
+          "ra_min": 3.2,
+          "ra_max": 6.3
+        },
+        {
+          "row_index": 2,
+          "method": null,
+          "stage": "半精车",
+          "ra_min": 1.6,
+          "ra_max": 6.3
+        }
+      ],
+      "actual_error": null,
+      "outcome": "friction"
+    },
+    {
+      "id": "Q12",
+      "step": "S3",
+      "category": "precision-ra",
+      "input": "F1 车螺纹 Ra3.2",
+      "text": "车螺纹可达 Ra?",
+      "expected": "车螺纹 Ra 数据应该在 STD-2.8.2.1-RA-THREAD-001",
+      "kb_call": [
+        "path_precision",
+        "{'path_keyword': '车螺纹'}"
+      ],
+      "actual_match_count": 0,
+      "actual_sample": [],
+      "actual_error": null,
+      "outcome": "no_data"
+    },
+    {
+      "id": "Q13",
+      "step": "S3",
+      "category": "precision-it",
+      "input": "F2 数车精车 (经济精度)",
+      "text": "车的经济精度 IT?",
+      "expected": "车 IT9-10, 精车更高",
+      "kb_call": [
+        "economic_precision",
+        "{'method': '车'}"
+      ],
+      "actual_match_count": 13,
+      "actual_sample": [
+        {
+          "record_id": "STD-2.8.1.4-COAXIALITY-ECON-001",
+          "method": "精磨、精密车、一次装夹下的内圆磨、珩磨",
+          "feature": null,
+          "it": "3-4",
+          "it_min": 3,
+          "it_max": 4,
+          "source_page": 492,
+          "topic": "同轴度的经济精度"
+        },
+        {
+          "record_id": "STD-2.8.1.4-COAXIALITY-ECON-001",
+          "method": "磨、精车、一次装夹下的内圆磨及镗",
+          "feature": null,
+          "it": "5-6",
+          "it_min": 5,
+          "it_max": 6,
+          "source_page": 492,
+          "topic": "同轴度的经济精度"
+        },
+        {
+          "record_id": "STD-2.8.1.4-COAXIALITY-ECON-001",
+          "method": "粗磨、车、镗、拉、铰",
+          "feature": null,
+          "it": "7-8",
+          "it_min": 7,
+          "it_max": 8,
+          "source_page": 492,
+          "topic": "同轴度的经济精度"
+        }
+      ],
+      "actual_error": null,
+      "outcome": "pass"
+    },
+    {
+      "id": "Q14",
+      "step": "S4a",
+      "category": "allowance",
+      "input": "毛坯 φ26 → 加工后 φ21.74, 单边 ~2.13mm",
+      "text": "外圆粗车→半精车→精车 各序余量?",
+      "expected": "❌ Ch6 余量表还没抽",
+      "kb_call": [
+        "raw_sql",
+        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.9.1%'"
+      ],
+      "actual_match_count": 0,
+      "actual_sample": [],
+      "actual_error": null,
+      "outcome": "no_data"
+    },
+    {
+      "id": "Q15",
+      "step": "S4a",
+      "category": "allowance",
+      "input": "螺纹大径 φ14 (车出来), 起始 φ14.5?",
+      "text": "螺纹大径前余量?",
+      "expected": "❌ Ch6 余量表还没抽",
+      "kb_call": [
+        "raw_sql",
+        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.9.1%'"
+      ],
+      "actual_match_count": 0,
+      "actual_sample": [],
+      "actual_error": null,
+      "outcome": "no_data"
+    },
+    {
+      "id": "Q16",
+      "step": "S4a",
+      "category": "allowance",
+      "input": "总长 92.5 切断, 切刀≤3mm",
+      "text": "切断余量 + 端面修整余量?",
+      "expected": "❌ Ch6 余量表还没抽",
+      "kb_call": [
+        "raw_sql",
+        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.9.1%'"
+      ],
+      "actual_match_count": 0,
+      "actual_sample": [],
+      "actual_error": null,
+      "outcome": "no_data"
+    },
+    {
+      "id": "Q17",
+      "step": "S4a",
+      "category": "allowance",
+      "input": "铣扁 19mm 从 φ21.74 减薄, 单边 ~1.37mm",
+      "text": "铣扁余量?",
+      "expected": "❌ Ch6 余量表还没抽",
+      "kb_call": [
+        "raw_sql",
+        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.9.1%'"
+      ],
+      "actual_match_count": 0,
+      "actual_sample": [],
+      "actual_error": null,
+      "outcome": "no_data"
+    },
+    {
+      "id": "Q18",
+      "step": "S4b",
+      "category": "cutting-params",
+      "input": "粗车 316L, φ26 → φ21.74, 数车",
+      "text": "vc/f/ap?",
+      "expected": "❌ Ch3 §3.2 / §2.7 切削参数还没抽",
+      "kb_call": [
+        "raw_sql",
+        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%'"
+      ],
+      "actual_match_count": 0,
+      "actual_sample": [],
+      "actual_error": null,
+      "outcome": "no_data"
+    },
+    {
+      "id": "Q19",
+      "step": "S4b",
+      "category": "cutting-params",
+      "input": "挑螺纹 M14×2, 316L",
+      "text": "螺纹切削参数 + 挑数?",
+      "expected": "❌ Ch3 §3.2 / §2.7 切削参数还没抽",
+      "kb_call": [
+        "raw_sql",
+        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%'"
+      ],
+      "actual_match_count": 0,
+      "actual_sample": [],
+      "actual_error": null,
+      "outcome": "no_data"
+    },
+    {
+      "id": "Q20",
+      "step": "S4b",
+      "category": "cutting-params",
+      "input": "数车成形球面 SR5.33, 316L",
+      "text": "f/ap (成形)?",
+      "expected": "❌ Ch3 §3.2 / §2.7 切削参数还没抽",
+      "kb_call": [
+        "raw_sql",
+        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%'"
+      ],
+      "actual_match_count": 0,
+      "actual_sample": [],
+      "actual_error": null,
+      "outcome": "no_data"
+    },
+    {
+      "id": "Q21",
+      "step": "S4b",
+      "category": "cutting-params",
+      "input": "加工中心铣扁 19, 316L 端铣刀",
+      "text": "切削三要素 + 主轴转速?",
+      "expected": "❌ Ch3 §3.2 / §2.7 切削参数还没抽",
+      "kb_call": [
+        "raw_sql",
+        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%'"
+      ],
+      "actual_match_count": 0,
+      "actual_sample": [],
+      "actual_error": null,
+      "outcome": "no_data"
+    },
+    {
+      "id": "Q22",
+      "step": "S4b",
+      "category": "cutting-params",
+      "input": "数车锥面 25°, 316L",
+      "text": "vc/f 推荐?",
+      "expected": "❌ Ch3 §3.2 / §2.7 切削参数还没抽",
+      "kb_call": [
+        "raw_sql",
+        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%'"
+      ],
+      "actual_match_count": 0,
+      "actual_sample": [],
+      "actual_error": null,
+      "outcome": "no_data"
+    },
+    {
+      "id": "Q23",
+      "step": "S4c",
+      "category": "tolerance-chain",
+      "input": "外圆 φ21.74 +0.05/0",
+      "text": "ISO 286 fit_class IT?",
+      "expected": "h7 18-30 段 = 21μm; 工件 0.05mm = 50μm ≈ IT9; h7 不够紧",
+      "kb_call": [
+        "calc",
+        "tolerance_lookup_iso"
+      ],
+      "actual_match_count": 1,
+      "actual_sample": [
+        {
+          "diameter_mm": 21.74,
+          "fit_class": "h7",
+          "size_segment_mm": "18-30 mm",
+          "upper_deviation_um": 0,
+          "lower_deviation_um": -21,
+          "tolerance_um": 21
+        }
+      ],
+      "actual_error": null,
+      "outcome": "partial"
+    },
+    {
+      "id": "Q24",
+      "step": "S4c",
+      "category": "tolerance-chain",
+      "input": "铣扁 19±0.025 (公差带 0.05)",
+      "text": "ISO 286 → IT?",
+      "expected": "IT8 18-30 段 = 33μm; 工件 50μm ≈ IT9-10",
+      "kb_call": [
+        "calc",
+        "tolerance_lookup_iso"
+      ],
+      "actual_match_count": 1,
+      "actual_sample": [
+        {
+          "diameter_mm": 19.0,
+          "fit_class": "h8",
+          "size_segment_mm": "18-30 mm",
+          "upper_deviation_um": 0,
+          "lower_deviation_um": -33,
+          "tolerance_um": 33
+        }
+      ],
+      "actual_error": null,
+      "outcome": "partial"
+    },
+    {
+      "id": "Q25",
+      "step": "S4c",
+      "category": "tolerance-chain",
+      "input": "螺纹 M14-6g 大径 φ14⁻⁰·⁰³⁸⁻⁰·³⁸⁸",
+      "text": "螺纹 6g 公差 KB 能算?",
+      "expected": "螺纹精度表 KB 内, 但需读 extra_json",
+      "kb_call": [
+        "raw_sql",
+        "SELECT row_index, method, extra_json FROM std_value_rows WHERE record_id = 'STD-2.4.4-THREAD-METRIC-001' LIMIT 3"
+      ],
+      "actual_match_count": 3,
+      "actual_sample": [
+        {
+          "row_index": 0,
+          "method": "车削",
+          "extra_json": "{\"external_thread\": \"4h~6h\", \"internal_thread\": \"5H、6H、7H\"}"
+        },
+        {
+          "row_index": 1,
+          "method": "用梳形刀车螺纹",
+          "extra_json": "{\"external_thread\": \"4h~6h\", \"internal_thread\": \"5H、6H、7H\"}"
+        },
+        {
+          "row_index": 2,
+          "method": "用丝锥攻内螺纹",
+          "extra_json": "{\"external_thread\": null, \"internal_thread\": \"4H、5H、7H\"}"
+        }
+      ],
+      "actual_error": null,
+      "outcome": "friction"
+    },
+    {
+      "id": "Q26",
+      "step": "S4c",
+      "category": "tolerance-chain",
+      "input": "工序公差链 (粗车→半精车→精车) 公差分配",
+      "text": "extreme_tolerance 算?",
+      "expected": "process_calc 已有",
+      "kb_call": [
+        "calc",
+        "extreme_tolerance"
+      ],
+      "actual_match_count": 1,
+      "actual_sample": [
+        {
+          "closed_loop_basic_dim": 21.74,
+          "closed_loop_es": 0.05,
+          "closed_loop_ei": 0.0,
+          "closed_loop_tolerance": 0.05,
+          "max_dimension": 21.79,
+          "min_dimension": 21.74
+        }
+      ],
+      "actual_error": null,
+      "outcome": "pass"
+    },
+    {
+      "id": "Q27",
+      "step": "S5",
+      "category": "sequence-check",
+      "input": "5 工序候选 vs 6 工序 ground truth",
+      "text": "顺序+装夹+合并",
+      "expected": "KB 不负责编排",
+      "kb_call": [
+        "note",
+        "human-only assembly check"
+      ],
+      "actual_match_count": 0,
+      "actual_sample": [],
+      "actual_error": null,
+      "outcome": "no_data"
+    }
+  ],
+  "summary": {
+    "totals": {
+      "pass": 9,
+      "partial": 3,
+      "no_data": 11,
+      "friction": 3
+    },
+    "total_queries": 26,
+    "coverage": 0.5769230769230769,
+    "accuracy": 0.6,
+    "friction": 0.2,
+    "by_step": {
+      "S2": {
+        "pass": 5,
+        "partial": 0,
+        "no_data": 0,
+        "friction": 0
+      },
+      "S3": {
+        "pass": 3,
+        "partial": 1,
+        "no_data": 2,
+        "friction": 2
+      },
+      "S4a": {
+        "pass": 0,
+        "partial": 0,
+        "no_data": 4,
+        "friction": 0
+      },
+      "S4b": {
+        "pass": 0,
+        "partial": 0,
+        "no_data": 5,
+        "friction": 0
+      },
+      "S4c": {
+        "pass": 1,
+        "partial": 2,
+        "no_data": 0,
+        "friction": 1
+      }
+    },
+    "by_category": {
+      "method-candidate": {
+        "pass": 5,
+        "partial": 0,
+        "no_data": 0,
+        "friction": 0
+      },
+      "precision-it+ra": {
+        "pass": 1,
+        "partial": 0,
+        "no_data": 0,
+        "friction": 0
+      },
+      "precision-it": {
+        "pass": 1,
+        "partial": 0,
+        "no_data": 0,
+        "friction": 1
+      },
+      "precision-ra": {
+        "pass": 1,
+        "partial": 0,
+        "no_data": 1,
+        "friction": 1
+      },
+      "precision-position": {
+        "pass": 0,
+        "partial": 1,
+        "no_data": 1,
+        "friction": 0
+      },
+      "allowance": {
+        "pass": 0,
+        "partial": 0,
+        "no_data": 4,
+        "friction": 0
+      },
+      "cutting-params": {
+        "pass": 0,
+        "partial": 0,
+        "no_data": 5,
+        "friction": 0
+      },
+      "tolerance-chain": {
+        "pass": 1,
+        "partial": 2,
+        "no_data": 0,
+        "friction": 1
+      }
+    }
+  }
+}
