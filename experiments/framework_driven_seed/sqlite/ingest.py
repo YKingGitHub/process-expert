@@ -228,9 +228,9 @@ def _dispatch_specialized(record):
     # New Ch4-driven specialized tables (2026-05-09-03 redesign)
     if branch.startswith("2.3.2") and "DRILLING-PATH" in rid:
         return "lookup_drilling_path_by_tier", _build_drilling_path_rows(record, rows)
-    if branch.startswith("2.8.1.5") or "MACHINE-GEOM" in rid:
+    if branch.startswith("2.8.1.5") or "MACHINE-GEOM" in rid or "MACHINE-AVG-ECON" in rid:
         return "lookup_machine_geometry", _build_machine_geometry_rows(record, rows)
-    if branch.startswith("2.8.3.1") and "HARDEN-DEPTH" in rid:
+    if branch.startswith("2.8.3.1") and ("HARDEN" in rid or "WORK-HARDENING" in rid):
         return "lookup_hardening_depth", _build_hardening_depth_rows(record, rows)
     return None, []  # specialized records → payload-only
 
@@ -582,20 +582,36 @@ def _build_machine_geometry_rows(record, rows):
 
 
 def _build_hardening_depth_rows(record, rows):
-    """Lookup: 4-41 — method → N% / hc μm (avg & max)."""
+    """Lookup: 4-41 — method → N% / hc μm (avg & max).
+
+    Accepts both new shape (n_pct_avg_min/max) and legacy shape (N_avg='120-150').
+    """
     out = []
     for i, row in enumerate(rows):
         if not isinstance(row, dict):
             continue
+        # legacy fields
+        n_avg_min = row.get("n_pct_avg_min")
+        n_avg_max = row.get("n_pct_avg_max")
+        if n_avg_min is None and "N_avg" in row:
+            n_avg_min, n_avg_max = parse_dim_range(row["N_avg"])
+        n_max = row.get("n_pct_max") or row.get("N_max")
+
+        hc_avg_min = row.get("hc_avg_min_um")
+        hc_avg_max = row.get("hc_avg_max_um")
+        if hc_avg_min is None and "hc_avg_um" in row:
+            hc_avg_min, hc_avg_max = parse_dim_range(row["hc_avg_um"])
+        hc_max = row.get("hc_max_um")
+
         out.append({
             "record_id": record["id"], "row_index": i,
             "method": row.get("method", ""),
-            "n_pct_avg_min": row.get("n_pct_avg_min"),
-            "n_pct_avg_max": row.get("n_pct_avg_max"),
-            "n_pct_max": row.get("n_pct_max"),
-            "hc_avg_min_um": row.get("hc_avg_min_um"),
-            "hc_avg_max_um": row.get("hc_avg_max_um"),
-            "hc_max_um": row.get("hc_max_um"),
+            "n_pct_avg_min": n_avg_min,
+            "n_pct_avg_max": n_avg_max,
+            "n_pct_max": n_max,
+            "hc_avg_min_um": hc_avg_min,
+            "hc_avg_max_um": hc_avg_max,
+            "hc_max_um": hc_max,
             "note": row.get("note"),
             "extra_json": None,
         })
