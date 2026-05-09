@@ -12,50 +12,335 @@
     "source_text": "粗车外圆和端面进给量推荐表; 按加工材料(碳素结构钢和合金结构钢/铸铁及铜合金) × 车刀刀杆尺寸(B×H) × 工件直径(20-2500mm) × 背吃刀量(≤3, 3-5, 5-8, 8-12, >12 mm) 给出 f (mm/r) 范围. 注: 断续加工 K=0.75-0.85; 耐热钢 f≤1.0; 淬硬钢 K=0.5-0.8.",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["切削参数", "进给量", "粗车", "车削手册-表8-1"],
+    "tags": [
+      "切削参数",
+      "进给量",
+      "粗车",
+      "车削手册-表8-1"
+    ],
     "payload": {
       "subject": "粗车外圆/端面 进给量推荐 (mm/r)",
       "value_table": [
-        {"material": "碳素结构钢和合金结构钢", "tool_shank_mm": "16×25", "workpiece_dim_text": "≤20", "ap_segment": "≤3", "f_min": 0.3, "f_max": 0.4},
-        {"material": "碳素结构钢和合金结构钢", "tool_shank_mm": "16×25", "workpiece_dim_text": "40", "ap_segment": "≤3", "f_min": 0.4, "f_max": 0.5},
-        {"material": "碳素结构钢和合金结构钢", "tool_shank_mm": "16×25", "workpiece_dim_text": "40", "ap_segment": "3~5", "f_min": 0.3, "f_max": 0.4},
-        {"material": "碳素结构钢和合金结构钢", "tool_shank_mm": "16×25", "workpiece_dim_text": "60", "ap_segment": "≤3", "f_min": 0.5, "f_max": 0.7},
-        {"material": "碳素结构钢和合金结构钢", "tool_shank_mm": "16×25", "workpiece_dim_text": "60", "ap_segment": "3~5", "f_min": 0.4, "f_max": 0.6},
-        {"material": "碳素结构钢和合金结构钢", "tool_shank_mm": "16×25", "workpiece_dim_text": "60", "ap_segment": "5~8", "f_min": 0.3, "f_max": 0.5},
-        {"material": "碳素结构钢和合金结构钢", "tool_shank_mm": "16×25", "workpiece_dim_text": "100", "ap_segment": "≤3", "f_min": 0.6, "f_max": 0.9},
-        {"material": "碳素结构钢和合金结构钢", "tool_shank_mm": "16×25", "workpiece_dim_text": "100", "ap_segment": "3~5", "f_min": 0.5, "f_max": 0.7},
-        {"material": "碳素结构钢和合金结构钢", "tool_shank_mm": "16×25", "workpiece_dim_text": "100", "ap_segment": "5~8", "f_min": 0.5, "f_max": 0.6},
-        {"material": "碳素结构钢和合金结构钢", "tool_shank_mm": "16×25", "workpiece_dim_text": "100", "ap_segment": "8~12", "f_min": 0.4, "f_max": 0.5},
-        {"material": "碳素结构钢和合金结构钢", "tool_shank_mm": "16×25", "workpiece_dim_text": "400", "ap_segment": "≤3", "f_min": 0.8, "f_max": 1.2},
-        {"material": "碳素结构钢和合金结构钢", "tool_shank_mm": "16×25", "workpiece_dim_text": "400", "ap_segment": "3~5", "f_min": 0.7, "f_max": 1.0},
-        {"material": "碳素结构钢和合金结构钢", "tool_shank_mm": "16×25", "workpiece_dim_text": "400", "ap_segment": "5~8", "f_min": 0.6, "f_max": 0.8},
-        {"material": "碳素结构钢和合金结构钢", "tool_shank_mm": "16×25", "workpiece_dim_text": "400", "ap_segment": "8~12", "f_min": 0.5, "f_max": 0.6},
-        {"material": "碳素结构钢和合金结构钢", "tool_shank_mm": "20×30 / 25×25", "workpiece_dim_text": "100", "ap_segment": "≤3", "f_min": 0.8, "f_max": 1.0},
-        {"material": "碳素结构钢和合金结构钢", "tool_shank_mm": "20×30 / 25×25", "workpiece_dim_text": "100", "ap_segment": "3~5", "f_min": 0.7, "f_max": 0.9},
-        {"material": "碳素结构钢和合金结构钢", "tool_shank_mm": "20×30 / 25×25", "workpiece_dim_text": "600", "ap_segment": "≤3", "f_min": 1.2, "f_max": 1.4},
-        {"material": "碳素结构钢和合金结构钢", "tool_shank_mm": "20×30 / 25×25", "workpiece_dim_text": "600", "ap_segment": "3~5", "f_min": 1.0, "f_max": 1.2},
-        {"material": "碳素结构钢和合金结构钢", "tool_shank_mm": "20×30 / 25×25", "workpiece_dim_text": "600", "ap_segment": "5~8", "f_min": 0.8, "f_max": 1.0},
-        {"material": "碳素结构钢和合金结构钢", "tool_shank_mm": "20×30 / 25×25", "workpiece_dim_text": "600", "ap_segment": "8~12", "f_min": 0.6, "f_max": 0.9},
-        {"material": "碳素结构钢和合金结构钢", "tool_shank_mm": "20×30 / 25×25", "workpiece_dim_text": "600", "ap_segment": ">12", "f_min": 0.4, "f_max": 0.6},
-        {"material": "碳素结构钢和合金结构钢", "tool_shank_mm": "25×40", "workpiece_dim_text": "1000", "ap_segment": "≤3", "f_min": 1.2, "f_max": 1.5},
-        {"material": "碳素结构钢和合金结构钢", "tool_shank_mm": "25×40", "workpiece_dim_text": "1000", "ap_segment": "3~5", "f_min": 1.1, "f_max": 1.5},
-        {"material": "碳素结构钢和合金结构钢", "tool_shank_mm": "25×40", "workpiece_dim_text": "1000", "ap_segment": "5~8", "f_min": 0.9, "f_max": 1.2},
-        {"material": "碳素结构钢和合金结构钢", "tool_shank_mm": "25×40", "workpiece_dim_text": "1000", "ap_segment": "8~12", "f_min": 0.8, "f_max": 1.0},
-        {"material": "碳素结构钢和合金结构钢", "tool_shank_mm": "25×40", "workpiece_dim_text": "1000", "ap_segment": ">12", "f_min": 0.7, "f_max": 0.8},
-        {"material": "铸铁及铜合金", "tool_shank_mm": "16×25", "workpiece_dim_text": "60", "ap_segment": "≤3", "f_min": 0.6, "f_max": 0.8},
-        {"material": "铸铁及铜合金", "tool_shank_mm": "16×25", "workpiece_dim_text": "60", "ap_segment": "3~5", "f_min": 0.5, "f_max": 0.8},
-        {"material": "铸铁及铜合金", "tool_shank_mm": "16×25", "workpiece_dim_text": "60", "ap_segment": "5~8", "f_min": 0.4, "f_max": 0.6},
-        {"material": "铸铁及铜合金", "tool_shank_mm": "16×25", "workpiece_dim_text": "100", "ap_segment": "≤3", "f_min": 0.8, "f_max": 1.2},
-        {"material": "铸铁及铜合金", "tool_shank_mm": "16×25", "workpiece_dim_text": "100", "ap_segment": "3~5", "f_min": 0.7, "f_max": 1.0},
-        {"material": "铸铁及铜合金", "tool_shank_mm": "16×25", "workpiece_dim_text": "400", "ap_segment": "≤3", "f_min": 1.0, "f_max": 1.4},
-        {"material": "铸铁及铜合金", "tool_shank_mm": "16×25", "workpiece_dim_text": "400", "ap_segment": "3~5", "f_min": 1.0, "f_max": 1.2},
-        {"material": "铸铁及铜合金", "tool_shank_mm": "20×30 / 25×25", "workpiece_dim_text": "600", "ap_segment": "≤3", "f_min": 1.2, "f_max": 1.8},
-        {"material": "铸铁及铜合金", "tool_shank_mm": "20×30 / 25×25", "workpiece_dim_text": "600", "ap_segment": "3~5", "f_min": 1.2, "f_max": 1.6},
-        {"material": "铸铁及铜合金", "tool_shank_mm": "20×30 / 25×25", "workpiece_dim_text": "600", "ap_segment": "5~8", "f_min": 1.0, "f_max": 1.3},
-        {"material": "铸铁及铜合金", "tool_shank_mm": "20×30 / 25×25", "workpiece_dim_text": "600", "ap_segment": "8~12", "f_min": 0.9, "f_max": 1.1},
-        {"material": "铸铁及铜合金", "tool_shank_mm": "25×40", "workpiece_dim_text": "1000", "ap_segment": "≤3", "f_min": 1.5, "f_max": 2.0},
-        {"material": "铸铁及铜合金", "tool_shank_mm": "25×40", "workpiece_dim_text": "1000", "ap_segment": "3~5", "f_min": 1.2, "f_max": 1.8},
-        {"material": "铸铁及铜合金", "tool_shank_mm": "25×40", "workpiece_dim_text": "1000", "ap_segment": "5~8", "f_min": 1.0, "f_max": 1.4}
+        {
+          "material": "碳素结构钢和合金结构钢",
+          "tool_shank_mm": "16×25",
+          "workpiece_dim_text": "≤20",
+          "ap_segment": "≤3",
+          "f_min": 0.3,
+          "f_max": 0.4
+        },
+        {
+          "material": "碳素结构钢和合金结构钢",
+          "tool_shank_mm": "16×25",
+          "workpiece_dim_text": "40",
+          "ap_segment": "≤3",
+          "f_min": 0.4,
+          "f_max": 0.5
+        },
+        {
+          "material": "碳素结构钢和合金结构钢",
+          "tool_shank_mm": "16×25",
+          "workpiece_dim_text": "40",
+          "ap_segment": "3~5",
+          "f_min": 0.3,
+          "f_max": 0.4
+        },
+        {
+          "material": "碳素结构钢和合金结构钢",
+          "tool_shank_mm": "16×25",
+          "workpiece_dim_text": "60",
+          "ap_segment": "≤3",
+          "f_min": 0.5,
+          "f_max": 0.7
+        },
+        {
+          "material": "碳素结构钢和合金结构钢",
+          "tool_shank_mm": "16×25",
+          "workpiece_dim_text": "60",
+          "ap_segment": "3~5",
+          "f_min": 0.4,
+          "f_max": 0.6
+        },
+        {
+          "material": "碳素结构钢和合金结构钢",
+          "tool_shank_mm": "16×25",
+          "workpiece_dim_text": "60",
+          "ap_segment": "5~8",
+          "f_min": 0.3,
+          "f_max": 0.5
+        },
+        {
+          "material": "碳素结构钢和合金结构钢",
+          "tool_shank_mm": "16×25",
+          "workpiece_dim_text": "100",
+          "ap_segment": "≤3",
+          "f_min": 0.6,
+          "f_max": 0.9
+        },
+        {
+          "material": "碳素结构钢和合金结构钢",
+          "tool_shank_mm": "16×25",
+          "workpiece_dim_text": "100",
+          "ap_segment": "3~5",
+          "f_min": 0.5,
+          "f_max": 0.7
+        },
+        {
+          "material": "碳素结构钢和合金结构钢",
+          "tool_shank_mm": "16×25",
+          "workpiece_dim_text": "100",
+          "ap_segment": "5~8",
+          "f_min": 0.5,
+          "f_max": 0.6
+        },
+        {
+          "material": "碳素结构钢和合金结构钢",
+          "tool_shank_mm": "16×25",
+          "workpiece_dim_text": "100",
+          "ap_segment": "8~12",
+          "f_min": 0.4,
+          "f_max": 0.5
+        },
+        {
+          "material": "碳素结构钢和合金结构钢",
+          "tool_shank_mm": "16×25",
+          "workpiece_dim_text": "400",
+          "ap_segment": "≤3",
+          "f_min": 0.8,
+          "f_max": 1.2
+        },
+        {
+          "material": "碳素结构钢和合金结构钢",
+          "tool_shank_mm": "16×25",
+          "workpiece_dim_text": "400",
+          "ap_segment": "3~5",
+          "f_min": 0.7,
+          "f_max": 1.0
+        },
+        {
+          "material": "碳素结构钢和合金结构钢",
+          "tool_shank_mm": "16×25",
+          "workpiece_dim_text": "400",
+          "ap_segment": "5~8",
+          "f_min": 0.6,
+          "f_max": 0.8
+        },
+        {
+          "material": "碳素结构钢和合金结构钢",
+          "tool_shank_mm": "16×25",
+          "workpiece_dim_text": "400",
+          "ap_segment": "8~12",
+          "f_min": 0.5,
+          "f_max": 0.6
+        },
+        {
+          "material": "碳素结构钢和合金结构钢",
+          "tool_shank_mm": "20×30 / 25×25",
+          "workpiece_dim_text": "100",
+          "ap_segment": "≤3",
+          "f_min": 0.8,
+          "f_max": 1.0
+        },
+        {
+          "material": "碳素结构钢和合金结构钢",
+          "tool_shank_mm": "20×30 / 25×25",
+          "workpiece_dim_text": "100",
+          "ap_segment": "3~5",
+          "f_min": 0.7,
+          "f_max": 0.9
+        },
+        {
+          "material": "碳素结构钢和合金结构钢",
+          "tool_shank_mm": "20×30 / 25×25",
+          "workpiece_dim_text": "600",
+          "ap_segment": "≤3",
+          "f_min": 1.2,
+          "f_max": 1.4
+        },
+        {
+          "material": "碳素结构钢和合金结构钢",
+          "tool_shank_mm": "20×30 / 25×25",
+          "workpiece_dim_text": "600",
+          "ap_segment": "3~5",
+          "f_min": 1.0,
+          "f_max": 1.2
+        },
+        {
+          "material": "碳素结构钢和合金结构钢",
+          "tool_shank_mm": "20×30 / 25×25",
+          "workpiece_dim_text": "600",
+          "ap_segment": "5~8",
+          "f_min": 0.8,
+          "f_max": 1.0
+        },
+        {
+          "material": "碳素结构钢和合金结构钢",
+          "tool_shank_mm": "20×30 / 25×25",
+          "workpiece_dim_text": "600",
+          "ap_segment": "8~12",
+          "f_min": 0.6,
+          "f_max": 0.9
+        },
+        {
+          "material": "碳素结构钢和合金结构钢",
+          "tool_shank_mm": "20×30 / 25×25",
+          "workpiece_dim_text": "600",
+          "ap_segment": ">12",
+          "f_min": 0.4,
+          "f_max": 0.6
+        },
+        {
+          "material": "碳素结构钢和合金结构钢",
+          "tool_shank_mm": "25×40",
+          "workpiece_dim_text": "1000",
+          "ap_segment": "≤3",
+          "f_min": 1.2,
+          "f_max": 1.5
+        },
+        {
+          "material": "碳素结构钢和合金结构钢",
+          "tool_shank_mm": "25×40",
+          "workpiece_dim_text": "1000",
+          "ap_segment": "3~5",
+          "f_min": 1.1,
+          "f_max": 1.5
+        },
+        {
+          "material": "碳素结构钢和合金结构钢",
+          "tool_shank_mm": "25×40",
+          "workpiece_dim_text": "1000",
+          "ap_segment": "5~8",
+          "f_min": 0.9,
+          "f_max": 1.2
+        },
+        {
+          "material": "碳素结构钢和合金结构钢",
+          "tool_shank_mm": "25×40",
+          "workpiece_dim_text": "1000",
+          "ap_segment": "8~12",
+          "f_min": 0.8,
+          "f_max": 1.0
+        },
+        {
+          "material": "碳素结构钢和合金结构钢",
+          "tool_shank_mm": "25×40",
+          "workpiece_dim_text": "1000",
+          "ap_segment": ">12",
+          "f_min": 0.7,
+          "f_max": 0.8
+        },
+        {
+          "material": "铸铁及铜合金",
+          "tool_shank_mm": "16×25",
+          "workpiece_dim_text": "60",
+          "ap_segment": "≤3",
+          "f_min": 0.6,
+          "f_max": 0.8
+        },
+        {
+          "material": "铸铁及铜合金",
+          "tool_shank_mm": "16×25",
+          "workpiece_dim_text": "60",
+          "ap_segment": "3~5",
+          "f_min": 0.5,
+          "f_max": 0.8
+        },
+        {
+          "material": "铸铁及铜合金",
+          "tool_shank_mm": "16×25",
+          "workpiece_dim_text": "60",
+          "ap_segment": "5~8",
+          "f_min": 0.4,
+          "f_max": 0.6
+        },
+        {
+          "material": "铸铁及铜合金",
+          "tool_shank_mm": "16×25",
+          "workpiece_dim_text": "100",
+          "ap_segment": "≤3",
+          "f_min": 0.8,
+          "f_max": 1.2
+        },
+        {
+          "material": "铸铁及铜合金",
+          "tool_shank_mm": "16×25",
+          "workpiece_dim_text": "100",
+          "ap_segment": "3~5",
+          "f_min": 0.7,
+          "f_max": 1.0
+        },
+        {
+          "material": "铸铁及铜合金",
+          "tool_shank_mm": "16×25",
+          "workpiece_dim_text": "400",
+          "ap_segment": "≤3",
+          "f_min": 1.0,
+          "f_max": 1.4
+        },
+        {
+          "material": "铸铁及铜合金",
+          "tool_shank_mm": "16×25",
+          "workpiece_dim_text": "400",
+          "ap_segment": "3~5",
+          "f_min": 1.0,
+          "f_max": 1.2
+        },
+        {
+          "material": "铸铁及铜合金",
+          "tool_shank_mm": "20×30 / 25×25",
+          "workpiece_dim_text": "600",
+          "ap_segment": "≤3",
+          "f_min": 1.2,
+          "f_max": 1.8
+        },
+        {
+          "material": "铸铁及铜合金",
+          "tool_shank_mm": "20×30 / 25×25",
+          "workpiece_dim_text": "600",
+          "ap_segment": "3~5",
+          "f_min": 1.2,
+          "f_max": 1.6
+        },
+        {
+          "material": "铸铁及铜合金",
+          "tool_shank_mm": "20×30 / 25×25",
+          "workpiece_dim_text": "600",
+          "ap_segment": "5~8",
+          "f_min": 1.0,
+          "f_max": 1.3
+        },
+        {
+          "material": "铸铁及铜合金",
+          "tool_shank_mm": "20×30 / 25×25",
+          "workpiece_dim_text": "600",
+          "ap_segment": "8~12",
+          "f_min": 0.9,
+          "f_max": 1.1
+        },
+        {
+          "material": "铸铁及铜合金",
+          "tool_shank_mm": "25×40",
+          "workpiece_dim_text": "1000",
+          "ap_segment": "≤3",
+          "f_min": 1.5,
+          "f_max": 2.0
+        },
+        {
+          "material": "铸铁及铜合金",
+          "tool_shank_mm": "25×40",
+          "workpiece_dim_text": "1000",
+          "ap_segment": "3~5",
+          "f_min": 1.2,
+          "f_max": 1.8
+        },
+        {
+          "material": "铸铁及铜合金",
+          "tool_shank_mm": "25×40",
+          "workpiece_dim_text": "1000",
+          "ap_segment": "5~8",
+          "f_min": 1.0,
+          "f_max": 1.4
+        }
       ],
       "unit": "mm/r",
       "modifiers": "断续加工 K=0.75-0.85; 耐热钢 f≤1.0; 淬硬钢 44-56HRC K=0.8 / 57-62HRC K=0.5"
@@ -74,47 +359,349 @@
     "source_text": "半精车与精车外圆和端面进给量推荐表; 按表面粗糙度 Ra(0.8/1.6/3.2/6.3/12.5 μm) × 加工材料(钢/铸铁) × 副偏角 κ′r × 切削速度 vc(m/s) × 刀尖半径 re(0.5/1.0/2.0 mm) → f. 注: 内孔精车/半精车进给量参考外圆数值取小值; 材料强度 Rm 不同时进给量乘修正系数 (Rm<122=0.7, 122-686=0.75, 686-882=1.0, 882-1078=1.25).",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["切削参数", "进给量", "半精车", "精车", "车削手册-表8-2"],
+    "tags": [
+      "切削参数",
+      "进给量",
+      "半精车",
+      "精车",
+      "车削手册-表8-2"
+    ],
     "payload": {
       "subject": "半精车/精车外圆/端面 进给量 (mm/r)",
       "value_table": [
-        {"ra_target_um": 12.5, "material": "钢和铸铁", "kappa_prime_deg": 5, "vc_range": "不限制", "tool_nose_r_mm": 1.0, "f_min": 1.0, "f_max": 1.1},
-        {"ra_target_um": 12.5, "material": "钢和铸铁", "kappa_prime_deg": 5, "vc_range": "不限制", "tool_nose_r_mm": 2.0, "f_min": 1.3, "f_max": 1.5},
-        {"ra_target_um": 12.5, "material": "钢和铸铁", "kappa_prime_deg": 10, "vc_range": "不限制", "tool_nose_r_mm": 1.0, "f_min": 0.8, "f_max": 0.9},
-        {"ra_target_um": 12.5, "material": "钢和铸铁", "kappa_prime_deg": 10, "vc_range": "不限制", "tool_nose_r_mm": 2.0, "f_min": 1.0, "f_max": 1.1},
-        {"ra_target_um": 12.5, "material": "钢和铸铁", "kappa_prime_deg": 15, "vc_range": "不限制", "tool_nose_r_mm": 1.0, "f_min": 0.7, "f_max": 0.8},
-        {"ra_target_um": 12.5, "material": "钢和铸铁", "kappa_prime_deg": 15, "vc_range": "不限制", "tool_nose_r_mm": 2.0, "f_min": 0.9, "f_max": 1.0},
-        {"ra_target_um": 6.3, "material": "钢和铸铁", "kappa_prime_deg": 5, "vc_range": "不限制", "tool_nose_r_mm": 1.0, "f_min": 0.55, "f_max": 0.7},
-        {"ra_target_um": 6.3, "material": "钢和铸铁", "kappa_prime_deg": 5, "vc_range": "不限制", "tool_nose_r_mm": 2.0, "f_min": 0.7, "f_max": 0.88},
-        {"ra_target_um": 6.3, "material": "钢和铸铁", "kappa_prime_deg": "10~15", "vc_range": "不限制", "tool_nose_r_mm": 1.0, "f_min": 0.45, "f_max": 0.8},
-        {"ra_target_um": 6.3, "material": "钢和铸铁", "kappa_prime_deg": "10~15", "vc_range": "不限制", "tool_nose_r_mm": 2.0, "f_min": 0.6, "f_max": 0.7},
-        {"ra_target_um": 3.2, "material": "钢", "kappa_prime_deg": 5, "vc_range": "<0.83 m/s", "tool_nose_r_mm": 0.5, "f_min": 0.2, "f_max": 0.3},
-        {"ra_target_um": 3.2, "material": "钢", "kappa_prime_deg": 5, "vc_range": "<0.83 m/s", "tool_nose_r_mm": 1.0, "f_min": 0.25, "f_max": 0.35},
-        {"ra_target_um": 3.2, "material": "钢", "kappa_prime_deg": 5, "vc_range": "<0.83 m/s", "tool_nose_r_mm": 2.0, "f_min": 0.3, "f_max": 0.46},
-        {"ra_target_um": 3.2, "material": "钢", "kappa_prime_deg": 5, "vc_range": "0.833~1.666 m/s", "tool_nose_r_mm": 0.5, "f_min": 0.28, "f_max": 0.35},
-        {"ra_target_um": 3.2, "material": "钢", "kappa_prime_deg": 5, "vc_range": "0.833~1.666 m/s", "tool_nose_r_mm": 1.0, "f_min": 0.35, "f_max": 0.4},
-        {"ra_target_um": 3.2, "material": "钢", "kappa_prime_deg": 5, "vc_range": "0.833~1.666 m/s", "tool_nose_r_mm": 2.0, "f_min": 0.4, "f_max": 0.55},
-        {"ra_target_um": 3.2, "material": "钢", "kappa_prime_deg": 5, "vc_range": ">1.666 m/s", "tool_nose_r_mm": 0.5, "f_min": 0.35, "f_max": 0.4},
-        {"ra_target_um": 3.2, "material": "钢", "kappa_prime_deg": 5, "vc_range": ">1.666 m/s", "tool_nose_r_mm": 1.0, "f_min": 0.4, "f_max": 0.5},
-        {"ra_target_um": 3.2, "material": "钢", "kappa_prime_deg": 5, "vc_range": ">1.666 m/s", "tool_nose_r_mm": 2.0, "f_min": 0.5, "f_max": 0.6},
-        {"ra_target_um": 3.2, "material": "钢", "kappa_prime_deg": "10~15", "vc_range": "<0.83 m/s", "tool_nose_r_mm": 0.5, "f_min": 0.18, "f_max": 0.25},
-        {"ra_target_um": 3.2, "material": "钢", "kappa_prime_deg": "10~15", "vc_range": "0.833~1.666 m/s", "tool_nose_r_mm": 1.0, "f_min": 0.3, "f_max": 0.35},
-        {"ra_target_um": 3.2, "material": "铸铁", "kappa_prime_deg": 5, "vc_range": "不限制", "tool_nose_r_mm": 1.0, "f_min": 0.3, "f_max": 0.5},
-        {"ra_target_um": 3.2, "material": "铸铁", "kappa_prime_deg": 5, "vc_range": "不限制", "tool_nose_r_mm": 2.0, "f_min": 0.45, "f_max": 0.65},
-        {"ra_target_um": 3.2, "material": "铸铁", "kappa_prime_deg": "10~15", "vc_range": "不限制", "tool_nose_r_mm": 1.0, "f_min": 0.25, "f_max": 0.4},
-        {"ra_target_um": 3.2, "material": "铸铁", "kappa_prime_deg": "10~15", "vc_range": "不限制", "tool_nose_r_mm": 2.0, "f_min": 0.4, "f_max": 0.6},
-        {"ra_target_um": 1.6, "material": "钢", "kappa_prime_deg": "≥5", "vc_range": "0.5~0.833 m/s", "tool_nose_r_mm": 1.0, "f_min": 0.11, "f_max": 0.15},
-        {"ra_target_um": 1.6, "material": "钢", "kappa_prime_deg": "≥5", "vc_range": "0.5~0.833 m/s", "tool_nose_r_mm": 2.0, "f_min": 0.14, "f_max": 0.22},
-        {"ra_target_um": 1.6, "material": "钢", "kappa_prime_deg": "≥5", "vc_range": "0.833~1.333 m/s", "tool_nose_r_mm": 1.0, "f_min": 0.14, "f_max": 0.20},
-        {"ra_target_um": 1.6, "material": "钢", "kappa_prime_deg": "≥5", "vc_range": "0.833~1.333 m/s", "tool_nose_r_mm": 2.0, "f_min": 0.17, "f_max": 0.25},
-        {"ra_target_um": 1.6, "material": "钢", "kappa_prime_deg": "≥5", "vc_range": "1.333~1.666 m/s", "tool_nose_r_mm": 1.0, "f_min": 0.16, "f_max": 0.25},
-        {"ra_target_um": 1.6, "material": "钢", "kappa_prime_deg": "≥5", "vc_range": "1.333~1.666 m/s", "tool_nose_r_mm": 2.0, "f_min": 0.23, "f_max": 0.35},
-        {"ra_target_um": 1.6, "material": "钢", "kappa_prime_deg": "≥5", "vc_range": ">2.166 m/s", "tool_nose_r_mm": 1.0, "f_min": 0.25, "f_max": 0.3},
-        {"ra_target_um": 1.6, "material": "铸铁", "kappa_prime_deg": "≥5", "vc_range": "不限制", "tool_nose_r_mm": 1.0, "f_min": 0.15, "f_max": 0.25},
-        {"ra_target_um": 1.6, "material": "铸铁", "kappa_prime_deg": "≥5", "vc_range": "不限制", "tool_nose_r_mm": 2.0, "f_min": 0.2, "f_max": 0.35},
-        {"ra_target_um": 0.8, "material": "钢", "kappa_prime_deg": "≥5", "vc_range": "1.666~1.833 m/s", "tool_nose_r_mm": 1.0, "f_min": 0.12, "f_max": 0.15},
-        {"ra_target_um": 0.8, "material": "钢", "kappa_prime_deg": "≥5", "vc_range": "1.833~2.166 m/s", "tool_nose_r_mm": 1.0, "f_min": 0.13, "f_max": 0.18},
-        {"ra_target_um": 0.8, "material": "钢", "kappa_prime_deg": "≥5", "vc_range": ">2.166 m/s", "tool_nose_r_mm": 1.0, "f_min": 0.17, "f_max": 0.20}
+        {
+          "ra_target_um": 12.5,
+          "material": "钢和铸铁",
+          "kappa_prime_deg": 5,
+          "vc_range": "不限制",
+          "tool_nose_r_mm": 1.0,
+          "f_min": 1.0,
+          "f_max": 1.1
+        },
+        {
+          "ra_target_um": 12.5,
+          "material": "钢和铸铁",
+          "kappa_prime_deg": 5,
+          "vc_range": "不限制",
+          "tool_nose_r_mm": 2.0,
+          "f_min": 1.3,
+          "f_max": 1.5
+        },
+        {
+          "ra_target_um": 12.5,
+          "material": "钢和铸铁",
+          "kappa_prime_deg": 10,
+          "vc_range": "不限制",
+          "tool_nose_r_mm": 1.0,
+          "f_min": 0.8,
+          "f_max": 0.9
+        },
+        {
+          "ra_target_um": 12.5,
+          "material": "钢和铸铁",
+          "kappa_prime_deg": 10,
+          "vc_range": "不限制",
+          "tool_nose_r_mm": 2.0,
+          "f_min": 1.0,
+          "f_max": 1.1
+        },
+        {
+          "ra_target_um": 12.5,
+          "material": "钢和铸铁",
+          "kappa_prime_deg": 15,
+          "vc_range": "不限制",
+          "tool_nose_r_mm": 1.0,
+          "f_min": 0.7,
+          "f_max": 0.8
+        },
+        {
+          "ra_target_um": 12.5,
+          "material": "钢和铸铁",
+          "kappa_prime_deg": 15,
+          "vc_range": "不限制",
+          "tool_nose_r_mm": 2.0,
+          "f_min": 0.9,
+          "f_max": 1.0
+        },
+        {
+          "ra_target_um": 6.3,
+          "material": "钢和铸铁",
+          "kappa_prime_deg": 5,
+          "vc_range": "不限制",
+          "tool_nose_r_mm": 1.0,
+          "f_min": 0.55,
+          "f_max": 0.7
+        },
+        {
+          "ra_target_um": 6.3,
+          "material": "钢和铸铁",
+          "kappa_prime_deg": 5,
+          "vc_range": "不限制",
+          "tool_nose_r_mm": 2.0,
+          "f_min": 0.7,
+          "f_max": 0.88
+        },
+        {
+          "ra_target_um": 6.3,
+          "material": "钢和铸铁",
+          "kappa_prime_deg": "10~15",
+          "vc_range": "不限制",
+          "tool_nose_r_mm": 1.0,
+          "f_min": 0.45,
+          "f_max": 0.8
+        },
+        {
+          "ra_target_um": 6.3,
+          "material": "钢和铸铁",
+          "kappa_prime_deg": "10~15",
+          "vc_range": "不限制",
+          "tool_nose_r_mm": 2.0,
+          "f_min": 0.6,
+          "f_max": 0.7
+        },
+        {
+          "ra_target_um": 3.2,
+          "material": "钢",
+          "kappa_prime_deg": 5,
+          "vc_range": "<0.83 m/s",
+          "tool_nose_r_mm": 0.5,
+          "f_min": 0.2,
+          "f_max": 0.3
+        },
+        {
+          "ra_target_um": 3.2,
+          "material": "钢",
+          "kappa_prime_deg": 5,
+          "vc_range": "<0.83 m/s",
+          "tool_nose_r_mm": 1.0,
+          "f_min": 0.25,
+          "f_max": 0.35
+        },
+        {
+          "ra_target_um": 3.2,
+          "material": "钢",
+          "kappa_prime_deg": 5,
+          "vc_range": "<0.83 m/s",
+          "tool_nose_r_mm": 2.0,
+          "f_min": 0.3,
+          "f_max": 0.46
+        },
+        {
+          "ra_target_um": 3.2,
+          "material": "钢",
+          "kappa_prime_deg": 5,
+          "vc_range": "0.833~1.666 m/s",
+          "tool_nose_r_mm": 0.5,
+          "f_min": 0.28,
+          "f_max": 0.35
+        },
+        {
+          "ra_target_um": 3.2,
+          "material": "钢",
+          "kappa_prime_deg": 5,
+          "vc_range": "0.833~1.666 m/s",
+          "tool_nose_r_mm": 1.0,
+          "f_min": 0.35,
+          "f_max": 0.4
+        },
+        {
+          "ra_target_um": 3.2,
+          "material": "钢",
+          "kappa_prime_deg": 5,
+          "vc_range": "0.833~1.666 m/s",
+          "tool_nose_r_mm": 2.0,
+          "f_min": 0.4,
+          "f_max": 0.55
+        },
+        {
+          "ra_target_um": 3.2,
+          "material": "钢",
+          "kappa_prime_deg": 5,
+          "vc_range": ">1.666 m/s",
+          "tool_nose_r_mm": 0.5,
+          "f_min": 0.35,
+          "f_max": 0.4
+        },
+        {
+          "ra_target_um": 3.2,
+          "material": "钢",
+          "kappa_prime_deg": 5,
+          "vc_range": ">1.666 m/s",
+          "tool_nose_r_mm": 1.0,
+          "f_min": 0.4,
+          "f_max": 0.5
+        },
+        {
+          "ra_target_um": 3.2,
+          "material": "钢",
+          "kappa_prime_deg": 5,
+          "vc_range": ">1.666 m/s",
+          "tool_nose_r_mm": 2.0,
+          "f_min": 0.5,
+          "f_max": 0.6
+        },
+        {
+          "ra_target_um": 3.2,
+          "material": "钢",
+          "kappa_prime_deg": "10~15",
+          "vc_range": "<0.83 m/s",
+          "tool_nose_r_mm": 0.5,
+          "f_min": 0.18,
+          "f_max": 0.25
+        },
+        {
+          "ra_target_um": 3.2,
+          "material": "钢",
+          "kappa_prime_deg": "10~15",
+          "vc_range": "0.833~1.666 m/s",
+          "tool_nose_r_mm": 1.0,
+          "f_min": 0.3,
+          "f_max": 0.35
+        },
+        {
+          "ra_target_um": 3.2,
+          "material": "铸铁",
+          "kappa_prime_deg": 5,
+          "vc_range": "不限制",
+          "tool_nose_r_mm": 1.0,
+          "f_min": 0.3,
+          "f_max": 0.5
+        },
+        {
+          "ra_target_um": 3.2,
+          "material": "铸铁",
+          "kappa_prime_deg": 5,
+          "vc_range": "不限制",
+          "tool_nose_r_mm": 2.0,
+          "f_min": 0.45,
+          "f_max": 0.65
+        },
+        {
+          "ra_target_um": 3.2,
+          "material": "铸铁",
+          "kappa_prime_deg": "10~15",
+          "vc_range": "不限制",
+          "tool_nose_r_mm": 1.0,
+          "f_min": 0.25,
+          "f_max": 0.4
+        },
+        {
+          "ra_target_um": 3.2,
+          "material": "铸铁",
+          "kappa_prime_deg": "10~15",
+          "vc_range": "不限制",
+          "tool_nose_r_mm": 2.0,
+          "f_min": 0.4,
+          "f_max": 0.6
+        },
+        {
+          "ra_target_um": 1.6,
+          "material": "钢",
+          "kappa_prime_deg": "≥5",
+          "vc_range": "0.5~0.833 m/s",
+          "tool_nose_r_mm": 1.0,
+          "f_min": 0.11,
+          "f_max": 0.15
+        },
+        {
+          "ra_target_um": 1.6,
+          "material": "钢",
+          "kappa_prime_deg": "≥5",
+          "vc_range": "0.5~0.833 m/s",
+          "tool_nose_r_mm": 2.0,
+          "f_min": 0.14,
+          "f_max": 0.22
+        },
+        {
+          "ra_target_um": 1.6,
+          "material": "钢",
+          "kappa_prime_deg": "≥5",
+          "vc_range": "0.833~1.333 m/s",
+          "tool_nose_r_mm": 1.0,
+          "f_min": 0.14,
+          "f_max": 0.2
+        },
+        {
+          "ra_target_um": 1.6,
+          "material": "钢",
+          "kappa_prime_deg": "≥5",
+          "vc_range": "0.833~1.333 m/s",
+          "tool_nose_r_mm": 2.0,
+          "f_min": 0.17,
+          "f_max": 0.25
+        },
+        {
+          "ra_target_um": 1.6,
+          "material": "钢",
+          "kappa_prime_deg": "≥5",
+          "vc_range": "1.333~1.666 m/s",
+          "tool_nose_r_mm": 1.0,
+          "f_min": 0.16,
+          "f_max": 0.25
+        },
+        {
+          "ra_target_um": 1.6,
+          "material": "钢",
+          "kappa_prime_deg": "≥5",
+          "vc_range": "1.333~1.666 m/s",
+          "tool_nose_r_mm": 2.0,
+          "f_min": 0.23,
+          "f_max": 0.35
+        },
+        {
+          "ra_target_um": 1.6,
+          "material": "钢",
+          "kappa_prime_deg": "≥5",
+          "vc_range": ">2.166 m/s",
+          "tool_nose_r_mm": 1.0,
+          "f_min": 0.25,
+          "f_max": 0.3
+        },
+        {
+          "ra_target_um": 1.6,
+          "material": "铸铁",
+          "kappa_prime_deg": "≥5",
+          "vc_range": "不限制",
+          "tool_nose_r_mm": 1.0,
+          "f_min": 0.15,
+          "f_max": 0.25
+        },
+        {
+          "ra_target_um": 1.6,
+          "material": "铸铁",
+          "kappa_prime_deg": "≥5",
+          "vc_range": "不限制",
+          "tool_nose_r_mm": 2.0,
+          "f_min": 0.2,
+          "f_max": 0.35
+        },
+        {
+          "ra_target_um": 0.8,
+          "material": "钢",
+          "kappa_prime_deg": "≥5",
+          "vc_range": "1.666~1.833 m/s",
+          "tool_nose_r_mm": 1.0,
+          "f_min": 0.12,
+          "f_max": 0.15
+        },
+        {
+          "ra_target_um": 0.8,
+          "material": "钢",
+          "kappa_prime_deg": "≥5",
+          "vc_range": "1.833~2.166 m/s",
+          "tool_nose_r_mm": 1.0,
+          "f_min": 0.13,
+          "f_max": 0.18
+        },
+        {
+          "ra_target_um": 0.8,
+          "material": "钢",
+          "kappa_prime_deg": "≥5",
+          "vc_range": ">2.166 m/s",
+          "tool_nose_r_mm": 1.0,
+          "f_min": 0.17,
+          "f_max": 0.2
+        }
       ],
       "unit": "mm/r",
       "modifiers": "材料强度修正: Rm<122 K=0.7 / Rm 122-686 K=0.75 / Rm 686-882 K=1.0 / Rm 882-1078 K=1.25; 内孔精车/半精车参考此表取小值"
@@ -133,54 +720,412 @@
     "source_text": "外圆车削切削速度推荐表; 区分硬质合金车刀(三个 ap×f 组合区段) 与高速钢车刀; 按材料(低碳钢/中碳钢/合金结构钢/工具钢/不锈钢/灰铸铁/高锰钢/铜合金/铝合金/铸铝合金) × 热处理 × 硬度 → vc(m/s). 注: 切削钢及铸铁刀具寿命 60-90 min; 车孔速度比车外圆低 10-20%.",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["切削参数", "切削速度", "vc", "外圆车削", "车削手册-表8-3"],
+    "tags": [
+      "切削参数",
+      "切削速度",
+      "vc",
+      "外圆车削",
+      "车削手册-表8-3"
+    ],
     "payload": {
       "subject": "外圆车削 切削速度 vc (m/s)",
       "value_table": [
-        {"material": "低碳钢 (易切钢)", "heat_treat": "热轧", "hardness_hbw": "143~207", "tool": "硬质合金", "regime": "ap=0.3-2, f=0.03-0.3", "vc_min_mps": 2.33, "vc_max_mps": 3.0},
-        {"material": "低碳钢 (易切钢)", "heat_treat": "热轧", "hardness_hbw": "143~207", "tool": "硬质合金", "regime": "ap=2-6, f=0.3-0.6", "vc_min_mps": 1.667, "vc_max_mps": 2.0},
-        {"material": "低碳钢 (易切钢)", "heat_treat": "热轧", "hardness_hbw": "143~207", "tool": "硬质合金", "regime": "ap=6-10, f=0.6-1", "vc_min_mps": 1.167, "vc_max_mps": 1.5},
-        {"material": "低碳钢 (易切钢)", "heat_treat": "热轧", "hardness_hbw": "143~207", "tool": "高速钢", "regime": "全段", "vc_min_mps": 0.417, "vc_max_mps": 0.75},
-        {"material": "中碳钢", "heat_treat": "热轧", "hardness_hbw": "179~255", "tool": "硬质合金", "regime": "ap=0.3-2, f=0.03-0.3", "vc_min_mps": 2.17, "vc_max_mps": 2.667},
-        {"material": "中碳钢", "heat_treat": "热轧", "hardness_hbw": "179~255", "tool": "硬质合金", "regime": "ap=2-6, f=0.3-0.6", "vc_min_mps": 1.5, "vc_max_mps": 1.83},
-        {"material": "中碳钢", "heat_treat": "热轧", "hardness_hbw": "179~255", "tool": "硬质合金", "regime": "ap=6-10, f=0.6-1", "vc_min_mps": 1.0, "vc_max_mps": 1.333},
-        {"material": "中碳钢", "heat_treat": "热轧", "hardness_hbw": "179~255", "tool": "高速钢", "regime": "全段", "vc_min_mps": 0.333, "vc_max_mps": 0.5},
-        {"material": "中碳钢", "heat_treat": "调质", "hardness_hbw": "200~250", "tool": "硬质合金", "regime": "ap=0.3-2, f=0.03-0.3", "vc_min_mps": 1.667, "vc_max_mps": 2.17},
-        {"material": "中碳钢", "heat_treat": "调质", "hardness_hbw": "200~250", "tool": "硬质合金", "regime": "ap=2-6, f=0.3-0.6", "vc_min_mps": 1.167, "vc_max_mps": 1.5},
-        {"material": "中碳钢", "heat_treat": "调质", "hardness_hbw": "200~250", "tool": "硬质合金", "regime": "ap=6-10, f=0.6-1", "vc_min_mps": 0.833, "vc_max_mps": 1.167},
-        {"material": "中碳钢", "heat_treat": "调质", "hardness_hbw": "200~250", "tool": "高速钢", "regime": "全段", "vc_min_mps": 0.25, "vc_max_mps": 0.417},
-        {"material": "中碳钢", "heat_treat": "淬火", "hardness_hbw": "347~547", "tool": "硬质合金", "regime": "ap=0.3-2, f=0.03-0.3", "vc_min_mps": 1.0, "vc_max_mps": 1.333},
-        {"material": "中碳钢", "heat_treat": "淬火", "hardness_hbw": "347~547", "tool": "硬质合金", "regime": "ap=2-6, f=0.3-0.6", "vc_min_mps": 0.667, "vc_max_mps": 1.0},
-        {"material": "合金结构钢", "heat_treat": "热轧", "hardness_hbw": "212~269", "tool": "硬质合金", "regime": "ap=0.3-2, f=0.03-0.3", "vc_min_mps": 1.667, "vc_max_mps": 2.17},
-        {"material": "合金结构钢", "heat_treat": "热轧", "hardness_hbw": "212~269", "tool": "硬质合金", "regime": "ap=2-6, f=0.3-0.6", "vc_min_mps": 1.167, "vc_max_mps": 1.5},
-        {"material": "合金结构钢", "heat_treat": "热轧", "hardness_hbw": "212~269", "tool": "硬质合金", "regime": "ap=6-10, f=0.6-1", "vc_min_mps": 0.833, "vc_max_mps": 1.167},
-        {"material": "合金结构钢", "heat_treat": "热轧", "hardness_hbw": "212~269", "tool": "高速钢", "regime": "全段", "vc_min_mps": 0.333, "vc_max_mps": 0.5},
-        {"material": "合金结构钢", "heat_treat": "调质", "hardness_hbw": "200~293", "tool": "硬质合金", "regime": "ap=0.3-2, f=0.03-0.3", "vc_min_mps": 1.333, "vc_max_mps": 1.83},
-        {"material": "合金结构钢", "heat_treat": "调质", "hardness_hbw": "200~293", "tool": "硬质合金", "regime": "ap=2-6, f=0.3-0.6", "vc_min_mps": 0.833, "vc_max_mps": 1.167},
-        {"material": "合金结构钢", "heat_treat": "调质", "hardness_hbw": "200~293", "tool": "硬质合金", "regime": "ap=6-10, f=0.6-1", "vc_min_mps": 0.667, "vc_max_mps": 1.0},
-        {"material": "工具钢", "heat_treat": "退火", "hardness_hbw": null, "tool": "硬质合金", "regime": "ap=0.3-2, f=0.03-0.3", "vc_min_mps": 1.5, "vc_max_mps": 2.0},
-        {"material": "工具钢", "heat_treat": "退火", "hardness_hbw": null, "tool": "硬质合金", "regime": "ap=2-6, f=0.3-0.6", "vc_min_mps": 1.0, "vc_max_mps": 1.333},
-        {"material": "工具钢", "heat_treat": "退火", "hardness_hbw": null, "tool": "硬质合金", "regime": "ap=6-10, f=0.6-1", "vc_min_mps": 0.833, "vc_max_mps": 1.167},
-        {"material": "不锈钢", "heat_treat": null, "hardness_hbw": null, "tool": "硬质合金", "regime": "ap=0.3-2, f=0.03-0.3", "vc_min_mps": 1.167, "vc_max_mps": 1.333},
-        {"material": "不锈钢", "heat_treat": null, "hardness_hbw": null, "tool": "硬质合金", "regime": "ap=2-6, f=0.3-0.6", "vc_min_mps": 1.0, "vc_max_mps": 1.167},
-        {"material": "不锈钢", "heat_treat": null, "hardness_hbw": null, "tool": "硬质合金", "regime": "ap=6-10, f=0.6-1", "vc_min_mps": 0.833, "vc_max_mps": 1.0},
-        {"material": "不锈钢", "heat_treat": null, "hardness_hbw": null, "tool": "高速钢", "regime": "全段", "vc_min_mps": 0.25, "vc_max_mps": 0.417},
-        {"material": "灰铸铁", "heat_treat": null, "hardness_hbw": "<190", "tool": "硬质合金", "regime": "ap=0.3-2, f=0.03-0.3", "vc_min_mps": 1.5, "vc_max_mps": 2.0},
-        {"material": "灰铸铁", "heat_treat": null, "hardness_hbw": "<190", "tool": "硬质合金", "regime": "ap=2-6, f=0.3-0.6", "vc_min_mps": 1.0, "vc_max_mps": 1.333},
-        {"material": "灰铸铁", "heat_treat": null, "hardness_hbw": "<190", "tool": "硬质合金", "regime": "ap=6-10, f=0.6-1", "vc_min_mps": 0.833, "vc_max_mps": 1.167},
-        {"material": "灰铸铁", "heat_treat": null, "hardness_hbw": "<190", "tool": "高速钢", "regime": "全段", "vc_min_mps": 0.333, "vc_max_mps": 0.5},
-        {"material": "灰铸铁", "heat_treat": null, "hardness_hbw": "190~225", "tool": "硬质合金", "regime": "ap=0.3-2, f=0.03-0.3", "vc_min_mps": 1.333, "vc_max_mps": 1.83},
-        {"material": "灰铸铁", "heat_treat": null, "hardness_hbw": "190~225", "tool": "硬质合金", "regime": "ap=2-6, f=0.3-0.6", "vc_min_mps": 0.833, "vc_max_mps": 1.167},
-        {"material": "灰铸铁", "heat_treat": null, "hardness_hbw": "190~225", "tool": "硬质合金", "regime": "ap=6-10, f=0.6-1", "vc_min_mps": 0.67, "vc_max_mps": 1.0},
-        {"material": "高锰钢 (13% Mn)", "heat_treat": null, "hardness_hbw": null, "tool": "硬质合金", "regime": "ap=2-6, f=0.3-0.6", "vc_min_mps": 0.167, "vc_max_mps": 0.333},
-        {"material": "铜及铜合金", "heat_treat": null, "hardness_hbw": null, "tool": "硬质合金", "regime": "ap=0.3-2, f=0.03-0.3", "vc_min_mps": 3.33, "vc_max_mps": 4.167},
-        {"material": "铜及铜合金", "heat_treat": null, "hardness_hbw": null, "tool": "硬质合金", "regime": "ap=2-6, f=0.3-0.6", "vc_min_mps": 2.0, "vc_max_mps": 3.0},
-        {"material": "铜及铜合金", "heat_treat": null, "hardness_hbw": null, "tool": "硬质合金", "regime": "ap=6-10, f=0.6-1", "vc_min_mps": 1.5, "vc_max_mps": 2.0},
-        {"material": "铜及铜合金", "heat_treat": null, "hardness_hbw": null, "tool": "高速钢", "regime": "全段", "vc_min_mps": 0.833, "vc_max_mps": 1.167},
-        {"material": "铝及铝合金", "heat_treat": null, "hardness_hbw": null, "tool": "硬质合金", "regime": "ap=0.3-2, f=0.03-0.3", "vc_min_mps": 5.0, "vc_max_mps": 10.0},
-        {"material": "铝及铝合金", "heat_treat": null, "hardness_hbw": null, "tool": "硬质合金", "regime": "ap=2-6, f=0.3-0.6", "vc_min_mps": 3.33, "vc_max_mps": 6.67},
-        {"material": "铝及铝合金", "heat_treat": null, "hardness_hbw": null, "tool": "硬质合金", "regime": "ap=6-10, f=0.6-1", "vc_min_mps": 2.5, "vc_max_mps": 5.0},
-        {"material": "铝及铝合金", "heat_treat": null, "hardness_hbw": null, "tool": "高速钢", "regime": "全段", "vc_min_mps": 1.667, "vc_max_mps": 4.167}
+        {
+          "material": "低碳钢 (易切钢)",
+          "heat_treat": "热轧",
+          "hardness_hbw": "143~207",
+          "tool": "硬质合金",
+          "regime": "ap=0.3-2, f=0.03-0.3",
+          "vc_min_mps": 2.33,
+          "vc_max_mps": 3.0
+        },
+        {
+          "material": "低碳钢 (易切钢)",
+          "heat_treat": "热轧",
+          "hardness_hbw": "143~207",
+          "tool": "硬质合金",
+          "regime": "ap=2-6, f=0.3-0.6",
+          "vc_min_mps": 1.667,
+          "vc_max_mps": 2.0
+        },
+        {
+          "material": "低碳钢 (易切钢)",
+          "heat_treat": "热轧",
+          "hardness_hbw": "143~207",
+          "tool": "硬质合金",
+          "regime": "ap=6-10, f=0.6-1",
+          "vc_min_mps": 1.167,
+          "vc_max_mps": 1.5
+        },
+        {
+          "material": "低碳钢 (易切钢)",
+          "heat_treat": "热轧",
+          "hardness_hbw": "143~207",
+          "tool": "高速钢",
+          "regime": "全段",
+          "vc_min_mps": 0.417,
+          "vc_max_mps": 0.75
+        },
+        {
+          "material": "中碳钢",
+          "heat_treat": "热轧",
+          "hardness_hbw": "179~255",
+          "tool": "硬质合金",
+          "regime": "ap=0.3-2, f=0.03-0.3",
+          "vc_min_mps": 2.17,
+          "vc_max_mps": 2.667
+        },
+        {
+          "material": "中碳钢",
+          "heat_treat": "热轧",
+          "hardness_hbw": "179~255",
+          "tool": "硬质合金",
+          "regime": "ap=2-6, f=0.3-0.6",
+          "vc_min_mps": 1.5,
+          "vc_max_mps": 1.83
+        },
+        {
+          "material": "中碳钢",
+          "heat_treat": "热轧",
+          "hardness_hbw": "179~255",
+          "tool": "硬质合金",
+          "regime": "ap=6-10, f=0.6-1",
+          "vc_min_mps": 1.0,
+          "vc_max_mps": 1.333
+        },
+        {
+          "material": "中碳钢",
+          "heat_treat": "热轧",
+          "hardness_hbw": "179~255",
+          "tool": "高速钢",
+          "regime": "全段",
+          "vc_min_mps": 0.333,
+          "vc_max_mps": 0.5
+        },
+        {
+          "material": "中碳钢",
+          "heat_treat": "调质",
+          "hardness_hbw": "200~250",
+          "tool": "硬质合金",
+          "regime": "ap=0.3-2, f=0.03-0.3",
+          "vc_min_mps": 1.667,
+          "vc_max_mps": 2.17
+        },
+        {
+          "material": "中碳钢",
+          "heat_treat": "调质",
+          "hardness_hbw": "200~250",
+          "tool": "硬质合金",
+          "regime": "ap=2-6, f=0.3-0.6",
+          "vc_min_mps": 1.167,
+          "vc_max_mps": 1.5
+        },
+        {
+          "material": "中碳钢",
+          "heat_treat": "调质",
+          "hardness_hbw": "200~250",
+          "tool": "硬质合金",
+          "regime": "ap=6-10, f=0.6-1",
+          "vc_min_mps": 0.833,
+          "vc_max_mps": 1.167
+        },
+        {
+          "material": "中碳钢",
+          "heat_treat": "调质",
+          "hardness_hbw": "200~250",
+          "tool": "高速钢",
+          "regime": "全段",
+          "vc_min_mps": 0.25,
+          "vc_max_mps": 0.417
+        },
+        {
+          "material": "中碳钢",
+          "heat_treat": "淬火",
+          "hardness_hbw": "347~547",
+          "tool": "硬质合金",
+          "regime": "ap=0.3-2, f=0.03-0.3",
+          "vc_min_mps": 1.0,
+          "vc_max_mps": 1.333
+        },
+        {
+          "material": "中碳钢",
+          "heat_treat": "淬火",
+          "hardness_hbw": "347~547",
+          "tool": "硬质合金",
+          "regime": "ap=2-6, f=0.3-0.6",
+          "vc_min_mps": 0.667,
+          "vc_max_mps": 1.0
+        },
+        {
+          "material": "合金结构钢",
+          "heat_treat": "热轧",
+          "hardness_hbw": "212~269",
+          "tool": "硬质合金",
+          "regime": "ap=0.3-2, f=0.03-0.3",
+          "vc_min_mps": 1.667,
+          "vc_max_mps": 2.17
+        },
+        {
+          "material": "合金结构钢",
+          "heat_treat": "热轧",
+          "hardness_hbw": "212~269",
+          "tool": "硬质合金",
+          "regime": "ap=2-6, f=0.3-0.6",
+          "vc_min_mps": 1.167,
+          "vc_max_mps": 1.5
+        },
+        {
+          "material": "合金结构钢",
+          "heat_treat": "热轧",
+          "hardness_hbw": "212~269",
+          "tool": "硬质合金",
+          "regime": "ap=6-10, f=0.6-1",
+          "vc_min_mps": 0.833,
+          "vc_max_mps": 1.167
+        },
+        {
+          "material": "合金结构钢",
+          "heat_treat": "热轧",
+          "hardness_hbw": "212~269",
+          "tool": "高速钢",
+          "regime": "全段",
+          "vc_min_mps": 0.333,
+          "vc_max_mps": 0.5
+        },
+        {
+          "material": "合金结构钢",
+          "heat_treat": "调质",
+          "hardness_hbw": "200~293",
+          "tool": "硬质合金",
+          "regime": "ap=0.3-2, f=0.03-0.3",
+          "vc_min_mps": 1.333,
+          "vc_max_mps": 1.83
+        },
+        {
+          "material": "合金结构钢",
+          "heat_treat": "调质",
+          "hardness_hbw": "200~293",
+          "tool": "硬质合金",
+          "regime": "ap=2-6, f=0.3-0.6",
+          "vc_min_mps": 0.833,
+          "vc_max_mps": 1.167
+        },
+        {
+          "material": "合金结构钢",
+          "heat_treat": "调质",
+          "hardness_hbw": "200~293",
+          "tool": "硬质合金",
+          "regime": "ap=6-10, f=0.6-1",
+          "vc_min_mps": 0.667,
+          "vc_max_mps": 1.0
+        },
+        {
+          "material": "工具钢",
+          "heat_treat": "退火",
+          "hardness_hbw": null,
+          "tool": "硬质合金",
+          "regime": "ap=0.3-2, f=0.03-0.3",
+          "vc_min_mps": 1.5,
+          "vc_max_mps": 2.0
+        },
+        {
+          "material": "工具钢",
+          "heat_treat": "退火",
+          "hardness_hbw": null,
+          "tool": "硬质合金",
+          "regime": "ap=2-6, f=0.3-0.6",
+          "vc_min_mps": 1.0,
+          "vc_max_mps": 1.333
+        },
+        {
+          "material": "工具钢",
+          "heat_treat": "退火",
+          "hardness_hbw": null,
+          "tool": "硬质合金",
+          "regime": "ap=6-10, f=0.6-1",
+          "vc_min_mps": 0.833,
+          "vc_max_mps": 1.167
+        },
+        {
+          "material": "不锈钢",
+          "heat_treat": null,
+          "hardness_hbw": null,
+          "tool": "硬质合金",
+          "regime": "ap=0.3-2, f=0.03-0.3",
+          "vc_min_mps": 1.167,
+          "vc_max_mps": 1.333
+        },
+        {
+          "material": "不锈钢",
+          "heat_treat": null,
+          "hardness_hbw": null,
+          "tool": "硬质合金",
+          "regime": "ap=2-6, f=0.3-0.6",
+          "vc_min_mps": 1.0,
+          "vc_max_mps": 1.167
+        },
+        {
+          "material": "不锈钢",
+          "heat_treat": null,
+          "hardness_hbw": null,
+          "tool": "硬质合金",
+          "regime": "ap=6-10, f=0.6-1",
+          "vc_min_mps": 0.833,
+          "vc_max_mps": 1.0
+        },
+        {
+          "material": "不锈钢",
+          "heat_treat": null,
+          "hardness_hbw": null,
+          "tool": "高速钢",
+          "regime": "全段",
+          "vc_min_mps": 0.25,
+          "vc_max_mps": 0.417
+        },
+        {
+          "material": "灰铸铁",
+          "heat_treat": null,
+          "hardness_hbw": "<190",
+          "tool": "硬质合金",
+          "regime": "ap=0.3-2, f=0.03-0.3",
+          "vc_min_mps": 1.5,
+          "vc_max_mps": 2.0
+        },
+        {
+          "material": "灰铸铁",
+          "heat_treat": null,
+          "hardness_hbw": "<190",
+          "tool": "硬质合金",
+          "regime": "ap=2-6, f=0.3-0.6",
+          "vc_min_mps": 1.0,
+          "vc_max_mps": 1.333
+        },
+        {
+          "material": "灰铸铁",
+          "heat_treat": null,
+          "hardness_hbw": "<190",
+          "tool": "硬质合金",
+          "regime": "ap=6-10, f=0.6-1",
+          "vc_min_mps": 0.833,
+          "vc_max_mps": 1.167
+        },
+        {
+          "material": "灰铸铁",
+          "heat_treat": null,
+          "hardness_hbw": "<190",
+          "tool": "高速钢",
+          "regime": "全段",
+          "vc_min_mps": 0.333,
+          "vc_max_mps": 0.5
+        },
+        {
+          "material": "灰铸铁",
+          "heat_treat": null,
+          "hardness_hbw": "190~225",
+          "tool": "硬质合金",
+          "regime": "ap=0.3-2, f=0.03-0.3",
+          "vc_min_mps": 1.333,
+          "vc_max_mps": 1.83
+        },
+        {
+          "material": "灰铸铁",
+          "heat_treat": null,
+          "hardness_hbw": "190~225",
+          "tool": "硬质合金",
+          "regime": "ap=2-6, f=0.3-0.6",
+          "vc_min_mps": 0.833,
+          "vc_max_mps": 1.167
+        },
+        {
+          "material": "灰铸铁",
+          "heat_treat": null,
+          "hardness_hbw": "190~225",
+          "tool": "硬质合金",
+          "regime": "ap=6-10, f=0.6-1",
+          "vc_min_mps": 0.67,
+          "vc_max_mps": 1.0
+        },
+        {
+          "material": "高锰钢 (13% Mn)",
+          "heat_treat": null,
+          "hardness_hbw": null,
+          "tool": "硬质合金",
+          "regime": "ap=2-6, f=0.3-0.6",
+          "vc_min_mps": 0.167,
+          "vc_max_mps": 0.333
+        },
+        {
+          "material": "铜及铜合金",
+          "heat_treat": null,
+          "hardness_hbw": null,
+          "tool": "硬质合金",
+          "regime": "ap=0.3-2, f=0.03-0.3",
+          "vc_min_mps": 3.33,
+          "vc_max_mps": 4.167
+        },
+        {
+          "material": "铜及铜合金",
+          "heat_treat": null,
+          "hardness_hbw": null,
+          "tool": "硬质合金",
+          "regime": "ap=2-6, f=0.3-0.6",
+          "vc_min_mps": 2.0,
+          "vc_max_mps": 3.0
+        },
+        {
+          "material": "铜及铜合金",
+          "heat_treat": null,
+          "hardness_hbw": null,
+          "tool": "硬质合金",
+          "regime": "ap=6-10, f=0.6-1",
+          "vc_min_mps": 1.5,
+          "vc_max_mps": 2.0
+        },
+        {
+          "material": "铜及铜合金",
+          "heat_treat": null,
+          "hardness_hbw": null,
+          "tool": "高速钢",
+          "regime": "全段",
+          "vc_min_mps": 0.833,
+          "vc_max_mps": 1.167
+        },
+        {
+          "material": "铝及铝合金",
+          "heat_treat": null,
+          "hardness_hbw": null,
+          "tool": "硬质合金",
+          "regime": "ap=0.3-2, f=0.03-0.3",
+          "vc_min_mps": 5.0,
+          "vc_max_mps": 10.0
+        },
+        {
+          "material": "铝及铝合金",
+          "heat_treat": null,
+          "hardness_hbw": null,
+          "tool": "硬质合金",
+          "regime": "ap=2-6, f=0.3-0.6",
+          "vc_min_mps": 3.33,
+          "vc_max_mps": 6.67
+        },
+        {
+          "material": "铝及铝合金",
+          "heat_treat": null,
+          "hardness_hbw": null,
+          "tool": "硬质合金",
+          "regime": "ap=6-10, f=0.6-1",
+          "vc_min_mps": 2.5,
+          "vc_max_mps": 5.0
+        },
+        {
+          "material": "铝及铝合金",
+          "heat_treat": null,
+          "hardness_hbw": null,
+          "tool": "高速钢",
+          "regime": "全段",
+          "vc_min_mps": 1.667,
+          "vc_max_mps": 4.167
+        }
       ],
       "unit": "m/s",
       "modifiers": "刀具寿命 60-90 min; 车孔速度比车外圆低 10-20%"
@@ -199,21 +1144,104 @@
     "source_text": "粗车内孔进给量推荐表; 加工材料(钢/铸铁) × 刀杆截面 × 加工孔直径(20-100mm) × 背吃刀量(2/3/5/8 mm) → f. 注: 内孔加工时进给量与外圆类似但取较小值; 此表为参考值, 实际依工艺系统刚性调整.",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["切削参数", "进给量", "粗车", "内孔", "车削手册-表8-7"],
+    "tags": [
+      "切削参数",
+      "进给量",
+      "粗车",
+      "内孔",
+      "车削手册-表8-7"
+    ],
     "payload": {
       "subject": "粗车内孔 进给量 (mm/r) — 简化版核心数据",
       "value_table": [
-        {"material": "钢", "tool_shank_mm": "10×16", "workpiece_dim_text": "20", "ap_segment": "≤2", "f_min": 0.08, "f_max": 0.12},
-        {"material": "钢", "tool_shank_mm": "10×16", "workpiece_dim_text": "30", "ap_segment": "≤2", "f_min": 0.10, "f_max": 0.15},
-        {"material": "钢", "tool_shank_mm": "10×16", "workpiece_dim_text": "40", "ap_segment": "≤2", "f_min": 0.12, "f_max": 0.20},
-        {"material": "钢", "tool_shank_mm": "12×20", "workpiece_dim_text": "30", "ap_segment": "≤3", "f_min": 0.15, "f_max": 0.25},
-        {"material": "钢", "tool_shank_mm": "12×20", "workpiece_dim_text": "60", "ap_segment": "≤3", "f_min": 0.20, "f_max": 0.40},
-        {"material": "钢", "tool_shank_mm": "16×25", "workpiece_dim_text": "60", "ap_segment": "3~5", "f_min": 0.30, "f_max": 0.40},
-        {"material": "钢", "tool_shank_mm": "16×25", "workpiece_dim_text": "100", "ap_segment": "5~8", "f_min": 0.40, "f_max": 0.50},
-        {"material": "铸铁", "tool_shank_mm": "10×16", "workpiece_dim_text": "20", "ap_segment": "≤2", "f_min": 0.10, "f_max": 0.15},
-        {"material": "铸铁", "tool_shank_mm": "10×16", "workpiece_dim_text": "40", "ap_segment": "≤2", "f_min": 0.15, "f_max": 0.25},
-        {"material": "铸铁", "tool_shank_mm": "12×20", "workpiece_dim_text": "60", "ap_segment": "≤3", "f_min": 0.25, "f_max": 0.50},
-        {"material": "铸铁", "tool_shank_mm": "16×25", "workpiece_dim_text": "100", "ap_segment": "5~8", "f_min": 0.50, "f_max": 0.60}
+        {
+          "material": "钢",
+          "tool_shank_mm": "10×16",
+          "workpiece_dim_text": "20",
+          "ap_segment": "≤2",
+          "f_min": 0.08,
+          "f_max": 0.12
+        },
+        {
+          "material": "钢",
+          "tool_shank_mm": "10×16",
+          "workpiece_dim_text": "30",
+          "ap_segment": "≤2",
+          "f_min": 0.1,
+          "f_max": 0.15
+        },
+        {
+          "material": "钢",
+          "tool_shank_mm": "10×16",
+          "workpiece_dim_text": "40",
+          "ap_segment": "≤2",
+          "f_min": 0.12,
+          "f_max": 0.2
+        },
+        {
+          "material": "钢",
+          "tool_shank_mm": "12×20",
+          "workpiece_dim_text": "30",
+          "ap_segment": "≤3",
+          "f_min": 0.15,
+          "f_max": 0.25
+        },
+        {
+          "material": "钢",
+          "tool_shank_mm": "12×20",
+          "workpiece_dim_text": "60",
+          "ap_segment": "≤3",
+          "f_min": 0.2,
+          "f_max": 0.4
+        },
+        {
+          "material": "钢",
+          "tool_shank_mm": "16×25",
+          "workpiece_dim_text": "60",
+          "ap_segment": "3~5",
+          "f_min": 0.3,
+          "f_max": 0.4
+        },
+        {
+          "material": "钢",
+          "tool_shank_mm": "16×25",
+          "workpiece_dim_text": "100",
+          "ap_segment": "5~8",
+          "f_min": 0.4,
+          "f_max": 0.5
+        },
+        {
+          "material": "铸铁",
+          "tool_shank_mm": "10×16",
+          "workpiece_dim_text": "20",
+          "ap_segment": "≤2",
+          "f_min": 0.1,
+          "f_max": 0.15
+        },
+        {
+          "material": "铸铁",
+          "tool_shank_mm": "10×16",
+          "workpiece_dim_text": "40",
+          "ap_segment": "≤2",
+          "f_min": 0.15,
+          "f_max": 0.25
+        },
+        {
+          "material": "铸铁",
+          "tool_shank_mm": "12×20",
+          "workpiece_dim_text": "60",
+          "ap_segment": "≤3",
+          "f_min": 0.25,
+          "f_max": 0.5
+        },
+        {
+          "material": "铸铁",
+          "tool_shank_mm": "16×25",
+          "workpiece_dim_text": "100",
+          "ap_segment": "5~8",
+          "f_min": 0.5,
+          "f_max": 0.6
+        }
       ],
       "unit": "mm/r",
       "modifiers": "本表为车削手册表8-7简化版, 仅包含车削常见 P0 行; 完整 24 行待 P1 抽取补充"
@@ -232,42 +1260,306 @@
     "source_text": "奥氏体不锈钢 1Cr18Ni9Ti + YG8 刀具的切削用量推荐表; 工件直径(≤10/10-20/.../>150-200mm) × 工序(车外圆粗/车外圆精/镗孔/切断) → 主轴转速 n(r/min) + 进给量 f(mm/r). 注: 不锈钢切削速度只有普通碳钢的 40-60%; 2Cr13/1Cr13(<28HRC) 时速度可提高 1.2-1.5 倍; 0Cr18Ni18Mo2CuTi 时速度降至 0.6-0.7 倍.",
     "quality_status": "accepted",
     "quality_flags": [],
-    "tags": ["切削参数", "切削速度", "进给量", "不锈钢", "奥氏体", "车削手册-表10-19"],
+    "tags": [
+      "切削参数",
+      "切削速度",
+      "进给量",
+      "不锈钢",
+      "奥氏体",
+      "车削手册-表10-19"
+    ],
     "payload": {
       "subject": "车削奥氏体不锈钢 (1Cr18Ni9Ti, YG8) 切削用量",
       "value_table": [
-        {"workpiece_dim_text": "≤10", "operation": "车外圆-粗车", "n_min_rpm": 955, "n_max_rpm": 1200, "f_min": 0.19, "f_max": 0.6},
-        {"workpiece_dim_text": "≤10", "operation": "车外圆-精车", "n_min_rpm": 955, "n_max_rpm": 1200, "f_min": 0.07, "f_max": 0.2},
-        {"workpiece_dim_text": "≤10", "operation": "镗孔", "n_min_rpm": 955, "n_max_rpm": 1200, "f_min": 0.07, "f_max": 0.3},
-        {"workpiece_dim_text": "≤10", "operation": "切断", "n_min_rpm": 955, "n_max_rpm": 1200, "f_min": null, "f_max": null, "note": "手动"},
-        {"workpiece_dim_text": "10~20", "operation": "车外圆-粗车", "n_min_rpm": 765, "n_max_rpm": 955, "f_min": 0.19, "f_max": 0.6},
-        {"workpiece_dim_text": "10~20", "operation": "车外圆-精车", "n_min_rpm": 765, "n_max_rpm": 955, "f_min": 0.07, "f_max": 0.2},
-        {"workpiece_dim_text": "10~20", "operation": "镗孔", "n_min_rpm": 600, "n_max_rpm": 955, "f_min": 0.07, "f_max": 0.3},
-        {"workpiece_dim_text": "10~20", "operation": "切断", "n_min_rpm": 765, "n_max_rpm": 955, "f_min": 0.1, "f_max": 0.25},
-        {"workpiece_dim_text": "20~40", "operation": "车外圆-粗车", "n_min_rpm": 480, "n_max_rpm": 765, "f_min": 0.19, "f_max": 0.6},
-        {"workpiece_dim_text": "20~40", "operation": "车外圆-精车", "n_min_rpm": 480, "n_max_rpm": 765, "f_min": 0.07, "f_max": 0.2},
-        {"workpiece_dim_text": "20~40", "operation": "镗孔", "n_min_rpm": 480, "n_max_rpm": 600, "f_min": 0.07, "f_max": 0.3},
-        {"workpiece_dim_text": "20~40", "operation": "切断", "n_min_rpm": 600, "n_max_rpm": 765, "f_min": 0.1, "f_max": 0.25},
-        {"workpiece_dim_text": "40~60", "operation": "车外圆-粗车", "n_min_rpm": 380, "n_max_rpm": 480, "f_min": 0.19, "f_max": 0.6},
-        {"workpiece_dim_text": "40~60", "operation": "车外圆-精车", "n_min_rpm": 380, "n_max_rpm": 480, "f_min": 0.07, "f_max": 0.2},
-        {"workpiece_dim_text": "40~60", "operation": "镗孔", "n_min_rpm": 380, "n_max_rpm": 480, "f_min": 0.07, "f_max": 0.3},
-        {"workpiece_dim_text": "40~60", "operation": "切断", "n_min_rpm": 480, "n_max_rpm": 600, "f_min": 0.1, "f_max": 0.25},
-        {"workpiece_dim_text": "60~80", "operation": "车外圆-粗车", "n_min_rpm": 305, "n_max_rpm": 380, "f_min": 0.27, "f_max": 0.81},
-        {"workpiece_dim_text": "60~80", "operation": "车外圆-精车", "n_min_rpm": 305, "n_max_rpm": 380, "f_min": 0.1, "f_max": 0.3},
-        {"workpiece_dim_text": "60~80", "operation": "镗孔", "n_min_rpm": 230, "n_max_rpm": 380, "f_min": 0.1, "f_max": 0.5},
-        {"workpiece_dim_text": "60~80", "operation": "切断", "n_min_rpm": 305, "n_max_rpm": 480, "f_min": 0.1, "f_max": 0.25},
-        {"workpiece_dim_text": "80~100", "operation": "车外圆-粗车", "n_min_rpm": 230, "n_max_rpm": 305, "f_min": 0.27, "f_max": 0.81},
-        {"workpiece_dim_text": "80~100", "operation": "车外圆-精车", "n_min_rpm": 230, "n_max_rpm": 305, "f_min": 0.1, "f_max": 0.3},
-        {"workpiece_dim_text": "80~100", "operation": "镗孔", "n_min_rpm": 185, "n_max_rpm": 305, "f_min": 0.1, "f_max": 0.5},
-        {"workpiece_dim_text": "80~100", "operation": "切断", "n_min_rpm": 230, "n_max_rpm": 380, "f_min": 0.08, "f_max": 0.2},
-        {"workpiece_dim_text": "100~150", "operation": "车外圆-粗车", "n_min_rpm": 185, "n_max_rpm": 230, "f_min": 0.27, "f_max": 0.81},
-        {"workpiece_dim_text": "100~150", "operation": "车外圆-精车", "n_min_rpm": 185, "n_max_rpm": 230, "f_min": 0.1, "f_max": 0.3},
-        {"workpiece_dim_text": "100~150", "operation": "镗孔", "n_min_rpm": 150, "n_max_rpm": 230, "f_min": 0.1, "f_max": 0.5},
-        {"workpiece_dim_text": "100~150", "operation": "切断", "n_min_rpm": 150, "n_max_rpm": 305, "f_min": 0.08, "f_max": 0.2},
-        {"workpiece_dim_text": "150~200", "operation": "车外圆-粗车", "n_min_rpm": 120, "n_max_rpm": 185, "f_min": 0.27, "f_max": 0.81},
-        {"workpiece_dim_text": "150~200", "operation": "车外圆-精车", "n_min_rpm": 120, "n_max_rpm": 185, "f_min": 0.1, "f_max": 0.3},
-        {"workpiece_dim_text": "150~200", "operation": "镗孔", "n_min_rpm": 120, "n_max_rpm": 185, "f_min": 0.1, "f_max": 0.5},
-        {"workpiece_dim_text": "150~200", "operation": "切断", "n_min_rpm": null, "n_max_rpm": 150, "f_min": 0.08, "f_max": 0.2}
+        {
+          "workpiece_dim_text": "≤10",
+          "operation": "车外圆-粗车",
+          "n_min_rpm": 955,
+          "n_max_rpm": 1200,
+          "f_min": 0.19,
+          "f_max": 0.6,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "≤10",
+          "operation": "车外圆-精车",
+          "n_min_rpm": 955,
+          "n_max_rpm": 1200,
+          "f_min": 0.07,
+          "f_max": 0.2,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "≤10",
+          "operation": "镗孔",
+          "n_min_rpm": 955,
+          "n_max_rpm": 1200,
+          "f_min": 0.07,
+          "f_max": 0.3,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "≤10",
+          "operation": "切断",
+          "n_min_rpm": 955,
+          "n_max_rpm": 1200,
+          "f_min": null,
+          "f_max": null,
+          "note": "手动",
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "10~20",
+          "operation": "车外圆-粗车",
+          "n_min_rpm": 765,
+          "n_max_rpm": 955,
+          "f_min": 0.19,
+          "f_max": 0.6,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "10~20",
+          "operation": "车外圆-精车",
+          "n_min_rpm": 765,
+          "n_max_rpm": 955,
+          "f_min": 0.07,
+          "f_max": 0.2,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "10~20",
+          "operation": "镗孔",
+          "n_min_rpm": 600,
+          "n_max_rpm": 955,
+          "f_min": 0.07,
+          "f_max": 0.3,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "10~20",
+          "operation": "切断",
+          "n_min_rpm": 765,
+          "n_max_rpm": 955,
+          "f_min": 0.1,
+          "f_max": 0.25,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "20~40",
+          "operation": "车外圆-粗车",
+          "n_min_rpm": 480,
+          "n_max_rpm": 765,
+          "f_min": 0.19,
+          "f_max": 0.6,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "20~40",
+          "operation": "车外圆-精车",
+          "n_min_rpm": 480,
+          "n_max_rpm": 765,
+          "f_min": 0.07,
+          "f_max": 0.2,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "20~40",
+          "operation": "镗孔",
+          "n_min_rpm": 480,
+          "n_max_rpm": 600,
+          "f_min": 0.07,
+          "f_max": 0.3,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "20~40",
+          "operation": "切断",
+          "n_min_rpm": 600,
+          "n_max_rpm": 765,
+          "f_min": 0.1,
+          "f_max": 0.25,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "40~60",
+          "operation": "车外圆-粗车",
+          "n_min_rpm": 380,
+          "n_max_rpm": 480,
+          "f_min": 0.19,
+          "f_max": 0.6,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "40~60",
+          "operation": "车外圆-精车",
+          "n_min_rpm": 380,
+          "n_max_rpm": 480,
+          "f_min": 0.07,
+          "f_max": 0.2,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "40~60",
+          "operation": "镗孔",
+          "n_min_rpm": 380,
+          "n_max_rpm": 480,
+          "f_min": 0.07,
+          "f_max": 0.3,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "40~60",
+          "operation": "切断",
+          "n_min_rpm": 480,
+          "n_max_rpm": 600,
+          "f_min": 0.1,
+          "f_max": 0.25,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "60~80",
+          "operation": "车外圆-粗车",
+          "n_min_rpm": 305,
+          "n_max_rpm": 380,
+          "f_min": 0.27,
+          "f_max": 0.81,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "60~80",
+          "operation": "车外圆-精车",
+          "n_min_rpm": 305,
+          "n_max_rpm": 380,
+          "f_min": 0.1,
+          "f_max": 0.3,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "60~80",
+          "operation": "镗孔",
+          "n_min_rpm": 230,
+          "n_max_rpm": 380,
+          "f_min": 0.1,
+          "f_max": 0.5,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "60~80",
+          "operation": "切断",
+          "n_min_rpm": 305,
+          "n_max_rpm": 480,
+          "f_min": 0.1,
+          "f_max": 0.25,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "80~100",
+          "operation": "车外圆-粗车",
+          "n_min_rpm": 230,
+          "n_max_rpm": 305,
+          "f_min": 0.27,
+          "f_max": 0.81,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "80~100",
+          "operation": "车外圆-精车",
+          "n_min_rpm": 230,
+          "n_max_rpm": 305,
+          "f_min": 0.1,
+          "f_max": 0.3,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "80~100",
+          "operation": "镗孔",
+          "n_min_rpm": 185,
+          "n_max_rpm": 305,
+          "f_min": 0.1,
+          "f_max": 0.5,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "80~100",
+          "operation": "切断",
+          "n_min_rpm": 230,
+          "n_max_rpm": 380,
+          "f_min": 0.08,
+          "f_max": 0.2,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "100~150",
+          "operation": "车外圆-粗车",
+          "n_min_rpm": 185,
+          "n_max_rpm": 230,
+          "f_min": 0.27,
+          "f_max": 0.81,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "100~150",
+          "operation": "车外圆-精车",
+          "n_min_rpm": 185,
+          "n_max_rpm": 230,
+          "f_min": 0.1,
+          "f_max": 0.3,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "100~150",
+          "operation": "镗孔",
+          "n_min_rpm": 150,
+          "n_max_rpm": 230,
+          "f_min": 0.1,
+          "f_max": 0.5,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "100~150",
+          "operation": "切断",
+          "n_min_rpm": 150,
+          "n_max_rpm": 305,
+          "f_min": 0.08,
+          "f_max": 0.2,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "150~200",
+          "operation": "车外圆-粗车",
+          "n_min_rpm": 120,
+          "n_max_rpm": 185,
+          "f_min": 0.27,
+          "f_max": 0.81,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "150~200",
+          "operation": "车外圆-精车",
+          "n_min_rpm": 120,
+          "n_max_rpm": 185,
+          "f_min": 0.1,
+          "f_max": 0.3,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "150~200",
+          "operation": "镗孔",
+          "n_min_rpm": 120,
+          "n_max_rpm": 185,
+          "f_min": 0.1,
+          "f_max": 0.5,
+          "material": "不锈钢"
+        },
+        {
+          "workpiece_dim_text": "150~200",
+          "operation": "切断",
+          "n_min_rpm": null,
+          "n_max_rpm": 150,
+          "f_min": 0.08,
+          "f_max": 0.2,
+          "material": "不锈钢"
+        }
       ],
       "unit": "n: r/min, f: mm/r",
       "modifiers": "工件 1Cr18Ni9Ti / 刀具 YG8; 2Cr13/1Cr13 (<28HRC) 速度 ×1.2~1.5; 0Cr18Ni18Mo2CuTi 速度 ×0.6~0.7; 不锈钢车速 ≈ 普通碳钢的 40-60%"
