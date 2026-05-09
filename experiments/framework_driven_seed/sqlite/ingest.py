@@ -215,6 +215,8 @@ def _dispatch_specialized(record):
         return "lookup_method_position_error", _build_pos_err_rows(record, rows)
     if branch.startswith("2.8.1.4") and "POS-ECON" in rid:
         return "lookup_method_position_error", _build_pos_err_rows(record, rows)
+    if "GRID" in rid and (branch.startswith("2.8.1.4") or branch.startswith("2.8.2.3")):
+        return "lookup_size_method_grid", _build_size_method_grid_rows(record, rows)
     if branch.startswith("2.8.1.4"):
         return "lookup_method_economic_it", _build_econ_it_rows(record, rows)
     if branch.startswith("2.8.2.1"):
@@ -581,6 +583,40 @@ def _build_machine_geometry_rows(record, rows):
     return out
 
 
+def _build_size_method_grid_rows(record, rows):
+    """Lookup: size_segment × method × IT → deviation_um (4-10/14/18/34/35).
+
+    Each row entry should already carry method, it_text/it_min/it_max,
+    size_segment_text/size_min/size_max, deviation_um_text/_min/_max.
+    """
+    out = []
+    for i, row in enumerate(rows):
+        if not isinstance(row, dict):
+            continue
+        extras = row.get("extra_json")
+        if isinstance(extras, dict):
+            extras_json = json.dumps(extras, ensure_ascii=False)
+        elif isinstance(extras, str) or extras is None:
+            extras_json = extras
+        else:
+            extras_json = json.dumps(extras, ensure_ascii=False)
+        out.append({
+            "record_id": record["id"], "row_index": i,
+            "size_segment_text": row.get("size_segment_text"),
+            "size_min": row.get("size_min"),
+            "size_max": row.get("size_max"),
+            "method": row.get("method") or "?",
+            "it_text": row.get("it_text"),
+            "it_min": row.get("it_min"),
+            "it_max": row.get("it_max"),
+            "deviation_um_text": row.get("deviation_um_text"),
+            "deviation_um_min": row.get("deviation_um_min"),
+            "deviation_um_max": row.get("deviation_um_max"),
+            "extra_json": extras_json,
+        })
+    return out
+
+
 def _build_hardening_depth_rows(record, rows):
     """Lookup: 4-41 — method → N% / hc μm (avg & max).
 
@@ -698,6 +734,14 @@ _INSERT_SQL = {
         "VALUES (:record_id,:row_index,:machine_type,:machine_subtype,:capacity_text,"
         " :capacity_min,:capacity_max,:metric_kind,:metric_text,"
         " :metric_value,:metric_per_text,:extra_json)",
+    "lookup_size_method_grid":
+        "INSERT INTO lookup_size_method_grid "
+        "(record_id, row_index, size_segment_text, size_min, size_max, "
+        " method, it_text, it_min, it_max, "
+        " deviation_um_text, deviation_um_min, deviation_um_max, extra_json) "
+        "VALUES (:record_id,:row_index,:size_segment_text,:size_min,:size_max,"
+        " :method,:it_text,:it_min,:it_max,"
+        " :deviation_um_text,:deviation_um_min,:deviation_um_max,:extra_json)",
     "lookup_hardening_depth":
         "INSERT INTO lookup_hardening_depth "
         "(record_id, row_index, method, n_pct_avg_min, n_pct_avg_max, n_pct_max, "
