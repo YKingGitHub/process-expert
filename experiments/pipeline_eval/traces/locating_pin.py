@@ -155,20 +155,65 @@ QUERIES_S4A = [
 
 
 # Step 4b: cutting params (5)
+def _cutting_assess(actual):
+    cnt = actual.get("match_count", 0)
+    if cnt == 0:
+        return "no_data"
+    rows = actual.get("rows", [])
+    if all(r.get("extra_json") for r in rows):
+        return "friction"
+    return "pass"
+
+
 QUERIES_S4B = [
     {
-        "id": f"Q{i}", "step": "S4b", "category": "cutting-params",
-        "input": txt[0], "text": txt[1],
-        "kb_call": ("raw_sql", "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%'"),
-        "expected": "❌ Ch3 §3.2 / §2.7 切削参数还没抽",
+        "id": "Q18", "step": "S4b", "category": "cutting-params",
+        "input": "粗车 316L (类奥氏体不锈钢), φ26→φ21.74, 数车",
+        "text": "vc/f/ap?",
+        "kb_call": ("raw_sql",
+            "SELECT row_index, material, workpiece_dim_text, extra_json FROM std_value_rows "
+            "WHERE record_id='STD-2.7.1-STAINLESS-STEEL-CUTTING-PARAMS-001' "
+            "AND workpiece_dim_text='20~40' "
+            "AND json_extract(extra_json, '$.operation') LIKE '%粗车%' LIMIT 3"),
+        "expected": "f=0.19-0.6, n=480-765 (φ20-40 粗车)",
+        "assess": _cutting_assess,
+    },
+    {
+        "id": "Q19", "step": "S4b", "category": "cutting-params",
+        "input": "挑螺纹 M14×2, 316L",
+        "text": "螺纹切削参数 + 挑数?",
+        "kb_call": ("raw_sql", "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%' AND topic LIKE '%螺纹%'"),
+        "expected": "❌ 螺纹切削参数尚未抽 (车削手册 8-19~22 表 P1)",
         "assess": lambda a: "no_data",
-    } for i, txt in enumerate([
-        ("粗车 316L, φ26 → φ21.74, 数车", "vc/f/ap?"),
-        ("挑螺纹 M14×2, 316L", "螺纹切削参数 + 挑数?"),
-        ("数车成形球面 SR5.33, 316L", "f/ap (成形)?"),
-        ("加工中心铣扁 19, 316L 端铣刀", "切削三要素 + 主轴转速?"),
-        ("数车锥面 25°, 316L", "vc/f 推荐?"),
-    ], start=18)
+    },
+    {
+        "id": "Q20", "step": "S4b", "category": "cutting-params",
+        "input": "数车成形球面 SR5.33, 316L",
+        "text": "f/ap (成形)?",
+        "kb_call": ("raw_sql", "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%' AND topic LIKE '%成形%'"),
+        "expected": "❌ 成形车削参数尚未抽 (车削手册 8-18 表 P1)",
+        "assess": lambda a: "no_data",
+    },
+    {
+        "id": "Q21", "step": "S4b", "category": "cutting-params",
+        "input": "加工中心铣扁 19, 316L 端铣刀",
+        "text": "切削三要素 + 主轴转速?",
+        "kb_call": ("raw_sql", "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%' AND topic LIKE '%铣%'"),
+        "expected": "❌ 铣削切削参数不在车削手册",
+        "assess": lambda a: "no_data",
+    },
+    {
+        "id": "Q22", "step": "S4b", "category": "cutting-params",
+        "input": "数车锥面 25°, 316L",
+        "text": "vc/f 推荐?",
+        "kb_call": ("raw_sql",
+            "SELECT row_index, material, workpiece_dim_text, extra_json FROM std_value_rows "
+            "WHERE record_id='STD-2.7.1-STAINLESS-STEEL-CUTTING-PARAMS-001' "
+            "AND workpiece_dim_text='20~40' "
+            "AND json_extract(extra_json, '$.operation') LIKE '%粗车%' LIMIT 3"),
+        "expected": "粗车类似 (锥面用粗车的 vc/f 推荐)",
+        "assess": _cutting_assess,
+    },
 ]
 
 

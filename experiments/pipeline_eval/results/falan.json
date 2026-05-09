@@ -526,17 +526,24 @@
       "id": "Q18",
       "step": "S4b",
       "category": "cutting-params",
-      "input": "粗车 304L, φ103, 数车",
+      "input": "粗车 304L (奥氏体不锈钢), φ103, 数车",
       "text": "vc/f/ap?",
-      "expected": "❌ Ch3 §3.2 / §2.7 切削参数还没抽",
+      "expected": "f=0.27-0.81 mm/r, n=185-230 r/min (φ100-150 粗车)",
       "kb_call": [
         "raw_sql",
-        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%'"
+        "SELECT row_index, material, workpiece_dim_text, extra_json FROM std_value_rows WHERE record_id='STD-2.7.1-STAINLESS-STEE"
       ],
-      "actual_match_count": 0,
-      "actual_sample": [],
+      "actual_match_count": 1,
+      "actual_sample": [
+        {
+          "row_index": 24,
+          "material": null,
+          "workpiece_dim_text": "100~150",
+          "extra_json": "{\"operation\": \"车外圆-粗车\", \"n_min_rpm\": 185, \"n_max_rpm\": 230, \"f_min\": 0.27, \"f_max\": 0.81}"
+        }
+      ],
       "actual_error": null,
-      "outcome": "no_data"
+      "outcome": "friction"
     },
     {
       "id": "Q19",
@@ -544,15 +551,22 @@
       "category": "cutting-params",
       "input": "半精车端面, 304L",
       "text": "vc/f/ap 推荐?",
-      "expected": "❌ Ch3 §3.2 / §2.7 切削参数还没抽",
+      "expected": "f=0.1-0.3, n=185-230 (φ100-150 精车)",
       "kb_call": [
         "raw_sql",
-        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%'"
+        "SELECT row_index, material, workpiece_dim_text, extra_json FROM std_value_rows WHERE record_id='STD-2.7.1-STAINLESS-STEE"
       ],
-      "actual_match_count": 0,
-      "actual_sample": [],
+      "actual_match_count": 1,
+      "actual_sample": [
+        {
+          "row_index": 25,
+          "material": null,
+          "workpiece_dim_text": "100~150",
+          "extra_json": "{\"operation\": \"车外圆-精车\", \"n_min_rpm\": 185, \"n_max_rpm\": 230, \"f_min\": 0.1, \"f_max\": 0.3}"
+        }
+      ],
       "actual_error": null,
-      "outcome": "no_data"
+      "outcome": "friction"
     },
     {
       "id": "Q20",
@@ -560,10 +574,10 @@
       "category": "cutting-params",
       "input": "加工中心铣 D 型孔, 304L 端铣刀",
       "text": "切削三要素 + 主轴转速 + 进给?",
-      "expected": "❌ Ch3 §3.2 / §2.7 切削参数还没抽",
+      "expected": "❌ §2.7 暂未含铣削切削参数",
       "kb_call": [
         "raw_sql",
-        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%'"
+        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%' AND topic LIKE '%铣%'"
       ],
       "actual_match_count": 0,
       "actual_sample": [],
@@ -576,15 +590,22 @@
       "category": "cutting-params",
       "input": "数车铣沉孔 φ40 深 1.5, 304L",
       "text": "f/ap 推荐?",
-      "expected": "❌ Ch3 §3.2 / §2.7 切削参数还没抽",
+      "expected": "f=0.07-0.2, n=380-480 (φ40-60 精车)",
       "kb_call": [
         "raw_sql",
-        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%'"
+        "SELECT row_index, material, workpiece_dim_text, extra_json FROM std_value_rows WHERE record_id='STD-2.7.1-STAINLESS-STEE"
       ],
-      "actual_match_count": 0,
-      "actual_sample": [],
+      "actual_match_count": 1,
+      "actual_sample": [
+        {
+          "row_index": 13,
+          "material": null,
+          "workpiece_dim_text": "40~60",
+          "extra_json": "{\"operation\": \"车外圆-精车\", \"n_min_rpm\": 380, \"n_max_rpm\": 480, \"f_min\": 0.07, \"f_max\": 0.2}"
+        }
+      ],
       "actual_error": null,
-      "outcome": "no_data"
+      "outcome": "friction"
     },
     {
       "id": "Q22",
@@ -592,10 +613,10 @@
       "category": "cutting-params",
       "input": "线切割 304L 厚 31",
       "text": "走丝速度 + 脉冲参数?",
-      "expected": "❌ Ch3 §3.2 / §2.7 切削参数还没抽",
+      "expected": "❌ 线切割不在车削手册范围",
       "kb_call": [
         "raw_sql",
-        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%'"
+        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%' AND topic LIKE '%线切%'"
       ],
       "actual_match_count": 0,
       "actual_sample": [],
@@ -723,13 +744,13 @@
     "totals": {
       "pass": 8,
       "partial": 3,
-      "no_data": 12,
-      "friction": 3
+      "no_data": 9,
+      "friction": 6
     },
     "total_queries": 26,
-    "coverage": 0.5384615384615384,
-    "accuracy": 0.5714285714285714,
-    "friction": 0.21428571428571427,
+    "coverage": 0.6538461538461539,
+    "accuracy": 0.47058823529411764,
+    "friction": 0.35294117647058826,
     "by_step": {
       "S2": {
         "pass": 2,
@@ -752,8 +773,8 @@
       "S4b": {
         "pass": 0,
         "partial": 0,
-        "no_data": 5,
-        "friction": 0
+        "no_data": 2,
+        "friction": 3
       },
       "S4c": {
         "pass": 1,
@@ -802,8 +823,8 @@
       "cutting-params": {
         "pass": 0,
         "partial": 0,
-        "no_data": 5,
-        "friction": 0
+        "no_data": 2,
+        "friction": 3
       },
       "tolerance-chain": {
         "pass": 1,

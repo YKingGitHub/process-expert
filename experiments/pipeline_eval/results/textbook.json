@@ -566,17 +566,33 @@
       "id": "Q18",
       "step": "S4b",
       "category": "cutting-params",
-      "input": "CA6163 粗车 HT200 Φ180 → Φ175",
+      "input": "CA6163 粗车 HT200 (灰铸铁) Φ180 → Φ175",
       "text": "vc/f/ap?",
-      "expected": "❌ Ch3 §3.2 / §2.7 切削参数还没抽",
+      "expected": "灰铸铁 <190 HBW: vc=0.833-1.167 m/s (粗车 ap=2-6/f=0.3-0.6)",
       "kb_call": [
         "raw_sql",
-        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%'"
+        "SELECT row_index, material, extra_json FROM std_value_rows WHERE record_id='STD-2.7.1-OD-TURN-VC-001' AND material LIKE "
       ],
-      "actual_match_count": 0,
-      "actual_sample": [],
+      "actual_match_count": 6,
+      "actual_sample": [
+        {
+          "row_index": 28,
+          "material": "灰铸铁",
+          "extra_json": "{\"heat_treat\": null, \"hardness_hbw\": \"<190\", \"tool\": \"硬质合金\", \"regime\": \"ap=0.3-2, f=0.03-0.3\", \"vc_min_mps\": 1.5, \"vc_max_mps\": 2.0}"
+        },
+        {
+          "row_index": 29,
+          "material": "灰铸铁",
+          "extra_json": "{\"heat_treat\": null, \"hardness_hbw\": \"<190\", \"tool\": \"硬质合金\", \"regime\": \"ap=2-6, f=0.3-0.6\", \"vc_min_mps\": 1.0, \"vc_max_mps\": 1.333}"
+        },
+        {
+          "row_index": 30,
+          "material": "灰铸铁",
+          "extra_json": "{\"heat_treat\": null, \"hardness_hbw\": \"<190\", \"tool\": \"硬质合金\", \"regime\": \"ap=6-10, f=0.6-1\", \"vc_min_mps\": 0.833, \"vc_max_mps\": 1.167}"
+        }
+      ],
       "actual_error": null,
-      "outcome": "no_data"
+      "outcome": "friction"
     },
     {
       "id": "Q19",
@@ -584,15 +600,26 @@
       "category": "cutting-params",
       "input": "精车 HT200 Φ165 +0.5mm 留磨",
       "text": "vc/f/ap?",
-      "expected": "❌ Ch3 §3.2 / §2.7 切削参数还没抽",
+      "expected": "灰铸铁 ap=0.3-2 精车段 vc=1.5-2.0 m/s (硬度<190)",
       "kb_call": [
         "raw_sql",
-        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%'"
+        "SELECT row_index, material, extra_json FROM std_value_rows WHERE record_id='STD-2.7.1-OD-TURN-VC-001' AND material LIKE "
       ],
-      "actual_match_count": 0,
-      "actual_sample": [],
+      "actual_match_count": 2,
+      "actual_sample": [
+        {
+          "row_index": 28,
+          "material": "灰铸铁",
+          "extra_json": "{\"heat_treat\": null, \"hardness_hbw\": \"<190\", \"tool\": \"硬质合金\", \"regime\": \"ap=0.3-2, f=0.03-0.3\", \"vc_min_mps\": 1.5, \"vc_max_mps\": 2.0}"
+        },
+        {
+          "row_index": 32,
+          "material": "灰铸铁",
+          "extra_json": "{\"heat_treat\": null, \"hardness_hbw\": \"190~225\", \"tool\": \"硬质合金\", \"regime\": \"ap=0.3-2, f=0.03-0.3\", \"vc_min_mps\": 1.333, \"vc_max_mps\": 1.83}"
+        }
+      ],
       "actual_error": null,
-      "outcome": "no_data"
+      "outcome": "friction"
     },
     {
       "id": "Q20",
@@ -600,10 +627,10 @@
       "category": "cutting-params",
       "input": "内圆磨 HT200 Φ130 IT7",
       "text": "磨削参数 (砂轮+vc+f)?",
-      "expected": "❌ Ch3 §3.2 / §2.7 切削参数还没抽",
+      "expected": "❌ 磨削参数不在车削手册",
       "kb_call": [
         "raw_sql",
-        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%'"
+        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%' AND topic LIKE '%磨%'"
       ],
       "actual_match_count": 0,
       "actual_sample": [],
@@ -616,10 +643,10 @@
       "category": "cutting-params",
       "input": "平面磨端面 HT200",
       "text": "磨削参数?",
-      "expected": "❌ Ch3 §3.2 / §2.7 切削参数还没抽",
+      "expected": "❌ 磨削参数不在车削手册",
       "kb_call": [
         "raw_sql",
-        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%'"
+        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%' AND topic LIKE '%磨%'"
       ],
       "actual_match_count": 0,
       "actual_sample": [],
@@ -632,15 +659,31 @@
       "category": "cutting-params",
       "input": "精车法兰盘端面 HT200 Φ260",
       "text": "vc/f/ap?",
-      "expected": "❌ Ch3 §3.2 / §2.7 切削参数还没抽",
+      "expected": "铸铁精车 Ra3.2: f=0.3-0.5 mm/r (re=1.0)",
       "kb_call": [
         "raw_sql",
-        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%'"
+        "SELECT row_index, material, extra_json FROM std_value_rows WHERE record_id='STD-2.7.2-FINISH-TURN-OD-FACE-FEED-001' AND "
       ],
-      "actual_match_count": 0,
-      "actual_sample": [],
+      "actual_match_count": 5,
+      "actual_sample": [
+        {
+          "row_index": 0,
+          "material": "钢和铸铁",
+          "extra_json": "{\"ra_target_um\": 12.5, \"kappa_prime_deg\": 5, \"vc_range\": \"不限制\", \"tool_nose_r_mm\": 1.0, \"f_min\": 1.0, \"f_max\": 1.1}"
+        },
+        {
+          "row_index": 1,
+          "material": "钢和铸铁",
+          "extra_json": "{\"ra_target_um\": 12.5, \"kappa_prime_deg\": 5, \"vc_range\": \"不限制\", \"tool_nose_r_mm\": 2.0, \"f_min\": 1.3, \"f_max\": 1.5}"
+        },
+        {
+          "row_index": 2,
+          "material": "钢和铸铁",
+          "extra_json": "{\"ra_target_um\": 12.5, \"kappa_prime_deg\": 10, \"vc_range\": \"不限制\", \"tool_nose_r_mm\": 1.0, \"f_min\": 0.8, \"f_max\": 0.9}"
+        }
+      ],
       "actual_error": null,
-      "outcome": "no_data"
+      "outcome": "friction"
     },
     {
       "id": "Q23",
@@ -763,13 +806,13 @@
     "totals": {
       "pass": 12,
       "partial": 2,
-      "no_data": 10,
-      "friction": 2
+      "no_data": 7,
+      "friction": 5
     },
     "total_queries": 26,
-    "coverage": 0.6153846153846154,
-    "accuracy": 0.75,
-    "friction": 0.125,
+    "coverage": 0.7307692307692307,
+    "accuracy": 0.631578947368421,
+    "friction": 0.2631578947368421,
     "by_step": {
       "S2": {
         "pass": 4,
@@ -792,8 +835,8 @@
       "S4b": {
         "pass": 0,
         "partial": 0,
-        "no_data": 5,
-        "friction": 0
+        "no_data": 2,
+        "friction": 3
       },
       "S4c": {
         "pass": 2,
@@ -842,8 +885,8 @@
       "cutting-params": {
         "pass": 0,
         "partial": 0,
-        "no_data": 5,
-        "friction": 0
+        "no_data": 2,
+        "friction": 3
       },
       "tolerance-chain": {
         "pass": 2,

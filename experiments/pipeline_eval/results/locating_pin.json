@@ -472,17 +472,24 @@
       "id": "Q18",
       "step": "S4b",
       "category": "cutting-params",
-      "input": "粗车 316L, φ26 → φ21.74, 数车",
+      "input": "粗车 316L (类奥氏体不锈钢), φ26→φ21.74, 数车",
       "text": "vc/f/ap?",
-      "expected": "❌ Ch3 §3.2 / §2.7 切削参数还没抽",
+      "expected": "f=0.19-0.6, n=480-765 (φ20-40 粗车)",
       "kb_call": [
         "raw_sql",
-        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%'"
+        "SELECT row_index, material, workpiece_dim_text, extra_json FROM std_value_rows WHERE record_id='STD-2.7.1-STAINLESS-STEE"
       ],
-      "actual_match_count": 0,
-      "actual_sample": [],
+      "actual_match_count": 1,
+      "actual_sample": [
+        {
+          "row_index": 8,
+          "material": null,
+          "workpiece_dim_text": "20~40",
+          "extra_json": "{\"operation\": \"车外圆-粗车\", \"n_min_rpm\": 480, \"n_max_rpm\": 765, \"f_min\": 0.19, \"f_max\": 0.6}"
+        }
+      ],
       "actual_error": null,
-      "outcome": "no_data"
+      "outcome": "friction"
     },
     {
       "id": "Q19",
@@ -490,10 +497,10 @@
       "category": "cutting-params",
       "input": "挑螺纹 M14×2, 316L",
       "text": "螺纹切削参数 + 挑数?",
-      "expected": "❌ Ch3 §3.2 / §2.7 切削参数还没抽",
+      "expected": "❌ 螺纹切削参数尚未抽 (车削手册 8-19~22 表 P1)",
       "kb_call": [
         "raw_sql",
-        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%'"
+        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%' AND topic LIKE '%螺纹%'"
       ],
       "actual_match_count": 0,
       "actual_sample": [],
@@ -506,10 +513,10 @@
       "category": "cutting-params",
       "input": "数车成形球面 SR5.33, 316L",
       "text": "f/ap (成形)?",
-      "expected": "❌ Ch3 §3.2 / §2.7 切削参数还没抽",
+      "expected": "❌ 成形车削参数尚未抽 (车削手册 8-18 表 P1)",
       "kb_call": [
         "raw_sql",
-        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%'"
+        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%' AND topic LIKE '%成形%'"
       ],
       "actual_match_count": 0,
       "actual_sample": [],
@@ -522,10 +529,10 @@
       "category": "cutting-params",
       "input": "加工中心铣扁 19, 316L 端铣刀",
       "text": "切削三要素 + 主轴转速?",
-      "expected": "❌ Ch3 §3.2 / §2.7 切削参数还没抽",
+      "expected": "❌ 铣削切削参数不在车削手册",
       "kb_call": [
         "raw_sql",
-        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%'"
+        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%' AND topic LIKE '%铣%'"
       ],
       "actual_match_count": 0,
       "actual_sample": [],
@@ -538,15 +545,22 @@
       "category": "cutting-params",
       "input": "数车锥面 25°, 316L",
       "text": "vc/f 推荐?",
-      "expected": "❌ Ch3 §3.2 / §2.7 切削参数还没抽",
+      "expected": "粗车类似 (锥面用粗车的 vc/f 推荐)",
       "kb_call": [
         "raw_sql",
-        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%'"
+        "SELECT row_index, material, workpiece_dim_text, extra_json FROM std_value_rows WHERE record_id='STD-2.7.1-STAINLESS-STEE"
       ],
-      "actual_match_count": 0,
-      "actual_sample": [],
+      "actual_match_count": 1,
+      "actual_sample": [
+        {
+          "row_index": 8,
+          "material": null,
+          "workpiece_dim_text": "20~40",
+          "extra_json": "{\"operation\": \"车外圆-粗车\", \"n_min_rpm\": 480, \"n_max_rpm\": 765, \"f_min\": 0.19, \"f_max\": 0.6}"
+        }
+      ],
       "actual_error": null,
-      "outcome": "no_data"
+      "outcome": "friction"
     },
     {
       "id": "Q23",
@@ -676,13 +690,13 @@
     "totals": {
       "pass": 9,
       "partial": 3,
-      "no_data": 11,
-      "friction": 3
+      "no_data": 9,
+      "friction": 5
     },
     "total_queries": 26,
-    "coverage": 0.5769230769230769,
-    "accuracy": 0.6,
-    "friction": 0.2,
+    "coverage": 0.6538461538461539,
+    "accuracy": 0.5294117647058824,
+    "friction": 0.29411764705882354,
     "by_step": {
       "S2": {
         "pass": 5,
@@ -705,8 +719,8 @@
       "S4b": {
         "pass": 0,
         "partial": 0,
-        "no_data": 5,
-        "friction": 0
+        "no_data": 3,
+        "friction": 2
       },
       "S4c": {
         "pass": 1,
@@ -755,8 +769,8 @@
       "cutting-params": {
         "pass": 0,
         "partial": 0,
-        "no_data": 5,
-        "friction": 0
+        "no_data": 3,
+        "friction": 2
       },
       "tolerance-chain": {
         "pass": 1,

@@ -169,21 +169,71 @@ QUERIES_S4A = [
 
 
 # ---------- Step 4b: cutting params (5) ----------
+# Q18-22: §2.7 切削参数 query. 数据入 KB 后大部分在 extra_json, 故 friction.
+def _cutting_assess(actual):
+    cnt = actual.get("match_count", 0)
+    if cnt == 0:
+        return "no_data"
+    rows = actual.get("rows", [])
+    if all(r.get("extra_json") for r in rows):
+        return "friction"  # 数据在 extra_json, 需 JSON 解析
+    return "pass"
+
 
 QUERIES_S4B = [
     {
-        "id": f"Q{i}", "step": "S4b", "category": "cutting-params",
-        "input": txt[0], "text": txt[1],
-        "kb_call": ("raw_sql", "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%'"),
-        "expected": "❌ Ch3 §3.2 / §2.7 切削参数还没抽",
+        "id": "Q18", "step": "S4b", "category": "cutting-params",
+        "input": "粗车 304L (奥氏体不锈钢), φ103, 数车",
+        "text": "vc/f/ap?",
+        "kb_call": ("raw_sql",
+            "SELECT row_index, material, workpiece_dim_text, extra_json FROM std_value_rows "
+            "WHERE record_id='STD-2.7.1-STAINLESS-STEEL-CUTTING-PARAMS-001' "
+            "AND workpiece_dim_text='100~150' "
+            "AND json_extract(extra_json, '$.operation') LIKE '%粗车%' LIMIT 5"),
+        "expected": "f=0.27-0.81 mm/r, n=185-230 r/min (φ100-150 粗车)",
+        "assess": _cutting_assess,
+    },
+    {
+        "id": "Q19", "step": "S4b", "category": "cutting-params",
+        "input": "半精车端面, 304L",
+        "text": "vc/f/ap 推荐?",
+        "kb_call": ("raw_sql",
+            "SELECT row_index, material, workpiece_dim_text, extra_json FROM std_value_rows "
+            "WHERE record_id='STD-2.7.1-STAINLESS-STEEL-CUTTING-PARAMS-001' "
+            "AND workpiece_dim_text='100~150' "
+            "AND json_extract(extra_json, '$.operation') LIKE '%精车%' LIMIT 5"),
+        "expected": "f=0.1-0.3, n=185-230 (φ100-150 精车)",
+        "assess": _cutting_assess,
+    },
+    {
+        "id": "Q20", "step": "S4b", "category": "cutting-params",
+        "input": "加工中心铣 D 型孔, 304L 端铣刀",
+        "text": "切削三要素 + 主轴转速 + 进给?",
+        "kb_call": ("raw_sql",
+            "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%' AND topic LIKE '%铣%'"),
+        "expected": "❌ §2.7 暂未含铣削切削参数",
         "assess": lambda a: "no_data",
-    } for i, txt in enumerate([
-        ("粗车 304L, φ103, 数车",       "vc/f/ap?"),
-        ("半精车端面, 304L",             "vc/f/ap 推荐?"),
-        ("加工中心铣 D 型孔, 304L 端铣刀", "切削三要素 + 主轴转速 + 进给?"),
-        ("数车铣沉孔 φ40 深 1.5, 304L", "f/ap 推荐?"),
-        ("线切割 304L 厚 31",          "走丝速度 + 脉冲参数?"),
-    ], start=18)
+    },
+    {
+        "id": "Q21", "step": "S4b", "category": "cutting-params",
+        "input": "数车铣沉孔 φ40 深 1.5, 304L",
+        "text": "f/ap 推荐?",
+        "kb_call": ("raw_sql",
+            "SELECT row_index, material, workpiece_dim_text, extra_json FROM std_value_rows "
+            "WHERE record_id='STD-2.7.1-STAINLESS-STEEL-CUTTING-PARAMS-001' "
+            "AND workpiece_dim_text='40~60' "
+            "AND json_extract(extra_json, '$.operation') LIKE '%精车%' LIMIT 3"),
+        "expected": "f=0.07-0.2, n=380-480 (φ40-60 精车)",
+        "assess": _cutting_assess,
+    },
+    {
+        "id": "Q22", "step": "S4b", "category": "cutting-params",
+        "input": "线切割 304L 厚 31",
+        "text": "走丝速度 + 脉冲参数?",
+        "kb_call": ("raw_sql", "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%' AND topic LIKE '%线切%'"),
+        "expected": "❌ 线切割不在车削手册范围",
+        "assess": lambda a: "no_data",
+    },
 ]
 
 

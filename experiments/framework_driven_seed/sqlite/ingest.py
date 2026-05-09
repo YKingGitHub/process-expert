@@ -32,6 +32,8 @@ EXPERIMENT_ROOT = Path(__file__).resolve().parents[1]
 SCHEMA_PATH = EXPERIMENT_ROOT / "sqlite" / "schema.sql"
 SEED_PATH = EXPERIMENT_ROOT / "data" / "seed_v1.json"
 DB_PATH = EXPERIMENT_ROOT / "sqlite" / "framework_seed.db"
+# Additional seeds (incrementally added; loaded in alpha order after main seed)
+EXTRA_SEED_GLOB = "seed_*.json"  # excludes seed_v1.json which is loaded explicitly
 
 
 _RANGE_RE = re.compile(r"^\s*(-?[\d.]+)\s*[~\-至]\s*(-?[\d.]+)")
@@ -147,6 +149,17 @@ def flatten_row(row: dict) -> dict:
     return {**flat, "extra_json": json.dumps(extra, ensure_ascii=False) if extra else None}
 
 
+def _collect_seeds(seed_path: Path) -> list:
+    """Load main seed file + any seed_*.json siblings (e.g. seed_cutting_v1.json)."""
+    records = json.loads(seed_path.read_text(encoding="utf-8"))
+    data_dir = seed_path.parent
+    for extra in sorted(data_dir.glob("seed_*.json")):
+        if extra.name == seed_path.name:
+            continue
+        records.extend(json.loads(extra.read_text(encoding="utf-8")))
+    return records
+
+
 def ingest(db_path: Path = DB_PATH, seed_path: Path = SEED_PATH,
            schema_path: Path = SCHEMA_PATH) -> dict:
     if db_path.exists():
@@ -155,7 +168,7 @@ def ingest(db_path: Path = DB_PATH, seed_path: Path = SEED_PATH,
     conn.executescript(schema_path.read_text(encoding="utf-8"))
     cur = conn.cursor()
 
-    seed = json.loads(seed_path.read_text(encoding="utf-8"))
+    seed = _collect_seeds(seed_path)
     record_count = 0
     value_row_count = 0
     index_record_count = 0
