@@ -1579,7 +1579,8 @@
             "principle"
           ]
         }
-      ]
+      ],
+      "topic_kind": "roughness_grinding"
     }
   },
   {
@@ -1651,7 +1652,8 @@
             "practice"
           ]
         }
-      ]
+      ],
+      "topic_kind": "roughness_grinding"
     }
   },
   {
@@ -4776,7 +4778,8 @@
             "practice"
           ]
         }
-      ]
+      ],
+      "topic_kind": "residual_stress"
     }
   },
   {
@@ -4823,7 +4826,8 @@
             "practice"
           ]
         }
-      ]
+      ],
+      "topic_kind": "residual_stress"
     }
   },
   {
@@ -4854,7 +4858,8 @@
             "principle"
           ]
         }
-      ]
+      ],
+      "topic_kind": "residual_stress"
     }
   },
   {
