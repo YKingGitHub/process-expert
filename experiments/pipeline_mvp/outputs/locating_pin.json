@@ -1,0 +1,409 @@
+{
+  "case_id": "locating_pin",
+  "part_name": "定位销",
+  "summary": {
+    "feature_count": 6,
+    "op_count": 11,
+    "kb_hit_rate": 0.27,
+    "gap_count": 12
+  },
+  "operations": [
+    {
+      "seq": 5,
+      "name": "领料",
+      "content": "依据图纸领料",
+      "equipment": "—",
+      "cutting_params": null,
+      "allowance": null,
+      "kb_sources": [],
+      "gaps": []
+    },
+    {
+      "name": "粗车",
+      "feature_id": "F2",
+      "feature_kind": "外圆",
+      "equipment": "数控车床",
+      "cutting_params": {
+        "vc_min_mps": null,
+        "vc_max_mps": null,
+        "f_min_mmpr": 0.19,
+        "f_max_mmpr": 0.6,
+        "n_min_rpm": 480.0,
+        "n_max_rpm": 765.0,
+        "kb_record_id": "STD-2.7.1-STAINLESS-STEEL-CUTTING-PARAMS-001"
+      },
+      "allowance": {
+        "allowance_mm_min": 2.0,
+        "allowance_mm_max": 2.0,
+        "kb_record_id": "STD-2.9.1-OD-ROUGH-FINISH-TURN-ALLOWANCE-001"
+      },
+      "kb_sources": [
+        "STD-2.3.2-OUTER-CYL-PATH-001",
+        "STD-2.7.1-STAINLESS-STEEL-CUTTING-PARAMS-001",
+        "STD-2.9.1-OD-ROUGH-FINISH-TURN-ALLOWANCE-001"
+      ],
+      "gaps": [],
+      "_seq_hint": 10,
+      "seq": 10,
+      "content": "加工 F2 (外圆); 余量 2.0-2.0 mm; f 0.19-0.6 mm/r; n 480-765 r/min"
+    },
+    {
+      "name": "半精车",
+      "feature_id": "F2",
+      "feature_kind": "外圆",
+      "equipment": "数控车床",
+      "cutting_params": {
+        "vc_min_mps": null,
+        "vc_max_mps": null,
+        "f_min_mmpr": 0.19,
+        "f_max_mmpr": 0.6,
+        "n_min_rpm": 480.0,
+        "n_max_rpm": 765.0,
+        "kb_record_id": "STD-2.7.1-STAINLESS-STEEL-CUTTING-PARAMS-001"
+      },
+      "allowance": {
+        "allowance_mm_min": 1.3,
+        "allowance_mm_max": 1.3,
+        "kb_record_id": "STD-2.9.1-OD-ROUGH-FINISH-TURN-ALLOWANCE-001"
+      },
+      "kb_sources": [
+        "STD-2.3.2-OUTER-CYL-PATH-001",
+        "STD-2.7.1-STAINLESS-STEEL-CUTTING-PARAMS-001",
+        "STD-2.9.1-OD-ROUGH-FINISH-TURN-ALLOWANCE-001"
+      ],
+      "gaps": [],
+      "_seq_hint": 20,
+      "seq": 15,
+      "content": "加工 F2 (外圆); 余量 1.3-1.3 mm; f 0.19-0.6 mm/r; n 480-765 r/min"
+    },
+    {
+      "name": "精车 或磨",
+      "feature_id": "F2",
+      "feature_kind": "外圆",
+      "equipment": "数控车床",
+      "cutting_params": null,
+      "allowance": null,
+      "kb_sources": [
+        "STD-2.3.2-OUTER-CYL-PATH-001"
+      ],
+      "gaps": [
+        "切削参数 KB 未命中",
+        "加工余量 KB 未命中"
+      ],
+      "_seq_hint": 25,
+      "seq": 20,
+      "content": "加工 F2 (外圆)"
+    },
+    {
+      "name": "数车挑螺纹",
+      "feature_id": "F1",
+      "feature_kind": "螺纹_外",
+      "equipment": "数控车床",
+      "cutting_params": null,
+      "allowance": null,
+      "kb_sources": [],
+      "gaps": [
+        "切削参数 KB 未命中",
+        "加工余量 KB 未命中"
+      ],
+      "_seq_hint": 27,
+      "seq": 25,
+      "content": "加工 F1 (螺纹_外)"
+    },
+    {
+      "name": "加工中心铣两侧扁面",
+      "feature_id": "F5",
+      "feature_kind": "铣扁",
+      "equipment": "三轴加工中心",
+      "cutting_params": null,
+      "allowance": null,
+      "kb_sources": [],
+      "gaps": [
+        "切削参数 KB 未命中",
+        "加工余量 KB 未命中"
+      ],
+      "_seq_hint": 30,
+      "seq": 30,
+      "content": "加工 F5 (铣扁)"
+    },
+    {
+      "name": "数车成形/锥度刀车锥面",
+      "feature_id": "F3",
+      "feature_kind": "锥面",
+      "equipment": "数控车床",
+      "cutting_params": null,
+      "allowance": null,
+      "kb_sources": [],
+      "gaps": [
+        "切削参数 KB 未命中",
+        "加工余量 KB 未命中"
+      ],
+      "_seq_hint": 50,
+      "seq": 35,
+      "content": "加工 F3 (锥面)"
+    },
+    {
+      "name": "数车成形车刀车球面",
+      "feature_id": "F4",
+      "feature_kind": "球面",
+      "equipment": "数控车床",
+      "cutting_params": null,
+      "allowance": null,
+      "kb_sources": [],
+      "gaps": [
+        "切削参数 KB 未命中",
+        "加工余量 KB 未命中"
+      ],
+      "_seq_hint": 50,
+      "seq": 40,
+      "content": "加工 F4 (球面)"
+    },
+    {
+      "name": "调头平端面修整总长",
+      "feature_id": "F6",
+      "feature_kind": "总长",
+      "equipment": "?",
+      "cutting_params": null,
+      "allowance": null,
+      "kb_sources": [],
+      "gaps": [
+        "切削参数 KB 未命中",
+        "加工余量 KB 未命中"
+      ],
+      "_seq_hint": 50,
+      "seq": 45,
+      "content": "加工 F6 (总长)"
+    },
+    {
+      "seq": 50,
+      "name": "检验",
+      "content": "尺寸+外观检验",
+      "equipment": "—",
+      "cutting_params": null,
+      "allowance": null,
+      "kb_sources": [],
+      "gaps": []
+    },
+    {
+      "seq": 55,
+      "name": "入库",
+      "content": "清洗、包装、入库",
+      "equipment": "—",
+      "cutting_params": null,
+      "allowance": null,
+      "kb_sources": [],
+      "gaps": []
+    }
+  ],
+  "feature_analysis": [
+    {
+      "feature_id": "F1",
+      "kind": "螺纹_外",
+      "intent": "External thread (lathe threading)",
+      "default_path_kw": null,
+      "target_it": null,
+      "target_ra_um": 3.2,
+      "diameter_mm": null,
+      "raw_feature": {
+        "id": "F1",
+        "kind": "螺纹_外",
+        "spec": "M14-6g",
+        "major_diameter_mm": 14,
+        "major_diameter_tolerance_text": "-0.038/-0.388",
+        "pitch_mm": 2,
+        "ra_target_um": 3.2,
+        "note": "数车挑螺纹"
+      },
+      "candidates": [
+        {
+          "source": "rule",
+          "path_text": "数车挑螺纹",
+          "note": "M-6g 用挑刀",
+          "ok": true,
+          "why": "(no constraint)"
+        }
+      ],
+      "chosen": {
+        "source": "rule",
+        "path_text": "数车挑螺纹",
+        "note": "M-6g 用挑刀",
+        "ok": true,
+        "why": "(no constraint)"
+      }
+    },
+    {
+      "feature_id": "F2",
+      "kind": "外圆",
+      "intent": "OD turning",
+      "default_path_kw": "粗车→半精车→精车",
+      "target_it": 8,
+      "target_ra_um": 1.6,
+      "diameter_mm": 21.74,
+      "raw_feature": {
+        "id": "F2",
+        "kind": "外圆",
+        "diameter_mm": 21.74,
+        "tolerance_text": "+0.05/0",
+        "tolerance_band_mm": 0.05,
+        "axial_extent_mm": 54,
+        "ra_target_um": 1.6,
+        "perpendicularity_text": "⊥0.025 D",
+        "position_tolerance_text": "⌖φ0.1 B",
+        "note": "精车外圆, 形位公差严"
+      },
+      "candidates": [
+        {
+          "source": "lookup_path_precision",
+          "path_text": "粗车→半精车→精车 (或磨)",
+          "it_text": "7-8",
+          "ra_min": 1.6,
+          "ra_max": 6.3,
+          "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
+          "ok": true,
+          "why": "IT7-8 满足 IT8; Ra 1.6-6.3 覆盖目标 1.6"
+        }
+      ],
+      "chosen": {
+        "source": "lookup_path_precision",
+        "path_text": "粗车→半精车→精车 (或磨)",
+        "it_text": "7-8",
+        "ra_min": 1.6,
+        "ra_max": 6.3,
+        "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
+        "ok": true,
+        "why": "IT7-8 满足 IT8; Ra 1.6-6.3 覆盖目标 1.6"
+      }
+    },
+    {
+      "feature_id": "F3",
+      "kind": "锥面",
+      "intent": "Taper turning",
+      "default_path_kw": null,
+      "target_it": null,
+      "target_ra_um": 1.6,
+      "diameter_mm": null,
+      "raw_feature": {
+        "id": "F3",
+        "kind": "锥面",
+        "angle_deg": 25,
+        "angle_tolerance_text": "±1°",
+        "ra_target_um": 1.6,
+        "note": "数车锥面"
+      },
+      "candidates": [
+        {
+          "source": "rule",
+          "path_text": "数车成形/锥度刀车锥面",
+          "ok": true,
+          "why": "(no constraint)"
+        }
+      ],
+      "chosen": {
+        "source": "rule",
+        "path_text": "数车成形/锥度刀车锥面",
+        "ok": true,
+        "why": "(no constraint)"
+      }
+    },
+    {
+      "feature_id": "F4",
+      "kind": "球面",
+      "intent": "Form turning (sphere)",
+      "default_path_kw": null,
+      "target_it": null,
+      "target_ra_um": 1.6,
+      "diameter_mm": null,
+      "raw_feature": {
+        "id": "F4",
+        "kind": "球面",
+        "spec": "SR5.33",
+        "fillet_R_mm": 6.35,
+        "fillet_tolerance_text": "+6.35/0",
+        "ra_target_um": 1.6,
+        "note": "数车成形球面"
+      },
+      "candidates": [
+        {
+          "source": "rule",
+          "path_text": "数车成形车刀车球面",
+          "ok": true,
+          "why": "(no constraint)"
+        }
+      ],
+      "chosen": {
+        "source": "rule",
+        "path_text": "数车成形车刀车球面",
+        "ok": true,
+        "why": "(no constraint)"
+      }
+    },
+    {
+      "feature_id": "F5",
+      "kind": "铣扁",
+      "intent": "Mill flat (milling center)",
+      "default_path_kw": null,
+      "target_it": null,
+      "target_ra_um": 3.2,
+      "diameter_mm": 19,
+      "raw_feature": {
+        "id": "F5",
+        "kind": "铣扁",
+        "width_mm": 19,
+        "width_tolerance_text": "±0.025",
+        "fillet_R_mm": 2,
+        "fillet_tolerance_text": "±0.2",
+        "depth_mm": 14,
+        "depth_tolerance_text": "±0.5",
+        "ra_target_um": 3.2,
+        "position_tolerance_text": "⌖0.12 C",
+        "note": "加工中心铣两侧扁"
+      },
+      "candidates": [
+        {
+          "source": "rule",
+          "path_text": "加工中心铣两侧扁面",
+          "ok": true,
+          "why": "(no constraint)"
+        }
+      ],
+      "chosen": {
+        "source": "rule",
+        "path_text": "加工中心铣两侧扁面",
+        "ok": true,
+        "why": "(no constraint)"
+      }
+    },
+    {
+      "feature_id": "F6",
+      "kind": "总长",
+      "intent": "Total length / face finish",
+      "default_path_kw": null,
+      "target_it": null,
+      "target_ra_um": 3.2,
+      "diameter_mm": null,
+      "raw_feature": {
+        "id": "F6",
+        "kind": "总长",
+        "length_mm": 92.5,
+        "tolerance_text": "无明示",
+        "ra_target_um": 3.2,
+        "note": "切断 + 端面修整, 切刀 ≤ 3 mm"
+      },
+      "candidates": [
+        {
+          "source": "rule",
+          "path_text": "调头平端面修整总长",
+          "ok": true,
+          "why": "(no constraint)"
+        }
+      ],
+      "chosen": {
+        "source": "rule",
+        "path_text": "调头平端面修整总长",
+        "ok": true,
+        "why": "(no constraint)"
+      }
+    }
+  ],
+  "divergence_notes": []
+}

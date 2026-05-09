@@ -1,0 +1,83 @@
+{
+  "case_id": "locating_pin",
+  "part_name": "定位销",
+  "blank": {
+    "form": "棒料",
+    "material": "Z2CND18-12NS",
+    "material_family": "奥氏体不锈钢",
+    "size_text": "φ26 × 980",
+    "diameter_mm": 26,
+    "length_total_mm": 980,
+    "parts_per_blank": 10,
+    "note": "类似 316L. 切削液卤硫 < 200 ppm, 禁与含铁素体接触, 检测 20℃±2℃"
+  },
+  "available_equipment": ["数控车床", "三轴加工中心"],
+  "batch_kind": "小批量 (1 棒料 = 10 件)",
+  "features": [
+    {
+      "id": "F1",
+      "kind": "螺纹_外",
+      "spec": "M14-6g",
+      "major_diameter_mm": 14,
+      "major_diameter_tolerance_text": "-0.038/-0.388",
+      "pitch_mm": 2,
+      "ra_target_um": 3.2,
+      "note": "数车挑螺纹"
+    },
+    {
+      "id": "F2",
+      "kind": "外圆",
+      "diameter_mm": 21.74,
+      "tolerance_text": "+0.05/0",
+      "tolerance_band_mm": 0.05,
+      "axial_extent_mm": 54,
+      "ra_target_um": 1.6,
+      "perpendicularity_text": "⊥0.025 D",
+      "position_tolerance_text": "⌖φ0.1 B",
+      "note": "精车外圆, 形位公差严"
+    },
+    {
+      "id": "F3",
+      "kind": "锥面",
+      "angle_deg": 25,
+      "angle_tolerance_text": "±1°",
+      "ra_target_um": 1.6,
+      "note": "数车锥面"
+    },
+    {
+      "id": "F4",
+      "kind": "球面",
+      "spec": "SR5.33",
+      "fillet_R_mm": 6.35,
+      "fillet_tolerance_text": "+6.35/0",
+      "ra_target_um": 1.6,
+      "note": "数车成形球面"
+    },
+    {
+      "id": "F5",
+      "kind": "铣扁",
+      "width_mm": 19,
+      "width_tolerance_text": "±0.025",
+      "fillet_R_mm": 2,
+      "fillet_tolerance_text": "±0.2",
+      "depth_mm": 14,
+      "depth_tolerance_text": "±0.5",
+      "ra_target_um": 3.2,
+      "position_tolerance_text": "⌖0.12 C",
+      "note": "加工中心铣两侧扁"
+    },
+    {
+      "id": "F6",
+      "kind": "总长",
+      "length_mm": 92.5,
+      "tolerance_text": "无明示",
+      "ra_target_um": 3.2,
+      "note": "切断 + 端面修整, 切刀 ≤ 3 mm"
+    }
+  ],
+  "additional_requirements": {
+    "edge_break": "未注棱角倒圆 R0.13~R0.5",
+    "marking": "刻标 HXXX-6DH00-顺序号",
+    "inspection": "依图纸尺寸 + 外观"
+  }
+}

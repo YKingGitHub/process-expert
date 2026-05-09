@@ -1,0 +1,73 @@
+{
+  "case_id": "falan",
+  "part_name": "法兰盘",
+  "blank": {
+    "form": "棒料",
+    "material": "Z2CN19-10NS",
+    "material_family": "奥氏体不锈钢",
+    "size_text": "φ103.5",
+    "diameter_mm": 103.5,
+    "length_mm_per_part": 32,
+    "length_total_mm_formula": "L = 零件数 × 32 + 35",
+    "note": "核电用奥氏体不锈钢, 类似 304L. 切削液卤硫含量 < 200 ppm, 加工/流转禁与含铁素体物体接触"
+  },
+  "available_equipment": ["数控车床", "三轴加工中心", "车床", "快走丝"],
+  "batch_kind": "中批量 (一根棒料切多个)",
+  "features": [
+    {
+      "id": "F1",
+      "kind": "外圆",
+      "diameter_mm": 103,
+      "tolerance_text": "+0.3/+0.1",
+      "tolerance_band_mm": 0.2,
+      "ra_target_um": 3.2,
+      "axial_extent": "全长",
+      "note": "棒料外圆精车到位"
+    },
+    {
+      "id": "F2",
+      "kind": "总长_切片",
+      "thickness_mm": 31,
+      "tolerance_text": "+0.5/+0.3",
+      "ra_target_um": 6.3,
+      "perpendicularity_to_od_mm": 0.1,
+      "note": "薄盘形零件, 线切割切片"
+    },
+    {
+      "id": "F3",
+      "kind": "沉孔",
+      "diameter_mm": 40,
+      "tolerance_text": "+0.3/+0.1",
+      "depth_mm": 1.5,
+      "depth_tolerance_text": "±0.1",
+      "ra_target_um": 3.2,
+      "note": "数车铣浅沉孔"
+    },
+    {
+      "id": "F4",
+      "kind": "异形孔_D型",
+      "diameter_mm": 34,
+      "diameter_tolerance_text": "+0.25/+0.3",
+      "offset_from_center_mm": 15,
+      "offset_tolerance_text": "+0.3/+0.3",
+      "fillet_R_mm": 4,
+      "fillet_tolerance_text": "±0.2",
+      "ra_target_um": 3.2,
+      "position_tolerance_text": "⌖φ0.1 B C",
+      "note": "加工中心铣异形孔, 形位公差严"
+    },
+    {
+      "id": "F5",
+      "kind": "总长",
+      "length_mm": 30.5,
+      "tolerance_text": "+0.3/+0.3",
+      "ra_target_um": 3.2,
+      "note": "切片后端面修整"
+    }
+  ],
+  "additional_requirements": {
+    "edge_break": "未注锐边倒圆 R0.1~R0.5",
+    "marking": "端面刻标 HXXX-65100-顺序号",
+    "inspection": "成品检验, 配合客户见证"
+  }
+}

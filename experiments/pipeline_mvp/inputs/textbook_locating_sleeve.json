@@ -1,0 +1,78 @@
+{
+  "case_id": "textbook_locating_sleeve",
+  "part_name": "密封件定位套",
+  "blank": {
+    "form": "铸件",
+    "material": "HT200",
+    "material_family": "灰铸铁",
+    "size_text": "近成型铸件 + 各部余量 7 mm",
+    "casting_allowance_mm": 7,
+    "heat_treat_pre": "人工时效"
+  },
+  "available_equipment": ["CA6163 普通车床", "外圆磨", "内圆磨", "平面磨", "专用工装"],
+  "batch_kind": "中批量",
+  "features": [
+    {
+      "id": "F1",
+      "kind": "孔_基准",
+      "diameter_mm": 130,
+      "tolerance_text": "+0.045/+0.015",
+      "tolerance_band_mm": 0.030,
+      "it_target": "H7",
+      "ra_target_um": 0.8,
+      "is_datum": true,
+      "axial_extent": "全长",
+      "note": "基准孔, 后续两端外圆同轴度对它"
+    },
+    {
+      "id": "F2",
+      "kind": "外圆",
+      "diameter_mm": 165,
+      "tolerance_text": "-0.10/-0.15",
+      "tolerance_band_mm": 0.05,
+      "ra_target_um": 1.6,
+      "axial_extent": "一端",
+      "coaxiality_to_F1_mm": 0.025,
+      "note": "一端外圆, 同轴度 Φ0.025 对基准孔"
+    },
+    {
+      "id": "F3",
+      "kind": "外圆",
+      "diameter_mm": 180,
+      "tolerance_text": "-0.10/-0.15",
+      "tolerance_band_mm": 0.05,
+      "ra_target_um": 1.6,
+      "axial_extent": "另一端",
+      "coaxiality_to_F1_mm": 0.025,
+      "note": "另一端外圆, 同轴度 Φ0.025 对基准孔"
+    },
+    {
+      "id": "F4",
+      "kind": "端面",
+      "perpendicularity_to_axis_mm": 0.03,
+      "ra_target_um": 0.8,
+      "note": "F1 右端面, 垂直度 0.03 对其轴线"
+    },
+    {
+      "id": "F5",
+      "kind": "外圆_法兰",
+      "diameter_mm": 260,
+      "tolerance_text": "未明示",
+      "thickness_mm": 22,
+      "thickness_tolerance_text": "未明示",
+      "ra_target_um": 6.3,
+      "note": "法兰盘外圆, 粗加工即可"
+    },
+    {
+      "id": "F6",
+      "kind": "总长",
+      "length_mm": 220,
+      "tolerance_text": "未明示"
+    }
+  ],
+  "additional_requirements": {
+    "edge_break": "尖角处倒角 C1",
+    "casting_qa": "材料不能有疏松、夹渣等缺陷",
+    "heat_treat_after_casting": "人工时效"
+  }
+}

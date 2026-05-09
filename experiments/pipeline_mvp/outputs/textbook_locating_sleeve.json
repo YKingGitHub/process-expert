@@ -1,0 +1,463 @@
+{
+  "case_id": "textbook_locating_sleeve",
+  "part_name": "密封件定位套",
+  "summary": {
+    "feature_count": 6,
+    "op_count": 14,
+    "kb_hit_rate": 0.57,
+    "gap_count": 17
+  },
+  "operations": [
+    {
+      "seq": 5,
+      "name": "领料",
+      "content": "依据图纸领料",
+      "equipment": "—",
+      "cutting_params": null,
+      "allowance": null,
+      "kb_sources": [],
+      "gaps": []
+    },
+    {
+      "name": "粗车",
+      "feature_id": "F2",
+      "feature_kind": "外圆",
+      "equipment": "CA6163 普通车床",
+      "cutting_params": null,
+      "allowance": {
+        "allowance_mm_min": 2.5,
+        "allowance_mm_max": 2.5,
+        "kb_record_id": "STD-2.9.1-OD-ROUGH-FINISH-TURN-ALLOWANCE-001"
+      },
+      "kb_sources": [
+        "STD-2.3.2-OUTER-CYL-PATH-001",
+        "STD-2.9.1-OD-ROUGH-FINISH-TURN-ALLOWANCE-001"
+      ],
+      "gaps": [
+        "切削参数 KB 未命中"
+      ],
+      "_seq_hint": 10,
+      "seq": 10,
+      "content": "加工 F2 (外圆); 余量 2.5-2.5 mm"
+    },
+    {
+      "name": "粗车",
+      "feature_id": "F3",
+      "feature_kind": "外圆",
+      "equipment": "CA6163 普通车床",
+      "cutting_params": null,
+      "allowance": {
+        "allowance_mm_min": 2.5,
+        "allowance_mm_max": 2.5,
+        "kb_record_id": "STD-2.9.1-OD-ROUGH-FINISH-TURN-ALLOWANCE-001"
+      },
+      "kb_sources": [
+        "STD-2.3.2-OUTER-CYL-PATH-001",
+        "STD-2.9.1-OD-ROUGH-FINISH-TURN-ALLOWANCE-001"
+      ],
+      "gaps": [
+        "切削参数 KB 未命中"
+      ],
+      "_seq_hint": 10,
+      "seq": 15,
+      "content": "加工 F3 (外圆); 余量 2.5-2.5 mm"
+    },
+    {
+      "name": "粗车端面",
+      "feature_id": "F4",
+      "feature_kind": "端面",
+      "equipment": "CA6163 普通车床",
+      "cutting_params": null,
+      "allowance": null,
+      "kb_sources": [],
+      "gaps": [
+        "切削参数 KB 未命中",
+        "加工余量 KB 未命中"
+      ],
+      "_seq_hint": 10,
+      "seq": 20,
+      "content": "加工 F4 (端面)"
+    },
+    {
+      "name": "粗车",
+      "feature_id": "F5",
+      "feature_kind": "外圆_法兰",
+      "equipment": "CA6163 普通车床",
+      "cutting_params": null,
+      "allowance": {
+        "allowance_mm_min": 3.0,
+        "allowance_mm_max": 3.0,
+        "kb_record_id": "STD-2.9.1-OD-ROUGH-FINISH-TURN-ALLOWANCE-001"
+      },
+      "kb_sources": [
+        "STD-2.3.2-OUTER-CYL-PATH-001",
+        "STD-2.9.1-OD-ROUGH-FINISH-TURN-ALLOWANCE-001"
+      ],
+      "gaps": [
+        "切削参数 KB 未命中"
+      ],
+      "_seq_hint": 10,
+      "seq": 25,
+      "content": "加工 F5 (外圆_法兰); 余量 3.0-3.0 mm"
+    },
+    {
+      "name": "半精车",
+      "feature_id": "F2",
+      "feature_kind": "外圆",
+      "equipment": "CA6163 普通车床",
+      "cutting_params": null,
+      "allowance": {
+        "allowance_mm_min": 1.8,
+        "allowance_mm_max": 1.8,
+        "kb_record_id": "STD-2.9.1-OD-ROUGH-FINISH-TURN-ALLOWANCE-001"
+      },
+      "kb_sources": [
+        "STD-2.3.2-OUTER-CYL-PATH-001",
+        "STD-2.9.1-OD-ROUGH-FINISH-TURN-ALLOWANCE-001"
+      ],
+      "gaps": [
+        "切削参数 KB 未命中"
+      ],
+      "_seq_hint": 20,
+      "seq": 30,
+      "content": "加工 F2 (外圆); 余量 1.8-1.8 mm"
+    },
+    {
+      "name": "半精车",
+      "feature_id": "F3",
+      "feature_kind": "外圆",
+      "equipment": "CA6163 普通车床",
+      "cutting_params": null,
+      "allowance": {
+        "allowance_mm_min": 1.8,
+        "allowance_mm_max": 1.8,
+        "kb_record_id": "STD-2.9.1-OD-ROUGH-FINISH-TURN-ALLOWANCE-001"
+      },
+      "kb_sources": [
+        "STD-2.3.2-OUTER-CYL-PATH-001",
+        "STD-2.9.1-OD-ROUGH-FINISH-TURN-ALLOWANCE-001"
+      ],
+      "gaps": [
+        "切削参数 KB 未命中"
+      ],
+      "_seq_hint": 20,
+      "seq": 35,
+      "content": "加工 F3 (外圆); 余量 1.8-1.8 mm"
+    },
+    {
+      "name": "半精车",
+      "feature_id": "F5",
+      "feature_kind": "外圆_法兰",
+      "equipment": "CA6163 普通车床",
+      "cutting_params": null,
+      "allowance": null,
+      "kb_sources": [
+        "STD-2.3.2-OUTER-CYL-PATH-001"
+      ],
+      "gaps": [
+        "切削参数 KB 未命中",
+        "加工余量 KB 未命中"
+      ],
+      "_seq_hint": 20,
+      "seq": 40,
+      "content": "加工 F5 (外圆_法兰)"
+    },
+    {
+      "name": "精车 或磨",
+      "feature_id": "F2",
+      "feature_kind": "外圆",
+      "equipment": "CA6163 普通车床",
+      "cutting_params": null,
+      "allowance": null,
+      "kb_sources": [
+        "STD-2.3.2-OUTER-CYL-PATH-001"
+      ],
+      "gaps": [
+        "切削参数 KB 未命中",
+        "加工余量 KB 未命中"
+      ],
+      "_seq_hint": 25,
+      "seq": 45,
+      "content": "加工 F2 (外圆)"
+    },
+    {
+      "name": "精车 或磨",
+      "feature_id": "F3",
+      "feature_kind": "外圆",
+      "equipment": "CA6163 普通车床",
+      "cutting_params": null,
+      "allowance": null,
+      "kb_sources": [
+        "STD-2.3.2-OUTER-CYL-PATH-001"
+      ],
+      "gaps": [
+        "切削参数 KB 未命中",
+        "加工余量 KB 未命中"
+      ],
+      "_seq_hint": 25,
+      "seq": 50,
+      "content": "加工 F3 (外圆)"
+    },
+    {
+      "name": "精车端面",
+      "feature_id": "F4",
+      "feature_kind": "端面",
+      "equipment": "CA6163 普通车床",
+      "cutting_params": null,
+      "allowance": null,
+      "kb_sources": [],
+      "gaps": [
+        "切削参数 KB 未命中",
+        "加工余量 KB 未命中"
+      ],
+      "_seq_hint": 25,
+      "seq": 55,
+      "content": "加工 F4 (端面)"
+    },
+    {
+      "name": "调头平端面修整总长",
+      "feature_id": "F6",
+      "feature_kind": "总长",
+      "equipment": "?",
+      "cutting_params": null,
+      "allowance": null,
+      "kb_sources": [],
+      "gaps": [
+        "切削参数 KB 未命中",
+        "加工余量 KB 未命中"
+      ],
+      "_seq_hint": 50,
+      "seq": 60,
+      "content": "加工 F6 (总长)"
+    },
+    {
+      "seq": 65,
+      "name": "检验",
+      "content": "尺寸+外观检验",
+      "equipment": "—",
+      "cutting_params": null,
+      "allowance": null,
+      "kb_sources": [],
+      "gaps": []
+    },
+    {
+      "seq": 70,
+      "name": "入库",
+      "content": "清洗、包装、入库",
+      "equipment": "—",
+      "cutting_params": null,
+      "allowance": null,
+      "kb_sources": [],
+      "gaps": []
+    }
+  ],
+  "feature_analysis": [
+    {
+      "feature_id": "F2",
+      "kind": "外圆",
+      "intent": "OD turning",
+      "default_path_kw": "粗车→半精车→精车",
+      "target_it": 8,
+      "target_ra_um": 1.6,
+      "diameter_mm": 165,
+      "raw_feature": {
+        "id": "F2",
+        "kind": "外圆",
+        "diameter_mm": 165,
+        "tolerance_text": "-0.10/-0.15",
+        "tolerance_band_mm": 0.05,
+        "ra_target_um": 1.6,
+        "axial_extent": "一端",
+        "coaxiality_to_F1_mm": 0.025,
+        "note": "一端外圆, 同轴度 Φ0.025 对基准孔"
+      },
+      "candidates": [
+        {
+          "source": "lookup_path_precision",
+          "path_text": "粗车→半精车→精车 (或磨)",
+          "it_text": "7-8",
+          "ra_min": 1.6,
+          "ra_max": 6.3,
+          "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
+          "ok": true,
+          "why": "IT7-8 满足 IT8; Ra 1.6-6.3 覆盖目标 1.6"
+        }
+      ],
+      "chosen": {
+        "source": "lookup_path_precision",
+        "path_text": "粗车→半精车→精车 (或磨)",
+        "it_text": "7-8",
+        "ra_min": 1.6,
+        "ra_max": 6.3,
+        "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
+        "ok": true,
+        "why": "IT7-8 满足 IT8; Ra 1.6-6.3 覆盖目标 1.6"
+      }
+    },
+    {
+      "feature_id": "F3",
+      "kind": "外圆",
+      "intent": "OD turning",
+      "default_path_kw": "粗车→半精车→精车",
+      "target_it": 8,
+      "target_ra_um": 1.6,
+      "diameter_mm": 180,
+      "raw_feature": {
+        "id": "F3",
+        "kind": "外圆",
+        "diameter_mm": 180,
+        "tolerance_text": "-0.10/-0.15",
+        "tolerance_band_mm": 0.05,
+        "ra_target_um": 1.6,
+        "axial_extent": "另一端",
+        "coaxiality_to_F1_mm": 0.025,
+        "note": "另一端外圆, 同轴度 Φ0.025 对基准孔"
+      },
+      "candidates": [
+        {
+          "source": "lookup_path_precision",
+          "path_text": "粗车→半精车→精车 (或磨)",
+          "it_text": "7-8",
+          "ra_min": 1.6,
+          "ra_max": 6.3,
+          "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
+          "ok": true,
+          "why": "IT7-8 满足 IT8; Ra 1.6-6.3 覆盖目标 1.6"
+        }
+      ],
+      "chosen": {
+        "source": "lookup_path_precision",
+        "path_text": "粗车→半精车→精车 (或磨)",
+        "it_text": "7-8",
+        "ra_min": 1.6,
+        "ra_max": 6.3,
+        "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
+        "ok": true,
+        "why": "IT7-8 满足 IT8; Ra 1.6-6.3 覆盖目标 1.6"
+      }
+    },
+    {
+      "feature_id": "F4",
+      "kind": "端面",
+      "intent": "Face turning, perpendicularity-critical",
+      "default_path_kw": null,
+      "target_it": null,
+      "target_ra_um": 0.8,
+      "diameter_mm": null,
+      "raw_feature": {
+        "id": "F4",
+        "kind": "端面",
+        "perpendicularity_to_axis_mm": 0.03,
+        "ra_target_um": 0.8,
+        "note": "F1 右端面, 垂直度 0.03 对其轴线"
+      },
+      "candidates": [
+        {
+          "source": "rule",
+          "path_text": "粗车端面→精车端面",
+          "ok": true,
+          "why": "(no constraint)"
+        }
+      ],
+      "chosen": {
+        "source": "rule",
+        "path_text": "粗车端面→精车端面",
+        "ok": true,
+        "why": "(no constraint)"
+      }
+    },
+    {
+      "feature_id": "F5",
+      "kind": "外圆_法兰",
+      "intent": "Flange OD turning (rough only)",
+      "default_path_kw": "粗车→半精车",
+      "target_it": null,
+      "target_ra_um": 6.3,
+      "diameter_mm": 260,
+      "raw_feature": {
+        "id": "F5",
+        "kind": "外圆_法兰",
+        "diameter_mm": 260,
+        "tolerance_text": "未明示",
+        "thickness_mm": 22,
+        "thickness_tolerance_text": "未明示",
+        "ra_target_um": 6.3,
+        "note": "法兰盘外圆, 粗加工即可"
+      },
+      "candidates": [
+        {
+          "source": "lookup_path_precision",
+          "path_text": "粗车→半精车",
+          "it_text": "8-10",
+          "ra_min": 6.3,
+          "ra_max": 12.5,
+          "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
+          "ok": true,
+          "why": "Ra 6.3-12.5 覆盖目标 6.3"
+        },
+        {
+          "source": "lookup_path_precision",
+          "path_text": "粗车→半精车→精车 (或磨)",
+          "it_text": "7-8",
+          "ra_min": 1.6,
+          "ra_max": 6.3,
+          "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
+          "ok": true,
+          "why": "Ra 1.6-6.3 覆盖目标 6.3"
+        },
+        {
+          "source": "lookup_path_precision",
+          "path_text": "粗车→半精车→{精车-细车 (有色金属及合金) / 粗磨-精磨 / 精车-滚压}",
+          "it_text": "6-7",
+          "ra_min": 0.2,
+          "ra_max": 1.6,
+          "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
+          "ok": true,
+          "why": "Ra max 1.6 远超目标 6.3 (过精)"
+        }
+      ],
+      "chosen": {
+        "source": "lookup_path_precision",
+        "path_text": "粗车→半精车",
+        "it_text": "8-10",
+        "ra_min": 6.3,
+        "ra_max": 12.5,
+        "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
+        "ok": true,
+        "why": "Ra 6.3-12.5 覆盖目标 6.3"
+      }
+    },
+    {
+      "feature_id": "F6",
+      "kind": "总长",
+      "intent": "Total length / face finish",
+      "default_path_kw": null,
+      "target_it": null,
+      "target_ra_um": null,
+      "diameter_mm": null,
+      "raw_feature": {
+        "id": "F6",
+        "kind": "总长",
+        "length_mm": 220,
+        "tolerance_text": "未明示"
+      },
+      "candidates": [
+        {
+          "source": "rule",
+          "path_text": "调头平端面修整总长",
+          "ok": true,
+          "why": "(no constraint)"
+        }
+      ],
+      "chosen": {
+        "source": "rule",
+        "path_text": "调头平端面修整总长",
+        "ok": true,
+        "why": "(no constraint)"
+      }
+    }
+  ],
+  "divergence_notes": [
+    "F1 (孔_基准): 无候选方法 — KB/规则均未命中"
+  ]
+}
