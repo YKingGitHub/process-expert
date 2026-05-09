@@ -57,6 +57,12 @@ def dispatch(kb_call):
                 "ok": True, "match_count": r["result"]["match_count"],
                 "rows": r["result"]["matches"][:5], "raw": r,
             }
+        if kind == "allowance":
+            r = calculate("lookup_machining_allowance", **kb_call[1])
+            return {
+                "ok": True, "match_count": r["result"]["match_count"],
+                "rows": r["result"]["matches"][:5], "raw": r,
+            }
         if kind == "calc":
             method_id, kwargs = kb_call[1], kb_call[2]
             r = calculate(method_id, **kwargs)

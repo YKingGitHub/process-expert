@@ -188,6 +188,80 @@ def lookup_method_position_error(
     )
 
 
+def lookup_machining_allowance(
+    feature_kind: str | None = None,
+    operation: str | None = None,
+    size_mm: float | None = None,
+    length_mm: float | None = None,
+    material: str | None = None,
+    db_path: str | Path | None = None,
+) -> dict:
+    """Look up machining allowance recommendations.
+
+    Source: ``lookup_machining_allowance`` (specialized table for §2.9.1
+    Ch6 余量表 from 金属切削工艺技术手册). All filters typed.
+
+    Selection rules:
+      - feature_kind: '外圆' / '孔' / '端面' / '切断' (exact match)
+      - operation: '粗车' / '半精车' / '精车' / '磨' / '钻' / '切断' / ... (LIKE)
+      - size_mm: filter rows where size_min <= size_mm <= size_max (or unbounded)
+      - length_mm: same for length_min/length_max
+      - material: LIKE filter (mostly for 切断 table)
+    """
+    if not any([feature_kind, operation, size_mm, length_mm, material]):
+        raise MissingParameterError(
+            "lookup_machining_allowance requires at least one of: "
+            "feature_kind, operation, size_mm, length_mm, material"
+        )
+    where = ["1=1"]
+    params: list[Any] = []
+    if feature_kind:
+        where.append("feature_kind = ?")
+        params.append(feature_kind)
+    if operation:
+        where.append("operation LIKE ?")
+        params.append(f"%{operation}%")
+    if material:
+        where.append("material LIKE ?")
+        params.append(f"%{material}%")
+    if size_mm is not None:
+        where.append("(size_min IS NULL OR size_min <= ?) "
+                     "AND (size_max IS NULL OR size_max >= ?)")
+        params.extend([size_mm, size_mm])
+    if length_mm is not None:
+        where.append("(length_min IS NULL OR length_min <= ?) "
+                     "AND (length_max IS NULL OR length_max >= ?)")
+        params.extend([length_mm, length_mm])
+    sql = f"""
+        SELECT record_id, row_index, feature_kind, operation, material,
+               size_segment_text, length_segment_text, heat_treat,
+               allowance_text, allowance_mm_min, allowance_mm_max, extra_json
+        FROM lookup_machining_allowance
+        WHERE {' AND '.join(where)}
+        ORDER BY record_id, row_index
+    """
+    with _connect(db_path) as conn:
+        rows = [dict(r) for r in conn.execute(sql, params).fetchall()]
+
+    steps = [
+        "Query lookup_machining_allowance (specialized v2 table for §2.9.1)",
+        f"feature_kind: {feature_kind!r}" if feature_kind else "feature: (any)",
+        f"operation filter: {operation!r}" if operation else "operation: (any)",
+        f"size_mm: {size_mm}" if size_mm is not None else "size: (any)",
+        f"length_mm: {length_mm}" if length_mm is not None else "length: (any)",
+        f"Found {len(rows)} allowance row(s)",
+    ]
+    return build_result(
+        method_id="lookup_machining_allowance",
+        result={"matches": rows, "match_count": len(rows)},
+        unit="mm",
+        steps=steps,
+        formula="SELECT feature_kind, operation, allowance_mm_min/max "
+                "FROM lookup_machining_allowance WHERE typed-column filters",
+        verified=True,
+    )
+
+
 def lookup_cutting_params(
     material: str | None = None,
     operation: str | None = None,

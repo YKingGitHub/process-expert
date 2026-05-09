@@ -150,21 +150,41 @@ QUERIES_S3 = [
 ]
 
 
-# ---------- Step 4a: allowance (4) ----------
+# ---------- Step 4a: allowance (4) — schema v2 via lookup_machining_allowance API ----------
 
 QUERIES_S4A = [
     {
-        "id": f"Q1{i}", "step": "S4a", "category": "allowance",
-        "input": txt[0], "text": txt[1],
-        "kb_call": ("raw_sql", "SELECT id FROM kb_records WHERE framework_branch LIKE '2.9.1%'"),
-        "expected": "❌ Ch6 余量表还没抽",
-        "assess": lambda a: "no_data",
-    } for i, txt in enumerate([
-        ("来料 φ103.5 → 成品 φ103, 单边 0.25mm",   "外圆粗车单边余量 typical?"),
-        ("切片厚 31mm, 切刀≤3mm + 总长 30.5",        "切割余量 + 端面修整余量?"),
-        ("沉孔 φ40 × 1.5 (实心新加)",                 "钻+镗余量 / 铣槽余量?"),
-        ("D 型孔从实心铣出",                          "铣孔余量分配?"),
-    ], start=4)
+        "id": "Q14", "step": "S4a", "category": "allowance",
+        "input": "外圆 φ103, 粗车单边余量",
+        "text": "外圆粗车单边余量 typical?",
+        "kb_call": ("allowance", {"feature_kind": "外圆", "operation": "粗车", "size_mm": 103}),
+        "expected": "外圆 80~120 段, 粗车 2.5 mm 双边 (≤200 长度)",
+        "assess": lambda a: "pass" if _matches_count(a, 1) else "no_data",
+    },
+    {
+        "id": "Q15", "step": "S4a", "category": "allowance",
+        "input": "圆钢 φ103.5 切断",
+        "text": "切割余量?",
+        "kb_call": ("allowance", {"feature_kind": "切断", "material": "圆钢", "size_mm": 103.5}),
+        "expected": "锯床切断 圆钢 100~240 → 8 mm",
+        "assess": lambda a: "pass" if _matches_count(a, 1) else "no_data",
+    },
+    {
+        "id": "Q16", "step": "S4a", "category": "allowance",
+        "input": "沉孔 φ40 实心铣",
+        "text": "沉孔余量分配?",
+        "kb_call": ("allowance", {"feature_kind": "孔", "size_mm": 40}),
+        "expected": "H7 孔 工序尺寸链 (本表是工序尺寸而非余量, 命中即 pass)",
+        "assess": lambda a: "pass" if _matches_count(a, 1) else "no_data",
+    },
+    {
+        "id": "Q17", "step": "S4a", "category": "allowance",
+        "input": "端面 φ103 长 31",
+        "text": "精车端面余量?",
+        "kb_call": ("allowance", {"feature_kind": "端面", "operation": "精车", "size_mm": 103, "length_mm": 31}),
+        "expected": "50~120 × 18~50: 0.7 mm",
+        "assess": lambda a: "pass" if _matches_count(a, 1) else "no_data",
+    },
 ]
 
 

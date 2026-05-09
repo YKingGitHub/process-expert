@@ -442,65 +442,195 @@
       "id": "Q14",
       "step": "S4a",
       "category": "allowance",
-      "input": "铸件余量 7mm 总, 各序分配 (5mm + 0.5mm + 0.05mm 大致)",
-      "text": "粗+精+磨 内孔余量分配?",
-      "expected": "❌ Ch6 余量表还没抽",
+      "input": "内孔 H7 Φ130, 工序尺寸链",
+      "text": "粗+精+磨 内孔工序尺寸链?",
+      "expected": "H7 孔工序尺寸表 (Φ50: 25 → 47 → 49.75 → 49.93 → 50)",
       "kb_call": [
-        "raw_sql",
-        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.9.1%'"
+        "allowance",
+        "{'feature_kind': '孔', 'size_mm': 50}"
       ],
-      "actual_match_count": 0,
-      "actual_sample": [],
+      "actual_match_count": 1,
+      "actual_sample": [
+        {
+          "record_id": "STD-2.9.1-H7-HOLE-WORKSTAGE-DIMS-001",
+          "row_index": 10,
+          "feature_kind": "孔",
+          "operation": "工序尺寸链 (H7)",
+          "material": null,
+          "size_segment_text": "50",
+          "length_segment_text": null,
+          "heat_treat": null,
+          "allowance_text": null,
+          "allowance_mm_min": null,
+          "allowance_mm_max": null,
+          "extra_json": "{\"drill_1st_mm\": 25, \"drill_2nd_mm\": 47.0, \"expansion_drill_mm\": 49.75, \"rough_ream_mm\": 49.93, \"fine_ream_mm\": 50, \"result_dim_text\": \"50H7\"}"
+        }
+      ],
       "actual_error": null,
-      "outcome": "no_data"
+      "outcome": "pass"
     },
     {
       "id": "Q15",
       "step": "S4a",
       "category": "allowance",
-      "input": "外圆 Φ180 - 留 5mm 粗 - 0.5mm 精 - ?磨",
-      "text": "外圆磨余量?",
-      "expected": "❌ Ch6 余量表还没抽",
+      "input": "外圆 Φ180 粗车余量",
+      "text": "外圆粗车余量?",
+      "expected": "外圆 120~180 粗车 2.5 mm",
       "kb_call": [
-        "raw_sql",
-        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.9.1%'"
+        "allowance",
+        "{'feature_kind': '外圆', 'operation': '粗车', 'size_mm': 180}"
       ],
-      "actual_match_count": 0,
-      "actual_sample": [],
+      "actual_match_count": 2,
+      "actual_sample": [
+        {
+          "record_id": "STD-2.9.1-OD-ROUGH-FINISH-TURN-ALLOWANCE-001",
+          "row_index": 23,
+          "feature_kind": "外圆",
+          "operation": "粗车",
+          "material": null,
+          "size_segment_text": "120~180",
+          "length_segment_text": "≤200",
+          "heat_treat": null,
+          "allowance_text": null,
+          "allowance_mm_min": 2.5,
+          "allowance_mm_max": 2.5,
+          "extra_json": null
+        },
+        {
+          "record_id": "STD-2.9.1-OD-ROUGH-FINISH-TURN-ALLOWANCE-001",
+          "row_index": 26,
+          "feature_kind": "外圆",
+          "operation": "粗车",
+          "material": null,
+          "size_segment_text": "180~250",
+          "length_segment_text": "≤200",
+          "heat_treat": null,
+          "allowance_text": null,
+          "allowance_mm_min": 2.8,
+          "allowance_mm_max": 2.8,
+          "extra_json": null
+        }
+      ],
       "actual_error": null,
-      "outcome": "no_data"
+      "outcome": "pass"
     },
     {
       "id": "Q16",
       "step": "S4a",
       "category": "allowance",
-      "input": "端面磨 0.4mm/序",
-      "text": "端面磨余量?",
-      "expected": "❌ Ch6 余量表还没抽",
+      "input": "外圆 Φ180 半精车 经铸件 (灰铸铁)",
+      "text": "半精车余量?",
+      "expected": "120~180 半精车 1.8-2.3 mm",
       "kb_call": [
-        "raw_sql",
-        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.9.1%'"
+        "allowance",
+        "{'feature_kind': '外圆', 'operation': '半精车', 'size_mm': 180}"
       ],
-      "actual_match_count": 0,
-      "actual_sample": [],
+      "actual_match_count": 4,
+      "actual_sample": [
+        {
+          "record_id": "STD-2.9.1-OD-ROUGH-FINISH-TURN-ALLOWANCE-001",
+          "row_index": 24,
+          "feature_kind": "外圆",
+          "operation": "半精车",
+          "material": null,
+          "size_segment_text": "120~180",
+          "length_segment_text": "≤200",
+          "heat_treat": "未热处理",
+          "allowance_text": null,
+          "allowance_mm_min": 1.8,
+          "allowance_mm_max": 1.8,
+          "extra_json": null
+        },
+        {
+          "record_id": "STD-2.9.1-OD-ROUGH-FINISH-TURN-ALLOWANCE-001",
+          "row_index": 25,
+          "feature_kind": "外圆",
+          "operation": "半精车",
+          "material": null,
+          "size_segment_text": "120~180",
+          "length_segment_text": "≤200",
+          "heat_treat": "经热处理",
+          "allowance_text": null,
+          "allowance_mm_min": 2.3,
+          "allowance_mm_max": 2.3,
+          "extra_json": null
+        },
+        {
+          "record_id": "STD-2.9.1-OD-ROUGH-FINISH-TURN-ALLOWANCE-001",
+          "row_index": 27,
+          "feature_kind": "外圆",
+          "operation": "半精车",
+          "material": null,
+          "size_segment_text": "180~250",
+          "length_segment_text": "≤200",
+          "heat_treat": "未热处理",
+          "allowance_text": null,
+          "allowance_mm_min": 2.0,
+          "allowance_mm_max": 2.0,
+          "extra_json": null
+        }
+      ],
       "actual_error": null,
-      "outcome": "no_data"
+      "outcome": "pass"
     },
     {
       "id": "Q17",
       "step": "S4a",
       "category": "allowance",
-      "input": "总长 220mm 各序加工余量",
-      "text": "总长余量?",
-      "expected": "❌ Ch6 余量表还没抽",
+      "input": "端面 精车 Φ260 长 220",
+      "text": "端面余量?",
+      "expected": "120~260 × 120~260: 1.0 mm",
       "kb_call": [
-        "raw_sql",
-        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.9.1%'"
+        "allowance",
+        "{'feature_kind': '端面', 'operation': '精车', 'size_mm': 260, 'length_mm': 220}"
       ],
-      "actual_match_count": 0,
-      "actual_sample": [],
+      "actual_match_count": 9,
+      "actual_sample": [
+        {
+          "record_id": "STD-2.9.1-FACE-FINISH-TURN-ALLOWANCE-001",
+          "row_index": 18,
+          "feature_kind": "端面",
+          "operation": "精车",
+          "material": null,
+          "size_segment_text": "120~260",
+          "length_segment_text": "≤18",
+          "heat_treat": null,
+          "allowance_text": null,
+          "allowance_mm_min": 0.7,
+          "allowance_mm_max": 0.7,
+          "extra_json": null
+        },
+        {
+          "record_id": "STD-2.9.1-FACE-FINISH-TURN-ALLOWANCE-001",
+          "row_index": 19,
+          "feature_kind": "端面",
+          "operation": "精车",
+          "material": null,
+          "size_segment_text": "120~260",
+          "length_segment_text": "18~50",
+          "heat_treat": null,
+          "allowance_text": null,
+          "allowance_mm_min": 0.8,
+          "allowance_mm_max": 0.8,
+          "extra_json": null
+        },
+        {
+          "record_id": "STD-2.9.1-FACE-FINISH-TURN-ALLOWANCE-001",
+          "row_index": 20,
+          "feature_kind": "端面",
+          "operation": "精车",
+          "material": null,
+          "size_segment_text": "120~260",
+          "length_segment_text": "50~120",
+          "heat_treat": null,
+          "allowance_text": null,
+          "allowance_mm_min": 1.0,
+          "allowance_mm_max": 1.0,
+          "extra_json": null
+        }
+      ],
       "actual_error": null,
-      "outcome": "no_data"
+      "outcome": "pass"
     },
     {
       "id": "Q18",
@@ -893,15 +1023,15 @@
   ],
   "summary": {
     "totals": {
-      "pass": 13,
+      "pass": 17,
       "partial": 2,
-      "no_data": 9,
+      "no_data": 5,
       "friction": 2
     },
     "total_queries": 26,
-    "coverage": 0.6538461538461539,
-    "accuracy": 0.7647058823529411,
-    "friction": 0.11764705882352941,
+    "coverage": 0.8076923076923077,
+    "accuracy": 0.8095238095238095,
+    "friction": 0.09523809523809523,
     "by_step": {
       "S2": {
         "pass": 4,
@@ -916,9 +1046,9 @@
         "friction": 2
       },
       "S4a": {
-        "pass": 0,
+        "pass": 4,
         "partial": 0,
-        "no_data": 4,
+        "no_data": 0,
         "friction": 0
       },
       "S4b": {
@@ -966,9 +1096,9 @@
         "friction": 2
       },
       "allowance": {
-        "pass": 0,
+        "pass": 4,
         "partial": 0,
-        "no_data": 4,
+        "no_data": 0,
         "friction": 0
       },
       "cutting-params": {

@@ -190,6 +190,30 @@ CREATE TABLE IF NOT EXISTS lookup_cutting_params (
 CREATE INDEX IF NOT EXISTS idx_cp_material ON lookup_cutting_params(material);
 CREATE INDEX IF NOT EXISTS idx_cp_op ON lookup_cutting_params(operation);
 
+-- 7a. 加工余量 (尺寸段 × 长度段 × 操作 → mm 余量) — Ch6 §2.9.1
+CREATE TABLE IF NOT EXISTS lookup_machining_allowance (
+    record_id TEXT NOT NULL,
+    row_index INTEGER NOT NULL,
+    feature_kind TEXT,                 -- '外圆'/'孔'/'端面'/'切断'
+    operation TEXT,                    -- 粗车/半精车/精车/磨/钻/扩/铰/切断/...
+    material TEXT,                     -- 钢/圆钢/方钢/钢板/铸铁/...
+    size_segment_text TEXT,
+    size_min REAL,
+    size_max REAL,
+    length_segment_text TEXT,
+    length_min REAL,
+    length_max REAL,
+    heat_treat TEXT,
+    allowance_text TEXT,
+    allowance_mm_min REAL,
+    allowance_mm_max REAL,
+    extra_json TEXT,                   -- 工序尺寸链 (e.g. drill_1st_mm) 等附加
+    PRIMARY KEY (record_id, row_index),
+    FOREIGN KEY (record_id) REFERENCES kb_records(id)
+);
+CREATE INDEX IF NOT EXISTS idx_alw_feature ON lookup_machining_allowance(feature_kind);
+CREATE INDEX IF NOT EXISTS idx_alw_operation ON lookup_machining_allowance(operation);
+
 -- 7. 二维网格大表 (尺寸段 × 方法 → IT + 偏差) — 11 张 index 占位的目标
 CREATE TABLE IF NOT EXISTS lookup_size_method_grid (
     record_id TEXT NOT NULL,

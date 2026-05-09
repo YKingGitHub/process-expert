@@ -137,20 +137,40 @@ QUERIES_S3 = [
 ]
 
 
-# Step 4a: allowance (4)
+# Step 4a: allowance (4) — schema v2
 QUERIES_S4A = [
     {
-        "id": f"Q1{i}", "step": "S4a", "category": "allowance",
-        "input": txt[0], "text": txt[1],
-        "kb_call": ("raw_sql", "SELECT id FROM kb_records WHERE framework_branch LIKE '2.9.1%'"),
-        "expected": "❌ Ch6 余量表还没抽",
-        "assess": lambda a: "no_data",
-    } for i, txt in enumerate([
-        ("毛坯 φ26 → 加工后 φ21.74, 单边 ~2.13mm", "外圆粗车→半精车→精车 各序余量?"),
-        ("螺纹大径 φ14 (车出来), 起始 φ14.5?", "螺纹大径前余量?"),
-        ("总长 92.5 切断, 切刀≤3mm", "切断余量 + 端面修整余量?"),
-        ("铣扁 19mm 从 φ21.74 减薄, 单边 ~1.37mm", "铣扁余量?"),
-    ], start=4)
+        "id": "Q14", "step": "S4a", "category": "allowance",
+        "input": "外圆 粗车 φ26 → 余量",
+        "text": "外圆粗车 各序余量?",
+        "kb_call": ("allowance", {"feature_kind": "外圆", "operation": "粗车", "size_mm": 26}),
+        "expected": "外圆 18~30 段, 粗车 2.0 mm 双边",
+        "assess": lambda a: "pass" if _matches_count(a, 1) else "no_data",
+    },
+    {
+        "id": "Q15", "step": "S4a", "category": "allowance",
+        "input": "外圆 半精车 φ22 经热处理",
+        "text": "半精车余量 (经热处理)?",
+        "kb_call": ("allowance", {"feature_kind": "外圆", "operation": "半精车", "size_mm": 22}),
+        "expected": "外圆 18~30 半精车 1.3-1.5 mm (经/未经 热处理)",
+        "assess": lambda a: "pass" if _matches_count(a, 1) else "no_data",
+    },
+    {
+        "id": "Q16", "step": "S4a", "category": "allowance",
+        "input": "切断 圆钢 φ26 (定位销), 切刀≤3mm",
+        "text": "切断余量?",
+        "kb_call": ("allowance", {"feature_kind": "切断", "material": "圆钢", "size_mm": 26}),
+        "expected": "锯床切断 圆钢 <100 段: 6 mm",
+        "assess": lambda a: "pass" if _matches_count(a, 1) else "no_data",
+    },
+    {
+        "id": "Q17", "step": "S4a", "category": "allowance",
+        "input": "端面 精车 φ22 长 92",
+        "text": "端面余量?",
+        "kb_call": ("allowance", {"feature_kind": "端面", "operation": "精车", "size_mm": 22, "length_mm": 92}),
+        "expected": "≤30 × 50~120: 0.7 mm",
+        "assess": lambda a: "pass" if _matches_count(a, 1) else "no_data",
+    },
 ]
 
 

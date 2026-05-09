@@ -23,6 +23,7 @@ from process_calc.dimension_chain import (
 from process_calc.lookup_kb import (
     lookup_cutting_params,
     lookup_economic_precision,
+    lookup_machining_allowance,
     lookup_method_position_error,
     lookup_path_precision,
 )
@@ -42,4 +43,5 @@ METHOD_REGISTRY: dict[str, Callable[..., dict]] = {
     "lookup_path_precision": lookup_path_precision,
     "lookup_method_position_error": lookup_method_position_error,
     "lookup_cutting_params": lookup_cutting_params,
+    "lookup_machining_allowance": lookup_machining_allowance,
 }

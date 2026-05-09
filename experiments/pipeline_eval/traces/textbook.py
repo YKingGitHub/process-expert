@@ -137,20 +137,40 @@ QUERIES_S3 = [
 ]
 
 
-# Step 4a: allowance (4)
+# Step 4a: allowance (4) — schema v2
 QUERIES_S4A = [
     {
-        "id": f"Q1{i}", "step": "S4a", "category": "allowance",
-        "input": txt[0], "text": txt[1],
-        "kb_call": ("raw_sql", "SELECT id FROM kb_records WHERE framework_branch LIKE '2.9.1%'"),
-        "expected": "❌ Ch6 余量表还没抽",
-        "assess": lambda a: "no_data",
-    } for i, txt in enumerate([
-        ("铸件余量 7mm 总, 各序分配 (5mm + 0.5mm + 0.05mm 大致)", "粗+精+磨 内孔余量分配?"),
-        ("外圆 Φ180 - 留 5mm 粗 - 0.5mm 精 - ?磨", "外圆磨余量?"),
-        ("端面磨 0.4mm/序", "端面磨余量?"),
-        ("总长 220mm 各序加工余量", "总长余量?"),
-    ], start=4)
+        "id": "Q14", "step": "S4a", "category": "allowance",
+        "input": "内孔 H7 Φ130, 工序尺寸链",
+        "text": "粗+精+磨 内孔工序尺寸链?",
+        "kb_call": ("allowance", {"feature_kind": "孔", "size_mm": 50}),
+        "expected": "H7 孔工序尺寸表 (Φ50: 25 → 47 → 49.75 → 49.93 → 50)",
+        "assess": lambda a: "pass" if _matches_count(a, 1) else "no_data",
+    },
+    {
+        "id": "Q15", "step": "S4a", "category": "allowance",
+        "input": "外圆 Φ180 粗车余量",
+        "text": "外圆粗车余量?",
+        "kb_call": ("allowance", {"feature_kind": "外圆", "operation": "粗车", "size_mm": 180}),
+        "expected": "外圆 120~180 粗车 2.5 mm",
+        "assess": lambda a: "pass" if _matches_count(a, 1) else "no_data",
+    },
+    {
+        "id": "Q16", "step": "S4a", "category": "allowance",
+        "input": "外圆 Φ180 半精车 经铸件 (灰铸铁)",
+        "text": "半精车余量?",
+        "kb_call": ("allowance", {"feature_kind": "外圆", "operation": "半精车", "size_mm": 180}),
+        "expected": "120~180 半精车 1.8-2.3 mm",
+        "assess": lambda a: "pass" if _matches_count(a, 1) else "no_data",
+    },
+    {
+        "id": "Q17", "step": "S4a", "category": "allowance",
+        "input": "端面 精车 Φ260 长 220",
+        "text": "端面余量?",
+        "kb_call": ("allowance", {"feature_kind": "端面", "operation": "精车", "size_mm": 260, "length_mm": 220}),
+        "expected": "120~260 × 120~260: 1.0 mm",
+        "assess": lambda a: "pass" if _matches_count(a, 1) else "no_data",
+    },
 ]
 
 

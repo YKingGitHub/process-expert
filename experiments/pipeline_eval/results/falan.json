@@ -456,44 +456,88 @@
       "id": "Q14",
       "step": "S4a",
       "category": "allowance",
-      "input": "来料 φ103.5 → 成品 φ103, 单边 0.25mm",
+      "input": "外圆 φ103, 粗车单边余量",
       "text": "外圆粗车单边余量 typical?",
-      "expected": "❌ Ch6 余量表还没抽",
+      "expected": "外圆 80~120 段, 粗车 2.5 mm 双边 (≤200 长度)",
       "kb_call": [
-        "raw_sql",
-        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.9.1%'"
+        "allowance",
+        "{'feature_kind': '外圆', 'operation': '粗车', 'size_mm': 103}"
       ],
-      "actual_match_count": 0,
-      "actual_sample": [],
+      "actual_match_count": 2,
+      "actual_sample": [
+        {
+          "record_id": "STD-2.9.1-OD-ROUGH-FINISH-TURN-ALLOWANCE-001",
+          "row_index": 18,
+          "feature_kind": "外圆",
+          "operation": "粗车",
+          "material": null,
+          "size_segment_text": "80~120",
+          "length_segment_text": "≤200",
+          "heat_treat": null,
+          "allowance_text": null,
+          "allowance_mm_min": 2.5,
+          "allowance_mm_max": 2.5,
+          "extra_json": null
+        },
+        {
+          "record_id": "STD-2.9.1-OD-ROUGH-FINISH-TURN-ALLOWANCE-001",
+          "row_index": 19,
+          "feature_kind": "外圆",
+          "operation": "粗车",
+          "material": null,
+          "size_segment_text": "80~120",
+          "length_segment_text": "200~400",
+          "heat_treat": null,
+          "allowance_text": null,
+          "allowance_mm_min": 2.8,
+          "allowance_mm_max": 2.8,
+          "extra_json": null
+        }
+      ],
       "actual_error": null,
-      "outcome": "no_data"
+      "outcome": "pass"
     },
     {
       "id": "Q15",
       "step": "S4a",
       "category": "allowance",
-      "input": "切片厚 31mm, 切刀≤3mm + 总长 30.5",
-      "text": "切割余量 + 端面修整余量?",
-      "expected": "❌ Ch6 余量表还没抽",
+      "input": "圆钢 φ103.5 切断",
+      "text": "切割余量?",
+      "expected": "锯床切断 圆钢 100~240 → 8 mm",
       "kb_call": [
-        "raw_sql",
-        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.9.1%'"
+        "allowance",
+        "{'feature_kind': '切断', 'material': '圆钢', 'size_mm': 103.5}"
       ],
-      "actual_match_count": 0,
-      "actual_sample": [],
+      "actual_match_count": 1,
+      "actual_sample": [
+        {
+          "record_id": "STD-2.9.1-CUTOFF-ALLOWANCE-001",
+          "row_index": 1,
+          "feature_kind": "切断",
+          "operation": "锯床切断",
+          "material": "圆钢",
+          "size_segment_text": "100~240",
+          "length_segment_text": null,
+          "heat_treat": null,
+          "allowance_text": null,
+          "allowance_mm_min": 8.0,
+          "allowance_mm_max": 8.0,
+          "extra_json": null
+        }
+      ],
       "actual_error": null,
-      "outcome": "no_data"
+      "outcome": "pass"
     },
     {
       "id": "Q16",
       "step": "S4a",
       "category": "allowance",
-      "input": "沉孔 φ40 × 1.5 (实心新加)",
-      "text": "钻+镗余量 / 铣槽余量?",
-      "expected": "❌ Ch6 余量表还没抽",
+      "input": "沉孔 φ40 实心铣",
+      "text": "沉孔余量分配?",
+      "expected": "H7 孔 工序尺寸链 (本表是工序尺寸而非余量, 命中即 pass)",
       "kb_call": [
-        "raw_sql",
-        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.9.1%'"
+        "allowance",
+        "{'feature_kind': '孔', 'size_mm': 40}"
       ],
       "actual_match_count": 0,
       "actual_sample": [],
@@ -504,17 +548,60 @@
       "id": "Q17",
       "step": "S4a",
       "category": "allowance",
-      "input": "D 型孔从实心铣出",
-      "text": "铣孔余量分配?",
-      "expected": "❌ Ch6 余量表还没抽",
+      "input": "端面 φ103 长 31",
+      "text": "精车端面余量?",
+      "expected": "50~120 × 18~50: 0.7 mm",
       "kb_call": [
-        "raw_sql",
-        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.9.1%'"
+        "allowance",
+        "{'feature_kind': '端面', 'operation': '精车', 'size_mm': 103, 'length_mm': 31}"
       ],
-      "actual_match_count": 0,
-      "actual_sample": [],
+      "actual_match_count": 6,
+      "actual_sample": [
+        {
+          "record_id": "STD-2.9.1-FACE-FINISH-TURN-ALLOWANCE-001",
+          "row_index": 12,
+          "feature_kind": "端面",
+          "operation": "精车",
+          "material": null,
+          "size_segment_text": "50~120",
+          "length_segment_text": "≤18",
+          "heat_treat": null,
+          "allowance_text": null,
+          "allowance_mm_min": 0.6,
+          "allowance_mm_max": 0.6,
+          "extra_json": null
+        },
+        {
+          "record_id": "STD-2.9.1-FACE-FINISH-TURN-ALLOWANCE-001",
+          "row_index": 13,
+          "feature_kind": "端面",
+          "operation": "精车",
+          "material": null,
+          "size_segment_text": "50~120",
+          "length_segment_text": "18~50",
+          "heat_treat": null,
+          "allowance_text": null,
+          "allowance_mm_min": 0.7,
+          "allowance_mm_max": 0.7,
+          "extra_json": null
+        },
+        {
+          "record_id": "STD-2.9.1-FACE-FINISH-TURN-ALLOWANCE-001",
+          "row_index": 14,
+          "feature_kind": "端面",
+          "operation": "精车",
+          "material": null,
+          "size_segment_text": "50~120",
+          "length_segment_text": "50~120",
+          "heat_treat": null,
+          "allowance_text": null,
+          "allowance_mm_min": 0.8,
+          "allowance_mm_max": 0.8,
+          "extra_json": null
+        }
+      ],
       "actual_error": null,
-      "outcome": "no_data"
+      "outcome": "pass"
     },
     {
       "id": "Q18",
@@ -781,15 +868,15 @@
   ],
   "summary": {
     "totals": {
-      "pass": 11,
+      "pass": 14,
       "partial": 3,
-      "no_data": 9,
+      "no_data": 6,
       "friction": 3
     },
     "total_queries": 26,
-    "coverage": 0.6538461538461539,
-    "accuracy": 0.6470588235294118,
-    "friction": 0.17647058823529413,
+    "coverage": 0.7692307692307693,
+    "accuracy": 0.7,
+    "friction": 0.15,
     "by_step": {
       "S2": {
         "pass": 2,
@@ -804,9 +891,9 @@
         "friction": 1
       },
       "S4a": {
-        "pass": 0,
+        "pass": 3,
         "partial": 0,
-        "no_data": 4,
+        "no_data": 1,
         "friction": 0
       },
       "S4b": {
@@ -854,9 +941,9 @@
         "friction": 0
       },
       "allowance": {
-        "pass": 0,
+        "pass": 3,
         "partial": 0,
-        "no_data": 4,
+        "no_data": 1,
         "friction": 0
       },
       "cutting-params": {

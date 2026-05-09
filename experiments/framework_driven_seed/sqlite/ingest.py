@@ -211,7 +211,41 @@ def _dispatch_specialized(record):
         return "lookup_surface_ra", _build_surface_ra_rows(record, rows)
     if branch.startswith("2.7"):
         return "lookup_cutting_params", _build_cutting_rows(record, rows)
+    if branch.startswith("2.9.1"):
+        return "lookup_machining_allowance", _build_allowance_rows(record, rows)
     return None, []  # specialized records → payload-only
+
+
+def _build_allowance_rows(record, rows):
+    out = []
+    for i, row in enumerate(rows):
+        if not isinstance(row, dict):
+            continue
+        extras = {k: v for k, v in row.items() if k not in {
+            "feature_kind", "operation", "material",
+            "size_segment_text", "size_min", "size_max",
+            "length_segment_text", "length_min", "length_max",
+            "heat_treat", "allowance_text",
+            "allowance_mm_min", "allowance_mm_max",
+        }}
+        out.append({
+            "record_id": record["id"], "row_index": i,
+            "feature_kind": row.get("feature_kind"),
+            "operation": row.get("operation"),
+            "material": row.get("material"),
+            "size_segment_text": row.get("size_segment_text"),
+            "size_min": row.get("size_min"),
+            "size_max": row.get("size_max"),
+            "length_segment_text": row.get("length_segment_text"),
+            "length_min": row.get("length_min"),
+            "length_max": row.get("length_max"),
+            "heat_treat": row.get("heat_treat"),
+            "allowance_text": row.get("allowance_text"),
+            "allowance_mm_min": row.get("allowance_mm_min"),
+            "allowance_mm_max": row.get("allowance_mm_max"),
+            "extra_json": json.dumps(extras, ensure_ascii=False) if extras else None,
+        })
+    return out
 
 
 def _build_path_rows(record, rows):
@@ -436,6 +470,16 @@ _INSERT_SQL = {
         " :f_min,:f_max,:vc_min_mps,:vc_max_mps,:n_min_rpm,:n_max_rpm,"
         " :ra_target_um,:kappa_prime_deg,:tool_nose_r_mm,"
         " :hardness_hbw_text,:heat_treat,:extra_json)",
+    "lookup_machining_allowance":
+        "INSERT INTO lookup_machining_allowance "
+        "(record_id, row_index, feature_kind, operation, material, "
+        " size_segment_text, size_min, size_max, "
+        " length_segment_text, length_min, length_max, "
+        " heat_treat, allowance_text, allowance_mm_min, allowance_mm_max, extra_json) "
+        "VALUES (:record_id,:row_index,:feature_kind,:operation,:material,"
+        " :size_segment_text,:size_min,:size_max,"
+        " :length_segment_text,:length_min,:length_max,"
+        " :heat_treat,:allowance_text,:allowance_mm_min,:allowance_mm_max,:extra_json)",
 }
 
 
