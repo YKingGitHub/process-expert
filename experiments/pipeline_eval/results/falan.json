@@ -15,36 +15,39 @@
       "actual_sample": [
         {
           "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
-          "method": "粗车",
+          "row_index": 0,
+          "feature_kind": "外圆",
+          "path_text": "粗车",
           "it": "11以下",
           "it_min": null,
           "it_max": null,
           "ra_min": 25.0,
           "ra_max": 100.0,
-          "source_page": 482,
-          "topic": "外圆柱表面加工路线 → IT 等级 + Ra 范围"
+          "method": "粗车"
         },
         {
           "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
-          "method": "粗车→半精车",
+          "row_index": 1,
+          "feature_kind": "外圆",
+          "path_text": "粗车→半精车",
           "it": "8-10",
           "it_min": 8,
           "it_max": 10,
           "ra_min": 6.3,
           "ra_max": 12.5,
-          "source_page": 482,
-          "topic": "外圆柱表面加工路线 → IT 等级 + Ra 范围"
+          "method": "粗车→半精车"
         },
         {
           "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
-          "method": "粗车→半精车→精车 (或磨)",
+          "row_index": 2,
+          "feature_kind": "外圆",
+          "path_text": "粗车→半精车→精车 (或磨)",
           "it": "7-8",
           "it_min": 7,
           "it_max": 8,
           "ra_min": 1.6,
           "ra_max": 6.3,
-          "source_page": 482,
-          "topic": "外圆柱表面加工路线 → IT 等级 + Ra 范围"
+          "method": "粗车→半精车→精车 (或磨)"
         }
       ],
       "actual_error": null,
@@ -95,9 +98,7 @@
           "feature": null,
           "it": "5-6",
           "it_min": 5,
-          "it_max": 6,
-          "source_page": 492,
-          "topic": "同轴度的经济精度"
+          "it_max": 6
         },
         {
           "record_id": "STD-2.8.1.4-COAXIALITY-ECON-001",
@@ -105,9 +106,7 @@
           "feature": null,
           "it": "7-8",
           "it_min": 7,
-          "it_max": 8,
-          "source_page": 492,
-          "topic": "同轴度的经济精度"
+          "it_max": 8
         },
         {
           "record_id": "STD-2.8.1.4-COAXIALITY-ECON-001",
@@ -115,9 +114,7 @@
           "feature": null,
           "it": "9-10",
           "it_min": 9,
-          "it_max": 10,
-          "source_page": 492,
-          "topic": "同轴度的经济精度"
+          "it_max": 10
         }
       ],
       "actual_error": null,
@@ -180,36 +177,39 @@
       "actual_sample": [
         {
           "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
-          "method": "粗车→半精车",
+          "row_index": 1,
+          "feature_kind": "外圆",
+          "path_text": "粗车→半精车",
           "it": "8-10",
           "it_min": 8,
           "it_max": 10,
           "ra_min": 6.3,
           "ra_max": 12.5,
-          "source_page": 482,
-          "topic": "外圆柱表面加工路线 → IT 等级 + Ra 范围"
+          "method": "粗车→半精车"
         },
         {
           "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
-          "method": "粗车→半精车→精车 (或磨)",
+          "row_index": 2,
+          "feature_kind": "外圆",
+          "path_text": "粗车→半精车→精车 (或磨)",
           "it": "7-8",
           "it_min": 7,
           "it_max": 8,
           "ra_min": 1.6,
           "ra_max": 6.3,
-          "source_page": 482,
-          "topic": "外圆柱表面加工路线 → IT 等级 + Ra 范围"
+          "method": "粗车→半精车→精车 (或磨)"
         },
         {
           "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
-          "method": "粗车→半精车→{精车-细车 (有色金属及合金) / 粗磨-精磨 / 精车-滚压}",
+          "row_index": 3,
+          "feature_kind": "外圆",
+          "path_text": "粗车→半精车→{精车-细车 (有色金属及合金) / 粗磨-精磨 / 精车-滚压}",
           "it": "6-7",
           "it_min": 6,
           "it_max": 7,
           "ra_min": 0.2,
           "ra_max": 1.6,
-          "source_page": 482,
-          "topic": "外圆柱表面加工路线 → IT 等级 + Ra 范围"
+          "method": "粗车→半精车→{精车-细车 (有色金属及合金) / 粗磨-精磨 / 精车-滚压}"
         }
       ],
       "actual_error": null,
@@ -230,36 +230,39 @@
       "actual_sample": [
         {
           "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
-          "method": "粗车",
+          "row_index": 0,
+          "feature_kind": "外圆",
+          "path_text": "粗车",
           "it": "11以下",
           "it_min": null,
           "it_max": null,
           "ra_min": 25.0,
           "ra_max": 100.0,
-          "source_page": 482,
-          "topic": "外圆柱表面加工路线 → IT 等级 + Ra 范围"
+          "method": "粗车"
         },
         {
           "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
-          "method": "粗车→半精车",
+          "row_index": 1,
+          "feature_kind": "外圆",
+          "path_text": "粗车→半精车",
           "it": "8-10",
           "it_min": 8,
           "it_max": 10,
           "ra_min": 6.3,
           "ra_max": 12.5,
-          "source_page": 482,
-          "topic": "外圆柱表面加工路线 → IT 等级 + Ra 范围"
+          "method": "粗车→半精车"
         },
         {
           "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
-          "method": "粗车→半精车→精车 (或磨)",
+          "row_index": 2,
+          "feature_kind": "外圆",
+          "path_text": "粗车→半精车→精车 (或磨)",
           "it": "7-8",
           "it_min": 7,
           "it_max": 8,
           "ra_min": 1.6,
           "ra_max": 6.3,
-          "source_page": 482,
-          "topic": "外圆柱表面加工路线 → IT 等级 + Ra 范围"
+          "method": "粗车→半精车→精车 (或磨)"
         }
       ],
       "actual_error": null,
@@ -300,9 +303,7 @@
           "feature": null,
           "it": "3-4",
           "it_min": 3,
-          "it_max": 4,
-          "source_page": 492,
-          "topic": "同轴度的经济精度"
+          "it_max": 4
         },
         {
           "record_id": "STD-2.8.1.4-COAXIALITY-ECON-001",
@@ -310,9 +311,7 @@
           "feature": null,
           "it": "5-6",
           "it_min": 5,
-          "it_max": 6,
-          "source_page": 492,
-          "topic": "同轴度的经济精度"
+          "it_max": 6
         },
         {
           "record_id": "STD-2.8.1.4-COAXIALITY-ECON-001",
@@ -320,9 +319,7 @@
           "feature": null,
           "it": "7-8",
           "it_min": 7,
-          "it_max": 8,
-          "source_page": 492,
-          "topic": "同轴度的经济精度"
+          "it_max": 8
         }
       ],
       "actual_error": null,
@@ -345,28 +342,25 @@
           "record_id": "STD-2.3.2-METHOD-ERRORS-001",
           "method": "刮研基准平面(按孔测量)",
           "feature": "孔轴线与基准平面的平行度、垂直度及角度误差(箱体/轴架, 误差/L)",
-          "error_text": "0.04/L~0.10/L",
+          "error_text": null,
           "error_mm_min": null,
-          "error_mm_max": null,
-          "source_page": 480
+          "error_mm_max": null
         },
         {
           "record_id": "STD-2.3.2-METHOD-ERRORS-001",
           "method": "磨削基准平面(按孔测量)",
           "feature": "孔轴线与基准平面的平行度、垂直度及角度误差(箱体/轴架, 误差/L)",
-          "error_text": "0.06/L~0.12/L",
+          "error_text": null,
           "error_mm_min": null,
-          "error_mm_max": null,
-          "source_page": 480
+          "error_mm_max": null
         },
         {
           "record_id": "STD-2.3.2-METHOD-ERRORS-001",
           "method": "精铣基准平面(按孔测量)",
           "feature": "孔轴线与基准平面的平行度、垂直度及角度误差(箱体/轴架, 误差/L)",
-          "error_text": "0.10/L~0.20/L",
+          "error_text": null,
           "error_mm_min": null,
-          "error_mm_max": null,
-          "source_page": 480
+          "error_mm_max": null
         }
       ],
       "actual_error": null,
@@ -530,20 +524,35 @@
       "text": "vc/f/ap?",
       "expected": "f=0.27-0.81 mm/r, n=185-230 r/min (φ100-150 粗车)",
       "kb_call": [
-        "raw_sql",
-        "SELECT row_index, material, workpiece_dim_text, extra_json FROM std_value_rows WHERE record_id='STD-2.7.1-STAINLESS-STEE"
+        "cutting_params",
+        "{'material': '不锈钢', 'operation': '粗车', 'workpiece_dim_text': '100~150'}"
       ],
       "actual_match_count": 1,
       "actual_sample": [
         {
+          "record_id": "STD-2.7.1-STAINLESS-STEEL-CUTTING-PARAMS-001",
           "row_index": 24,
-          "material": null,
+          "material": "不锈钢",
+          "tool_type": null,
+          "tool_shank_text": null,
+          "operation": "车外圆-粗车",
           "workpiece_dim_text": "100~150",
-          "extra_json": "{\"operation\": \"车外圆-粗车\", \"n_min_rpm\": 185, \"n_max_rpm\": 230, \"f_min\": 0.27, \"f_max\": 0.81}"
+          "ap_segment_text": null,
+          "f_min": 0.27,
+          "f_max": 0.81,
+          "vc_min_mps": null,
+          "vc_max_mps": null,
+          "n_min_rpm": 185.0,
+          "n_max_rpm": 230.0,
+          "ra_target_um": null,
+          "kappa_prime_deg": null,
+          "tool_nose_r_mm": null,
+          "hardness_hbw_text": null,
+          "heat_treat": null
         }
       ],
       "actual_error": null,
-      "outcome": "friction"
+      "outcome": "pass"
     },
     {
       "id": "Q19",
@@ -553,20 +562,35 @@
       "text": "vc/f/ap 推荐?",
       "expected": "f=0.1-0.3, n=185-230 (φ100-150 精车)",
       "kb_call": [
-        "raw_sql",
-        "SELECT row_index, material, workpiece_dim_text, extra_json FROM std_value_rows WHERE record_id='STD-2.7.1-STAINLESS-STEE"
+        "cutting_params",
+        "{'material': '不锈钢', 'operation': '精车', 'workpiece_dim_text': '100~150'}"
       ],
       "actual_match_count": 1,
       "actual_sample": [
         {
+          "record_id": "STD-2.7.1-STAINLESS-STEEL-CUTTING-PARAMS-001",
           "row_index": 25,
-          "material": null,
+          "material": "不锈钢",
+          "tool_type": null,
+          "tool_shank_text": null,
+          "operation": "车外圆-精车",
           "workpiece_dim_text": "100~150",
-          "extra_json": "{\"operation\": \"车外圆-精车\", \"n_min_rpm\": 185, \"n_max_rpm\": 230, \"f_min\": 0.1, \"f_max\": 0.3}"
+          "ap_segment_text": null,
+          "f_min": 0.1,
+          "f_max": 0.3,
+          "vc_min_mps": null,
+          "vc_max_mps": null,
+          "n_min_rpm": 185.0,
+          "n_max_rpm": 230.0,
+          "ra_target_um": null,
+          "kappa_prime_deg": null,
+          "tool_nose_r_mm": null,
+          "hardness_hbw_text": null,
+          "heat_treat": null
         }
       ],
       "actual_error": null,
-      "outcome": "friction"
+      "outcome": "pass"
     },
     {
       "id": "Q20",
@@ -592,20 +616,35 @@
       "text": "f/ap 推荐?",
       "expected": "f=0.07-0.2, n=380-480 (φ40-60 精车)",
       "kb_call": [
-        "raw_sql",
-        "SELECT row_index, material, workpiece_dim_text, extra_json FROM std_value_rows WHERE record_id='STD-2.7.1-STAINLESS-STEE"
+        "cutting_params",
+        "{'material': '不锈钢', 'operation': '精车', 'workpiece_dim_text': '40~60'}"
       ],
       "actual_match_count": 1,
       "actual_sample": [
         {
+          "record_id": "STD-2.7.1-STAINLESS-STEEL-CUTTING-PARAMS-001",
           "row_index": 13,
-          "material": null,
+          "material": "不锈钢",
+          "tool_type": null,
+          "tool_shank_text": null,
+          "operation": "车外圆-精车",
           "workpiece_dim_text": "40~60",
-          "extra_json": "{\"operation\": \"车外圆-精车\", \"n_min_rpm\": 380, \"n_max_rpm\": 480, \"f_min\": 0.07, \"f_max\": 0.2}"
+          "ap_segment_text": null,
+          "f_min": 0.07,
+          "f_max": 0.2,
+          "vc_min_mps": null,
+          "vc_max_mps": null,
+          "n_min_rpm": 380.0,
+          "n_max_rpm": 480.0,
+          "ra_target_um": null,
+          "kappa_prime_deg": null,
+          "tool_nose_r_mm": null,
+          "hardness_hbw_text": null,
+          "heat_treat": null
         }
       ],
       "actual_error": null,
-      "outcome": "friction"
+      "outcome": "pass"
     },
     {
       "id": "Q22",
@@ -742,15 +781,15 @@
   ],
   "summary": {
     "totals": {
-      "pass": 8,
+      "pass": 11,
       "partial": 3,
       "no_data": 9,
-      "friction": 6
+      "friction": 3
     },
     "total_queries": 26,
     "coverage": 0.6538461538461539,
-    "accuracy": 0.47058823529411764,
-    "friction": 0.35294117647058826,
+    "accuracy": 0.6470588235294118,
+    "friction": 0.17647058823529413,
     "by_step": {
       "S2": {
         "pass": 2,
@@ -771,10 +810,10 @@
         "friction": 0
       },
       "S4b": {
-        "pass": 0,
+        "pass": 3,
         "partial": 0,
         "no_data": 2,
-        "friction": 3
+        "friction": 0
       },
       "S4c": {
         "pass": 1,
@@ -821,10 +860,10 @@
         "friction": 0
       },
       "cutting-params": {
-        "pass": 0,
+        "pass": 3,
         "partial": 0,
         "no_data": 2,
-        "friction": 3
+        "friction": 0
       },
       "tolerance-chain": {
         "pass": 1,

@@ -5,6 +5,15 @@ These methods are *retrievals* (not closed-form calculations): they query
 description, then package the rows into the uniform ``build_result`` shape
 so callers can render them alongside calculated answers.
 
+**Schema v2 (since 2026-05-09)**: queries hit specialized lookup tables
+(``lookup_path_precision`` / ``lookup_method_economic_it`` /
+``lookup_method_position_error`` / ``lookup_method_ra`` /
+``lookup_surface_ra`` / ``lookup_cutting_params`` / ``lookup_size_method_grid``)
+chosen by the schema A/B/C experiment (see Projects/process-expert/designs/
+2026-05-09-01-schema-restructure-experiment/). std_value_rows is still
+ingested for backward compat with raw_sql in pipeline-eval traces; this
+module no longer queries it.
+
 The DB path defaults to ``experiments/framework_driven_seed/sqlite/
 framework_seed.db`` under the repo root, but can be overridden via the
 ``PROCESS_CALC_KB_DB`` env var or by passing ``db_path=`` explicitly.
@@ -53,30 +62,24 @@ def lookup_economic_precision(
 ) -> dict:
     """Look up economic-precision IT for a machining method.
 
-    Source: framework branch §2.8.1.4 records (e.g. ``STD-2.8.1.4-METHOD-IT-CHART-001``,
-    ``STD-2.8.1.4-DEEP-HOLE-ECON-001``). At least one of ``method`` or ``feature``
-    must be given. Matching is case-insensitive substring on Chinese terms.
-
-    Returns rows shaped ``{record_id, method, feature, it, it_min, it_max,
-    source_doc, source_page}`` ranked by record_id.
+    Source: ``lookup_method_economic_it`` (§2.8.1.4 records). At least one of
+    ``method`` or ``feature`` must be given.
     """
     if not method and not feature:
         raise MissingParameterError(
             "lookup_economic_precision requires at least one of method= or feature="
         )
-    where = ["framework_branch LIKE '2.8.1.4%'", "it IS NOT NULL"]
+    where = ["it_text IS NOT NULL"]
     params: list[Any] = []
     if method:
         where.append("method LIKE ?")
         params.append(f"%{method}%")
     if feature:
-        where.append("(feature LIKE ? OR topic LIKE ?)")
-        params.append(f"%{feature}%")
+        where.append("feature LIKE ?")
         params.append(f"%{feature}%")
     sql = f"""
-        SELECT record_id, method, feature, it, it_min, it_max,
-               source_page, topic
-        FROM v_std_lookup
+        SELECT record_id, method, feature, it_text AS it, it_min, it_max
+        FROM lookup_method_economic_it
         WHERE {' AND '.join(where)}
         ORDER BY record_id, row_index
     """
@@ -84,9 +87,9 @@ def lookup_economic_precision(
         rows = [dict(r) for r in conn.execute(sql, params).fetchall()]
 
     steps = [
-        f"Filter STD records under framework_branch §2.8.1.4 where it IS NOT NULL",
+        "Query lookup_method_economic_it (specialized v2 table for §2.8.1.4)",
         f"Apply method substring filter: {method!r}" if method else "method filter: (none)",
-        f"Apply feature/topic substring filter: {feature!r}" if feature else "feature filter: (none)",
+        f"Apply feature substring filter: {feature!r}" if feature else "feature filter: (none)",
         f"Found {len(rows)} matching row(s)",
     ]
     return build_result(
@@ -94,7 +97,8 @@ def lookup_economic_precision(
         result={"matches": rows, "match_count": len(rows)},
         unit="IT-grade",
         steps=steps,
-        formula="SELECT … FROM v_std_lookup WHERE framework_branch LIKE '2.8.1.4%' AND it IS NOT NULL",
+        formula="SELECT method, feature, it_text, it_min, it_max "
+                "FROM lookup_method_economic_it WHERE it_text IS NOT NULL",
         verified=True,
     )
 
@@ -106,37 +110,34 @@ def lookup_path_precision(
 ) -> dict:
     """Look up the IT/Ra band achievable by a process route (加工路线).
 
-    Source: framework branch §2.3.2 PATH records (外圆/孔/平面 process-route
-    tables, e.g. ``STD-2.3.2-OUTER-CYL-PATH-001``). The ``path_keyword`` is
-    matched as a substring against the ``method`` column (which stores the
-    whole route, e.g. "粗车→半精车→精车").
-
-    ``feature`` can narrow to outer-cyl / hole / plane via topic filter.
+    Source: ``lookup_path_precision`` (specialized table for §2.3.2 PATH
+    records). ``path_keyword`` matches against ``path_text``. ``feature``
+    is one of '外圆' / '孔' / '平面' (matches feature_kind exactly).
     """
     if not path_keyword:
         raise MissingParameterError("lookup_path_precision requires path_keyword=")
-    where = [
-        "framework_branch LIKE '2.3.2%'",
-        "method LIKE ?",
-        "(it IS NOT NULL OR ra_min IS NOT NULL)",
-    ]
+    where = ["path_text LIKE ?"]
     params: list[Any] = [f"%{path_keyword}%"]
     if feature:
-        where.append("topic LIKE ?")
-        params.append(f"%{feature}%")
+        # feature_kind is one of '外圆'/'孔'/'平面' — exact match on these
+        where.append("feature_kind = ?")
+        params.append(feature)
     sql = f"""
-        SELECT record_id, method, it, it_min, it_max, ra_min, ra_max,
-               source_page, topic
-        FROM v_std_lookup
+        SELECT record_id, row_index, feature_kind, path_text,
+               it_text AS it, it_min, it_max, ra_min, ra_max
+        FROM lookup_path_precision
         WHERE {' AND '.join(where)}
         ORDER BY record_id, row_index
     """
     with _connect(db_path) as conn:
         rows = [dict(r) for r in conn.execute(sql, params).fetchall()]
+    # Add 'method' alias for backward-compat with old caller expectations
+    for r in rows:
+        r["method"] = r.get("path_text")
 
     steps = [
-        f"Filter §2.3.2 PATH records by method LIKE %{path_keyword}%",
-        f"Optional feature filter: {feature!r}" if feature else "feature filter: (none)",
+        f"Query lookup_path_precision for path LIKE %{path_keyword}%",
+        f"feature_kind filter: {feature!r}" if feature else "feature filter: (none)",
         f"Found {len(rows)} matching path row(s)",
     ]
     return build_result(
@@ -144,7 +145,8 @@ def lookup_path_precision(
         result={"matches": rows, "match_count": len(rows)},
         unit="IT/Ra",
         steps=steps,
-        formula="SELECT … FROM v_std_lookup WHERE framework_branch LIKE '2.3.2%' AND method LIKE ?",
+        formula="SELECT path_text, it_*, ra_* FROM lookup_path_precision "
+                "WHERE path_text LIKE ?",
         verified=True,
     )
 
@@ -155,26 +157,23 @@ def lookup_method_position_error(
 ) -> dict:
     """Look up positional error (mm range) achievable by alternative methods.
 
-    Source: ``STD-2.3.2-METHOD-ERRORS-001`` (机械加工方法可达定位精度对照表).
-    Returns rows shaped ``{method, feature, error_text, error_mm_min,
-    error_mm_max}`` for the given feature description (substring match).
+    Source: ``lookup_method_position_error`` (specialized table for METHOD-ERRORS
+    + PARALLEL-HOLE-POS + PERP-HOLE-POS records).
     """
     if not feature:
         raise MissingParameterError("lookup_method_position_error requires feature=")
     sql = """
-        SELECT record_id, method, feature, error_text, error_mm_min, error_mm_max,
-               source_page
-        FROM v_std_lookup
-        WHERE record_id = 'STD-2.3.2-METHOD-ERRORS-001'
-          AND feature LIKE ?
+        SELECT record_id, method, feature, error_text, error_mm_min, error_mm_max
+        FROM lookup_method_position_error
+        WHERE feature LIKE ?
         ORDER BY error_mm_min
     """
     with _connect(db_path) as conn:
         rows = [dict(r) for r in conn.execute(sql, [f"%{feature}%"]).fetchall()]
 
     steps = [
-        f"Query STD-2.3.2-METHOD-ERRORS-001 for feature LIKE %{feature}%",
-        f"Sort ascending by best-case error (error_mm_min)",
+        f"Query lookup_method_position_error for feature LIKE %{feature}%",
+        "Sort ascending by best-case error (error_mm_min)",
         f"Found {len(rows)} method(s); best error = "
         + (f"{rows[0]['error_text']}" if rows else "—"),
     ]
@@ -183,7 +182,73 @@ def lookup_method_position_error(
         result={"matches": rows, "match_count": len(rows)},
         unit="mm",
         steps=steps,
-        formula="SELECT method, error_mm_min, error_mm_max FROM v_std_lookup "
-                "WHERE record_id='STD-2.3.2-METHOD-ERRORS-001' AND feature LIKE ?",
+        formula="SELECT method, error_mm_min, error_mm_max "
+                "FROM lookup_method_position_error WHERE feature LIKE ?",
+        verified=True,
+    )
+
+
+def lookup_cutting_params(
+    material: str | None = None,
+    operation: str | None = None,
+    workpiece_dim_text: str | None = None,
+    ra_target_um: float | None = None,
+    db_path: str | Path | None = None,
+) -> dict:
+    """Look up cutting parameters (vc / f / n / ap) for turning operations.
+
+    Source: ``lookup_cutting_params`` (specialized table for §2.7 cutting
+    parameters from 车削工艺手册). All filters are typed columns —
+    no JSON extract needed.
+    """
+    if not any([material, operation, workpiece_dim_text, ra_target_um]):
+        raise MissingParameterError(
+            "lookup_cutting_params requires at least one of: material, "
+            "operation, workpiece_dim_text, ra_target_um"
+        )
+    where = ["1=1"]
+    params: list[Any] = []
+    if material:
+        where.append("material LIKE ?")
+        params.append(f"%{material}%")
+    if operation:
+        where.append("operation LIKE ?")
+        params.append(f"%{operation}%")
+    if workpiece_dim_text:
+        where.append("workpiece_dim_text = ?")
+        params.append(workpiece_dim_text)
+    if ra_target_um is not None:
+        where.append("ra_target_um = ?")
+        params.append(ra_target_um)
+    sql = f"""
+        SELECT record_id, row_index, material, tool_type, tool_shank_text,
+               operation, workpiece_dim_text, ap_segment_text,
+               f_min, f_max, vc_min_mps, vc_max_mps,
+               n_min_rpm, n_max_rpm, ra_target_um,
+               kappa_prime_deg, tool_nose_r_mm,
+               hardness_hbw_text, heat_treat
+        FROM lookup_cutting_params
+        WHERE {' AND '.join(where)}
+        ORDER BY record_id, row_index
+    """
+    with _connect(db_path) as conn:
+        rows = [dict(r) for r in conn.execute(sql, params).fetchall()]
+
+    steps = [
+        "Query lookup_cutting_params (specialized v2 table for §2.7)",
+        f"material filter: {material!r}" if material else "material: (any)",
+        f"operation filter: {operation!r}" if operation else "operation: (any)",
+        f"workpiece_dim_text: {workpiece_dim_text!r}" if workpiece_dim_text else "dim: (any)",
+        f"ra_target_um: {ra_target_um!r}" if ra_target_um is not None else "ra: (any)",
+        f"Found {len(rows)} cutting-param row(s)",
+    ]
+    return build_result(
+        method_id="lookup_cutting_params",
+        result={"matches": rows, "match_count": len(rows)},
+        unit="vc(m/s) / f(mm/r) / n(r/min)",
+        steps=steps,
+        formula="SELECT material, operation, workpiece_dim_text, "
+                "f_min/max, vc_min/max, n_min/max, ... "
+                "FROM lookup_cutting_params WHERE typed-column filters",
         verified=True,
     )

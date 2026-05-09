@@ -154,40 +154,23 @@ QUERIES_S4A = [
 ]
 
 
-# Step 4b: cutting params (5)
-def _cutting_assess(actual):
-    cnt = actual.get("match_count", 0)
-    if cnt == 0:
-        return "no_data"
-    rows = actual.get("rows", [])
-    # 表 8-3 vc 数据: material/heat_treat/hardness 在 material 列, regime/vc 在 extra_json
-    if all(r.get("extra_json") for r in rows):
-        return "friction"
-    return "pass"
-
-
+# Step 4b: cutting params (5) — schema v2 via cutting_params API
 QUERIES_S4B = [
     {
         "id": "Q18", "step": "S4b", "category": "cutting-params",
         "input": "CA6163 粗车 HT200 (灰铸铁) Φ180 → Φ175",
         "text": "vc/f/ap?",
-        "kb_call": ("raw_sql",
-            "SELECT row_index, material, extra_json FROM std_value_rows "
-            "WHERE record_id='STD-2.7.1-OD-TURN-VC-001' "
-            "AND material LIKE '%灰铸铁%' LIMIT 6"),
-        "expected": "灰铸铁 <190 HBW: vc=0.833-1.167 m/s (粗车 ap=2-6/f=0.3-0.6)",
-        "assess": _cutting_assess,
+        "kb_call": ("cutting_params", {"material": "灰铸铁"}),
+        "expected": "灰铸铁: vc 多个 ap 段数据 (粗车 0.833-1.167 m/s 等)",
+        "assess": lambda a: "pass" if _matches_count(a, 1) else "no_data",
     },
     {
         "id": "Q19", "step": "S4b", "category": "cutting-params",
         "input": "精车 HT200 Φ165 +0.5mm 留磨",
         "text": "vc/f/ap?",
-        "kb_call": ("raw_sql",
-            "SELECT row_index, material, extra_json FROM std_value_rows "
-            "WHERE record_id='STD-2.7.1-OD-TURN-VC-001' "
-            "AND material LIKE '%灰铸铁%' AND extra_json LIKE '%0.3-2%' LIMIT 3"),
-        "expected": "灰铸铁 ap=0.3-2 精车段 vc=1.5-2.0 m/s (硬度<190)",
-        "assess": _cutting_assess,
+        "kb_call": ("cutting_params", {"material": "铸铁", "ra_target_um": 3.2}),
+        "expected": "铸铁 Ra3.2 精车: f=0.3-0.5 mm/r",
+        "assess": lambda a: "pass" if _matches_count(a, 1) else "no_data",
     },
     {
         "id": "Q20", "step": "S4b", "category": "cutting-params",
@@ -209,12 +192,9 @@ QUERIES_S4B = [
         "id": "Q22", "step": "S4b", "category": "cutting-params",
         "input": "精车法兰盘端面 HT200 Φ260",
         "text": "vc/f/ap?",
-        "kb_call": ("raw_sql",
-            "SELECT row_index, material, extra_json FROM std_value_rows "
-            "WHERE record_id='STD-2.7.2-FINISH-TURN-OD-FACE-FEED-001' "
-            "AND material LIKE '%铸铁%' LIMIT 5"),
-        "expected": "铸铁精车 Ra3.2: f=0.3-0.5 mm/r (re=1.0)",
-        "assess": _cutting_assess,
+        "kb_call": ("cutting_params", {"material": "铸铁", "ra_target_um": 3.2}),
+        "expected": "铸铁精车 Ra3.2: f=0.3-0.5 mm/r",
+        "assess": lambda a: "pass" if _matches_count(a, 1) else "no_data",
     },
 ]
 

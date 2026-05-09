@@ -169,41 +169,26 @@ QUERIES_S4A = [
 
 
 # ---------- Step 4b: cutting params (5) ----------
-# Q18-22: §2.7 切削参数 query. 数据入 KB 后大部分在 extra_json, 故 friction.
-def _cutting_assess(actual):
-    cnt = actual.get("match_count", 0)
-    if cnt == 0:
-        return "no_data"
-    rows = actual.get("rows", [])
-    if all(r.get("extra_json") for r in rows):
-        return "friction"  # 数据在 extra_json, 需 JSON 解析
-    return "pass"
-
-
+# After 2026-05-09 schema v2 migration: cutting_params goes through the
+# specialized table via lookup_cutting_params API (no json_extract needed).
 QUERIES_S4B = [
     {
         "id": "Q18", "step": "S4b", "category": "cutting-params",
         "input": "粗车 304L (奥氏体不锈钢), φ103, 数车",
         "text": "vc/f/ap?",
-        "kb_call": ("raw_sql",
-            "SELECT row_index, material, workpiece_dim_text, extra_json FROM std_value_rows "
-            "WHERE record_id='STD-2.7.1-STAINLESS-STEEL-CUTTING-PARAMS-001' "
-            "AND workpiece_dim_text='100~150' "
-            "AND json_extract(extra_json, '$.operation') LIKE '%粗车%' LIMIT 5"),
+        "kb_call": ("cutting_params", {
+            "material": "不锈钢", "operation": "粗车", "workpiece_dim_text": "100~150"}),
         "expected": "f=0.27-0.81 mm/r, n=185-230 r/min (φ100-150 粗车)",
-        "assess": _cutting_assess,
+        "assess": lambda a: "pass" if _matches_count(a, 1) else "no_data",
     },
     {
         "id": "Q19", "step": "S4b", "category": "cutting-params",
         "input": "半精车端面, 304L",
         "text": "vc/f/ap 推荐?",
-        "kb_call": ("raw_sql",
-            "SELECT row_index, material, workpiece_dim_text, extra_json FROM std_value_rows "
-            "WHERE record_id='STD-2.7.1-STAINLESS-STEEL-CUTTING-PARAMS-001' "
-            "AND workpiece_dim_text='100~150' "
-            "AND json_extract(extra_json, '$.operation') LIKE '%精车%' LIMIT 5"),
+        "kb_call": ("cutting_params", {
+            "material": "不锈钢", "operation": "精车", "workpiece_dim_text": "100~150"}),
         "expected": "f=0.1-0.3, n=185-230 (φ100-150 精车)",
-        "assess": _cutting_assess,
+        "assess": lambda a: "pass" if _matches_count(a, 1) else "no_data",
     },
     {
         "id": "Q20", "step": "S4b", "category": "cutting-params",
@@ -218,13 +203,10 @@ QUERIES_S4B = [
         "id": "Q21", "step": "S4b", "category": "cutting-params",
         "input": "数车铣沉孔 φ40 深 1.5, 304L",
         "text": "f/ap 推荐?",
-        "kb_call": ("raw_sql",
-            "SELECT row_index, material, workpiece_dim_text, extra_json FROM std_value_rows "
-            "WHERE record_id='STD-2.7.1-STAINLESS-STEEL-CUTTING-PARAMS-001' "
-            "AND workpiece_dim_text='40~60' "
-            "AND json_extract(extra_json, '$.operation') LIKE '%精车%' LIMIT 3"),
+        "kb_call": ("cutting_params", {
+            "material": "不锈钢", "operation": "精车", "workpiece_dim_text": "40~60"}),
         "expected": "f=0.07-0.2, n=380-480 (φ40-60 精车)",
-        "assess": _cutting_assess,
+        "assess": lambda a: "pass" if _matches_count(a, 1) else "no_data",
     },
     {
         "id": "Q22", "step": "S4b", "category": "cutting-params",

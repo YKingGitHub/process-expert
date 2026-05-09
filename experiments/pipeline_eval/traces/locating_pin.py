@@ -154,29 +154,16 @@ QUERIES_S4A = [
 ]
 
 
-# Step 4b: cutting params (5)
-def _cutting_assess(actual):
-    cnt = actual.get("match_count", 0)
-    if cnt == 0:
-        return "no_data"
-    rows = actual.get("rows", [])
-    if all(r.get("extra_json") for r in rows):
-        return "friction"
-    return "pass"
-
-
+# Step 4b: cutting params (5) — schema v2 (specialized table via cutting_params API)
 QUERIES_S4B = [
     {
         "id": "Q18", "step": "S4b", "category": "cutting-params",
         "input": "粗车 316L (类奥氏体不锈钢), φ26→φ21.74, 数车",
         "text": "vc/f/ap?",
-        "kb_call": ("raw_sql",
-            "SELECT row_index, material, workpiece_dim_text, extra_json FROM std_value_rows "
-            "WHERE record_id='STD-2.7.1-STAINLESS-STEEL-CUTTING-PARAMS-001' "
-            "AND workpiece_dim_text='20~40' "
-            "AND json_extract(extra_json, '$.operation') LIKE '%粗车%' LIMIT 3"),
+        "kb_call": ("cutting_params", {
+            "material": "不锈钢", "operation": "粗车", "workpiece_dim_text": "20~40"}),
         "expected": "f=0.19-0.6, n=480-765 (φ20-40 粗车)",
-        "assess": _cutting_assess,
+        "assess": lambda a: "pass" if _matches_count(a, 1) else "no_data",
     },
     {
         "id": "Q19", "step": "S4b", "category": "cutting-params",
@@ -206,13 +193,10 @@ QUERIES_S4B = [
         "id": "Q22", "step": "S4b", "category": "cutting-params",
         "input": "数车锥面 25°, 316L",
         "text": "vc/f 推荐?",
-        "kb_call": ("raw_sql",
-            "SELECT row_index, material, workpiece_dim_text, extra_json FROM std_value_rows "
-            "WHERE record_id='STD-2.7.1-STAINLESS-STEEL-CUTTING-PARAMS-001' "
-            "AND workpiece_dim_text='20~40' "
-            "AND json_extract(extra_json, '$.operation') LIKE '%粗车%' LIMIT 3"),
+        "kb_call": ("cutting_params", {
+            "material": "不锈钢", "operation": "粗车", "workpiece_dim_text": "20~40"}),
         "expected": "粗车类似 (锥面用粗车的 vc/f 推荐)",
-        "assess": _cutting_assess,
+        "assess": lambda a: "pass" if _matches_count(a, 1) else "no_data",
     },
 ]
 

@@ -76,7 +76,143 @@ CREATE INDEX IF NOT EXISTS idx_val_feature ON std_value_rows(feature);
 CREATE INDEX IF NOT EXISTS idx_val_stage ON std_value_rows(stage);
 CREATE INDEX IF NOT EXISTS idx_val_dims ON std_value_rows(workpiece_dim_min, workpiece_dim_max);
 
--- Convenience view: STD records with their value_table flattened
+-- =========================================================================
+-- Schema v2 — 7 specialized lookup tables (winner of 2026-05-09-01 schema A/B/C
+-- experiment). std_value_rows above kept for backward-compat with raw_sql in
+-- pipeline-eval traces. process_calc/lookup_kb.py queries the specialized
+-- tables below for 0-friction lookups.
+-- =========================================================================
+
+-- 1. 加工路线 → IT/Ra (§2.3.2 PATH 系列)
+CREATE TABLE IF NOT EXISTS lookup_path_precision (
+    record_id TEXT NOT NULL,
+    row_index INTEGER NOT NULL,
+    feature_kind TEXT,
+    path_text TEXT NOT NULL,
+    it_text TEXT,
+    it_min INTEGER,
+    it_max INTEGER,
+    ra_min REAL,
+    ra_max REAL,
+    applies_to_solid INTEGER,
+    applies_to_preformed INTEGER,
+    extra_json TEXT,
+    PRIMARY KEY (record_id, row_index),
+    FOREIGN KEY (record_id) REFERENCES kb_records(id)
+);
+
+-- 2. 单一方法 → 经济精度 IT (§2.8.1.4-* 单方法表 + METHOD-IT-CHART)
+CREATE TABLE IF NOT EXISTS lookup_method_economic_it (
+    record_id TEXT NOT NULL,
+    row_index INTEGER NOT NULL,
+    method TEXT NOT NULL,
+    feature TEXT,
+    it_text TEXT,
+    it_min INTEGER,
+    it_max INTEGER,
+    extra_json TEXT,
+    PRIMARY KEY (record_id, row_index),
+    FOREIGN KEY (record_id) REFERENCES kb_records(id)
+);
+
+-- 3. 方法 → 定位/位置误差 (mm) — METHOD-ERRORS / PARALLEL-HOLE-POS / PERP-HOLE-POS
+CREATE TABLE IF NOT EXISTS lookup_method_position_error (
+    record_id TEXT NOT NULL,
+    row_index INTEGER NOT NULL,
+    method TEXT NOT NULL,
+    feature TEXT,
+    error_text TEXT,
+    error_mm_min REAL,
+    error_mm_max REAL,
+    extra_json TEXT,
+    PRIMARY KEY (record_id, row_index),
+    FOREIGN KEY (record_id) REFERENCES kb_records(id)
+);
+
+-- 4. 方法 → 可达 Ra (§2.8.2.1 RA-* 12 张表)
+CREATE TABLE IF NOT EXISTS lookup_method_ra (
+    record_id TEXT NOT NULL,
+    row_index INTEGER NOT NULL,
+    method TEXT NOT NULL,
+    stage TEXT,
+    material TEXT,
+    ra_min REAL,
+    ra_max REAL,
+    ra_text TEXT,
+    extra_json TEXT,
+    PRIMARY KEY (record_id, row_index),
+    FOREIGN KEY (record_id) REFERENCES kb_records(id)
+);
+
+-- 5. 表面/接合 → 推荐 Ra (§2.8.2.4)
+CREATE TABLE IF NOT EXISTS lookup_surface_ra (
+    record_id TEXT NOT NULL,
+    row_index INTEGER NOT NULL,
+    surface_kind TEXT NOT NULL,
+    condition TEXT,
+    ra_text TEXT,
+    ra_min REAL,
+    ra_max REAL,
+    extra_json TEXT,
+    PRIMARY KEY (record_id, row_index),
+    FOREIGN KEY (record_id) REFERENCES kb_records(id)
+);
+
+-- 6. 切削参数 N-维表 (§2.7)
+CREATE TABLE IF NOT EXISTS lookup_cutting_params (
+    record_id TEXT NOT NULL,
+    row_index INTEGER NOT NULL,
+    material TEXT,
+    tool_type TEXT,
+    tool_shank_text TEXT,
+    operation TEXT,
+    workpiece_dim_text TEXT,
+    workpiece_dim_min REAL,
+    workpiece_dim_max REAL,
+    ap_segment_text TEXT,
+    ap_min REAL,
+    ap_max REAL,
+    f_min REAL,
+    f_max REAL,
+    vc_min_mps REAL,
+    vc_max_mps REAL,
+    n_min_rpm REAL,
+    n_max_rpm REAL,
+    ra_target_um REAL,
+    kappa_prime_deg TEXT,
+    tool_nose_r_mm REAL,
+    hardness_hbw_text TEXT,
+    heat_treat TEXT,
+    extra_json TEXT,
+    PRIMARY KEY (record_id, row_index),
+    FOREIGN KEY (record_id) REFERENCES kb_records(id)
+);
+CREATE INDEX IF NOT EXISTS idx_cp_material ON lookup_cutting_params(material);
+CREATE INDEX IF NOT EXISTS idx_cp_op ON lookup_cutting_params(operation);
+
+-- 7. 二维网格大表 (尺寸段 × 方法 → IT + 偏差) — 11 张 index 占位的目标
+CREATE TABLE IF NOT EXISTS lookup_size_method_grid (
+    record_id TEXT NOT NULL,
+    row_index INTEGER NOT NULL,
+    size_segment_text TEXT,
+    size_min REAL,
+    size_max REAL,
+    method TEXT NOT NULL,
+    it_text TEXT,
+    it_min INTEGER,
+    it_max INTEGER,
+    deviation_um_text TEXT,
+    deviation_um_min REAL,
+    deviation_um_max REAL,
+    extra_json TEXT,
+    PRIMARY KEY (record_id, row_index),
+    FOREIGN KEY (record_id) REFERENCES kb_records(id)
+);
+
+-- =========================================================================
+-- Convenience view: STD records with std_value_rows flattened (legacy, kept
+-- for backward-compat with pipeline-eval raw_sql)
+-- =========================================================================
 CREATE VIEW IF NOT EXISTS v_std_lookup AS
 SELECT
     r.id AS record_id,
