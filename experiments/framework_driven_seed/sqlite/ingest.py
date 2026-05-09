@@ -168,10 +168,22 @@ def _dispatch_specialized(record):
 
     target_table is one of:
       lookup_path_precision, lookup_method_economic_it, lookup_method_position_error,
-      lookup_method_ra, lookup_surface_ra, lookup_cutting_params
-      None for records whose shape doesn't fit any specialized table
-      (螺纹精度 / 加工硬化 / 圆锥孔 / 型面 — payload-only).
+      lookup_method_ra, lookup_surface_ra, lookup_cutting_params,
+      lookup_machining_allowance,
+      lookup_drilling_path_by_tier, lookup_machine_geometry, lookup_hardening_depth,
+      principle_factor_remedy, principle_vibration
+      None for records whose shape doesn't fit any specialized table.
     """
+    # Principle records (经验 family) dispatched first
+    if record["family"] == "经验":
+        payload = record.get("payload") or {}
+        # vibration records use payload.vibration_kind
+        if payload.get("vibration_kind") in ("forced", "self_excited"):
+            return "principle_vibration", _build_vibration_rows(record)
+        # otherwise: factor/remedy structure (single record = single row OR multi-row)
+        if "principle_rows" in payload or "factor" in payload:
+            return "principle_factor_remedy", _build_factor_remedy_rows(record)
+        return None, []
     if record["family"] != "标准":
         return None, []
     branch = record["framework_branch"]
@@ -213,6 +225,13 @@ def _dispatch_specialized(record):
         return "lookup_cutting_params", _build_cutting_rows(record, rows)
     if branch.startswith("2.9.1"):
         return "lookup_machining_allowance", _build_allowance_rows(record, rows)
+    # New Ch4-driven specialized tables (2026-05-09-03 redesign)
+    if branch.startswith("2.3.2") and "DRILLING-PATH" in rid:
+        return "lookup_drilling_path_by_tier", _build_drilling_path_rows(record, rows)
+    if branch.startswith("2.8.1.5") or "MACHINE-GEOM" in rid:
+        return "lookup_machine_geometry", _build_machine_geometry_rows(record, rows)
+    if branch.startswith("2.8.3.1") and "HARDEN-DEPTH" in rid:
+        return "lookup_hardening_depth", _build_hardening_depth_rows(record, rows)
     return None, []  # specialized records → payload-only
 
 
@@ -429,6 +448,160 @@ def _build_cutting_rows(record, rows):
     return out
 
 
+def _build_factor_remedy_rows(record):
+    """Principle: factor/impact/remedy.
+
+    Two acceptable payload shapes:
+      (a) single record = single row: payload has flat keys factor, impact_text, remedy_text
+      (b) single record = multiple rows: payload.principle_rows = [{...}, {...}]
+    """
+    payload = record.get("payload") or {}
+    topic_kind = payload.get("topic_kind") or _infer_topic_kind(record)
+    rows = payload.get("principle_rows")
+    if rows is None:
+        # legacy single-row shape (existing 经验 records on Ch4)
+        rows = [{
+            "factor_group": payload.get("factor_group"),
+            "factor": payload.get("factor", record.get("topic", "")),
+            "impact_text": payload.get("impact") or "",
+            "remedy_text": _format_remedy(payload.get("improvement_actions")
+                                          or payload.get("remedy_text") or ""),
+        }]
+    out = []
+    for i, r in enumerate(rows):
+        if not isinstance(r, dict):
+            continue
+        out.append({
+            "record_id": record["id"], "row_index": i,
+            "topic_kind": r.get("topic_kind") or topic_kind,
+            "factor_group": r.get("factor_group"),
+            "factor_text": r.get("factor") or r.get("factor_text") or "",
+            "impact_text": r.get("impact_text") or r.get("impact") or "",
+            "remedy_text": _format_remedy(r.get("remedy_text")
+                                           or r.get("improvement_actions") or ""),
+            "extra_json": None,
+        })
+    return out
+
+
+_TOPIC_BRANCH_TO_KIND = {
+    "2.8.1.1": "dimension_error",
+    "2.8.1.2": "form_error",
+    "2.8.1.3": "position_error",
+    "2.8.2.2": "roughness_cutting",
+    "2.8.3.2": "hardening",
+    "2.8.3.4": "residual_stress",
+}
+
+
+def _infer_topic_kind(record):
+    """Best-effort topic_kind from framework_branch."""
+    branch = record.get("framework_branch", "")
+    for prefix, kind in _TOPIC_BRANCH_TO_KIND.items():
+        if branch.startswith(prefix):
+            return kind
+    return "other"
+
+
+def _format_remedy(remedy):
+    """Normalize remedy field: list of {text} -> "1) text\n2) text"; str -> str."""
+    if isinstance(remedy, str):
+        return remedy
+    if isinstance(remedy, list):
+        parts = []
+        for i, item in enumerate(remedy, start=1):
+            if isinstance(item, dict):
+                parts.append(f'{i}) {item.get("text","")}')
+            elif isinstance(item, str):
+                parts.append(f'{i}) {item}')
+        return "\n".join(parts)
+    return ""
+
+
+def _build_vibration_rows(record):
+    """Principle: vibration (4-44 / 4-45) — 1 record = 1 row, 4 wide cells."""
+    payload = record.get("payload") or {}
+    return [{
+        "record_id": record["id"], "row_index": 0,
+        "vibration_kind": payload.get("vibration_kind", ""),
+        "feature_text": payload.get("feature_text", ""),
+        "cause_text": payload.get("cause_text", ""),
+        "remedy_text": payload.get("remedy_text", ""),
+        "extra_json": None,
+    }]
+
+
+def _build_drilling_path_rows(record, rows):
+    """Lookup: 4-6, 4-7 — IT-tier × bore-segment × blank → path_steps."""
+    out = []
+    for i, row in enumerate(rows):
+        if not isinstance(row, dict):
+            continue
+        steps = row.get("path_steps") or []
+        if isinstance(steps, str):
+            steps = [s.strip() for s in steps.split("→") if s.strip()]
+        bore_text = row.get("bore_segment_text")
+        bore_min, bore_max = parse_dim_range(bore_text) if bore_text else (None, None)
+        it_min, it_max = parse_it_range(row.get("it_tier_text"))
+        out.append({
+            "record_id": record["id"], "row_index": i,
+            "machine_kind": row.get("machine_kind", ""),
+            "it_tier_text": row.get("it_tier_text", ""),
+            "it_min": it_min, "it_max": it_max,
+            "blank_kind": row.get("blank_kind", ""),
+            "bore_segment_text": bore_text,
+            "bore_min": bore_min, "bore_max": bore_max,
+            "path_steps_json": json.dumps(steps, ensure_ascii=False),
+            "path_steps_text": " → ".join(steps),
+            "extra_json": None,
+        })
+    return out
+
+
+def _build_machine_geometry_rows(record, rows):
+    """Lookup: 4-30 — machine type × capacity × metric kind → metric value."""
+    out = []
+    for i, row in enumerate(rows):
+        if not isinstance(row, dict):
+            continue
+        cap_text = row.get("capacity_text")
+        cap_min, cap_max = parse_dim_range(cap_text) if cap_text else (None, None)
+        out.append({
+            "record_id": record["id"], "row_index": i,
+            "machine_type": row.get("machine_type", ""),
+            "machine_subtype": row.get("machine_subtype"),
+            "capacity_text": cap_text,
+            "capacity_min": cap_min, "capacity_max": cap_max,
+            "metric_kind": row.get("metric_kind", ""),
+            "metric_text": row.get("metric_text", ""),
+            "metric_value": row.get("metric_value"),
+            "metric_per_text": row.get("metric_per_text"),
+            "extra_json": None,
+        })
+    return out
+
+
+def _build_hardening_depth_rows(record, rows):
+    """Lookup: 4-41 — method → N% / hc μm (avg & max)."""
+    out = []
+    for i, row in enumerate(rows):
+        if not isinstance(row, dict):
+            continue
+        out.append({
+            "record_id": record["id"], "row_index": i,
+            "method": row.get("method", ""),
+            "n_pct_avg_min": row.get("n_pct_avg_min"),
+            "n_pct_avg_max": row.get("n_pct_avg_max"),
+            "n_pct_max": row.get("n_pct_max"),
+            "hc_avg_min_um": row.get("hc_avg_min_um"),
+            "hc_avg_max_um": row.get("hc_avg_max_um"),
+            "hc_max_um": row.get("hc_max_um"),
+            "note": row.get("note"),
+            "extra_json": None,
+        })
+    return out
+
+
 _INSERT_SQL = {
     "lookup_path_precision":
         "INSERT INTO lookup_path_precision "
@@ -480,6 +653,41 @@ _INSERT_SQL = {
         " :size_segment_text,:size_min,:size_max,"
         " :length_segment_text,:length_min,:length_max,"
         " :heat_treat,:allowance_text,:allowance_mm_min,:allowance_mm_max,:extra_json)",
+    # === Ch4 redesign 2026-05-09-03: 5 new tables ===
+    "principle_factor_remedy":
+        "INSERT INTO principle_factor_remedy "
+        "(record_id, row_index, topic_kind, factor_group, factor_text, "
+        " impact_text, remedy_text, extra_json) "
+        "VALUES (:record_id,:row_index,:topic_kind,:factor_group,:factor_text,"
+        " :impact_text,:remedy_text,:extra_json)",
+    "principle_vibration":
+        "INSERT INTO principle_vibration "
+        "(record_id, row_index, vibration_kind, feature_text, cause_text, "
+        " remedy_text, extra_json) "
+        "VALUES (:record_id,:row_index,:vibration_kind,:feature_text,:cause_text,"
+        " :remedy_text,:extra_json)",
+    "lookup_drilling_path_by_tier":
+        "INSERT INTO lookup_drilling_path_by_tier "
+        "(record_id, row_index, machine_kind, it_tier_text, it_min, it_max, "
+        " blank_kind, bore_segment_text, bore_min, bore_max, "
+        " path_steps_json, path_steps_text, extra_json) "
+        "VALUES (:record_id,:row_index,:machine_kind,:it_tier_text,:it_min,:it_max,"
+        " :blank_kind,:bore_segment_text,:bore_min,:bore_max,"
+        " :path_steps_json,:path_steps_text,:extra_json)",
+    "lookup_machine_geometry":
+        "INSERT INTO lookup_machine_geometry "
+        "(record_id, row_index, machine_type, machine_subtype, capacity_text, "
+        " capacity_min, capacity_max, metric_kind, metric_text, "
+        " metric_value, metric_per_text, extra_json) "
+        "VALUES (:record_id,:row_index,:machine_type,:machine_subtype,:capacity_text,"
+        " :capacity_min,:capacity_max,:metric_kind,:metric_text,"
+        " :metric_value,:metric_per_text,:extra_json)",
+    "lookup_hardening_depth":
+        "INSERT INTO lookup_hardening_depth "
+        "(record_id, row_index, method, n_pct_avg_min, n_pct_avg_max, n_pct_max, "
+        " hc_avg_min_um, hc_avg_max_um, hc_max_um, note, extra_json) "
+        "VALUES (:record_id,:row_index,:method,:n_pct_avg_min,:n_pct_avg_max,:n_pct_max,"
+        " :hc_avg_min_um,:hc_avg_max_um,:hc_max_um,:note,:extra_json)",
 }
 
 

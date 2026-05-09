@@ -234,6 +234,103 @@ CREATE TABLE IF NOT EXISTS lookup_size_method_grid (
 );
 
 -- =========================================================================
+-- Principle family (new in 2026-05-09-03 Ch4 redesign)
+-- 替代经验型 record 仅压在 payload_json blob 里、SQL 不可查的旧状态.
+-- 仍保留 kb_records 头作为 source-of-truth, 但平表化的内容专为查询.
+-- =========================================================================
+
+-- 因素 / 影响 / 改善措施 三段式 (Ch4 表 4-1, 4-2, 4-3, 4-32, 4-33, 4-42, 4-43)
+CREATE TABLE IF NOT EXISTS principle_factor_remedy (
+    record_id TEXT NOT NULL,
+    row_index INTEGER NOT NULL,
+    topic_kind TEXT NOT NULL,        -- 'dimension_error' / 'form_error' / 'position_error'
+                                     -- / 'roughness_cutting' / 'roughness_grinding'
+                                     -- / 'hardening' / 'residual_stress'
+    factor_group TEXT,               -- 一级因素 (e.g. "工艺系统热变形")
+    factor_text TEXT NOT NULL,       -- 二级因素 (e.g. "机床热变形")
+    impact_text TEXT NOT NULL,       -- 对加工质量的影响
+    remedy_text TEXT NOT NULL,       -- 改善措施
+    extra_json TEXT,
+    PRIMARY KEY (record_id, row_index),
+    FOREIGN KEY (record_id) REFERENCES kb_records(id)
+);
+CREATE INDEX IF NOT EXISTS idx_pfr_topic ON principle_factor_remedy(topic_kind);
+CREATE INDEX IF NOT EXISTS idx_pfr_factor ON principle_factor_remedy(factor_text);
+
+-- 振动专表 (Ch4 表 4-44 强迫振动, 4-45 自激振动) — 4 列 wide-cell
+CREATE TABLE IF NOT EXISTS principle_vibration (
+    record_id TEXT NOT NULL,
+    row_index INTEGER NOT NULL,
+    vibration_kind TEXT NOT NULL,    -- 'forced' / 'self_excited'
+    feature_text TEXT NOT NULL,      -- "特点" 列
+    cause_text TEXT NOT NULL,        -- "产生原因"
+    remedy_text TEXT NOT NULL,       -- "消减措施"
+    extra_json TEXT,
+    PRIMARY KEY (record_id, row_index),
+    FOREIGN KEY (record_id) REFERENCES kb_records(id)
+);
+
+-- =========================================================================
+-- New lookup tables (3) — 表 shape 与现有 8 张不对位, 单独建表 (一书表 → 一 DB 表 极端原则)
+-- =========================================================================
+
+-- 8. 钻孔路径(IT × 孔径 × 实/铸 → 路径列表) — Ch4 表 4-6, 4-7
+CREATE TABLE IF NOT EXISTS lookup_drilling_path_by_tier (
+    record_id TEXT NOT NULL,
+    row_index INTEGER NOT NULL,
+    machine_kind TEXT NOT NULL,            -- '钻床+钻模' / '车床(自动/转塔)'
+    it_tier_text TEXT NOT NULL,            -- '12~13' / '11' / '10~9' / '8~7' / '6~5'
+    it_min INTEGER, it_max INTEGER,
+    blank_kind TEXT NOT NULL,              -- 'solid' / 'preformed'
+    bore_segment_text TEXT,
+    bore_min REAL, bore_max REAL,
+    path_steps_json TEXT NOT NULL,         -- ["钻孔","扩孔","铰孔"]
+    path_steps_text TEXT NOT NULL,         -- 同上的人读形式
+    extra_json TEXT,
+    PRIMARY KEY (record_id, row_index),
+    FOREIGN KEY (record_id) REFERENCES kb_records(id)
+);
+CREATE INDEX IF NOT EXISTS idx_dpt_machine ON lookup_drilling_path_by_tier(machine_kind);
+CREATE INDEX IF NOT EXISTS idx_dpt_blank ON lookup_drilling_path_by_tier(blank_kind);
+
+-- 9. 机床形位精度(机床类型 × 加工尺寸段 → 多维形位经济精度) — Ch4 表 4-30
+CREATE TABLE IF NOT EXISTS lookup_machine_geometry (
+    record_id TEXT NOT NULL,
+    row_index INTEGER NOT NULL,
+    machine_type TEXT NOT NULL,            -- '卧式车床' / '外圆磨床' / '卧式镗床' / ...
+    machine_subtype TEXT,                  -- e.g. '高精度' / '无心磨床'
+    capacity_text TEXT,                    -- "最大加工直径 ≤400" / "镗杆直径 ≤100"
+    capacity_min REAL, capacity_max REAL,
+    metric_kind TEXT NOT NULL,             -- '圆度' / '圆柱度' / '平面度' / '平行度' / '垂直度'
+    metric_text TEXT NOT NULL,             -- 原值文本 (含分母, e.g. "0.0075/100")
+    metric_value REAL,                     -- 数值部分 (mm)
+    metric_per_text TEXT,                  -- 分母 ("100" / "300" / "全长")
+    extra_json TEXT,
+    PRIMARY KEY (record_id, row_index),
+    FOREIGN KEY (record_id) REFERENCES kb_records(id)
+);
+CREATE INDEX IF NOT EXISTS idx_mg_type ON lookup_machine_geometry(machine_type);
+CREATE INDEX IF NOT EXISTS idx_mg_metric ON lookup_machine_geometry(metric_kind);
+
+-- 10. 加工方法 → 硬化程度/硬化层深度 — Ch4 表 4-41
+CREATE TABLE IF NOT EXISTS lookup_hardening_depth (
+    record_id TEXT NOT NULL,
+    row_index INTEGER NOT NULL,
+    method TEXT NOT NULL,                  -- '普通车和高速车' / '精密车' / '钻和扩' / ...
+    n_pct_avg_min REAL,                    -- 冷硬程度 N% 平均 (range)
+    n_pct_avg_max REAL,
+    n_pct_max REAL,                        -- 最大值
+    hc_avg_min_um REAL,                    -- 硬化层 hc μm 平均 (range)
+    hc_avg_max_um REAL,
+    hc_max_um REAL,                        -- 硬化层最大值
+    note TEXT,                             -- 注脚
+    extra_json TEXT,
+    PRIMARY KEY (record_id, row_index),
+    FOREIGN KEY (record_id) REFERENCES kb_records(id)
+);
+CREATE INDEX IF NOT EXISTS idx_hd_method ON lookup_hardening_depth(method);
+
+-- =========================================================================
 -- Convenience view: STD records with std_value_rows flattened (legacy, kept
 -- for backward-compat with pipeline-eval raw_sql)
 -- =========================================================================
