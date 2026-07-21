@@ -1,0 +1,99 @@
+{
+ "family": "end_cover",
+ "part": "端盖",
+ "attempts": [
+  {
+   "attempt": 1,
+   "raw": "```json\n{\n \"spec\": {\n  \"name\": \"Unknown\",\n  \"width\": 22,\n  \"length\": 40,\n  \"thickness\": 13.5,\n  \"corner_r\": 1,\n  \"slot\": {\n   \"width\": 18,\n   \"depth\": 3.5\n  },\n  \"bore\": [\n   {\n    \"dia\": 12.8,\n    \"x\": 0,\n    \"y\": 0,\n    \"z0\": 0,\n    \"z1\": 40\n   }\n  ]\n },\n \"evidence\": {\n  \"name\": \"图纸上没有该特征\",\n  \"width\": \"22±0.1 | B | 零件宽度（俯视图）\",\n  \"length\": \"40 | A-A | 零件长度\",\n  \"thickness\": \"13.5 | A-A | 零件高度（或对应特征高度）\",\n  \"corner_r\": \"4-R1 | B | 四个R1的圆角\",\n  \"slot.width\": \"18⁺⁰·² | B-B | 某部分长度\",\n  \"slot.depth\": \"3.5⁺⁰·¹ | B-B | 某部分高度\",\n  \"bore[0].dia\": \"φ12.8 | A-A | 圆孔直径\",\n  \"bore[0].x\": \"由对称/贯通关系确定\",\n  \"bore[0].y\": \"由对称/贯通关系确定\",\n  \"bore[0].z0\": \"由对称/贯通关系确定\",\n  \"bore[0].z1\": \"由对称/贯通关系确定\"\n }\n}\n```",
+   "spec": {
+    "name": "Unknown",
+    "width": 22,
+    "length": 40,
+    "thickness": 13.5,
+    "corner_r": 1,
+    "slot": {
+     "width": 18,
+     "depth": 3.5
+    },
+    "bore": [
+     {
+      "dia": 12.8,
+      "x": 0,
+      "y": 0,
+      "z0": 0,
+      "z1": 40
+     }
+    ]
+   },
+   "violations": [],
+   "metrics": {
+    "volume": 8061.615149346131,
+    "area": 3707.870776342756,
+    "bbox": [
+     13.5,
+     22.0,
+     40.0
+    ]
+   },
+   "dev_vs_truth": {
+    "vol": -0.0,
+    "area": -0.0,
+    "bbox": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "meets_truth_tol": true,
+   "self_check": []
+  }
+ ],
+ "accepted": true,
+ "ts": "2026-07-20T09:14:49",
+ "transcript": "\nφ12.8 | A-A | 圆孔直径\n40 | A-A | 零件长度\n13.5 | A-A | 零件高度（或对应特征高度）\n3.5⁺⁰·¹ | B-B | 某部分高度\n18⁺⁰·² | B-B | 某部分长度\n22±0.1 | B | 零件宽度（俯视图）\n4-R1 | B | 四个R1的圆角\n全部 3.2√ | 图纸右上角 | 表面粗糙度\n1. 未注公差按GB/T 1804-2000中的m级执行； | 技术要求 | 技术要求第一条\n2. 未注锐边按R0.1~R0.5倒圆； | 技术要求 | 技术要求第二条\n3. 在图示位置进行零件标识； | 技术要求 | 技术要求第三条\n4. 待焊面目视检查； | 技术要求 | 技术要求第四条\n5. 待焊面液体渗透检查。 | 技术要求 | 技术要求第五条",
+ "final": {
+  "attempt": 1,
+  "raw": "```json\n{\n \"spec\": {\n  \"name\": \"Unknown\",\n  \"width\": 22,\n  \"length\": 40,\n  \"thickness\": 13.5,\n  \"corner_r\": 1,\n  \"slot\": {\n   \"width\": 18,\n   \"depth\": 3.5\n  },\n  \"bore\": [\n   {\n    \"dia\": 12.8,\n    \"x\": 0,\n    \"y\": 0,\n    \"z0\": 0,\n    \"z1\": 40\n   }\n  ]\n },\n \"evidence\": {\n  \"name\": \"图纸上没有该特征\",\n  \"width\": \"22±0.1 | B | 零件宽度（俯视图）\",\n  \"length\": \"40 | A-A | 零件长度\",\n  \"thickness\": \"13.5 | A-A | 零件高度（或对应特征高度）\",\n  \"corner_r\": \"4-R1 | B | 四个R1的圆角\",\n  \"slot.width\": \"18⁺⁰·² | B-B | 某部分长度\",\n  \"slot.depth\": \"3.5⁺⁰·¹ | B-B | 某部分高度\",\n  \"bore[0].dia\": \"φ12.8 | A-A | 圆孔直径\",\n  \"bore[0].x\": \"由对称/贯通关系确定\",\n  \"bore[0].y\": \"由对称/贯通关系确定\",\n  \"bore[0].z0\": \"由对称/贯通关系确定\",\n  \"bore[0].z1\": \"由对称/贯通关系确定\"\n }\n}\n```",
+  "spec": {
+   "name": "Unknown",
+   "width": 22,
+   "length": 40,
+   "thickness": 13.5,
+   "corner_r": 1,
+   "slot": {
+    "width": 18,
+    "depth": 3.5
+   },
+   "bore": [
+    {
+     "dia": 12.8,
+     "x": 0,
+     "y": 0,
+     "z0": 0,
+     "z1": 40
+    }
+   ]
+  },
+  "violations": [],
+  "metrics": {
+   "volume": 8061.615149346131,
+   "area": 3707.870776342756,
+   "bbox": [
+    13.5,
+    22.0,
+    40.0
+   ]
+  },
+  "dev_vs_truth": {
+   "vol": -0.0,
+   "area": -0.0,
+   "bbox": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "meets_truth_tol": true,
+  "self_check": []
+ }
+}
