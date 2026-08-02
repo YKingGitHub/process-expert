@@ -3,29 +3,25 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="从零件三视图到工艺规程：固定几何提取器、可优化 Workflow 与固定验收器构成的数据飞轮。" />
-  <title>从三视图到工艺规程 · 可训练的制造智能闭环</title>
+  <meta name="description" content="从零件三视图到工艺规程：先确定几何提取器与验收器，再用数据优化中间 Workflow。" />
+  <title>固定两端，优化中间 · Process Expert</title>
   <style>
     :root {
-      --ink: #13202b;
-      --muted: #5f6d78;
-      --paper: #f4f1e9;
-      --paper-2: #ebe6da;
-      --panel: rgba(255, 255, 255, 0.72);
-      --line: rgba(19, 32, 43, 0.14);
-      --cyan: #0aa6a6;
-      --cyan-soft: #c9eeee;
-      --orange: #f07b3f;
-      --orange-soft: #fbd9c7;
-      --violet: #7059c8;
-      --violet-soft: #ddd7f5;
-      --green: #62a744;
-      --green-soft: #dcebd4;
-      --dark: #13202b;
-      --shadow: 0 26px 70px rgba(26, 34, 40, 0.12);
-      --radius-xl: 32px;
-      --radius-lg: 22px;
-      --radius-md: 14px;
+      --bg: #f6f4ef;
+      --paper: #ffffff;
+      --ink: #172530;
+      --muted: #68747d;
+      --line: #d9ddd9;
+      --line-strong: #b7c0bd;
+      --head: #137c8b;
+      --head-soft: #e2f0f1;
+      --middle: #5066a8;
+      --middle-soft: #e9ecf6;
+      --tail: #d3673c;
+      --tail-soft: #f7e8e0;
+      --good: #4c8b55;
+      --shadow: 0 18px 45px rgba(23, 37, 48, .08);
+      --radius: 18px;
     }
 
     * { box-sizing: border-box; }
@@ -38,127 +34,71 @@
     body {
       margin: 0;
       color: var(--ink);
-      background:
-        radial-gradient(circle at 8% 12%, rgba(10, 166, 166, 0.10), transparent 28rem),
-        radial-gradient(circle at 92% 34%, rgba(240, 123, 63, 0.10), transparent 30rem),
-        var(--paper);
+      background: var(--bg);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
         "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
-      line-height: 1.55;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      opacity: 0.34;
-      background-image:
-        linear-gradient(rgba(19, 32, 43, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(19, 32, 43, 0.035) 1px, transparent 1px);
-      background-size: 36px 36px;
-      mask-image: linear-gradient(to bottom, black 0%, transparent 88%);
+      line-height: 1.5;
     }
 
     a { color: inherit; }
 
-    button { font: inherit; }
-
     .progress {
       position: fixed;
-      left: 0;
-      top: 0;
-      height: 4px;
-      width: 100%;
+      inset: 0 auto auto 0;
       z-index: 100;
-      background: rgba(19, 32, 43, 0.06);
-    }
-
-    .progress > span {
-      display: block;
-      height: 100%;
       width: 0;
-      transform-origin: left;
-      background: linear-gradient(90deg, var(--cyan), var(--violet), var(--orange));
-      transition: width 120ms linear;
+      height: 3px;
+      background: var(--ink);
     }
 
     .topbar {
       position: fixed;
-      z-index: 80;
-      left: 50%;
-      top: 18px;
-      width: min(1180px, calc(100% - 36px));
-      transform: translateX(-50%);
+      z-index: 90;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 66px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 10px 12px 10px 18px;
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      border-radius: 999px;
-      background: rgba(244, 241, 233, 0.78);
-      backdrop-filter: blur(16px);
-      box-shadow: 0 10px 35px rgba(19, 32, 43, 0.08);
+      padding: 0 max(28px, calc((100vw - 1180px) / 2));
+      border-bottom: 1px solid rgba(23, 37, 48, .08);
+      background: rgba(246, 244, 239, .92);
+      backdrop-filter: blur(12px);
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 11px;
-      font-size: 13px;
-      font-weight: 760;
-      letter-spacing: 0.03em;
-      white-space: nowrap;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .06em;
     }
 
     .brand-mark {
-      width: 26px;
-      height: 26px;
-      border-radius: 8px;
-      position: relative;
-      background: var(--dark);
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.12);
-    }
-
-    .brand-mark::before,
-    .brand-mark::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-    }
-
-    .brand-mark::before {
-      width: 7px;
-      height: 7px;
-      left: 5px;
-      top: 5px;
-      background: var(--cyan);
-    }
-
-    .brand-mark::after {
-      width: 7px;
-      height: 7px;
-      right: 5px;
-      bottom: 5px;
-      background: var(--orange);
+      width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      border-radius: 6px;
+      color: white;
+      background: var(--ink);
+      font-size: 11px;
     }
 
     .nav {
       display: flex;
-      align-items: center;
-      gap: 4px;
+      gap: 3px;
     }
 
     .nav a {
-      text-decoration: none;
+      padding: 7px 10px;
+      border-radius: 8px;
       color: var(--muted);
-      font-size: 12px;
-      font-weight: 680;
-      padding: 7px 11px;
-      border-radius: 999px;
-      transition: color .25s, background .25s;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 700;
     }
 
     .nav a:hover,
@@ -167,1546 +107,1074 @@
       background: white;
     }
 
-    .motion-toggle {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 7px 11px;
-      color: var(--ink);
-      background: rgba(255,255,255,.66);
-      cursor: pointer;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    main { width: 100%; }
-
-    .section {
+    .slide {
       min-height: 100vh;
-      scroll-snap-align: start;
-      padding: 120px 6vw 80px;
       display: grid;
       align-items: center;
-      position: relative;
+      padding: 104px 28px 56px;
+      scroll-snap-align: start;
+      border-bottom: 1px solid rgba(23, 37, 48, .07);
     }
 
-    .section-inner {
+    .inner {
       width: min(1180px, 100%);
       margin: 0 auto;
     }
 
-    .eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 18px;
+    .kicker {
+      margin-bottom: 17px;
       color: var(--muted);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: .12em;
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: .13em;
       text-transform: uppercase;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 30px;
-      height: 2px;
-      background: currentColor;
     }
 
     h1, h2, h3, p { margin-top: 0; }
 
     h1 {
-      max-width: 900px;
       margin-bottom: 24px;
-      font-size: clamp(46px, 7vw, 92px);
+      font-size: clamp(50px, 7.4vw, 94px);
       line-height: 1.02;
-      letter-spacing: -0.055em;
-      font-weight: 850;
+      letter-spacing: -.055em;
     }
 
     h2 {
       margin-bottom: 18px;
-      font-size: clamp(34px, 4.6vw, 64px);
+      font-size: clamp(38px, 5vw, 65px);
       line-height: 1.08;
-      letter-spacing: -0.04em;
-      font-weight: 820;
+      letter-spacing: -.04em;
     }
 
     h3 {
       margin-bottom: 10px;
       font-size: 19px;
-      line-height: 1.25;
+      line-height: 1.3;
     }
-
-    .accent-cyan { color: var(--cyan); }
-    .accent-orange { color: var(--orange); }
-    .accent-violet { color: var(--violet); }
 
     .lead {
-      max-width: 760px;
+      max-width: 780px;
       color: var(--muted);
-      font-size: clamp(17px, 2vw, 22px);
+      font-size: clamp(17px, 1.8vw, 22px);
     }
 
-    .hero-grid {
+    .head-color { color: var(--head); }
+    .middle-color { color: var(--middle); }
+    .tail-color { color: var(--tail); }
+
+    .hero-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(420px, .95fr);
+      grid-template-columns: 1.05fr .95fr;
+      gap: 68px;
+      align-items: center;
+    }
+
+    .hero-statement {
+      margin-top: 32px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .hero-statement span {
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: white;
+    }
+
+    .hero-statement i {
+      width: 30px;
+      height: 1px;
+      background: var(--line-strong);
+    }
+
+    .hero-logic {
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .logic-row {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 15px;
+      align-items: start;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .logic-row:last-child { border-bottom: 0; }
+
+    .logic-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: white;
+      background: var(--logic-color);
+      font-weight: 850;
+    }
+
+    .logic-row strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 17px;
+    }
+
+    .logic-row p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .architecture-title {
+      max-width: 900px;
+      margin-bottom: 42px;
+    }
+
+    .architecture {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+      padding-top: 72px;
+    }
+
+    .phase-one-bracket {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 54px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+      pointer-events: none;
+    }
+
+    .phase-one-bracket::before,
+    .phase-one-bracket::after {
+      content: "";
+      align-self: end;
+      height: 18px;
+      border: 2px solid var(--ink);
+      border-bottom: 0;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .phase-one-bracket::before { grid-column: 1; }
+    .phase-one-bracket::after { grid-column: 3; }
+
+    .phase-label {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      padding: 7px 13px;
+      border-radius: 999px;
+      color: white;
+      background: var(--ink);
+      font-size: 10px;
+      font-weight: 850;
+      letter-spacing: .07em;
+      white-space: nowrap;
+    }
+
+    .module-card {
+      min-height: 350px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--module-color);
+      border-radius: var(--radius);
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .module-card.middle-card {
+      background:
+        linear-gradient(rgba(255,255,255,.79), rgba(255,255,255,.79)),
+        repeating-linear-gradient(-45deg, var(--middle-soft), var(--middle-soft) 7px, white 7px, white 14px);
+    }
+
+    .module-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 34px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 850;
+      letter-spacing: .08em;
+    }
+
+    .state {
+      padding: 5px 8px;
+      border-radius: 999px;
+      color: var(--module-color);
+      background: var(--module-soft);
+      font-size: 9px;
+    }
+
+    .module-card h3 { font-size: 25px; }
+
+    .module-card > p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .module-io {
+      margin-top: auto;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--module-color);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .priority-note {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 18px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .priority-note::before,
+    .priority-note::after {
+      content: "";
+      height: 1px;
+      background: var(--line-strong);
+    }
+
+    .fixed-layout {
+      display: grid;
+      grid-template-columns: 1fr 100px 1fr;
+      gap: 24px;
+      align-items: stretch;
+      margin-top: 44px;
+    }
+
+    .anchor-card {
+      min-height: 370px;
+      padding: 31px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .anchor-index {
+      width: 42px;
+      height: 42px;
+      margin-bottom: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      color: white;
+      background: var(--anchor-color);
+      font-weight: 850;
+    }
+
+    .anchor-card h3 { font-size: 26px; }
+
+    .anchor-card > p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .anchor-output {
+      margin-top: 28px;
+      padding: 18px;
+      border-left: 3px solid var(--anchor-color);
+      background: var(--anchor-soft);
+    }
+
+    .anchor-output small {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 850;
+      letter-spacing: .1em;
+    }
+
+    .anchor-output strong {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 13px;
+    }
+
+    .lock-center {
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .lock-icon {
+      width: 55px;
+      height: 55px;
+      margin: 0 auto 9px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line-strong);
+      border-radius: 50%;
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 20px;
+    }
+
+    .equation {
+      margin-top: 25px;
+      padding: 21px;
+      border-radius: 14px;
+      color: white;
+      background: var(--ink);
+      text-align: center;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: clamp(13px, 1.5vw, 18px);
+    }
+
+    .equation span { color: #8bd1d7; }
+    .equation b { color: #f3a98c; }
+
+    .loop-layout {
+      display: grid;
+      grid-template-columns: .78fr 1.22fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .loop-copy .lead { font-size: 18px; }
+
+    .precondition {
+      margin-top: 25px;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: white;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .precondition strong { color: var(--ink); }
+
+    .data-loop {
+      position: relative;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .loop-status {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 25px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 850;
+      letter-spacing: .08em;
+    }
+
+    .loop-status span:last-child { color: var(--good); }
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      position: relative;
+    }
+
+    .pipeline::before {
+      content: "";
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      top: 42px;
+      height: 2px;
+      background: var(--line-strong);
+    }
+
+    .flow-box {
+      min-height: 116px;
+      z-index: 1;
+      position: relative;
+      padding: 18px 11px;
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--flow-color);
+      border-radius: 12px;
+      background: white;
+      text-align: center;
+    }
+
+    .flow-box strong {
+      display: block;
+      margin-top: 26px;
+      font-size: 12px;
+    }
+
+    .flow-box small { color: var(--muted); font-size: 9px; }
+
+    .flow-dot {
+      position: absolute;
+      z-index: 4;
+      top: 37px;
+      left: 8%;
+      width: 12px;
+      height: 12px;
+      border: 3px solid white;
+      border-radius: 50%;
+      background: var(--middle);
+      box-shadow: 0 0 0 1px var(--middle);
+      animation: dataMove 5.5s linear infinite;
+    }
+
+    @keyframes dataMove {
+      from { left: 8%; }
+      to { left: calc(92% - 12px); }
+    }
+
+    .feedback {
+      width: 76%;
+      margin: 20px auto 0;
+      padding: 14px 18px;
+      border: 1px dashed var(--middle);
+      border-radius: 12px;
+      color: var(--middle);
+      background: var(--middle-soft);
+      text-align: center;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .feedback::before { content: "↖  "; }
+
+    .rollout-record {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .rollout-record span {
+      padding: 9px;
+      border-radius: 9px;
+      background: var(--bg);
+      color: var(--muted);
+      text-align: center;
+      font-size: 9px;
+      font-weight: 750;
+    }
+
+    .optimize-layout {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
       gap: 52px;
       align-items: center;
     }
 
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 30px;
-    }
-
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255,255,255,.55);
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 720;
-    }
-
-    .chip-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 0 5px rgba(98,167,68,.12);
-    }
-
-    .hero-diagram {
-      position: relative;
-      min-height: 540px;
-      border-radius: var(--radius-xl);
-      background: var(--dark);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      isolation: isolate;
-    }
-
-    .hero-diagram::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      opacity: .17;
-      background-image:
-        linear-gradient(rgba(255,255,255,.12) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.12) 1px, transparent 1px);
-      background-size: 34px 34px;
-    }
-
-    .hero-diagram::after {
-      content: "";
-      position: absolute;
-      width: 330px;
-      height: 330px;
-      right: -120px;
-      top: -110px;
-      border-radius: 50%;
-      background: rgba(10, 166, 166, .28);
-      filter: blur(8px);
-      z-index: -1;
-    }
-
-    .blueprint-card {
-      position: absolute;
-      left: 8%;
-      top: 10%;
-      width: 54%;
-      aspect-ratio: 1.34;
-      border: 1px solid rgba(255,255,255,.18);
-      border-radius: 20px;
-      background: #e9f4f3;
-      box-shadow: 0 25px 50px rgba(0,0,0,.28);
-      transform: rotate(-4deg);
-      padding: 16px;
-    }
-
-    .blueprint-card .paper-title {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 8px;
-      color: #47636b;
-      font-size: 8px;
-      font-weight: 800;
-      letter-spacing: .08em;
-    }
-
-    .view-sheet {
-      width: 100%;
-      height: calc(100% - 24px);
-      display: block;
-    }
-
-    .solid-card {
-      position: absolute;
-      right: 7%;
-      bottom: 8%;
-      width: 58%;
-      aspect-ratio: 1.3;
-      border: 1px solid rgba(255,255,255,.20);
-      border-radius: 22px;
-      background: rgba(245, 240, 228, .96);
-      box-shadow: 0 28px 60px rgba(0,0,0,.36);
-      transform: rotate(4deg);
-      padding: 18px;
-      color: var(--ink);
-    }
-
-    .solid-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 5px;
-      font-size: 9px;
-      font-weight: 800;
-      letter-spacing: .08em;
-      color: var(--muted);
-    }
-
-    .status-led {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--green);
-    }
-
-    .status-led::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: currentColor;
-      animation: ledPulse 1.8s ease-in-out infinite;
-    }
-
-    @keyframes ledPulse {
-      50% { opacity: .35; transform: scale(.78); }
-    }
-
-    .solid-svg { width: 100%; height: calc(100% - 18px); }
-
-    .hero-arrow {
-      position: absolute;
-      z-index: 4;
-      left: 49%;
-      top: 48%;
-      width: 68px;
-      height: 68px;
+    .variants {
       display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--orange);
-      color: white;
-      box-shadow: 0 14px 30px rgba(240,123,63,.45);
-      font-size: 27px;
-      transform: translate(-50%, -50%);
-      animation: arrowFloat 2.8s ease-in-out infinite;
+      gap: 12px;
     }
 
-    @keyframes arrowFloat {
-      0%, 100% { transform: translate(-50%, -50%) scale(1); }
-      50% { transform: translate(-50%, -57%) scale(1.06); }
-    }
-
-    .hero-label {
-      position: absolute;
-      z-index: 3;
-      right: 18px;
-      top: 18px;
-      color: rgba(255,255,255,.76);
-      writing-mode: vertical-rl;
-      font-size: 9px;
-      font-weight: 760;
-      letter-spacing: .18em;
-    }
-
-    .scroll-cue {
-      position: absolute;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      color: var(--muted);
-      font-size: 11px;
-      font-weight: 700;
-    }
-
-    .scroll-cue::before {
-      content: "";
-      width: 18px;
-      height: 29px;
-      border: 1.5px solid currentColor;
-      border-radius: 999px;
-    }
-
-    .scroll-cue::after {
-      content: "";
-      position: absolute;
-      left: 8px;
-      top: 7px;
-      width: 3px;
-      height: 7px;
-      border-radius: 9px;
-      background: currentColor;
-      animation: scrollDot 1.7s ease-in-out infinite;
-    }
-
-    @keyframes scrollDot {
-      0% { transform: translateY(0); opacity: 0; }
-      30% { opacity: 1; }
-      80%, 100% { transform: translateY(10px); opacity: 0; }
-    }
-
-    .thesis {
-      text-align: center;
-    }
-
-    .thesis h2 { max-width: 980px; margin-left: auto; margin-right: auto; }
-    .thesis .lead { margin-left: auto; margin-right: auto; }
-
-    .system-map {
-      margin-top: 56px;
+    .variant {
       display: grid;
-      grid-template-columns: minmax(160px,.62fr) repeat(3, minmax(210px,1fr));
+      grid-template-columns: 65px 1fr 96px;
       gap: 16px;
-      position: relative;
-      text-align: left;
-    }
-
-    .system-map::before {
-      content: "";
-      position: absolute;
-      left: 10%;
-      right: 10%;
-      top: 50%;
-      height: 2px;
-      background: linear-gradient(90deg, rgba(19,32,43,.12), var(--cyan), var(--violet), var(--orange));
-      z-index: -1;
-    }
-
-    .map-card {
-      min-height: 220px;
-      position: relative;
-      padding: 22px;
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(255,255,255,.72);
-      background: rgba(255,255,255,.73);
-      box-shadow: 0 20px 55px rgba(19,32,43,.08);
-      overflow: hidden;
-    }
-
-    .map-card::after {
-      content: "";
-      position: absolute;
-      inset: auto -40px -55px auto;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      opacity: .22;
-      background: var(--card-color, var(--ink));
-    }
-
-    .map-card.input-card { --card-color: var(--ink); }
-    .map-card.geometry-card { --card-color: var(--cyan); }
-    .map-card.workflow-card { --card-color: var(--violet); }
-    .map-card.validator-card { --card-color: var(--orange); }
-
-    .map-card .index {
-      display: flex;
-      justify-content: space-between;
       align-items: center;
-      margin-bottom: 30px;
-      color: var(--muted);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .08em;
-    }
-
-    .state-tag {
-      padding: 5px 8px;
-      border-radius: 999px;
-      color: var(--card-color);
-      background: color-mix(in srgb, var(--card-color) 13%, white);
-      font-size: 9px;
-      font-weight: 900;
-    }
-
-    .map-card p {
-      margin-bottom: 0;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .map-card .io {
-      margin-top: 24px;
-      color: var(--card-color);
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 11px;
-      font-weight: 750;
-    }
-
-    .feedback-ribbon {
-      width: min(850px, 90%);
-      margin: 22px auto 0;
-      padding: 14px 22px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
-      border: 1px dashed rgba(112,89,200,.42);
-      border-radius: 999px;
-      color: var(--violet);
-      background: rgba(221,215,245,.36);
-      font-size: 12px;
-      font-weight: 760;
-    }
-
-    .feedback-ribbon .moving-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--violet);
-      box-shadow: 0 0 0 7px rgba(112,89,200,.12);
-      animation: feedbackDot 3s linear infinite;
-    }
-
-    @keyframes feedbackDot {
-      0%,100% { transform: translateX(-15px); }
-      50% { transform: translateX(15px); }
-    }
-
-    .principle-strip {
-      margin-top: 30px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-
-    .principle {
-      padding: 18px 20px;
-      border-top: 1px solid var(--line);
-    }
-
-    .principle strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 13px;
-    }
-
-    .principle span { color: var(--muted); font-size: 12px; }
-
-    .module-layout {
-      display: grid;
-      grid-template-columns: .85fr 1.15fr;
-      gap: 48px;
-      align-items: start;
-    }
-
-    .module-copy { position: sticky; top: 120px; }
-
-    .module-number {
-      width: 44px;
-      height: 44px;
-      margin-bottom: 22px;
-      display: grid;
-      place-items: center;
+      padding: 17px 18px;
+      border: 1px solid var(--line);
       border-radius: 13px;
-      color: white;
-      background: var(--module-color);
-      font-weight: 850;
-      box-shadow: 0 12px 26px color-mix(in srgb, var(--module-color) 35%, transparent);
+      background: white;
     }
 
-    .module-copy .lead { font-size: 17px; }
-
-    .definition {
-      margin-top: 26px;
-      padding: 16px 18px;
-      border-left: 3px solid var(--module-color);
-      border-radius: 0 14px 14px 0;
-      background: color-mix(in srgb, var(--module-color) 8%, white 75%);
+    .variant-id {
+      color: var(--middle);
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 12px;
-      font-weight: 760;
-      line-height: 1.7;
+      font-weight: 850;
     }
 
-    .content-stack { display: grid; gap: 18px; }
-
-    .glass-card {
-      padding: 26px;
-      border: 1px solid rgba(255,255,255,.76);
-      border-radius: var(--radius-lg);
-      background: var(--panel);
-      box-shadow: 0 18px 55px rgba(19,32,43,.08);
-      backdrop-filter: blur(9px);
-    }
-
-    .card-kicker {
-      margin-bottom: 9px;
-      color: var(--module-color, var(--muted));
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: .11em;
-      text-transform: uppercase;
-    }
-
-    .extractor-flow {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+    .variant-path {
+      display: flex;
+      gap: 5px;
       align-items: center;
-      gap: 10px;
-      margin-top: 20px;
     }
 
-    .flow-node {
-      min-height: 105px;
-      position: relative;
-      display: grid;
-      place-items: center;
-      padding: 14px 10px;
-      text-align: center;
-      border: 1px solid var(--line);
-      border-radius: 15px;
-      background: rgba(255,255,255,.75);
+    .variant-path i {
+      width: 21px;
+      height: 21px;
+      border: 2px solid var(--middle);
+      border-radius: 6px;
+      background: var(--middle-soft);
     }
 
-    .flow-node:not(:last-child)::after {
-      content: "→";
-      position: absolute;
-      right: -17px;
-      top: 50%;
-      z-index: 3;
-      color: var(--cyan);
-      font-size: 18px;
-      font-weight: 900;
-      transform: translateY(-50%);
+    .variant-path b {
+      width: 20px;
+      height: 2px;
+      background: var(--line-strong);
     }
 
-    .node-icon {
-      width: 34px;
-      height: 34px;
-      display: grid;
-      place-items: center;
-      border-radius: 10px;
-      background: var(--cyan-soft);
-      color: var(--cyan);
-      font-size: 16px;
-      font-weight: 900;
-    }
-
-    .flow-node strong { font-size: 11px; }
-    .flow-node small { color: var(--muted); font-size: 9px; }
-
-    .paper-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .paper-card {
-      display: flex;
-      flex-direction: column;
-      min-height: 285px;
-      padding: 22px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.72);
-      text-decoration: none;
-      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-    }
-
-    .paper-card:hover {
-      transform: translateY(-4px);
-      border-color: color-mix(in srgb, var(--cyan) 42%, transparent);
-      box-shadow: 0 18px 35px rgba(19,32,43,.10);
-    }
-
-    .paper-year {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 22px;
-      color: var(--muted);
-      font-size: 10px;
-      font-weight: 820;
-      letter-spacing: .06em;
-    }
-
-    .paper-card h3 { font-size: 18px; }
-    .paper-card p { color: var(--muted); font-size: 12px; }
-
-    .base-model {
-      margin-top: auto;
-      padding-top: 14px;
-      border-top: 1px solid var(--line);
-      color: var(--ink);
-      font-size: 11px;
-      font-weight: 800;
-    }
-
-    .base-model span {
-      display: block;
-      margin-bottom: 4px;
-      color: var(--cyan);
-      font-size: 9px;
-      letter-spacing: .09em;
-    }
-
-    .status-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .status-item {
-      position: relative;
-      padding: 16px 16px 16px 42px;
-      border-radius: 14px;
-      background: rgba(255,255,255,.68);
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    .status-item::before {
-      content: "";
-      position: absolute;
-      left: 17px;
-      top: 18px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--status-color, var(--green));
-      box-shadow: 0 0 0 5px color-mix(in srgb, var(--status-color, var(--green)) 14%, transparent);
-    }
-
-    .status-item strong { display: block; margin-bottom: 3px; color: var(--ink); }
-
-    .workflow-stage {
-      min-height: 470px;
-      position: relative;
-      display: grid;
-      place-items: center;
-      border-radius: var(--radius-xl);
-      background: var(--dark);
+    .score {
+      height: 8px;
       overflow: hidden;
+      border-radius: 999px;
+      background: var(--middle-soft);
+    }
+
+    .score::after {
+      content: "";
+      display: block;
+      width: var(--score);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--middle);
+    }
+
+    .optimize-card {
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
       box-shadow: var(--shadow);
     }
 
-    .workflow-stage::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      opacity: .16;
-      background-image:
-        radial-gradient(circle, white 1px, transparent 1.5px);
-      background-size: 24px 24px;
-    }
-
-    .agent-orbit {
-      width: 370px;
-      height: 370px;
-      position: relative;
-      border: 1px dashed rgba(255,255,255,.18);
-      border-radius: 50%;
-      animation: slowSpin 45s linear infinite;
-    }
-
-    @keyframes slowSpin { to { transform: rotate(360deg); } }
-
-    .core-node {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 154px;
-      height: 154px;
+    .knobs {
       display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 22px;
-      color: white;
-      border: 1px solid rgba(255,255,255,.22);
-      border-radius: 50%;
-      background: radial-gradient(circle at 35% 30%, #8976db, var(--violet) 55%, #47388b);
-      box-shadow: 0 0 0 18px rgba(112,89,200,.10), 0 20px 55px rgba(0,0,0,.38);
-      transform: translate(-50%, -50%);
-      animation: counterSpin 45s linear infinite;
-    }
-
-    @keyframes counterSpin {
-      from { transform: translate(-50%, -50%) rotate(0); }
-      to { transform: translate(-50%, -50%) rotate(-360deg); }
-    }
-
-    .core-node strong { font-size: 17px; }
-    .core-node small { opacity: .72; font-size: 9px; letter-spacing: .08em; }
-
-    .agent-node {
-      --angle: 0deg;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 106px;
-      min-height: 64px;
-      display: grid;
-      place-items: center;
-      padding: 10px;
-      text-align: center;
-      color: white;
-      border: 1px solid rgba(255,255,255,.18);
-      border-radius: 15px;
-      background: rgba(255,255,255,.10);
-      backdrop-filter: blur(8px);
-      font-size: 10px;
-      font-weight: 750;
-      transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-185px) rotate(calc(-1 * var(--angle)));
-      animation: nodeCounterSpin 45s linear infinite;
-    }
-
-    @keyframes nodeCounterSpin {
-      from { rotate: 0deg; }
-      to { rotate: -360deg; }
-    }
-
-    .agent-node:nth-of-type(2) { --angle: 0deg; }
-    .agent-node:nth-of-type(3) { --angle: 72deg; }
-    .agent-node:nth-of-type(4) { --angle: 144deg; }
-    .agent-node:nth-of-type(5) { --angle: 216deg; }
-    .agent-node:nth-of-type(6) { --angle: 288deg; }
-
-    .tunable-badges {
-      position: absolute;
-      inset: 20px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 7px;
-      pointer-events: none;
-    }
-
-    .tunable-badges span {
-      padding: 6px 9px;
-      color: rgba(255,255,255,.76);
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: 999px;
-      background: rgba(0,0,0,.17);
-      font-size: 9px;
-      font-weight: 760;
-    }
-
-    .knob-grid {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 10px;
-      margin-top: 18px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 9px;
+      margin-top: 23px;
     }
 
     .knob {
-      padding: 15px;
+      padding: 13px 14px;
       border: 1px solid var(--line);
-      border-radius: 14px;
-      background: rgba(255,255,255,.68);
+      border-radius: 10px;
+      background: var(--bg);
     }
 
     .knob strong { display: block; font-size: 11px; }
     .knob span { color: var(--muted); font-size: 9px; }
 
-    .validator-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
-    .dimension-card {
-      min-height: 440px;
-      padding: 28px;
-      position: relative;
-      border: 1px solid rgba(255,255,255,.76);
-      border-radius: var(--radius-xl);
-      background: var(--panel);
-      box-shadow: 0 22px 60px rgba(19,32,43,.08);
-      overflow: hidden;
-    }
-
-    .dimension-card::before {
-      content: attr(data-dimension);
-      position: absolute;
-      right: -8px;
-      top: -36px;
-      color: rgba(19,32,43,.035);
-      font-size: 128px;
-      font-weight: 900;
-      letter-spacing: -.08em;
-    }
-
-    .dimension-icon {
-      width: 50px;
-      height: 50px;
-      margin-bottom: 24px;
-      display: grid;
-      place-items: center;
-      border-radius: 15px;
-      color: white;
-      background: var(--dimension-color);
-      box-shadow: 0 14px 30px color-mix(in srgb, var(--dimension-color) 30%, transparent);
-      font-size: 20px;
-      font-weight: 900;
-    }
-
-    .dimension-card > p { color: var(--muted); font-size: 13px; }
-
-    .metric-list {
-      display: grid;
-      gap: 9px;
-      margin-top: 22px;
-    }
-
-    .metric {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 11px 12px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: rgba(255,255,255,.66);
+    .not-optimized {
+      margin-top: 18px;
       color: var(--muted);
       font-size: 11px;
     }
 
-    .metric::before {
-      content: "✓";
-      width: 20px;
-      height: 20px;
-      flex: 0 0 auto;
+    .not-optimized strong { color: var(--ink); }
+
+    .detail-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 38px;
+    }
+
+    .detail-header .lead { font-size: 17px; }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .detail-card {
+      padding: 27px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+    }
+
+    .detail-card.full { grid-column: 1 / -1; }
+
+    .detail-label {
+      margin-bottom: 13px;
+      color: var(--detail-color);
+      font-size: 10px;
+      font-weight: 850;
+      letter-spacing: .1em;
+    }
+
+    .detail-card p {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .detail-steps {
+      display: flex;
+      align-items: stretch;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .detail-step {
+      flex: 1;
+      padding: 12px 9px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      text-align: center;
+      font-size: 10px;
+      font-weight: 750;
+    }
+
+    .detail-arrow {
       display: grid;
       place-items: center;
-      border-radius: 7px;
-      color: var(--dimension-color);
-      background: color-mix(in srgb, var(--dimension-color) 13%, white);
+      color: var(--line-strong);
+    }
+
+    .paper-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .paper-link {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      text-decoration: none;
+    }
+
+    .paper-link:hover { border-color: var(--head); }
+
+    .paper-link strong { display: block; font-size: 12px; }
+    .paper-link span { color: var(--muted); font-size: 9px; }
+
+    .check-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 17px;
+    }
+
+    .check-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 10px 12px;
+      border-radius: 9px;
+      background: var(--bg);
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .check-item::before {
+      content: "✓";
+      color: var(--detail-color);
       font-weight: 900;
     }
 
-    .reward-vector {
-      margin-top: 18px;
-      padding: 18px 20px;
+    .current-line {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      border-radius: 16px;
-      color: white;
-      background: var(--dark);
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
     }
 
-    .reward-vector strong { font-size: 12px; }
-
-    .reward-bars {
-      display: flex;
-      gap: 5px;
-      align-items: flex-end;
-      height: 30px;
+    .current-line span {
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--muted);
+      background: var(--bg);
+      font-size: 9px;
+      font-weight: 750;
     }
 
-    .reward-bars i {
-      display: block;
-      width: 7px;
-      border-radius: 9px;
-      background: var(--orange);
-      animation: barWave 1.6s ease-in-out infinite alternate;
-    }
-
-    .reward-bars i:nth-child(1) { height: 10px; }
-    .reward-bars i:nth-child(2) { height: 20px; animation-delay: -.3s; }
-    .reward-bars i:nth-child(3) { height: 28px; animation-delay: -.6s; }
-    .reward-bars i:nth-child(4) { height: 17px; animation-delay: -.9s; }
-    .reward-bars i:nth-child(5) { height: 24px; animation-delay: -1.2s; }
-
-    @keyframes barWave { to { height: 8px; opacity: .55; } }
-
-    .flywheel-layout {
-      display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 42px;
-      align-items: center;
-    }
-
-    .flywheel-viz {
-      min-height: 560px;
-      position: relative;
-      display: grid;
-      place-items: center;
-    }
-
-    .wheel {
-      width: min(520px, 90vw);
-      aspect-ratio: 1;
-      position: relative;
-      border-radius: 50%;
-      border: 1px solid var(--line);
-      background: radial-gradient(circle, rgba(255,255,255,.78) 0 32%, transparent 32.5%);
-      box-shadow: inset 0 0 0 30px rgba(255,255,255,.22), 0 30px 80px rgba(19,32,43,.08);
-    }
-
-    .wheel::before,
-    .wheel::after {
-      content: "";
-      position: absolute;
-      inset: 12%;
-      border: 2px dashed rgba(112,89,200,.26);
-      border-radius: 50%;
-      animation: slowSpin 36s linear infinite;
-    }
-
-    .wheel::after {
-      inset: 24%;
-      border-color: rgba(10,166,166,.22);
-      animation-direction: reverse;
-      animation-duration: 24s;
-    }
-
-    .wheel-center {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 150px;
-      height: 150px;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      border-radius: 50%;
-      color: white;
-      background: var(--dark);
-      box-shadow: 0 18px 45px rgba(19,32,43,.28);
-      transform: translate(-50%, -50%);
-    }
-
-    .wheel-center strong { font-size: 18px; }
-    .wheel-center small { color: rgba(255,255,255,.58); font-size: 9px; }
-
-    .wheel-node {
-      --angle: 0deg;
-      --wheel-color: var(--cyan);
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 132px;
-      min-height: 72px;
-      display: grid;
-      place-items: center;
-      padding: 12px;
-      text-align: center;
-      border: 1px solid white;
-      border-radius: 17px;
-      background: rgba(255,255,255,.92);
-      box-shadow: 0 16px 34px rgba(19,32,43,.12);
-      color: var(--ink);
-      font-size: 11px;
-      font-weight: 800;
-      transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-210px) rotate(calc(-1 * var(--angle)));
-    }
-
-    .wheel-node::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--wheel-color);
-      box-shadow: 0 0 0 6px color-mix(in srgb, var(--wheel-color) 13%, transparent);
-    }
-
-    .wheel-node.n1 { --angle: 0deg; --wheel-color: var(--cyan); }
-    .wheel-node.n2 { --angle: 72deg; --wheel-color: var(--violet); }
-    .wheel-node.n3 { --angle: 144deg; --wheel-color: var(--orange); }
-    .wheel-node.n4 { --angle: 216deg; --wheel-color: var(--green); }
-    .wheel-node.n5 { --angle: 288deg; --wheel-color: #d9a514; }
-
-    .packet {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 12px;
-      height: 12px;
-      margin: -6px;
-      border-radius: 50%;
-      background: var(--orange);
-      box-shadow: 0 0 0 6px rgba(240,123,63,.12), 0 0 20px var(--orange);
-      animation: packetOrbit 7s linear infinite;
-    }
-
-    .packet.p2 { animation-delay: -3.5s; background: var(--cyan); box-shadow: 0 0 0 6px rgba(10,166,166,.12), 0 0 20px var(--cyan); }
-
-    @keyframes packetOrbit {
-      from { transform: rotate(0) translateY(-190px) rotate(0); }
-      to { transform: rotate(360deg) translateY(-190px) rotate(-360deg); }
+    .current-line span.active {
+      color: var(--head);
+      background: var(--head-soft);
     }
 
     .roadmap {
+      margin-top: 42px;
       display: grid;
-      gap: 14px;
-      margin-top: 34px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
     }
 
-    .roadmap-step {
-      display: grid;
-      grid-template-columns: 80px 1fr auto;
-      gap: 18px;
-      align-items: center;
-      padding: 18px 20px;
+    .roadmap-card {
+      min-height: 260px;
+      padding: 25px;
       border: 1px solid var(--line);
-      border-radius: 17px;
-      background: rgba(255,255,255,.64);
+      border-top: 5px solid var(--road-color);
+      border-radius: var(--radius);
+      background: white;
     }
 
-    .roadmap-step .phase {
-      color: var(--step-color);
+    .roadmap-phase {
+      margin-bottom: 37px;
+      color: var(--road-color);
       font-size: 10px;
-      font-weight: 900;
-      letter-spacing: .08em;
+      font-weight: 850;
+      letter-spacing: .1em;
     }
 
-    .roadmap-step strong { display: block; font-size: 14px; }
-    .roadmap-step p { margin: 3px 0 0; color: var(--muted); font-size: 11px; }
+    .roadmap-card h3 { font-size: 23px; }
 
-    .phase-status {
-      padding: 6px 9px;
-      border-radius: 999px;
-      color: var(--step-color);
-      background: color-mix(in srgb, var(--step-color) 12%, white);
-      font-size: 9px;
-      font-weight: 900;
-      white-space: nowrap;
+    .roadmap-card p {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .roadmap-result {
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 1px solid var(--line);
+      color: var(--ink);
+      font-size: 10px;
+      font-weight: 800;
     }
 
     .closing {
-      min-height: 100vh;
       color: white;
-      background:
-        radial-gradient(circle at 15% 20%, rgba(10,166,166,.25), transparent 32rem),
-        radial-gradient(circle at 85% 80%, rgba(240,123,63,.20), transparent 30rem),
-        var(--dark);
+      background: var(--ink);
     }
 
-    .closing::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      opacity: .13;
-      background-image: radial-gradient(circle, white 1px, transparent 1.4px);
-      background-size: 28px 28px;
+    .closing .kicker,
+    .closing .lead { color: rgba(255,255,255,.61); }
+
+    .closing h2 {
+      max-width: 1000px;
+      font-size: clamp(48px, 7vw, 88px);
     }
 
-    .closing .section-inner { position: relative; z-index: 1; }
-    .closing h2 { max-width: 1050px; font-size: clamp(46px, 7vw, 86px); }
-    .closing .lead { color: rgba(255,255,255,.62); }
-
-    .closing-note {
-      margin-top: 60px;
+    .closing-rule {
+      margin-top: 55px;
       padding-top: 24px;
       display: flex;
       justify-content: space-between;
-      border-top: 1px solid rgba(255,255,255,.15);
-      color: rgba(255,255,255,.50);
+      border-top: 1px solid rgba(255,255,255,.18);
+      color: rgba(255,255,255,.48);
       font-size: 11px;
     }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity .75s ease, transform .75s cubic-bezier(.2,.8,.2,1);
+    @media (max-width: 930px) {
+      .hero-layout,
+      .loop-layout,
+      .optimize-layout,
+      .detail-header { grid-template-columns: 1fr; }
+      .architecture { grid-template-columns: 1fr; padding-top: 0; }
+      .phase-one-bracket { display: none; }
+      .fixed-layout { grid-template-columns: 1fr; }
+      .lock-center { padding: 8px; }
+      .roadmap { grid-template-columns: 1fr; }
     }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .delay-1 { transition-delay: 120ms; }
-    .delay-2 { transition-delay: 240ms; }
-    .delay-3 { transition-delay: 360ms; }
-
-    .motion-paused *,
-    .motion-paused *::before,
-    .motion-paused *::after {
-      animation-play-state: paused !important;
-    }
-
-    @media (max-width: 980px) {
-      .topbar { padding-left: 12px; }
+    @media (max-width: 650px) {
+      .topbar { padding: 0 16px; }
       .nav { display: none; }
-      .hero-grid,
-      .module-layout,
-      .flywheel-layout { grid-template-columns: 1fr; }
-      .hero-diagram { min-height: 470px; }
-      .system-map { grid-template-columns: repeat(2, 1fr); }
-      .module-copy { position: static; }
-      .validator-grid { grid-template-columns: 1fr; }
-      .flywheel-viz { order: -1; }
-    }
-
-    @media (max-width: 660px) {
-      .section { padding: 104px 18px 64px; min-height: auto; }
-      .topbar { width: calc(100% - 20px); top: 10px; }
-      .brand span:last-child { display: none; }
-      h1 { font-size: 46px; }
-      h2 { font-size: 36px; }
-      .hero-grid { gap: 30px; }
-      .hero-diagram { min-height: 400px; }
-      .blueprint-card { width: 66%; left: 5%; }
-      .solid-card { width: 70%; right: 4%; }
-      .system-map,
-      .principle-strip,
-      .paper-grid,
-      .status-grid,
-      .knob-grid { grid-template-columns: 1fr; }
-      .system-map::before { display: none; }
-      .extractor-flow { grid-template-columns: repeat(2, 1fr); }
-      .flow-node:nth-child(2)::after { display: none; }
-      .agent-orbit { transform: scale(.78); }
-      .roadmap-step { grid-template-columns: 58px 1fr; }
-      .phase-status { grid-column: 2; justify-self: start; }
-      .wheel { transform: scale(.76); }
-      .flywheel-viz { min-height: 440px; }
-      .closing-note { flex-direction: column; gap: 8px; }
-      .scroll-cue { display: none; }
+      .slide { padding: 94px 17px 44px; }
+      .hero-layout { gap: 34px; }
+      h1 { font-size: 50px; }
+      h2 { font-size: 38px; }
+      .pipeline,
+      .rollout-record,
+      .detail-grid,
+      .paper-links { grid-template-columns: 1fr; }
+      .pipeline::before,
+      .flow-dot { display: none; }
+      .detail-card.full { grid-column: auto; }
+      .detail-steps { flex-direction: column; }
+      .detail-arrow { transform: rotate(90deg); }
+      .variant { grid-template-columns: 55px 1fr; }
+      .score { grid-column: 2; }
+      .closing-rule { flex-direction: column; gap: 7px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      *, *::before, *::after {
-        animation-duration: .001ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .001ms !important;
-      }
+      *, *::before, *::after { animation: none !important; }
     }
   </style>
 </head>
 <body>
-  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
 
   <header class="topbar">
-    <div class="brand">
-      <span class="brand-mark" aria-hidden="true"></span>
-      <span>PROCESS EXPERT</span>
-      <span>制造智能闭环 · 组会汇报</span>
-    </div>
+    <div class="brand"><span class="brand-mark">P</span><span>PROCESS EXPERT · 组会汇报</span></div>
     <nav class="nav" aria-label="章节导航">
-      <a href="#overview">全局</a>
-      <a href="#geometry">几何提取</a>
-      <a href="#workflow">Workflow</a>
-      <a href="#validator">验收</a>
-      <a href="#roadmap">路线图</a>
+      <a href="#system">三个模块</a>
+      <a href="#anchors">先定头尾</a>
+      <a href="#loop">数据循环</a>
+      <a href="#optimize">优化中间</a>
+      <a href="#details">实现依据</a>
     </nav>
-    <button class="motion-toggle" id="motionToggle" type="button" aria-pressed="false">暂停动画</button>
   </header>
 
   <main>
-    <section class="section hero" id="hero" data-section="起点">
-      <div class="section-inner hero-grid">
+    <section class="slide" id="hero">
+      <div class="inner hero-layout">
         <div>
-          <div class="eyebrow reveal">Geometry-first · Verifier-first</div>
-          <h1 class="reveal delay-1">从<span class="accent-cyan">三视图</span><br />到<span class="accent-orange">工艺规程</span></h1>
-          <p class="lead reveal delay-2">
-            先建立可信的几何提取与验收两端，再让中间的多 Agent Workflow 在稳定奖励中持续进化。
-          </p>
-          <div class="hero-meta reveal delay-3">
-            <span class="chip"><span class="chip-dot"></span>固定几何提取器</span>
-            <span class="chip">可优化 Workflow</span>
-            <span class="chip">固定双维验收器</span>
-          </div>
+          <div class="kicker">From orthographic drawing to process plan</div>
+          <h1>固定<span class="head-color">两端</span>，<br />优化<span class="middle-color">中间</span></h1>
+          <p class="lead">从零件三视图到工艺规程，我们把系统拆成三个模块。第一阶段先建立可信的几何输入和验收标准，第二阶段再用数据优化中间 Workflow。</p>
+          <div class="hero-statement"><span>先确定头 + 尾</span><i></i><span>再优化中间</span></div>
         </div>
 
-        <div class="hero-diagram reveal delay-2" aria-label="三视图转 STEP 示意图">
-          <div class="blueprint-card">
-            <div class="paper-title"><span>ORTHOGRAPHIC DRAWING</span><span>3 VIEWS · mm</span></div>
-            <svg class="view-sheet" viewBox="0 0 420 270" role="img" aria-label="机械零件三视图">
-              <g fill="none" stroke="#2e5964" stroke-width="2.4">
-                <path d="M28 28h130v73H28z M49 43h88v43H49z" />
-                <circle cx="93" cy="64.5" r="12" />
-                <path d="M28 174h130v58H28z M48 174v58 M138 174v58" />
-                <path d="M263 30h90l19 19v41l-19 19h-90l-18-19V49z" />
-                <circle cx="308" cy="69.5" r="25" />
-                <circle cx="308" cy="69.5" r="10" />
-                <path d="M252 174h113v58H252z M273 174v58 M344 174v58" />
-              </g>
-              <g fill="none" stroke="#7ca0a7" stroke-width="1" stroke-dasharray="5 4">
-                <path d="M93 20v92 M20 64.5h146 M308 20v100 M235 69.5h145" />
-                <path d="M20 155h146 M243 155h131" />
-              </g>
-              <g fill="#2e5964" font-size="9" font-family="ui-monospace,monospace">
-                <text x="65" y="17">⌀ 48 ±0.02</text>
-                <text x="73" y="121">FRONT</text>
-                <text x="292" y="133">TOP</text>
-                <text x="75" y="252">RIGHT</text>
-                <text x="294" y="252">SECTION A-A</text>
-                <text x="25" y="151">84.5</text>
-                <text x="245" y="151">R 6</text>
-              </g>
-            </svg>
+        <div class="hero-logic">
+          <div class="logic-row" style="--logic-color:var(--head)">
+            <div class="logic-number">1</div>
+            <div><strong>确定头部</strong><p>把图纸稳定地转换成几何状态。</p></div>
           </div>
-
-          <div class="hero-arrow" aria-hidden="true">→</div>
-
-          <div class="solid-card">
-            <div class="solid-head"><span>GEOMETRY BUNDLE</span><span class="status-led">STEP VALID</span></div>
-            <svg class="solid-svg" viewBox="0 0 420 260" role="img" aria-label="参数化三维零件">
-              <defs>
-                <linearGradient id="bodyGradient" x1="0" x2="1" y1="0" y2="1">
-                  <stop offset="0" stop-color="#83d6d1" />
-                  <stop offset=".6" stop-color="#0aa6a6" />
-                  <stop offset="1" stop-color="#087475" />
-                </linearGradient>
-                <linearGradient id="faceGradient" x1="0" x2="1">
-                  <stop offset="0" stop-color="#d9f5f2" />
-                  <stop offset="1" stop-color="#7ecdc9" />
-                </linearGradient>
-                <filter id="softShadow"><feDropShadow dx="0" dy="12" stdDeviation="8" flood-opacity=".18"/></filter>
-              </defs>
-              <g filter="url(#softShadow)" transform="translate(18 0)">
-                <path d="M76 93l172-58 104 59-174 63z" fill="url(#faceGradient)" stroke="#087475" stroke-width="2" />
-                <path d="M76 93v67l102 63v-66z" fill="#087f82" stroke="#075f62" stroke-width="2" />
-                <path d="M178 157l174-63v65l-174 64z" fill="url(#bodyGradient)" stroke="#075f62" stroke-width="2" />
-                <path d="M120 101l125-42 60 34-127 46z" fill="#f4f1e9" stroke="#087475" stroke-width="2" />
-                <path d="M178 139v26l127-46V93z" fill="#075f62" opacity=".72" />
-                <ellipse cx="291" cy="139" rx="24" ry="13" fill="#e8f4f2" stroke="#075f62" stroke-width="2" transform="rotate(-19 291 139)" />
-                <ellipse cx="291" cy="139" rx="11" ry="6" fill="#13202b" opacity=".7" transform="rotate(-19 291 139)" />
-              </g>
-              <g fill="#13202b" font-family="ui-monospace,monospace" font-size="10">
-                <text x="18" y="242">model.step</text>
-                <text x="120" y="242">cad_program.json</text>
-                <text x="270" y="242">validation.json</text>
-              </g>
-            </svg>
+          <div class="logic-row" style="--logic-color:var(--tail)">
+            <div class="logic-number">2</div>
+            <div><strong>确定尾部</strong><p>把工艺结果稳定地转换成验收信号。</p></div>
           </div>
-          <div class="hero-label">DRAWING → PARAMETRIC CAD → STEP</div>
+          <div class="logic-row" style="--logic-color:var(--middle)">
+            <div class="logic-number">3</div>
+            <div><strong>优化中间</strong><p>在相同输入和相同评分下搜索更好的 Workflow。</p></div>
+          </div>
         </div>
       </div>
-      <div class="scroll-cue">向下展开系统</div>
     </section>
 
-    <section class="section" id="overview" data-section="全局架构">
-      <div class="section-inner thesis">
-        <div class="eyebrow reveal" style="justify-content:center">核心系统判断</div>
-        <h2 class="reveal delay-1">先把<span class="accent-cyan">两端做对</span>，<br />中间才有资格被优化</h2>
-        <p class="lead reveal delay-2">
-          View Agent 与 Validator 提供稳定的输入和奖励；Workflow 是唯一被搜索、训练和替换的对象。
-        </p>
+    <section class="slide" id="system">
+      <div class="inner">
+        <div class="kicker">01 · System architecture</div>
+        <div class="architecture-title">
+          <h2>整个系统只有<span class="head-color">三个大模块</span></h2>
+          <p class="lead">头部和尾部是训练闭环的两个锚点；中间 Workflow 是闭环建立以后唯一持续变化的对象。</p>
+        </div>
 
-        <div class="system-map">
-          <article class="map-card input-card reveal">
-            <div class="index"><span>INPUT</span><span class="state-tag">DATA</span></div>
-            <h3>零件三视图</h3>
-            <p>工程图、尺寸标注、剖视与技术要求。</p>
-            <div class="io">drawing.png / .pdf</div>
-          </article>
+        <div class="architecture">
+          <div class="phase-one-bracket"><span class="phase-label">PHASE 1 · 优先确定头部与尾部</span></div>
 
-          <article class="map-card geometry-card reveal delay-1">
-            <div class="index"><span>MODULE 01</span><span class="state-tag">FIXED</span></div>
+          <article class="module-card" style="--module-color:var(--head);--module-soft:var(--head-soft)">
+            <div class="module-meta"><span>01 · HEAD</span><span class="state">先确定 / 再冻结</span></div>
             <h3>几何提取器</h3>
-            <p>理解工程图，生成可执行 CAD 表达并导出精确 STEP。</p>
-            <div class="io">Drawing → STEP</div>
+            <p>负责把零件三视图转换成确定的三维几何，并保留参数化建模过程。</p>
+            <div class="module-io">Drawing → Geometry / STEP</div>
           </article>
 
-          <article class="map-card workflow-card reveal delay-2">
-            <div class="index"><span>MODULE 02</span><span class="state-tag">OPTIMIZE</span></div>
+          <article class="module-card middle-card" style="--module-color:var(--middle);--module-soft:var(--middle-soft)">
+            <div class="module-meta"><span>02 · MIDDLE</span><span class="state">后优化</span></div>
             <h3>Agent Workflow</h3>
-            <p>围绕几何、知识与设备约束，生成结构化工艺规程。</p>
-            <div class="io">STEP → ProcessPlan</div>
+            <p>读取几何、知识与制造约束，协同生成结构化工艺规程。</p>
+            <div class="module-io">Geometry → ProcessPlan</div>
           </article>
 
-          <article class="map-card validator-card reveal delay-3">
-            <div class="index"><span>MODULE 03</span><span class="state-tag">FIXED</span></div>
-            <h3>双维验收器</h3>
-            <p>同时判断几何能否重建，以及工艺方案是否合理可执行。</p>
-            <div class="io">Plan → Reward Vector</div>
+          <article class="module-card" style="--module-color:var(--tail);--module-soft:var(--tail-soft)">
+            <div class="module-meta"><span>03 · TAIL</span><span class="state">先确定 / 再冻结</span></div>
+            <h3>验收器</h3>
+            <p>比较生成工艺与 GT，从几何重建和工艺合理性两个维度给出结果。</p>
+            <div class="module-io">ProcessPlan → ValidationResult</div>
           </article>
         </div>
 
-        <div class="feedback-ribbon reveal delay-2">
-          <span>验收结果</span><span>→</span><span class="moving-dot"></span><span>回流为 Workflow 的训练信号与新数据</span>
+        <div class="priority-note">不是三个模块同时训练，而是先把 01 和 03 变成稳定基础设施</div>
+      </div>
+    </section>
+
+    <section class="slide" id="anchors">
+      <div class="inner">
+        <div class="kicker">02 · Why head and tail first</div>
+        <h2>头部定义<span class="head-color">输入</span>，尾部定义<span class="tail-color">目标</span></h2>
+        <p class="lead">只有输入语义和评分尺度都稳定，中间 Workflow 的优劣才可比较，产生的数据才可以用于训练。</p>
+
+        <div class="fixed-layout">
+          <article class="anchor-card" style="--anchor-color:var(--head);--anchor-soft:var(--head-soft)">
+            <div class="anchor-index">头</div>
+            <h3>固定几何状态 X</h3>
+            <p>同一张图纸在同一版本下，应产生一致的 STEP、特征、尺寸与不确定性记录。</p>
+            <div class="anchor-output"><small>THE INPUT CONTRACT</small><strong>X = GeometryBundle(drawing)</strong></div>
+          </article>
+
+          <div class="lock-center"><div><div class="lock-icon">⌁</div>冻结版本<br />建立可比实验</div></div>
+
+          <article class="anchor-card" style="--anchor-color:var(--tail);--anchor-soft:var(--tail-soft)">
+            <div class="anchor-index">尾</div>
+            <h3>固定验收函数 R</h3>
+            <p>同一份工艺规程在同一版本下，应得到一致的几何分数、工艺分数和失败原因。</p>
+            <div class="anchor-output"><small>THE OBJECTIVE CONTRACT</small><strong>R = Validator(plan, GT)</strong></div>
+          </article>
         </div>
 
-        <div class="principle-strip reveal delay-3">
-          <div class="principle"><strong>固定输入语义</strong><span>同一图纸始终映射到同一版本的几何观察。</span></div>
-          <div class="principle"><strong>固定评分尺度</strong><span>Workflow 的迭代收益可比较、可复现。</span></div>
-          <div class="principle"><strong>只优化中间</strong><span>Agent 数量、拓扑、模型和工具都可成为变量。</span></div>
+        <div class="equation">只有当 <span>X 固定</span> 且 <b>R 固定</b>，θ* = argmax R(Workflow<sub>θ</sub>(X)) 才有明确含义</div>
+      </div>
+    </section>
+
+    <section class="slide" id="loop">
+      <div class="inner loop-layout">
+        <div class="loop-copy">
+          <div class="kicker">03 · Data flywheel</div>
+          <h2>头尾确定后，<br /><span class="middle-color">数据循环才成立</span></h2>
+          <p class="lead">每一条图纸样本都可以产生统一几何输入、Workflow 输出和验收结果，从而形成可学习的 Rollout。</p>
+          <div class="precondition"><strong>前提：</strong>几何提取器和验收器在本轮实验中保持冻结、版本可追踪。</div>
+        </div>
+
+        <div class="data-loop">
+          <div class="loop-status"><span>ONE TRAINING SAMPLE</span><span>● LOOP READY</span></div>
+          <div class="pipeline">
+            <span class="flow-dot" aria-hidden="true"></span>
+            <div class="flow-box" style="--flow-color:var(--head)"><strong>图纸 → 几何</strong><small>固定提取器</small></div>
+            <div class="flow-box" style="--flow-color:var(--middle)"><strong>生成工艺</strong><small>候选 Workflow θ</small></div>
+            <div class="flow-box" style="--flow-color:var(--tail)"><strong>双维验收</strong><small>固定 Validator</small></div>
+            <div class="flow-box" style="--flow-color:var(--good)"><strong>记录数据</strong><small>Reward + Trace</small></div>
+          </div>
+          <div class="feedback">验收结果只反馈给中间 Workflow 的选择与更新</div>
+          <div class="rollout-record">
+            <span>GeometryBundle</span><span>Workflow Version</span><span>ProcessPlan</span><span>ValidationResult</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="geometry" data-section="几何提取器" style="--module-color: var(--cyan)">
-      <div class="section-inner module-layout">
-        <div class="module-copy">
-          <div class="module-number reveal">01</div>
-          <div class="eyebrow reveal delay-1">Fixed module · View Agent</div>
-          <h2 class="reveal delay-2">几何<br /><span class="accent-cyan">提取器</span></h2>
-          <p class="lead reveal delay-3">
-            对外是“给图纸、出几何”；对内是视觉理解、参数化程序生成、CAD 内核执行与自检的组合系统。
-          </p>
-          <div class="definition reveal delay-3">
-            Drawing → CAD Program<br />→ B-Rep Solid → STEP
-          </div>
-        </div>
-
-        <div class="content-stack">
-          <article class="glass-card reveal">
-            <div class="card-kicker">Recommended architecture</div>
-            <h3>模型负责理解与规划，CAD 内核负责精确执行</h3>
-            <div class="extractor-flow">
-              <div class="flow-node"><span class="node-icon">▱</span><strong>三视图输入</strong><small>视图 · 尺寸 · 剖面</small></div>
-              <div class="flow-node"><span class="node-icon">AI</span><strong>VLM / Policy</strong><small>理解并生成操作</small></div>
-              <div class="flow-node"><span class="node-icon">⌘</span><strong>CAD Kernel</strong><small>build123d · CadQuery</small></div>
-              <div class="flow-node"><span class="node-icon">3D</span><strong>GeometryBundle</strong><small>STEP + 程序 + 证据</small></div>
-            </div>
-          </article>
-
-          <article class="glass-card reveal" style="--module-color:var(--cyan)">
-            <div class="card-kicker">Research references · 2026</div>
-            <h3>两条互补路线：一次生成 + 逐步反馈</h3>
-            <div class="paper-grid">
-              <a class="paper-card" href="https://arxiv.org/pdf/2607.08891" target="_blank" rel="noreferrer">
-                <div class="paper-year"><span>ORTHO2CAD</span><span>↗ PAPER</span></div>
-                <h3>工程图 → CadQuery → STEP</h3>
-                <p>先用配对代码做监督微调，再用执行后的 STEP 与 GT STEP 的几何 IoU 做强化学习。</p>
-                <div class="base-model"><span>BASE MODEL</span>Qwen3-VL-8B-Instruct</div>
-              </a>
-
-              <a class="paper-card" href="https://arxiv.org/pdf/2607.04119" target="_blank" rel="noreferrer">
-                <div class="paper-year"><span>SOV-CAD</span><span>↗ PAPER</span></div>
-                <h3>逐操作建模 + 三视图反馈</h3>
-                <p>执行一个 CAD 操作，渲染当前模型三视图，再预测下一步；把重建视为序列决策。</p>
-                <div class="base-model"><span>BASE MODEL</span>65M Decision Transformer + frozen ViT-B/32</div>
-              </a>
-            </div>
-          </article>
-
-          <article class="glass-card reveal" style="--module-color:var(--cyan)">
-            <div class="card-kicker">Current work</div>
-            <h3>我们正在把论文路线变成可运行的本地基线</h3>
-            <div class="status-grid">
-              <div class="status-item" style="--status-color:var(--green)"><strong>已有几何真值</strong>5 个配对 GT STEP，可用于独立记分。</div>
-              <div class="status-item" style="--status-color:var(--green)"><strong>已有 CAD 执行器</strong>build123d 模板可稳定导出 STEP。</div>
-              <div class="status-item" style="--status-color:var(--orange)"><strong>环境配置中</strong>Qwen3-VL、CadQuery、pythonOCC 三环境拆分。</div>
-              <div class="status-item" style="--status-color:var(--violet)"><strong>下一步</strong>先复现 Ortho2CAD 单次生成，再加入 SOV-CAD 式反馈。</div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="workflow" data-section="Workflow" style="--module-color: var(--violet)">
-      <div class="section-inner module-layout">
-        <div class="module-copy">
-          <div class="module-number reveal">02</div>
-          <div class="eyebrow reveal delay-1">Trainable module · Policy</div>
-          <h2 class="reveal delay-2">可优化的<br /><span class="accent-violet">Workflow</span></h2>
-          <p class="lead reveal delay-3">
-            Workflow 不是一个固定 Prompt，而是一张可变化的 Agent 图。它接收可信几何，输出可执行的结构化工艺规程。
-          </p>
-          <div class="definition reveal delay-3">
-            (Geometry, Constraints, KB)<br />→ ProcessPlan
-          </div>
-        </div>
-
-        <div class="content-stack">
-          <div class="workflow-stage reveal" aria-label="可优化多 Agent Workflow 示意">
-            <div class="agent-orbit">
-              <div class="core-node"><div><strong>Process<br />Workflow</strong><br /><small>OPTIMIZATION TARGET</small></div></div>
-              <div class="agent-node">特征理解<br />Agent</div>
-              <div class="agent-node">基准 / 装夹<br />Agent</div>
-              <div class="agent-node">设备刀具<br />Agent</div>
-              <div class="agent-node">路线规划<br />Agent</div>
-              <div class="agent-node">反思修订<br />Agent</div>
-            </div>
-            <div class="tunable-badges">
-              <span>Agent 数量</span><span>连接拓扑</span><span>模型选择</span><span>Prompt</span><span>工具</span><span>重试 / 反思</span>
-            </div>
-          </div>
-
-          <article class="glass-card reveal" style="--module-color:var(--violet)">
-            <div class="card-kicker">What gets optimized</div>
-            <h3>优化对象是一套系统行为，而不仅是最终文本</h3>
-            <div class="knob-grid">
-              <div class="knob"><strong>结构</strong><span>Agent 数量、串并行、条件分支</span></div>
-              <div class="knob"><strong>策略</strong><span>Prompt、模型、采样与反思次数</span></div>
-              <div class="knob"><strong>工具</strong><span>知识库、计算器、CAD 与仿真</span></div>
-              <div class="knob"><strong>记忆</strong><span>历史案例、失败模式与局部经验</span></div>
-              <div class="knob"><strong>协作</strong><span>角色分工、消息格式与仲裁机制</span></div>
-              <div class="knob"><strong>输出</strong><span>统一 ProcessPlan IR，而非自由文本</span></div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="validator" data-section="验收器" style="--module-color: var(--orange)">
-      <div class="section-inner">
-        <div class="eyebrow reveal">Fixed module · Verifier</div>
-        <h2 class="reveal delay-1">验收不是一个分数，<br />而是<span class="accent-orange">两个互补维度</span></h2>
-        <p class="lead reveal delay-2">
-          一边验证“做出来是不是这个零件”，另一边验证“这套工艺能不能、应不应该这样做”。
-        </p>
-
-        <div class="validator-grid">
-          <article class="dimension-card reveal delay-1" data-dimension="G" style="--dimension-color:var(--cyan)">
-            <div class="dimension-icon">3D</div>
-            <h3>维度一 · 几何验收</h3>
-            <p>按工艺规程逐工序执行材料去除，检查中间毛坯状态，并将最终重建实体与 GT STEP 比较。</p>
-            <div class="metric-list">
-              <div class="metric">CAD 程序可执行，实体有效且拓扑闭合</div>
-              <div class="metric">最终几何：IoU、表面距离、体积与包围盒</div>
-              <div class="metric">关键尺寸、孔槽数量与特征位置</div>
-              <div class="metric">逐工序毛坯状态与材料去除单调性</div>
-              <div class="metric">三视图回投与原始图纸轮廓一致性</div>
-            </div>
-          </article>
-
-          <article class="dimension-card reveal delay-2" data-dimension="P" style="--dimension-color:var(--orange)">
-            <div class="dimension-icon">PP</div>
-            <h3>维度二 · 工艺规程验收</h3>
-            <p>将生成工艺与 GT 工艺规程及制造约束比较；允许存在多条合理路线，但必须满足硬约束。</p>
-            <div class="metric-list">
-              <div class="metric">工序顺序、特征覆盖与依赖关系</div>
-              <div class="metric">定位基准、装夹方案与可达性</div>
-              <div class="metric">机床、刀具、切削参数与能力边界</div>
-              <div class="metric">公差、粗糙度及检验要求可实现</div>
-              <div class="metric">设置次数、换刀、工时与成本作为次级目标</div>
-            </div>
-          </article>
-        </div>
-
-        <div class="reward-vector reveal delay-3">
-          <div><strong>ValidationResult = [ 几何正确性, 工艺可行性, 质量能力, 效率, 失败原因 ]</strong></div>
-          <div class="reward-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="roadmap" data-section="实施路线">
-      <div class="section-inner flywheel-layout">
-        <div class="flywheel-viz reveal">
-          <div class="wheel" aria-label="数据飞轮">
-            <div class="wheel-center"><div><strong>Data<br />Flywheel</strong><br /><small>MORE DATA · BETTER POLICY</small></div></div>
-            <div class="wheel-node n1">图纸 + GT STEP</div>
-            <div class="wheel-node n2">候选 Workflow</div>
-            <div class="wheel-node n3">双维验收</div>
-            <div class="wheel-node n4">高质量 Rollout</div>
-            <div class="wheel-node n5">更新与选择</div>
-            <span class="packet"></span><span class="packet p2"></span>
-          </div>
-        </div>
-
+    <section class="slide" id="optimize">
+      <div class="inner optimize-layout">
         <div>
-          <div class="eyebrow reveal">Implementation order</div>
-          <h2 class="reveal delay-1">先建立<span class="accent-cyan">真值闭环</span>，<br />再扩大数据循环</h2>
-          <p class="lead reveal delay-2">
-            实施顺序决定训练信号是否可信。当前阶段不急于优化 Workflow，先把输入与验收做成稳定基础设施。
-          </p>
+          <div class="kicker">04 · Optimization target</div>
+          <h2>优化的是<span class="middle-color">中间系统</span>，<br />不是头尾标准</h2>
+          <p class="lead">同一份几何输入交给多个候选 Workflow，再由同一个验收器比较。更高质量的候选进入下一轮。</p>
 
-          <div class="roadmap">
-            <div class="roadmap-step reveal" style="--step-color:var(--cyan)">
-              <span class="phase">PHASE 01</span>
-              <div><strong>固定几何提取器</strong><p>图纸 → 参数化 CAD → STEP；建立可运行基线和几何记分。</p></div>
-              <span class="phase-status">进行中</span>
-            </div>
-            <div class="roadmap-step reveal delay-1" style="--step-color:var(--orange)">
-              <span class="phase">PHASE 02</span>
-              <div><strong>固定双维验收器</strong><p>重放工艺并重建几何，同时实现工艺硬约束与 GT 对照。</p></div>
-              <span class="phase-status">下一步</span>
-            </div>
-            <div class="roadmap-step reveal delay-2" style="--step-color:var(--violet)">
-              <span class="phase">PHASE 03</span>
-              <div><strong>优化中间 Workflow</strong><p>搜索 Agent 拓扑、模型、工具与提示词，积累可训练 Rollout。</p></div>
-              <span class="phase-status">待启动</span>
-            </div>
-            <div class="roadmap-step reveal delay-3" style="--step-color:var(--green)">
-              <span class="phase">PHASE 04</span>
-              <div><strong>规模化数据飞轮</strong><p>新样本进入 → 自动验收 → 筛选高质量数据 → 持续更新。</p></div>
-              <span class="phase-status">目标态</span>
-            </div>
+          <div class="variants">
+            <div class="variant"><span class="variant-id">θ-A</span><div class="variant-path"><i></i><b></b><i></i></div><div class="score" style="--score:46%"></div></div>
+            <div class="variant"><span class="variant-id">θ-B</span><div class="variant-path"><i></i><b></b><i></i><b></b><i></i></div><div class="score" style="--score:81%"></div></div>
+            <div class="variant"><span class="variant-id">θ-C</span><div class="variant-path"><i></i><b></b><i></i><i></i></div><div class="score" style="--score:62%"></div></div>
           </div>
+        </div>
+
+        <article class="optimize-card">
+          <div class="kicker" style="color:var(--middle)">Variables inside Workflow θ</div>
+          <h3>哪些东西可以被数据优化？</h3>
+          <div class="knobs">
+            <div class="knob"><strong>Agent 数量</strong><span>需要几个角色协作</span></div>
+            <div class="knob"><strong>连接拓扑</strong><span>串行、并行与条件分支</span></div>
+            <div class="knob"><strong>模型选择</strong><span>每个角色使用哪个模型</span></div>
+            <div class="knob"><strong>Prompt / 策略</strong><span>推理、反思与重试方式</span></div>
+            <div class="knob"><strong>工具组合</strong><span>知识库、计算器与 CAD</span></div>
+            <div class="knob"><strong>消息协议</strong><span>Agent 间结构化交换信息</span></div>
+          </div>
+          <div class="not-optimized"><strong>本轮不变：</strong>Geometry Extractor 版本、Validator 版本、数据划分与验收阈值。</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide" id="details">
+      <div class="inner">
+        <div class="detail-header">
+          <div><div class="kicker">05 · How to build the anchors</div><h2>头部与尾部的<br />具体实现依据</h2></div>
+          <p class="lead">论文与指标是支撑头尾模块的技术细节。它们服务于主逻辑，而不是主逻辑本身。</p>
+        </div>
+
+        <div class="detail-grid">
+          <article class="detail-card" style="--detail-color:var(--head)">
+            <div class="detail-label">HEAD · GEOMETRY EXTRACTOR</div>
+            <h3>三视图 → 参数化程序 → STEP</h3>
+            <p>模型负责理解与建模决策，CadQuery / build123d / OpenCascade 负责执行精确几何。</p>
+            <div class="detail-steps"><span class="detail-step">三视图</span><span class="detail-arrow">→</span><span class="detail-step">VLM / Policy</span><span class="detail-arrow">→</span><span class="detail-step">CAD Kernel</span><span class="detail-arrow">→</span><span class="detail-step">STEP</span></div>
+            <div class="paper-links">
+              <a class="paper-link" href="https://arxiv.org/pdf/2607.08891" target="_blank" rel="noreferrer"><strong>Ortho2CAD ↗</strong><span>Qwen3-VL-8B-Instruct · 一次生成 + 几何 RL</span></a>
+              <a class="paper-link" href="https://arxiv.org/pdf/2607.04119" target="_blank" rel="noreferrer"><strong>SOV-CAD ↗</strong><span>65M Decision Transformer + ViT-B/32 · 逐步反馈</span></a>
+            </div>
+            <div class="current-line"><span>5 个 GT STEP</span><span>build123d 已有</span><span class="active">三环境配置中</span></div>
+          </article>
+
+          <article class="detail-card" style="--detail-color:var(--tail)">
+            <div class="detail-label">TAIL · VALIDATOR</div>
+            <h3>两个验收维度，输出一组结果</h3>
+            <p>不是只比较工艺文本，而是同时检查工艺执行后的几何和工艺方案本身。</p>
+            <div class="check-list">
+              <div class="check-item"><strong>几何维度：</strong>逐工序重建、最终 STEP、关键尺寸、特征与表面距离。</div>
+              <div class="check-item"><strong>工艺维度：</strong>工序依赖、装夹基准、设备刀具、公差能力与效率。</div>
+              <div class="check-item"><strong>输出：</strong>几何分数、工艺分数、硬约束状态和可定位的失败原因。</div>
+            </div>
+          </article>
+
+          <article class="detail-card full" style="--detail-color:var(--middle)">
+            <div class="detail-label">THE CONTRACT BETWEEN THREE MODULES</div>
+            <h3>三个模块必须通过结构化对象连接</h3>
+            <p><strong>GeometryBundle</strong> 固定头部输出，<strong>ProcessPlan</strong> 固定中间交付物，<strong>ValidationResult</strong> 固定尾部反馈。只有接口稳定，数据才能跨版本复用。</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section closing" id="closing" data-section="结论">
-      <div class="section-inner">
-        <div class="eyebrow reveal" style="color:rgba(255,255,255,.55)">One sentence takeaway</div>
-        <h2 class="reveal delay-1">我们不是在训练一个<br />“写工艺卡”的模型。</h2>
-        <p class="lead reveal delay-2">
-          我们在构建一个能够看懂几何、执行工艺、验证结果，并通过数据循环持续改进的制造智能系统。
-        </p>
-        <div class="closing-note reveal delay-3">
-          <span>固定 Geometry · 优化 Workflow · 固定 Validator</span>
-          <span>Process Expert · Research Direction 2026</span>
+    <section class="slide" id="roadmap">
+      <div class="inner">
+        <div class="kicker">06 · Implementation order</div>
+        <h2>实施顺序与训练顺序保持一致</h2>
+        <p class="lead">先解决“输入是什么”和“什么算好”，再解决“怎样做得更好”。</p>
+
+        <div class="roadmap">
+          <article class="roadmap-card" style="--road-color:var(--head)">
+            <div class="roadmap-phase">PHASE 1 · NOW</div>
+            <h3>建立并冻结头尾</h3>
+            <p>完成几何提取器、工艺执行器与双维验收器，版本化接口和阈值。</p>
+            <div class="roadmap-result">得到：可信输入 X + 可信目标 R</div>
+          </article>
+          <article class="roadmap-card" style="--road-color:var(--middle)">
+            <div class="roadmap-phase">PHASE 2</div>
+            <h3>让数据进入循环</h3>
+            <p>对每条样本运行候选 Workflow，保存完整 Rollout、奖励和失败原因。</p>
+            <div class="roadmap-result">得到：可训练的数据集 D</div>
+          </article>
+          <article class="roadmap-card" style="--road-color:var(--tail)">
+            <div class="roadmap-phase">PHASE 3</div>
+            <h3>优化中间 Workflow</h3>
+            <p>搜索 Agent 数量、拓扑、模型、Prompt 与工具，并用固定验收器持续选择。</p>
+            <div class="roadmap-result">得到：更优的 Workflow θ*</div>
+          </article>
         </div>
+      </div>
+    </section>
+
+    <section class="slide closing" id="closing">
+      <div class="inner">
+        <div class="kicker">Takeaway</div>
+        <h2>先让系统知道<br /><span class="head-color">输入是什么</span>、<span class="tail-color">什么算好</span>，<br />再让它学习<span style="color:#aebbea">怎样做得更好</span>。</h2>
+        <p class="lead">三个模块，两个锚点，一个被持续优化的中间 Workflow。</p>
+        <div class="closing-rule"><span>HEAD · Geometry Extractor</span><span>MIDDLE · Optimizable Workflow</span><span>TAIL · Validator</span></div>
       </div>
     </section>
   </main>
 
   <script>
-    const body = document.body;
-    const progressBar = document.getElementById('progressBar');
-    const motionToggle = document.getElementById('motionToggle');
+    const progress = document.getElementById('progress');
+    const links = [...document.querySelectorAll('.nav a')];
     const sections = [...document.querySelectorAll('section[id]')];
-    const navLinks = [...document.querySelectorAll('.nav a')];
-
-    const revealObserver = new IntersectionObserver((entries) => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      }
-    }, { threshold: 0.13 });
-
-    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
-
-    const sectionObserver = new IntersectionObserver((entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (!visible) return;
-      navLinks.forEach((link) => {
-        link.classList.toggle('active', link.getAttribute('href') === `#${visible.target.id}`);
-      });
-    }, { threshold: [0.35, 0.55, 0.75] });
-
-    sections.forEach((section) => sectionObserver.observe(section));
 
     function updateProgress() {
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      const ratio = maxScroll > 0 ? window.scrollY / maxScroll : 0;
-      progressBar.style.width = `${Math.min(100, Math.max(0, ratio * 100))}%`;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = `${max > 0 ? (window.scrollY / max) * 100 : 0}%`;
     }
 
     window.addEventListener('scroll', updateProgress, { passive: true });
     updateProgress();
 
-    motionToggle.addEventListener('click', () => {
-      const paused = body.classList.toggle('motion-paused');
-      motionToggle.textContent = paused ? '播放动画' : '暂停动画';
-      motionToggle.setAttribute('aria-pressed', String(paused));
-    });
+    const observer = new IntersectionObserver((entries) => {
+      const current = entries.filter(e => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!current) return;
+      links.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${current.target.id}`));
+    }, { threshold: [.45, .65] });
+
+    sections.forEach(section => observer.observe(section));
 
     document.addEventListener('keydown', (event) => {
       if (!['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp'].includes(event.key)) return;
-      const currentIndex = sections.reduce((best, section, index) => {
-        return Math.abs(section.getBoundingClientRect().top) < Math.abs(sections[best].getBoundingClientRect().top)
-          ? index : best;
-      }, 0);
-      const direction = ['ArrowDown', 'PageDown'].includes(event.key) ? 1 : -1;
-      const target = sections[Math.min(sections.length - 1, Math.max(0, currentIndex + direction))];
+      const index = sections.reduce((best, section, i) =>
+        Math.abs(section.getBoundingClientRect().top) < Math.abs(sections[best].getBoundingClientRect().top) ? i : best, 0);
+      const delta = ['ArrowDown', 'PageDown'].includes(event.key) ? 1 : -1;
+      const target = sections[Math.max(0, Math.min(sections.length - 1, index + delta))];
       if (target) {
         event.preventDefault();
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
