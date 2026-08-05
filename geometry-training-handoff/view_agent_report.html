@@ -1,0 +1,1062 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Process Expert 第一环节 View Agent 的本地 GPU 部署、真实三视图推理与几何验收报告。" />
+  <title>View Agent 技术验证报告 · Process Expert</title>
+  <style>
+    :root {
+      --bg: #f4f6f8;
+      --paper: #ffffff;
+      --ink: #17212b;
+      --muted: #64717d;
+      --line: #dce2e7;
+      --soft: #eef2f5;
+      --blue: #1769aa;
+      --blue-soft: #e8f2fa;
+      --green: #237a57;
+      --green-soft: #e6f4ee;
+      --amber: #a86708;
+      --amber-soft: #fff3dc;
+      --red: #b33b33;
+      --red-soft: #fbeaea;
+      --radius: 14px;
+      --shadow: 0 12px 32px rgba(23, 33, 43, .07);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+      line-height: 1.65;
+    }
+
+    a { color: var(--blue); }
+    a:hover { text-decoration-thickness: 2px; }
+
+    .page {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      z-index: 20;
+      top: 0;
+      border-bottom: 1px solid rgba(23, 33, 43, .1);
+      background: rgba(244, 246, 248, .94);
+      backdrop-filter: blur(10px);
+    }
+
+    .topbar-inner {
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 760;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      border-radius: 7px;
+      color: white;
+      background: var(--ink);
+      font-size: 11px;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    button {
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--ink);
+      background: var(--paper);
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    main { padding: 54px 0 78px; }
+
+    .hero {
+      padding: 46px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 900px;
+      margin-bottom: 18px;
+      font-size: clamp(38px, 5.6vw, 67px);
+      line-height: 1.08;
+      letter-spacing: -.045em;
+    }
+
+    h2 {
+      margin-bottom: 12px;
+      font-size: clamp(27px, 3.5vw, 39px);
+      line-height: 1.18;
+      letter-spacing: -.025em;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .hero-copy {
+      max-width: 790px;
+      margin-bottom: 30px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .verdict {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .verdict-card {
+      min-height: 126px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--tone);
+      border-radius: 11px;
+      background: var(--tone-soft);
+    }
+
+    .verdict-card small {
+      display: block;
+      margin-bottom: 13px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    .verdict-card strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 20px;
+    }
+
+    .verdict-card span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .section {
+      margin-top: 28px;
+      padding: 38px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 18px;
+      align-items: start;
+      margin-bottom: 30px;
+    }
+
+    .section-number {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: white;
+      background: var(--ink);
+      font-weight: 800;
+    }
+
+    .section-head p {
+      max-width: 780px;
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .system-map {
+      display: grid;
+      grid-template-columns: 1fr 52px 1fr 52px 1fr;
+      align-items: stretch;
+    }
+
+    .system-module {
+      min-height: 180px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--module);
+      border-radius: 12px;
+      background: var(--paper);
+    }
+
+    .system-module.current {
+      box-shadow: 0 0 0 4px var(--blue-soft);
+    }
+
+    .module-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 25px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .06em;
+    }
+
+    .tag {
+      padding: 4px 7px;
+      border-radius: 999px;
+      color: var(--module);
+      background: var(--tag-bg);
+      letter-spacing: 0;
+    }
+
+    .system-module p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .arrow {
+      display: grid;
+      place-items: center;
+      color: #9aa5ae;
+      font-size: 25px;
+    }
+
+    .scope-note {
+      margin-top: 20px;
+      padding: 14px 16px;
+      border-left: 4px solid var(--blue);
+      background: var(--blue-soft);
+      color: #36536a;
+      font-size: 13px;
+    }
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .pipe-step {
+      position: relative;
+      min-height: 145px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: var(--soft);
+    }
+
+    .pipe-step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      right: -20px;
+      width: 28px;
+      transform: translateY(-50%);
+      color: var(--blue);
+      background: var(--paper);
+      text-align: center;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .pipe-step b {
+      width: 27px;
+      height: 27px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 7px;
+      color: white;
+      background: var(--blue);
+      font-size: 11px;
+    }
+
+    .pipe-step strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    .pipe-step span {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .spec-card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: var(--soft);
+    }
+
+    .spec-card h3 { font-size: 15px; }
+
+    .spec-list {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px 14px;
+      margin: 18px 0 0;
+      font-size: 12px;
+    }
+
+    .spec-list dt { color: var(--muted); }
+    .spec-list dd {
+      margin: 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-weight: 700;
+      text-align: right;
+    }
+
+    .check-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 9px;
+      font-size: 12px;
+    }
+
+    .check {
+      width: 19px;
+      height: 19px;
+      display: grid;
+      flex: 0 0 19px;
+      place-items: center;
+      border-radius: 50%;
+      color: white;
+      background: var(--green);
+      font-size: 10px;
+      font-weight: 900;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    th, td {
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--muted);
+      background: var(--soft);
+      font-size: 10px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    code, .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 4px 7px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .status.good { color: var(--green); background: var(--green-soft); }
+    .status.bad { color: var(--red); background: var(--red-soft); }
+    .status.warn { color: var(--amber); background: var(--amber-soft); }
+
+    .result-summary {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 22px;
+      margin-top: 22px;
+    }
+
+    .metric-panel,
+    .runtime-panel {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+    }
+
+    .metric {
+      margin-top: 18px;
+    }
+
+    .metric-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 7px;
+      font-size: 12px;
+    }
+
+    .metric-head span { color: var(--muted); }
+    .metric-head strong { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+    .bar {
+      height: 9px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: var(--soft);
+    }
+
+    .bar-fill {
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--bar-color);
+      transform-origin: left;
+      animation: reveal .7s ease-out both;
+    }
+
+    @keyframes reveal {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+
+    .threshold {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .runtime-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 17px;
+    }
+
+    .runtime-item {
+      padding: 13px;
+      border-radius: 9px;
+      background: var(--soft);
+    }
+
+    .runtime-item small {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .05em;
+    }
+
+    .runtime-item strong {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 14px;
+    }
+
+    .failure-map {
+      display: grid;
+      grid-template-columns: 1fr 44px 1fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .failure-card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: var(--soft);
+    }
+
+    .failure-card.bad-side {
+      border-color: #edc5c2;
+      background: var(--red-soft);
+    }
+
+    .feature-list {
+      margin: 17px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .feature-list li {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 11px;
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(23, 33, 43, .09);
+      font-size: 12px;
+    }
+
+    .feature-list li:last-child { border-bottom: 0; }
+    .feature-list strong { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .feature-list span { color: var(--muted); }
+
+    .failure-arrow {
+      display: grid;
+      place-items: center;
+      color: var(--red);
+      font-size: 23px;
+    }
+
+    .finding {
+      margin-top: 20px;
+      padding: 18px;
+      border-left: 4px solid var(--amber);
+      background: var(--amber-soft);
+      font-size: 13px;
+    }
+
+    .decision-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .decision-card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+    }
+
+    .decision-card .decision-index {
+      display: block;
+      margin-bottom: 18px;
+      color: var(--blue);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .decision-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .do-not {
+      margin-top: 17px;
+      padding: 14px 16px;
+      border: 1px solid #edc5c2;
+      border-radius: 10px;
+      color: #743633;
+      background: var(--red-soft);
+      font-size: 12px;
+    }
+
+    pre {
+      overflow-x: auto;
+      margin: 18px 0 0;
+      padding: 18px;
+      border-radius: 10px;
+      color: #eaf0f4;
+      background: #17212b;
+      font-size: 11px;
+      line-height: 1.75;
+    }
+
+    .source-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .source {
+      display: block;
+      min-height: 105px;
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      color: var(--ink);
+      background: var(--soft);
+      text-decoration: none;
+    }
+
+    .source:hover { border-color: var(--blue); }
+    .source strong { display: block; margin-bottom: 6px; font-size: 13px; }
+    .source span { color: var(--muted); font-size: 10px; }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 26px 0 10px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    @media (max-width: 860px) {
+      .verdict,
+      .grid-2,
+      .decision-grid,
+      .source-list,
+      .result-summary { grid-template-columns: 1fr; }
+
+      .system-map { grid-template-columns: 1fr; gap: 10px; }
+      .arrow { min-height: 30px; transform: rotate(90deg); }
+      .pipeline { grid-template-columns: 1fr 1fr; }
+      .pipe-step:nth-child(2)::after { display: none; }
+      .failure-map { grid-template-columns: 1fr; }
+      .failure-arrow { transform: rotate(90deg); }
+    }
+
+    @media (max-width: 560px) {
+      .page { width: min(100% - 24px, 1120px); }
+      .top-actions span { display: none; }
+      main { padding-top: 24px; }
+      .hero, .section { padding: 24px; }
+      .pipeline { grid-template-columns: 1fr; }
+      .pipe-step:not(:last-child)::after { display: none; }
+      .section-head { grid-template-columns: 1fr; gap: 10px; }
+      .feature-list li { grid-template-columns: 1fr; gap: 2px; }
+      footer { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .bar-fill { animation: none; }
+    }
+
+    @media print {
+      :root { --bg: white; }
+      .topbar, button { display: none !important; }
+      .page { width: 100%; }
+      main { padding: 0; }
+      .hero, .section {
+        break-inside: avoid;
+        box-shadow: none;
+      }
+      a { color: var(--ink); text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="page topbar-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark">PE</span>
+        <span>Process Expert · View Agent Report</span>
+      </a>
+      <div class="top-actions">
+        <span>2026-08-05 · agent/group-meeting-webpage</span>
+        <button type="button" onclick="window.print()">打印 / PDF</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="page">
+    <section class="hero">
+      <p class="eyebrow">Stage 01 · Geometry Extractor</p>
+      <h1>链路已经跑通，<br />裸 8B 精度仍未达标</h1>
+      <p class="hero-copy">
+        第一环节 View Agent 已在集群 A40 上完成真实工程图推理：模型能够从三视图生成 CadQuery，
+        经过受控执行后导出 STEP；但最简单法兰样本的体积仍偏差 +11.34%，不能直接作为固定几何提取器进入批量数据循环。
+      </p>
+
+      <div class="verdict" aria-label="Executive verdict">
+        <article class="verdict-card" style="--tone:var(--green);--tone-soft:var(--green-soft)">
+          <small>TECHNICAL PIPELINE</small>
+          <strong>已跑通</strong>
+          <span>图纸 → VLM → CadQuery → STEP</span>
+        </article>
+        <article class="verdict-card" style="--tone:var(--green);--tone-soft:var(--green-soft)">
+          <small>GPU VALIDATION</small>
+          <strong>A40 足够</strong>
+          <span>峰值显存 17.03 GiB，无需 A800 推理</span>
+        </article>
+        <article class="verdict-card" style="--tone:var(--red);--tone-soft:var(--red-soft)">
+          <small>GEOMETRY READINESS</small>
+          <strong>暂不合格</strong>
+          <span>可导出不等于几何正确，禁止直接放量</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="position">
+      <div class="section-head">
+        <div class="section-number">01</div>
+        <div>
+          <h2>它位于三模块系统的最前端</h2>
+          <p>本报告只验证固定“头部”——View Agent。中间 Workflow 仍是后续优化对象，尾部验收器负责提供几何和工艺两类反馈。</p>
+        </div>
+      </div>
+
+      <div class="system-map">
+        <article class="system-module current" style="--module:var(--blue);--tag-bg:var(--blue-soft)">
+          <div class="module-label"><span>固定头部</span><span class="tag">本次验证</span></div>
+          <h3>几何提取器 · View Agent</h3>
+          <p>输入零件三视图，输出可执行 CadQuery 与 STEP 几何。</p>
+        </article>
+        <div class="arrow" aria-hidden="true">→</div>
+        <article class="system-module" style="--module:#6f61a8;--tag-bg:#efecf8">
+          <div class="module-label"><span>可优化中间</span><span class="tag">后续阶段</span></div>
+          <h3>Workflow</h3>
+          <p>组织多个 Agent，基于几何和约束生成工艺规程。</p>
+        </article>
+        <div class="arrow" aria-hidden="true">→</div>
+        <article class="system-module" style="--module:var(--amber);--tag-bg:var(--amber-soft)">
+          <div class="module-label"><span>固定尾部</span><span class="tag">验收基准</span></div>
+          <h3>验收器 · Validator</h3>
+          <p>同时评价几何一致性与工艺规程合理性。</p>
+        </article>
+      </div>
+
+      <div class="scope-note">
+        先固定头和尾，才有稳定数据去优化中间 Workflow。当前结论是：View Agent 的接口已经固定，但模型能力尚未固定。
+      </div>
+    </section>
+
+    <section class="section" id="implementation">
+      <div class="section-head">
+        <div class="section-number">02</div>
+        <div>
+          <h2>已建立的最小可运行链路</h2>
+          <p>采用 Ortho2CAD 的“工程图 → CadQuery → STEP”接口，推理与 CAD 执行环境隔离，并为失败保留结构化证据。</p>
+        </div>
+      </div>
+
+      <div class="pipeline">
+        <article class="pipe-step">
+          <b>1</b>
+          <strong>三视图输入</strong>
+          <span>PNG 扫描图，默认约 1,000 个视觉 token；可提高到约 2.0 MP。</span>
+        </article>
+        <article class="pipe-step">
+          <b>2</b>
+          <strong>Qwen3-VL 推理</strong>
+          <span>识别尺寸、剖视关系和特征，输出简洁 CadQuery 程序。</span>
+        </article>
+        <article class="pipe-step">
+          <b>3</b>
+          <strong>受控 CAD 执行</strong>
+          <span>AST 白名单、独立 Python 环境、超时控制；失败最多自动修复一次。</span>
+        </article>
+        <article class="pipe-step">
+          <b>4</b>
+          <strong>STEP 与记录</strong>
+          <span>输出代码、STEP、错误类型、耗时、token 和显存峰值。</span>
+        </article>
+      </div>
+
+      <div class="scope-note">
+        真值 STEP 不进入 View Agent 推理路径，只在生成完成后独立计算体积、表面积和轴排序包围盒偏差。
+      </div>
+    </section>
+
+    <section class="section" id="environment">
+      <div class="section-head">
+        <div class="section-number">03</div>
+        <div>
+          <h2>集群与环境配置</h2>
+          <p>登录节点无 GPU 是正常状态；所有 CUDA 推理均通过 Slurm 分配。集群限制每张 GPU 最多申请 8 个 CPU 核。</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <article class="spec-card">
+          <h3>单卡推理环境</h3>
+          <dl class="spec-list">
+            <dt>Partition</dt><dd>debug</dd>
+            <dt>GPU</dt><dd>NVIDIA A40 · 48 GiB</dd>
+            <dt>CPU / RAM</dt><dd>8 cores / 64 GiB</dd>
+            <dt>PyTorch</dt><dd>2.5.1+cu121</dd>
+            <dt>Transformers</dt><dd>4.57.1</dd>
+            <dt>Model</dt><dd>Qwen3-VL-8B-Instruct</dd>
+          </dl>
+        </article>
+
+        <article class="spec-card">
+          <h3>CAD 与完整性检查</h3>
+          <div class="check-row"><span class="check">✓</span><span>4 个 8B 权重分片均通过 SHA-256 校验</span></div>
+          <div class="check-row"><span class="check">✓</span><span>CadQuery 2.5.2 独立环境可用</span></div>
+          <div class="check-row"><span class="check">✓</span><span>10×20×3 测试实体成功导出并重新读入</span></div>
+          <div class="check-row"><span class="check">✓</span><span>7/7 离线测试通过</span></div>
+          <div class="check-row"><span class="check">✓</span><span>断点下载、低速重连与脚本语法检查通过</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="section-head">
+        <div class="section-number">04</div>
+        <div>
+          <h2>真实 A40 实测结果</h2>
+          <p>2B 只用于证明技术链路，8B 才是 Ortho2CAD 的基座对照。两者都不是论文训练后的专项模型。</p>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Slurm Job</th>
+              <th>模型 / 图纸</th>
+              <th>设置</th>
+              <th>执行结果</th>
+              <th>主要证据</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="mono">10125750</td>
+              <td>2B / 端盖</td>
+              <td>1,024 token</td>
+              <td><span class="status bad">CAD_FAIL</span></td>
+              <td>重复布尔链并被截断；峰值显存 4.33 GiB。</td>
+            </tr>
+            <tr>
+              <td class="mono">10125758 / 763</td>
+              <td>2B / 法兰</td>
+              <td>两组提示与防重复设置</td>
+              <td><span class="status bad">CAD_FAIL</span></td>
+              <td>错误使用 Workplane API，自动修复仍失败。</td>
+            </tr>
+            <tr>
+              <td class="mono">10125896</td>
+              <td>8B / 法兰</td>
+              <td>约 1.0 MP，1 次修复</td>
+              <td><span class="status good">STEP_EXPORTED</span></td>
+              <td>成功导出 STEP，但几何验收不合格。</td>
+            </tr>
+            <tr>
+              <td class="mono">10125903</td>
+              <td>8B / 法兰</td>
+              <td>约 2.0 MP，通用剖视规则</td>
+              <td><span class="status bad">CAD_FAIL</span></td>
+              <td>尺寸 OCR 改善，但特征归位和圆角操作错误。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="result-summary">
+        <article class="metric-panel">
+          <h3>Job 10125896 · 几何验收</h3>
+
+          <div class="metric">
+            <div class="metric-head"><span>体积偏差</span><strong style="color:var(--red)">+11.34%</strong></div>
+            <div class="bar"><div class="bar-fill" style="--w:94%;--bar-color:var(--red)"></div></div>
+            <div class="threshold">参考阈值：|偏差| &lt; 2% · 未通过</div>
+          </div>
+
+          <div class="metric">
+            <div class="metric-head"><span>表面积偏差</span><strong style="color:var(--green)">−4.65%</strong></div>
+            <div class="bar"><div class="bar-fill" style="--w:39%;--bar-color:var(--green)"></div></div>
+            <div class="threshold">参考阈值：|偏差| &lt; 5% · 单项通过</div>
+          </div>
+
+          <div class="metric">
+            <div class="metric-head"><span>包围盒最大轴偏差</span><strong style="color:var(--green)">0.00%</strong></div>
+            <div class="bar"><div class="bar-fill" style="--w:2%;--bar-color:var(--green)"></div></div>
+            <div class="threshold">参考阈值：各轴 &lt; 2% · 通过</div>
+          </div>
+        </article>
+
+        <article class="runtime-panel">
+          <h3>单件运行成本</h3>
+          <div class="runtime-grid">
+            <div class="runtime-item"><small>预测体积</small><strong>252,249.86 mm³</strong></div>
+            <div class="runtime-item"><small>真值体积</small><strong>226,552.64 mm³</strong></div>
+            <div class="runtime-item"><small>冷启动加载</small><strong>49.87 s</strong></div>
+            <div class="runtime-item"><small>总耗时</small><strong>71.66 s</strong></div>
+            <div class="runtime-item"><small>首次生成</small><strong>9.42 s</strong></div>
+            <div class="runtime-item"><small>修复生成</small><strong>8.39 s</strong></div>
+            <div class="runtime-item"><small>峰值显存</small><strong>16.73 GiB</strong></div>
+            <div class="runtime-item"><small>Slurm 状态</small><strong>COMPLETED</strong></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="diagnosis">
+      <div class="section-head">
+        <div class="section-number">05</div>
+        <div>
+          <h2>失败发生在“尺寸归位”，不是 GPU</h2>
+          <p>第一个 8B STEP 外形尺寸正确，但内部特征错误。高分辨率复测读出了更多正确数字，仍没有把数字映射到正确特征。</p>
+        </div>
+      </div>
+
+      <div class="failure-map">
+        <article class="failure-card">
+          <h3>图纸表达的主要几何</h3>
+          <ul class="feature-list">
+            <li><strong>Ø103</strong><span>外圆</span></li>
+            <li><strong>30.5</strong><span>整体厚度</span></li>
+            <li><strong>Ø34</strong><span>中心贯穿孔</span></li>
+            <li><strong>Ø40 × 1.5</strong><span>浅沉孔 / 凹台</span></li>
+            <li><strong>2-R4</strong><span>特征计数与圆角标注，不是直径 2</span></li>
+          </ul>
+        </article>
+
+        <div class="failure-arrow" aria-hidden="true">≠</div>
+
+        <article class="failure-card bad-side">
+          <h3>8B 首轮生成的几何</h3>
+          <ul class="feature-list">
+            <li><strong>Ø103</strong><span>外圆正确</span></li>
+            <li><strong>30.5</strong><span>厚度正确</span></li>
+            <li><strong>Ø40 × 1.5</strong><span>浅凹台基本识别</span></li>
+            <li><strong>Ø2 × 1.5</strong><span>把计数 2 错当中心孔直径</span></li>
+            <li><strong>Ø34</strong><span>贯穿孔缺失</span></li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="finding">
+        <strong>诊断：</strong>提高视觉分辨率后，模型能正确读到 Ø103、Ø40、Ø34 和 30.5，说明 OCR 不是唯一瓶颈；
+        真正困难的是理解剖视图、判断贯穿关系，并把每个尺寸绑定到正确的 CAD 操作。
+      </div>
+    </section>
+
+    <section class="section" id="decision">
+      <div class="section-head">
+        <div class="section-number">06</div>
+        <div>
+          <h2>现在应该固定接口，训练专项能力</h2>
+          <p>当前系统已经能够承载后续模型训练与配对评测；下一步价值最高的工作不是继续为单件调提示词。</p>
+        </div>
+      </div>
+
+      <div class="decision-grid">
+        <article class="decision-card">
+          <span class="decision-index">01 · FREEZE</span>
+          <h3>冻结 View Agent 接口</h3>
+          <p>保持统一输入、CadQuery 执行器、STEP 产物和结构化状态，后续只替换模型权重。</p>
+        </article>
+        <article class="decision-card">
+          <span class="decision-index">02 · TRAIN</span>
+          <h3>训练 Ortho2CAD 路线</h3>
+          <p>使用工程图—CadQuery 对做 SFT，再使用 STEP 几何 IoU/一致性奖励做领域 RL。</p>
+        </article>
+        <article class="decision-card">
+          <span class="decision-index">03 · VERIFY</span>
+          <h3>统一事后验收</h3>
+          <p>基座与专项模型必须使用同一图纸集、同一执行器和同一几何阈值做配对测试。</p>
+        </article>
+      </div>
+
+      <div class="do-not">
+        <strong>暂时不要批量生产：</strong>裸 Qwen3-VL-8B 即使返回可打开的 STEP，也可能静默缺孔或错配特征；这类样本会污染后续 Workflow 训练循环。
+      </div>
+    </section>
+
+    <section class="section" id="reproduce">
+      <div class="section-head">
+        <div class="section-number">07</div>
+        <div>
+          <h2>复现实验</h2>
+          <p>A40 的 debug 分区足够做单件推理；更长的批量任务可切换到 A800 分区，但当前不建议在裸基座上放量。</p>
+        </div>
+      </div>
+
+      <pre><code>cd /hpc2hdd/home/lwang592/projects/process-expert
+
+# 默认约 1.0 MP 视觉预算
+bash geometry-training-handoff/view_agent/slurm/run_debug.sh \
+  geometry-training-handoff/drawings/法兰.png \
+  geometry-training-handoff/view_agent/runs/flange-test
+
+# 提高视觉预算至约 2.0 MP
+VIEW_AGENT_MAX_PIXELS=2007040 \
+bash geometry-training-handoff/view_agent/slurm/run_debug.sh \
+  geometry-training-handoff/drawings/法兰.png \
+  geometry-training-handoff/view_agent/runs/flange-highres</code></pre>
+    </section>
+
+    <section class="section" id="sources">
+      <div class="section-head">
+        <div class="section-number">08</div>
+        <div>
+          <h2>方法来源与边界</h2>
+          <p>截至 2026-08-05，Ortho2CAD 已公开训练、推理、评测代码和数据入口，但仓库未提供论文专项 checkpoint；SOV-CAD 的预训练 checkpoint 仍在待办列表。</p>
+        </div>
+      </div>
+
+      <div class="source-list">
+        <a class="source" href="https://github.com/AdityaJoglekar/Ortho2CAD" target="_blank" rel="noreferrer">
+          <strong>Ortho2CAD 官方仓库 ↗</strong>
+          <span>SFT + geometry-grounded RL，工程图直接生成 CadQuery。</span>
+        </a>
+        <a class="source" href="https://github.com/LukePhong/SOV-CAD" target="_blank" rel="noreferrer">
+          <strong>SOV-CAD 官方仓库 ↗</strong>
+          <span>Stepwise orthographic views；预训练权重尚未发布。</span>
+        </a>
+        <a class="source" href="https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct" target="_blank" rel="noreferrer">
+          <strong>Qwen3-VL-8B-Instruct ↗</strong>
+          <span>本次本地单卡实测使用的通用视觉语言基座。</span>
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <span>Process Expert · Geometry Training Handoff</span>
+      <span>报告口径：技术故障、CAD 失败、STEP 成功与几何合格严格分开。</span>
+    </footer>
+  </main>
+</body>
+</html>
