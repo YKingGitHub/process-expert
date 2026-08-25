@@ -6,6 +6,10 @@ GitHub Pages publishes this branch as an immutable ISO-week archive. The stable 
 - `/latest/` — the newest registered report.
 - `/reports/YYYY-Www/` — one permanent weekly report.
 
+## One-time repository setup
+
+An administrator must open `Settings → Pages` once and set `Build and deployment → Source` to `GitHub Actions`. GitHub's default workflow token can deploy later revisions but cannot enable Pages for a repository that has never enabled it. After this one-time setting, every matching push to `agent/group-meeting-webpage` deploys automatically.
+
 ## Add a new week
 
 Generate a self-contained HTML file at a new path; never reuse an older week's path:
