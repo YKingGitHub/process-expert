@@ -193,6 +193,11 @@ p {{ margin:8px 0; }}
 .module.fixed {{ border-color:var(--blue); }}
 .module h3 {{ margin:0 0 6px; }}
 .arrow {{ text-align:center; color:var(--blue); font-size:30px; }}
+.call-flow {{ display:grid; grid-template-columns:repeat(7,minmax(150px,1fr)); gap:10px; overflow-x:auto; padding-bottom:4px; }}
+.flow-step {{ position:relative; min-height:156px; padding:14px; border:1px solid var(--line); border-top:4px solid var(--blue); border-radius:7px; background:white; }}
+.flow-step b {{ display:block; margin-bottom:7px; color:var(--blue); }}
+.flow-step p {{ margin:0; font-size:13px; }}
+.formula {{ margin:14px 0; padding:14px 18px; border-radius:7px; background:#172033; color:white; font:14px/1.8 ui-monospace,SFMono-Regular,Consolas,monospace; }}
 .callout {{ border-left:4px solid var(--blue); background:#f3f7fd; padding:14px 18px; margin:18px 0; }}
 .table-wrap {{ overflow:auto; border:1px solid var(--line); border-radius:8px; }}
 table {{ width:100%; border-collapse:collapse; white-space:nowrap; }}
@@ -205,7 +210,7 @@ tr:last-child td {{ border-bottom:0; }}
 .badge.bad {{ color:var(--red); background:#fff0ee; }}
 code {{ font-family:ui-monospace,SFMono-Regular,Consolas,monospace; }}
 .foot {{ margin-top:34px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }}
-@media(max-width:850px) {{ .cards {{ grid-template-columns:1fr 1fr; }} .pipeline {{ grid-template-columns:1fr; gap:8px; }} .arrow {{ transform:rotate(90deg); }} }}
+@media(max-width:850px) {{ .cards {{ grid-template-columns:1fr 1fr; }} .pipeline {{ grid-template-columns:1fr; gap:8px; }} .arrow {{ transform:rotate(90deg); }} .call-flow {{ grid-template-columns:repeat(7,210px); }} }}
 </style>
 </head>
 <body><main>
@@ -229,6 +234,20 @@ code {{ font-family:ui-monospace,SFMono-Regular,Consolas,monospace; }}
   <div class="module fixed"><h3>③ 独立验收器</h3><p>预测 STEP 与保留 GT 对比；统计体积、表面积和包围盒。</p></div>
 </div>
 <div class="callout"><strong>当前结论：</strong>{escaped(conclusion)}</div>
+
+<h2>Qwen3-VL-8B 当前是怎么被调用的</h2>
+<p><strong>是直接喂图，但不是把 PDF 原文件交给模型。</strong>当前端到端基线没有独立 OCR、视图分割或尺寸结构化模块；PDF 先渲染成图片，然后由一个通用 VLM 同时承担读图、尺寸归位、拓扑理解、CAD 规划和代码生成。</p>
+<div class="formula">模型输入 = 1～N 张工程图 PNG + CadQuery 生成指令<br>模型输出 = CadQuery Python 代码（不是 STEP）</div>
+<div class="call-flow">
+  <div class="flow-step"><b>1 · PDF → PNG</b><p>每页按 200 DPI 渲染；33 件共 39 张图。多页零件保留为多张图片，不拼接。</p></div>
+  <div class="flow-step"><b>2 · 多模态消息</b><p>同一个 user message 先放全部图像，再附文字 Prompt。推理输入不含 GT STEP。</p></div>
+  <div class="flow-step"><b>3 · 本地 8B 推理</b><p>Transformers 在单卡加载 Qwen3-VL-8B-Instruct，BF16、greedy decoding，每件最多生成 1024 tokens。</p></div>
+  <div class="flow-step"><b>4 · 生成 CAD 程序</b><p>Prompt 要求读取毫米尺寸、理解剖视/通孔/沉孔，并把最终 CadQuery 对象命名为 solid。</p></div>
+  <div class="flow-step"><b>5 · 安全执行</b><p>AST 白名单拒绝文件、网络和子进程操作；合法代码在独立 CadQuery 环境中运行并导出 STEP。</p></div>
+  <div class="flow-step"><b>6 · 自动修复一次</b><p>若安全检查或 CAD 执行失败，把错误和上一版代码连同原图再次交给模型，生成完整修正版。</p></div>
+  <div class="flow-step"><b>7 · 独立验收</b><p>模型退出后才读取保留 GT，比较 STEP 的体积、表面积和方向无关包围盒；GT 不回流到推理。</p></div>
+</div>
+<div class="callout"><strong>这个设计为什么容易失败：</strong>一次生成同时承担 OCR、工程图语义、特征拓扑和 CadQuery 编程，中间没有可检查的结构化几何表示。当前结果反映的是整条端到端链路能力，不能只归因于 OCR。</div>
 
 <h2>模型汇总</h2>
 <div class="table-wrap"><table>

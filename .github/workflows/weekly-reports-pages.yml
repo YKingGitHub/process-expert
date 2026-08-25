@@ -1,0 +1,52 @@
+name: Deploy weekly report archive
+
+on:
+  push:
+    branches:
+      - agent/group-meeting-webpage
+    paths:
+      - geometry-training-handoff/weekly-reports/**
+      - geometry-training-handoff/group_meeting_workflow.html
+      - geometry-training-handoff/view_agent_report.html
+      - geometry-training-handoff/view_agent/REPORT_33_SINGLE_SOLIDS.html
+      - .github/workflows/weekly-reports-pages.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: weekly-reports-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out report branch
+        uses: actions/checkout@v4
+
+      - name: Build immutable report archive
+        run: |
+          python geometry-training-handoff/weekly-reports/build_site.py \
+            --manifest geometry-training-handoff/weekly-reports/reports.json \
+            --output _site
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
