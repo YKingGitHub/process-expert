@@ -1,0 +1,7 @@
+# PyTorch 由集群已有 torch2 环境提供（当前为 2.5.1+cu121）。
+transformers==4.57.1
+accelerate==1.7.0
+qwen-vl-utils==0.0.14
+shortuuid==1.0.13
+
+# CadQuery 单独安装到 .venvs/process-view-agent-cad，避免改变推理环境依赖。
