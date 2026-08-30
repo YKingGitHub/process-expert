@@ -31,7 +31,7 @@ export PYTHONUNBUFFERED=1
   --output-dir "$view_output" \
   --model "$view_model" \
   --cad-python "$view_cad_python" \
-  --max-new-tokens "${VIEW_AGENT_MAX_NEW_TOKENS:-1024}" \
+  --max-new-tokens "${VIEW_AGENT_MAX_NEW_TOKENS:-4096}" \
   --max-pixels "${VIEW_AGENT_MAX_PIXELS:-1003520}" \
   --repair-attempts "${VIEW_AGENT_REPAIR_ATTEMPTS:-1}" \
   --shard-count "$view_shard_count" \

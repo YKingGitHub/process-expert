@@ -91,6 +91,7 @@ def main() -> int:
 
     primary = evaluations[0]
     primary_summary = primary["summary"]
+    evaluation_labels = "、".join(escaped(evaluation["label"]) for evaluation in evaluations)
     measured_count = int(primary_summary["measured_count"])
     sample_count = int(primary_summary["sample_count"])
     export_rate = float(primary_summary["step_export_rate_pct"])
@@ -105,6 +106,38 @@ def main() -> int:
         )
     else:
         conclusion = "主模型未导出可测 STEP，因此当前不能给出有效的体积精度结论。"
+
+    comparison_callout = ""
+    if len(evaluations) >= 2:
+        reference = evaluations[1]
+        primary_samples = primary["samples"]
+        reference_samples = reference["samples"]
+        gained = sorted(
+            case_id
+            for case_id, row in primary_samples.items()
+            if row.get("generation_status") == "STEP_EXPORTED"
+            and reference_samples.get(case_id, {}).get("generation_status") != "STEP_EXPORTED"
+        )
+        lost = sorted(
+            case_id
+            for case_id, row in reference_samples.items()
+            if row.get("generation_status") == "STEP_EXPORTED"
+            and primary_samples.get(case_id, {}).get("generation_status") != "STEP_EXPORTED"
+        )
+        export_delta = int(primary_summary["measured_count"]) - int(
+            reference["summary"]["measured_count"]
+        )
+        pass_delta = int(primary_summary["geometry_pass_count"]) - int(
+            reference["summary"]["geometry_pass_count"]
+        )
+        comparison_callout = (
+            '<div class="callout"><strong>首列相对第二列：</strong>'
+            f"有效 STEP 净变化 {export_delta:+d}，几何全通过净变化 {pass_delta:+d}；"
+            f"新增导出 {escaped(', '.join(gained) or '无')}，"
+            f"回退为失败 {escaped(', '.join(lost) or '无')}。"
+            "成功样本集合发生变化时，中位数下降不能直接解释为同一批样本的精度提升。"
+            "</div>"
+        )
 
     model_rows: list[str] = []
     for evaluation in evaluations:
@@ -234,6 +267,7 @@ code {{ font-family:ui-monospace,SFMono-Regular,Consolas,monospace; }}
   <div class="module fixed"><h3>③ 独立验收器</h3><p>预测 STEP 与保留 GT 对比；统计体积、表面积和包围盒。</p></div>
 </div>
 <div class="callout"><strong>当前结论：</strong>{escaped(conclusion)}</div>
+{comparison_callout}
 
 <h2>Qwen3-VL-8B 当前是怎么被调用的</h2>
 <p><strong>是直接喂图，但不是把 PDF 原文件交给模型。</strong>当前端到端基线没有独立 OCR、视图分割或尺寸结构化模块；PDF 先渲染成图片，然后由一个通用 VLM 同时承担读图、尺寸归位、拓扑理解、CAD 规划和代码生成。</p>
@@ -241,7 +275,7 @@ code {{ font-family:ui-monospace,SFMono-Regular,Consolas,monospace; }}
 <div class="call-flow">
   <div class="flow-step"><b>1 · PDF → PNG</b><p>每页按 200 DPI 渲染；33 件共 39 张图。多页零件保留为多张图片，不拼接。</p></div>
   <div class="flow-step"><b>2 · 多模态消息</b><p>同一个 user message 先放全部图像，再附文字 Prompt。推理输入不含 GT STEP。</p></div>
-  <div class="flow-step"><b>3 · 本地 8B 推理</b><p>Transformers 在单卡加载 Qwen3-VL-8B-Instruct，BF16、greedy decoding，每件最多生成 1024 tokens。</p></div>
+  <div class="flow-step"><b>3 · 本地 8B 推理</b><p>Transformers 在单卡加载 Qwen3-VL-8B-Instruct，BF16、greedy decoding；最大生成长度按实验设置。本报告对比：{evaluation_labels}。</p></div>
   <div class="flow-step"><b>4 · 生成 CAD 程序</b><p>Prompt 要求读取毫米尺寸、理解剖视/通孔/沉孔，并把最终 CadQuery 对象命名为 solid。</p></div>
   <div class="flow-step"><b>5 · 安全执行</b><p>AST 白名单拒绝文件、网络和子进程操作；合法代码在独立 CadQuery 环境中运行并导出 STEP。</p></div>
   <div class="flow-step"><b>6 · 自动修复一次</b><p>若安全检查或 CAD 执行失败，把错误和上一版代码连同原图再次交给模型，生成完整修正版。</p></div>

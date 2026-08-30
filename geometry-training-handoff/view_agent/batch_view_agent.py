@@ -88,7 +88,7 @@ def main() -> int:
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--model", default=DEFAULT_MODEL)
     parser.add_argument("--cad-python", default=DEFAULT_CAD_PYTHON)
-    parser.add_argument("--max-new-tokens", type=int, default=1024)
+    parser.add_argument("--max-new-tokens", type=int, default=4096)
     parser.add_argument("--repetition-penalty", type=float, default=1.05)
     parser.add_argument("--no-repeat-ngram-size", type=int, default=16)
     parser.add_argument("--min-pixels", type=int, default=256 * 28 * 28)
