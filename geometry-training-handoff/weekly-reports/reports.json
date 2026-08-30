@@ -20,11 +20,11 @@
     },
     {
       "week": "2026-W35",
-      "date": "2026-08-25",
-      "title": "View Agent：33 组单实体零件批量测试",
-      "summary": "Qwen3-VL-8B/2B 批量推理、STEP 独立几何验收，以及当前端到端调用链。",
-      "source": "geometry-training-handoff/weekly-reports/2026-W35/index.html",
-      "sha256": "90f976bc74dde9ce0e1dd0d4fd764a9af39d5315b5af40f9cfbe28ee1e000d1b"
+      "date": "2026-08-30",
+      "title": "View Agent：8B 输出长度对照",
+      "summary": "Qwen3-VL-8B 在 1024 与 4096 token 上限下均导出 8/33，仅 1/33 通过完整几何验收。",
+      "source": "geometry-training-handoff/view_agent/REPORT_33_SINGLE_SOLIDS_TOK4096.html",
+      "sha256": "f3cd019a6418ed486f25611544d711b87c393373af80bcd58ed22bdbccb511ec"
     }
   ]
 }
