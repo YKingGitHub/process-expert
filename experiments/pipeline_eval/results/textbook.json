@@ -1,0 +1,1118 @@
+{
+  "results": [
+    {
+      "id": "Q01",
+      "step": "S2",
+      "category": "method-candidate",
+      "input": "F1 基准孔 Φ130 IT7, 灰铸铁",
+      "text": "内孔基准加工候选路线?",
+      "expected": "粗镗→半精镗→精镗 / 粗镗→半精镗→精磨; ground truth: 粗车→精车→粗磨→精磨",
+      "kb_call": [
+        "path_precision",
+        "{'path_keyword': '粗镗'}"
+      ],
+      "actual_match_count": 0,
+      "actual_sample": [],
+      "actual_error": null,
+      "outcome": "no_data"
+    },
+    {
+      "id": "Q02",
+      "step": "S2",
+      "category": "method-candidate",
+      "input": "F2/F3 外圆 Φ165/Φ180 IT11, HT200",
+      "text": "外圆铸件粗→精车→磨候选路线?",
+      "expected": "粗车 / 粗车→半精车 / 粗车→半精车→精车 系列",
+      "kb_call": [
+        "path_precision",
+        "{'path_keyword': '粗车→半精车', 'feature': '外圆'}"
+      ],
+      "actual_match_count": 5,
+      "actual_sample": [
+        {
+          "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
+          "row_index": 1,
+          "feature_kind": "外圆",
+          "path_text": "粗车→半精车",
+          "it": "8-10",
+          "it_min": 8,
+          "it_max": 10,
+          "ra_min": 6.3,
+          "ra_max": 12.5,
+          "method": "粗车→半精车"
+        },
+        {
+          "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
+          "row_index": 2,
+          "feature_kind": "外圆",
+          "path_text": "粗车→半精车→精车 (或磨)",
+          "it": "7-8",
+          "it_min": 7,
+          "it_max": 8,
+          "ra_min": 1.6,
+          "ra_max": 6.3,
+          "method": "粗车→半精车→精车 (或磨)"
+        },
+        {
+          "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
+          "row_index": 3,
+          "feature_kind": "外圆",
+          "path_text": "粗车→半精车→{精车-细车 (有色金属及合金) / 粗磨-精磨 / 精车-滚压}",
+          "it": "6-7",
+          "it_min": 6,
+          "it_max": 7,
+          "ra_min": 0.2,
+          "ra_max": 1.6,
+          "method": "粗车→半精车→{精车-细车 (有色金属及合金) / 粗磨-精磨 / 精车-滚压}"
+        }
+      ],
+      "actual_error": null,
+      "outcome": "pass"
+    },
+    {
+      "id": "Q03",
+      "step": "S2",
+      "category": "method-candidate",
+      "input": "F4 端面 (含垂直度 0.03)",
+      "text": "端面加工 + 垂直度保证方法?",
+      "expected": "平面表 KB 中 (粗刨/粗铣/车平面)",
+      "kb_call": [
+        "path_precision",
+        "{'path_keyword': '粗刨'}"
+      ],
+      "actual_match_count": 5,
+      "actual_sample": [
+        {
+          "record_id": "STD-2.3.2-PLANE-PATH-001",
+          "row_index": 0,
+          "feature_kind": "平面",
+          "path_text": "粗刨 / 粗铣",
+          "it": "11-13",
+          "it_min": 11,
+          "it_max": 13,
+          "ra_min": 25.0,
+          "ra_max": 100.0,
+          "method": "粗刨 / 粗铣"
+        },
+        {
+          "record_id": "STD-2.3.2-PLANE-PATH-001",
+          "row_index": 1,
+          "feature_kind": "平面",
+          "path_text": "粗刨→半精刨 / 粗铣→半精铣 / 车平面",
+          "it": "8-11",
+          "it_min": 8,
+          "it_max": 11,
+          "ra_min": 3.2,
+          "ra_max": 12.5,
+          "method": "粗刨→半精刨 / 粗铣→半精铣 / 车平面"
+        },
+        {
+          "record_id": "STD-2.3.2-PLANE-PATH-001",
+          "row_index": 3,
+          "feature_kind": "平面",
+          "path_text": "粗刨→半精刨→{宽刀精刨 / 高速精铣 / 磨 / 刮研}; 粗铣→半精铣→{...同}",
+          "it": "6-9",
+          "it_min": 6,
+          "it_max": 9,
+          "ra_min": 0.4,
+          "ra_max": 1.6,
+          "method": "粗刨→半精刨→{宽刀精刨 / 高速精铣 / 磨 / 刮研}; 粗铣→半精铣→{...同}"
+        }
+      ],
+      "actual_error": null,
+      "outcome": "pass"
+    },
+    {
+      "id": "Q04",
+      "step": "S2",
+      "category": "method-candidate",
+      "input": "F1 基准孔精磨 (从 ground truth 工序 10)",
+      "text": "内圆磨 KB 怎么答?",
+      "expected": "内外圆磨/平面磨 method 字段应有数据",
+      "kb_call": [
+        "raw_sql",
+        "SELECT method, ra_min, ra_max FROM std_value_rows WHERE method LIKE '%磨%' AND ra_min IS NOT NULL"
+      ],
+      "actual_match_count": 9,
+      "actual_sample": [
+        {
+          "method": "切削/磨",
+          "ra_min": 0.2,
+          "ra_max": 0.8
+        },
+        {
+          "method": "切削/研磨",
+          "ra_min": 0.05,
+          "ra_max": 0.8
+        },
+        {
+          "method": "粗车→半精车→精车 (或磨)",
+          "ra_min": 1.6,
+          "ra_max": 6.3
+        }
+      ],
+      "actual_error": null,
+      "outcome": "pass"
+    },
+    {
+      "id": "Q05",
+      "step": "S2",
+      "category": "method-candidate",
+      "input": "F2 外圆磨 (从 ground truth 工序 11)",
+      "text": "外圆磨候选?",
+      "expected": "粗磨→精磨 在 路线表里有",
+      "kb_call": [
+        "path_precision",
+        "{'path_keyword': '粗磨→精磨'}"
+      ],
+      "actual_match_count": 4,
+      "actual_sample": [
+        {
+          "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
+          "row_index": 4,
+          "feature_kind": "外圆",
+          "path_text": "粗车→半精车→粗磨→精磨→{镜面磨削 / 研磨 / 超精加工 / 抛光}",
+          "it": "5",
+          "it_min": 5,
+          "it_max": 5,
+          "ra_min": 0.1,
+          "ra_max": 0.4,
+          "method": "粗车→半精车→粗磨→精磨→{镜面磨削 / 研磨 / 超精加工 / 抛光}"
+        },
+        {
+          "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
+          "row_index": 5,
+          "feature_kind": "外圆",
+          "path_text": "粗车→半精车→粗磨→精磨→{镜面磨削 / 精研磨-超精加工-抛光}",
+          "it": "5以上",
+          "it_min": null,
+          "it_max": null,
+          "ra_min": 0.012,
+          "ra_max": 0.1,
+          "method": "粗车→半精车→粗磨→精磨→{镜面磨削 / 精研磨-超精加工-抛光}"
+        },
+        {
+          "record_id": "STD-2.3.2-PLANE-PATH-001",
+          "row_index": 5,
+          "feature_kind": "平面",
+          "path_text": "粗刨→半精刨→粗磨→精磨",
+          "it": "5-6",
+          "it_min": 5,
+          "it_max": 6,
+          "ra_min": 0.2,
+          "ra_max": 0.4,
+          "method": "粗刨→半精刨→粗磨→精磨"
+        }
+      ],
+      "actual_error": null,
+      "outcome": "pass"
+    },
+    {
+      "id": "Q06",
+      "step": "S3",
+      "category": "precision-it",
+      "input": "F1 基准孔 IT7-8",
+      "text": "镗孔经济精度 IT?",
+      "expected": "镗 IT7-9, 精磨 IT5-6",
+      "kb_call": [
+        "economic_precision",
+        "{'method': '镗'}"
+      ],
+      "actual_match_count": 17,
+      "actual_sample": [
+        {
+          "record_id": "STD-2.8.1.4-COAXIALITY-ECON-001",
+          "method": "磨、精车、一次装夹下的内圆磨及镗",
+          "feature": null,
+          "it": "5-6",
+          "it_min": 5,
+          "it_max": 6
+        },
+        {
+          "record_id": "STD-2.8.1.4-COAXIALITY-ECON-001",
+          "method": "粗磨、车、镗、拉、铰",
+          "feature": null,
+          "it": "7-8",
+          "it_min": 7,
+          "it_max": 8
+        },
+        {
+          "record_id": "STD-2.8.1.4-COAXIALITY-ECON-001",
+          "method": "车、镗、钻",
+          "feature": null,
+          "it": "9-10",
+          "it_min": 9,
+          "it_max": 10
+        }
+      ],
+      "actual_error": null,
+      "outcome": "pass"
+    },
+    {
+      "id": "Q07",
+      "step": "S3",
+      "category": "precision-position",
+      "input": "F2/F3 外圆 同轴度 Φ0.025 (基准 F1)",
+      "text": "外圆同轴度 KB 怎么答?",
+      "expected": "STD-2.8.1.4-COAXIALITY-ECON-001 应能命中",
+      "kb_call": [
+        "economic_precision",
+        "{'feature': '同轴度'}"
+      ],
+      "actual_match_count": 0,
+      "actual_sample": [],
+      "actual_error": null,
+      "outcome": "no_data"
+    },
+    {
+      "id": "Q08",
+      "step": "S3",
+      "category": "precision-position",
+      "input": "F4 端面垂直度 0.03 对其轴线",
+      "text": "端面垂直度 KB 怎么答?",
+      "expected": "STD-2.8.1.4-RUNOUT-PERP-ECON-001 (端面圆跳动+垂直度) 应命中",
+      "kb_call": [
+        "economic_precision",
+        "{'feature': '垂直度'}"
+      ],
+      "actual_match_count": 0,
+      "actual_sample": [],
+      "actual_error": null,
+      "outcome": "no_data"
+    },
+    {
+      "id": "Q09",
+      "step": "S3",
+      "category": "precision-it+ra",
+      "input": "F1 路线 '粗车→精车→粗磨→精磨'",
+      "text": "孔类该路线 IT/Ra?",
+      "expected": "外圆同等路线 IT 7-8 / Ra 1.6-6.3; 孔类应类似 (KB 内孔表 STD-2.3.2-LATHE-HOLE-PATH-001)",
+      "kb_call": [
+        "path_precision",
+        "{'path_keyword': '粗车→半精车→精车 (或磨)'}"
+      ],
+      "actual_match_count": 1,
+      "actual_sample": [
+        {
+          "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
+          "row_index": 2,
+          "feature_kind": "外圆",
+          "path_text": "粗车→半精车→精车 (或磨)",
+          "it": "7-8",
+          "it_min": 7,
+          "it_max": 8,
+          "ra_min": 1.6,
+          "ra_max": 6.3,
+          "method": "粗车→半精车→精车 (或磨)"
+        }
+      ],
+      "actual_error": null,
+      "outcome": "pass"
+    },
+    {
+      "id": "Q10",
+      "step": "S3",
+      "category": "precision-ra",
+      "input": "F1 内孔精磨 Ra (gt 工序 10 给 Ra 隐式)",
+      "text": "内圆磨 Ra?",
+      "expected": "内外圆磨 Ra (但 method 列可能为 null)",
+      "kb_call": [
+        "raw_sql",
+        "SELECT method, ra_min, ra_max FROM std_value_rows WHERE record_id = 'STD-2.8.2.1-RA-GRIND-OD-001'"
+      ],
+      "actual_match_count": 4,
+      "actual_sample": [
+        {
+          "method": null,
+          "ra_min": 0.8,
+          "ra_max": 6.3
+        },
+        {
+          "method": null,
+          "ra_min": 0.2,
+          "ra_max": 0.8
+        },
+        {
+          "method": null,
+          "ra_min": 0.025,
+          "ra_max": 0.05
+        }
+      ],
+      "actual_error": null,
+      "outcome": "friction"
+    },
+    {
+      "id": "Q11",
+      "step": "S3",
+      "category": "precision-ra",
+      "input": "F4 平面磨端面 Ra",
+      "text": "平面磨可达 Ra?",
+      "expected": "平面磨 Ra (method 列可能 null)",
+      "kb_call": [
+        "raw_sql",
+        "SELECT method, ra_min, ra_max FROM std_value_rows WHERE record_id = 'STD-2.8.2.1-RA-GRIND-FLAT-001'"
+      ],
+      "actual_match_count": 2,
+      "actual_sample": [
+        {
+          "method": null,
+          "ra_min": 0.4,
+          "ra_max": 0.8
+        },
+        {
+          "method": null,
+          "ra_min": 0.05,
+          "ra_max": 0.2
+        }
+      ],
+      "actual_error": null,
+      "outcome": "friction"
+    },
+    {
+      "id": "Q12",
+      "step": "S3",
+      "category": "precision-ra",
+      "input": "F2 路线 '粗车→半精车→精车' Ra",
+      "text": "外圆精车 Ra?",
+      "expected": "Ra 1.6-6.3",
+      "kb_call": [
+        "path_precision",
+        "{'path_keyword': '粗车→半精车→精车 (或磨)'}"
+      ],
+      "actual_match_count": 1,
+      "actual_sample": [
+        {
+          "record_id": "STD-2.3.2-OUTER-CYL-PATH-001",
+          "row_index": 2,
+          "feature_kind": "外圆",
+          "path_text": "粗车→半精车→精车 (或磨)",
+          "it": "7-8",
+          "it_min": 7,
+          "it_max": 8,
+          "ra_min": 1.6,
+          "ra_max": 6.3,
+          "method": "粗车→半精车→精车 (或磨)"
+        }
+      ],
+      "actual_error": null,
+      "outcome": "pass"
+    },
+    {
+      "id": "Q13",
+      "step": "S3",
+      "category": "precision-position",
+      "input": "F1 基准孔 → 同轴度链 (位置度的累计)",
+      "text": "同轴度 Φ0.025 加工方法位置精度?",
+      "expected": "孔位置精度表 STD-2.3.2-METHOD-ERRORS-001 含相关行",
+      "kb_call": [
+        "position_error",
+        "{'feature': '孔与孔之间'}"
+      ],
+      "actual_match_count": 4,
+      "actual_sample": [
+        {
+          "record_id": "STD-2.3.2-METHOD-ERRORS-001",
+          "method": "在坐标镗床上加工孔",
+          "feature": "孔与孔之间的距离尺寸(箱体、轴架支撑等的中心距尺寸)",
+          "error_text": "0.02~0.04",
+          "error_mm_min": 0.02,
+          "error_mm_max": 0.04
+        },
+        {
+          "record_id": "STD-2.3.2-METHOD-ERRORS-001",
+          "method": "在金刚镗床上加工孔",
+          "feature": "孔与孔之间的距离尺寸(箱体、轴架支撑等的中心距尺寸)",
+          "error_text": "0.04~0.10",
+          "error_mm_min": 0.04,
+          "error_mm_max": 0.1
+        },
+        {
+          "record_id": "STD-2.3.2-METHOD-ERRORS-001",
+          "method": "在普通镗床或摇臂钻床上应用夹具及导向套加工孔",
+          "feature": "孔与孔之间的距离尺寸(箱体、轴架支撑等的中心距尺寸)",
+          "error_text": "0.10~0.20",
+          "error_mm_min": 0.1,
+          "error_mm_max": 0.2
+        }
+      ],
+      "actual_error": null,
+      "outcome": "pass"
+    },
+    {
+      "id": "Q14",
+      "step": "S4a",
+      "category": "allowance",
+      "input": "内孔 H7 Φ130, 工序尺寸链",
+      "text": "粗+精+磨 内孔工序尺寸链?",
+      "expected": "H7 孔工序尺寸表 (Φ50: 25 → 47 → 49.75 → 49.93 → 50)",
+      "kb_call": [
+        "allowance",
+        "{'feature_kind': '孔', 'size_mm': 50}"
+      ],
+      "actual_match_count": 1,
+      "actual_sample": [
+        {
+          "record_id": "STD-2.9.1-H7-HOLE-WORKSTAGE-DIMS-001",
+          "row_index": 10,
+          "feature_kind": "孔",
+          "operation": "工序尺寸链 (H7)",
+          "material": null,
+          "size_segment_text": "50",
+          "length_segment_text": null,
+          "heat_treat": null,
+          "allowance_text": null,
+          "allowance_mm_min": null,
+          "allowance_mm_max": null,
+          "extra_json": "{\"drill_1st_mm\": 25, \"drill_2nd_mm\": 47.0, \"expansion_drill_mm\": 49.75, \"rough_ream_mm\": 49.93, \"fine_ream_mm\": 50, \"result_dim_text\": \"50H7\"}"
+        }
+      ],
+      "actual_error": null,
+      "outcome": "pass"
+    },
+    {
+      "id": "Q15",
+      "step": "S4a",
+      "category": "allowance",
+      "input": "外圆 Φ180 粗车余量",
+      "text": "外圆粗车余量?",
+      "expected": "外圆 120~180 粗车 2.5 mm",
+      "kb_call": [
+        "allowance",
+        "{'feature_kind': '外圆', 'operation': '粗车', 'size_mm': 180}"
+      ],
+      "actual_match_count": 2,
+      "actual_sample": [
+        {
+          "record_id": "STD-2.9.1-OD-ROUGH-FINISH-TURN-ALLOWANCE-001",
+          "row_index": 23,
+          "feature_kind": "外圆",
+          "operation": "粗车",
+          "material": null,
+          "size_segment_text": "120~180",
+          "length_segment_text": "≤200",
+          "heat_treat": null,
+          "allowance_text": null,
+          "allowance_mm_min": 2.5,
+          "allowance_mm_max": 2.5,
+          "extra_json": null
+        },
+        {
+          "record_id": "STD-2.9.1-OD-ROUGH-FINISH-TURN-ALLOWANCE-001",
+          "row_index": 26,
+          "feature_kind": "外圆",
+          "operation": "粗车",
+          "material": null,
+          "size_segment_text": "180~250",
+          "length_segment_text": "≤200",
+          "heat_treat": null,
+          "allowance_text": null,
+          "allowance_mm_min": 2.8,
+          "allowance_mm_max": 2.8,
+          "extra_json": null
+        }
+      ],
+      "actual_error": null,
+      "outcome": "pass"
+    },
+    {
+      "id": "Q16",
+      "step": "S4a",
+      "category": "allowance",
+      "input": "外圆 Φ180 半精车 经铸件 (灰铸铁)",
+      "text": "半精车余量?",
+      "expected": "120~180 半精车 1.8-2.3 mm",
+      "kb_call": [
+        "allowance",
+        "{'feature_kind': '外圆', 'operation': '半精车', 'size_mm': 180}"
+      ],
+      "actual_match_count": 4,
+      "actual_sample": [
+        {
+          "record_id": "STD-2.9.1-OD-ROUGH-FINISH-TURN-ALLOWANCE-001",
+          "row_index": 24,
+          "feature_kind": "外圆",
+          "operation": "半精车",
+          "material": null,
+          "size_segment_text": "120~180",
+          "length_segment_text": "≤200",
+          "heat_treat": "未热处理",
+          "allowance_text": null,
+          "allowance_mm_min": 1.8,
+          "allowance_mm_max": 1.8,
+          "extra_json": null
+        },
+        {
+          "record_id": "STD-2.9.1-OD-ROUGH-FINISH-TURN-ALLOWANCE-001",
+          "row_index": 25,
+          "feature_kind": "外圆",
+          "operation": "半精车",
+          "material": null,
+          "size_segment_text": "120~180",
+          "length_segment_text": "≤200",
+          "heat_treat": "经热处理",
+          "allowance_text": null,
+          "allowance_mm_min": 2.3,
+          "allowance_mm_max": 2.3,
+          "extra_json": null
+        },
+        {
+          "record_id": "STD-2.9.1-OD-ROUGH-FINISH-TURN-ALLOWANCE-001",
+          "row_index": 27,
+          "feature_kind": "外圆",
+          "operation": "半精车",
+          "material": null,
+          "size_segment_text": "180~250",
+          "length_segment_text": "≤200",
+          "heat_treat": "未热处理",
+          "allowance_text": null,
+          "allowance_mm_min": 2.0,
+          "allowance_mm_max": 2.0,
+          "extra_json": null
+        }
+      ],
+      "actual_error": null,
+      "outcome": "pass"
+    },
+    {
+      "id": "Q17",
+      "step": "S4a",
+      "category": "allowance",
+      "input": "端面 精车 Φ260 长 220",
+      "text": "端面余量?",
+      "expected": "120~260 × 120~260: 1.0 mm",
+      "kb_call": [
+        "allowance",
+        "{'feature_kind': '端面', 'operation': '精车', 'size_mm': 260, 'length_mm': 220}"
+      ],
+      "actual_match_count": 9,
+      "actual_sample": [
+        {
+          "record_id": "STD-2.9.1-FACE-FINISH-TURN-ALLOWANCE-001",
+          "row_index": 18,
+          "feature_kind": "端面",
+          "operation": "精车",
+          "material": null,
+          "size_segment_text": "120~260",
+          "length_segment_text": "≤18",
+          "heat_treat": null,
+          "allowance_text": null,
+          "allowance_mm_min": 0.7,
+          "allowance_mm_max": 0.7,
+          "extra_json": null
+        },
+        {
+          "record_id": "STD-2.9.1-FACE-FINISH-TURN-ALLOWANCE-001",
+          "row_index": 19,
+          "feature_kind": "端面",
+          "operation": "精车",
+          "material": null,
+          "size_segment_text": "120~260",
+          "length_segment_text": "18~50",
+          "heat_treat": null,
+          "allowance_text": null,
+          "allowance_mm_min": 0.8,
+          "allowance_mm_max": 0.8,
+          "extra_json": null
+        },
+        {
+          "record_id": "STD-2.9.1-FACE-FINISH-TURN-ALLOWANCE-001",
+          "row_index": 20,
+          "feature_kind": "端面",
+          "operation": "精车",
+          "material": null,
+          "size_segment_text": "120~260",
+          "length_segment_text": "50~120",
+          "heat_treat": null,
+          "allowance_text": null,
+          "allowance_mm_min": 1.0,
+          "allowance_mm_max": 1.0,
+          "extra_json": null
+        }
+      ],
+      "actual_error": null,
+      "outcome": "pass"
+    },
+    {
+      "id": "Q18",
+      "step": "S4b",
+      "category": "cutting-params",
+      "input": "CA6163 粗车 HT200 (灰铸铁) Φ180 → Φ175",
+      "text": "vc/f/ap?",
+      "expected": "灰铸铁: vc 多个 ap 段数据 (粗车 0.833-1.167 m/s 等)",
+      "kb_call": [
+        "cutting_params",
+        "{'material': '灰铸铁'}"
+      ],
+      "actual_match_count": 7,
+      "actual_sample": [
+        {
+          "record_id": "STD-2.7.1-OD-TURN-VC-001",
+          "row_index": 28,
+          "material": "灰铸铁",
+          "tool_type": "硬质合金",
+          "tool_shank_text": null,
+          "operation": null,
+          "workpiece_dim_text": null,
+          "ap_segment_text": null,
+          "f_min": null,
+          "f_max": null,
+          "vc_min_mps": 1.5,
+          "vc_max_mps": 2.0,
+          "n_min_rpm": null,
+          "n_max_rpm": null,
+          "ra_target_um": null,
+          "kappa_prime_deg": null,
+          "tool_nose_r_mm": null,
+          "hardness_hbw_text": "<190",
+          "heat_treat": null
+        },
+        {
+          "record_id": "STD-2.7.1-OD-TURN-VC-001",
+          "row_index": 29,
+          "material": "灰铸铁",
+          "tool_type": "硬质合金",
+          "tool_shank_text": null,
+          "operation": null,
+          "workpiece_dim_text": null,
+          "ap_segment_text": null,
+          "f_min": null,
+          "f_max": null,
+          "vc_min_mps": 1.0,
+          "vc_max_mps": 1.333,
+          "n_min_rpm": null,
+          "n_max_rpm": null,
+          "ra_target_um": null,
+          "kappa_prime_deg": null,
+          "tool_nose_r_mm": null,
+          "hardness_hbw_text": "<190",
+          "heat_treat": null
+        },
+        {
+          "record_id": "STD-2.7.1-OD-TURN-VC-001",
+          "row_index": 30,
+          "material": "灰铸铁",
+          "tool_type": "硬质合金",
+          "tool_shank_text": null,
+          "operation": null,
+          "workpiece_dim_text": null,
+          "ap_segment_text": null,
+          "f_min": null,
+          "f_max": null,
+          "vc_min_mps": 0.833,
+          "vc_max_mps": 1.167,
+          "n_min_rpm": null,
+          "n_max_rpm": null,
+          "ra_target_um": null,
+          "kappa_prime_deg": null,
+          "tool_nose_r_mm": null,
+          "hardness_hbw_text": "<190",
+          "heat_treat": null
+        }
+      ],
+      "actual_error": null,
+      "outcome": "pass"
+    },
+    {
+      "id": "Q19",
+      "step": "S4b",
+      "category": "cutting-params",
+      "input": "精车 HT200 Φ165 +0.5mm 留磨",
+      "text": "vc/f/ap?",
+      "expected": "铸铁 Ra3.2 精车: f=0.3-0.5 mm/r",
+      "kb_call": [
+        "cutting_params",
+        "{'material': '铸铁', 'ra_target_um': 3.2}"
+      ],
+      "actual_match_count": 4,
+      "actual_sample": [
+        {
+          "record_id": "STD-2.7.2-FINISH-TURN-OD-FACE-FEED-001",
+          "row_index": 21,
+          "material": "铸铁",
+          "tool_type": null,
+          "tool_shank_text": null,
+          "operation": null,
+          "workpiece_dim_text": null,
+          "ap_segment_text": null,
+          "f_min": 0.3,
+          "f_max": 0.5,
+          "vc_min_mps": null,
+          "vc_max_mps": null,
+          "n_min_rpm": null,
+          "n_max_rpm": null,
+          "ra_target_um": 3.2,
+          "kappa_prime_deg": "5",
+          "tool_nose_r_mm": 1.0,
+          "hardness_hbw_text": null,
+          "heat_treat": null
+        },
+        {
+          "record_id": "STD-2.7.2-FINISH-TURN-OD-FACE-FEED-001",
+          "row_index": 22,
+          "material": "铸铁",
+          "tool_type": null,
+          "tool_shank_text": null,
+          "operation": null,
+          "workpiece_dim_text": null,
+          "ap_segment_text": null,
+          "f_min": 0.45,
+          "f_max": 0.65,
+          "vc_min_mps": null,
+          "vc_max_mps": null,
+          "n_min_rpm": null,
+          "n_max_rpm": null,
+          "ra_target_um": 3.2,
+          "kappa_prime_deg": "5",
+          "tool_nose_r_mm": 2.0,
+          "hardness_hbw_text": null,
+          "heat_treat": null
+        },
+        {
+          "record_id": "STD-2.7.2-FINISH-TURN-OD-FACE-FEED-001",
+          "row_index": 23,
+          "material": "铸铁",
+          "tool_type": null,
+          "tool_shank_text": null,
+          "operation": null,
+          "workpiece_dim_text": null,
+          "ap_segment_text": null,
+          "f_min": 0.25,
+          "f_max": 0.4,
+          "vc_min_mps": null,
+          "vc_max_mps": null,
+          "n_min_rpm": null,
+          "n_max_rpm": null,
+          "ra_target_um": 3.2,
+          "kappa_prime_deg": "10~15",
+          "tool_nose_r_mm": 1.0,
+          "hardness_hbw_text": null,
+          "heat_treat": null
+        }
+      ],
+      "actual_error": null,
+      "outcome": "pass"
+    },
+    {
+      "id": "Q20",
+      "step": "S4b",
+      "category": "cutting-params",
+      "input": "内圆磨 HT200 Φ130 IT7",
+      "text": "磨削参数 (砂轮+vc+f)?",
+      "expected": "❌ 磨削参数不在车削手册",
+      "kb_call": [
+        "raw_sql",
+        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%' AND topic LIKE '%磨%'"
+      ],
+      "actual_match_count": 0,
+      "actual_sample": [],
+      "actual_error": null,
+      "outcome": "no_data"
+    },
+    {
+      "id": "Q21",
+      "step": "S4b",
+      "category": "cutting-params",
+      "input": "平面磨端面 HT200",
+      "text": "磨削参数?",
+      "expected": "❌ 磨削参数不在车削手册",
+      "kb_call": [
+        "raw_sql",
+        "SELECT id FROM kb_records WHERE framework_branch LIKE '2.7%' AND topic LIKE '%磨%'"
+      ],
+      "actual_match_count": 0,
+      "actual_sample": [],
+      "actual_error": null,
+      "outcome": "no_data"
+    },
+    {
+      "id": "Q22",
+      "step": "S4b",
+      "category": "cutting-params",
+      "input": "精车法兰盘端面 HT200 Φ260",
+      "text": "vc/f/ap?",
+      "expected": "铸铁精车 Ra3.2: f=0.3-0.5 mm/r",
+      "kb_call": [
+        "cutting_params",
+        "{'material': '铸铁', 'ra_target_um': 3.2}"
+      ],
+      "actual_match_count": 4,
+      "actual_sample": [
+        {
+          "record_id": "STD-2.7.2-FINISH-TURN-OD-FACE-FEED-001",
+          "row_index": 21,
+          "material": "铸铁",
+          "tool_type": null,
+          "tool_shank_text": null,
+          "operation": null,
+          "workpiece_dim_text": null,
+          "ap_segment_text": null,
+          "f_min": 0.3,
+          "f_max": 0.5,
+          "vc_min_mps": null,
+          "vc_max_mps": null,
+          "n_min_rpm": null,
+          "n_max_rpm": null,
+          "ra_target_um": 3.2,
+          "kappa_prime_deg": "5",
+          "tool_nose_r_mm": 1.0,
+          "hardness_hbw_text": null,
+          "heat_treat": null
+        },
+        {
+          "record_id": "STD-2.7.2-FINISH-TURN-OD-FACE-FEED-001",
+          "row_index": 22,
+          "material": "铸铁",
+          "tool_type": null,
+          "tool_shank_text": null,
+          "operation": null,
+          "workpiece_dim_text": null,
+          "ap_segment_text": null,
+          "f_min": 0.45,
+          "f_max": 0.65,
+          "vc_min_mps": null,
+          "vc_max_mps": null,
+          "n_min_rpm": null,
+          "n_max_rpm": null,
+          "ra_target_um": 3.2,
+          "kappa_prime_deg": "5",
+          "tool_nose_r_mm": 2.0,
+          "hardness_hbw_text": null,
+          "heat_treat": null
+        },
+        {
+          "record_id": "STD-2.7.2-FINISH-TURN-OD-FACE-FEED-001",
+          "row_index": 23,
+          "material": "铸铁",
+          "tool_type": null,
+          "tool_shank_text": null,
+          "operation": null,
+          "workpiece_dim_text": null,
+          "ap_segment_text": null,
+          "f_min": 0.25,
+          "f_max": 0.4,
+          "vc_min_mps": null,
+          "vc_max_mps": null,
+          "n_min_rpm": null,
+          "n_max_rpm": null,
+          "ra_target_um": 3.2,
+          "kappa_prime_deg": "10~15",
+          "tool_nose_r_mm": 1.0,
+          "hardness_hbw_text": null,
+          "heat_treat": null
+        }
+      ],
+      "actual_error": null,
+      "outcome": "pass"
+    },
+    {
+      "id": "Q23",
+      "step": "S4c",
+      "category": "tolerance-chain",
+      "input": "基准孔 Φ130⁺⁰·⁰⁴⁵⁺⁰·⁰¹⁵",
+      "text": "ISO 286 fit_class IT?",
+      "expected": "H7 120-180 段 = 40μm; 工件 0.030mm = 30μm ≈ IT7",
+      "kb_call": [
+        "calc",
+        "tolerance_lookup_iso"
+      ],
+      "actual_match_count": 1,
+      "actual_sample": [
+        {
+          "diameter_mm": 130.0,
+          "fit_class": "H7",
+          "size_segment_mm": "120-180 mm",
+          "upper_deviation_um": 40,
+          "lower_deviation_um": 0,
+          "tolerance_um": 40
+        }
+      ],
+      "actual_error": null,
+      "outcome": "pass"
+    },
+    {
+      "id": "Q24",
+      "step": "S4c",
+      "category": "tolerance-chain",
+      "input": "外圆 Φ165⁻⁰·¹⁰⁻⁰·¹⁵",
+      "text": "ISO 286 → IT?",
+      "expected": "h8 120-180 段 = 63μm; 工件 0.05mm = 50μm; IT8 接近",
+      "kb_call": [
+        "calc",
+        "tolerance_lookup_iso"
+      ],
+      "actual_match_count": 1,
+      "actual_sample": [
+        {
+          "diameter_mm": 165.0,
+          "fit_class": "h8",
+          "size_segment_mm": "120-180 mm",
+          "upper_deviation_um": 0,
+          "lower_deviation_um": -63,
+          "tolerance_um": 63
+        }
+      ],
+      "actual_error": null,
+      "outcome": "partial"
+    },
+    {
+      "id": "Q25",
+      "step": "S4c",
+      "category": "tolerance-chain",
+      "input": "外圆 Φ180⁻⁰·¹⁰⁻⁰·¹⁵",
+      "text": "ISO 286 → IT?",
+      "expected": "h8 180-250 段 = 72μm; 工件 50μm",
+      "kb_call": [
+        "calc",
+        "tolerance_lookup_iso"
+      ],
+      "actual_match_count": 1,
+      "actual_sample": [
+        {
+          "diameter_mm": 180.0,
+          "fit_class": "h8",
+          "size_segment_mm": "120-180 mm",
+          "upper_deviation_um": 0,
+          "lower_deviation_um": -63,
+          "tolerance_um": 63
+        }
+      ],
+      "actual_error": null,
+      "outcome": "partial"
+    },
+    {
+      "id": "Q26",
+      "step": "S4c",
+      "category": "tolerance-chain",
+      "input": "公差链 (粗车→精车→粗磨→精磨)",
+      "text": "extreme_tolerance?",
+      "expected": "process_calc 已有",
+      "kb_call": [
+        "calc",
+        "extreme_tolerance"
+      ],
+      "actual_match_count": 1,
+      "actual_sample": [
+        {
+          "closed_loop_basic_dim": 130.0,
+          "closed_loop_es": 0.045,
+          "closed_loop_ei": 0.015,
+          "closed_loop_tolerance": 0.03,
+          "max_dimension": 130.045,
+          "min_dimension": 130.015
+        }
+      ],
+      "actual_error": null,
+      "outcome": "pass"
+    },
+    {
+      "id": "Q27",
+      "step": "S5",
+      "category": "sequence-check",
+      "input": "5 工序候选 vs 13 工序 ground truth",
+      "text": "顺序+装夹+合并",
+      "expected": "KB 不负责编排",
+      "kb_call": [
+        "note",
+        "human-only"
+      ],
+      "actual_match_count": 0,
+      "actual_sample": [],
+      "actual_error": null,
+      "outcome": "no_data"
+    }
+  ],
+  "summary": {
+    "totals": {
+      "pass": 17,
+      "partial": 2,
+      "no_data": 5,
+      "friction": 2
+    },
+    "total_queries": 26,
+    "coverage": 0.8076923076923077,
+    "accuracy": 0.8095238095238095,
+    "friction": 0.09523809523809523,
+    "by_step": {
+      "S2": {
+        "pass": 4,
+        "partial": 0,
+        "no_data": 1,
+        "friction": 0
+      },
+      "S3": {
+        "pass": 4,
+        "partial": 0,
+        "no_data": 2,
+        "friction": 2
+      },
+      "S4a": {
+        "pass": 4,
+        "partial": 0,
+        "no_data": 0,
+        "friction": 0
+      },
+      "S4b": {
+        "pass": 3,
+        "partial": 0,
+        "no_data": 2,
+        "friction": 0
+      },
+      "S4c": {
+        "pass": 2,
+        "partial": 2,
+        "no_data": 0,
+        "friction": 0
+      }
+    },
+    "by_category": {
+      "method-candidate": {
+        "pass": 4,
+        "partial": 0,
+        "no_data": 1,
+        "friction": 0
+      },
+      "precision-it": {
+        "pass": 1,
+        "partial": 0,
+        "no_data": 0,
+        "friction": 0
+      },
+      "precision-position": {
+        "pass": 1,
+        "partial": 0,
+        "no_data": 2,
+        "friction": 0
+      },
+      "precision-it+ra": {
+        "pass": 1,
+        "partial": 0,
+        "no_data": 0,
+        "friction": 0
+      },
+      "precision-ra": {
+        "pass": 1,
+        "partial": 0,
+        "no_data": 0,
+        "friction": 2
+      },
+      "allowance": {
+        "pass": 4,
+        "partial": 0,
+        "no_data": 0,
+        "friction": 0
+      },
+      "cutting-params": {
+        "pass": 3,
+        "partial": 0,
+        "no_data": 2,
+        "friction": 0
+      },
+      "tolerance-chain": {
+        "pass": 2,
+        "partial": 2,
+        "no_data": 0,
+        "friction": 0
+      }
+    }
+  }
+}

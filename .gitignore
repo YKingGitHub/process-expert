@@ -1,0 +1,25 @@
+.env
+*.db
+*.pdf
+*.dwg
+*.dxf
+*.step
+*.stp
+*.sldprt
+*.sldasm
+__pycache__/
+*.pyc
+*.pyo
+output/
+data/seeds/extracted/
+config.local.yaml
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+*.db.*
+data/knowledge.db.sprint*
+
+# Private engineering assets are intentionally kept outside this repository.
+geometry-training-handoff/
+test-files/

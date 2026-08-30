@@ -1,0 +1,1011 @@
+{
+  "candidate_type_records": [
+    {
+      "candidate_type": "drawing_requirement_records",
+      "id": "CT-DRAWING-REQ-001",
+      "knowledge_type": "candidate_type",
+      "quality_status": "candidate",
+      "reason": "焊接符号、图纸技术要求、国家标准条文解释可能需要独立分类；当前 Ch3 工艺知识样本不足以回答。",
+      "tags": [
+        "图纸技术要求",
+        "国家标准",
+        "候选类型"
+      ],
+      "topic": "图纸技术要求解释"
+    }
+  ],
+  "case_records": [
+    {
+      "case_summary": "输出轴机械加工工艺过程卡，包含下料、热处理、车、精车、磨、划线、铣、检验、入库等工序。",
+      "case_type": "process_card_example",
+      "extraction_source": {
+        "kind": "source_pdf_vlm_process_card",
+        "route_id": "输出轴_表_3-89_106",
+        "source_pages": [
+          106,
+          107
+        ],
+        "table_ref": "表 3-89"
+      },
+      "first_page": 106,
+      "id": "CASE-SHAFT-OUTPUT-001",
+      "knowledge_type": "case",
+      "last_page": 107,
+      "part_category": "轴类",
+      "part_name": "输出轴",
+      "quality_status": "accepted",
+      "reference_case": true,
+      "route_json": [
+        {
+          "equipment": "锯床",
+          "operation_content": "棒料 φ90mm × 400mm",
+          "operation_name": "下料",
+          "source_page": 106,
+          "step_no": 1
+        },
+        {
+          "equipment": "",
+          "operation_content": "调质处理 28 ~ 32HRC",
+          "operation_name": "热处理",
+          "source_page": 106,
+          "step_no": 2
+        },
+        {
+          "equipment": "CA6140",
+          "operation_content": "夹左端，车右端面，见平即可。钻中心孔 B2.5，粗车右端各部，φ88mm 见圆即可，其余均留精加工余量 3mm",
+          "operation_name": "车",
+          "source_page": 106,
+          "step_no": 3
+        },
+        {
+          "equipment": "CA6140",
+          "operation_content": "倒头装夹工件，车端面保证总长 380mm，钻中心孔 B2.5，粗车外圆各部，留精加工余量 3mm，与工序 3 加工部分相接",
+          "operation_name": "车",
+          "source_page": 106,
+          "step_no": 4
+        },
+        {
+          "equipment": "CA6140",
+          "operation_content": "夹左端，顶右端，精车右端各部，其中 φ60 +0.024/+0.011 mm × 35mm、φ80 +0.021/+0.002 mm × 78mm 处分别留磨削余量 0.8mm",
+          "operation_name": "精车",
+          "source_page": 106,
+          "step_no": 5
+        },
+        {
+          "equipment": "CA6140",
+          "operation_content": "倒头，一夹一顶精车另一端各部，其中 φ54.4 +0.05/0 mm × 85mm、φ60 +0.024/+0.011 mm × 77mm 处分别留磨削余量 0.8mm",
+          "operation_name": "精车",
+          "source_page": 106,
+          "step_no": 6
+        },
+        {
+          "equipment": "M1432A",
+          "operation_content": "用两顶尖装夹工件，磨削 φ60 +0.024/+0.011 mm 两处，φ80 +0.021/+0.002 mm 至图样要求尺寸",
+          "operation_name": "磨",
+          "source_page": 106,
+          "step_no": 7
+        },
+        {
+          "equipment": "M1432A",
+          "operation_content": "倒头，用两顶尖装夹工件，磨削 φ54.4 +0.05/0 mm × 85mm 至图样要求尺寸",
+          "operation_name": "磨",
+          "source_page": 106,
+          "step_no": 8
+        },
+        {
+          "equipment": "",
+          "operation_content": "划两处键槽线",
+          "operation_name": "划线",
+          "source_page": 106,
+          "step_no": 9
+        },
+        {
+          "equipment": "X5030、组合夹具",
+          "operation_content": "铣 18 -0.043 mm 键槽两处",
+          "operation_name": "铣",
+          "source_page": 107,
+          "step_no": 10
+        },
+        {
+          "equipment": "",
+          "operation_content": "按图样检查各部尺寸精度",
+          "operation_name": "检验",
+          "source_page": 107,
+          "step_no": 11
+        },
+        {
+          "equipment": "",
+          "operation_content": "涂油入库",
+          "operation_name": "入库",
+          "source_page": 107,
+          "step_no": 12
+        }
+      ],
+      "route_summary": [
+        "下料",
+        "热处理",
+        "车",
+        "车",
+        "精车",
+        "精车",
+        "磨",
+        "磨",
+        "划线",
+        "铣",
+        "检验",
+        "入库"
+      ],
+      "source_doc": "工艺知识库.pdf",
+      "source_replacement_status": "source_pdf_vlm_replaced",
+      "source_text": "表 3-89 输出轴机械加工工艺过程卡；工序1 下料，设备 锯床: 棒料 φ90mm × 400mm；工序2 热处理: 调质处理 28 ~ 32HRC；工序3 车，设备 CA6140: 夹左端，车右端面，见平即可。钻中心孔 B2.5，粗车右端各部，φ88mm 见圆即可，其余均留精加工余量 3mm；工序4 车，设备 CA6140: 倒头装夹工件，车端面保证总长 380mm，钻中心孔 B2.5，粗车外圆各部，留精加工余量 3mm，与工序 3 加工部分相接；工序5 精车，设备 CA6140: 夹左端，顶右端，精车右端各部，其中 φ60 +0.024/+0.011 mm × 35mm、φ80 +0.021/+0.002 mm × 78mm 处分别留磨削余量 0.8mm；工序6 精车，设备 CA6140: 倒头，一夹一顶精车另一端各部，其中 φ54.4 +0.05/0 mm × 85mm、φ60 +0.024/+0.011 mm × 77mm 处分别留磨削余量 0.8mm；工序7 磨，设备 M1432A: 用两顶尖装夹工件，磨削 φ60 +0.024/+0.011 mm 两处，φ80 +0.021/+0.002 mm 至图样要求尺寸；工序8 磨，设备 M1432A: 倒头，用两顶尖装夹工件，磨削 φ54.4 +0.05/0 mm × 85mm 至图样要求尺寸；工序9 划线: 划两处键槽线；工序10 铣，设备 X5030、组合夹具: 铣 18 -0.043 mm 键槽两处；工序11 检验: 按图样检查各部尺寸精度；工序12 入库: 涂油入库",
+      "tags": [
+        "轴类",
+        "输出轴",
+        "工艺过程卡",
+        "案例"
+      ]
+    },
+    {
+      "case_summary": "缸套机械加工工艺过程卡，包含铸、热处理、粗车、精车、磨、检验、入库等工序。",
+      "case_type": "process_card_example",
+      "extraction_source": {
+        "kind": "source_pdf_vlm_process_card",
+        "route_id": "缸套_表_3-90_108",
+        "source_pages": [
+          108
+        ],
+        "table_ref": "表 3-90"
+      },
+      "first_page": 108,
+      "id": "CASE-CYLINDER-LINER-001",
+      "knowledge_type": "case",
+      "last_page": 108,
+      "part_category": "薄壁套类",
+      "part_name": "缸套",
+      "quality_status": "needs_human_review",
+      "reference_case": true,
+      "route_json": [
+        {
+          "equipment": "",
+          "operation_content": "铸造尺寸 φ315mm×φ265mm×515mm",
+          "operation_name": "铸",
+          "source_page": 108,
+          "step_no": 1
+        },
+        {
+          "equipment": "",
+          "operation_content": "人工时效处理",
+          "operation_name": "热处理",
+          "source_page": 108,
+          "step_no": 2
+        },
+        {
+          "equipment": "CA6140",
+          "operation_content": "夹工件一端外圆，车内径至尺寸 φ270 ±1 mm，车外圆至尺寸 φ310 ±1 mm，车端面见平即可",
+          "operation_name": "粗车",
+          "source_page": 108,
+          "step_no": 3
+        },
+        {
+          "equipment": "CA6140",
+          "operation_content": "倒头装夹工件外圆，车另一端内径尺寸至 φ270 ±1 mm 接刀，车外圆至尺寸 φ310 ±1 mm 接刀，车端面保证尺寸总长 508mm",
+          "operation_name": "粗车",
+          "source_page": 108,
+          "step_no": 4
+        },
+        {
+          "equipment": "",
+          "operation_content": "正火 190~207HBW",
+          "operation_name": "热处理",
+          "source_page": 108,
+          "step_no": 5
+        },
+        {
+          "equipment": "CA6140",
+          "operation_content": "夹工件一端外圆，车内径至尺寸 φ275 ±0.5 mm，车外圆至 φ305 ±0.5 mm，车端面保证总长 506mm（注：车内径和外圆时，长度应超过总长的一半）",
+          "operation_name": "粗车",
+          "source_page": 108,
+          "step_no": 6
+        },
+        {
+          "equipment": "CA6140",
+          "operation_content": "倒头装夹工件外圆，车另一端内径尺寸至 φ275 ±0.5 mm 平滑接刀，车外圆至尺寸 φ305 +0.5 mm 平滑接刀，车端面，保证工件总长 504mm",
+          "operation_name": "粗车",
+          "source_page": 108,
+          "step_no": 7
+        },
+        {
+          "equipment": "CA6140",
+          "operation_content": "夹工件一端外圆。（注意合理的夹紧力，防止工件变形。）车内径至 φ279.2 ±0.05 mm；车外圆至 φ300.8 ±0.05 mm，（注意长度尺寸要超过 250mm），车端面，保证总长尺寸 502mm",
+          "operation_name": "精车",
+          "source_page": 108,
+          "step_no": 8
+        },
+        {
+          "equipment": "CA6140",
+          "operation_content": "倒头装夹工件外圆，车另一端内径尺寸至 φ279.2 ±0.05 mm 平滑接刀，车外圆至尺寸 φ300.8 ±0.05 mm 平滑接刀，保证总长尺寸 500.8mm",
+          "operation_name": "精车",
+          "source_page": 108,
+          "step_no": 9
+        },
+        {
+          "equipment": "中心架",
+          "operation_content": "以外圆定位装夹工件，另一端采用中心架支承，磨内径至图样尺寸 φ280 +0.08/0 mm，磨端面保证工件总长 500.4mm",
+          "operation_name": "磨",
+          "source_page": 108,
+          "step_no": 10
+        },
+        {
+          "equipment": "专用工装",
+          "operation_content": "倒头，以内孔定位装夹工件，尾座采用专用工装辅助支承，磨外圆至图样尺寸 φ300 +0.08/+0.04，松开尾座磨端面，保证图样尺寸 500mm，磨外圆 φ300 +0.04/0 mm，长度为 5mm",
+          "operation_name": "磨",
+          "source_page": 108,
+          "step_no": 11
+        },
+        {
+          "equipment": "",
+          "operation_content": "按图样检查各部尺寸精度",
+          "operation_name": "检验",
+          "source_page": 108,
+          "step_no": 12
+        },
+        {
+          "equipment": "",
+          "operation_content": "涂油入库",
+          "operation_name": "入库",
+          "source_page": 108,
+          "step_no": 13
+        }
+      ],
+      "route_summary": [
+        "铸",
+        "热处理",
+        "粗车",
+        "粗车",
+        "热处理",
+        "粗车",
+        "粗车",
+        "精车",
+        "精车",
+        "磨",
+        "磨",
+        "检验",
+        "入库"
+      ],
+      "source_doc": "工艺知识库.pdf",
+      "source_replacement_status": "source_pdf_vlm_replaced",
+      "source_text": "表 3-90 缸套机械加工工艺过程卡；工序1 铸: 铸造尺寸 φ315mm×φ265mm×515mm；工序2 热处理: 人工时效处理；工序3 粗车，设备 CA6140: 夹工件一端外圆，车内径至尺寸 φ270 ±1 mm，车外圆至尺寸 φ310 ±1 mm，车端面见平即可；工序4 粗车，设备 CA6140: 倒头装夹工件外圆，车另一端内径尺寸至 φ270 ±1 mm 接刀，车外圆至尺寸 φ310 ±1 mm 接刀，车端面保证尺寸总长 508mm；工序5 热处理: 正火 190~207HBW；工序6 粗车，设备 CA6140: 夹工件一端外圆，车内径至尺寸 φ275 ±0.5 mm，车外圆至 φ305 ±0.5 mm，车端面保证总长 506mm（注：车内径和外圆时，长度应超过总长的一半）；工序7 粗车，设备 CA6140: 倒头装夹工件外圆，车另一端内径尺寸至 φ275 ±0.5 mm 平滑接刀，车外圆至尺寸 φ305 +0.5 mm 平滑接刀，车端面，保证工件总长 504mm；工序8 精车，设备 CA6140: 夹工件一端外圆。（注意合理的夹紧力，防止工件变形。）车内径至 φ279.2 ±0.05 mm；车外圆至 φ300.8 ±0.05 mm，（注意长度尺寸要超过 250mm），车端面，保证总长尺寸 502mm；工序9 精车，设备 CA6140: 倒头装夹工件外圆，车另一端内径尺寸至 φ279.2 ±0.05 mm 平滑接刀，车外圆至尺寸 φ300.8 ±0.05 mm 平滑接刀，保证总长尺寸 500.8mm；工序10 磨，设备 中心架: 以外圆定位装夹工件，另一端采用中心架支承，磨内径至图样尺寸 φ280 +0.08/0 mm，磨端面保证工件总长 500.4mm；工序11 磨，设备 专用工装: 倒头，以内孔定位装夹工件，尾座采用专用工装辅助支承，磨外圆至图样尺寸 φ300 +0.08/+0.04，松开尾座磨端面，保证图样尺寸 500mm，磨外圆 φ300 +0.04/0 mm，长度为 5mm；工序12 检验: 按图样检查各部尺寸精度；工序13 入库: 涂油入库",
+      "tags": [
+        "缸套",
+        "薄壁",
+        "工艺过程卡",
+        "案例"
+      ]
+    },
+    {
+      "case_summary": "密封件定位套机械加工工艺过程卡，包含铸、清砂、热处理、粗车、精车、磨、钳、检验、入库等工序。",
+      "case_type": "process_card_example",
+      "extraction_source": {
+        "kind": "source_pdf_vlm_process_card",
+        "route_id": "密封件定位套_表_3-91_109",
+        "source_pages": [
+          109,
+          110
+        ],
+        "table_ref": "表 3-91"
+      },
+      "first_page": 109,
+      "id": "CASE-SEAL-SLEEVE-001",
+      "knowledge_type": "case",
+      "last_page": 110,
+      "part_category": "套类",
+      "part_name": "密封件定位套",
+      "quality_status": "accepted",
+      "reference_case": true,
+      "route_json": [
+        {
+          "equipment": "",
+          "operation_content": "铸件各部留加工余量7mm",
+          "operation_name": "铸",
+          "source_page": 109,
+          "step_no": 1
+        },
+        {
+          "equipment": "",
+          "operation_content": "清砂",
+          "operation_name": "清砂",
+          "source_page": 109,
+          "step_no": 2
+        },
+        {
+          "equipment": "",
+          "operation_content": "人工时效处理",
+          "operation_name": "热处理",
+          "source_page": 109,
+          "step_no": 3
+        },
+        {
+          "equipment": "CA6163",
+          "operation_content": "夹工件右端外圆，照顾铸件壁厚均匀，车内径各部尺寸，留加工余量5mm，车右端面，保证工件总长为226mm，法兰盘壁厚23mm，其余各部留余量5mm",
+          "operation_name": "粗车",
+          "source_page": 109,
+          "step_no": 4
+        },
+        {
+          "equipment": "CA6163",
+          "operation_content": "调头，以内径定位装夹工件，法兰盘外圆找正，车外圆各部，留加工余量5mm",
+          "operation_name": "粗车",
+          "source_page": 109,
+          "step_no": 5
+        },
+        {
+          "equipment": "CA6163",
+          "operation_content": "夹工件右端外圆，车内径至尺寸φ130 +0.8/+0.6 mm，深195mm处车内槽φ136mm×4mm，车外端面，保证工件总长220mm，车φ260mm法兰盘，厚度22mm",
+          "operation_name": "精车",
+          "source_page": 109,
+          "step_no": 6
+        },
+        {
+          "equipment": "CA6163",
+          "operation_content": "调头，以内径定位装夹工件，精车右端外圆各部尺寸，留磨量0.8mm（注φ160mm不留加工余量），车端面保证工件总长220mm，车内径φ90+0.5 +0.2 mm至尺寸φ90+0.20 +0.12 mm，切各环槽至图样尺寸",
+          "operation_name": "精车",
+          "source_page": 110,
+          "step_no": 7
+        },
+        {
+          "equipment": "M1432A",
+          "operation_content": "夹工件右端外圆，内径找正，粗、精磨内径至图样尺寸φ130+0.045 +0.015 mm，靠磨φ136mm端面，磨φ90+0.5 +0.2 mm",
+          "operation_name": "磨",
+          "source_page": 110,
+          "step_no": 8
+        },
+        {
+          "equipment": "",
+          "operation_content": "以内径定位装夹工件，磨φ165-0.10 -0.15 mm外圆，磨φ180-0.10 -0.15 mm外圆至图样尺寸",
+          "operation_name": "磨",
+          "source_page": 110,
+          "step_no": 9
+        },
+        {
+          "equipment": "",
+          "operation_content": "划φ175mm中心圆上3×M8孔线，划φ220mm中心圆上3×φ13mm孔线",
+          "operation_name": "钳",
+          "source_page": 110,
+          "step_no": 10
+        },
+        {
+          "equipment": "Z525",
+          "operation_content": "钻3×φ13mm孔，钻3×M8底孔φ6.7mm、攻螺纹M8、深15mm",
+          "operation_name": "钳",
+          "source_page": 110,
+          "step_no": 11
+        },
+        {
+          "equipment": "",
+          "operation_content": "按图样检验工件各部尺寸及精度",
+          "operation_name": "检验",
+          "source_page": 110,
+          "step_no": 12
+        },
+        {
+          "equipment": "",
+          "operation_content": "涂油入库",
+          "operation_name": "入库",
+          "source_page": 110,
+          "step_no": 13
+        }
+      ],
+      "route_summary": [
+        "铸",
+        "清砂",
+        "热处理",
+        "粗车",
+        "粗车",
+        "精车",
+        "精车",
+        "磨",
+        "磨",
+        "钳",
+        "钳",
+        "检验",
+        "入库"
+      ],
+      "source_doc": "工艺知识库.pdf",
+      "source_replacement_status": "source_pdf_vlm_replaced",
+      "source_text": "表 3-91 密封件定位套机械加工工艺过程卡；工序1 铸: 铸件各部留加工余量7mm；工序2 清砂: 清砂；工序3 热处理: 人工时效处理；工序4 粗车，设备 CA6163: 夹工件右端外圆，照顾铸件壁厚均匀，车内径各部尺寸，留加工余量5mm，车右端面，保证工件总长为226mm，法兰盘壁厚23mm，其余各部留余量5mm；工序5 粗车，设备 CA6163: 调头，以内径定位装夹工件，法兰盘外圆找正，车外圆各部，留加工余量5mm；工序6 精车，设备 CA6163: 夹工件右端外圆，车内径至尺寸φ130 +0.8/+0.6 mm，深195mm处车内槽φ136mm×4mm，车外端面，保证工件总长220mm，车φ260mm法兰盘，厚度22mm；工序7 精车，设备 CA6163: 调头，以内径定位装夹工件，精车右端外圆各部尺寸，留磨量0.8mm（注φ160mm不留加工余量），车端面保证工件总长220mm，车内径φ90+0.5 +0.2 mm至尺寸φ90+0.20 +0.12 mm，切各环槽至图样尺寸；工序8 磨，设备 M1432A: 夹工件右端外圆，内径找正，粗、精磨内径至图样尺寸φ130+0.045 +0.015 mm，靠磨φ136mm端面，磨φ90+0.5 +0.2 mm；工序9 磨: 以内径定位装夹工件，磨φ165-0.10 -0.15 mm外圆，磨φ180-0.10 -0.15 mm外圆至图样尺寸；工序10 钳: 划φ175mm中心圆上3×M8孔线，划φ220mm中心圆上3×φ13mm孔线；工序11 钳，设备 Z525: 钻3×φ13mm孔，钻3×M8底孔φ6.7mm、攻螺纹M8、深15mm；工序12 检验: 按图样检验工件各部尺寸及精度；工序13 入库: 涂油入库",
+      "tags": [
+        "密封件定位套",
+        "套类",
+        "余量",
+        "案例"
+      ]
+    },
+    {
+      "case_summary": "书中典型工艺过程卡是 worked example，用于参考分析思路；实际工艺卡必须结合当前图纸、材料、设备和技术要求重新制定。",
+      "case_type": "reference_boundary",
+      "first_page": 106,
+      "id": "CASE-REFERENCE-BOUNDARY-001",
+      "knowledge_type": "case",
+      "last_page": 126,
+      "part_category": "",
+      "part_name": "",
+      "quality_status": "accepted",
+      "reference_case": true,
+      "route_summary": [],
+      "source_doc": "工艺知识库.pdf",
+      "source_text": "第 3.3 节多个典型零件机械加工工艺过程卡展示了不同零件的工艺路线安排。",
+      "tags": [
+        "案例边界",
+        "不能照抄",
+        "工艺分析"
+      ]
+    }
+  ],
+  "computation_methods": [
+    {
+      "formula": "L0 = sum(xi_i * L_i)",
+      "id": "CM-DIM-CHAIN-BASIC-001",
+      "implementation_status": "verified",
+      "inputs_json": [
+        {
+          "name": "xi",
+          "type": "list[float]"
+        },
+        {
+          "name": "Li",
+          "type": "list[float]",
+          "unit": "mm"
+        }
+      ],
+      "knowledge_type": "computation",
+      "method_id": "closed_loop_basic_size",
+      "method_name": "计算封闭环的基本尺寸",
+      "outputs_json": [
+        {
+          "name": "L0",
+          "type": "float",
+          "unit": "mm"
+        }
+      ],
+      "quality_status": "accepted",
+      "source_doc": "工艺知识库.pdf",
+      "source_page": 86,
+      "source_text": "L_0 = Σ ξ_i L_i",
+      "tags": [
+        "尺寸链",
+        "封闭环",
+        "sprint_c_phase1_verified"
+      ],
+      "topic": "尺寸链封闭环基本尺寸",
+      "verified": true
+    },
+    {
+      "formula": "T0L = sum(abs(xi_i) * T_i)",
+      "id": "CM-DIM-CHAIN-TOL-001",
+      "implementation_status": "verified",
+      "inputs_json": [
+        {
+          "name": "xi",
+          "type": "list[float]"
+        },
+        {
+          "name": "Ti",
+          "type": "list[float]",
+          "unit": "mm"
+        }
+      ],
+      "knowledge_type": "computation",
+      "method_id": "extreme_tolerance",
+      "method_name": "计算封闭环的极值公差",
+      "outputs_json": [
+        {
+          "name": "T0L",
+          "type": "float",
+          "unit": "mm"
+        }
+      ],
+      "quality_status": "accepted",
+      "source_doc": "工艺知识库.pdf",
+      "source_page": 86,
+      "source_text": "T_{0L} = Σ |ξ_i| T_i",
+      "tags": [
+        "尺寸链",
+        "公差",
+        "sprint_c_phase1_verified"
+      ],
+      "topic": "封闭环极值公差",
+      "verified": true
+    },
+    {
+      "formula": "T_av,L = T_0L / n",
+      "id": "CM-PROCESS-TOL-DIST-001",
+      "implementation_status": "not_implemented",
+      "inputs_json": [
+        {
+          "name": "T_0L",
+          "type": "float",
+          "unit": "mm"
+        },
+        {
+          "name": "n",
+          "type": "int"
+        }
+      ],
+      "knowledge_type": "computation",
+      "method_id": "calculate_process_tolerance_distribution",
+      "method_name": "工序尺寸公差分配",
+      "outputs_json": [
+        {
+          "name": "T_av_L",
+          "type": "float",
+          "unit": "mm"
+        }
+      ],
+      "quality_status": "accepted",
+      "source_doc": "工艺知识库.pdf",
+      "source_page": 88,
+      "source_text": "T_0L = ΣT_i；T_av,L = T_0L / n",
+      "tags": [
+        "基准不重合",
+        "工序尺寸",
+        "公差分配"
+      ],
+      "topic": "基准不重合工序尺寸公差分配",
+      "verified": true
+    },
+    {
+      "example_json": {
+        "inner_finish_to_grind_allowance": {
+          "diameter_allowance": 0.8,
+          "finish_source": "φ279.2 ±0.05",
+          "finish_step": 9,
+          "grind_source": "φ280 +0.08/0",
+          "grind_step": 10,
+          "single_side_allowance": 0.4,
+          "status": "passed"
+        },
+        "outer_finish_to_grind_allowance": {
+          "diameter_allowance": 0.8,
+          "finish_source": "φ300.8 ±0.05",
+          "finish_step": 9,
+          "grind_source": "φ300 +0.08/+0.04",
+          "grind_step": 11,
+          "single_side_allowance": 0.4,
+          "status": "passed"
+        }
+      },
+      "extraction_source": {
+        "kind": "source_pdf_vlm_process_card",
+        "route_id": "缸套_表_3-90_108",
+        "source_pages": [
+          108
+        ],
+        "table_ref": "表 3-90"
+      },
+      "formula": "diameter_allowance = abs(D_grind - D_finish); single_side = diameter_allowance / 2",
+      "id": "CM-ALLOW-FINISH-GRIND-001",
+      "implementation_status": "verified",
+      "inputs_json": [
+        {
+          "name": "D_finish",
+          "type": "float",
+          "unit": "mm"
+        },
+        {
+          "name": "D_grind",
+          "type": "float",
+          "unit": "mm"
+        }
+      ],
+      "knowledge_type": "computation",
+      "method_id": "finish_to_grind_allowance",
+      "method_name": "由前后工序直径计算余量",
+      "outputs_json": [
+        {
+          "name": "diameter_allowance",
+          "type": "float",
+          "unit": "mm"
+        },
+        {
+          "name": "single_side_allowance",
+          "type": "float",
+          "unit": "mm"
+        }
+      ],
+      "quality_status": "accepted",
+      "source_doc": "工艺知识库.pdf",
+      "source_page": 108,
+      "source_replacement_status": "source_pdf_vlm_replaced",
+      "source_text": "内圆: φ279.2 ±0.05 -> φ280 +0.08/0；外圆: φ300.8 ±0.05 -> φ300 +0.08/+0.04",
+      "tags": [
+        "余量",
+        "精车",
+        "磨削",
+        "sprint_c_phase1_verified"
+      ],
+      "topic": "精车到磨削余量",
+      "verified": true
+    },
+    {
+      "formula": "parallelism_error = max_difference / 2",
+      "id": "CM-INSPECT-PARALLEL-001",
+      "implementation_status": "not_implemented",
+      "inputs_json": [
+        {
+          "name": "max_difference",
+          "type": "float",
+          "unit": "mm"
+        }
+      ],
+      "knowledge_type": "computation",
+      "method_id": "calculate_parallelism_error",
+      "method_name": "计算平行度误差",
+      "outputs_json": [
+        {
+          "name": "parallelism_error",
+          "type": "float",
+          "unit": "mm"
+        }
+      ],
+      "quality_status": "accepted",
+      "source_doc": "工艺知识库.pdf",
+      "source_page": 124,
+      "source_text": "平行度误差 = 两端最大差值 / 2",
+      "tags": [
+        "连杆",
+        "检验",
+        "平行度"
+      ],
+      "topic": "连杆大小头孔平行度误差",
+      "verified": true
+    },
+    {
+      "id": "CM-TOL-LOOKUP-ISO-001",
+      "knowledge_type": "computation",
+      "method_id": "tolerance_lookup_iso",
+      "topic": "ISO 286-1 一般公差查表 (φ + 配合等级 → 上下偏差)",
+      "method_name": "ISO 286-1 fundamental-deviation + IT-grade lookup",
+      "formula": "upper_deviation = ES; lower_deviation = EI; tolerance = IT[grade][diameter_segment]; per ISO 286-1:2010",
+      "inputs_json": {
+        "diameter_mm": "nominal diameter (basic size), mm",
+        "fit_class": "ISO 286-1 fit class, e.g. H7, h6, g6"
+      },
+      "outputs_json": {
+        "upper_deviation_um": "upper deviation in micrometers",
+        "lower_deviation_um": "lower deviation in micrometers",
+        "tolerance_um": "IT grade tolerance in micrometers"
+      },
+      "verified": true,
+      "implementation_status": "verified",
+      "source_doc": "ISO 286-1:2010 (eqv GB/T 1800.2)",
+      "source_page": 0,
+      "source_text": "GB/T 1800.2 / ISO 286-1 IT 等级 + H/h/g 基本偏差; Phase 1 支持 H6/H7/H8/h6/h7/h8/g6, [0.5, 500] mm 范围。",
+      "tags": [
+        "ISO 286-1",
+        "公差查表",
+        "H7",
+        "h6",
+        "g6",
+        "sprint_c_phase1_verified"
+      ],
+      "quality_status": "accepted"
+    }
+  ],
+  "lookup_records": [
+    {
+      "conditions_json": {
+        "fit_code": "H7",
+        "nominal_diameter_mm": 50
+      },
+      "id": "LU-TOL-H7-50-001",
+      "knowledge_type": "lookup",
+      "lookup_type": "tolerance_fit",
+      "quality_status": "accepted",
+      "result_json": {
+        "lower_deviation_mm": 0.0,
+        "tolerance_mm": 0.025,
+        "upper_deviation_mm": 0.025
+      },
+      "source_doc": "金属切削工艺技术手册.pdf",
+      "source_page": 0,
+      "source_text": "H7，基本尺寸大于30至50，孔上偏差 +25μm，下偏差 0μm",
+      "subject": "φ50H7",
+      "table_ref": "公差配合表 H7 尺寸段 >30~50",
+      "tags": [
+        "公差",
+        "H7",
+        "孔"
+      ],
+      "unit": "mm"
+    },
+    {
+      "conditions_json": {
+        "operation": "精车",
+        "surface": "outer"
+      },
+      "id": "LU-RA-FINISH-TURN-001",
+      "knowledge_type": "lookup",
+      "lookup_type": "surface_roughness",
+      "quality_status": "accepted",
+      "result_json": {
+        "ra_max_um": 3.2,
+        "ra_min_um": 0.8
+      },
+      "source_doc": "金属切削工艺技术手册.pdf",
+      "source_page": 0,
+      "source_text": "精车加工通常可获得 Ra0.8～3.2μm 的表面粗糙度范围。",
+      "subject": "精车外圆 Ra",
+      "table_ref": "表面粗糙度参考表",
+      "tags": [
+        "精车",
+        "粗糙度",
+        "Ra"
+      ],
+      "unit": "μm"
+    },
+    {
+      "conditions_json": {
+        "next_operation": "磨削",
+        "part_name": "缸套",
+        "previous_operation": "精车"
+      },
+      "extraction_source": {
+        "kind": "source_pdf_vlm_process_card",
+        "route_id": "缸套_表_3-90_108",
+        "source_pages": [
+          108
+        ],
+        "table_ref": "表 3-90"
+      },
+      "id": "LU-ALLOW-GRIND-001",
+      "knowledge_type": "lookup",
+      "lookup_type": "machining_allowance",
+      "quality_status": "accepted",
+      "result_json": {
+        "diameter_allowance_mm": 0.8,
+        "inner": {
+          "diameter_allowance": 0.8,
+          "finish_source": "φ279.2 ±0.05",
+          "finish_step": 9,
+          "grind_source": "φ280 +0.08/0",
+          "grind_step": 10,
+          "single_side_allowance": 0.4,
+          "status": "passed"
+        },
+        "outer": {
+          "diameter_allowance": 0.8,
+          "finish_source": "φ300.8 ±0.05",
+          "finish_step": 9,
+          "grind_source": "φ300 +0.08/+0.04",
+          "grind_step": 11,
+          "single_side_allowance": 0.4,
+          "status": "passed"
+        },
+        "single_side_allowance_mm": 0.4
+      },
+      "source_doc": "工艺知识库.pdf",
+      "source_page": 108,
+      "source_replacement_status": "source_pdf_vlm_replaced",
+      "source_text": "内圆: φ279.2 ±0.05 -> φ280 +0.08/0；外圆: φ300.8 ±0.05 -> φ300 +0.08/+0.04",
+      "subject": "精车后磨削余量",
+      "table_ref": "表 3-90",
+      "tags": [
+        "余量",
+        "磨削",
+        "精车",
+        "缸套"
+      ],
+      "unit": "mm"
+    },
+    {
+      "conditions_json": {
+        "equipment": "CA6140"
+      },
+      "extraction_source": {
+        "kind": "source_pdf_vlm_process_card",
+        "source_pages": [
+          106,
+          107,
+          108
+        ]
+      },
+      "id": "LU-EQUIP-CA6140-001",
+      "knowledge_type": "lookup",
+      "lookup_type": "equipment_spec",
+      "quality_status": "accepted",
+      "result_json": {
+        "equipment_type": "车床",
+        "typical_operations": [
+          "粗车",
+          "精车",
+          "车"
+        ]
+      },
+      "source_doc": "工艺知识库.pdf",
+      "source_page": 106,
+      "source_replacement_status": "source_pdf_vlm_replaced",
+      "source_text": "工序3 车，设备 CA6140: 夹左端，车右端面，见平即可。钻中心孔 B2.5，粗车右端各部，φ88mm 见圆即可，其余均留精加工余量 3mm；工序4 车，设备 CA6140: 倒头装夹工件，车端面保证总长 380mm，钻中心孔 B2.5，粗车外圆各部，留精加工余量 3mm，与工序 3 加工部分相接；工序5 精车，设备 CA6140: 夹左端，顶右端，精车右端各部，其中 φ60 +0.024/+0.011 mm × 35mm、φ80 +0.021/+0.002 mm × 78mm 处分别留磨削余量 0.8mm；工序6 精车，设备 CA6140: 倒头，一夹一顶精车另一端各部，其中 φ54.4 +0.05/0 mm × 85mm、φ60 +0.024/+0.011 mm × 77mm 处分别留磨削余量 0.8mm；工序3 粗车，设备 CA6140: 夹工件一端外圆，车内径至尺寸 φ270 ±1 mm，车外圆至尺寸 φ310 ±1 mm，车端面见平即可；工序4 粗车，设备 CA6140: 倒头装夹工件外圆，车另一端内径尺寸至 φ270 ±1 mm 接刀，车外圆至尺寸 φ310 ±1 mm 接刀，车端面保证尺寸总长 508mm；工序6 粗车，设备 CA6140: 夹工件一端外圆，车内径至尺寸 φ275 ±0.5 mm，车外圆至 φ305 ±0.5 mm，车端面保证总长 506mm（注：车内径和外圆时，长度应超过总长的一半）；工序7 粗车，设备 CA6140: 倒头装夹工件外圆，车另一端内径尺寸至 φ275 ±0.5 mm 平滑接刀，车外圆至尺寸 φ305 +0.5 mm 平滑接刀，车端面，保证工件总长 504mm；工序8 精车，设备 CA6140: 夹工件一端外圆。（注意合理的夹紧力，防止工件变形。）车内径至 φ279.2 ±0.05 mm；车外圆至 φ300.8 ±0.05 mm，（注意长度尺寸要超过 250mm），车端面，保证总长尺寸 502mm；工序9 精车，设备 CA6140: 倒头装夹工件外圆，车另一端内径尺寸至 φ279.2 ±0.05 mm 平滑接刀，车外圆至尺寸 φ300.8 ±0.05 mm 平滑接刀，保证总长尺寸 500.8mm",
+      "subject": "CA6140",
+      "table_ref": "表 3-89 / 表 3-90",
+      "tags": [
+        "CA6140",
+        "车床",
+        "设备"
+      ],
+      "unit": ""
+    },
+    {
+      "conditions_json": {
+        "heat_treatment": "调质",
+        "material": "45钢"
+      },
+      "extraction_source": {
+        "kind": "source_pdf_vlm_process_card",
+        "route_id": "输出轴_表_3-89_106",
+        "source_pages": [
+          106,
+          107
+        ],
+        "table_ref": "表 3-89"
+      },
+      "id": "LU-HEAT-45-TEMPER-001",
+      "knowledge_type": "lookup",
+      "lookup_type": "heat_treatment_parameter",
+      "quality_status": "accepted",
+      "result_json": {
+        "hardness_max_hrc": 32,
+        "hardness_min_hrc": 28
+      },
+      "source_doc": "工艺知识库.pdf",
+      "source_page": 106,
+      "source_replacement_status": "source_pdf_vlm_replaced",
+      "source_text": "工序2 热处理: 调质处理 28 ~ 32HRC",
+      "subject": "45钢调质硬度",
+      "table_ref": "表 3-89",
+      "tags": [
+        "45钢",
+        "调质",
+        "硬度"
+      ],
+      "unit": "HRC"
+    }
+  ],
+  "principle_records": [
+    {
+      "applicable_scenario": "轴类零件、传动轴、齿轮轴工艺路线规划",
+      "chapter_path": "第3章 机械加工工艺规程制订",
+      "extraction_source": {
+        "kind": "source_pdf_vlm_process_card",
+        "route_id": "输出轴_表_3-89_106",
+        "source_pages": [
+          106,
+          107
+        ],
+        "table_ref": "表 3-89"
+      },
+      "id": "PR-DATUM-AXIS-001",
+      "knowledge_type": "principle",
+      "principle_text": "轴类零件可先加工中心孔和主要外圆，再用一夹一顶或两顶尖等方式保持后续精车、磨削的统一定位基准。",
+      "quality_status": "accepted",
+      "source_doc": "工艺知识库.pdf",
+      "source_page": 106,
+      "source_replacement_status": "source_pdf_vlm_replaced",
+      "source_text": "工序3 车，设备 CA6140: 夹左端，车右端面，见平即可。钻中心孔 B2.5，粗车右端各部，φ88mm 见圆即可，其余均留精加工余量 3mm；工序4 车，设备 CA6140: 倒头装夹工件，车端面保证总长 380mm，钻中心孔 B2.5，粗车外圆各部，留精加工余量 3mm，与工序 3 加工部分相接；工序5 精车，设备 CA6140: 夹左端，顶右端，精车右端各部，其中 φ60 +0.024/+0.011 mm × 35mm、φ80 +0.021/+0.002 mm × 78mm 处分别留磨削余量 0.8mm；工序6 精车，设备 CA6140: 倒头，一夹一顶精车另一端各部，其中 φ54.4 +0.05/0 mm × 85mm、φ60 +0.024/+0.011 mm × 77mm 处分别留磨削余量 0.8mm；工序7 磨，设备 M1432A: 用两顶尖装夹工件，磨削 φ60 +0.024/+0.011 mm 两处，φ80 +0.021/+0.002 mm 至图样要求尺寸；工序8 磨，设备 M1432A: 倒头，用两顶尖装夹工件，磨削 φ54.4 +0.05/0 mm × 85mm 至图样要求尺寸",
+      "subtype": "datum_selection",
+      "tags": [
+        "轴类",
+        "基准",
+        "中心孔",
+        "路线规划"
+      ],
+      "topic": "轴类零件基准选择"
+    },
+    {
+      "applicable_scenario": "通用工艺路线规划",
+      "chapter_path": "第3章 机械加工工艺规程制订",
+      "id": "PR-DATUM-FIRST-001",
+      "knowledge_type": "principle",
+      "principle_text": "机械加工路线通常先加工定位基准，再以稳定基准加工其他表面，以减少装夹误差传递并保证相互位置精度。",
+      "quality_status": "accepted",
+      "source_doc": "工艺知识库.pdf",
+      "source_page": 114,
+      "source_text": "轴承座等案例先安排底面、侧面或基准孔加工，再安排孔系和相关表面加工。",
+      "subtype": "operation_sequence",
+      "tags": [
+        "基准",
+        "工序顺序",
+        "位置精度"
+      ],
+      "topic": "先加工基准面"
+    },
+    {
+      "applicable_scenario": "薄壁缸套、套类零件",
+      "chapter_path": "第3章 机械加工工艺规程制订",
+      "extraction_source": {
+        "kind": "source_pdf_vlm_process_card",
+        "route_id": "缸套_表_3-90_108",
+        "source_pages": [
+          108
+        ],
+        "table_ref": "表 3-90"
+      },
+      "id": "PR-THIN-WALL-001",
+      "knowledge_type": "principle",
+      "principle_text": "薄壁缸套加工应控制夹紧力和支承方式，粗车、精车、磨削分阶段安排，避免因刚性差导致装夹和切削变形。",
+      "quality_status": "accepted",
+      "source_doc": "工艺知识库.pdf",
+      "source_page": 108,
+      "source_replacement_status": "source_pdf_vlm_replaced",
+      "source_text": "工序8 精车，设备 CA6140: 夹工件一端外圆。（注意合理的夹紧力，防止工件变形。）车内径至 φ279.2 ±0.05 mm；车外圆至 φ300.8 ±0.05 mm，（注意长度尺寸要超过 250mm），车端面，保证总长尺寸 502mm；工序9 精车，设备 CA6140: 倒头装夹工件外圆，车另一端内径尺寸至 φ279.2 ±0.05 mm 平滑接刀，车外圆至尺寸 φ300.8 ±0.05 mm 平滑接刀，保证总长尺寸 500.8mm；工序10 磨，设备 中心架: 以外圆定位装夹工件，另一端采用中心架支承，磨内径至图样尺寸 φ280 +0.08/0 mm，磨端面保证工件总长 500.4mm；工序11 磨，设备 专用工装: 倒头，以内孔定位装夹工件，尾座采用专用工装辅助支承，磨外圆至图样尺寸 φ300 +0.08/+0.04，松开尾座磨端面，保证图样尺寸 500mm，磨外圆 φ300 +0.04/0 mm，长度为 5mm",
+      "subtype": "thin_wall_processing",
+      "tags": [
+        "薄壁",
+        "缸套",
+        "粗精分开",
+        "装夹变形"
+      ],
+      "topic": "薄壁缸套粗精分开"
+    },
+    {
+      "applicable_scenario": "有热处理要求的轴类、套类、铸件",
+      "chapter_path": "第3章 机械加工工艺规程制订",
+      "extraction_source": {
+        "kind": "source_pdf_vlm_process_card",
+        "source_pages": [
+          106,
+          107,
+          108,
+          109,
+          110
+        ]
+      },
+      "id": "PR-HEAT-TREAT-001",
+      "knowledge_type": "principle",
+      "principle_text": "热处理应按材料和精度要求插入工艺路线；案例中输出轴下料后调质，缸套粗加工阶段安排人工时效和正火，铸件套类先时效再粗精加工。",
+      "quality_status": "accepted",
+      "source_doc": "工艺知识库.pdf",
+      "source_page": 106,
+      "source_replacement_status": "source_pdf_vlm_replaced",
+      "source_text": "工序2 热处理: 调质处理 28 ~ 32HRC；工序2 热处理: 人工时效处理；工序5 热处理: 正火 190~207HBW；工序3 热处理: 人工时效处理",
+      "subtype": "heat_treatment_arrangement",
+      "tags": [
+        "热处理",
+        "调质",
+        "正火",
+        "时效"
+      ],
+      "topic": "热处理工序安排"
+    },
+    {
+      "applicable_scenario": "轴类零件键槽加工后的对称度检验",
+      "chapter_path": "第3章 机械加工工艺规程制订",
+      "extraction_source": {
+        "confidence": 1.0,
+        "evidence_region": "表 3-89 下方正文第 2 条",
+        "fixture": "experiments/prose_principle_extraction/fixtures/source/p107_principles.json",
+        "kind": "source_pdf_vlm_prose",
+        "source_pages": [
+          107
+        ]
+      },
+      "id": "PR-INSPECTION-KEYSLOT-001",
+      "knowledge_type": "principle",
+      "principle_text": "图样未标注键槽对称度时，实际加工仍应保证装配所需的对称度；键槽对称度可用偏摆仪与量块配合检查，也可用专用对称度检具检查。",
+      "quality_status": "accepted",
+      "source_doc": "工艺知识库.pdf",
+      "source_page": 107,
+      "source_replacement_status": "source_pdf_vlm_replaced",
+      "source_text": "图样中键槽未标注对称度要求，但在实际加工中应保证±0.025mm的对称度。这样便于与齿轮的装配，键槽对称度的检查，可采用偏摆仪及量块配合完成，也可采用专用对称度检具进行检查。",
+      "subtype": "inspection_method",
+      "tags": [
+        "键槽",
+        "对称度",
+        "检验",
+        "偏摆仪",
+        "量块",
+        "专用检具"
+      ],
+      "topic": "键槽对称度检查"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+
+[pipeline] Extracting pages from references/金属切削工艺技术手册.pdf ...
+[pdf_extractor] Extracted 777 pages from 金属切削工艺技术手册.pdf
+
+[pipeline] Classifying 777 pages ...
+[pipeline] Classification: {'param_table': 478, 'knowledge_table': 219, 'plain_text': 80, 'unknown': 0}
+
+[pipeline] Processing 777 pages (Tier1/2/3 fallback) ...
+[pipeline] Flush @page 10: params+=0 chunks+=6

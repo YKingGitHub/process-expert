@@ -1,0 +1,70 @@
+{
+  "payload": {
+    "cards": [
+      {
+        "continuation_of": "(续)",
+        "is_continuation": true,
+        "part_name": "",
+        "steps": [
+          {
+            "allowances": [],
+            "dimensions": [
+              {
+                "lower_deviation": -0.043,
+                "nominal": 18.0,
+                "source_text": "18 -0.043 mm",
+                "surface": "slot",
+                "tolerance_text": "-0.043",
+                "unit": "mm",
+                "upper_deviation": 0
+              }
+            ],
+            "equipment": "X5030、组合夹具",
+            "operation_content": "铣 18 -0.043 mm 键槽两处",
+            "operation_name": "铣",
+            "step_no": 10
+          },
+          {
+            "allowances": [],
+            "dimensions": [],
+            "equipment": "",
+            "operation_content": "按图样检查各部尺寸精度",
+            "operation_name": "检验",
+            "step_no": 11
+          },
+          {
+            "allowances": [],
+            "dimensions": [],
+            "equipment": "",
+            "operation_content": "涂油入库",
+            "operation_name": "入库",
+            "step_no": 12
+          }
+        ],
+        "table_no": "",
+        "table_title": "",
+        "technical_requirements": []
+      },
+      {
+        "continuation_of": "",
+        "is_continuation": false,
+        "part_name": "缸套",
+        "steps": [],
+        "table_no": "表 3-90",
+        "table_title": "缸套机械加工工艺过程卡",
+        "technical_requirements": [
+          "正火 190 ~ 207HBW。",
+          "材料 QT600-3。",
+          "未注倒角 C1。"
+        ],
+        "warnings": [
+          "Table content for '表 3-90' is not visible on this page."
+        ]
+      }
+    ],
+    "page_title": "第3章 机械加工工艺规程制订",
+    "source_page": 107,
+    "warnings": []
+  },
+  "validation_errors": []
+}

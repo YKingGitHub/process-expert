@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-04-15T04:49:03.883374",
+  "total_pages": 7,
+  "processed_pages": 6,
+  "skipped_plain_text_pages": 1,
+  "tier1_success": 0,
+  "tier2_success": 0,
+  "tier3_vlm_success": 6,
+  "unresolved_count": 0,
+  "cross_validation_pass_rate": 0.0,
+  "vlm_fallback_count": 6,
+  "unresolved_rate": 0.0,
+  "total_process_params": 136,
+  "llm_extracted_count": 36
+}

@@ -1,0 +1,26 @@
+# 工艺卡生成 DEMO 配置
+# 从 ${AI_STACK_ENV_FILE} 复制对应值
+
+llm:
+  # DashScope Coding Plan API
+  base_url: "https://coding.dashscope.aliyuncs.com/v1"
+  api_key: "YOUR_DASHSCOPE_API_KEY"    # 从 ${AI_STACK_ENV_FILE} 的 DASHSCOPE_API_KEY 复制
+  model: "qwen3.5-plus"         # VLM (图纸解析，支持 text+image)
+  text_model: "qwen3.5-plus"    # 纯文本 LLM (工艺路线生成)
+  max_tokens: 8192
+  temperature: 0.3
+  vlm_timeout: 300         # VLM 图纸解析超时（秒），大图片需要更长时间
+  text_timeout: 120        # 文本 LLM 超时（秒）
+
+database:
+  # 本地 SQLite 知识库（自带，无需配置）
+  path: "data/knowledge.db"
+
+web_search:
+  # 设为 false 则跳过 Stage 2 网络检索，使用预置框架
+  enabled: true
+  timeout: 15              # DuckDuckGo 搜索超时（秒）
+  llm_timeout: 120         # LLM 综合分析超时（秒）
+
+output:
+  dir: "output"

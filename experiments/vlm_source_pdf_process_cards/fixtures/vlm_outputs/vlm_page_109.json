@@ -1,0 +1,187 @@
+{
+  "payload": {
+    "cards": [
+      {
+        "continuation_of": "",
+        "is_continuation": false,
+        "part_name": "密封件定位套",
+        "steps": [
+          {
+            "allowances": [
+              {
+                "allowance_type": "machining",
+                "max_value": null,
+                "source_text": "留加工余量7mm",
+                "unit": "mm",
+                "value": 7.0
+              }
+            ],
+            "dimensions": [],
+            "equipment": "",
+            "operation_content": "铸件各部留加工余量7mm",
+            "operation_name": "铸",
+            "step_no": 1
+          },
+          {
+            "allowances": [],
+            "dimensions": [],
+            "equipment": "",
+            "operation_content": "清砂",
+            "operation_name": "清砂",
+            "step_no": 2
+          },
+          {
+            "allowances": [],
+            "dimensions": [],
+            "equipment": "",
+            "operation_content": "人工时效处理",
+            "operation_name": "热处理",
+            "step_no": 3
+          },
+          {
+            "allowances": [
+              {
+                "allowance_type": "machining",
+                "max_value": null,
+                "source_text": "留加工余量5mm",
+                "unit": "mm",
+                "value": 5.0
+              },
+              {
+                "allowance_type": "machining",
+                "max_value": null,
+                "source_text": "其余各部留余量5mm",
+                "unit": "mm",
+                "value": 5.0
+              }
+            ],
+            "dimensions": [
+              {
+                "lower_deviation": null,
+                "nominal": 226.0,
+                "source_text": "总长为226mm",
+                "surface": "length",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 23.0,
+                "source_text": "法兰盘壁厚23mm",
+                "surface": "unknown",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              }
+            ],
+            "equipment": "CA6163",
+            "operation_content": "夹工件右端外圆，照顾铸件壁厚均匀，车内径各部尺寸，留加工余量5mm，车右端面，保证工件总长为226mm，法兰盘壁厚23mm，其余各部留余量5mm",
+            "operation_name": "粗车",
+            "step_no": 4
+          },
+          {
+            "allowances": [
+              {
+                "allowance_type": "machining",
+                "max_value": null,
+                "source_text": "留加工余量5mm",
+                "unit": "mm",
+                "value": 5.0
+              }
+            ],
+            "dimensions": [],
+            "equipment": "CA6163",
+            "operation_content": "调头，以内径定位装夹工件，法兰盘外圆找正，车外圆各部，留加工余量5mm",
+            "operation_name": "粗车",
+            "step_no": 5
+          },
+          {
+            "allowances": [],
+            "dimensions": [
+              {
+                "lower_deviation": 0.6,
+                "nominal": 130.0,
+                "source_text": "φ130 +0.8/+0.6 mm",
+                "surface": "hole",
+                "tolerance_text": "+0.8/+0.6",
+                "unit": "mm",
+                "upper_deviation": 0.8
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 195.0,
+                "source_text": "深195mm",
+                "surface": "length",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 136.0,
+                "source_text": "φ136mm",
+                "surface": "slot",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 4.0,
+                "source_text": "×4mm",
+                "surface": "slot",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 220.0,
+                "source_text": "总长220mm",
+                "surface": "length",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 260.0,
+                "source_text": "φ260mm",
+                "surface": "outer",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 22.0,
+                "source_text": "厚度22mm",
+                "surface": "length",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              }
+            ],
+            "equipment": "CA6163",
+            "operation_content": "夹工件右端外圆，车内径至尺寸φ130 +0.8/+0.6 mm，深195mm处车内槽φ136mm×4mm，车外端面，保证工件总长220mm，车φ260mm法兰盘，厚度22mm",
+            "operation_name": "精车",
+            "step_no": 6
+          }
+        ],
+        "table_no": "表 3-91",
+        "table_title": "密封件定位套机械加工工艺过程卡",
+        "technical_requirements": [
+          "材料不能有疏松、夹渣等缺陷。",
+          "尖角倒钝。",
+          "铸件人工时效处理。",
+          "材料 HT200。"
+        ]
+      }
+    ],
+    "page_title": "第3章 机械加工工艺规程制订",
+    "source_page": 109,
+    "warnings": []
+  },
+  "validation_errors": []
+}

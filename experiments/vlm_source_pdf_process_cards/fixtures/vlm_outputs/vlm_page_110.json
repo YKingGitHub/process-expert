@@ -1,0 +1,245 @@
+{
+  "payload": {
+    "cards": [
+      {
+        "continuation_of": "",
+        "is_continuation": true,
+        "part_name": "",
+        "steps": [
+          {
+            "allowances": [
+              {
+                "allowance_type": "grinding",
+                "max_value": null,
+                "source_text": "留磨量0.8mm",
+                "unit": "mm",
+                "value": 0.8
+              }
+            ],
+            "dimensions": [
+              {
+                "lower_deviation": null,
+                "nominal": 160,
+                "source_text": "φ160mm",
+                "surface": "outer",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 220,
+                "source_text": "220mm",
+                "surface": "length",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              },
+              {
+                "lower_deviation": 0.2,
+                "nominal": 90,
+                "source_text": "φ90+0.5 +0.2 mm",
+                "surface": "inner",
+                "tolerance_text": "+0.5/+0.2",
+                "unit": "mm",
+                "upper_deviation": 0.5
+              },
+              {
+                "lower_deviation": 0.12,
+                "nominal": 90,
+                "source_text": "φ90+0.20 +0.12 mm",
+                "surface": "inner",
+                "tolerance_text": "+0.20/+0.12",
+                "unit": "mm",
+                "upper_deviation": 0.2
+              }
+            ],
+            "equipment": "CA6163",
+            "operation_content": "调头，以内径定位装夹工件，精车右端外圆各部尺寸，留磨量0.8mm（注φ160mm不留加工余量），车端面保证工件总长220mm，车内径φ90+0.5 +0.2 mm至尺寸φ90+0.20 +0.12 mm，切各环槽至图样尺寸",
+            "operation_name": "精车",
+            "step_no": 7
+          },
+          {
+            "allowances": [],
+            "dimensions": [
+              {
+                "lower_deviation": 0.015,
+                "nominal": 130,
+                "source_text": "φ130+0.045 +0.015 mm",
+                "surface": "inner",
+                "tolerance_text": "+0.045/+0.015",
+                "unit": "mm",
+                "upper_deviation": 0.045
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 136,
+                "source_text": "φ136mm",
+                "surface": "outer",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              },
+              {
+                "lower_deviation": 0.2,
+                "nominal": 90,
+                "source_text": "φ90+0.5 +0.2 mm",
+                "surface": "inner",
+                "tolerance_text": "+0.5/+0.2",
+                "unit": "mm",
+                "upper_deviation": 0.5
+              }
+            ],
+            "equipment": "M1432A",
+            "operation_content": "夹工件右端外圆，内径找正，粗、精磨内径至图样尺寸φ130+0.045 +0.015 mm，靠磨φ136mm端面，磨φ90+0.5 +0.2 mm",
+            "operation_name": "磨",
+            "step_no": 8
+          },
+          {
+            "allowances": [],
+            "dimensions": [
+              {
+                "lower_deviation": -0.15,
+                "nominal": 165,
+                "source_text": "φ165-0.10 -0.15 mm",
+                "surface": "outer",
+                "tolerance_text": "-0.10/-0.15",
+                "unit": "mm",
+                "upper_deviation": -0.1
+              },
+              {
+                "lower_deviation": -0.15,
+                "nominal": 180,
+                "source_text": "φ180-0.10 -0.15 mm",
+                "surface": "outer",
+                "tolerance_text": "-0.10/-0.15",
+                "unit": "mm",
+                "upper_deviation": -0.1
+              }
+            ],
+            "equipment": "",
+            "operation_content": "以内径定位装夹工件，磨φ165-0.10 -0.15 mm外圆，磨φ180-0.10 -0.15 mm外圆至图样尺寸",
+            "operation_name": "磨",
+            "step_no": 9
+          },
+          {
+            "allowances": [],
+            "dimensions": [
+              {
+                "lower_deviation": null,
+                "nominal": 175,
+                "source_text": "φ175mm",
+                "surface": "hole",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 8,
+                "source_text": "M8",
+                "surface": "hole",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 220,
+                "source_text": "φ220mm",
+                "surface": "hole",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 13,
+                "source_text": "φ13mm",
+                "surface": "hole",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              }
+            ],
+            "equipment": "",
+            "operation_content": "划φ175mm中心圆上3×M8孔线，划φ220mm中心圆上3×φ13mm孔线",
+            "operation_name": "钳",
+            "step_no": 10
+          },
+          {
+            "allowances": [],
+            "dimensions": [
+              {
+                "lower_deviation": null,
+                "nominal": 13,
+                "source_text": "φ13mm",
+                "surface": "hole",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 8,
+                "source_text": "M8",
+                "surface": "hole",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 6.7,
+                "source_text": "φ6.7mm",
+                "surface": "hole",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              },
+              {
+                "lower_deviation": null,
+                "nominal": 15,
+                "source_text": "深15mm",
+                "surface": "hole",
+                "tolerance_text": "",
+                "unit": "mm",
+                "upper_deviation": null
+              }
+            ],
+            "equipment": "Z525",
+            "operation_content": "钻3×φ13mm孔，钻3×M8底孔φ6.7mm、攻螺纹M8、深15mm",
+            "operation_name": "钳",
+            "step_no": 11
+          },
+          {
+            "allowances": [],
+            "dimensions": [],
+            "equipment": "",
+            "operation_content": "按图样检验工件各部尺寸及精度",
+            "operation_name": "检验",
+            "step_no": 12
+          },
+          {
+            "allowances": [],
+            "dimensions": [],
+            "equipment": "",
+            "operation_content": "涂油入库",
+            "operation_name": "入库",
+            "step_no": 13
+          }
+        ],
+        "table_no": "",
+        "table_title": "",
+        "technical_requirements": [
+          "1. 尖角倒钝。",
+          "2. 材料 HT200。"
+        ]
+      }
+    ],
+    "page_title": "金属切削工艺技术手册",
+    "source_page": 110,
+    "warnings": []
+  },
+  "validation_errors": []
+}

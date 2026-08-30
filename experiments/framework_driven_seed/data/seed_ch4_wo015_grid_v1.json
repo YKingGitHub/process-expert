@@ -1,0 +1,4127 @@
+[
+  {
+    "id": "STD-2.8.1.4-HOLE-ECON-GRID-001",
+    "family": "标准",
+    "prefix": "STD",
+    "framework_branch": "2.8.1.4.HOLE-ECON-GRID",
+    "subtype": null,
+    "topic": "孔加工的经济精度",
+    "source_doc": "金属切削工艺技术手册",
+    "source_page": 486,
+    "source_ref": "表4-10",
+    "source_text": "表4-10 孔加工的经济精度",
+    "quality_status": "verified",
+    "quality_flags": [],
+    "tags": [
+      "Ch4",
+      "size_method_grid",
+      "hole-economic-precision"
+    ],
+    "payload": {
+      "value_table": [
+        {
+          "size_segment_text": "1~3",
+          "size_min": 1.0,
+          "size_max": 3.0,
+          "method": "钻及扩钻孔/有钻模",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "60",
+          "deviation_um_min": 60.0,
+          "deviation_um_max": 60.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 1,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": "1~3",
+          "size_min": 1.0,
+          "size_max": 3.0,
+          "method": "扩孔/铸孔或冲孔后一次扩孔",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "60",
+          "deviation_um_min": 60.0,
+          "deviation_um_max": 60.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 3,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">3~6",
+          "size_min": 3.0,
+          "size_max": 6.0,
+          "method": "钻及扩钻孔/有钻模",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "80",
+          "deviation_um_min": 80.0,
+          "deviation_um_max": 80.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 1,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">3~6",
+          "size_min": 3.0,
+          "size_max": 6.0,
+          "method": "扩孔/铸孔或冲孔后一次扩孔",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "80",
+          "deviation_um_min": 80.0,
+          "deviation_um_max": 80.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 3,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">3~6",
+          "size_min": 3.0,
+          "size_max": 6.0,
+          "method": "铰孔/半精铰",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "80",
+          "deviation_um_min": 80.0,
+          "deviation_um_max": 80.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 8,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">3~6",
+          "size_min": 3.0,
+          "size_max": 6.0,
+          "method": "铰孔/半精铰",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "48",
+          "deviation_um_min": 48.0,
+          "deviation_um_max": 48.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 9,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">3~6",
+          "size_min": 3.0,
+          "size_max": 6.0,
+          "method": "铰孔/半精铰",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "25",
+          "deviation_um_min": 25.0,
+          "deviation_um_max": 25.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 10,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">3~6",
+          "size_min": 3.0,
+          "size_max": 6.0,
+          "method": "铰孔/精铰",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "18",
+          "deviation_um_min": 18.0,
+          "deviation_um_max": 18.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 11,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">3~6",
+          "size_min": 3.0,
+          "size_max": 6.0,
+          "method": "铰孔/细铰",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "13",
+          "deviation_um_min": 13.0,
+          "deviation_um_max": 13.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 12,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">3~6",
+          "size_min": 3.0,
+          "size_max": 6.0,
+          "method": "铰孔/细铰",
+          "it_text": "6",
+          "it_min": 6,
+          "it_max": 6,
+          "deviation_um_text": "8",
+          "deviation_um_min": 8.0,
+          "deviation_um_max": 8.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 13,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">6~10",
+          "size_min": 6.0,
+          "size_max": 10.0,
+          "method": "钻及扩钻孔/有钻模",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "100",
+          "deviation_um_min": 100.0,
+          "deviation_um_max": 100.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 1,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">6~10",
+          "size_min": 6.0,
+          "size_max": 10.0,
+          "method": "扩孔/铸孔或冲孔后一次扩孔",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "100",
+          "deviation_um_min": 100.0,
+          "deviation_um_max": 100.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 3,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">6~10",
+          "size_min": 6.0,
+          "size_max": 10.0,
+          "method": "铰孔/半精铰",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "100",
+          "deviation_um_min": 100.0,
+          "deviation_um_max": 100.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 8,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">6~10",
+          "size_min": 6.0,
+          "size_max": 10.0,
+          "method": "铰孔/半精铰",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "58",
+          "deviation_um_min": 58.0,
+          "deviation_um_max": 58.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 9,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">6~10",
+          "size_min": 6.0,
+          "size_max": 10.0,
+          "method": "铰孔/半精铰",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "30",
+          "deviation_um_min": 30.0,
+          "deviation_um_max": 30.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 10,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">6~10",
+          "size_min": 6.0,
+          "size_max": 10.0,
+          "method": "铰孔/精铰",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "22",
+          "deviation_um_min": 22.0,
+          "deviation_um_max": 22.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 11,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">6~10",
+          "size_min": 6.0,
+          "size_max": 10.0,
+          "method": "铰孔/细铰",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "16",
+          "deviation_um_min": 16.0,
+          "deviation_um_max": 16.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 12,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">6~10",
+          "size_min": 6.0,
+          "size_max": 10.0,
+          "method": "铰孔/细铰",
+          "it_text": "6",
+          "it_min": 6,
+          "it_max": 6,
+          "deviation_um_text": "9",
+          "deviation_um_min": 9.0,
+          "deviation_um_max": 9.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 13,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "钻及扩钻孔/无钻模",
+          "it_text": "12",
+          "it_min": 12,
+          "it_max": 12,
+          "deviation_um_text": "240",
+          "deviation_um_min": 240.0,
+          "deviation_um_max": 240.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 0,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "扩孔/铸孔或冲孔后一次扩孔",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "120",
+          "deviation_um_min": 120.0,
+          "deviation_um_max": 120.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 3,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "扩孔/粗扩或钻后精扩",
+          "it_text": "12",
+          "it_min": 12,
+          "it_max": 12,
+          "deviation_um_text": "240",
+          "deviation_um_min": 240.0,
+          "deviation_um_max": 240.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 4,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "扩孔/粗扩或钻后精扩",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "120",
+          "deviation_um_min": 120.0,
+          "deviation_um_max": 120.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 6,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "扩孔/粗扩或钻后精扩",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "70",
+          "deviation_um_min": 70.0,
+          "deviation_um_max": 70.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 7,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "铰孔/半精铰",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "120",
+          "deviation_um_min": 120.0,
+          "deviation_um_max": 120.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 8,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "铰孔/半精铰",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "70",
+          "deviation_um_min": 70.0,
+          "deviation_um_max": 70.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 9,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "铰孔/半精铰",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "35",
+          "deviation_um_min": 35.0,
+          "deviation_um_max": 35.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 10,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "铰孔/精铰",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "27",
+          "deviation_um_min": 27.0,
+          "deviation_um_max": 27.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 11,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "铰孔/细铰",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "19",
+          "deviation_um_min": 19.0,
+          "deviation_um_max": 19.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 12,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "铰孔/细铰",
+          "it_text": "6",
+          "it_min": 6,
+          "it_max": 6,
+          "deviation_um_text": "11",
+          "deviation_um_min": 11.0,
+          "deviation_um_max": 11.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 13,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "钻及扩钻孔/无钻模",
+          "it_text": "12",
+          "it_min": 12,
+          "it_max": 12,
+          "deviation_um_text": "280",
+          "deviation_um_min": 280.0,
+          "deviation_um_max": 280.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 0,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "扩孔/铸孔或冲孔后一次扩孔",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "140",
+          "deviation_um_min": 140.0,
+          "deviation_um_max": 140.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 3,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "扩孔/粗扩或钻后精扩",
+          "it_text": "12",
+          "it_min": 12,
+          "it_max": 12,
+          "deviation_um_text": "280",
+          "deviation_um_min": 280.0,
+          "deviation_um_max": 280.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 4,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "扩孔/粗扩或钻后精扩",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "140",
+          "deviation_um_min": 140.0,
+          "deviation_um_max": 140.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 6,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "扩孔/粗扩或钻后精扩",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "84",
+          "deviation_um_min": 84.0,
+          "deviation_um_max": 84.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 7,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "铰孔/半精铰",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "140",
+          "deviation_um_min": 140.0,
+          "deviation_um_max": 140.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 8,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "铰孔/半精铰",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "84",
+          "deviation_um_min": 84.0,
+          "deviation_um_max": 84.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 9,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "铰孔/半精铰",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "45",
+          "deviation_um_min": 45.0,
+          "deviation_um_max": 45.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 10,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "铰孔/精铰",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "38",
+          "deviation_um_min": 38.0,
+          "deviation_um_max": 38.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 11,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "铰孔/细铰",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "23",
+          "deviation_um_min": 23.0,
+          "deviation_um_max": 23.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 12,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "钻及扩钻孔/无钻模",
+          "it_text": "12",
+          "it_min": 12,
+          "it_max": 12,
+          "deviation_um_text": "340",
+          "deviation_um_min": 340.0,
+          "deviation_um_max": 340.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 0,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "扩孔/粗扩",
+          "it_text": "12",
+          "it_min": 12,
+          "it_max": 12,
+          "deviation_um_text": "340",
+          "deviation_um_min": 340.0,
+          "deviation_um_max": 340.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 2,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "扩孔/粗扩或钻后精扩",
+          "it_text": "12",
+          "it_min": 12,
+          "it_max": 12,
+          "deviation_um_text": "340",
+          "deviation_um_min": 340.0,
+          "deviation_um_max": 340.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 4,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "扩孔/粗扩或钻后精扩",
+          "it_text": "12",
+          "it_min": 12,
+          "it_max": 12,
+          "deviation_um_text": "340",
+          "deviation_um_min": 340.0,
+          "deviation_um_max": 340.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 5,
+            "sub_index": 1
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "扩孔/粗扩或钻后精扩",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "170",
+          "deviation_um_min": 170.0,
+          "deviation_um_max": 170.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 6,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "扩孔/粗扩或钻后精扩",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "100",
+          "deviation_um_min": 100.0,
+          "deviation_um_max": 100.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 7,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "铰孔/半精铰",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "170",
+          "deviation_um_min": 170.0,
+          "deviation_um_max": 170.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 8,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "铰孔/半精铰",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "100",
+          "deviation_um_min": 100.0,
+          "deviation_um_max": 100.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 9,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "铰孔/半精铰",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "50",
+          "deviation_um_min": 50.0,
+          "deviation_um_max": 50.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 10,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "铰孔/精铰",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "39",
+          "deviation_um_min": 39.0,
+          "deviation_um_max": 39.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 11,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "铰孔/细铰",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "27",
+          "deviation_um_min": 27.0,
+          "deviation_um_max": 27.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 12,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "拉孔/粗拉铸孔或冲孔",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "170",
+          "deviation_um_min": 170.0,
+          "deviation_um_max": 170.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 14,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "拉孔/粗拉铸孔或冲孔",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "100",
+          "deviation_um_min": 100.0,
+          "deviation_um_max": 100.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 15,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "扩孔/粗扩",
+          "it_text": "12",
+          "it_min": 12,
+          "it_max": 12,
+          "deviation_um_text": "460",
+          "deviation_um_min": 460.0,
+          "deviation_um_max": 460.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 2,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "扩孔/粗扩或钻后精扩",
+          "it_text": "12",
+          "it_min": 12,
+          "it_max": 12,
+          "deviation_um_text": "400",
+          "deviation_um_min": 400.0,
+          "deviation_um_max": 400.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 4,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "扩孔/粗扩或钻后精扩",
+          "it_text": "12",
+          "it_min": 12,
+          "it_max": 12,
+          "deviation_um_text": "400",
+          "deviation_um_min": 400.0,
+          "deviation_um_max": 400.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 5,
+            "sub_index": 1
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "扩孔/粗扩或钻后精扩",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "200",
+          "deviation_um_min": 200.0,
+          "deviation_um_max": 200.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 6,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "扩孔/粗扩或钻后精扩",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "120",
+          "deviation_um_min": 120.0,
+          "deviation_um_max": 120.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 7,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "铰孔/半精铰",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "200",
+          "deviation_um_min": 200.0,
+          "deviation_um_max": 200.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 8,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "铰孔/半精铰",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "120",
+          "deviation_um_min": 120.0,
+          "deviation_um_max": 120.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 9,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "铰孔/半精铰",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "60",
+          "deviation_um_min": 60.0,
+          "deviation_um_max": 60.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 10,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "铰孔/精铰",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "46",
+          "deviation_um_min": 46.0,
+          "deviation_um_max": 46.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 11,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "铰孔/细铰",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "30",
+          "deviation_um_min": 30.0,
+          "deviation_um_max": 30.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 12,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "拉孔/粗拉铸孔或冲孔",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "200",
+          "deviation_um_min": 200.0,
+          "deviation_um_max": 200.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 14,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "拉孔/粗拉铸孔或冲孔",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "120",
+          "deviation_um_min": 120.0,
+          "deviation_um_max": 120.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 15,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "扩孔/粗扩或钻后精扩",
+          "it_text": "12",
+          "it_min": 12,
+          "it_max": 12,
+          "deviation_um_text": "460",
+          "deviation_um_min": 460.0,
+          "deviation_um_max": 460.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 4,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "扩孔/粗扩或钻后精扩",
+          "it_text": "12",
+          "it_min": 12,
+          "it_max": 12,
+          "deviation_um_text": "460",
+          "deviation_um_min": 460.0,
+          "deviation_um_max": 460.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 5,
+            "sub_index": 1
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "扩孔/粗扩或钻后精扩",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "230",
+          "deviation_um_min": 230.0,
+          "deviation_um_max": 230.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 6,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "扩孔/粗扩或钻后精扩",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "140",
+          "deviation_um_min": 140.0,
+          "deviation_um_max": 140.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 7,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "铰孔/半精铰",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "280",
+          "deviation_um_min": 280.0,
+          "deviation_um_max": 280.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 8,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "铰孔/半精铰",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "140",
+          "deviation_um_min": 140.0,
+          "deviation_um_max": 140.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 9,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "铰孔/半精铰",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "70",
+          "deviation_um_min": 70.0,
+          "deviation_um_max": 70.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 10,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "铰孔/精铰",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "54",
+          "deviation_um_min": 54.0,
+          "deviation_um_max": 54.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 11,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "铰孔/细铰",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "35",
+          "deviation_um_min": 35.0,
+          "deviation_um_max": 35.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 12,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "拉孔/粗拉铸孔或冲孔",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "230",
+          "deviation_um_min": 230.0,
+          "deviation_um_max": 230.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 14,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "拉孔/粗拉铸孔或冲孔",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "140",
+          "deviation_um_min": 140.0,
+          "deviation_um_max": 140.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 15,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">120~180",
+          "size_min": 120.0,
+          "size_max": 180.0,
+          "method": "铰孔/半精铰",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "260",
+          "deviation_um_min": 260.0,
+          "deviation_um_max": 260.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 8,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">120~180",
+          "size_min": 120.0,
+          "size_max": 180.0,
+          "method": "铰孔/半精铰",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "160",
+          "deviation_um_min": 160.0,
+          "deviation_um_max": 160.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 9,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">120~180",
+          "size_min": 120.0,
+          "size_max": 180.0,
+          "method": "铰孔/半精铰",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "80",
+          "deviation_um_min": 80.0,
+          "deviation_um_max": 80.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 10,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">120~180",
+          "size_min": 120.0,
+          "size_max": 180.0,
+          "method": "铰孔/精铰",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "63",
+          "deviation_um_min": 63.0,
+          "deviation_um_max": 63.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 11,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">120~180",
+          "size_min": 120.0,
+          "size_max": 180.0,
+          "method": "铰孔/细铰",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "40",
+          "deviation_um_min": 40.0,
+          "deviation_um_max": 40.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 12,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">120~180",
+          "size_min": 120.0,
+          "size_max": 180.0,
+          "method": "拉孔/粗拉铸孔或冲孔",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "260",
+          "deviation_um_min": 260.0,
+          "deviation_um_max": 260.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 14,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">120~180",
+          "size_min": 120.0,
+          "size_max": 180.0,
+          "method": "拉孔/粗拉铸孔或冲孔",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "160",
+          "deviation_um_min": 160.0,
+          "deviation_um_max": 160.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 15,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">180~260",
+          "size_min": 180.0,
+          "size_max": 260.0,
+          "method": "铰孔/半精铰",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "300",
+          "deviation_um_min": 300.0,
+          "deviation_um_max": 300.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 8,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">180~260",
+          "size_min": 180.0,
+          "size_max": 260.0,
+          "method": "铰孔/半精铰",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "185",
+          "deviation_um_min": 185.0,
+          "deviation_um_max": 185.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 9,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">180~260",
+          "size_min": 180.0,
+          "size_max": 260.0,
+          "method": "铰孔/半精铰",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "90",
+          "deviation_um_min": 90.0,
+          "deviation_um_max": 90.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 10,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">180~260",
+          "size_min": 180.0,
+          "size_max": 260.0,
+          "method": "铰孔/精铰",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "73",
+          "deviation_um_min": 73.0,
+          "deviation_um_max": 73.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 11,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">180~260",
+          "size_min": 180.0,
+          "size_max": 260.0,
+          "method": "铰孔/细铰",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "45",
+          "deviation_um_min": 45.0,
+          "deviation_um_max": 45.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 12,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">260~360",
+          "size_min": 260.0,
+          "size_max": 360.0,
+          "method": "铰孔/半精铰",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "340",
+          "deviation_um_min": 340.0,
+          "deviation_um_max": 340.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 8,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">260~360",
+          "size_min": 260.0,
+          "size_max": 360.0,
+          "method": "铰孔/半精铰",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "215",
+          "deviation_um_min": 215.0,
+          "deviation_um_max": 215.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 9,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">260~360",
+          "size_min": 260.0,
+          "size_max": 360.0,
+          "method": "铰孔/半精铰",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "100",
+          "deviation_um_min": 100.0,
+          "deviation_um_max": 100.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 10,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">260~360",
+          "size_min": 260.0,
+          "size_max": 360.0,
+          "method": "铰孔/精铰",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "84",
+          "deviation_um_min": 84.0,
+          "deviation_um_max": 84.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 11,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">260~360",
+          "size_min": 260.0,
+          "size_max": 360.0,
+          "method": "铰孔/细铰",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "50",
+          "deviation_um_min": 50.0,
+          "deviation_um_max": 50.0,
+          "extra_json": {
+            "half": "top",
+            "col_index": 12,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "拉孔/粗拉孔后或钻孔后精拉孔",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "35",
+          "deviation_um_min": 35.0,
+          "deviation_um_max": 35.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 0,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "拉孔/粗拉孔后或钻孔后精拉孔",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "27",
+          "deviation_um_min": 27.0,
+          "deviation_um_max": 27.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 1,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "拉孔/粗拉孔后或钻孔后精拉孔",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "19",
+          "deviation_um_min": 19.0,
+          "deviation_um_max": 19.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 2,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "镗孔/粗",
+          "it_text": "12",
+          "it_min": 12,
+          "it_max": 12,
+          "deviation_um_text": "240",
+          "deviation_um_min": 240.0,
+          "deviation_um_max": 240.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 3,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "镗孔/半精",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "120",
+          "deviation_um_min": 120.0,
+          "deviation_um_max": 120.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 4,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "镗孔/半精",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "70",
+          "deviation_um_min": 70.0,
+          "deviation_um_max": 70.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 5,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "镗孔/精",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "35",
+          "deviation_um_min": 35.0,
+          "deviation_um_max": 35.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 6,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "镗孔/精",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "27",
+          "deviation_um_min": 27.0,
+          "deviation_um_max": 27.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 7,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "镗孔/精",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "19",
+          "deviation_um_min": 19.0,
+          "deviation_um_max": 19.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 8,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "镗孔/细",
+          "it_text": "6",
+          "it_min": 6,
+          "it_max": 6,
+          "deviation_um_text": "11",
+          "deviation_um_min": 11.0,
+          "deviation_um_max": 11.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 9,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "磨孔/粗",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "35",
+          "deviation_um_min": 35.0,
+          "deviation_um_max": 35.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 10,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "磨孔/粗",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "27",
+          "deviation_um_min": 27.0,
+          "deviation_um_max": 27.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 11,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "磨孔/粗",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "19",
+          "deviation_um_min": 19.0,
+          "deviation_um_max": 19.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 12,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "磨孔/精",
+          "it_text": "6",
+          "it_min": 6,
+          "it_max": 6,
+          "deviation_um_text": "11",
+          "deviation_um_min": 11.0,
+          "deviation_um_max": 11.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 13,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "70",
+          "deviation_um_min": 70.0,
+          "deviation_um_max": 70.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 14,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "35",
+          "deviation_um_min": 35.0,
+          "deviation_um_max": 35.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 15,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "27",
+          "deviation_um_min": 27.0,
+          "deviation_um_max": 27.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 16,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">10~18",
+          "size_min": 10.0,
+          "size_max": 18.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "19",
+          "deviation_um_min": 19.0,
+          "deviation_um_max": 19.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 17,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "拉孔/粗拉孔后或钻孔后精拉孔",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "45",
+          "deviation_um_min": 45.0,
+          "deviation_um_max": 45.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 0,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "拉孔/粗拉孔后或钻孔后精拉孔",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "33",
+          "deviation_um_min": 33.0,
+          "deviation_um_max": 33.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 1,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "拉孔/粗拉孔后或钻孔后精拉孔",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "23",
+          "deviation_um_min": 23.0,
+          "deviation_um_max": 23.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 2,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "镗孔/粗",
+          "it_text": "12",
+          "it_min": 12,
+          "it_max": 12,
+          "deviation_um_text": "280",
+          "deviation_um_min": 280.0,
+          "deviation_um_max": 280.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 3,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "镗孔/半精",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "140",
+          "deviation_um_min": 140.0,
+          "deviation_um_max": 140.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 4,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "镗孔/半精",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "84",
+          "deviation_um_min": 84.0,
+          "deviation_um_max": 84.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 5,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "镗孔/精",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "45",
+          "deviation_um_min": 45.0,
+          "deviation_um_max": 45.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 6,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "镗孔/精",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "33",
+          "deviation_um_min": 33.0,
+          "deviation_um_max": 33.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 7,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "镗孔/精",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "23",
+          "deviation_um_min": 23.0,
+          "deviation_um_max": 23.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 8,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "镗孔/细",
+          "it_text": "6",
+          "it_min": 6,
+          "it_max": 6,
+          "deviation_um_text": "13",
+          "deviation_um_min": 13.0,
+          "deviation_um_max": 13.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 9,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "磨孔/粗",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "45",
+          "deviation_um_min": 45.0,
+          "deviation_um_max": 45.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 10,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "磨孔/粗",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "33",
+          "deviation_um_min": 33.0,
+          "deviation_um_max": 33.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 11,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "磨孔/粗",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "23",
+          "deviation_um_min": 23.0,
+          "deviation_um_max": 23.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 12,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "磨孔/精",
+          "it_text": "6",
+          "it_min": 6,
+          "it_max": 6,
+          "deviation_um_text": "13",
+          "deviation_um_min": 13.0,
+          "deviation_um_max": 13.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 13,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "84",
+          "deviation_um_min": 84.0,
+          "deviation_um_max": 84.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 14,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "45",
+          "deviation_um_min": 45.0,
+          "deviation_um_max": 45.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 15,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "33",
+          "deviation_um_min": 33.0,
+          "deviation_um_max": 33.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 16,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">18~30",
+          "size_min": 18.0,
+          "size_max": 30.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "23",
+          "deviation_um_min": 23.0,
+          "deviation_um_max": 23.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 17,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "拉孔/粗拉孔后或钻孔后精拉孔",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "50",
+          "deviation_um_min": 50.0,
+          "deviation_um_max": 50.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 0,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "拉孔/粗拉孔后或钻孔后精拉孔",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "39",
+          "deviation_um_min": 39.0,
+          "deviation_um_max": 39.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 1,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "拉孔/粗拉孔后或钻孔后精拉孔",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "27",
+          "deviation_um_min": 27.0,
+          "deviation_um_max": 27.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 2,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "镗孔/粗",
+          "it_text": "12",
+          "it_min": 12,
+          "it_max": 12,
+          "deviation_um_text": "340",
+          "deviation_um_min": 340.0,
+          "deviation_um_max": 340.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 3,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "镗孔/半精",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "170",
+          "deviation_um_min": 170.0,
+          "deviation_um_max": 170.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 4,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "镗孔/半精",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "100",
+          "deviation_um_min": 100.0,
+          "deviation_um_max": 100.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 5,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "镗孔/精",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "50",
+          "deviation_um_min": 50.0,
+          "deviation_um_max": 50.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 6,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "镗孔/精",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "39",
+          "deviation_um_min": 39.0,
+          "deviation_um_max": 39.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 7,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "镗孔/精",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "27",
+          "deviation_um_min": 27.0,
+          "deviation_um_max": 27.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 8,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "镗孔/细",
+          "it_text": "6",
+          "it_min": 6,
+          "it_max": 6,
+          "deviation_um_text": "15",
+          "deviation_um_min": 15.0,
+          "deviation_um_max": 15.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 9,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "磨孔/粗",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "50",
+          "deviation_um_min": 50.0,
+          "deviation_um_max": 50.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 10,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "磨孔/粗",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "39",
+          "deviation_um_min": 39.0,
+          "deviation_um_max": 39.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 11,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "磨孔/粗",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "27",
+          "deviation_um_min": 27.0,
+          "deviation_um_max": 27.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 12,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "磨孔/精",
+          "it_text": "6",
+          "it_min": 6,
+          "it_max": 6,
+          "deviation_um_text": "15",
+          "deviation_um_min": 15.0,
+          "deviation_um_max": 15.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 13,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "100",
+          "deviation_um_min": 100.0,
+          "deviation_um_max": 100.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 14,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "50",
+          "deviation_um_min": 50.0,
+          "deviation_um_max": 50.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 15,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "39",
+          "deviation_um_min": 39.0,
+          "deviation_um_max": 39.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 16,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">30~50",
+          "size_min": 30.0,
+          "size_max": 50.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "27",
+          "deviation_um_min": 27.0,
+          "deviation_um_max": 27.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 17,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "拉孔/粗拉孔后或钻孔后精拉孔",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "60",
+          "deviation_um_min": 60.0,
+          "deviation_um_max": 60.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 0,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "拉孔/粗拉孔后或钻孔后精拉孔",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "46",
+          "deviation_um_min": 46.0,
+          "deviation_um_max": 46.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 1,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "拉孔/粗拉孔后或钻孔后精拉孔",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "30",
+          "deviation_um_min": 30.0,
+          "deviation_um_max": 30.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 2,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "镗孔/粗",
+          "it_text": "12",
+          "it_min": 12,
+          "it_max": 12,
+          "deviation_um_text": "400",
+          "deviation_um_min": 400.0,
+          "deviation_um_max": 400.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 3,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "镗孔/半精",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "200",
+          "deviation_um_min": 200.0,
+          "deviation_um_max": 200.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 4,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "镗孔/半精",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "120",
+          "deviation_um_min": 120.0,
+          "deviation_um_max": 120.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 5,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "镗孔/精",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "60",
+          "deviation_um_min": 60.0,
+          "deviation_um_max": 60.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 6,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "镗孔/精",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "46",
+          "deviation_um_min": 46.0,
+          "deviation_um_max": 46.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 7,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "镗孔/精",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "30",
+          "deviation_um_min": 30.0,
+          "deviation_um_max": 30.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 8,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "镗孔/细",
+          "it_text": "6",
+          "it_min": 6,
+          "it_max": 6,
+          "deviation_um_text": "18",
+          "deviation_um_min": 18.0,
+          "deviation_um_max": 18.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 9,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "磨孔/粗",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "60",
+          "deviation_um_min": 60.0,
+          "deviation_um_max": 60.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 10,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "磨孔/粗",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "46",
+          "deviation_um_min": 46.0,
+          "deviation_um_max": 46.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 11,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "磨孔/粗",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "30",
+          "deviation_um_min": 30.0,
+          "deviation_um_max": 30.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 12,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "磨孔/精",
+          "it_text": "6",
+          "it_min": 6,
+          "it_max": 6,
+          "deviation_um_text": "18",
+          "deviation_um_min": 18.0,
+          "deviation_um_max": 18.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 13,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "120",
+          "deviation_um_min": 120.0,
+          "deviation_um_max": 120.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 14,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "60",
+          "deviation_um_min": 60.0,
+          "deviation_um_max": 60.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 15,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "46",
+          "deviation_um_min": 46.0,
+          "deviation_um_max": 46.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 16,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">50~80",
+          "size_min": 50.0,
+          "size_max": 80.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "30",
+          "deviation_um_min": 30.0,
+          "deviation_um_max": 30.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 17,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "拉孔/粗拉孔后或钻孔后精拉孔",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "70",
+          "deviation_um_min": 70.0,
+          "deviation_um_max": 70.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 0,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "拉孔/粗拉孔后或钻孔后精拉孔",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "54",
+          "deviation_um_min": 54.0,
+          "deviation_um_max": 54.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 1,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "拉孔/粗拉孔后或钻孔后精拉孔",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "35",
+          "deviation_um_min": 35.0,
+          "deviation_um_max": 35.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 2,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "镗孔/粗",
+          "it_text": "12",
+          "it_min": 12,
+          "it_max": 12,
+          "deviation_um_text": "460",
+          "deviation_um_min": 460.0,
+          "deviation_um_max": 460.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 3,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "镗孔/半精",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "230",
+          "deviation_um_min": 230.0,
+          "deviation_um_max": 230.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 4,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "镗孔/半精",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "140",
+          "deviation_um_min": 140.0,
+          "deviation_um_max": 140.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 5,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "镗孔/精",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "70",
+          "deviation_um_min": 70.0,
+          "deviation_um_max": 70.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 6,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "镗孔/精",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "54",
+          "deviation_um_min": 54.0,
+          "deviation_um_max": 54.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 7,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "镗孔/精",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "35",
+          "deviation_um_min": 35.0,
+          "deviation_um_max": 35.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 8,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "镗孔/细",
+          "it_text": "6",
+          "it_min": 6,
+          "it_max": 6,
+          "deviation_um_text": "21",
+          "deviation_um_min": 21.0,
+          "deviation_um_max": 21.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 9,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "磨孔/粗",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "70",
+          "deviation_um_min": 70.0,
+          "deviation_um_max": 70.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 10,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "磨孔/粗",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "54",
+          "deviation_um_min": 54.0,
+          "deviation_um_max": 54.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 11,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "磨孔/粗",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "35",
+          "deviation_um_min": 35.0,
+          "deviation_um_max": 35.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 12,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "磨孔/精",
+          "it_text": "6",
+          "it_min": 6,
+          "it_max": 6,
+          "deviation_um_text": "21",
+          "deviation_um_min": 21.0,
+          "deviation_um_max": 21.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 13,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "140",
+          "deviation_um_min": 140.0,
+          "deviation_um_max": 140.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 14,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "70",
+          "deviation_um_min": 70.0,
+          "deviation_um_max": 70.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 15,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "54",
+          "deviation_um_min": 54.0,
+          "deviation_um_max": 54.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 16,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">80~120",
+          "size_min": 80.0,
+          "size_max": 120.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "35",
+          "deviation_um_min": 35.0,
+          "deviation_um_max": 35.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 17,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">120~180",
+          "size_min": 120.0,
+          "size_max": 180.0,
+          "method": "拉孔/粗拉孔后或钻孔后精拉孔",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "80",
+          "deviation_um_min": 80.0,
+          "deviation_um_max": 80.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 0,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">120~180",
+          "size_min": 120.0,
+          "size_max": 180.0,
+          "method": "拉孔/粗拉孔后或钻孔后精拉孔",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "63",
+          "deviation_um_min": 63.0,
+          "deviation_um_max": 63.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 1,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">120~180",
+          "size_min": 120.0,
+          "size_max": 180.0,
+          "method": "拉孔/粗拉孔后或钻孔后精拉孔",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "40",
+          "deviation_um_min": 40.0,
+          "deviation_um_max": 40.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 2,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">120~180",
+          "size_min": 120.0,
+          "size_max": 180.0,
+          "method": "镗孔/粗",
+          "it_text": "12",
+          "it_min": 12,
+          "it_max": 12,
+          "deviation_um_text": "530",
+          "deviation_um_min": 530.0,
+          "deviation_um_max": 530.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 3,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">120~180",
+          "size_min": 120.0,
+          "size_max": 180.0,
+          "method": "镗孔/半精",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "260",
+          "deviation_um_min": 260.0,
+          "deviation_um_max": 260.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 4,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">120~180",
+          "size_min": 120.0,
+          "size_max": 180.0,
+          "method": "镗孔/半精",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "160",
+          "deviation_um_min": 160.0,
+          "deviation_um_max": 160.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 5,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">120~180",
+          "size_min": 120.0,
+          "size_max": 180.0,
+          "method": "镗孔/精",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "80",
+          "deviation_um_min": 80.0,
+          "deviation_um_max": 80.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 6,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">120~180",
+          "size_min": 120.0,
+          "size_max": 180.0,
+          "method": "镗孔/精",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "63",
+          "deviation_um_min": 63.0,
+          "deviation_um_max": 63.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 7,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">120~180",
+          "size_min": 120.0,
+          "size_max": 180.0,
+          "method": "镗孔/精",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "40",
+          "deviation_um_min": 40.0,
+          "deviation_um_max": 40.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 8,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">120~180",
+          "size_min": 120.0,
+          "size_max": 180.0,
+          "method": "磨孔/粗",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "80",
+          "deviation_um_min": 80.0,
+          "deviation_um_max": 80.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 10,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">120~180",
+          "size_min": 120.0,
+          "size_max": 180.0,
+          "method": "磨孔/粗",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "63",
+          "deviation_um_min": 63.0,
+          "deviation_um_max": 63.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 11,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">120~180",
+          "size_min": 120.0,
+          "size_max": 180.0,
+          "method": "磨孔/粗",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "40",
+          "deviation_um_min": 40.0,
+          "deviation_um_max": 40.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 12,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">120~180",
+          "size_min": 120.0,
+          "size_max": 180.0,
+          "method": "磨孔/精",
+          "it_text": "6",
+          "it_min": 6,
+          "it_max": 6,
+          "deviation_um_text": "24",
+          "deviation_um_min": 24.0,
+          "deviation_um_max": 24.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 13,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">120~180",
+          "size_min": 120.0,
+          "size_max": 180.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "160",
+          "deviation_um_min": 160.0,
+          "deviation_um_max": 160.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 14,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">120~180",
+          "size_min": 120.0,
+          "size_max": 180.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "80",
+          "deviation_um_min": 80.0,
+          "deviation_um_max": 80.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 15,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">120~180",
+          "size_min": 120.0,
+          "size_max": 180.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "63",
+          "deviation_um_min": 63.0,
+          "deviation_um_max": 63.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 16,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">120~180",
+          "size_min": 120.0,
+          "size_max": 180.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "40",
+          "deviation_um_min": 40.0,
+          "deviation_um_max": 40.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 17,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">180~260",
+          "size_min": 180.0,
+          "size_max": 260.0,
+          "method": "镗孔/粗",
+          "it_text": "12",
+          "it_min": 12,
+          "it_max": 12,
+          "deviation_um_text": "600",
+          "deviation_um_min": 600.0,
+          "deviation_um_max": 600.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 3,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">180~260",
+          "size_min": 180.0,
+          "size_max": 260.0,
+          "method": "镗孔/半精",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "300",
+          "deviation_um_min": 300.0,
+          "deviation_um_max": 300.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 4,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">180~260",
+          "size_min": 180.0,
+          "size_max": 260.0,
+          "method": "镗孔/半精",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "185",
+          "deviation_um_min": 185.0,
+          "deviation_um_max": 185.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 5,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">180~260",
+          "size_min": 180.0,
+          "size_max": 260.0,
+          "method": "镗孔/精",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "90",
+          "deviation_um_min": 90.0,
+          "deviation_um_max": 90.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 6,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">180~260",
+          "size_min": 180.0,
+          "size_max": 260.0,
+          "method": "镗孔/精",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "73",
+          "deviation_um_min": 73.0,
+          "deviation_um_max": 73.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 7,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">180~260",
+          "size_min": 180.0,
+          "size_max": 260.0,
+          "method": "镗孔/精",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "45",
+          "deviation_um_min": 45.0,
+          "deviation_um_max": 45.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 8,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">180~260",
+          "size_min": 180.0,
+          "size_max": 260.0,
+          "method": "磨孔/粗",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "90",
+          "deviation_um_min": 90.0,
+          "deviation_um_max": 90.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 10,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">180~260",
+          "size_min": 180.0,
+          "size_max": 260.0,
+          "method": "磨孔/粗",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "73",
+          "deviation_um_min": 73.0,
+          "deviation_um_max": 73.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 11,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">180~260",
+          "size_min": 180.0,
+          "size_max": 260.0,
+          "method": "磨孔/粗",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "45",
+          "deviation_um_min": 45.0,
+          "deviation_um_max": 45.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 12,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">180~260",
+          "size_min": 180.0,
+          "size_max": 260.0,
+          "method": "磨孔/精",
+          "it_text": "6",
+          "it_min": 6,
+          "it_max": 6,
+          "deviation_um_text": "27",
+          "deviation_um_min": 27.0,
+          "deviation_um_max": 27.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 13,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">180~260",
+          "size_min": 180.0,
+          "size_max": 260.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "185",
+          "deviation_um_min": 185.0,
+          "deviation_um_max": 185.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 14,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">180~260",
+          "size_min": 180.0,
+          "size_max": 260.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "90",
+          "deviation_um_min": 90.0,
+          "deviation_um_max": 90.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 15,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">180~260",
+          "size_min": 180.0,
+          "size_max": 260.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "73",
+          "deviation_um_min": 73.0,
+          "deviation_um_max": 73.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 16,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">180~260",
+          "size_min": 180.0,
+          "size_max": 260.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "45",
+          "deviation_um_min": 45.0,
+          "deviation_um_max": 45.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 17,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">260~360",
+          "size_min": 260.0,
+          "size_max": 360.0,
+          "method": "镗孔/粗",
+          "it_text": "12",
+          "it_min": 12,
+          "it_max": 12,
+          "deviation_um_text": "680",
+          "deviation_um_min": 680.0,
+          "deviation_um_max": 680.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 3,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">260~360",
+          "size_min": 260.0,
+          "size_max": 360.0,
+          "method": "镗孔/半精",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "340",
+          "deviation_um_min": 340.0,
+          "deviation_um_max": 340.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 4,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">260~360",
+          "size_min": 260.0,
+          "size_max": 360.0,
+          "method": "镗孔/半精",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "215",
+          "deviation_um_min": 215.0,
+          "deviation_um_max": 215.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 5,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">260~360",
+          "size_min": 260.0,
+          "size_max": 360.0,
+          "method": "镗孔/精",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "100",
+          "deviation_um_min": 100.0,
+          "deviation_um_max": 100.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 6,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">260~360",
+          "size_min": 260.0,
+          "size_max": 360.0,
+          "method": "镗孔/精",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "84",
+          "deviation_um_min": 84.0,
+          "deviation_um_max": 84.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 7,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">260~360",
+          "size_min": 260.0,
+          "size_max": 360.0,
+          "method": "镗孔/精",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "50",
+          "deviation_um_min": 50.0,
+          "deviation_um_max": 50.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 8,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">260~360",
+          "size_min": 260.0,
+          "size_max": 360.0,
+          "method": "磨孔/粗",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "100",
+          "deviation_um_min": 100.0,
+          "deviation_um_max": 100.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 10,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">260~360",
+          "size_min": 260.0,
+          "size_max": 360.0,
+          "method": "磨孔/粗",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "84",
+          "deviation_um_min": 84.0,
+          "deviation_um_max": 84.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 11,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">260~360",
+          "size_min": 260.0,
+          "size_max": 360.0,
+          "method": "磨孔/粗",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "50",
+          "deviation_um_min": 50.0,
+          "deviation_um_max": 50.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 12,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">260~360",
+          "size_min": 260.0,
+          "size_max": 360.0,
+          "method": "磨孔/精",
+          "it_text": "6",
+          "it_min": 6,
+          "it_max": 6,
+          "deviation_um_text": "30",
+          "deviation_um_min": 30.0,
+          "deviation_um_max": 30.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 13,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">260~360",
+          "size_min": 260.0,
+          "size_max": 360.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "215",
+          "deviation_um_min": 215.0,
+          "deviation_um_max": 215.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 14,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">260~360",
+          "size_min": 260.0,
+          "size_max": 360.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "100",
+          "deviation_um_min": 100.0,
+          "deviation_um_max": 100.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 15,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">260~360",
+          "size_min": 260.0,
+          "size_max": 360.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "84",
+          "deviation_um_min": 84.0,
+          "deviation_um_max": 84.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 16,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">260~360",
+          "size_min": 260.0,
+          "size_max": 360.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "50",
+          "deviation_um_min": 50.0,
+          "deviation_um_max": 50.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 17,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">360~500",
+          "size_min": 360.0,
+          "size_max": 500.0,
+          "method": "镗孔/粗",
+          "it_text": "12",
+          "it_min": 12,
+          "it_max": 12,
+          "deviation_um_text": "760",
+          "deviation_um_min": 760.0,
+          "deviation_um_max": 760.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 3,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">360~500",
+          "size_min": 360.0,
+          "size_max": 500.0,
+          "method": "镗孔/半精",
+          "it_text": "11",
+          "it_min": 11,
+          "it_max": 11,
+          "deviation_um_text": "380",
+          "deviation_um_min": 380.0,
+          "deviation_um_max": 380.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 4,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">360~500",
+          "size_min": 360.0,
+          "size_max": 500.0,
+          "method": "镗孔/半精",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "250",
+          "deviation_um_min": 250.0,
+          "deviation_um_max": 250.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 5,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">360~500",
+          "size_min": 360.0,
+          "size_max": 500.0,
+          "method": "镗孔/精",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "120",
+          "deviation_um_min": 120.0,
+          "deviation_um_max": 120.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 6,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">360~500",
+          "size_min": 360.0,
+          "size_max": 500.0,
+          "method": "镗孔/精",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "95",
+          "deviation_um_min": 95.0,
+          "deviation_um_max": 95.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 7,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">360~500",
+          "size_min": 360.0,
+          "size_max": 500.0,
+          "method": "镗孔/精",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "60",
+          "deviation_um_min": 60.0,
+          "deviation_um_max": 60.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 8,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">360~500",
+          "size_min": 360.0,
+          "size_max": 500.0,
+          "method": "磨孔/粗",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "120",
+          "deviation_um_min": 120.0,
+          "deviation_um_max": 120.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 10,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">360~500",
+          "size_min": 360.0,
+          "size_max": 500.0,
+          "method": "磨孔/粗",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "95",
+          "deviation_um_min": 95.0,
+          "deviation_um_max": 95.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 11,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">360~500",
+          "size_min": 360.0,
+          "size_max": 500.0,
+          "method": "磨孔/粗",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "60",
+          "deviation_um_min": 60.0,
+          "deviation_um_max": 60.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 12,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">360~500",
+          "size_min": 360.0,
+          "size_max": 500.0,
+          "method": "磨孔/精",
+          "it_text": "6",
+          "it_min": 6,
+          "it_max": 6,
+          "deviation_um_text": "35",
+          "deviation_um_min": 35.0,
+          "deviation_um_max": 35.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 13,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">360~500",
+          "size_min": 360.0,
+          "size_max": 500.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "10",
+          "it_min": 10,
+          "it_max": 10,
+          "deviation_um_text": "250",
+          "deviation_um_min": 250.0,
+          "deviation_um_max": 250.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 14,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">360~500",
+          "size_min": 360.0,
+          "size_max": 500.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "9",
+          "it_min": 9,
+          "it_max": 9,
+          "deviation_um_text": "120",
+          "deviation_um_min": 120.0,
+          "deviation_um_max": 120.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 15,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">360~500",
+          "size_min": 360.0,
+          "size_max": 500.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "8",
+          "it_min": 8,
+          "it_max": 8,
+          "deviation_um_text": "95",
+          "deviation_um_min": 95.0,
+          "deviation_um_max": 95.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 16,
+            "sub_index": 0
+          }
+        },
+        {
+          "size_segment_text": ">360~500",
+          "size_min": 360.0,
+          "size_max": 500.0,
+          "method": "用钢球或挤压杆校整、用钢球或滚柱扩孔器挤孔",
+          "it_text": "7",
+          "it_min": 7,
+          "it_max": 7,
+          "deviation_um_text": "60",
+          "deviation_um_min": 60.0,
+          "deviation_um_max": 60.0,
+          "extra_json": {
+            "half": "bot",
+            "col_index": 17,
+            "sub_index": 0
+          }
+        }
+      ],
+      "notes": [
+        "1.孔加工精度与工具的制造精度有关。",
+        "2.6级精度细镗孔要采用金刚石工具。",
+        "3.用钢球或挤压杆校正适用于孔径≤50mm。"
+      ]
+    }
+  }
+]

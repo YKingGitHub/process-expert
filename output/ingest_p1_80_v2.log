@@ -1,0 +1,10 @@
+[pipeline] Page range filter: 1-80
+
+[pipeline] Extracting pages from references/金属切削工艺技术手册.pdf ...
+[pdf_extractor] Extracted 80 pages from 金属切削工艺技术手册.pdf
+[pipeline] Extracted 80 pages for range 1-80
+
+[pipeline] Classifying 80 pages ...
+[pipeline] Classification: {'param_table': 47, 'knowledge_table': 24, 'plain_text': 9, 'unknown': 0}
+
+[pipeline] Processing 80 pages (Tier1/2/3 fallback) ...
