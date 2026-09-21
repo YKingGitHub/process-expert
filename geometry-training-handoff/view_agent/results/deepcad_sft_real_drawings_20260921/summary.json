@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "experiment_id": "deepcad_sft_real_drawings_20260921",
+  "date": "2026-09-21",
+  "dataset": {
+    "source_archive_name": "图纸20260810.zip",
+    "source_archive_sha256": "42413dae4b1744990e187b7944fe2a53835ce22411ce00b6c8a4d54226382ddc",
+    "usable_archive_members": 530,
+    "unambiguous_pdf_step_pairs": 70,
+    "single_solid_samples": 33,
+    "multi_solid_pairs_excluded": 37,
+    "invalid_ground_truth_step_pairs_excluded": 0,
+    "input_images": 39,
+    "render_dpi": 200,
+    "retained_pairing": {
+      "exact_stem": 30,
+      "unique_part_code": 3
+    }
+  },
+  "strict_geometry_thresholds_pct": {
+    "volume_abs": 2.0,
+    "surface_area_abs": 5.0,
+    "bbox_axis_max_abs": 2.0
+  },
+  "main_protocol": {
+    "max_new_tokens": 4096,
+    "repair_attempts": 1,
+    "min_pixels": 200704,
+    "max_pixels": 1003520,
+    "cadquery_version": "2.5.2",
+    "ground_truth_visible_during_inference": false
+  },
+  "models": {
+    "deepcad_sft": {
+      "checkpoint": "qwen3vl8b_deepcad_sft_5ep_a800x8",
+      "generation_status_counts": {
+        "CAD_FAIL": 32,
+        "STEP_EXPORTED": 1
+      },
+      "valid_step_export_count": 1,
+      "valid_step_export_rate": 0.030303030303030304,
+      "strict_geometry_pass_count": 0,
+      "strict_geometry_pass_rate": 0.0,
+      "aligned_iou_scored_step_count": 1,
+      "aligned_iou_mean_scored_steps": 0.04433452580318444,
+      "aligned_iou_mean_all_samples_invalid_zero": 0.001343470478884377,
+      "aligned_iou_threshold_counts_all_samples": {
+        "iou_ge_0_5": 0,
+        "iou_ge_0_8": 0,
+        "iou_ge_0_9": 0
+      },
+      "only_exported_case": {
+        "id": "case_009",
+        "name": "STKJ-MT01-0023 排水管",
+        "volume_abs_error_pct": 99.998427,
+        "surface_area_abs_error_pct": 99.98897,
+        "bbox_max_abs_error_pct": 99.059633,
+        "aligned_iou": 0.04433452580318444
+      }
+    },
+    "qwen3_vl_8b_base": {
+      "model": "Qwen3-VL-8B-Instruct",
+      "generation_status_counts": {
+        "CAD_FAIL": 25,
+        "STEP_EXPORTED": 8
+      },
+      "valid_step_export_count": 8,
+      "valid_step_export_rate": 0.24242424242424243,
+      "strict_geometry_pass_count": 1,
+      "strict_geometry_pass_rate": 0.030303030303030304,
+      "aligned_iou_scored_step_count": 6,
+      "aligned_iou_score_timeout_count": 1,
+      "aligned_iou_score_failure_count": 1,
+      "aligned_iou_mean_scored_steps": 0.42907585044474034,
+      "aligned_iou_mean_all_samples_invalid_zero": 0.07801379098995279,
+      "aligned_iou_threshold_counts_all_samples": {
+        "iou_ge_0_5": 2,
+        "iou_ge_0_8": 1,
+        "iou_ge_0_9": 1
+      }
+    }
+  },
+  "deepcad_in_domain_reference": {
+    "sample_count": 100,
+    "valid_step_count": 99,
+    "valid_step_rate": 0.99,
+    "aligned_iou_mean_valid_steps": 0.8159098562657054,
+    "aligned_iou_mean_all_samples_invalid_zero": 0.8077507577030484
+  },
+  "failure_analysis": {
+    "final_failure_count": 32,
+    "final_failure_types": {
+      "syntax_error": 30,
+      "cadquery_value_error": 1,
+      "attribute_error": 1
+    },
+    "total_generation_attempts": 65,
+    "repair_cases": 32,
+    "median_generated_tokens": 3644,
+    "attempts_reaching_4096_tokens": 28,
+    "base_model_median_generated_tokens": 444.0,
+    "diagnosis": "The checkpoint reproduces long normalized DeepCAD sketch sequences instead of reliably reading millimetre dimensions from annotated engineering drawings."
+  },
+  "native_training_protocol_probe": {
+    "sample_count": 2,
+    "prompt": "Generate the CADQuery code needed to create the CAD for the provided image. Just the code, no other words.",
+    "max_new_tokens": 8192,
+    "repair_attempts": 0,
+    "min_pixels": 784,
+    "max_pixels": 50176,
+    "case_001": {
+      "status": "CAD_FAIL",
+      "generated_tokens": 8192,
+      "failure": "unclosed expression"
+    },
+    "case_009": {
+      "status": "STEP_FILE_WRITTEN_BUT_INVALID_SOLID",
+      "aligned_iou": 0.02067793565762246
+    }
+  },
+  "publication": {
+    "raw_drawings_committed": false,
+    "ground_truth_step_committed": false,
+    "generated_step_committed": false,
+    "checkpoint_committed": false,
+    "cluster_local_paths_removed": true
+  }
+}

@@ -32,6 +32,9 @@ export PYTHONUNBUFFERED=1
   --model "$view_model" \
   --cad-python "$view_cad_python" \
   --max-new-tokens "${VIEW_AGENT_MAX_NEW_TOKENS:-4096}" \
+  --repetition-penalty "${VIEW_AGENT_REPETITION_PENALTY:-1.05}" \
+  --no-repeat-ngram-size "${VIEW_AGENT_NO_REPEAT_NGRAM_SIZE:-16}" \
+  --min-pixels "${VIEW_AGENT_MIN_PIXELS:-200704}" \
   --max-pixels "${VIEW_AGENT_MAX_PIXELS:-1003520}" \
   --repair-attempts "${VIEW_AGENT_REPAIR_ATTEMPTS:-1}" \
   --shard-count "$view_shard_count" \

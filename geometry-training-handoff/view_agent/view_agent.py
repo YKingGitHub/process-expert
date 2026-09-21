@@ -20,7 +20,7 @@ DEFAULT_CAD_PYTHON = os.environ.get(
     "VIEW_AGENT_CAD_PYTHON",
     "/hpc2hdd/home/lwang592/projects/.venvs/process-view-agent-cad/bin/python",
 )
-PROMPT = (
+DEFAULT_PROMPT = (
     "Generate the CadQuery code needed to create the CAD for the provided "
     "dimensioned orthographic engineering drawing. Use the dimensions shown "
     "in the drawing and treat them as millimetres. Assign the final valid "
@@ -41,6 +41,7 @@ PROMPT = (
     "extrude on an already-created solid, and only chamfer or fillet selected "
     "edges."
 )
+PROMPT = os.environ.get("VIEW_AGENT_PROMPT", DEFAULT_PROMPT)
 
 
 def repair_prompt(previous_code: str, execution: dict[str, object]) -> str:

@@ -25,6 +25,14 @@
       "summary": "Qwen3-VL-8B 在 1024 与 4096 token 上限下均导出 8/33，仅 1/33 通过完整几何验收。",
       "source": "geometry-training-handoff/view_agent/REPORT_33_SINGLE_SOLIDS_TOK4096.html",
       "sha256": "f3cd019a6418ed486f25611544d711b87c393373af80bcd58ed22bdbccb511ec"
+    },
+    {
+      "week": "2026-W39",
+      "date": "2026-09-21",
+      "title": "Ortho2CAD：真实工程图域外测试",
+      "summary": "DeepCAD SFT checkpoint 在 33 件真实工程图上仅导出 1 件有效 STEP，严格几何通过 0 件，全样本 aligned IoU 为 0.001343。",
+      "source": "geometry-training-handoff/weekly-reports/2026-W39/index.html",
+      "sha256": "10eeb651c9271dd47c6e6948b5a912abe9a67239d171c695ffc101110d67d981"
     }
   ]
 }
