@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="3 个真实机械零件的 DeepCAD 风格正投影转换预览">
+  <title>真实图纸 → DeepCAD 风格｜3 件预处理试转</title>
+  <style>
+    :root {
+      --ink: #14213d;
+      --muted: #667085;
+      --paper: #f6f4ef;
+      --card: #ffffff;
+      --line: #d8d4ca;
+      --blue: #2563eb;
+      --blue-soft: #eaf1ff;
+      --amber: #b45309;
+      --amber-soft: #fff7e8;
+      --green: #176b4d;
+      --green-soft: #e8f6ef;
+      --shadow: 0 18px 55px rgba(20, 33, 61, 0.09);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 8% -8%, rgba(37, 99, 235, 0.10), transparent 28rem),
+        var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    a { color: var(--blue); }
+
+    .shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 72px 0 40px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+      gap: 42px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 750;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 30px;
+      height: 2px;
+      background: currentColor;
+    }
+
+    h1 {
+      max-width: 830px;
+      margin: 0;
+      font-size: clamp(38px, 6vw, 72px);
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+    }
+
+    .lede {
+      max-width: 780px;
+      margin: 24px 0 0;
+      color: #3c4860;
+      font-size: clamp(17px, 2vw, 21px);
+    }
+
+    .hero-note {
+      padding: 24px;
+      border: 1px solid #e7c98e;
+      border-radius: 18px;
+      background: var(--amber-soft);
+      box-shadow: 0 12px 30px rgba(180, 83, 9, 0.07);
+    }
+
+    .hero-note strong {
+      display: block;
+      margin-bottom: 7px;
+      color: #8a4008;
+      font-size: 15px;
+    }
+
+    .hero-note p {
+      margin: 0;
+      color: #71421d;
+      font-size: 14px;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      padding: 8px 0 34px;
+    }
+
+    .metric {
+      min-height: 128px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .metric b {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 30px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .toolbar-wrap {
+      position: sticky;
+      z-index: 20;
+      top: 12px;
+      margin: 10px 0 36px;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 16px 14px 20px;
+      border: 1px solid rgba(20, 33, 61, 0.14);
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 10px 35px rgba(20, 33, 61, 0.12);
+      backdrop-filter: blur(14px);
+    }
+
+    .toolbar-copy b { font-size: 14px; }
+    .toolbar-copy span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .switcher {
+      display: inline-flex;
+      gap: 4px;
+      padding: 4px;
+      border-radius: 11px;
+      background: #eef1f5;
+    }
+
+    .switcher button {
+      appearance: none;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: #4b5565;
+      cursor: pointer;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 9px 13px;
+    }
+
+    .switcher button[aria-pressed="true"] {
+      background: var(--ink);
+      color: white;
+      box-shadow: 0 3px 10px rgba(20, 33, 61, 0.2);
+    }
+
+    .case-list { display: grid; gap: 34px; }
+
+    .case-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .case-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      padding: 28px 30px 22px;
+      border-bottom: 1px solid #e9e6df;
+    }
+
+    .case-kicker {
+      margin-bottom: 6px;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .case-head h2 {
+      margin: 0;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+    }
+
+    .dim-block { text-align: right; }
+    .dim-block b {
+      display: block;
+      font-variant-numeric: tabular-nums;
+      font-size: 16px;
+    }
+    .dim-block span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 500px;
+    }
+
+    .figure {
+      position: relative;
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      padding: 18px;
+      background: #faf9f6;
+    }
+
+    .figure + .figure { border-left: 1px solid #e9e6df; }
+
+    .figure-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 32px;
+      padding: 0 4px 12px;
+      color: #4d586c;
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: #eef1f5;
+      color: #586174;
+      font-size: 11px;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .badge.blue { background: var(--blue-soft); color: #174ea6; }
+
+    .image-stage {
+      display: grid;
+      flex: 1;
+      min-height: 420px;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid #dfddd6;
+      border-radius: 14px;
+      background:
+        linear-gradient(rgba(20, 33, 61, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20, 33, 61, 0.025) 1px, transparent 1px),
+        white;
+      background-size: 24px 24px;
+    }
+
+    .image-stage img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-height: 530px;
+      object-fit: contain;
+    }
+
+    .image-stage.clean { background: white; }
+
+    .case-foot {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-top: 1px solid #e9e6df;
+      background: #fff;
+    }
+
+    .fact {
+      padding: 18px 22px;
+      font-size: 13px;
+    }
+
+    .fact + .fact { border-left: 1px solid #e9e6df; }
+    .fact b { display: block; margin-bottom: 4px; }
+    .fact span { color: var(--muted); }
+
+    .section {
+      padding: 70px 0 0;
+    }
+
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.18;
+      letter-spacing: -0.035em;
+    }
+
+    .section-intro {
+      max-width: 760px;
+      margin: 0 0 28px;
+      color: var(--muted);
+    }
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .step {
+      position: relative;
+      min-height: 210px;
+      padding: 24px;
+    }
+
+    .step + .step { border-left: 1px solid #e9e6df; }
+
+    .step-num {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 28px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ink);
+      color: white;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .step b { display: block; margin-bottom: 7px; }
+    .step p { margin: 0; color: var(--muted); font-size: 13px; }
+
+    .decision-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .decision {
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: white;
+    }
+
+    .decision.recommended {
+      border-color: #a7d7c2;
+      background: var(--green-soft);
+    }
+
+    .decision .tag {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(20, 33, 61, 0.08);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .decision h3 { margin: 0 0 8px; font-size: 20px; }
+    .decision p { margin: 0; color: #526073; font-size: 14px; }
+
+    details {
+      margin-top: 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: white;
+    }
+
+    summary {
+      cursor: pointer;
+      padding: 15px 18px;
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .evidence {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      padding: 0 18px 18px;
+    }
+
+    .evidence a {
+      padding: 12px;
+      border-radius: 10px;
+      background: #f4f6f8;
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    footer {
+      padding: 64px 0 50px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .noscript {
+      margin-bottom: 16px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: var(--amber-soft);
+      color: var(--amber);
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-top: 48px; }
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+      .pipeline { grid-template-columns: repeat(2, 1fr); }
+      .step:nth-child(3) { border-left: 0; border-top: 1px solid #e9e6df; }
+      .step:nth-child(4) { border-top: 1px solid #e9e6df; }
+    }
+
+    @media (max-width: 720px) {
+      .shell { width: min(100% - 20px, 1180px); }
+      .toolbar { align-items: flex-start; flex-direction: column; }
+      .switcher { width: 100%; }
+      .switcher button { flex: 1; }
+      .case-head { grid-template-columns: 1fr; }
+      .dim-block { text-align: left; }
+      .compare { grid-template-columns: 1fr; }
+      .figure + .figure { border-top: 1px solid #e9e6df; border-left: 0; }
+      .image-stage { min-height: 330px; }
+      .case-foot { grid-template-columns: 1fr; }
+      .fact + .fact { border-top: 1px solid #e9e6df; border-left: 0; }
+      .pipeline { grid-template-columns: 1fr; }
+      .step + .step { border-top: 1px solid #e9e6df; border-left: 0; }
+      .decision-grid { grid-template-columns: 1fr; }
+      .evidence { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">DeepCAD alignment pilot · 2026-10-15</div>
+        <h1>先把 3 件真实零件，压成 DeepCAD 能认识的样子</h1>
+        <p class="lede">
+          从 33 件单实体中抽取网页上已有的活塞、排水管和双排链轮，统一为
+          800×800、固定三视图、共享比例、稀疏整体尺寸的训练输入。下面可以直接切换
+          checkpoint 归一化数值和真实毫米数值。
+        </p>
+      </div>
+      <aside class="hero-note">
+        <strong>边界先说清楚</strong>
+        <p>
+          本页使用每个样例的 GT STEP 重新渲染，不是从原始 PDF 自动清洗得到。
+          它回答的是“去掉版式噪声后，真实几何能否对齐 DeepCAD 输入域”，尚未回答
+          “系统能否只凭 PDF 自动抽出这些视图”。
+        </p>
+      </aside>
+    </section>
+
+    <section class="metrics" aria-label="试转摘要">
+      <div class="metric"><b>3 / 33</b><span>本轮试转 / 可用单实体</span></div>
+      <div class="metric"><b>3 / 3</b><span>STEP 可读且均为单实体</span></div>
+      <div class="metric"><b>800²</b><span>与 DeepCAD 样例相同画布</span></div>
+      <div class="metric"><b>1.5000</b><span>训练版最长 bbox 归一值</span></div>
+    </section>
+
+    <div class="toolbar-wrap">
+      <div class="toolbar">
+        <div class="toolbar-copy">
+          <b>尺寸显示模式</b>
+          <span>几何轮廓相同，只切换三处整体尺寸标签</span>
+        </div>
+        <div class="switcher" role="group" aria-label="尺寸显示模式">
+          <button type="button" data-mode="normalized" aria-pressed="true">训练归一化</button>
+          <button type="button" data-mode="physical">真实毫米</button>
+        </div>
+      </div>
+    </div>
+
+    <noscript><div class="noscript">页面脚本未启用；当前显示默认的训练归一化版本。</div></noscript>
+
+    <section class="case-list" aria-label="三个转换样例">
+      <article class="case-card">
+        <header class="case-head">
+          <div>
+            <div class="case-kicker">case_005 · complex bracket</div>
+            <h2>活塞 · 41608-3</h2>
+          </div>
+          <div class="dim-block">
+            <b>797.6613 × 236.6571 × 157.4800 mm</b>
+            <span>规范化轴 X × Y × Z</span>
+          </div>
+        </header>
+        <div class="compare">
+          <figure class="figure">
+            <figcaption class="figure-label">
+              原始真实图纸
+              <span class="badge">局部视图 + 密集标注</span>
+            </figcaption>
+            <div class="image-stage">
+              <img src="assets/case-005-original.webp" alt="41608-3 活塞原始工程图纸局部">
+            </div>
+          </figure>
+          <figure class="figure">
+            <figcaption class="figure-label">
+              DeepCAD-style clean orthographic
+              <span class="badge blue mode-label">checkpoint 输入</span>
+            </figcaption>
+            <div class="image-stage clean">
+              <img class="rendered" src="assets/case-005-normalized.png"
+                data-normalized="assets/case-005-normalized.png"
+                data-physical="assets/case-005-physical_mm.png"
+                alt="41608-3 活塞 DeepCAD 风格三视图">
+            </div>
+          </figure>
+        </div>
+        <div class="case-foot">
+          <div class="fact"><b>保留</b><span>轮廓、孔、叉口、台阶、隐藏边</span></div>
+          <div class="fact"><b>去除</b><span>局部剖视、GD&amp;T、制造说明、标题栏</span></div>
+          <div class="fact"><b>轴变换</b><span>原 STEP 已是 X/Y/Z 长中短顺序，无需旋转</span></div>
+        </div>
+      </article>
+
+      <article class="case-card">
+        <header class="case-head">
+          <div>
+            <div class="case-kicker">case_009 · primitive tube</div>
+            <h2>排水管 · STKJ-MT01-0023</h2>
+          </div>
+          <div class="dim-block">
+            <b>178.0000 × 57.0000 × 57.0000 mm</b>
+            <span>规范化轴 X × Y × Z</span>
+          </div>
+        </header>
+        <div class="compare">
+          <figure class="figure">
+            <figcaption class="figure-label">
+              原始真实图纸
+              <span class="badge">图框 + 轴测图 + 技术要求</span>
+            </figcaption>
+            <div class="image-stage">
+              <img loading="lazy" src="assets/case-009-original.webp" alt="排水管原始工程图纸局部">
+            </div>
+          </figure>
+          <figure class="figure">
+            <figcaption class="figure-label">
+              DeepCAD-style clean orthographic
+              <span class="badge blue mode-label">checkpoint 输入</span>
+            </figcaption>
+            <div class="image-stage clean">
+              <img loading="lazy" class="rendered" src="assets/case-009-normalized.png"
+                data-normalized="assets/case-009-normalized.png"
+                data-physical="assets/case-009-physical_mm.png"
+                alt="排水管 DeepCAD 风格三视图">
+            </div>
+          </figure>
+        </div>
+        <div class="case-foot">
+          <div class="fact"><b>保留</b><span>端视双圆、侧视外轮廓、内壁隐藏线</span></div>
+          <div class="fact"><b>去除</b><span>轴测渲染、材料、技术要求、整套图框</span></div>
+          <div class="fact"><b>观察</b><span>最干净的样例，证明固定布局本身没有信息损失</span></div>
+        </div>
+      </article>
+
+      <article class="case-card">
+        <header class="case-head">
+          <div>
+            <div class="case-kicker">case_025 · repeated teeth</div>
+            <h2>双排链轮 · 28A / 22 齿</h2>
+          </div>
+          <div class="dim-block">
+            <b>333.1595 × 330.5694 × 90.0000 mm</b>
+            <span>规范化轴 X × Y × Z</span>
+          </div>
+        </header>
+        <div class="compare">
+          <figure class="figure">
+            <figcaption class="figure-label">
+              原始真实图纸
+              <span class="badge">剖面 + 手写参数 + 着色轴测</span>
+            </figcaption>
+            <div class="image-stage">
+              <img loading="lazy" src="assets/case-025-original.webp" alt="双排链轮原始工程图纸局部">
+            </div>
+          </figure>
+          <figure class="figure">
+            <figcaption class="figure-label">
+              DeepCAD-style clean orthographic
+              <span class="badge blue mode-label">checkpoint 输入</span>
+            </figcaption>
+            <div class="image-stage clean">
+              <img loading="lazy" class="rendered" src="assets/case-025-normalized.png"
+                data-normalized="assets/case-025-normalized.png"
+                data-physical="assets/case-025-physical_mm.png"
+                alt="双排链轮 DeepCAD 风格三视图">
+            </div>
+          </figure>
+        </div>
+        <div class="case-foot">
+          <div class="fact"><b>保留</b><span>22 齿轮廓、中心孔、同心台阶、双排结构</span></div>
+          <div class="fact"><b>去除</b><span>剖面填充、手写参数、公差、粗糙度、轴测图</span></div>
+          <div class="fact"><b>关键处理</b><span>轴置换 Y/Z/X → X/Y/Z，使齿面稳定落到 Top View</span></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section">
+      <h2>这次到底做了什么</h2>
+      <p class="section-intro">
+        不是图片滤镜，而是从 3D 真值重新计算投影。三视图共用一个像素/mm 比例；
+        所有局部尺寸和版面噪声被去掉，只留下模型几何和三个整体 bbox 尺寸。
+      </p>
+      <div class="pipeline">
+        <div class="step">
+          <div class="step-num">1</div>
+          <b>读取 GT STEP</b>
+          <p>验证拓扑可读、实体数为 1，并保存输入 SHA-256。</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <b>规范化坐标轴</b>
+          <p>bbox 长/中/短轴确定性映射到 X/Y/Z，变换写入 sidecar。</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <b>HLR 正投影</b>
+          <p>Right=YZ、Front=XZ、Top=XY；可见边实线，隐藏边短虚线。</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <b>双尺度输出</b>
+          <p>训练版最长边归一到 1.5000，同时保留真实毫米版本和可逆尺度。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>我的判断：这条路值得跑完 33 件，但它只是第一层</h2>
+      <p class="section-intro">
+        这三件已经说明，真实零件几何可以被稳定排成模型熟悉的格式；尤其链轮这种复杂轮廓也没有降级。
+        下一步要把“训练数据桥接”和“上线时 PDF 自动清洗”分开推进，避免混淆实验结论。
+      </p>
+      <div class="decision-grid">
+        <div class="decision recommended">
+          <div class="tag">优先建议</div>
+          <h3>A. 先把剩余 30 件全部 STEP 化对齐</h3>
+          <p>
+            直接生成 33 对统一输入，先验证微调后真实测试集是否从 1/33 valid 明显回升。
+            这是最快能判断“域差异是不是主因”的实验。
+          </p>
+        </div>
+        <div class="decision">
+          <div class="tag">并行建设</div>
+          <h3>B. 单独做 PDF → 三视图检测与重排</h3>
+          <p>
+            识别主视/俯视/右视、去标题栏和轴测图、保留必要线型。这个分支不允许使用 GT STEP，
+            才能衡量真正的自动预处理能力。
+          </p>
+        </div>
+      </div>
+
+      <details>
+        <summary>可复核产物与 sidecar</summary>
+        <div class="evidence">
+          <a href="assets/case-005.json">case_005 metadata / hashes</a>
+          <a href="assets/case-009.json">case_009 metadata / hashes</a>
+          <a href="assets/case-025.json">case_025 metadata / hashes</a>
+          <a href="render_preview.py">reproducible renderer wrapper</a>
+        </div>
+      </details>
+    </section>
+
+    <footer>
+      Prototype v1 · 2026-10-15 · GT STEP → canonical axes → pythonocc HLR → DeepCAD-style 800×800
+    </footer>
+  </main>
+
+  <script>
+    (() => {
+      const buttons = [...document.querySelectorAll('[data-mode]')];
+      const images = [...document.querySelectorAll('.rendered')];
+      const labels = [...document.querySelectorAll('.mode-label')];
+
+      function setMode(mode) {
+        buttons.forEach((button) => {
+          button.setAttribute('aria-pressed', String(button.dataset.mode === mode));
+        });
+        images.forEach((image) => {
+          image.src = mode === 'physical' ? image.dataset.physical : image.dataset.normalized;
+        });
+        labels.forEach((label) => {
+          label.textContent = mode === 'physical' ? '真实尺寸 · mm' : 'checkpoint 输入';
+        });
+      }
+
+      buttons.forEach((button) => {
+        button.addEventListener('click', () => setMode(button.dataset.mode));
+      });
+    })();
+  </script>
+</body>
+</html>

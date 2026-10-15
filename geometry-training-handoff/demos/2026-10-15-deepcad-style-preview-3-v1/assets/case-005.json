@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "case_id": "case_005",
+  "part_name": "活塞 41608-3",
+  "source_drawing_name": "41608-3",
+  "input": {
+    "step_file": "ground_truth.step",
+    "step_sha256": "5983c802f8908b0621e88640803c330aae7508d5cacb017cd32729832a317914",
+    "solid_count": 1
+  },
+  "method": {
+    "description": "Ground-truth STEP re-rendered with Ortho2CAD pythonocc HLR",
+    "canvas_px": [
+      800,
+      800
+    ],
+    "views": {
+      "right": "+X to -X",
+      "front": "+Y to -Y",
+      "top": "+Z to -Z"
+    },
+    "canonical_axis_rule": "longest/middle/shortest bbox axes -> X/Y/Z",
+    "canonical_axis_map": {
+      "new_x": "+old_x",
+      "new_y": "+old_y",
+      "new_z": "+old_z"
+    },
+    "transform_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "renderer_file": "pythonocc_for_step_to_ortho.py",
+    "renderer_sha256": "14f249316a5e26d7cdd1c4b94118521859ff86b36e7652074ddf09ef963f8307",
+    "hlr_seconds": 11.37
+  },
+  "dimensions": {
+    "original_step_mm": {
+      "x": 797.6612630770269,
+      "y": 236.65714233042002,
+      "z": 157.4800001004
+    },
+    "canonical_mm": {
+      "x": 797.6612630770269,
+      "y": 236.65714233042002,
+      "z": 157.4800001004
+    },
+    "normalized": {
+      "x": 1.5,
+      "y": 0.44503316122717435,
+      "z": 0.29614074430462745
+    },
+    "normalization": "max bbox dimension -> 1.5000",
+    "scale_per_mm": 0.0018804974861304643
+  },
+  "outputs": {
+    "normalized": {
+      "file": "case-005-normalized.png",
+      "sha256": "c779ed7c90446abe79d84c0c530cc6711220c6267207966bed7a72d668a4363b"
+    },
+    "physical_mm": {
+      "file": "case-005-physical_mm.png",
+      "sha256": "edd213f448e2cf6036c1ab8fe7439e3bee3da81d5b2358e717240f9a74dcb799"
+    }
+  },
+  "scope_warning": "This uses ground-truth STEP geometry; it does not prove automatic view extraction or cleanup from the source PDF."
+}

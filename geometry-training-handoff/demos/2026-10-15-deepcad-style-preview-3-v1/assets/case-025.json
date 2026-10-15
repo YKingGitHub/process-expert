@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "case_id": "case_025",
+  "part_name": "双排链轮 28A 齿数22",
+  "source_drawing_name": "STKJ-MT01-0053双排链轮28A 齿数22",
+  "input": {
+    "step_file": "ground_truth.step",
+    "step_sha256": "78287760b13bd1012dce2b022d43e97347e8ff724b9205f5006124f0f8e91892",
+    "solid_count": 1
+  },
+  "method": {
+    "description": "Ground-truth STEP re-rendered with Ortho2CAD pythonocc HLR",
+    "canvas_px": [
+      800,
+      800
+    ],
+    "views": {
+      "right": "+X to -X",
+      "front": "+Y to -Y",
+      "top": "+Z to -Z"
+    },
+    "canonical_axis_rule": "longest/middle/shortest bbox axes -> X/Y/Z",
+    "canonical_axis_map": {
+      "new_x": "+old_y",
+      "new_y": "+old_z",
+      "new_z": "+old_x"
+    },
+    "transform_matrix": [
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        1.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "renderer_file": "pythonocc_for_step_to_ortho.py",
+    "renderer_sha256": "14f249316a5e26d7cdd1c4b94118521859ff86b36e7652074ddf09ef963f8307",
+    "hlr_seconds": 8.083
+  },
+  "dimensions": {
+    "original_step_mm": {
+      "x": 89.99999999999999,
+      "y": 333.1595409053309,
+      "z": 330.56942721415874
+    },
+    "canonical_mm": {
+      "x": 333.1595409053309,
+      "y": 330.56942721415874,
+      "z": 89.99999999999999
+    },
+    "normalized": {
+      "x": 1.5,
+      "y": 1.4883384083007178,
+      "z": 0.405211267950333
+    },
+    "normalization": "max bbox dimension -> 1.5000",
+    "scale_per_mm": 0.004502347421670367
+  },
+  "outputs": {
+    "normalized": {
+      "file": "case-025-normalized.png",
+      "sha256": "e4b9d407c8ea45d194081aa26f6f80b2327a73a28e87423223df4b9ec3a893c3"
+    },
+    "physical_mm": {
+      "file": "case-025-physical_mm.png",
+      "sha256": "ea2ca872b272f9ae5aa94fff7b5674340f37257f234261f4b26cb6b6250b5470"
+    }
+  },
+  "scope_warning": "This uses ground-truth STEP geometry; it does not prove automatic view extraction or cleanup from the source PDF."
+}

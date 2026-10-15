@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "case_id": "case_009",
+  "part_name": "排水管",
+  "source_drawing_name": "STKJ-MT01-0023 排水管",
+  "input": {
+    "step_file": "ground_truth.step",
+    "step_sha256": "65bbf5192dd099d4455e9b8ac604069a7cc8add9b3c4703240cc438ee43de945",
+    "solid_count": 1
+  },
+  "method": {
+    "description": "Ground-truth STEP re-rendered with Ortho2CAD pythonocc HLR",
+    "canvas_px": [
+      800,
+      800
+    ],
+    "views": {
+      "right": "+X to -X",
+      "front": "+Y to -Y",
+      "top": "+Z to -Z"
+    },
+    "canonical_axis_rule": "longest/middle/shortest bbox axes -> X/Y/Z",
+    "canonical_axis_map": {
+      "new_x": "+old_x",
+      "new_y": "+old_y",
+      "new_z": "+old_z"
+    },
+    "transform_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "renderer_file": "pythonocc_for_step_to_ortho.py",
+    "renderer_sha256": "14f249316a5e26d7cdd1c4b94118521859ff86b36e7652074ddf09ef963f8307",
+    "hlr_seconds": 0.05
+  },
+  "dimensions": {
+    "original_step_mm": {
+      "x": 177.9999999999991,
+      "y": 57.00000000000168,
+      "z": 57.00000000000745
+    },
+    "canonical_mm": {
+      "x": 177.9999999999991,
+      "y": 57.00000000000168,
+      "z": 57.00000000000745
+    },
+    "normalized": {
+      "x": 1.5,
+      "y": 0.480337078651702,
+      "z": 0.4803370786517506
+    },
+    "normalization": "max bbox dimension -> 1.5000",
+    "scale_per_mm": 0.008426966292134875
+  },
+  "outputs": {
+    "normalized": {
+      "file": "case-009-normalized.png",
+      "sha256": "07ff37e5e4c7aa3ead11e7f352651dabcb0c219c76e2303e29f63325082c1d3d"
+    },
+    "physical_mm": {
+      "file": "case-009-physical_mm.png",
+      "sha256": "5e9b224116484b580b70bb599d7b80cd425fbd274ff4404f5e6685ee64429edc"
+    }
+  },
+  "scope_warning": "This uses ground-truth STEP geometry; it does not prove automatic view extraction or cleanup from the source PDF."
+}
