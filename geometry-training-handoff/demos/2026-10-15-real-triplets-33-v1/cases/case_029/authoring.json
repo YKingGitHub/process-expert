@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "case_id": "case_029",
+  "part_name": "STKJ-MT01-0062 SK4040 安装板",
+  "fidelity": "exact_nominal_reconstruction",
+  "method": "85 x 150 x 15 mm rectangular plate with four 8.5 mm through-holes in the original STEP coordinates.",
+  "ground_truth_assistance": [
+    "STEP exact bounds and hole centers",
+    "STEP radius 4.25 mm",
+    "drawing dimensions"
+  ],
+  "approximations": [],
+  "omitted_features": [
+    "Unspecified microscopic edge breaks."
+  ],
+  "coordinate_policy": "Preserve the original STEP axis order, physical millimetres, and world-frame bounds; no normalization or rescaling.",
+  "reference_measurement": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 187845.2989616718,
+    "surface_area_mm2": 33698.25211488703,
+    "bbox_mm": [
+      85.00000000000003,
+      149.99999999999977,
+      15.0
+    ],
+    "bbox_min_mm": [
+      -43.99999999999998,
+      1666.2387563597406,
+      0.0
+    ],
+    "bbox_max_mm": [
+      41.00000000000005,
+      1816.2387563597404,
+      15.0
+    ]
+  },
+  "reconstructed_measurement": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 187845.2989616721,
+    "surface_area_mm2": 33698.25211488707,
+    "bbox_mm": [
+      85.0,
+      150.0,
+      15.0
+    ],
+    "bbox_min_mm": [
+      -44.0,
+      1666.23876,
+      0.0
+    ],
+    "bbox_max_mm": [
+      41.0,
+      1816.23876,
+      15.0
+    ]
+  },
+  "comparison": {
+    "volume_deviation_percent": 1.5493510147769038e-13,
+    "surface_area_deviation_percent": 1.2954899125410293e-13,
+    "bbox_axis_deviation_percent": [
+      -3.343730521224e-14,
+      1.5158245029548826e-13,
+      0.0
+    ],
+    "bbox_max_abs_deviation_percent": 1.5158245029548826e-13
+  },
+  "validation": {
+    "executor": "runpy.run_path(run_name='__triplet_validation__')",
+    "cadquery_version": "2.5.2",
+    "global_solid_present": true,
+    "reconstructed_step_exported": true
+  }
+}

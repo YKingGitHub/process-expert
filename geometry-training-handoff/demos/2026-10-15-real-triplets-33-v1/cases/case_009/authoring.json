@@ -1,0 +1,10 @@
+{
+  "case_id": "case_009",
+  "part_name": "排水管",
+  "authoring_method": "Concentric annular profile extruded along the tube axis",
+  "parameter_source": "Drawing dimensions, with GT-assisted confirmation of the translated original STEP frame",
+  "reference_assistance": true,
+  "approximate": false,
+  "omitted_features": [],
+  "validation_claim": "Not claimed here; use the generated validation report"
+}

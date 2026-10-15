@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "case_id": "case_013",
+  "part_name": "STKJ-MT01-0038限位尼龙轮",
+  "annotation_method": "agent_manual_source_image_region_annotation",
+  "purpose": "label_authoring_not_heldout_evaluation",
+  "sources": [
+    {
+      "page": 1,
+      "pdf": "source/page_01.pdf",
+      "pdf_sha256": "4b5ed5466ad2b62b574ac27ae8712164df1bd145c8d80f0939cee0ed2734b499",
+      "preview": "source/page_01.webp",
+      "original_size": [
+        2339,
+        1654
+      ],
+      "upright_size": [
+        2339,
+        1654
+      ],
+      "rotation_clockwise_degrees": 0,
+      "original_pdf_local_only": true
+    }
+  ],
+  "views": [
+    {
+      "id": "view_01",
+      "role": "front",
+      "label": "End",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.1,
+        0.11,
+        0.48,
+        0.66
+      ],
+      "bbox_upright_pixels": [
+        234,
+        182,
+        1123,
+        1092
+      ],
+      "native_image": "views/view_01_native.png",
+      "image": "views/view_01.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 1.0285714285714285,
+      "padding_xy": [
+        55,
+        64
+      ],
+      "source_to_canvas_matrix": [
+        [
+          1.0285714285714285,
+          0,
+          -185.68571428571425
+        ],
+        [
+          0,
+          1.0285714285714285,
+          -123.19999999999999
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": null,
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_02",
+      "role": "section",
+      "label": "A-A",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.51,
+        0.12,
+        0.9,
+        0.68
+      ],
+      "bbox_upright_pixels": [
+        1193,
+        198,
+        2105,
+        1125
+      ],
+      "native_image": "views/view_02_native.png",
+      "image": "views/view_02.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 1.0097087378640777,
+      "padding_xy": [
+        51,
+        64
+      ],
+      "source_to_canvas_matrix": [
+        [
+          1.0097087378640777,
+          0,
+          -1153.5825242718447
+        ],
+        [
+          0,
+          1.0097087378640777,
+          -135.92233009708738
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "End",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    }
+  ],
+  "standard_slots": {
+    "front": "view_01",
+    "top": null,
+    "side": null
+  },
+  "extra_view_ids": [
+    "view_02"
+  ],
+  "projection_convention": "unverified",
+  "axis_mapping_to_step": null,
+  "shared_physical_pixel_scale": false,
+  "crop_policy": "uniform 1024 square per view; aspect ratio preserved; source crop and inverse mapping retained; dimensions retained; independent fitting does not imply equal mm per pixel",
+  "review_status": "pending_human_acceptance",
+  "gaps": [
+    "View roles and projection convention need human confirmation.",
+    "Source PDFs retained for manufacturing notes and revision checks."
+  ],
+  "annotation_gt_leakage": false
+}

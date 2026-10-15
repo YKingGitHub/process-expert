@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "case_id": "case_026",
+  "part_name": "STKJ-MT01-0057双排链轮20A 齿数17",
+  "annotation_method": "agent_manual_source_image_region_annotation",
+  "purpose": "label_authoring_not_heldout_evaluation",
+  "sources": [
+    {
+      "page": 1,
+      "pdf": "source/page_01.pdf",
+      "pdf_sha256": "f10cb37e4cd371e16e559bfc556f3ba1ccfca59439d2216ca2f66d965b97f5f2",
+      "preview": "source/page_01.webp",
+      "original_size": [
+        3308,
+        2339
+      ],
+      "upright_size": [
+        3308,
+        2339
+      ],
+      "rotation_clockwise_degrees": 0,
+      "original_pdf_local_only": true
+    }
+  ],
+  "views": [
+    {
+      "id": "view_01",
+      "role": "front",
+      "label": "Sprocket face",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.12,
+        0.14,
+        0.49,
+        0.61
+      ],
+      "bbox_upright_pixels": [
+        397,
+        327,
+        1621,
+        1427
+      ],
+      "native_image": "views/view_01_native.png",
+      "image": "views/view_01.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.7973856209150327,
+      "padding_xy": [
+        24,
+        93
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.7973856209150327,
+          0,
+          -292.562091503268
+        ],
+        [
+          0,
+          0.7973856209150327,
+          -167.7450980392157
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": null,
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_02",
+      "role": "section",
+      "label": "B-B",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.49,
+        0.1,
+        0.73,
+        0.64
+      ],
+      "bbox_upright_pixels": [
+        1621,
+        234,
+        2415,
+        1497
+      ],
+      "native_image": "views/view_02_native.png",
+      "image": "views/view_02.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.7410926365795725,
+      "padding_xy": [
+        218,
+        64
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.7410926365795725,
+          0,
+          -983.311163895487
+        ],
+        [
+          0,
+          0.7410926365795725,
+          -109.41567695961996
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Sprocket face",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_03",
+      "role": "specification",
+      "label": "Chain parameters",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.8,
+        0.18,
+        0.96,
+        0.42
+      ],
+      "bbox_upright_pixels": [
+        2646,
+        421,
+        3176,
+        982
+      ],
+      "native_image": "views/view_03_native.png",
+      "image": "views/view_03.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 1.6684491978609626,
+      "padding_xy": [
+        70,
+        64
+      ],
+      "source_to_canvas_matrix": [
+        [
+          1.6684491978609626,
+          0,
+          -4344.716577540107
+        ],
+        [
+          0,
+          1.6684491978609626,
+          -638.4171122994652
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": null,
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    }
+  ],
+  "standard_slots": {
+    "front": "view_01",
+    "top": null,
+    "side": null
+  },
+  "extra_view_ids": [
+    "view_02",
+    "view_03"
+  ],
+  "projection_convention": "unverified",
+  "axis_mapping_to_step": null,
+  "shared_physical_pixel_scale": false,
+  "crop_policy": "uniform 1024 square per view; aspect ratio preserved; source crop and inverse mapping retained; dimensions retained; independent fitting does not imply equal mm per pixel",
+  "review_status": "pending_human_acceptance",
+  "gaps": [
+    "View roles and projection convention need human confirmation.",
+    "Source PDFs retained for manufacturing notes and revision checks."
+  ],
+  "annotation_gt_leakage": false
+}

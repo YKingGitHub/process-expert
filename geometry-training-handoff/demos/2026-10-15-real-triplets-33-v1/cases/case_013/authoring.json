@@ -1,0 +1,10 @@
+{
+  "case_id": "case_013",
+  "part_name": "限位尼龙轮",
+  "authoring_method": "Filleted cylindrical tread with Boolean through-bore, counterbores, and symmetric retainer recesses",
+  "parameter_source": "Drawing dimensions, with GT-assisted confirmation of axial stations and radii for the stepped bore",
+  "reference_assistance": true,
+  "approximate": false,
+  "omitted_features": [],
+  "validation_claim": "Not claimed here; use the generated validation report"
+}

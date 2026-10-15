@@ -1,0 +1,65 @@
+{
+  "case_id": "case_005",
+  "drawing_part": "41608-3",
+  "label_class": "reconstructed",
+  "quality_status": "approximate_reconstruction_not_training_ready",
+  "training_eligible": false,
+  "method": "GT-assisted editable CadQuery reconstruction",
+  "runtime_reference_dependency": false,
+  "units": "mm",
+  "unit_note": "The STEP is millimetres; its 797.661 mm length is about 31.40 inches, not feet.",
+  "source_evidence": {
+    "reference_step_used_during_authoring": true,
+    "drawing_used_during_authoring": true,
+    "measured_from_reference": [
+      "overall coordinate-frame bounds",
+      "main barrel radii 28.477 and 20.307 mm",
+      "left-end turned radii",
+      "central 17.780 mm and terminal 15.939 mm pivot radii",
+      "fork width and end locations"
+    ],
+    "inferred_or_approximated": [
+      "straight segmented fork-arm sections",
+      "root-gusset thicknesses",
+      "simplified root-block and arm elevations"
+    ]
+  },
+  "editable_operations": [
+    "coaxial tube",
+    "turned collar",
+    "two-rotation 3D rectangular rail",
+    "bored pivot eye",
+    "gusset box",
+    "union"
+  ],
+  "features_represented": [
+    "long hollow barrel",
+    "stepped left-end collars",
+    "fork root and raised central eye",
+    "two diverging fork legs",
+    "paired terminal bored eyes"
+  ],
+  "known_omissions": [
+    "true swept curved arm profiles and forged blends",
+    "small radial holes, bosses, slots, and chamfers",
+    "local curved root surfaces and variable arm section",
+    "fine machining and inspection features"
+  ],
+  "attempt_history": [
+    "Built a connected editable fork from two segmented 3D rails rather than an imported mesh or BREP.",
+    "Preserved axial bores as actual boolean cuts.",
+    "No volume-only tuning, global scale, or coordinate alignment was applied."
+  ],
+  "basic_validation": {
+    "cadquery_export_valid": true,
+    "reconstructed_solid_count": 1,
+    "reference_volume_mm3": 1366585.83366,
+    "reconstructed_volume_mm3": 1424733.42329,
+    "volume_error_percent": 4.255,
+    "reference_area_mm2": 264067.16686,
+    "reconstructed_area_mm2": 253385.76281,
+    "area_error_percent": -4.045,
+    "bbox_extent_mm": [797.661, 236.658, 157.48],
+    "full_overlap_validation": "pending common validator; do not interpret matching bounds as shape equivalence"
+  }
+}

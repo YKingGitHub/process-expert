@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "case_id": "case_030",
+  "part_name": "STKJ-MT01-0063 DN50 闷盖",
+  "fidelity": "dimensionally_faithful_simplification",
+  "method": "155 mm blind cover with 125 mm PCD holes and a 2 mm raised, C2-transitioned 106 mm center face.",
+  "ground_truth_assistance": [
+    "STEP bbox 155 x 155 x 17.5 mm",
+    "STEP four radius-9 holes at PCD 125",
+    "drawing 15.5/17.5 mm axial profile"
+  ],
+  "approximations": [
+    "C2 transition is modeled as a 55-to-53 mm conical frustum."
+  ],
+  "omitted_features": [
+    "Unspecified outer edge breaks and surface-finish-only annotations."
+  ],
+  "coordinate_policy": "Preserve the original STEP axis order, physical millimetres, and world-frame bounds; no normalization or rescaling.",
+  "reference_measurement": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 293687.2077315565,
+    "surface_area_mm2": 47026.99184256746,
+    "bbox_mm": [
+      155.00000000000216,
+      155.00000000000128,
+      17.500000000003684
+    ],
+    "bbox_min_mm": [
+      -77.50000000000198,
+      -77.5000000000002,
+      -3.552713678800501e-12
+    ],
+    "bbox_max_mm": [
+      77.5000000000002,
+      77.50000000000108,
+      17.50000000000013
+    ]
+  },
+  "reconstructed_measurement": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 294996.4493783521,
+    "surface_area_mm2": 47060.65056295447,
+    "bbox_mm": [
+      155.0,
+      155.0,
+      17.500000200000002
+    ],
+    "bbox_min_mm": [
+      -77.5,
+      -77.5,
+      -1e-07
+    ],
+    "bbox_max_mm": [
+      77.5,
+      77.5,
+      17.5000001
+    ]
+  },
+  "comparison": {
+    "volume_deviation_percent": 0.44579457747179047,
+    "surface_area_deviation_percent": 0.07157319460212792,
+    "bbox_axis_deviation_percent": [
+      -1.3935805914262416e-12,
+      -8.25146402818174e-13,
+      1.1428361038462428e-06
+    ],
+    "bbox_max_abs_deviation_percent": 1.1428361038462428e-06
+  },
+  "validation": {
+    "executor": "runpy.run_path(run_name='__triplet_validation__')",
+    "cadquery_version": "2.5.2",
+    "global_solid_present": true,
+    "reconstructed_step_exported": true
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "case_id": "case_021",
+  "part_name": "STKJ-MT01-0047 销",
+  "fidelity": "dimensionally_faithful_simplification",
+  "method": "Three coaxial turned diameters plus a blind hexagonal socket, rotated into the source STEP axis frame.",
+  "ground_truth_assistance": [
+    "STEP bbox 76 x 200 x 76 mm",
+    "STEP principal radii 38, 29.5, and 25 mm",
+    "drawing axial dimensions"
+  ],
+  "approximations": [
+    "M50x1.5 threaded region is represented by the nominal 50 mm cylinder."
+  ],
+  "omitted_features": [
+    "Thread helix, C1.5 edge chamfers, and tiny relief grooves."
+  ],
+  "coordinate_policy": "Preserve the original STEP axis order, physical millimetres, and world-frame bounds; no normalization or rescaling.",
+  "reference_measurement": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 456843.2858493547,
+    "surface_area_mm2": 46071.41623118686,
+    "bbox_mm": [
+      75.99999999999999,
+      200.0,
+      75.99999999999999
+    ],
+    "bbox_min_mm": [
+      -37.99999999999999,
+      0.0,
+      -37.99999999999999
+    ],
+    "bbox_max_mm": [
+      37.99999999999999,
+      200.0,
+      37.99999999999999
+    ]
+  },
+  "reconstructed_measurement": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 457520.0399219384,
+    "surface_area_mm2": 43268.473018551274,
+    "bbox_mm": [
+      76.0,
+      200.0,
+      76.0
+    ],
+    "bbox_min_mm": [
+      -38.0,
+      -4.218847493575595e-15,
+      -38.0
+    ],
+    "bbox_max_mm": [
+      38.0,
+      200.0,
+      38.0
+    ]
+  },
+  "comparison": {
+    "volume_deviation_percent": 0.1481370293809789,
+    "surface_area_deviation_percent": -6.083909377932693,
+    "bbox_axis_deviation_percent": [
+      1.869849304631843e-14,
+      0.0,
+      1.869849304631843e-14
+    ],
+    "bbox_max_abs_deviation_percent": 1.869849304631843e-14
+  },
+  "validation": {
+    "executor": "runpy.run_path(run_name='__triplet_validation__')",
+    "cadquery_version": "2.5.2",
+    "global_solid_present": true,
+    "reconstructed_step_exported": true
+  }
+}

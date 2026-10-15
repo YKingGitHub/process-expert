@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>33 件真实零件 · 三元组验收 | Process Expert</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="shell"><nav><a href="../../../">← 周报 Collection</a><span>2026-W42 / DATASET AUTHORING / V1</span></nav>
+<div class="hero"><div><p class="eyebrow">从真实图纸到可追溯训练样本</p><h1>33 件真实零件<br><em>三元组验收台</em></h1><p class="lead">原图视图 × CadQuery × STEP。逐件查看整理结果、旋转对比几何、检查代码，并记录验收意见。</p></div><aside><strong>这是标签制作，不是模型测试成绩。</strong><p>视图来自原 PDF 图像裁切；代码由 AI 辅助、参考 STEP 逆向编写，不是恢复出的原始设计历史。几何检查通过也不等于工艺或图纸全部正确。</p><p>未通过和待确认项全部保留，不进入已验收训练集。</p></aside></div>
+<div id="metrics" class="metrics"></div>
+<div class="actions"><a class="button" href="dataset.json" download>下载数据清单</a><a href="summary.json">实测统计 JSON</a><button id="export-review">导出我的验收意见</button></div>
+</header>
+<main class="shell">
+<section class="protocol"><details><summary>验收口径、已知缺口与数据使用边界</summary><div class="protocol-body">
+<h3>这次做了什么</h3><p>33 件全部保留。原 PDF 仅做转正、区域裁切和等比例缩放加留白；每张视图统一为 1024×1024。尺寸、虚线、中心线、剖面线仍保留。缺失的标准视图留空，剖视和局部图单独列出，不从参考 STEP 补成“原图提取”。</p>
+<p>裁框和视图名称由 AI 阅读原图后逐件标注，并非训练好的自动检测器。主 / 俯 / 侧视为候选角色，投影法和 STEP 轴对应关系尚未人工确认。各视图独立适配画布，不能把像素长度当成共同的毫米比例；原始裁片和变换矩阵随包提供。</p>
+<h3>几何检查</h3><p>独立运行每份 model.py，重新导出 STEP 再读取。检查实体有效性、实体数量、真实毫米尺度下的体积 / 表面积 / 包围盒，并在原坐标系计算交集与对称差体积；没有自动平移、旋转或缩放对齐。旧版检查阈值仍为体积误差 ≤2%、面积 ≤5%、排序包围盒 ≤2%。本次另加：轴向包围盒 ≤1%、对称差 / 参考体积 ≤1%。</p>
+<p>这些仍是必要而非充分条件：小孔、螺纹、齿廓、倒角、公差、材料和图纸版本一致性需要继续核对。完整程序的执行检查采用可信标签制作环境，未改动模型推理执行器的安全白名单。没有用导入参考 STEP、内嵌 BREP 或网格代替建模代码。</p>
+<h3>未达标 / 差距点</h3><p>本次 33 件均独立执行成功，20 件通过自动几何门限，10 件未通过，3 件布尔核验异常，人工验收数为 0。复杂铸造件和部分齿形使用近似参数化结构。case_001 / 003 / 021 的布尔运算返回空交集，但发现了同时在两模型内部的点，因此不把空结果当作真实零重叠；相关交集 / IoU / 对称差设为空值，等待进一步核验。</p>
+<p>旧版检查缺少这一空结果反证，早期运行日志仍完整保留在 validation_attempts 中；网页和 ZIP 的当前 validation.json 使用修正后统一检查，包含验证器代码哈希。没有因此放宽几何门限，也没有删除失败样例。</p>
+<p>密集老图中部分详图仍按区域组保留，部分裁片仍有邻图碎片或边缘标注不完整；这些不是最终清洁标签。原始 PDF 的校验值保留，网页展示整页预览；源 PDF 本体保留在本地数据目录，不重复上传。</p>
+<h3>接下来两个可选方向</h3><p>A. 优先审核几何检查通过的简单件，确认视图方向和关键尺寸后组成小规模训练试验。B. 优先补复杂件，继续拆分密集详图、修正逆向模型，并以关键孔 / 槽 / 齿廓的特征清单验收。</p>
+<p><strong>数据划分：</strong>这 33 件原先用于测试，现在已经用于标签制作与开发；后续若用于训练，不能再把同一批数据上的分数当作未见样本泛化结果，应另建隔离测试集。</p>
+</div></details></section>
+<section class="workspace">
+<aside class="sidebar"><div class="search"><input id="search" type="search" placeholder="搜索编号 / 零件名称" aria-label="搜索零件"><select id="filter" aria-label="筛选"><option value="all">全部样例</option><option value="pass">几何检查通过</option><option value="revise">几何待修正 / 未完成</option><option value="review">我标记的待修改</option></select></div><div id="case-list"></div></aside>
+<article id="case-detail" aria-live="polite"><p>正在加载 33 件数据清单…</p></article>
+</section>
+<footer>2026-10-15 · 可追溯标签制作 v1 · 所有数据均来自这 33 件真实零件；未增加或替换样例。</footer>
+</main>
+<dialog id="lightbox"><button id="close-lightbox" aria-label="关闭">关闭 ×</button><img alt="视图放大预览"></dialog>
+<script src="mesh-viewer.js"></script><script src="app.js"></script>
+</body></html>

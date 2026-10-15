@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "case_id": "case_024",
+  "part_name": "STKJ-MT01-0050 链轮压板",
+  "fidelity": "exact_nominal_reconstruction",
+  "method": "Single annular extrusion from the drawing and STEP nominal dimensions.",
+  "ground_truth_assistance": [
+    "STEP bbox 80 x 80 x 8 mm",
+    "STEP radii 40 and 5.5 mm"
+  ],
+  "approximations": [],
+  "omitted_features": [
+    "Unspecified microscopic edge breaks."
+  ],
+  "coordinate_policy": "Preserve the original STEP axis order, physical millimetres, and world-frame bounds; no normalization or rescaling.",
+  "reference_measurement": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 39452.120543780606,
+    "surface_area_mm2": 12150.109587758521,
+    "bbox_mm": [
+      79.99999999999999,
+      79.99999999999999,
+      8.0
+    ],
+    "bbox_min_mm": [
+      -39.99999999999999,
+      -39.99999999999999,
+      0.0
+    ],
+    "bbox_max_mm": [
+      39.99999999999999,
+      39.99999999999999,
+      8.0
+    ]
+  },
+  "reconstructed_measurement": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 39452.12054378061,
+    "surface_area_mm2": 12150.109587758525,
+    "bbox_mm": [
+      80.0,
+      80.0,
+      8.0
+    ],
+    "bbox_min_mm": [
+      -40.0,
+      -40.0,
+      0.0
+    ],
+    "bbox_max_mm": [
+      40.0,
+      40.0,
+      8.0
+    ]
+  },
+  "comparison": {
+    "volume_deviation_percent": 1.8442500717063326e-14,
+    "surface_area_deviation_percent": 2.9941942340643985e-14,
+    "bbox_axis_deviation_percent": [
+      1.7763568394002508e-14,
+      1.7763568394002508e-14,
+      0.0
+    ],
+    "bbox_max_abs_deviation_percent": 1.7763568394002508e-14
+  },
+  "validation": {
+    "executor": "runpy.run_path(run_name='__triplet_validation__')",
+    "cadquery_version": "2.5.2",
+    "global_solid_present": true,
+    "reconstructed_step_exported": true
+  }
+}

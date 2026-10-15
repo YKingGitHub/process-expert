@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "case_id": "case_007",
+  "part_name": "STKJ-MT01-0008 水槽骨架拼装接杆",
+  "annotation_method": "agent_manual_source_image_region_annotation",
+  "purpose": "label_authoring_not_heldout_evaluation",
+  "sources": [
+    {
+      "page": 1,
+      "pdf": "source/page_01.pdf",
+      "pdf_sha256": "59e52026e1fea78217f5f3623978374302583db87f05daa9e01164ecbbc1b512",
+      "preview": "source/page_01.webp",
+      "original_size": [
+        3308,
+        2339
+      ],
+      "upright_size": [
+        3308,
+        2339
+      ],
+      "rotation_clockwise_degrees": 0,
+      "original_pdf_local_only": true
+    }
+  ],
+  "views": [
+    {
+      "id": "view_01",
+      "role": "front",
+      "label": "Longitudinal",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.12,
+        0.15,
+        0.55,
+        0.38
+      ],
+      "bbox_upright_pixels": [
+        397,
+        351,
+        1819,
+        889
+      ],
+      "native_image": "views/view_01_native.png",
+      "image": "views/view_01.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.6863572433192686,
+      "padding_xy": [
+        24,
+        347
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.6863572433192686,
+          0,
+          -248.48382559774961
+        ],
+        [
+          0,
+          0.6863572433192686,
+          106.08860759493672
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": null,
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_02",
+      "role": "side",
+      "label": "End",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.58,
+        0.15,
+        0.74,
+        0.38
+      ],
+      "bbox_upright_pixels": [
+        1919,
+        351,
+        2448,
+        889
+      ],
+      "native_image": "views/view_02_native.png",
+      "image": "views/view_02.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 1.7397769516728625,
+      "padding_xy": [
+        52,
+        64
+      ],
+      "source_to_canvas_matrix": [
+        [
+          1.7397769516728625,
+          0,
+          -3286.631970260223
+        ],
+        [
+          0,
+          1.7397769516728625,
+          -546.6617100371748
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": null,
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    }
+  ],
+  "standard_slots": {
+    "front": "view_01",
+    "top": null,
+    "side": "view_02"
+  },
+  "extra_view_ids": [],
+  "projection_convention": "unverified",
+  "axis_mapping_to_step": null,
+  "shared_physical_pixel_scale": false,
+  "crop_policy": "uniform 1024 square per view; aspect ratio preserved; source crop and inverse mapping retained; dimensions retained; independent fitting does not imply equal mm per pixel",
+  "review_status": "pending_human_acceptance",
+  "gaps": [
+    "View roles and projection convention need human confirmation.",
+    "Source PDFs retained for manufacturing notes and revision checks."
+  ],
+  "annotation_gt_leakage": false
+}

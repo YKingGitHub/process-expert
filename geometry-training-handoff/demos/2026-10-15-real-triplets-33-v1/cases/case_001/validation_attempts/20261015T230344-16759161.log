@@ -1,0 +1,2 @@
+{"case_id": "case_001", "status": "geometry_check_error", "execution_status": "success", "error": "Boolean validation error: ValueError: Empty Common contradicts a point inside both operands: (-9.895813699437504, -77.2991260159339, -550.7540314478749)", "elapsed_seconds": 150.77}
+

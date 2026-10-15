@@ -1,0 +1,10 @@
+{
+  "case_id": "case_019",
+  "part_name": "黄油封堵盖",
+  "authoring_method": "Union of two coaxial cylindrical steps with a 1 mm boss-edge chamfer",
+  "parameter_source": "Drawing dimensions, with GT-assisted confirmation of 105/85 mm diameters, 5/5 mm axial steps, chamfer, and original frame",
+  "reference_assistance": true,
+  "approximate": false,
+  "omitted_features": [],
+  "validation_claim": "Not claimed here; use the generated validation report"
+}

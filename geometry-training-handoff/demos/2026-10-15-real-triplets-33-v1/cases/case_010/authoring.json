@@ -1,0 +1,10 @@
+{
+  "case_id": "case_010",
+  "part_name": "水位检测管",
+  "authoring_method": "Annular sweep along two straight legs joined by a tangent 90-degree circular arc",
+  "parameter_source": "Drawing dimensions, with GT-assisted confirmation of the 40 mm centreline radius, tangent stations, diameters, and original frame",
+  "reference_assistance": true,
+  "approximate": false,
+  "omitted_features": ["Manufacturing ovality and wall thinning from cold bending are not modeled"],
+  "validation_claim": "Not claimed here; use the generated validation report"
+}

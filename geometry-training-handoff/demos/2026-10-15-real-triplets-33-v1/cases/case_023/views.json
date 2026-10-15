@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "case_id": "case_023",
+  "part_name": "STKJ-MT01-0049轨道轮轴",
+  "annotation_method": "agent_manual_source_image_region_annotation",
+  "purpose": "label_authoring_not_heldout_evaluation",
+  "sources": [
+    {
+      "page": 1,
+      "pdf": "source/page_01.pdf",
+      "pdf_sha256": "ae8037704f8d45ef433fc4fc8dc6e868619c8e6ff5be7bc0c4aa26b62286c6e9",
+      "preview": "source/page_01.webp",
+      "original_size": [
+        2339,
+        1654
+      ],
+      "upright_size": [
+        2339,
+        1654
+      ],
+      "rotation_clockwise_degrees": 0,
+      "original_pdf_local_only": true
+    }
+  ],
+  "views": [
+    {
+      "id": "view_01",
+      "role": "front",
+      "label": "Shaft - broken",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.16,
+        0.12,
+        0.75,
+        0.57
+      ],
+      "bbox_upright_pixels": [
+        374,
+        198,
+        1754,
+        943
+      ],
+      "native_image": "views/view_01_native.png",
+      "image": "views/view_01.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.7072463768115942,
+      "padding_xy": [
+        24,
+        268
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.7072463768115942,
+          0,
+          -240.5101449275362
+        ],
+        [
+          0,
+          0.7072463768115942,
+          127.96521739130435
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": null,
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    }
+  ],
+  "standard_slots": {
+    "front": "view_01",
+    "top": null,
+    "side": null
+  },
+  "extra_view_ids": [],
+  "projection_convention": "unverified",
+  "axis_mapping_to_step": null,
+  "shared_physical_pixel_scale": false,
+  "crop_policy": "uniform 1024 square per view; aspect ratio preserved; source crop and inverse mapping retained; dimensions retained; independent fitting does not imply equal mm per pixel",
+  "review_status": "pending_human_acceptance",
+  "gaps": [
+    "View roles and projection convention need human confirmation.",
+    "Source PDFs retained for manufacturing notes and revision checks."
+  ],
+  "annotation_gt_leakage": false
+}

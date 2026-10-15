@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "case_id": "case_032",
+  "part_name": "STKJ-MT01-0065 石棉橡胶垫片平面型",
+  "fidelity": "exact_nominal_reconstruction",
+  "method": "150/60 x 3 mm annular gasket with four 19 mm holes on PCD 120.70, rotated into the STEP y-thickness frame.",
+  "ground_truth_assistance": [
+    "STEP bbox 150 x 3 x 150 mm",
+    "STEP hole centers at radius 60.35 mm",
+    "drawing nominal dimensions"
+  ],
+  "approximations": [],
+  "omitted_features": [
+    "Material deformation and rasterized surface texture are not geometric features."
+  ],
+  "coordinate_policy": "Preserve the original STEP axis order, physical millimetres, and world-frame bounds; no normalization or rescaling.",
+  "reference_measurement": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 41104.498329411246,
+    "surface_area_mm2": 30226.080190575158,
+    "bbox_mm": [
+      150.00000020000033,
+      3.000000100003233,
+      150.00000020000033
+    ],
+    "bbox_min_mm": [
+      -75.00000010000016,
+      -1.000026645352591e-07,
+      -75.00000010000016
+    ],
+    "bbox_max_mm": [
+      75.00000010000016,
+      3.0000000000005684,
+      75.00000010000016
+    ]
+  },
+  "reconstructed_measurement": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 41129.73102079758,
+    "surface_area_mm2": 30115.307177311763,
+    "bbox_mm": [
+      150.0,
+      3.000000000000017,
+      150.0
+    ],
+    "bbox_min_mm": [
+      -75.0,
+      -8.326672684688674e-15,
+      -75.0
+    ],
+    "bbox_max_mm": [
+      75.0,
+      3.0000000000000084,
+      75.0
+    ]
+  },
+  "comparison": {
+    "volume_deviation_percent": 0.06138669102374529,
+    "surface_area_deviation_percent": -0.3664815701042685,
+    "bbox_axis_deviation_percent": [
+      -1.333335526134736e-07,
+      -3.333440419895055e-06,
+      -1.333335526134736e-07
+    ],
+    "bbox_max_abs_deviation_percent": 3.333440419895055e-06
+  },
+  "validation": {
+    "executor": "runpy.run_path(run_name='__triplet_validation__')",
+    "cadquery_version": "2.5.2",
+    "global_solid_present": true,
+    "reconstructed_step_exported": true
+  }
+}

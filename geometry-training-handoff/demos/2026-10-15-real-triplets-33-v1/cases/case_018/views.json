@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "case_id": "case_018",
+  "part_name": "STKJ-MT01-0044液压缸安装座固定板",
+  "annotation_method": "agent_manual_source_image_region_annotation",
+  "purpose": "label_authoring_not_heldout_evaluation",
+  "sources": [
+    {
+      "page": 1,
+      "pdf": "source/page_01.pdf",
+      "pdf_sha256": "572888f268822618b28a6257d76680cb6e5eaeb29bff1f4fbcff8e097c05d127",
+      "preview": "source/page_01.webp",
+      "original_size": [
+        2339,
+        1654
+      ],
+      "upright_size": [
+        2339,
+        1654
+      ],
+      "rotation_clockwise_degrees": 0,
+      "original_pdf_local_only": true
+    }
+  ],
+  "views": [
+    {
+      "id": "view_01",
+      "role": "front",
+      "label": "Plate face",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.14,
+        0.13,
+        0.74,
+        0.65
+      ],
+      "bbox_upright_pixels": [
+        327,
+        215,
+        1731,
+        1075
+      ],
+      "native_image": "views/view_01_native.png",
+      "image": "views/view_01.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.6951566951566952,
+      "padding_xy": [
+        24,
+        233
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.6951566951566952,
+          0,
+          -203.31623931623932
+        ],
+        [
+          0,
+          0.6951566951566952,
+          83.54131054131054
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": null,
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_02",
+      "role": "side",
+      "label": "Thickness",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.75,
+        0.13,
+        0.87,
+        0.61
+      ],
+      "bbox_upright_pixels": [
+        1754,
+        215,
+        2035,
+        1009
+      ],
+      "native_image": "views/view_02_native.png",
+      "image": "views/view_02.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 1.1788413098236776,
+      "padding_xy": [
+        346,
+        64
+      ],
+      "source_to_canvas_matrix": [
+        [
+          1.1788413098236776,
+          0,
+          -1721.6876574307307
+        ],
+        [
+          0,
+          1.1788413098236776,
+          -189.45088161209068
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": null,
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    }
+  ],
+  "standard_slots": {
+    "front": "view_01",
+    "top": null,
+    "side": "view_02"
+  },
+  "extra_view_ids": [],
+  "projection_convention": "unverified",
+  "axis_mapping_to_step": null,
+  "shared_physical_pixel_scale": false,
+  "crop_policy": "uniform 1024 square per view; aspect ratio preserved; source crop and inverse mapping retained; dimensions retained; independent fitting does not imply equal mm per pixel",
+  "review_status": "pending_human_acceptance",
+  "gaps": [
+    "View roles and projection convention need human confirmation.",
+    "Source PDFs retained for manufacturing notes and revision checks."
+  ],
+  "annotation_gt_leakage": false
+}

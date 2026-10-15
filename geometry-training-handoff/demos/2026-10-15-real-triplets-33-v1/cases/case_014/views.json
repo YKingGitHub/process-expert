@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "case_id": "case_014",
+  "part_name": "STKJ-MT01-0039油缸Y型接头",
+  "annotation_method": "agent_manual_source_image_region_annotation",
+  "purpose": "label_authoring_not_heldout_evaluation",
+  "sources": [
+    {
+      "page": 1,
+      "pdf": "source/page_01.pdf",
+      "pdf_sha256": "b6456fdff6522b6cf34ce036d9ff462ca3d62967b1714788fb1473b5378d4000",
+      "preview": "source/page_01.webp",
+      "original_size": [
+        3308,
+        2339
+      ],
+      "upright_size": [
+        3308,
+        2339
+      ],
+      "rotation_clockwise_degrees": 0,
+      "original_pdf_local_only": true
+    }
+  ],
+  "views": [
+    {
+      "id": "view_01",
+      "role": "front",
+      "label": "Fork face",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.12,
+        0.07,
+        0.42,
+        0.55
+      ],
+      "bbox_upright_pixels": [
+        397,
+        164,
+        1389,
+        1286
+      ],
+      "native_image": "views/view_01_native.png",
+      "image": "views/view_01.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.8342245989304813,
+      "padding_xy": [
+        98,
+        64
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.8342245989304813,
+          0,
+          -233.18716577540107
+        ],
+        [
+          0,
+          0.8342245989304813,
+          -72.81283422459893
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": null,
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_02",
+      "role": "section",
+      "label": "Axial section",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.44,
+        0.03,
+        0.7,
+        0.53
+      ],
+      "bbox_upright_pixels": [
+        1456,
+        70,
+        2316,
+        1240
+      ],
+      "native_image": "views/view_02_native.png",
+      "image": "views/view_02.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.8,
+      "padding_xy": [
+        168,
+        64
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.8,
+          0,
+          -996.8
+        ],
+        [
+          0,
+          0.8,
+          8.0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Fork face",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_03",
+      "role": "top",
+      "label": "Plan",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.14,
+        0.54,
+        0.43,
+        0.74
+      ],
+      "bbox_upright_pixels": [
+        463,
+        1263,
+        1422,
+        1731
+      ],
+      "native_image": "views/view_03_native.png",
+      "image": "views/view_03.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 1.0177267987486966,
+      "padding_xy": [
+        24,
+        294
+      ],
+      "source_to_canvas_matrix": [
+        [
+          1.0177267987486966,
+          0,
+          -447.2075078206465
+        ],
+        [
+          0,
+          1.0177267987486966,
+          -991.3889468196039
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": null,
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_04",
+      "role": "section",
+      "label": "A-A",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.5,
+        0.54,
+        0.8,
+        0.76
+      ],
+      "bbox_upright_pixels": [
+        1654,
+        1263,
+        2646,
+        1778
+      ],
+      "native_image": "views/view_04_native.png",
+      "image": "views/view_04.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.9838709677419355,
+      "padding_xy": [
+        24,
+        278
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.9838709677419355,
+          0,
+          -1603.3225806451612
+        ],
+        [
+          0,
+          0.9838709677419355,
+          -964.6290322580646
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Fork face",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    }
+  ],
+  "standard_slots": {
+    "front": "view_01",
+    "top": "view_03",
+    "side": null
+  },
+  "extra_view_ids": [
+    "view_02",
+    "view_04"
+  ],
+  "projection_convention": "unverified",
+  "axis_mapping_to_step": null,
+  "shared_physical_pixel_scale": false,
+  "crop_policy": "uniform 1024 square per view; aspect ratio preserved; source crop and inverse mapping retained; dimensions retained; independent fitting does not imply equal mm per pixel",
+  "review_status": "pending_human_acceptance",
+  "gaps": [
+    "View roles and projection convention need human confirmation.",
+    "Source PDFs retained for manufacturing notes and revision checks."
+  ],
+  "annotation_gt_leakage": false
+}

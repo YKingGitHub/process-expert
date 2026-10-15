@@ -1,0 +1,65 @@
+{
+  "case_id": "case_003",
+  "drawing_part": "40605-11 (machined piston)",
+  "label_class": "reconstructed",
+  "quality_status": "approximate_reconstruction_not_training_ready",
+  "training_eligible": false,
+  "method": "GT-assisted editable CadQuery reconstruction",
+  "runtime_reference_dependency": false,
+  "units": "mm",
+  "unit_note": "The drawing is in inches; the 38.040 in overall dimension corresponds to 966.216 mm in the STEP datum scheme.",
+  "source_evidence": {
+    "reference_step_used_during_authoring": true,
+    "drawing_used_during_authoring": true,
+    "measured_from_reference": [
+      "overall coordinate-frame bounds",
+      "long-axis radii 34.801, 25.819 and 24.384 mm",
+      "cross-tube radii 19.164 and 26.975 mm",
+      "symmetric shoulder-ear Z extent"
+    ],
+    "inferred_or_approximated": [
+      "straight strap cross sections",
+      "shoulder web thickness",
+      "local collar lengths and simplified ear bridges"
+    ]
+  },
+  "editable_operations": [
+    "coaxial tube",
+    "turned collar",
+    "rectangular strap",
+    "bored cross tube",
+    "ear cylinder",
+    "explicit bridge",
+    "through-hole cut"
+  ],
+  "features_represented": [
+    "long hollow piston body",
+    "machined end steps",
+    "two longitudinal fork straps",
+    "transverse hollow end tube",
+    "paired shoulder ears with apertures"
+  ],
+  "known_omissions": [
+    "forged curved blends and gradual section transitions",
+    "small slots, lubrication holes, chamfers, and thread detail",
+    "exact cross-tube axis skew and local crown profiles",
+    "fine machining reliefs"
+  ],
+  "attempt_history": [
+    "Initial baseline exported as three solids because the shoulder ears stopped short of the straps.",
+    "Added two explicit web-to-ear bridges as a clear connectivity repair; the frozen export is one valid solid.",
+    "No global transform, non-physical scale, or volume-only fitting was used."
+  ],
+  "basic_validation": {
+    "cadquery_export_valid": true,
+    "reconstructed_solid_count": 1,
+    "reference_volume_mm3": 2139037.3913,
+    "reconstructed_volume_mm3": 2490693.41624,
+    "volume_error_percent": 16.44,
+    "reference_area_mm2": 415198.80992,
+    "reconstructed_area_mm2": 414130.23342,
+    "area_error_percent": -0.257,
+    "bbox_extent_mm": [1006.774, 245.692, 124.714],
+    "full_overlap_validation": "pending common validator; do not interpret matching bounds as shape equivalence"
+  }
+}

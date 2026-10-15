@@ -1,0 +1,62 @@
+{
+  "case_id": "case_001",
+  "drawing_part": "40602-3 (machined part)",
+  "label_class": "reconstructed",
+  "quality_status": "approximate_reconstruction_not_training_ready",
+  "training_eligible": false,
+  "method": "GT-assisted editable CadQuery reconstruction",
+  "runtime_reference_dependency": false,
+  "units": "mm",
+  "unit_note": "The production drawing is dimensioned in inches; drawing values were converted with 25.4 mm/in and cross-checked against the millimetre STEP.",
+  "source_evidence": {
+    "reference_step_used_during_authoring": true,
+    "drawing_used_during_authoring": true,
+    "measured_from_reference": [
+      "overall coordinate-frame bounds",
+      "dominant Z-axis radii 38.119, 41.288 and 51.943 mm",
+      "transverse cylindrical features and principal axis directions"
+    ],
+    "inferred_or_approximated": [
+      "rectangular rail section thicknesses",
+      "triangular web layout and local pad dimensions",
+      "lightening-hole placement where the drawing did not expose an unambiguous depth"
+    ]
+  },
+  "editable_operations": [
+    "cylinder",
+    "tube by boolean cut",
+    "rotated rectangular rail",
+    "union",
+    "through-hole cut"
+  ],
+  "features_represented": [
+    "long Z-axis hollow pressure member",
+    "stepped end collars",
+    "two transverse pivot bosses",
+    "triangular forged load-path rails",
+    "four explicit lightening holes"
+  ],
+  "known_omissions": [
+    "production free-form forging blends and variable wall thickness",
+    "small ports, counterbores, slots, chamfers, and fastener details",
+    "drawing-specific surface runouts and draft",
+    "exact asymmetric web contours"
+  ],
+  "attempt_history": [
+    "Built a standalone parametric baseline in the native STEP coordinate frame.",
+    "Preserved explicit holes and tube bores instead of using a bounding-box proxy.",
+    "Stopped before overlap fitting because remaining parameters are not unambiguously recoverable as a native feature tree."
+  ],
+  "basic_validation": {
+    "cadquery_export_valid": true,
+    "reconstructed_solid_count": 1,
+    "reference_volume_mm3": 4846700.9894,
+    "reconstructed_volume_mm3": 4273217.50121,
+    "volume_error_percent": -11.832,
+    "reference_area_mm2": 659021.16667,
+    "reconstructed_area_mm2": 521104.54903,
+    "area_error_percent": -20.927,
+    "bbox_extent_mm": [106.36852, 468.42839, 669.23583],
+    "full_overlap_validation": "pending common validator; do not interpret matching bounds as shape equivalence"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "case_id": "case_002",
+  "drawing_part": "41602-3 (machined part)",
+  "label_class": "reconstructed",
+  "quality_status": "approximate_reconstruction_not_training_ready",
+  "training_eligible": false,
+  "method": "GT-assisted editable CadQuery reconstruction",
+  "runtime_reference_dependency": false,
+  "units": "mm",
+  "unit_note": "The drawing is in inches and the STEP is in millimetres; 21.970 in and 9.450 in were checked as 558.038 mm and 240.030 mm.",
+  "source_evidence": {
+    "reference_step_used_during_authoring": true,
+    "drawing_used_during_authoring": true,
+    "measured_from_reference": [
+      "overall native-coordinate bounds",
+      "main X-axis radius 41.224 mm",
+      "end radii 53.975, 54.007 and 45.968 mm",
+      "transverse boss and bore radii 27.686 and 12.706 mm"
+    ],
+    "inferred_or_approximated": [
+      "cast rib thickness and relief-pocket depths",
+      "support-pad profiles",
+      "secondary boss lengths and placement where occluded by cast blends"
+    ]
+  },
+  "editable_operations": [
+    "coaxial tube",
+    "turned collar",
+    "rectangular cast rib",
+    "transverse bored boss",
+    "relief-pocket cut",
+    "union"
+  ],
+  "features_represented": [
+    "long hollow X-axis housing",
+    "stepped circular end regions",
+    "upper and lower barrel ribs",
+    "large transverse trunnion and smaller service bosses",
+    "two shallow body reliefs"
+  ],
+  "known_omissions": [
+    "free-form casting transitions and variable draft",
+    "small pads, keyways, counterbores, spotfaces, and threaded holes",
+    "production fillets and local wall-thickness changes",
+    "exact non-prismatic rib outlines"
+  ],
+  "attempt_history": [
+    "Built and exported one connected editable solid without importing the reference at runtime.",
+    "Kept holes as boolean cuts and retained the native coordinate frame.",
+    "No volume-only tuning or global scale fitting was applied."
+  ],
+  "basic_validation": {
+    "cadquery_export_valid": true,
+    "reconstructed_solid_count": 1,
+    "reference_volume_mm3": 2620935.23923,
+    "reconstructed_volume_mm3": 3114651.661,
+    "volume_error_percent": 18.837,
+    "reference_area_mm2": 457773.15534,
+    "reconstructed_area_mm2": 404425.20644,
+    "area_error_percent": -11.654,
+    "bbox_extent_mm": [558.03822, 240.03, 174.88],
+    "full_overlap_validation": "pending common validator; do not interpret matching bounds as shape equivalence"
+  }
+}

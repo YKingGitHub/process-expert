@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "case_id": "case_015",
+  "part_name": "STKJ-MT01-0040链条连接螺杆",
+  "annotation_method": "agent_manual_source_image_region_annotation",
+  "purpose": "label_authoring_not_heldout_evaluation",
+  "sources": [
+    {
+      "page": 1,
+      "pdf": "source/page_01.pdf",
+      "pdf_sha256": "9eb8e04df5f766d7e1653c29aedcd825ae37de929990d564ea1230d318e5e2c1",
+      "preview": "source/page_01.webp",
+      "original_size": [
+        3308,
+        2339
+      ],
+      "upright_size": [
+        3308,
+        2339
+      ],
+      "rotation_clockwise_degrees": 0,
+      "original_pdf_local_only": true
+    }
+  ],
+  "views": [
+    {
+      "id": "view_01",
+      "role": "front",
+      "label": "Fork / rod",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.13,
+        0.13,
+        0.69,
+        0.46
+      ],
+      "bbox_upright_pixels": [
+        430,
+        304,
+        2283,
+        1076
+      ],
+      "native_image": "views/view_01_native.png",
+      "image": "views/view_01.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.5267134376686454,
+      "padding_xy": [
+        24,
+        328
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.5267134376686454,
+          0,
+          -202.48677819751754
+        ],
+        [
+          0,
+          0.5267134376686454,
+          167.8791149487318
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": null,
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_02",
+      "role": "top",
+      "label": "Plan",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.19,
+        0.52,
+        0.67,
+        0.74
+      ],
+      "bbox_upright_pixels": [
+        629,
+        1216,
+        2216,
+        1731
+      ],
+      "native_image": "views/view_02_native.png",
+      "image": "views/view_02.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.6149968494013862,
+      "padding_xy": [
+        24,
+        373
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.6149968494013862,
+          0,
+          -362.8330182734719
+        ],
+        [
+          0,
+          0.6149968494013862,
+          -374.83616887208564
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": null,
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    }
+  ],
+  "standard_slots": {
+    "front": "view_01",
+    "top": "view_02",
+    "side": null
+  },
+  "extra_view_ids": [],
+  "projection_convention": "unverified",
+  "axis_mapping_to_step": null,
+  "shared_physical_pixel_scale": false,
+  "crop_policy": "uniform 1024 square per view; aspect ratio preserved; source crop and inverse mapping retained; dimensions retained; independent fitting does not imply equal mm per pixel",
+  "review_status": "pending_human_acceptance",
+  "gaps": [
+    "View roles and projection convention need human confirmation.",
+    "Source PDFs retained for manufacturing notes and revision checks."
+  ],
+  "annotation_gt_leakage": false
+}

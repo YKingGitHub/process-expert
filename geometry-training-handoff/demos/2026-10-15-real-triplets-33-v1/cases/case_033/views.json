@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "case_id": "case_033",
+  "part_name": "STKJ-MT01-0066 防划伤垫板",
+  "annotation_method": "agent_manual_source_image_region_annotation",
+  "purpose": "label_authoring_not_heldout_evaluation",
+  "sources": [
+    {
+      "page": 1,
+      "pdf": "source/page_01.pdf",
+      "pdf_sha256": "7a9f829debffa00930c9e8e909d64f78ddbebd13e2172d3a259c0fa13f1419f7",
+      "preview": "source/page_01.webp",
+      "original_size": [
+        3308,
+        2339
+      ],
+      "upright_size": [
+        3308,
+        2339
+      ],
+      "rotation_clockwise_degrees": 0,
+      "original_pdf_local_only": true
+    }
+  ],
+  "views": [
+    {
+      "id": "view_01",
+      "role": "front",
+      "label": "Plate face",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.11,
+        0.13,
+        0.76,
+        0.39
+      ],
+      "bbox_upright_pixels": [
+        364,
+        304,
+        2514,
+        912
+      ],
+      "native_image": "views/view_01_native.png",
+      "image": "views/view_01.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.45395348837209304,
+      "padding_xy": [
+        24,
+        394
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.45395348837209304,
+          0,
+          -141.23906976744186
+        ],
+        [
+          0,
+          0.45395348837209304,
+          255.9981395348837
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": null,
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_02",
+      "role": "section",
+      "label": "A-A",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.12,
+        0.45,
+        0.66,
+        0.61
+      ],
+      "bbox_upright_pixels": [
+        397,
+        1053,
+        2183,
+        1427
+      ],
+      "native_image": "views/view_02_native.png",
+      "image": "views/view_02.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.5464725643896976,
+      "padding_xy": [
+        24,
+        430
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.5464725643896976,
+          0,
+          -192.94960806270996
+        ],
+        [
+          0,
+          0.5464725643896976,
+          -145.43561030235162
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Plate face",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    }
+  ],
+  "standard_slots": {
+    "front": "view_01",
+    "top": null,
+    "side": null
+  },
+  "extra_view_ids": [
+    "view_02"
+  ],
+  "projection_convention": "unverified",
+  "axis_mapping_to_step": null,
+  "shared_physical_pixel_scale": false,
+  "crop_policy": "uniform 1024 square per view; aspect ratio preserved; source crop and inverse mapping retained; dimensions retained; independent fitting does not imply equal mm per pixel",
+  "review_status": "pending_human_acceptance",
+  "gaps": [
+    "View roles and projection convention need human confirmation.",
+    "Source PDFs retained for manufacturing notes and revision checks."
+  ],
+  "annotation_gt_leakage": false
+}

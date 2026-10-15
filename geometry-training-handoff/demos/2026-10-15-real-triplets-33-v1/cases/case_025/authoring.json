@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "case_id": "case_025",
+  "part_name": "STKJ-MT01-0053 双排链轮 28A 齿数22",
+  "fidelity": "approximate_feature_reconstruction",
+  "method": "Two parametric 22-tooth plates, web and hub, stepped 130/145 mm bore, placed in the STEP x-axis frame.",
+  "ground_truth_assistance": [
+    "STEP bbox 90 x 333.15954 x 330.56943 mm",
+    "STEP axial/radial audit",
+    "drawing tooth count, OD, web, bore, and row widths"
+  ],
+  "approximations": [
+    "Roller-chain tooth flanks and root arcs are represented by editable trapezoidal radial teeth.",
+    "Axial web transitions are simplified to cylinders."
+  ],
+  "omitted_features": [
+    "R166.58 involute-equivalent arcs, toroidal tooth fillets, 0.5 mm chamfers, and small edge breaks."
+  ],
+  "coordinate_policy": "Preserve the original STEP axis order, physical millimetres, and world-frame bounds; no normalization or rescaling.",
+  "reference_measurement": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 4142503.1063192617,
+    "surface_area_mm2": 287522.01166551426,
+    "bbox_mm": [
+      89.99999999999999,
+      333.1595409053309,
+      330.56942721415874
+    ],
+    "bbox_min_mm": [
+      -8.064999999999989,
+      -166.57977045266546,
+      -165.28471360707928
+    ],
+    "bbox_max_mm": [
+      81.935,
+      166.57977045266546,
+      165.28471360707942
+    ]
+  },
+  "reconstructed_measurement": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 3556352.992778787,
+    "surface_area_mm2": 354031.64495324733,
+    "bbox_mm": [
+      90.00000000000003,
+      331.4964679266247,
+      332.85387006112705
+    ],
+    "bbox_min_mm": [
+      -8.065000000000017,
+      -165.74823396331234,
+      -166.42693503056353
+    ],
+    "bbox_max_mm": [
+      81.93500000000002,
+      165.74823396331234,
+      166.42693503056356
+    ]
+  },
+  "comparison": {
+    "volume_deviation_percent": -14.149660205355566,
+    "surface_area_deviation_percent": 23.13201445081233,
+    "bbox_axis_deviation_percent": [
+      4.736951571734002e-14,
+      -0.49918215584850867,
+      0.6910629534679704
+    ],
+    "bbox_max_abs_deviation_percent": 0.6910629534679704
+  },
+  "validation": {
+    "executor": "runpy.run_path(run_name='__triplet_validation__')",
+    "cadquery_version": "2.5.2",
+    "global_solid_present": true,
+    "reconstructed_step_exported": true
+  }
+}

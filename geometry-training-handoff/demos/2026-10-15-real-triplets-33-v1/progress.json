@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-15",
+  "status": "candidate_review_release",
+  "repository": "YKingGitHub/process-expert",
+  "target_branch": "agent/group-meeting-webpage",
+  "base_commit": "62054beaf0d93234ce7a4fe26adec5dcec92ff67",
+  "collection_id": "2026-W42-triplets-33",
+  "case_count": 33,
+  "independent_execution_success_count": 33,
+  "valid_single_solid_count": 33,
+  "legacy_geometry_check_pass_count": 21,
+  "geometry_gate_pass_count": 20,
+  "geometry_revision_count": 10,
+  "geometry_boolean_error_count": 3,
+  "human_accepted_count": 0,
+  "training_ready_count": 0,
+  "training_ready": false,
+  "provenance": "Source-PDF crops and GT-assisted CadQuery label authoring; not held-out model evaluation",
+  "known_gaps": [
+    "Complex castings and toothed parts include approximate features and omissions",
+    "Suspicious or invalid Boolean intersections are not accepted as measured zero overlap",
+    "View roles, projection convention, crop boundaries and STEP-axis mapping need human confirmation",
+    "Dense sheets retain some grouped details, neighboring fragments and incomplete edge annotations",
+    "All automatic geometry passes remain pending human acceptance"
+  ],
+  "publication_note": "This is the immutable release-content record. The remote commit and Pages deployment status are verified separately."
+}

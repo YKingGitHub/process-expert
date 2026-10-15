@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "case_id": "case_033",
+  "part_name": "STKJ-MT01-0066 防划伤垫板",
+  "fidelity": "exact_nominal_reconstruction",
+  "method": "2370 x 200 x 20 mm plate with 24 through-holes and symmetric 15 mm counterbores in the original coordinate frame.",
+  "ground_truth_assistance": [
+    "STEP exact bounds",
+    "STEP 24 hole centers",
+    "STEP cylinder areas confirming 4.5 mm counterbore depth per face",
+    "drawing hole/counterbore diameters"
+  ],
+  "approximations": [],
+  "omitted_features": [
+    "Material properties and surface roughness are metadata, not B-rep geometry."
+  ],
+  "coordinate_policy": "Preserve the original STEP axis order, physical millimetres, and world-frame bounds; no normalization or rescaling.",
+  "reference_measurement": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 9425034.694932804,
+    "surface_area_mm2": 1065389.5562832712,
+    "bbox_mm": [
+      2370.0,
+      200.0,
+      20.0
+    ],
+    "bbox_min_mm": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "bbox_max_mm": [
+      2370.0,
+      200.0,
+      20.0
+    ]
+  },
+  "reconstructed_measurement": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 9425034.694932751,
+    "surface_area_mm2": 1065389.5562832737,
+    "bbox_mm": [
+      2370.0,
+      200.0,
+      20.0
+    ],
+    "bbox_min_mm": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "bbox_max_mm": [
+      2370.0,
+      200.0,
+      20.0
+    ]
+  },
+  "comparison": {
+    "volume_deviation_percent": -5.533567341296523e-13,
+    "surface_area_deviation_percent": 2.4039442334383066e-13,
+    "bbox_axis_deviation_percent": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "bbox_max_abs_deviation_percent": 0.0
+  },
+  "validation": {
+    "executor": "runpy.run_path(run_name='__triplet_validation__')",
+    "cadquery_version": "2.5.2",
+    "global_solid_present": true,
+    "reconstructed_step_exported": true
+  }
+}

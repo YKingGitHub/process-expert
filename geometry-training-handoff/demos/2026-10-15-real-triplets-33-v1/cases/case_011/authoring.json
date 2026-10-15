@@ -1,0 +1,10 @@
+{
+  "case_id": "case_011",
+  "part_name": "吊耳铰链",
+  "authoring_method": "Boolean union of an L-shaped perforated plate assembly and an extruded side-profile centre rib",
+  "parameter_source": "Drawing dimensions; GT-assisted face and cylinder inspection supplied the original translation, 22 mm plate thickness, six hole centers, and rib-hole axis",
+  "reference_assistance": true,
+  "approximate": true,
+  "omitted_features": ["Small C2 edge chamfers", "The lower R10 rib blend is represented by a short planar transition", "Weld beads are not modeled"],
+  "validation_claim": "Not claimed here; use the generated validation report"
+}

@@ -1,0 +1,10 @@
+{
+  "case_id": "case_014",
+  "part_name": "油缸Y型接头",
+  "authoring_method": "Two extruded rounded fork profiles joined by a tapered bridge and transverse cylindrical eye, followed by three axial bores and two radial ports",
+  "parameter_source": "Drawing dimensions; GT-assisted cylinder-axis inspection confirmed 59/50/45 mm bores, 95 mm eye OD, fork thicknesses, axial stations, and original frame",
+  "reference_assistance": true,
+  "approximate": true,
+  "omitted_features": ["M6 thread geometry is represented by 5 mm cylindrical pilot ports", "The 2 mm end chamfer on the top eye is omitted", "Minor shoulder blends are simplified as planar transitions"],
+  "validation_claim": "Not claimed here; use the generated validation report"
+}

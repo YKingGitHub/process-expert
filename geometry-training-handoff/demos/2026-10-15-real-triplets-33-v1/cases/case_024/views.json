@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "case_id": "case_024",
+  "part_name": "STKJ-MT01-0050链轮压板",
+  "annotation_method": "agent_manual_source_image_region_annotation",
+  "purpose": "label_authoring_not_heldout_evaluation",
+  "sources": [
+    {
+      "page": 1,
+      "pdf": "source/page_01.pdf",
+      "pdf_sha256": "aea42e4bc4939d6f22ee898c0decc2cc4f746b2510017281bdf84684109fe8d6",
+      "preview": "source/page_01.webp",
+      "original_size": [
+        2339,
+        1654
+      ],
+      "upright_size": [
+        2339,
+        1654
+      ],
+      "rotation_clockwise_degrees": 0,
+      "original_pdf_local_only": true
+    }
+  ],
+  "views": [
+    {
+      "id": "view_01",
+      "role": "front",
+      "label": "Plate face",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.21,
+        0.16,
+        0.62,
+        0.61
+      ],
+      "bbox_upright_pixels": [
+        491,
+        265,
+        1450,
+        1009
+      ],
+      "native_image": "views/view_01_native.png",
+      "image": "views/view_01.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 1.0177267987486966,
+      "padding_xy": [
+        24,
+        153
+      ],
+      "source_to_canvas_matrix": [
+        [
+          1.0177267987486966,
+          0,
+          -475.70385818561004
+        ],
+        [
+          0,
+          1.0177267987486966,
+          -116.69760166840462
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": null,
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_02",
+      "role": "side",
+      "label": "Thickness",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.71,
+        0.14,
+        0.88,
+        0.62
+      ],
+      "bbox_upright_pixels": [
+        1661,
+        232,
+        2058,
+        1025
+      ],
+      "native_image": "views/view_02_native.png",
+      "image": "views/view_02.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 1.180327868852459,
+      "padding_xy": [
+        277,
+        64
+      ],
+      "source_to_canvas_matrix": [
+        [
+          1.180327868852459,
+          0,
+          -1683.5245901639344
+        ],
+        [
+          0,
+          1.180327868852459,
+          -209.8360655737705
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": null,
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    }
+  ],
+  "standard_slots": {
+    "front": "view_01",
+    "top": null,
+    "side": "view_02"
+  },
+  "extra_view_ids": [],
+  "projection_convention": "unverified",
+  "axis_mapping_to_step": null,
+  "shared_physical_pixel_scale": false,
+  "crop_policy": "uniform 1024 square per view; aspect ratio preserved; source crop and inverse mapping retained; dimensions retained; independent fitting does not imply equal mm per pixel",
+  "review_status": "pending_human_acceptance",
+  "gaps": [
+    "View roles and projection convention need human confirmation.",
+    "Source PDFs retained for manufacturing notes and revision checks."
+  ],
+  "annotation_gt_leakage": false
+}

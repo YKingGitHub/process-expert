@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "case_id": "case_018",
+  "cadquery_version": "2.5.2",
+  "purpose": "GT-assisted label-authoring QA; not held-out model evaluation",
+  "coordinate_alignment": "none; original physical mm frame",
+  "thresholds": {
+    "legacy_volume_relative": 0.02,
+    "legacy_area_relative": 0.05,
+    "legacy_sorted_bbox_relative": 0.02,
+    "additional_symmetric_difference_over_reference_volume": 0.01,
+    "additional_axis_bbox_relative": 0.01
+  },
+  "human_acceptance": "pending",
+  "training_ready": false,
+  "model_sha256": "55c39f4c6ad8c4dc09bba817af32594999ec4af798a71d224a6341d4ad766a4e",
+  "program_audit": {
+    "status": "passed",
+    "allowed_imports": [
+      "cadquery",
+      "math"
+    ],
+    "external_geometry_reads": false,
+    "execution_mode": "trusted_authored_label_not_model_sandbox"
+  },
+  "execution_status": "success",
+  "reconstructed_sha256": "5583cd24edeef27e7191f6cc714821174d1e9b3eea140e6cf006ecef0a5ed0f1",
+  "status": "validation_error",
+  "error": "ValueError: STEP File could not be loaded",
+  "traceback": "Traceback (most recent call last):\n  File \"/tmp/process-expert-triplets-20261015/geometry-training-handoff/demos/2026-10-15-real-triplets-33-v1/scripts/validate_case.py\", line 87, in main\n    reference=cq.importers.importStep(str(case/'reference.step')).val()\n  File \"/hpc2hdd/home/lwang592/projects/.venvs/process-view-agent-cad/lib/python3.10/site-packages/cadquery/occ_impl/importers/__init__.py\", line 90, in importStep\n    raise ValueError(\"STEP File could not be loaded\")\nValueError: STEP File could not be loaded\n",
+  "geometry_gate_pass": false,
+  "elapsed_seconds": 0.191
+}

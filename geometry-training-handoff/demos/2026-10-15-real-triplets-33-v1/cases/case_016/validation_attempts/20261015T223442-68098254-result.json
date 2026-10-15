@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "case_id": "case_016",
+  "cadquery_version": "2.5.2",
+  "purpose": "GT-assisted label-authoring QA; not held-out model evaluation",
+  "coordinate_alignment": "none; original physical mm frame",
+  "thresholds": {
+    "legacy_volume_relative": 0.02,
+    "legacy_area_relative": 0.05,
+    "legacy_sorted_bbox_relative": 0.02,
+    "additional_symmetric_difference_over_reference_volume": 0.01,
+    "additional_axis_bbox_relative": 0.01
+  },
+  "human_acceptance": "pending",
+  "training_ready": false,
+  "model_sha256": "65ca0acd4c175975bbbffaef3eebb972cf61b3f82033c4b9fcc2703d0de52ab1",
+  "program_audit": {
+    "status": "passed",
+    "allowed_imports": [
+      "cadquery",
+      "math"
+    ],
+    "external_geometry_reads": false,
+    "execution_mode": "trusted_authored_label_not_model_sandbox"
+  },
+  "execution_status": "success",
+  "reconstructed_sha256": "d995beb9d0211e61fa62bc5218f194fe5c08532cbb77915b0f4f579c8112390b",
+  "reference_sha256": "44895a79ac2403d9b9921fad0c8354ca1b7ae6c5314103f7c5f3c79762cc4dd2",
+  "reference": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 4198738.58152276,
+    "surface_area_mm2": 199334.0538702724,
+    "bounds_mm": [
+      -45.00000000000001,
+      -45.00000000000001,
+      0.0,
+      45.00000000000001,
+      45.00000000000001,
+      660.0
+    ],
+    "bbox_mm": [
+      90.00000000000001,
+      90.00000000000001,
+      660.0
+    ],
+    "face_count": 4
+  },
+  "reconstructed": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 4198738.581522758,
+    "surface_area_mm2": 199334.05387028467,
+    "bounds_mm": [
+      -45.0,
+      -45.0,
+      0.0,
+      45.0,
+      45.0,
+      660.0
+    ],
+    "bbox_mm": [
+      90.0,
+      90.0,
+      660.0
+    ],
+    "face_count": 3
+  },
+  "metrics": {
+    "volume_relative_error": 4.436201761709656e-16,
+    "area_relative_error": 6.161424109066026e-14,
+    "axis_bbox_relative_error": [
+      1.578983857244667e-16,
+      1.578983857244667e-16,
+      0.0
+    ],
+    "sorted_bbox_relative_error": [
+      1.578983857244667e-16,
+      1.578983857244667e-16,
+      0.0
+    ],
+    "max_bound_position_error_mm": 7.105427357601002e-15,
+    "intersection_volume_mm3": 4198738.58152276,
+    "iou_same_frame": 1.0000000000000004,
+    "symmetric_difference_volume_mm3": 0.0,
+    "symmetric_difference_over_reference_volume": 0.0
+  },
+  "legacy_geometry_check": true,
+  "boolean_status": "success",
+  "geometry_gate_pass": true,
+  "status": "geometry_gate_pass_review_pending",
+  "elapsed_seconds": 0.071
+}

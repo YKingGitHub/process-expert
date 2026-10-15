@@ -1,0 +1,10 @@
+{
+  "case_id": "case_018",
+  "part_name": "液压缸安装座固定板",
+  "authoring_method": "Chamfered rectangular plate with a four-hole rectangular pattern",
+  "parameter_source": "Drawing dimensions, with GT-assisted confirmation of hole diameter, centers, chamfer size, and translated original frame",
+  "reference_assistance": true,
+  "approximate": false,
+  "omitted_features": ["M20 thread semantics are represented by the dimensioned 17.5 mm drill cylinders"],
+  "validation_claim": "Not claimed here; use the generated validation report"
+}

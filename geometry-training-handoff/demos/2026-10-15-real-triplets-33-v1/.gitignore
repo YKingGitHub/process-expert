@@ -1,0 +1,7 @@
+# Large originals stay local. Exact source STEP and native crops are available
+# inside each triplet.zip; image previews and source hashes remain public.
+cases/*/source/*.pdf
+cases/*/*.step
+cases/*/views/*_native.png
+__pycache__/
+scripts/__pycache__/

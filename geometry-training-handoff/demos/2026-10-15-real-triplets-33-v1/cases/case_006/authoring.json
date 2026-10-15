@@ -1,0 +1,10 @@
+{
+  "case_id": "case_006",
+  "part_name": "水槽底部拼装接杆",
+  "authoring_method": "Rounded outer and inner rectangular prisms with a Boolean hollow cut",
+  "parameter_source": "Drawing dimensions, with GT-assisted confirmation of R16 outer and R8 inner corners and the original coordinate frame",
+  "reference_assistance": true,
+  "approximate": false,
+  "omitted_features": [],
+  "validation_claim": "Not claimed here; use the generated validation report"
+}

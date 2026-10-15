@@ -1,0 +1,2 @@
+{"case_id": "case_009", "status": "validation_error", "execution_status": "success", "error": "ValueError: STEP File could not be loaded", "elapsed_seconds": 0.022}
+

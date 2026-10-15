@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "case_id": "case_027",
+  "part_name": "STKJ-MT01-0058 单排链轮 20A 齿数17",
+  "fidelity": "approximate_feature_reconstruction",
+  "method": "Single-row 17-tooth plate with 100 mm hub, 42 mm keyed bore, and 50 mm total axial span.",
+  "ground_truth_assistance": [
+    "STEP bbox 50 x 185.71464 x 186.49281 mm",
+    "STEP radii and source orientation",
+    "drawing tooth count and keyed-bore dimensions"
+  ],
+  "approximations": [
+    "Roller-chain tooth profile is a deterministic trapezoidal radial approximation.",
+    "Small 0.7115 mm tooth-row offset is retained from STEP evidence."
+  ],
+  "omitted_features": [
+    "Exact roller-root arcs, toroidal blends, thread-free manufacturing edge breaks."
+  ],
+  "coordinate_policy": "Preserve the original STEP axis order, physical millimetres, and world-frame bounds; no normalization or rescaling.",
+  "reference_measurement": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 558546.1905118317,
+    "surface_area_mm2": 70177.19985814168,
+    "bbox_mm": [
+      50.0,
+      185.71463618778603,
+      186.4928094853421
+    ],
+    "bbox_min_mm": [
+      0.0,
+      -92.21838693781834,
+      -93.2464047426711
+    ],
+    "bbox_max_mm": [
+      50.0,
+      93.49624924996769,
+      93.246404742671
+    ]
+  },
+  "reconstructed_measurement": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 535301.234676576,
+    "surface_area_mm2": 76881.00371839835,
+    "bbox_mm": [
+      50.000000000000014,
+      186.36544662701132,
+      185.57044448700333
+    ],
+    "bbox_min_mm": [
+      -5.551115123125783e-15,
+      -93.18272331350566,
+      -93.10314159330694
+    ],
+    "bbox_max_mm": [
+      50.00000000000001,
+      93.18272331350566,
+      92.4673028936964
+    ]
+  },
+  "comparison": {
+    "volume_deviation_percent": -4.1616890832170625,
+    "surface_area_deviation_percent": 9.55268074788954,
+    "bbox_axis_deviation_percent": [
+      2.842170943040401e-14,
+      0.35043572902203934,
+      -0.4945847514894457
+    ],
+    "bbox_max_abs_deviation_percent": 0.4945847514894457
+  },
+  "validation": {
+    "executor": "runpy.run_path(run_name='__triplet_validation__')",
+    "cadquery_version": "2.5.2",
+    "global_solid_present": true,
+    "reconstructed_step_exported": true
+  }
+}

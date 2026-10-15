@@ -1,0 +1,10 @@
+{
+  "case_id": "case_012",
+  "part_name": "轨道轮支架",
+  "authoring_method": "Dimensioned R50 upright profile extruded 15 mm, joined to a 55 mm flange and a local gusset, with three drilled bores",
+  "parameter_source": "Drawing dimensions; GT-assisted planar-area and cylinder inspection confirmed the exact upright profile stations, 31 mm central bore, two 18.5 mm mounting holes, and original frame",
+  "reference_assistance": true,
+  "approximate": true,
+  "omitted_features": ["C3 corner chamfers on the mounting flange", "Gusset termination uses a simplified five-segment profile", "Weld beads are not modeled"],
+  "validation_claim": "Not claimed here; use the generated validation report"
+}

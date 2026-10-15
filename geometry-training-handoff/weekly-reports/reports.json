@@ -41,6 +41,17 @@
       "summary": "用 3 组域内与 3 组真实图纸样例解释：同一 checkpoint 从 DeepCAD-100 的 0.807751 IoU 降至真实 33 件的 0.001343。",
       "source": "geometry-training-handoff/weekly-reports/2026-W42/index.html",
       "sha256": "51611df0b0cf852d992200177cef01d707a6c839e0b7d1b70c9b5035ffd7cbea"
+    },
+    {
+      "week": "2026-W42",
+      "date": "2026-10-15",
+      "title": "33 件真实零件三元组 · 首版验收",
+      "summary": "33 件 CadQuery 均可运行；20 件通过自动几何门限，10 件未通过，3 件布尔核验异常。提供 134 个视图区域、3D 对比与逐件 ZIP；均待人工验收。",
+      "source": "geometry-training-handoff/demos/2026-10-15-real-triplets-33-v1/index.html",
+      "sha256": "a0e4534c7225eb73ff0cec916832b768de07b372fd8b3c3cdd3fda03a86d71e9",
+      "id": "2026-W42-triplets-33",
+      "bundle": "geometry-training-handoff/demos/2026-10-15-real-triplets-33-v1",
+      "bundle_sha256": "ee8944f0f809216cb759fe83690e92f451736a5e073ee990cafe92fb934c13c4"
     }
   ]
 }

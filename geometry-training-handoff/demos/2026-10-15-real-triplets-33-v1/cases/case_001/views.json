@@ -1,0 +1,1307 @@
+{
+  "schema_version": 1,
+  "case_id": "case_001",
+  "part_name": "40602-3(machin part)",
+  "annotation_method": "agent_manual_source_image_region_annotation",
+  "purpose": "label_authoring_not_heldout_evaluation",
+  "sources": [
+    {
+      "page": 1,
+      "pdf": "source/page_01.pdf",
+      "pdf_sha256": "98c1a09100fcb43580a499245a22dc56fd5c85420bfd45b3b36ce9f80d1e8638",
+      "preview": "source/page_01.webp",
+      "original_size": [
+        4508,
+        3188
+      ],
+      "upright_size": [
+        4508,
+        3188
+      ],
+      "rotation_clockwise_degrees": 0,
+      "original_pdf_local_only": true
+    },
+    {
+      "page": 2,
+      "pdf": "source/page_02.pdf",
+      "pdf_sha256": "ba767aabfc5bc3ef6d95abb65da68290a58788a4ad4314d330289e79b7aa5191",
+      "preview": "source/page_02.webp",
+      "original_size": [
+        4534,
+        3209
+      ],
+      "upright_size": [
+        4534,
+        3209
+      ],
+      "rotation_clockwise_degrees": 0,
+      "original_pdf_local_only": true
+    },
+    {
+      "page": 3,
+      "pdf": "source/page_03.pdf",
+      "pdf_sha256": "d28ed1b15a279c07c40844f9abccdd1bf0a88badd39bb3d92a1715a62873b473",
+      "preview": "source/page_03.webp",
+      "original_size": [
+        4513,
+        3194
+      ],
+      "upright_size": [
+        4513,
+        3194
+      ],
+      "rotation_clockwise_degrees": 0,
+      "original_pdf_local_only": true
+    },
+    {
+      "page": 4,
+      "pdf": "source/page_04.pdf",
+      "pdf_sha256": "a1287ff50c7194fa1540604a936430020665bd728c4b6ef9e5f2e2f3f5ae586f",
+      "preview": "source/page_04.webp",
+      "original_size": [
+        4471,
+        3164
+      ],
+      "upright_size": [
+        4471,
+        3164
+      ],
+      "rotation_clockwise_degrees": 0,
+      "original_pdf_local_only": true
+    },
+    {
+      "page": 5,
+      "pdf": "source/page_05.pdf",
+      "pdf_sha256": "f29bf1478deaeffa87f4fd0f21cf9b4ddefaeb1e32efcfbf98dfa2afd088a7b6",
+      "preview": "source/page_05.webp",
+      "original_size": [
+        4425,
+        3132
+      ],
+      "upright_size": [
+        4425,
+        3132
+      ],
+      "rotation_clockwise_degrees": 0,
+      "original_pdf_local_only": true
+    }
+  ],
+  "views": [
+    {
+      "id": "view_01",
+      "role": "side",
+      "label": "End / side",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.03,
+        0.08,
+        0.3,
+        0.69
+      ],
+      "bbox_upright_pixels": [
+        135,
+        255,
+        1352,
+        2200
+      ],
+      "native_image": "views/view_01_native.png",
+      "image": "views/view_01.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.48123393316195373,
+      "padding_xy": [
+        219,
+        64
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.48123393316195373,
+          0,
+          154.03341902313625
+        ],
+        [
+          0,
+          0.48123393316195373,
+          -58.714652956298195
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": null,
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_02",
+      "role": "front",
+      "label": "Main sectional elevation",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.28,
+        0.03,
+        0.9,
+        0.77
+      ],
+      "bbox_upright_pixels": [
+        1262,
+        96,
+        4057,
+        2455
+      ],
+      "native_image": "views/view_02_native.png",
+      "image": "views/view_02.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.34919499105545615,
+      "padding_xy": [
+        24,
+        120
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.34919499105545615,
+          0,
+          -416.68407871198565
+        ],
+        [
+          0,
+          0.34919499105545615,
+          86.47728085867621
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": null,
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_03",
+      "role": "section",
+      "label": "H-H",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.43,
+        0.8,
+        0.55,
+        0.96
+      ],
+      "bbox_upright_pixels": [
+        1938,
+        2550,
+        2479,
+        3060
+      ],
+      "native_image": "views/view_03_native.png",
+      "image": "views/view_03.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 1.8040665434380776,
+      "padding_xy": [
+        24,
+        72
+      ],
+      "source_to_canvas_matrix": [
+        [
+          1.8040665434380776,
+          0,
+          -3472.2809611829944
+        ],
+        [
+          0,
+          1.8040665434380776,
+          -4528.3696857670975
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Main sectional elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_04",
+      "role": "auxiliary",
+      "label": "B",
+      "source_page": 2,
+      "bbox_upright_normalized": [
+        0.05,
+        0.06,
+        0.36,
+        0.55
+      ],
+      "bbox_upright_pixels": [
+        227,
+        193,
+        1632,
+        1765
+      ],
+      "native_image": "views/view_04_native.png",
+      "image": "views/view_04.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.5954198473282443,
+      "padding_xy": [
+        93,
+        64
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.5954198473282443,
+          0,
+          -42.16030534351145
+        ],
+        [
+          0,
+          0.5954198473282443,
+          -50.91603053435114
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Main sectional elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_05",
+      "role": "detail",
+      "label": "K-K / C",
+      "source_page": 2,
+      "bbox_upright_normalized": [
+        0.42,
+        0.06,
+        0.63,
+        0.35
+      ],
+      "bbox_upright_pixels": [
+        1904,
+        193,
+        2856,
+        1123
+      ],
+      "native_image": "views/view_05_native.png",
+      "image": "views/view_05.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 1.0064516129032257,
+      "padding_xy": [
+        33,
+        64
+      ],
+      "source_to_canvas_matrix": [
+        [
+          1.0064516129032257,
+          0,
+          -1883.2838709677417
+        ],
+        [
+          0,
+          1.0064516129032257,
+          -130.24516129032256
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Main sectional elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_06",
+      "role": "section",
+      "label": "A-A",
+      "source_page": 2,
+      "bbox_upright_normalized": [
+        0.65,
+        0.05,
+        0.93,
+        0.38
+      ],
+      "bbox_upright_pixels": [
+        2947,
+        160,
+        4217,
+        1219
+      ],
+      "native_image": "views/view_06_native.png",
+      "image": "views/view_06.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.768503937007874,
+      "padding_xy": [
+        24,
+        125
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.768503937007874,
+          0,
+          -2240.781102362205
+        ],
+        [
+          0,
+          0.768503937007874,
+          2.0393700787401627
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Main sectional elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_07",
+      "role": "section",
+      "label": "B-B",
+      "source_page": 2,
+      "bbox_upright_normalized": [
+        0.08,
+        0.61,
+        0.32,
+        0.89
+      ],
+      "bbox_upright_pixels": [
+        363,
+        1957,
+        1451,
+        2856
+      ],
+      "native_image": "views/view_07_native.png",
+      "image": "views/view_07.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.8970588235294118,
+      "padding_xy": [
+        24,
+        129
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.8970588235294118,
+          0,
+          -301.63235294117646
+        ],
+        [
+          0,
+          0.8970588235294118,
+          -1626.5441176470588
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Main sectional elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_08",
+      "role": "section",
+      "label": "C-C",
+      "source_page": 2,
+      "bbox_upright_normalized": [
+        0.39,
+        0.43,
+        0.68,
+        0.81
+      ],
+      "bbox_upright_pixels": [
+        1768,
+        1380,
+        3083,
+        2599
+      ],
+      "native_image": "views/view_08_native.png",
+      "image": "views/view_08.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.7422053231939163,
+      "padding_xy": [
+        24,
+        79
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.7422053231939163,
+          0,
+          -1288.219011406844
+        ],
+        [
+          0,
+          0.7422053231939163,
+          -945.2433460076045
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Main sectional elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_09",
+      "role": "section",
+      "label": "D-D",
+      "source_page": 3,
+      "bbox_upright_normalized": [
+        0.09,
+        0.06,
+        0.32,
+        0.49
+      ],
+      "bbox_upright_pixels": [
+        406,
+        192,
+        1444,
+        1565
+      ],
+      "native_image": "views/view_09_native.png",
+      "image": "views/view_09.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.6817188638018936,
+      "padding_xy": [
+        158,
+        64
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.6817188638018936,
+          0,
+          -118.77785870356882
+        ],
+        [
+          0,
+          0.6817188638018936,
+          -66.89002184996357
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Main sectional elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_10",
+      "role": "section",
+      "label": "E-E",
+      "source_page": 3,
+      "bbox_upright_normalized": [
+        0.35,
+        0.09,
+        0.6,
+        0.47
+      ],
+      "bbox_upright_pixels": [
+        1580,
+        287,
+        2708,
+        1501
+      ],
+      "native_image": "views/view_10_native.png",
+      "image": "views/view_10.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.771004942339374,
+      "padding_xy": [
+        77,
+        64
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.771004942339374,
+          0,
+          -1141.187808896211
+        ],
+        [
+          0,
+          0.771004942339374,
+          -157.27841845140034
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Main sectional elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_11",
+      "role": "section",
+      "label": "F-F",
+      "source_page": 3,
+      "bbox_upright_normalized": [
+        0.62,
+        0.04,
+        0.94,
+        0.49
+      ],
+      "bbox_upright_pixels": [
+        2798,
+        128,
+        4242,
+        1565
+      ],
+      "native_image": "views/view_11_native.png",
+      "image": "views/view_11.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.651356993736952,
+      "padding_xy": [
+        41,
+        64
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.651356993736952,
+          0,
+          -1781.4968684759917
+        ],
+        [
+          0,
+          0.651356993736952,
+          -19.373695198329855
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Main sectional elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_12",
+      "role": "section",
+      "label": "P-P",
+      "source_page": 3,
+      "bbox_upright_normalized": [
+        0.04,
+        0.56,
+        0.34,
+        0.93
+      ],
+      "bbox_upright_pixels": [
+        181,
+        1789,
+        1534,
+        2970
+      ],
+      "native_image": "views/view_12_native.png",
+      "image": "views/view_12.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.721359940872136,
+      "padding_xy": [
+        24,
+        106
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.721359940872136,
+          0,
+          -106.56614929785661
+        ],
+        [
+          0,
+          0.721359940872136,
+          -1184.5129342202513
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Main sectional elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_13",
+      "role": "section",
+      "label": "G-G",
+      "source_page": 3,
+      "bbox_upright_normalized": [
+        0.34,
+        0.58,
+        0.59,
+        0.88
+      ],
+      "bbox_upright_pixels": [
+        1534,
+        1853,
+        2663,
+        2811
+      ],
+      "native_image": "views/view_13_native.png",
+      "image": "views/view_13.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.8644818423383526,
+      "padding_xy": [
+        24,
+        118
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.8644818423383526,
+          0,
+          -1302.1151461470329
+        ],
+        [
+          0,
+          0.8644818423383526,
+          -1483.8848538529674
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Main sectional elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_14",
+      "role": "detail",
+      "label": "A",
+      "source_page": 4,
+      "bbox_upright_normalized": [
+        0.025,
+        0.06,
+        0.4,
+        0.46
+      ],
+      "bbox_upright_pixels": [
+        112,
+        190,
+        1788,
+        1455
+      ],
+      "native_image": "views/view_14_native.png",
+      "image": "views/view_14.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.5823389021479713,
+      "padding_xy": [
+        24,
+        163
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.5823389021479713,
+          0,
+          -41.22195704057279
+        ],
+        [
+          0,
+          0.5823389021479713,
+          52.35560859188544
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Main sectional elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_15",
+      "role": "detail",
+      "label": "B",
+      "source_page": 4,
+      "bbox_upright_normalized": [
+        0.42,
+        0.05,
+        0.94,
+        0.63
+      ],
+      "bbox_upright_pixels": [
+        1878,
+        158,
+        4203,
+        1993
+      ],
+      "native_image": "views/view_15_native.png",
+      "image": "views/view_15.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.41978494623655915,
+      "padding_xy": [
+        24,
+        147
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.41978494623655915,
+          0,
+          -764.3561290322581
+        ],
+        [
+          0,
+          0.41978494623655915,
+          80.67397849462365
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Main sectional elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_16",
+      "role": "section",
+      "label": "J-J",
+      "source_page": 4,
+      "bbox_upright_normalized": [
+        0.04,
+        0.48,
+        0.53,
+        0.96
+      ],
+      "bbox_upright_pixels": [
+        179,
+        1519,
+        2370,
+        3037
+      ],
+      "native_image": "views/view_16_native.png",
+      "image": "views/view_16.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.4454586946599726,
+      "padding_xy": [
+        24,
+        194
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.4454586946599726,
+          0,
+          -55.7371063441351
+        ],
+        [
+          0,
+          0.4454586946599726,
+          -482.65175718849844
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Main sectional elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_17",
+      "role": "section",
+      "label": "M-M",
+      "source_page": 4,
+      "bbox_upright_normalized": [
+        0.62,
+        0.64,
+        0.77,
+        0.78
+      ],
+      "bbox_upright_pixels": [
+        2772,
+        2025,
+        3443,
+        2468
+      ],
+      "native_image": "views/view_17_native.png",
+      "image": "views/view_17.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 1.4545454545454546,
+      "padding_xy": [
+        24,
+        210
+      ],
+      "source_to_canvas_matrix": [
+        [
+          1.4545454545454546,
+          0,
+          -4008.0
+        ],
+        [
+          0,
+          1.4545454545454546,
+          -2735.4545454545455
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Main sectional elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_18",
+      "role": "auxiliary",
+      "label": "N-N",
+      "source_page": 4,
+      "bbox_upright_normalized": [
+        0.78,
+        0.64,
+        0.96,
+        0.78
+      ],
+      "bbox_upright_pixels": [
+        3487,
+        2025,
+        4292,
+        2468
+      ],
+      "native_image": "views/view_18_native.png",
+      "image": "views/view_18.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 1.2124223602484472,
+      "padding_xy": [
+        24,
+        263
+      ],
+      "source_to_canvas_matrix": [
+        [
+          1.2124223602484472,
+          0,
+          -4203.716770186335
+        ],
+        [
+          0,
+          1.2124223602484472,
+          -2192.1552795031057
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Main sectional elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_19",
+      "role": "detail",
+      "label": "C",
+      "source_page": 5,
+      "bbox_upright_normalized": [
+        0.04,
+        0.04,
+        0.43,
+        0.49
+      ],
+      "bbox_upright_pixels": [
+        177,
+        125,
+        1903,
+        1535
+      ],
+      "native_image": "views/view_19_native.png",
+      "image": "views/view_19.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.5654692931633836,
+      "padding_xy": [
+        24,
+        133
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.5654692931633836,
+          0,
+          -76.0880648899189
+        ],
+        [
+          0,
+          0.5654692931633836,
+          62.316338354577056
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Main sectional elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_20",
+      "role": "detail",
+      "label": "D",
+      "source_page": 5,
+      "bbox_upright_normalized": [
+        0.53,
+        0.03,
+        0.96,
+        0.48
+      ],
+      "bbox_upright_pixels": [
+        2345,
+        94,
+        4248,
+        1503
+      ],
+      "native_image": "views/view_20_native.png",
+      "image": "views/view_20.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.512874408828166,
+      "padding_xy": [
+        24,
+        170
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.512874408828166,
+          0,
+          -1178.6904887020494
+        ],
+        [
+          0,
+          0.512874408828166,
+          121.7898055701524
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Main sectional elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_21",
+      "role": "detail",
+      "label": "F",
+      "source_page": 5,
+      "bbox_upright_normalized": [
+        0.025,
+        0.5,
+        0.24,
+        0.89
+      ],
+      "bbox_upright_pixels": [
+        111,
+        1566,
+        1062,
+        2787
+      ],
+      "native_image": "views/view_21_native.png",
+      "image": "views/view_21.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.7665847665847666,
+      "padding_xy": [
+        147,
+        64
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.7665847665847666,
+          0,
+          61.90909090909091
+        ],
+        [
+          0,
+          0.7665847665847666,
+          -1136.4717444717444
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Main sectional elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_22",
+      "role": "detail",
+      "label": "E",
+      "source_page": 5,
+      "bbox_upright_normalized": [
+        0.25,
+        0.48,
+        0.65,
+        0.86
+      ],
+      "bbox_upright_pixels": [
+        1106,
+        1503,
+        2876,
+        2694
+      ],
+      "native_image": "views/view_22_native.png",
+      "image": "views/view_22.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.5514124293785311,
+      "padding_xy": [
+        24,
+        203
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.5514124293785311,
+          0,
+          -585.8621468926553
+        ],
+        [
+          0,
+          0.5514124293785311,
+          -625.7728813559322
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Main sectional elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_23",
+      "role": "section",
+      "label": "O-O",
+      "source_page": 5,
+      "bbox_upright_normalized": [
+        0.64,
+        0.55,
+        0.91,
+        0.79
+      ],
+      "bbox_upright_pixels": [
+        2832,
+        1723,
+        4027,
+        2474
+      ],
+      "native_image": "views/view_23_native.png",
+      "image": "views/view_23.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.8167364016736401,
+      "padding_xy": [
+        24,
+        225
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.8167364016736401,
+          0,
+          -2288.997489539749
+        ],
+        [
+          0,
+          0.8167364016736401,
+          -1182.236820083682
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Main sectional elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_24",
+      "role": "detail",
+      "label": "V",
+      "source_page": 5,
+      "bbox_upright_normalized": [
+        0.24,
+        0.88,
+        0.39,
+        0.97
+      ],
+      "bbox_upright_pixels": [
+        1062,
+        2756,
+        1726,
+        3038
+      ],
+      "native_image": "views/view_24_native.png",
+      "image": "views/view_24.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 1.4698795180722892,
+      "padding_xy": [
+        24,
+        324
+      ],
+      "source_to_canvas_matrix": [
+        [
+          1.4698795180722892,
+          0,
+          -1537.012048192771
+        ],
+        [
+          0,
+          1.4698795180722892,
+          -3726.987951807229
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Main sectional elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    }
+  ],
+  "standard_slots": {
+    "front": "view_02",
+    "top": null,
+    "side": "view_01"
+  },
+  "extra_view_ids": [
+    "view_03",
+    "view_04",
+    "view_05",
+    "view_06",
+    "view_07",
+    "view_08",
+    "view_09",
+    "view_10",
+    "view_11",
+    "view_12",
+    "view_13",
+    "view_14",
+    "view_15",
+    "view_16",
+    "view_17",
+    "view_18",
+    "view_19",
+    "view_20",
+    "view_21",
+    "view_22",
+    "view_23",
+    "view_24"
+  ],
+  "projection_convention": "unverified",
+  "axis_mapping_to_step": null,
+  "shared_physical_pixel_scale": false,
+  "crop_policy": "uniform 1024 square per view; aspect ratio preserved; source crop and inverse mapping retained; dimensions retained; independent fitting does not imply equal mm per pixel",
+  "review_status": "pending_human_acceptance",
+  "gaps": [
+    "View roles and relationships are provisional; review source pages.",
+    "Pixel crop removes surrounding context; source PDFs retained for tolerances, materials and revision checks.",
+    "Section/detail groups on dense legacy sheets need further splitting."
+  ],
+  "annotation_gt_leakage": false
+}

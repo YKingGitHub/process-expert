@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "case_id": "case_008",
+  "part_name": "STKJ-MT01-0020 10轨道转接板",
+  "annotation_method": "agent_manual_source_image_region_annotation",
+  "purpose": "label_authoring_not_heldout_evaluation",
+  "sources": [
+    {
+      "page": 1,
+      "pdf": "source/page_01.pdf",
+      "pdf_sha256": "48ed7bf2ff2a0a18e31bb673bbd9ad669f1051700af2383d6d837492908dd13a",
+      "preview": "source/page_01.webp",
+      "original_size": [
+        3308,
+        2339
+      ],
+      "upright_size": [
+        3308,
+        2339
+      ],
+      "rotation_clockwise_degrees": 0,
+      "original_pdf_local_only": true
+    }
+  ],
+  "views": [
+    {
+      "id": "view_01",
+      "role": "front",
+      "label": "Plate face",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.25,
+        0.14,
+        0.5,
+        0.67
+      ],
+      "bbox_upright_pixels": [
+        827,
+        327,
+        1654,
+        1567
+      ],
+      "native_image": "views/view_01_native.png",
+      "image": "views/view_01.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.7548387096774194,
+      "padding_xy": [
+        200,
+        64
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.7548387096774194,
+          0,
+          -424.2516129032258
+        ],
+        [
+          0,
+          0.7548387096774194,
+          -182.83225806451614
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": null,
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_02",
+      "role": "side",
+      "label": "Thickness",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.53,
+        0.18,
+        0.7,
+        0.64
+      ],
+      "bbox_upright_pixels": [
+        1753,
+        421,
+        2316,
+        1497
+      ],
+      "native_image": "views/view_02_native.png",
+      "image": "views/view_02.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.8698884758364313,
+      "padding_xy": [
+        267,
+        64
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.8698884758364313,
+          0,
+          -1257.914498141264
+        ],
+        [
+          0,
+          0.8698884758364313,
+          -302.2230483271376
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": null,
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    }
+  ],
+  "standard_slots": {
+    "front": "view_01",
+    "top": null,
+    "side": "view_02"
+  },
+  "extra_view_ids": [],
+  "projection_convention": "unverified",
+  "axis_mapping_to_step": null,
+  "shared_physical_pixel_scale": false,
+  "crop_policy": "uniform 1024 square per view; aspect ratio preserved; source crop and inverse mapping retained; dimensions retained; independent fitting does not imply equal mm per pixel",
+  "review_status": "pending_human_acceptance",
+  "gaps": [
+    "View roles and projection convention need human confirmation.",
+    "Source PDFs retained for manufacturing notes and revision checks."
+  ],
+  "annotation_gt_leakage": false
+}

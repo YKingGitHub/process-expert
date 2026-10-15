@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "case_id": "case_020",
+  "part_name": "STKJ-MT01-0046 内直齿轮套 M3 Z40",
+  "fidelity": "approximate_feature_reconstruction",
+  "method": "Parametric sleeve with stepped bores, 40-tooth internal profile, eight blind holes, and radial port.",
+  "ground_truth_assistance": [
+    "STEP bbox 196 x 196 x 141 mm",
+    "STEP radii and face-type audit",
+    "drawing dimensions and tooth count"
+  ],
+  "approximations": [
+    "Internal involute teeth are editable four-point tooth spaces rather than exact involutes.",
+    "Radial threaded port is represented by its tap-drill cylinder."
+  ],
+  "omitted_features": [
+    "Thread helices, heat-treatment detail, micro-chamfers, and production fillets."
+  ],
+  "coordinate_policy": "Preserve the original STEP axis order, physical millimetres, and world-frame bounds; no normalization or rescaling.",
+  "reference_measurement": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 2589171.6429287144,
+    "surface_area_mm2": 215545.37898549042,
+    "bbox_mm": [
+      196.0000002,
+      196.0000002,
+      141.0000002
+    ],
+    "bbox_min_mm": [
+      -98.0000001,
+      -98.0000001,
+      -1e-07
+    ],
+    "bbox_max_mm": [
+      98.0000001,
+      98.0000001,
+      141.0000001
+    ]
+  },
+  "reconstructed_measurement": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 2534912.396570357,
+    "surface_area_mm2": 217731.26114423366,
+    "bbox_mm": [
+      196.0000002,
+      196.0000002,
+      141.0000002
+    ],
+    "bbox_min_mm": [
+      -98.0000001,
+      -98.0000001,
+      -1e-07
+    ],
+    "bbox_max_mm": [
+      98.0000001,
+      98.0000001,
+      141.0000001
+    ]
+  },
+  "comparison": {
+    "volume_deviation_percent": -2.095621837453101,
+    "surface_area_deviation_percent": 1.0141169200803841,
+    "bbox_axis_deviation_percent": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "bbox_max_abs_deviation_percent": 0.0
+  },
+  "validation": {
+    "executor": "runpy.run_path(run_name='__triplet_validation__')",
+    "cadquery_version": "2.5.2",
+    "global_solid_present": true,
+    "reconstructed_step_exported": true
+  }
+}

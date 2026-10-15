@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "case_id": "case_011",
+  "part_name": "STKJ-MT01-0032吊耳铰链",
+  "annotation_method": "agent_manual_source_image_region_annotation",
+  "purpose": "label_authoring_not_heldout_evaluation",
+  "sources": [
+    {
+      "page": 1,
+      "pdf": "source/page_01.pdf",
+      "pdf_sha256": "5c73017def7e6b1a085f5bb988e75b29b3209f3fe029c27be4f35ec7f17e1b92",
+      "preview": "source/page_01.webp",
+      "original_size": [
+        3308,
+        2339
+      ],
+      "upright_size": [
+        3308,
+        2339
+      ],
+      "rotation_clockwise_degrees": 0,
+      "original_pdf_local_only": true
+    }
+  ],
+  "views": [
+    {
+      "id": "view_01",
+      "role": "front",
+      "label": "Mounting face",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.15,
+        0.06,
+        0.55,
+        0.48
+      ],
+      "bbox_upright_pixels": [
+        496,
+        140,
+        1819,
+        1123
+      ],
+      "native_image": "views/view_01_native.png",
+      "image": "views/view_01.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.7377173091458806,
+      "padding_xy": [
+        24,
+        169
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.7377173091458806,
+          0,
+          -341.90778533635677
+        ],
+        [
+          0,
+          0.7377173091458806,
+          65.71957671957671
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": null,
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_02",
+      "role": "side",
+      "label": "Side",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.57,
+        0.1,
+        0.83,
+        0.52
+      ],
+      "bbox_upright_pixels": [
+        1886,
+        234,
+        2746,
+        1216
+      ],
+      "native_image": "views/view_02_native.png",
+      "image": "views/view_02.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.9531568228105907,
+      "padding_xy": [
+        102,
+        64
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.9531568228105907,
+          0,
+          -1695.653767820774
+        ],
+        [
+          0,
+          0.9531568228105907,
+          -159.03869653767822
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": null,
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_03",
+      "role": "top",
+      "label": "Plan",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.21,
+        0.5,
+        0.53,
+        0.71
+      ],
+      "bbox_upright_pixels": [
+        695,
+        1170,
+        1753,
+        1661
+      ],
+      "native_image": "views/view_03_native.png",
+      "image": "views/view_03.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.9224952741020794,
+      "padding_xy": [
+        24,
+        305
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.9224952741020794,
+          0,
+          -617.1342155009452
+        ],
+        [
+          0,
+          0.9224952741020794,
+          -774.3194706994329
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": null,
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    }
+  ],
+  "standard_slots": {
+    "front": "view_01",
+    "top": "view_03",
+    "side": "view_02"
+  },
+  "extra_view_ids": [],
+  "projection_convention": "unverified",
+  "axis_mapping_to_step": null,
+  "shared_physical_pixel_scale": false,
+  "crop_policy": "uniform 1024 square per view; aspect ratio preserved; source crop and inverse mapping retained; dimensions retained; independent fitting does not imply equal mm per pixel",
+  "review_status": "pending_human_acceptance",
+  "gaps": [
+    "View roles and projection convention need human confirmation.",
+    "Source PDFs retained for manufacturing notes and revision checks."
+  ],
+  "annotation_gt_leakage": false
+}

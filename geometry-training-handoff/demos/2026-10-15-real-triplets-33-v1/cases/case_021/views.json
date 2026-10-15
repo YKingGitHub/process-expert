@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "case_id": "case_021",
+  "part_name": "STKJ-MT01-0047销",
+  "annotation_method": "agent_manual_source_image_region_annotation",
+  "purpose": "label_authoring_not_heldout_evaluation",
+  "sources": [
+    {
+      "page": 1,
+      "pdf": "source/page_01.pdf",
+      "pdf_sha256": "dfdedc6fe811cd5bbdbd3f29d2a3badeacd45084cae4fb4e88b6e551da269bc1",
+      "preview": "source/page_01.webp",
+      "original_size": [
+        2339,
+        1654
+      ],
+      "upright_size": [
+        2339,
+        1654
+      ],
+      "rotation_clockwise_degrees": 0,
+      "original_pdf_local_only": true
+    }
+  ],
+  "views": [
+    {
+      "id": "view_01",
+      "role": "front",
+      "label": "Pin - thread symbolic",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.13,
+        0.1,
+        0.67,
+        0.48
+      ],
+      "bbox_upright_pixels": [
+        304,
+        165,
+        1567,
+        794
+      ],
+      "native_image": "views/view_01_native.png",
+      "image": "views/view_01.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.7727632620744259,
+      "padding_xy": [
+        24,
+        289
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.7727632620744259,
+          0,
+          -210.9200316706255
+        ],
+        [
+          0,
+          0.7727632620744259,
+          161.49406175771972
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": null,
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_02",
+      "role": "side",
+      "label": "End",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.67,
+        0.19,
+        0.86,
+        0.44
+      ],
+      "bbox_upright_pixels": [
+        1567,
+        314,
+        2012,
+        728
+      ],
+      "native_image": "views/view_02_native.png",
+      "image": "views/view_02.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 2.1932584269662923,
+      "padding_xy": [
+        24,
+        78
+      ],
+      "source_to_canvas_matrix": [
+        [
+          2.1932584269662923,
+          0,
+          -3412.83595505618
+        ],
+        [
+          0,
+          2.1932584269662923,
+          -610.6831460674158
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": null,
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_03",
+      "role": "section",
+      "label": "B-B",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.14,
+        0.47,
+        0.6,
+        0.72
+      ],
+      "bbox_upright_pixels": [
+        327,
+        777,
+        1403,
+        1191
+      ],
+      "native_image": "views/view_03_native.png",
+      "image": "views/view_03.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.9070631970260223,
+      "padding_xy": [
+        24,
+        344
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.9070631970260223,
+          0,
+          -272.6096654275093
+        ],
+        [
+          0,
+          0.9070631970260223,
+          -360.78810408921936
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Pin - thread symbolic",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    }
+  ],
+  "standard_slots": {
+    "front": "view_01",
+    "top": null,
+    "side": "view_02"
+  },
+  "extra_view_ids": [
+    "view_03"
+  ],
+  "projection_convention": "unverified",
+  "axis_mapping_to_step": null,
+  "shared_physical_pixel_scale": false,
+  "crop_policy": "uniform 1024 square per view; aspect ratio preserved; source crop and inverse mapping retained; dimensions retained; independent fitting does not imply equal mm per pixel",
+  "review_status": "pending_human_acceptance",
+  "gaps": [
+    "View roles and projection convention need human confirmation.",
+    "Source PDFs retained for manufacturing notes and revision checks."
+  ],
+  "annotation_gt_leakage": false
+}

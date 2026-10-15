@@ -1,0 +1,10 @@
+{
+  "case_id": "case_017",
+  "part_name": "连接铰链",
+  "authoring_method": "Two round-ended lower ears, a closed bridge and staged loft, and two round-ended upper ears with transverse pin bores",
+  "parameter_source": "Drawing dimensions; GT-assisted plane and cylinder inspection confirmed all fork spans, 25/15 mm bores, slot termination heights, chamfer stations, and original frame",
+  "reference_assistance": true,
+  "approximate": true,
+  "omitted_features": ["C15/C20 transitions are represented by a two-stage linear loft", "Small edge breaks are omitted"],
+  "validation_claim": "Not claimed here; use the generated validation report"
+}

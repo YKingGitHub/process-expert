@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "case_id": "case_016",
+  "part_name": "STKJ-MT01-0042传动轴",
+  "annotation_method": "agent_manual_source_image_region_annotation",
+  "purpose": "label_authoring_not_heldout_evaluation",
+  "sources": [
+    {
+      "page": 1,
+      "pdf": "source/page_01.pdf",
+      "pdf_sha256": "8a2e81226712a317e0dff0dea0f9c6aa0d5113d5a670cf95bd7f0f7a685ca73e",
+      "preview": "source/page_01.webp",
+      "original_size": [
+        2339,
+        1654
+      ],
+      "upright_size": [
+        2339,
+        1654
+      ],
+      "rotation_clockwise_degrees": 0,
+      "original_pdf_local_only": true
+    }
+  ],
+  "views": [
+    {
+      "id": "view_01",
+      "role": "front",
+      "label": "Longitudinal - broken",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.17,
+        0.17,
+        0.59,
+        0.57
+      ],
+      "bbox_upright_pixels": [
+        398,
+        281,
+        1380,
+        943
+      ],
+      "native_image": "views/view_01_native.png",
+      "image": "views/view_01.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.9938900203665988,
+      "padding_xy": [
+        24,
+        203
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.9938900203665988,
+          0,
+          -371.5682281059063
+        ],
+        [
+          0,
+          0.9938900203665988,
+          -76.28309572301424
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": null,
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_02",
+      "role": "side",
+      "label": "End",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.65,
+        0.26,
+        0.89,
+        0.57
+      ],
+      "bbox_upright_pixels": [
+        1520,
+        430,
+        2082,
+        943
+      ],
+      "native_image": "views/view_02_native.png",
+      "image": "views/view_02.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 1.7366548042704626,
+      "padding_xy": [
+        24,
+        86
+      ],
+      "source_to_canvas_matrix": [
+        [
+          1.7366548042704626,
+          0,
+          -2615.715302491103
+        ],
+        [
+          0,
+          1.7366548042704626,
+          -660.7615658362989
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": null,
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    }
+  ],
+  "standard_slots": {
+    "front": "view_01",
+    "top": null,
+    "side": "view_02"
+  },
+  "extra_view_ids": [],
+  "projection_convention": "unverified",
+  "axis_mapping_to_step": null,
+  "shared_physical_pixel_scale": false,
+  "crop_policy": "uniform 1024 square per view; aspect ratio preserved; source crop and inverse mapping retained; dimensions retained; independent fitting does not imply equal mm per pixel",
+  "review_status": "pending_human_acceptance",
+  "gaps": [
+    "View roles and projection convention need human confirmation.",
+    "Source PDFs retained for manufacturing notes and revision checks."
+  ],
+  "annotation_gt_leakage": false
+}

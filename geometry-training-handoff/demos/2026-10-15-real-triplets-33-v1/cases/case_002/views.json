@@ -1,0 +1,559 @@
+{
+  "schema_version": 1,
+  "case_id": "case_002",
+  "part_name": "41602-3 (machin part)",
+  "annotation_method": "agent_manual_source_image_region_annotation",
+  "purpose": "label_authoring_not_heldout_evaluation",
+  "sources": [
+    {
+      "page": 1,
+      "pdf": "source/page_01.pdf",
+      "pdf_sha256": "91c9bec726a6ef5516b900c44ebc0cdb378688783d14473f6d58ddc2d46d11ab",
+      "preview": "source/page_01.webp",
+      "original_size": [
+        6504,
+        4598
+      ],
+      "upright_size": [
+        6504,
+        4598
+      ],
+      "rotation_clockwise_degrees": 0,
+      "original_pdf_local_only": true
+    },
+    {
+      "page": 2,
+      "pdf": "source/page_02.pdf",
+      "pdf_sha256": "1a889bec2086e24d3df5316d82596be9a973fade2dfced49129abad4cdd168a9",
+      "preview": "source/page_02.webp",
+      "original_size": [
+        6464,
+        4570
+      ],
+      "upright_size": [
+        6464,
+        4570
+      ],
+      "rotation_clockwise_degrees": 0,
+      "original_pdf_local_only": true
+    }
+  ],
+  "views": [
+    {
+      "id": "view_01",
+      "role": "front",
+      "label": "Elevation",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.28,
+        0.07,
+        0.78,
+        0.39
+      ],
+      "bbox_upright_pixels": [
+        1821,
+        322,
+        5073,
+        1793
+      ],
+      "native_image": "views/view_01_native.png",
+      "image": "views/view_01.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.3001230012300123,
+      "padding_xy": [
+        24,
+        311
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.3001230012300123,
+          0,
+          -522.5239852398523
+        ],
+        [
+          0,
+          0.3001230012300123,
+          214.36039360393605
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": null,
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_02",
+      "role": "section",
+      "label": "Longitudinal section",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.28,
+        0.4,
+        0.77,
+        0.77
+      ],
+      "bbox_upright_pixels": [
+        1821,
+        1839,
+        5008,
+        3540
+      ],
+      "native_image": "views/view_02_native.png",
+      "image": "views/view_02.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.30624411672419205,
+      "padding_xy": [
+        24,
+        271
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.30624411672419205,
+          0,
+          -533.6705365547538
+        ],
+        [
+          0,
+          0.30624411672419205,
+          -292.18293065578916
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_03",
+      "role": "section",
+      "label": "Left sections",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.03,
+        0.06,
+        0.28,
+        0.75
+      ],
+      "bbox_upright_pixels": [
+        195,
+        276,
+        1821,
+        3448
+      ],
+      "native_image": "views/view_03_native.png",
+      "image": "views/view_03.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.29508196721311475,
+      "padding_xy": [
+        272,
+        64
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.29508196721311475,
+          0,
+          214.45901639344262
+        ],
+        [
+          0,
+          0.29508196721311475,
+          -17.44262295081967
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_04",
+      "role": "side",
+      "label": "Right end / detail",
+      "source_page": 1,
+      "bbox_upright_normalized": [
+        0.77,
+        0.44,
+        0.94,
+        0.82
+      ],
+      "bbox_upright_pixels": [
+        5008,
+        2023,
+        6114,
+        3770
+      ],
+      "native_image": "views/view_04_native.png",
+      "image": "views/view_04.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.5357756153405838,
+      "padding_xy": [
+        215,
+        64
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.5357756153405838,
+          0,
+          -2468.164281625644
+        ],
+        [
+          0,
+          0.5357756153405838,
+          -1019.8740698340011
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_05",
+      "role": "detail_group",
+      "label": "Upper detail row",
+      "source_page": 2,
+      "bbox_upright_normalized": [
+        0.03,
+        0.03,
+        0.95,
+        0.27
+      ],
+      "bbox_upright_pixels": [
+        194,
+        137,
+        6141,
+        1234
+      ],
+      "native_image": "views/view_05_native.png",
+      "image": "views/view_05.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.16411636119051623,
+      "padding_xy": [
+        24,
+        442
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.16411636119051623,
+          0,
+          -7.838574070960149
+        ],
+        [
+          0,
+          0.16411636119051623,
+          419.5160585168993
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_06",
+      "role": "detail_group",
+      "label": "Second detail row",
+      "source_page": 2,
+      "bbox_upright_normalized": [
+        0.03,
+        0.27,
+        0.95,
+        0.48
+      ],
+      "bbox_upright_pixels": [
+        194,
+        1234,
+        6141,
+        2194
+      ],
+      "native_image": "views/view_06_native.png",
+      "image": "views/view_06.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.16411636119051623,
+      "padding_xy": [
+        24,
+        453
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.16411636119051623,
+          0,
+          -7.838574070960149
+        ],
+        [
+          0,
+          0.16411636119051623,
+          250.48041029090297
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_07",
+      "role": "detail_group",
+      "label": "Lower-left sections",
+      "source_page": 2,
+      "bbox_upright_normalized": [
+        0.03,
+        0.52,
+        0.24,
+        0.91
+      ],
+      "bbox_upright_pixels": [
+        194,
+        2376,
+        1551,
+        4159
+      ],
+      "native_image": "views/view_07_native.png",
+      "image": "views/view_07.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.5249579360628155,
+      "padding_xy": [
+        156,
+        64
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.5249579360628155,
+          0,
+          54.158160403813795
+        ],
+        [
+          0,
+          0.5249579360628155,
+          -1183.3000560852497
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_08",
+      "role": "detail_group",
+      "label": "Middle sections",
+      "source_page": 2,
+      "bbox_upright_normalized": [
+        0.24,
+        0.51,
+        0.75,
+        0.76
+      ],
+      "bbox_upright_pixels": [
+        1551,
+        2331,
+        4848,
+        3473
+      ],
+      "native_image": "views/view_08_native.png",
+      "image": "views/view_08.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.2960266909311495,
+      "padding_xy": [
+        24,
+        363
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.2960266909311495,
+          0,
+          -435.1373976342129
+        ],
+        [
+          0,
+          0.2960266909311495,
+          -327.03821656050957
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_09",
+      "role": "detail_group",
+      "label": "Lower sections",
+      "source_page": 2,
+      "bbox_upright_normalized": [
+        0.26,
+        0.76,
+        0.81,
+        0.95
+      ],
+      "bbox_upright_pixels": [
+        1681,
+        3473,
+        5236,
+        4342
+      ],
+      "native_image": "views/view_09_native.png",
+      "image": "views/view_09.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.2745428973277075,
+      "padding_xy": [
+        24,
+        412
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.2745428973277075,
+          0,
+          -437.5066104078763
+        ],
+        [
+          0,
+          0.2745428973277075,
+          -541.4874824191281
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    },
+    {
+      "id": "view_10",
+      "role": "detail_group",
+      "label": "Right details",
+      "source_page": 2,
+      "bbox_upright_normalized": [
+        0.75,
+        0.51,
+        0.95,
+        0.8
+      ],
+      "bbox_upright_pixels": [
+        4848,
+        2331,
+        6141,
+        3656
+      ],
+      "native_image": "views/view_10_native.png",
+      "image": "views/view_10.png",
+      "canvas_size": [
+        1024,
+        1024
+      ],
+      "resize_scale_px_per_source_px": 0.7064150943396227,
+      "padding_xy": [
+        55,
+        64
+      ],
+      "source_to_canvas_matrix": [
+        [
+          0.7064150943396227,
+          0,
+          -3369.7003773584906
+        ],
+        [
+          0,
+          0.7064150943396227,
+          -1582.6535849056604
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "parent_source_label": "Elevation",
+      "orientation_status": "provisional_agent_annotation",
+      "gt_used_for_crop": false
+    }
+  ],
+  "standard_slots": {
+    "front": "view_01",
+    "top": null,
+    "side": "view_04"
+  },
+  "extra_view_ids": [
+    "view_02",
+    "view_03",
+    "view_05",
+    "view_06",
+    "view_07",
+    "view_08",
+    "view_09",
+    "view_10"
+  ],
+  "projection_convention": "unverified",
+  "axis_mapping_to_step": null,
+  "shared_physical_pixel_scale": false,
+  "crop_policy": "uniform 1024 square per view; aspect ratio preserved; source crop and inverse mapping retained; dimensions retained; independent fitting does not imply equal mm per pixel",
+  "review_status": "pending_human_acceptance",
+  "gaps": [
+    "View roles and relationships are provisional; review source pages.",
+    "Pixel crop removes surrounding context; source PDFs retained for tolerances, materials and revision checks.",
+    "Section/detail groups on dense legacy sheets need further splitting."
+  ],
+  "annotation_gt_leakage": false
+}

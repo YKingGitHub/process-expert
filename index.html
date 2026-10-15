@@ -292,12 +292,16 @@
       return node;
     }
 
+    function reportLabel(report) {
+      return report.id || report.week;
+    }
+
     function renderLatest(report) {
       const card = document.createElement("article");
       card.className = "latest-card";
 
       const meta = document.createElement("div");
-      meta.append(textNode("div", "week", `${report.week} · LATEST`));
+      meta.append(textNode("div", "week", `${reportLabel(report)} · LATEST`));
       meta.append(textNode("div", "date", report.date));
 
       const copy = document.createElement("div");
@@ -319,7 +323,7 @@
         card.href = reportUrl(report.source);
 
         const meta = document.createElement("div");
-        meta.append(textNode("div", "week", report.week));
+        meta.append(textNode("div", "week", reportLabel(report)));
         meta.append(textNode("div", "date", report.date));
 
         const copy = document.createElement("div");
@@ -329,7 +333,7 @@
         card.append(meta, copy, textNode("div", "open", "打开周报 →"));
         listRoot.append(card);
       }
-      countRoot.textContent = `共 ${reports.length} 期`;
+      countRoot.textContent = `共 ${reports.length} 篇 · 含同周验收补充`;
     }
 
     fetch(manifestUrl, { cache: "no-cache" })
@@ -338,7 +342,9 @@
         return response.json();
       })
       .then((manifest) => {
-        const reports = [...manifest.reports].sort((a, b) => b.date.localeCompare(a.date));
+        const reports = [...manifest.reports].sort((a, b) =>
+          b.date.localeCompare(a.date) || reportLabel(b).localeCompare(reportLabel(a))
+        );
         if (!reports.length) throw new Error("周报清单为空");
         renderLatest(reports[0]);
         renderArchive(reports);

@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "case_id": "case_031",
+  "part_name": "STKJ-MT01-0064 DN50 法兰",
+  "fidelity": "dimensionally_faithful_simplification",
+  "method": "155 mm flange with 59 mm bore, four 18 mm PCD-125 holes, and 2 mm raised center face.",
+  "ground_truth_assistance": [
+    "STEP bbox 155 x 155 x 17.5 mm",
+    "STEP bore and hole radii/centers",
+    "drawing axial profile"
+  ],
+  "approximations": [
+    "C2 transition is modeled as a 55-to-53 mm conical frustum."
+  ],
+  "omitted_features": [
+    "Unspecified outer edge breaks and surface-finish-only annotations."
+  ],
+  "coordinate_policy": "Preserve the original STEP axis order, physical millimetres, and world-frame bounds; no normalization or rescaling.",
+  "reference_measurement": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 245842.71511279125,
+    "surface_area_mm2": 44802.74424382562,
+    "bbox_mm": [
+      155.00000000000014,
+      155.00000000000057,
+      17.50000000000187
+    ],
+    "bbox_min_mm": [
+      -77.50000000000007,
+      -77.50000000000051,
+      -1.7763568394002505e-12
+    ],
+    "bbox_max_mm": [
+      77.50000000000007,
+      77.50000000000007,
+      17.500000000000092
+    ]
+  },
+  "reconstructed_measurement": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 247151.95675328173,
+    "surface_area_mm2": 44836.4029642129,
+    "bbox_mm": [
+      155.0,
+      155.0,
+      17.500000200000002
+    ],
+    "bbox_min_mm": [
+      -77.5,
+      -77.5,
+      -1e-07
+    ],
+    "bbox_max_mm": [
+      77.5,
+      77.5,
+      17.5000001
+    ]
+  },
+  "comparison": {
+    "volume_deviation_percent": 0.5325525468142536,
+    "surface_area_deviation_percent": 0.07512647038785512,
+    "bbox_axis_deviation_percent": [
+      -9.168293364646446e-14,
+      -3.667317345858568e-13,
+      1.1428464777703032e-06
+    ],
+    "bbox_max_abs_deviation_percent": 1.1428464777703032e-06
+  },
+  "validation": {
+    "executor": "runpy.run_path(run_name='__triplet_validation__')",
+    "cadquery_version": "2.5.2",
+    "global_solid_present": true,
+    "reconstructed_step_exported": true
+  }
+}

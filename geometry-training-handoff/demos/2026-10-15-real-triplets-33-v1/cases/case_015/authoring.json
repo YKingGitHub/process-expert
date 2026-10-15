@@ -1,0 +1,10 @@
+{
+  "case_id": "case_015",
+  "part_name": "链条连接螺杆",
+  "authoring_method": "Chamfered cylindrical shank joined to two extruded round-ended clevis ears with a transverse pin bore",
+  "parameter_source": "Drawing dimensions; GT-assisted cylinder-axis inspection confirmed the 30 mm shank, 74/20 mm clevis envelope and slot, 15 mm bore, and original frame",
+  "reference_assistance": true,
+  "approximate": true,
+  "omitted_features": ["M30 helical thread is represented by its nominal 30 mm cylinder", "Small C1.5 edge breaks are omitted", "The forged shoulder transition is simplified at the shank-to-ear junction"],
+  "validation_claim": "Not claimed here; use the generated validation report"
+}

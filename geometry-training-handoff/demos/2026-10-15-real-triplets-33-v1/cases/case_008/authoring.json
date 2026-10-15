@@ -1,0 +1,10 @@
+{
+  "case_id": "case_008",
+  "part_name": "10轨道转接板",
+  "authoring_method": "Extruded rectangular plate with a two-row drilled-hole pattern",
+  "parameter_source": "Drawing dimensions, with GT-assisted confirmation of all ten hole centers, diameter, and original coordinates",
+  "reference_assistance": true,
+  "approximate": false,
+  "omitted_features": ["Thread semantics for the M10 note are represented by the drawn 8.5 mm cylindrical drill holes"],
+  "validation_claim": "Not claimed here; use the generated validation report"
+}
