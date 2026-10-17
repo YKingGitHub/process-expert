@@ -1,0 +1,591 @@
+{
+  "schema_version": 2,
+  "case_id": "case_003",
+  "name": "40605-11(machined part)",
+  "status": "build_failed",
+  "reason": "See preserved build log; no aligned training tuple is accepted.",
+  "annotation": {
+    "case_id": "case_003",
+    "front_basis": {
+      "right": [
+        1,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    "status": "proposed",
+    "evidence": [
+      "source view_01 shows the long piston running left-to-right and the transverse end tube extending much farther downward than upward",
+      "v1 model.py:52-75 and the reference STEP place the piston on raw X and the transverse tube on raw Y from approximately -196.289 to +49.403",
+      "the negative-Y-dominant transverse tube appearing downward fixes source up=+Y, while the piston-to-cross-tube order fixes source right=+X",
+      "direct reference-STEP inspection confirms bounds X=[-966.216,40.558], Y=[-196.289,49.403], Z=[-62.357,62.357] and a raw-X dominant cylinder axis"
+    ],
+    "ambiguities": [
+      "view_02 establishes an XZ plan projection, but the reference is mirror-symmetric in raw Z at the dominant features, so its vertical Z sign and Y camera side are not independently observable",
+      "selected plan basis right=+X/up=-Z follows the canonical top convention; right=+X/up=+Z with the opposite camera remains symmetry-equivalent"
+    ],
+    "views": [
+      {
+        "id": "view_01",
+        "kind": "external",
+        "raw_right": [
+          1,
+          0,
+          0
+        ],
+        "raw_up": [
+          0,
+          1,
+          0
+        ],
+        "canonical_role": "front",
+        "confidence": "supported",
+        "source_label": "Elevation",
+        "notes": [
+          "Camera is raw +Z",
+          "The strongly one-sided raw-Y cross tube fixes the vertical sign rather than merely the projection extents"
+        ]
+      },
+      {
+        "id": "view_02",
+        "kind": "external",
+        "raw_right": [
+          1,
+          0,
+          0
+        ],
+        "raw_up": [
+          0,
+          0,
+          -1
+        ],
+        "canonical_role": "top",
+        "confidence": "symmetry_ambiguous",
+        "source_label": "Plan",
+        "notes": [
+          "Selected camera is raw +Y",
+          "Raw Z is symmetric at the dominant ears and barrel, so the opposite plan roll/camera candidate is retained"
+        ]
+      }
+    ]
+  },
+  "training_ready": false,
+  "human_acceptance": "pending",
+  "pixel_registration_status": "not_run",
+  "views": [
+    {
+      "id": "view_01",
+      "kind": "external",
+      "raw_right": [
+        1,
+        0,
+        0
+      ],
+      "raw_up": [
+        0,
+        1,
+        0
+      ],
+      "canonical_role": "front",
+      "confidence": "supported",
+      "source_label": "Elevation",
+      "notes": [
+        "Camera is raw +Z",
+        "The strongly one-sided raw-Y cross tube fixes the vertical sign rather than merely the projection extents"
+      ],
+      "source_image": "../2026-10-15-real-triplets-33-v1/cases/case_003/views/view_01.png",
+      "pair_status": "not_pairable",
+      "reason": "See preserved build log; no aligned training tuple is accepted."
+    },
+    {
+      "id": "view_02",
+      "kind": "external",
+      "raw_right": [
+        1,
+        0,
+        0
+      ],
+      "raw_up": [
+        0,
+        0,
+        -1
+      ],
+      "canonical_role": "top",
+      "confidence": "symmetry_ambiguous",
+      "source_label": "Plan",
+      "notes": [
+        "Selected camera is raw +Y",
+        "Raw Z is symmetric at the dominant ears and barrel, so the opposite plan roll/camera candidate is retained"
+      ],
+      "source_image": "../2026-10-15-real-triplets-33-v1/cases/case_003/views/view_02.png",
+      "pair_status": "not_pairable",
+      "reason": "See preserved build log; no aligned training tuple is accepted."
+    }
+  ],
+  "source_views": {
+    "schema_version": 1,
+    "case_id": "case_003",
+    "part_name": "40605-11(machined part)",
+    "annotation_method": "agent_manual_source_image_region_annotation",
+    "purpose": "label_authoring_not_heldout_evaluation",
+    "sources": [
+      {
+        "page": 1,
+        "pdf": "source/page_01.pdf",
+        "pdf_sha256": "b5bf672ec1e21f5ba222ae59d234a759b3fb6094f1d4031db842738be6073dfe",
+        "preview": "source/page_01.webp",
+        "original_size": [
+          6533,
+          3910
+        ],
+        "upright_size": [
+          6533,
+          3910
+        ],
+        "rotation_clockwise_degrees": 0,
+        "original_pdf_local_only": true
+      }
+    ],
+    "views": [
+      {
+        "id": "view_01",
+        "role": "front",
+        "label": "Elevation",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.28,
+          0.09,
+          0.82,
+          0.41
+        ],
+        "bbox_upright_pixels": [
+          1829,
+          352,
+          5357,
+          1603
+        ],
+        "native_image": "views/view_01_native.png",
+        "image": "views/view_01.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 0.2766439909297052,
+        "padding_xy": [
+          24,
+          359
+        ],
+        "source_to_canvas_matrix": [
+          [
+            0.2766439909297052,
+            0,
+            -481.98185941043084
+          ],
+          [
+            0,
+            0.2766439909297052,
+            261.62131519274374
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": null,
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_02",
+        "role": "top",
+        "label": "Plan",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.28,
+          0.44,
+          0.73,
+          0.62
+        ],
+        "bbox_upright_pixels": [
+          1829,
+          1720,
+          4769,
+          2424
+        ],
+        "native_image": "views/view_02_native.png",
+        "image": "views/view_02.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 0.33197278911564626,
+        "padding_xy": [
+          24,
+          415
+        ],
+        "source_to_canvas_matrix": [
+          [
+            0.33197278911564626,
+            0,
+            -583.178231292517
+          ],
+          [
+            0,
+            0.33197278911564626,
+            -155.99319727891157
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": null,
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_03",
+        "role": "detail",
+        "label": "M",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.04,
+          0.06,
+          0.23,
+          0.37
+        ],
+        "bbox_upright_pixels": [
+          261,
+          235,
+          1503,
+          1447
+        ],
+        "native_image": "views/view_03_native.png",
+        "image": "views/view_03.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 0.7722772277227723,
+        "padding_xy": [
+          32,
+          64
+        ],
+        "source_to_canvas_matrix": [
+          [
+            0.7722772277227723,
+            0,
+            -169.56435643564356
+          ],
+          [
+            0,
+            0.7722772277227723,
+            -117.48514851485149
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_04",
+        "role": "section",
+        "label": "F-F / View D",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.02,
+          0.44,
+          0.28,
+          0.67
+        ],
+        "bbox_upright_pixels": [
+          131,
+          1720,
+          1829,
+          2620
+        ],
+        "native_image": "views/view_04_native.png",
+        "image": "views/view_04.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 0.574793875147232,
+        "padding_xy": [
+          24,
+          273
+        ],
+        "source_to_canvas_matrix": [
+          [
+            0.574793875147232,
+            0,
+            -51.29799764428739
+          ],
+          [
+            0,
+            0.574793875147232,
+            -715.6454652532391
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_05",
+        "role": "section",
+        "label": "L-L",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.82,
+          0.4,
+          0.96,
+          0.6
+        ],
+        "bbox_upright_pixels": [
+          5357,
+          1564,
+          6272,
+          2346
+        ],
+        "native_image": "views/view_05_native.png",
+        "image": "views/view_05.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 1.0666666666666667,
+        "padding_xy": [
+          24,
+          115
+        ],
+        "source_to_canvas_matrix": [
+          [
+            1.0666666666666667,
+            0,
+            -5690.133333333333
+          ],
+          [
+            0,
+            1.0666666666666667,
+            -1553.2666666666667
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_06",
+        "role": "auxiliary",
+        "label": "B",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.8,
+          0.62,
+          0.92,
+          0.8
+        ],
+        "bbox_upright_pixels": [
+          5226,
+          2424,
+          6010,
+          3128
+        ],
+        "native_image": "views/view_06_native.png",
+        "image": "views/view_06.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 1.2448979591836735,
+        "padding_xy": [
+          24,
+          94
+        ],
+        "source_to_canvas_matrix": [
+          [
+            1.2448979591836735,
+            0,
+            -6481.836734693878
+          ],
+          [
+            0,
+            1.2448979591836735,
+            -2923.6326530612246
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      }
+    ],
+    "standard_slots": {
+      "front": "view_01",
+      "top": "view_02",
+      "side": null
+    },
+    "extra_view_ids": [
+      "view_03",
+      "view_04",
+      "view_05",
+      "view_06"
+    ],
+    "projection_convention": "unverified",
+    "axis_mapping_to_step": null,
+    "shared_physical_pixel_scale": false,
+    "crop_policy": "uniform 1024 square per view; aspect ratio preserved; source crop and inverse mapping retained; dimensions retained; independent fitting does not imply equal mm per pixel",
+    "review_status": "pending_human_acceptance",
+    "gaps": [
+      "View roles and relationships are provisional; review source pages.",
+      "Pixel crop removes surrounding context; source PDFs retained for tolerances, materials and revision checks.",
+      "Section/detail groups on dense legacy sheets need further splitting."
+    ],
+    "annotation_gt_leakage": false
+  },
+  "legacy_geometry_validation": {
+    "schema_version": 1,
+    "case_id": "case_003",
+    "cadquery_version": "2.5.2",
+    "purpose": "GT-assisted label-authoring QA; not held-out model evaluation",
+    "coordinate_alignment": "none; original physical mm frame",
+    "thresholds": {
+      "legacy_volume_relative": 0.02,
+      "legacy_area_relative": 0.05,
+      "legacy_sorted_bbox_relative": 0.02,
+      "additional_symmetric_difference_over_reference_volume": 0.01,
+      "additional_axis_bbox_relative": 0.01
+    },
+    "human_acceptance": "pending",
+    "training_ready": false,
+    "validator_sha256": "6be8bd1e6b1f037d23ea6737834ef426af038fe410bba5ef9cb52fb6628729f7",
+    "model_sha256": "db231f1499aed66f6718a55bd2881cfb87030b626f58df9fe54086bac497246a",
+    "program_audit": {
+      "status": "passed",
+      "allowed_imports": [
+        "cadquery",
+        "math"
+      ],
+      "external_geometry_reads": false,
+      "execution_mode": "trusted_authored_label_not_model_sandbox"
+    },
+    "execution_status": "success",
+    "reconstructed_sha256": "cb01942c986335066f40d3e170680f699a7e022b02a832292111bc2ab84209f5",
+    "reference_sha256": "023d6c17ad4be86fe259ab1f26d225a115d26614b9edbb697b67b8b6eadad6ea",
+    "reference": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 2139037.3912976165,
+      "surface_area_mm2": 415198.80992467294,
+      "bounds_mm": [
+        -966.2160001954754,
+        -196.28867291266275,
+        -62.3569997469,
+        40.55796953457493,
+        49.40300090224656,
+        62.356999746839215
+      ],
+      "bbox_mm": [
+        1006.7739697300503,
+        245.6916738149093,
+        124.71399949373921
+      ],
+      "face_count": 731
+    },
+    "reconstructed": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 2490693.4162414973,
+      "surface_area_mm2": 414130.2334193424,
+      "bounds_mm": [
+        -966.216,
+        -196.289,
+        -62.357,
+        40.558,
+        49.403,
+        62.357
+      ],
+      "bbox_mm": [
+        1006.774,
+        245.69199999999998,
+        124.714
+      ],
+      "face_count": 66
+    },
+    "metrics": {
+      "volume_relative_error": 0.16439919487828758,
+      "area_relative_error": 0.002573650212351118,
+      "axis_bbox_relative_error": [
+        3.006628158016854e-08,
+        1.3276196364586235e-06,
+        4.059374182445208e-09
+      ],
+      "sorted_bbox_relative_error": [
+        4.059374182445208e-09,
+        1.3276196364586235e-06,
+        3.006628158016854e-08
+      ],
+      "max_bound_position_error_mm": 0.0003270873372400729,
+      "intersection_volume_mm3": null,
+      "iou_same_frame": null,
+      "symmetric_difference_volume_mm3": null,
+      "symmetric_difference_over_reference_volume": null
+    },
+    "legacy_geometry_check": false,
+    "boolean_status": "error",
+    "geometry_gate_pass": false,
+    "error": "Boolean validation error: ValueError: Empty Common contradicts a point inside both operands: (-714.5225076163563, -12.019918228165693, -31.1784998734652)",
+    "status": "geometry_check_error",
+    "elapsed_seconds": 32.222
+  },
+  "build_result": {
+    "case_id": "case_003",
+    "exit_code": 1,
+    "timeout": false,
+    "log": "build_logs/20261017T114524878573Z/case_003.log"
+  },
+  "alignment_review_notes": [
+    "Blocked: exported/reloaded reference STEP volume differs from the raw reference by 0.0005490145603652685 relative, beyond the unchanged 1e-6 invariance gate. Area change is -1.0788630988578518e-7. This numerical discrepancy is not a claim that the rigid transform intentionally changed geometry."
+  ],
+  "source_model_sha256": "db231f1499aed66f6718a55bd2881cfb87030b626f58df9fe54086bac497246a",
+  "source_reference_sha256": "023d6c17ad4be86fe259ab1f26d225a115d26614b9edbb697b67b8b6eadad6ea",
+  "quarantined_attempt": {
+    "local_directory": "/tmp/cad-alignment-failed-case_003-zibrm6cl",
+    "files_sha256": {
+      "reconstructed.step": "6e85aba8ca1e44e590727902601c989fdb4f84fa71dc41892a0cef89253baefe",
+      "model.py": "4d71f6cc22502347fb7ee41cb5e28fee83a9e130d2a3fcfbabb268579659b0f2",
+      "reference.step": "18329626360d721a9348a303ee468f073a0d4d39110f6938f663db7614bce069"
+    },
+    "reason": "Incomplete generated assets retained locally, excluded from published training candidates"
+  },
+  "download": {
+    "zip": "cases/case_003/case_003_alignment_candidate.zip"
+  }
+}

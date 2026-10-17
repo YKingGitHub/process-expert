@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <meta name="description" content="33 件真实工程图、CadQuery 与 STEP 的训练坐标对齐候选验收页">
+    <title>真实图纸三元组 · 坐标对齐候选 v2</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">REAL DRAWING ALIGNMENT / V2</p>
+        <h1>真实图纸三元组 · 坐标对齐候选</h1>
+        <p class="lede">逐件把原图主视方向映射到统一训练坐标；原始 STEP 不被覆盖，所有变换只允许刚体旋转和平移。</p>
+      </div>
+      <div id="summary" class="summary" aria-live="polite"></div>
+    </header>
+
+    <div class="global-warning" role="note">
+      <strong>当前 training_ready = 0。</strong>
+      姿态对齐、人工特征锚点通过和几何检查是三道不同的门；任何一项都不能替代最终人工验收。
+      <p>统一约定：正视为 XY（从 +Z 看），俯视从 +Y 看、屏幕向上为 −Z，右视从 +X 看、屏幕向右为 −Z。CQ 和 STEP 应用同一个可逆刚体变换；各视图共用毫米/像素比例。</p>
+      <p>未完成项：原图仍有尺寸/文字；稀疏锚点不等于全轮廓验收；缺视图、剖视与断裂表达不能直接当标准三视图。下一步可先完善外观视图清理和轮廓验收，再单独实现带切割平面的剖视标定。</p>
+      <p><a href="../../../">返回周报 collection 主入口</a> · <a href="../2026-10-15-real-triplets-33-v1/">查看不可变 v1</a></p>
+    </div>
+
+    <main class="workspace">
+      <aside class="case-browser" aria-label="样例列表">
+        <div class="browser-head">
+          <div>
+            <p class="eyebrow">DATASET INDEX</p>
+            <h2>33 件样例</h2>
+          </div>
+          <span id="visible-count" class="count-pill">—</span>
+        </div>
+        <label class="field-label" for="search">搜索编号或零件名</label>
+        <input id="search" type="search" placeholder="例如 014 / 接头" autocomplete="off">
+        <label class="field-label" for="filter">验收状态</label>
+        <select id="filter">
+          <option value="all">全部</option>
+          <option value="pilot">像素注册 pilot</option>
+          <option value="pose">仅姿态候选</option>
+          <option value="ambiguous">含对称歧义</option>
+          <option value="unresolved">方向未解决 / 构建未完成</option>
+          <option value="geometry_issue">v1 几何未通过</option>
+        </select>
+        <p class="browser-note">014 / 015 / 017 优先展示；排序不代表质量评级。</p>
+        <nav id="case-list" class="case-list" aria-label="样例"></nav>
+      </aside>
+
+      <section id="case-detail" class="case-detail" aria-live="polite">
+        <div class="loading-card">正在读取 <code>dataset.json</code>…</div>
+      </section>
+    </main>
+
+    <dialog id="lightbox" class="lightbox">
+      <button id="close-lightbox" class="close-button" type="button" aria-label="关闭大图">关闭</button>
+      <img alt="放大预览">
+      <p id="lightbox-caption"></p>
+    </dialog>
+  </body>
+</html>

@@ -1,0 +1,935 @@
+{
+  "schema_version": 2,
+  "case_id": "case_011",
+  "name": "STKJ-MT01-0032吊耳铰链",
+  "annotation": {
+    "case_id": "case_011",
+    "front_basis": {
+      "right": [
+        1,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    "status": "proposed",
+    "evidence": [
+      "source view_01 has its top hole row 30 mm below the top and successive 71 mm spacings",
+      "v1 model.py:15-18 places hole rows at raw Y=-72,-1,70 within Y=[-100,100]; raw up=+Y gives top offset 30 and bottom offset 28",
+      "source view_02 matches the YZ rib profile: datum face z=22, rib end z=112, hole z=67 is 45 mm from either end, and hole y=60 is 40 mm below y=100",
+      "reference and verified STEP share bounds 305 by 215 by 130; same-frame IoU is 0.9931558807253927 despite simplified blends"
+    ],
+    "ambiguities": [
+      "The whole part is mirror-symmetric about raw X=x_mid; front candidates are right=+X/up=+Y/camera=+Z and right=-X/up=+Y/camera=-Z",
+      "Selected +X makes view_03 raw (+X,-Z) a canonical top view; selecting -X would instead make the supported side profile canonical right_side",
+      "For view_03 the equivalent candidate right=-X/up=-Z/camera=-Y cannot be distinguished"
+    ],
+    "views": [
+      {
+        "id": "view_01",
+        "kind": "external",
+        "raw_right": [
+          1,
+          0,
+          0
+        ],
+        "raw_up": [
+          0,
+          1,
+          0
+        ],
+        "canonical_role": "front",
+        "confidence": "symmetry_ambiguous",
+        "source_label": "Mounting face",
+        "notes": [
+          "Raw up=+Y is fixed by the unequal 30/28 mm end offsets",
+          "Raw X sign and front camera side remain exactly mirror-equivalent"
+        ]
+      },
+      {
+        "id": "view_02",
+        "kind": "external",
+        "raw_right": [
+          0,
+          0,
+          1
+        ],
+        "raw_up": [
+          0,
+          1,
+          0
+        ],
+        "canonical_role": "left_side",
+        "confidence": "supported",
+        "source_label": "Side",
+        "notes": [
+          "Raw +Z points toward the protruding rib on screen right and raw +Y points upward",
+          "Camera is raw -X; the -18 foot, z=22 datum, z=112 crown, and y=60/z=67 bore fix the signs"
+        ]
+      },
+      {
+        "id": "view_03",
+        "kind": "external",
+        "raw_right": [
+          1,
+          0,
+          0
+        ],
+        "raw_up": [
+          0,
+          0,
+          -1
+        ],
+        "canonical_role": "top",
+        "confidence": "symmetry_ambiguous",
+        "source_label": "Plan",
+        "notes": [
+          "The rib grows toward raw +Z and is drawn downward, fixing screen up=-Z",
+          "Raw X sign and camera +Y versus -Y remain indistinguishable"
+        ]
+      }
+    ]
+  },
+  "status": "pose_calibrated_candidate",
+  "training_ready": false,
+  "human_acceptance": "pending",
+  "source_dataset": "2026-10-15-real-triplets-33-v1",
+  "source_views": {
+    "schema_version": 1,
+    "case_id": "case_011",
+    "part_name": "STKJ-MT01-0032吊耳铰链",
+    "annotation_method": "agent_manual_source_image_region_annotation",
+    "purpose": "label_authoring_not_heldout_evaluation",
+    "sources": [
+      {
+        "page": 1,
+        "pdf": "source/page_01.pdf",
+        "pdf_sha256": "5c73017def7e6b1a085f5bb988e75b29b3209f3fe029c27be4f35ec7f17e1b92",
+        "preview": "source/page_01.webp",
+        "original_size": [
+          3308,
+          2339
+        ],
+        "upright_size": [
+          3308,
+          2339
+        ],
+        "rotation_clockwise_degrees": 0,
+        "original_pdf_local_only": true
+      }
+    ],
+    "views": [
+      {
+        "id": "view_01",
+        "role": "front",
+        "label": "Mounting face",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.15,
+          0.06,
+          0.55,
+          0.48
+        ],
+        "bbox_upright_pixels": [
+          496,
+          140,
+          1819,
+          1123
+        ],
+        "native_image": "views/view_01_native.png",
+        "image": "views/view_01.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 0.7377173091458806,
+        "padding_xy": [
+          24,
+          169
+        ],
+        "source_to_canvas_matrix": [
+          [
+            0.7377173091458806,
+            0,
+            -341.90778533635677
+          ],
+          [
+            0,
+            0.7377173091458806,
+            65.71957671957671
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": null,
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_02",
+        "role": "side",
+        "label": "Side",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.57,
+          0.1,
+          0.83,
+          0.52
+        ],
+        "bbox_upright_pixels": [
+          1886,
+          234,
+          2746,
+          1216
+        ],
+        "native_image": "views/view_02_native.png",
+        "image": "views/view_02.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 0.9531568228105907,
+        "padding_xy": [
+          102,
+          64
+        ],
+        "source_to_canvas_matrix": [
+          [
+            0.9531568228105907,
+            0,
+            -1695.653767820774
+          ],
+          [
+            0,
+            0.9531568228105907,
+            -159.03869653767822
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": null,
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_03",
+        "role": "top",
+        "label": "Plan",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.21,
+          0.5,
+          0.53,
+          0.71
+        ],
+        "bbox_upright_pixels": [
+          695,
+          1170,
+          1753,
+          1661
+        ],
+        "native_image": "views/view_03_native.png",
+        "image": "views/view_03.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 0.9224952741020794,
+        "padding_xy": [
+          24,
+          305
+        ],
+        "source_to_canvas_matrix": [
+          [
+            0.9224952741020794,
+            0,
+            -617.1342155009452
+          ],
+          [
+            0,
+            0.9224952741020794,
+            -774.3194706994329
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": null,
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      }
+    ],
+    "standard_slots": {
+      "front": "view_01",
+      "top": "view_03",
+      "side": "view_02"
+    },
+    "extra_view_ids": [],
+    "projection_convention": "unverified",
+    "axis_mapping_to_step": null,
+    "shared_physical_pixel_scale": false,
+    "crop_policy": "uniform 1024 square per view; aspect ratio preserved; source crop and inverse mapping retained; dimensions retained; independent fitting does not imply equal mm per pixel",
+    "review_status": "pending_human_acceptance",
+    "gaps": [
+      "View roles and projection convention need human confirmation.",
+      "Source PDFs retained for manufacturing notes and revision checks."
+    ],
+    "annotation_gt_leakage": false
+  },
+  "source_model_sha256": "03e75971e59e27291f75af7025a3ffc955f1ea3fa658f40cacfae508065d593f",
+  "source_reference_sha256": "b1f024f19a65c73f2b10452a41db9eee7cbf3531cc97eaab23a2907277668025",
+  "legacy_geometry_validation": {
+    "schema_version": 1,
+    "case_id": "case_011",
+    "cadquery_version": "2.5.2",
+    "purpose": "GT-assisted label-authoring QA; not held-out model evaluation",
+    "coordinate_alignment": "none; original physical mm frame",
+    "thresholds": {
+      "legacy_volume_relative": 0.02,
+      "legacy_area_relative": 0.05,
+      "legacy_sorted_bbox_relative": 0.02,
+      "additional_symmetric_difference_over_reference_volume": 0.01,
+      "additional_axis_bbox_relative": 0.01
+    },
+    "human_acceptance": "pending",
+    "training_ready": false,
+    "validator_sha256": "6be8bd1e6b1f037d23ea6737834ef426af038fe410bba5ef9cb52fb6628729f7",
+    "model_sha256": "03e75971e59e27291f75af7025a3ffc955f1ea3fa658f40cacfae508065d593f",
+    "program_audit": {
+      "status": "passed",
+      "allowed_imports": [
+        "cadquery",
+        "math"
+      ],
+      "external_geometry_reads": false,
+      "execution_mode": "trusted_authored_label_not_model_sandbox"
+    },
+    "execution_status": "success",
+    "reconstructed_sha256": "107785c6cc7997057c70c20b23422700447b6f6fc0d1a854c68e67c297a413dd",
+    "reference_sha256": "b1f024f19a65c73f2b10452a41db9eee7cbf3531cc97eaab23a2907277668025",
+    "reference": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 2311230.7766790204,
+      "surface_area_mm2": 209321.30065818105,
+      "bounds_mm": [
+        -878.3012701892171,
+        -114.99999999999993,
+        -18.000000000000057,
+        -573.3012701892169,
+        100.00000000000024,
+        112.00000000000001
+      ],
+      "bbox_mm": [
+        305.0000000000002,
+        215.00000000000017,
+        130.00000000000006
+      ],
+      "face_count": 34
+    },
+    "reconstructed": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 2295907.21610028,
+      "surface_area_mm2": 208896.5042116009,
+      "bounds_mm": [
+        -878.3012701892,
+        -115.0,
+        -18.0,
+        -573.3012701892,
+        100.0,
+        112.0
+      ],
+      "bbox_mm": [
+        305.0,
+        215.0,
+        130.0
+      ],
+      "face_count": 22
+    },
+    "metrics": {
+      "volume_relative_error": 0.006630043496027879,
+      "area_relative_error": 0.0020293990398704614,
+      "axis_bbox_relative_error": [
+        7.454874604696127e-16,
+        7.931639841042973e-16,
+        4.372570681600615e-16
+      ],
+      "sorted_bbox_relative_error": [
+        4.372570681600615e-16,
+        7.931639841042973e-16,
+        7.454874604696127e-16
+      ],
+      "max_bound_position_error_mm": 1.716671249596402e-11,
+      "intersection_volume_mm3": 2295658.97734847,
+      "iou_same_frame": 0.9931558807253927,
+      "symmetric_difference_volume_mm3": 15820.03808236029,
+      "symmetric_difference_over_reference_volume": 0.0068448543702294895
+    },
+    "legacy_geometry_check": true,
+    "boolean_status": "success",
+    "geometry_gate_pass": true,
+    "status": "geometry_gate_pass_review_pending",
+    "elapsed_seconds": 0.728
+  },
+  "coordinate_policy": "proper rigid rotation and translation only; mm retained; no mirror or scale",
+  "pixel_registration_status": "not_run",
+  "views": [
+    {
+      "id": "view_01",
+      "kind": "external",
+      "raw_right": [
+        1,
+        0,
+        0
+      ],
+      "raw_up": [
+        0,
+        1,
+        0
+      ],
+      "canonical_role": "front",
+      "confidence": "symmetry_ambiguous",
+      "source_label": "Mounting face",
+      "notes": [
+        "Raw up=+Y is fixed by the unequal 30/28 mm end offsets",
+        "Raw X sign and front camera side remain exactly mirror-equivalent"
+      ],
+      "source_image": "../2026-10-15-real-triplets-33-v1/cases/case_011/views/view_01.png",
+      "pair_status": "pose_only_pixel_registration_pending",
+      "canonical_camera": {
+        "screen_right": [
+          1,
+          0,
+          0
+        ],
+        "screen_up": [
+          0,
+          1,
+          0
+        ],
+        "camera_from_direction": [
+          0,
+          0,
+          1
+        ],
+        "view_direction": [
+          0,
+          0,
+          -1
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          2.6229508196720452,
+          0.0,
+          0.0,
+          512.0
+        ],
+        [
+          -0.0,
+          -2.6229508196720452,
+          -0.0,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference_render": "renders/view_01_reference.svg",
+      "reconstructed_render": "renders/view_01_reconstructed.svg"
+    },
+    {
+      "id": "view_02",
+      "kind": "external",
+      "raw_right": [
+        0,
+        0,
+        1
+      ],
+      "raw_up": [
+        0,
+        1,
+        0
+      ],
+      "canonical_role": "left_side",
+      "confidence": "supported",
+      "source_label": "Side",
+      "notes": [
+        "Raw +Z points toward the protruding rib on screen right and raw +Y points upward",
+        "Camera is raw -X; the -18 foot, z=22 datum, z=112 crown, and y=60/z=67 bore fix the signs"
+      ],
+      "source_image": "../2026-10-15-real-triplets-33-v1/cases/case_011/views/view_02.png",
+      "pair_status": "pose_only_pixel_registration_pending",
+      "canonical_camera": {
+        "screen_right": [
+          0,
+          0,
+          1
+        ],
+        "screen_up": [
+          0,
+          1,
+          0
+        ],
+        "camera_from_direction": [
+          -1,
+          0,
+          0
+        ],
+        "view_direction": [
+          1,
+          0,
+          0
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          0.0,
+          0.0,
+          2.6229508196720452,
+          512.0
+        ],
+        [
+          -0.0,
+          -2.6229508196720452,
+          -0.0,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference_render": "renders/view_02_reference.svg",
+      "reconstructed_render": "renders/view_02_reconstructed.svg"
+    },
+    {
+      "id": "view_03",
+      "kind": "external",
+      "raw_right": [
+        1,
+        0,
+        0
+      ],
+      "raw_up": [
+        0,
+        0,
+        -1
+      ],
+      "canonical_role": "top",
+      "confidence": "symmetry_ambiguous",
+      "source_label": "Plan",
+      "notes": [
+        "The rib grows toward raw +Z and is drawn downward, fixing screen up=-Z",
+        "Raw X sign and camera +Y versus -Y remain indistinguishable"
+      ],
+      "source_image": "../2026-10-15-real-triplets-33-v1/cases/case_011/views/view_03.png",
+      "pair_status": "pose_only_pixel_registration_pending",
+      "canonical_camera": {
+        "screen_right": [
+          1,
+          0,
+          0
+        ],
+        "screen_up": [
+          0,
+          0,
+          -1
+        ],
+        "camera_from_direction": [
+          0,
+          1,
+          0
+        ],
+        "view_direction": [
+          0,
+          -1,
+          0
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          2.6229508196720452,
+          0.0,
+          0.0,
+          512.0
+        ],
+        [
+          -0.0,
+          -0.0,
+          2.6229508196720452,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference_render": "renders/view_03_reference.svg",
+      "reconstructed_render": "renders/view_03_reconstructed.svg"
+    }
+  ],
+  "raw_to_canonical": [
+    [
+      1,
+      0,
+      0,
+      725.801270189217
+    ],
+    [
+      0,
+      1,
+      0,
+      7.499999999999844
+    ],
+    [
+      0,
+      0,
+      1,
+      -46.99999999999998
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "canonical_to_raw": [
+    [
+      1,
+      0,
+      0,
+      -725.801270189217
+    ],
+    [
+      0,
+      1,
+      0,
+      -7.499999999999844
+    ],
+    [
+      0,
+      0,
+      1,
+      46.99999999999998
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "rotation_determinant": 1,
+  "canonical_frame": {
+    "X": "drawing-front right",
+    "Y": "drawing-front up",
+    "Z": "towards front-view camera"
+  },
+  "reference": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 2311230.7766788416,
+    "area_mm2": 209321.30065817086,
+    "bounds_mm": [
+      -152.50000000000506,
+      -107.5,
+      -65.00000000000503,
+      152.50000000000495,
+      107.50000000000489,
+      65.00000000000003
+    ],
+    "bbox_mm": [
+      305.00000000001,
+      215.0000000000049,
+      130.00000000000506
+    ]
+  },
+  "reconstructed": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 2295907.216100281,
+    "area_mm2": 208896.5042116009,
+    "bounds_mm": [
+      -152.5,
+      -107.5,
+      -65.0,
+      152.5,
+      107.5,
+      65.000000000001
+    ],
+    "bbox_mm": [
+      305.0,
+      215.0,
+      130.000000000001
+    ]
+  },
+  "rigid_invariants": {
+    "reference_volume_relative_change": 7.738254481637341e-14,
+    "reconstructed_volume_relative_change": 4.440892098500626e-16,
+    "reference_area_relative_change": 4.8627768478581856e-14,
+    "reconstructed_area_relative_change": 0.0,
+    "transform_roundtrip_error_mm": 3.552713678800501e-15
+  },
+  "shared_pixels_per_mm": 2.6229508196720452,
+  "canvas_size": [
+    1024,
+    1024
+  ],
+  "reference_sha256": "ea2a2aea5dcf57eabcaf8a38f423d359fb7114cf43482da314798f093d35a354",
+  "reconstructed_sha256": "dd91834aa3b3c1a8dcf7b10378cb73b2c9e74d83613a02e837bf9c2285ff9c0a",
+  "model_sha256": "4d76c80b55868ba2f9d0fa9aab6402e6d051cac430c52c769edcd7291908bb3d",
+  "builder_sha256": "414c8484644362fb3976d426fb202f8af1fcf67be1eb15bfbe27d8f67cfbc144",
+  "canonical_projections": {
+    "front": {
+      "camera": {
+        "screen_right": [
+          1,
+          0,
+          0
+        ],
+        "screen_up": [
+          0,
+          1,
+          0
+        ],
+        "camera_from_direction": [
+          0,
+          0,
+          1
+        ],
+        "view_direction": [
+          0,
+          0,
+          -1
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          2.6229508196720452,
+          0.0,
+          0.0,
+          512.0
+        ],
+        [
+          -0.0,
+          -2.6229508196720452,
+          -0.0,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference": "renders/front_reference.svg",
+      "reconstructed": "renders/front_reconstructed.svg",
+      "synthetic_reference_only": true
+    },
+    "top": {
+      "camera": {
+        "screen_right": [
+          1,
+          0,
+          0
+        ],
+        "screen_up": [
+          0,
+          0,
+          -1
+        ],
+        "camera_from_direction": [
+          0,
+          1,
+          0
+        ],
+        "view_direction": [
+          0,
+          -1,
+          0
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          2.6229508196720452,
+          0.0,
+          0.0,
+          512.0
+        ],
+        [
+          -0.0,
+          -0.0,
+          2.6229508196720452,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference": "renders/top_reference.svg",
+      "reconstructed": "renders/top_reconstructed.svg",
+      "synthetic_reference_only": true
+    },
+    "right_side": {
+      "camera": {
+        "screen_right": [
+          0,
+          0,
+          -1
+        ],
+        "screen_up": [
+          0,
+          1,
+          0
+        ],
+        "camera_from_direction": [
+          1,
+          0,
+          0
+        ],
+        "view_direction": [
+          -1,
+          0,
+          0
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          0.0,
+          0.0,
+          -2.6229508196720452,
+          512.0
+        ],
+        [
+          -0.0,
+          -2.6229508196720452,
+          -0.0,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference": "renders/right_side_reference.svg",
+      "reconstructed": "renders/right_side_reconstructed.svg",
+      "synthetic_reference_only": true
+    }
+  },
+  "input_view_mask": {
+    "front": true,
+    "top": true,
+    "right_side": false
+  },
+  "elapsed_seconds": 0.499,
+  "export_coordinate_verification": {
+    "status": "passed",
+    "method": "export/reload AABB versus source AABB corners transformed by raw_to_canonical",
+    "signed_axis_permutation_required": true,
+    "cadquery_rotation_contract": {
+      "status": "passed",
+      "rotation_count": 24,
+      "max_abs_bounds_error_mm": 1.0658141036401503e-14,
+      "tolerance_mm": 1e-05,
+      "method": "asymmetric off-origin CadQuery solid; expected AABB from matrix-transformed bbox corners"
+    },
+    "reference": {
+      "status": "passed",
+      "source_bounds_mm": [
+        -878.3012701892171,
+        -114.99999999999993,
+        -18.000000000000057,
+        -573.3012701892169,
+        100.00000000000024,
+        112.00000000000001
+      ],
+      "expected_bounds_mm": [
+        -152.5000000000001,
+        -107.50000000000009,
+        -65.00000000000003,
+        152.5000000000001,
+        107.50000000000009,
+        65.00000000000003
+      ],
+      "actual_exported_bounds_mm": [
+        -152.50000000000506,
+        -107.5,
+        -65.00000000000503,
+        152.50000000000495,
+        107.50000000000489,
+        65.00000000000003
+      ],
+      "max_abs_bounds_error_mm": 5.002220859751105e-12,
+      "tolerance_mm": 1e-05,
+      "export": "reference.step"
+    },
+    "reconstructed": {
+      "status": "passed",
+      "source_bounds_mm": [
+        -878.3012701892,
+        -115.0,
+        -18.0,
+        -573.3012701892,
+        100.0,
+        112.0
+      ],
+      "expected_bounds_mm": [
+        -152.49999999998295,
+        -107.50000000000016,
+        -64.99999999999997,
+        152.50000000001705,
+        107.49999999999984,
+        65.00000000000003
+      ],
+      "actual_exported_bounds_mm": [
+        -152.5,
+        -107.5,
+        -65.0,
+        152.5,
+        107.5,
+        65.000000000001
+      ],
+      "max_abs_bounds_error_mm": 1.7053025658242404e-11,
+      "tolerance_mm": 1e-05,
+      "export": "reconstructed.step"
+    }
+  },
+  "alignment_review_notes": [],
+  "download": {
+    "zip": "cases/case_011/case_011_alignment_candidate.zip"
+  }
+}

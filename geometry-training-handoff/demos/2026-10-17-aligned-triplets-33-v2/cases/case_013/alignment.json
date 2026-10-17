@@ -1,0 +1,753 @@
+{
+  "schema_version": 2,
+  "case_id": "case_013",
+  "name": "STKJ-MT01-0038限位尼龙轮",
+  "annotation": {
+    "case_id": "case_013",
+    "front_basis": {
+      "right": [
+        1,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    "status": "proposed",
+    "evidence": [
+      "source view_01 is the circular end view (diameter 160), while source A-A is the 97 mm axial section",
+      "v1 model.py:6-22 builds a rotationally symmetric wheel about raw +Z with equal end recesses",
+      "v1 validation.json reports same-frame IoU 0.9999999999999762, so the authored raw axis is the reference STEP axis"
+    ],
+    "ambiguities": [
+      "The solid is rotationally symmetric about Z and mirror-symmetric about its axial midpoint; image roll, X/Y signs, and the viewed Z side are not physically observable",
+      "Chosen front right=+X, up=+Y is a deterministic representative; equivalent candidates include right=-X/up=+Y and quarter-turns about Z"
+    ],
+    "views": [
+      {
+        "id": "view_01",
+        "kind": "external",
+        "raw_right": [
+          1,
+          0,
+          0
+        ],
+        "raw_up": [
+          0,
+          1,
+          0
+        ],
+        "canonical_role": "front",
+        "confidence": "symmetry_ambiguous",
+        "source_label": "End",
+        "notes": [
+          "Projection plane XY is supported by the diameter-160 end outline",
+          "Opposite camera side and any in-plane rotation produce the same outline"
+        ]
+      },
+      {
+        "id": "view_02",
+        "kind": "section",
+        "raw_right": [
+          0,
+          0,
+          -1
+        ],
+        "raw_up": [
+          0,
+          1,
+          0
+        ],
+        "canonical_role": "auxiliary",
+        "confidence": "symmetry_ambiguous",
+        "source_label": "A-A",
+        "notes": [
+          "Axial section uses a plane containing raw Z; the selected basis has camera +X",
+          "Raw Z sign and radial up direction are symmetry-equivalent candidates"
+        ]
+      }
+    ]
+  },
+  "status": "pose_calibrated_candidate",
+  "training_ready": false,
+  "human_acceptance": "pending",
+  "source_dataset": "2026-10-15-real-triplets-33-v1",
+  "source_views": {
+    "schema_version": 1,
+    "case_id": "case_013",
+    "part_name": "STKJ-MT01-0038限位尼龙轮",
+    "annotation_method": "agent_manual_source_image_region_annotation",
+    "purpose": "label_authoring_not_heldout_evaluation",
+    "sources": [
+      {
+        "page": 1,
+        "pdf": "source/page_01.pdf",
+        "pdf_sha256": "4b5ed5466ad2b62b574ac27ae8712164df1bd145c8d80f0939cee0ed2734b499",
+        "preview": "source/page_01.webp",
+        "original_size": [
+          2339,
+          1654
+        ],
+        "upright_size": [
+          2339,
+          1654
+        ],
+        "rotation_clockwise_degrees": 0,
+        "original_pdf_local_only": true
+      }
+    ],
+    "views": [
+      {
+        "id": "view_01",
+        "role": "front",
+        "label": "End",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.1,
+          0.11,
+          0.48,
+          0.66
+        ],
+        "bbox_upright_pixels": [
+          234,
+          182,
+          1123,
+          1092
+        ],
+        "native_image": "views/view_01_native.png",
+        "image": "views/view_01.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 1.0285714285714285,
+        "padding_xy": [
+          55,
+          64
+        ],
+        "source_to_canvas_matrix": [
+          [
+            1.0285714285714285,
+            0,
+            -185.68571428571425
+          ],
+          [
+            0,
+            1.0285714285714285,
+            -123.19999999999999
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": null,
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_02",
+        "role": "section",
+        "label": "A-A",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.51,
+          0.12,
+          0.9,
+          0.68
+        ],
+        "bbox_upright_pixels": [
+          1193,
+          198,
+          2105,
+          1125
+        ],
+        "native_image": "views/view_02_native.png",
+        "image": "views/view_02.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 1.0097087378640777,
+        "padding_xy": [
+          51,
+          64
+        ],
+        "source_to_canvas_matrix": [
+          [
+            1.0097087378640777,
+            0,
+            -1153.5825242718447
+          ],
+          [
+            0,
+            1.0097087378640777,
+            -135.92233009708738
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "End",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      }
+    ],
+    "standard_slots": {
+      "front": "view_01",
+      "top": null,
+      "side": null
+    },
+    "extra_view_ids": [
+      "view_02"
+    ],
+    "projection_convention": "unverified",
+    "axis_mapping_to_step": null,
+    "shared_physical_pixel_scale": false,
+    "crop_policy": "uniform 1024 square per view; aspect ratio preserved; source crop and inverse mapping retained; dimensions retained; independent fitting does not imply equal mm per pixel",
+    "review_status": "pending_human_acceptance",
+    "gaps": [
+      "View roles and projection convention need human confirmation.",
+      "Source PDFs retained for manufacturing notes and revision checks."
+    ],
+    "annotation_gt_leakage": false
+  },
+  "source_model_sha256": "37f4f04241c50c4ecbf14fceb8a1b9f55b84f3d8d3d41d64d58b37f7eb539d90",
+  "source_reference_sha256": "8b665eb8a6afb4e3d03ed41b8d384764e8ea2c10817f3c77659fadba02ebe05d",
+  "legacy_geometry_validation": {
+    "schema_version": 1,
+    "case_id": "case_013",
+    "cadquery_version": "2.5.2",
+    "purpose": "GT-assisted label-authoring QA; not held-out model evaluation",
+    "coordinate_alignment": "none; original physical mm frame",
+    "thresholds": {
+      "legacy_volume_relative": 0.02,
+      "legacy_area_relative": 0.05,
+      "legacy_sorted_bbox_relative": 0.02,
+      "additional_symmetric_difference_over_reference_volume": 0.01,
+      "additional_axis_bbox_relative": 0.01
+    },
+    "human_acceptance": "pending",
+    "training_ready": false,
+    "validator_sha256": "6be8bd1e6b1f037d23ea6737834ef426af038fe410bba5ef9cb52fb6628729f7",
+    "model_sha256": "37f4f04241c50c4ecbf14fceb8a1b9f55b84f3d8d3d41d64d58b37f7eb539d90",
+    "program_audit": {
+      "status": "passed",
+      "allowed_imports": [
+        "cadquery",
+        "math"
+      ],
+      "external_geometry_reads": false,
+      "execution_mode": "trusted_authored_label_not_model_sandbox"
+    },
+    "execution_status": "success",
+    "reconstructed_sha256": "5324a35ccb2d482c237d11da7d3fd0857be161d95588e3716485b7818a6acf80",
+    "reference_sha256": "8b665eb8a6afb4e3d03ed41b8d384764e8ea2c10817f3c77659fadba02ebe05d",
+    "reference": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 1603955.218020955,
+      "surface_area_mm2": 102464.28372432133,
+      "bounds_mm": [
+        -80.0,
+        -80.0,
+        -9.99999955591079e-08,
+        80.0,
+        80.0,
+        97.0000001
+      ],
+      "bbox_mm": [
+        160.0,
+        160.0,
+        97.00000019999999
+      ],
+      "face_count": 28
+    },
+    "reconstructed": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 1603955.218020993,
+      "surface_area_mm2": 102464.2837243241,
+      "bounds_mm": [
+        -80.0000001,
+        -80.0,
+        0.0,
+        80.0000001,
+        80.0,
+        97.0
+      ],
+      "bbox_mm": [
+        160.0000002,
+        160.0,
+        97.0
+      ],
+      "face_count": 18
+    },
+    "metrics": {
+      "volume_relative_error": 2.3661131239316763e-14,
+      "area_relative_error": 2.69836843912219e-14,
+      "axis_bbox_relative_error": [
+        1.2499999257897799e-09,
+        0.0,
+        2.0618555434432337e-09
+      ],
+      "sorted_bbox_relative_error": [
+        2.0618555434432337e-09,
+        0.0,
+        1.2499999257897799e-09
+      ],
+      "max_bound_position_error_mm": 9.99999955591079e-08,
+      "intersection_volume_mm3": 1603955.218020955,
+      "iou_same_frame": 0.9999999999999762,
+      "symmetric_difference_volume_mm3": 3.818422555923462e-08,
+      "symmetric_difference_over_reference_volume": 2.38062915536684e-14
+    },
+    "legacy_geometry_check": true,
+    "boolean_status": "success",
+    "geometry_gate_pass": true,
+    "status": "geometry_gate_pass_review_pending",
+    "elapsed_seconds": 1.237
+  },
+  "coordinate_policy": "proper rigid rotation and translation only; mm retained; no mirror or scale",
+  "pixel_registration_status": "not_run",
+  "views": [
+    {
+      "id": "view_01",
+      "kind": "external",
+      "raw_right": [
+        1,
+        0,
+        0
+      ],
+      "raw_up": [
+        0,
+        1,
+        0
+      ],
+      "canonical_role": "front",
+      "confidence": "symmetry_ambiguous",
+      "source_label": "End",
+      "notes": [
+        "Projection plane XY is supported by the diameter-160 end outline",
+        "Opposite camera side and any in-plane rotation produce the same outline"
+      ],
+      "source_image": "../2026-10-15-real-triplets-33-v1/cases/case_013/views/view_01.png",
+      "pair_status": "pose_only_pixel_registration_pending",
+      "canonical_camera": {
+        "screen_right": [
+          1,
+          0,
+          0
+        ],
+        "screen_up": [
+          0,
+          1,
+          0
+        ],
+        "camera_from_direction": [
+          0,
+          0,
+          1
+        ],
+        "view_direction": [
+          0,
+          0,
+          -1
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          5.0,
+          0.0,
+          0.0,
+          512.0
+        ],
+        [
+          -0.0,
+          -5.0,
+          -0.0,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference_render": "renders/view_01_reference.svg",
+      "reconstructed_render": "renders/view_01_reconstructed.svg"
+    },
+    {
+      "id": "view_02",
+      "kind": "section",
+      "raw_right": [
+        0,
+        0,
+        -1
+      ],
+      "raw_up": [
+        0,
+        1,
+        0
+      ],
+      "canonical_role": "auxiliary",
+      "confidence": "symmetry_ambiguous",
+      "source_label": "A-A",
+      "notes": [
+        "Axial section uses a plane containing raw Z; the selected basis has camera +X",
+        "Raw Z sign and radial up direction are symmetry-equivalent candidates"
+      ],
+      "source_image": "../2026-10-15-real-triplets-33-v1/cases/case_013/views/view_02.png",
+      "pair_status": "not_pairable",
+      "reason": "Section plane/offset not calibrated; no external render is substituted for a section"
+    }
+  ],
+  "raw_to_canonical": [
+    [
+      1,
+      0,
+      0,
+      -0.0
+    ],
+    [
+      0,
+      1,
+      0,
+      -0.0
+    ],
+    [
+      0,
+      0,
+      1,
+      -48.5
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "canonical_to_raw": [
+    [
+      1,
+      0,
+      0,
+      0.0
+    ],
+    [
+      0,
+      1,
+      0,
+      0.0
+    ],
+    [
+      0,
+      0,
+      1,
+      48.5
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "rotation_determinant": 1,
+  "canonical_frame": {
+    "X": "drawing-front right",
+    "Y": "drawing-front up",
+    "Z": "towards front-view camera"
+  },
+  "reference": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 1603955.2180210366,
+    "area_mm2": 102464.28372432604,
+    "bounds_mm": [
+      -80.0,
+      -80.0,
+      -48.5000001,
+      80.0,
+      80.0,
+      48.5000001
+    ],
+    "bbox_mm": [
+      160.0,
+      160.0,
+      97.0000002
+    ]
+  },
+  "reconstructed": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 1603955.218020993,
+    "area_mm2": 102464.2837243241,
+    "bounds_mm": [
+      -80.0,
+      -80.0000001,
+      -48.5,
+      80.0000001,
+      80.0,
+      48.5
+    ],
+    "bbox_mm": [
+      160.0000001,
+      160.0000001,
+      97.0
+    ]
+  },
+  "rigid_invariants": {
+    "reference_volume_relative_change": 5.084821452783217e-14,
+    "reconstructed_volume_relative_change": 0.0,
+    "reference_area_relative_change": 4.596323321948148e-14,
+    "reconstructed_area_relative_change": 0.0,
+    "transform_roundtrip_error_mm": 2.6645352591003757e-15
+  },
+  "shared_pixels_per_mm": 5.0,
+  "canvas_size": [
+    1024,
+    1024
+  ],
+  "reference_sha256": "c369f9edc935548cdf1d29f2058416284a857e1ee87d78bf6c6f161163cdfe72",
+  "reconstructed_sha256": "aeda1fadec60c4c54e4c3b60cc11e83027678c5f69d3cf3ae23a35b7c7b75db7",
+  "model_sha256": "ec7768c7a918af97d28b7f4d24abd8d32b41389dfba029f15282bd0ac2fb8bd4",
+  "builder_sha256": "414c8484644362fb3976d426fb202f8af1fcf67be1eb15bfbe27d8f67cfbc144",
+  "canonical_projections": {
+    "front": {
+      "camera": {
+        "screen_right": [
+          1,
+          0,
+          0
+        ],
+        "screen_up": [
+          0,
+          1,
+          0
+        ],
+        "camera_from_direction": [
+          0,
+          0,
+          1
+        ],
+        "view_direction": [
+          0,
+          0,
+          -1
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          5.0,
+          0.0,
+          0.0,
+          512.0
+        ],
+        [
+          -0.0,
+          -5.0,
+          -0.0,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference": "renders/front_reference.svg",
+      "reconstructed": "renders/front_reconstructed.svg",
+      "synthetic_reference_only": true
+    },
+    "top": {
+      "camera": {
+        "screen_right": [
+          1,
+          0,
+          0
+        ],
+        "screen_up": [
+          0,
+          0,
+          -1
+        ],
+        "camera_from_direction": [
+          0,
+          1,
+          0
+        ],
+        "view_direction": [
+          0,
+          -1,
+          0
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          5.0,
+          0.0,
+          0.0,
+          512.0
+        ],
+        [
+          -0.0,
+          -0.0,
+          5.0,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference": "renders/top_reference.svg",
+      "reconstructed": "renders/top_reconstructed.svg",
+      "synthetic_reference_only": true
+    },
+    "right_side": {
+      "camera": {
+        "screen_right": [
+          0,
+          0,
+          -1
+        ],
+        "screen_up": [
+          0,
+          1,
+          0
+        ],
+        "camera_from_direction": [
+          1,
+          0,
+          0
+        ],
+        "view_direction": [
+          -1,
+          0,
+          0
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          0.0,
+          0.0,
+          -5.0,
+          512.0
+        ],
+        [
+          -0.0,
+          -5.0,
+          -0.0,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference": "renders/right_side_reference.svg",
+      "reconstructed": "renders/right_side_reconstructed.svg",
+      "synthetic_reference_only": true
+    }
+  },
+  "input_view_mask": {
+    "front": true,
+    "top": false,
+    "right_side": false
+  },
+  "elapsed_seconds": 0.68,
+  "export_coordinate_verification": {
+    "status": "passed",
+    "method": "export/reload AABB versus source AABB corners transformed by raw_to_canonical",
+    "signed_axis_permutation_required": true,
+    "cadquery_rotation_contract": {
+      "status": "passed",
+      "rotation_count": 24,
+      "max_abs_bounds_error_mm": 1.0658141036401503e-14,
+      "tolerance_mm": 1e-05,
+      "method": "asymmetric off-origin CadQuery solid; expected AABB from matrix-transformed bbox corners"
+    },
+    "reference": {
+      "status": "passed",
+      "source_bounds_mm": [
+        -80.0,
+        -80.0,
+        -9.99999955591079e-08,
+        80.0,
+        80.0,
+        97.0000001
+      ],
+      "expected_bounds_mm": [
+        -80.0,
+        -80.0,
+        -48.500000099999994,
+        80.0,
+        80.0,
+        48.500000099999994
+      ],
+      "actual_exported_bounds_mm": [
+        -80.0,
+        -80.0,
+        -48.5000001,
+        80.0,
+        80.0,
+        48.5000001
+      ],
+      "max_abs_bounds_error_mm": 7.105427357601002e-15,
+      "tolerance_mm": 1e-05,
+      "export": "reference.step"
+    },
+    "reconstructed": {
+      "status": "passed",
+      "source_bounds_mm": [
+        -80.0000001,
+        -80.0,
+        0.0,
+        80.0000001,
+        80.0,
+        97.0
+      ],
+      "expected_bounds_mm": [
+        -80.0000001,
+        -80.0,
+        -48.5,
+        80.0000001,
+        80.0,
+        48.5
+      ],
+      "actual_exported_bounds_mm": [
+        -80.0,
+        -80.0000001,
+        -48.5,
+        80.0000001,
+        80.0,
+        48.5
+      ],
+      "max_abs_bounds_error_mm": 9.999999406318238e-08,
+      "tolerance_mm": 1e-05,
+      "export": "reconstructed.step"
+    }
+  },
+  "alignment_review_notes": [],
+  "download": {
+    "zip": "cases/case_013/case_013_alignment_candidate.zip"
+  }
+}

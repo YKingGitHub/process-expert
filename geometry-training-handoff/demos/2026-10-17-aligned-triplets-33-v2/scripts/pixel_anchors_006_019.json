@@ -1,0 +1,304 @@
+{
+  "method": "Agent manually inspected the original 1800 x 1273 full-page previews and recorded visible geometry line centres. Object envelopes were cross-checked against the canonical STEP projection spans; independent holes, bend tangencies, boss tangencies, or step corners were then held out as landmarks. This is manual feature registration, not an automatic detector or a claim that every drawing annotation matches the STEP.",
+  "acceptance": {
+    "max_axis_scale_disagreement": 0.02,
+    "max_landmark_error_output_pixels": 5.0
+  },
+  "review_notes": {
+    "included_cases": [
+      "case_008",
+      "case_010",
+      "case_018",
+      "case_019"
+    ],
+    "selected_geometry_check": "No outline, hole-centre, bend-radius, nominal boss-diameter, or axial-step mismatch was found for the landmarks selected below.",
+    "drawing_step_caveats": [
+      "case_008: the drawing calls out M10-6H with an 8.50 mm through pilot; registration uses only the ten visible hole centres and does not certify modeled thread geometry.",
+      "case_018: the drawing includes M20 and drilling-depth text while the selected face anchors use only the four visible centres; registration does not certify thread or depth semantics.",
+      "case_019: nominal diameter-85 tangencies and the 5/10 mm axial step are used; drawing tolerances and the C1 edge are not pixel-validated."
+    ],
+    "not_registered_in_this_pass": [
+      "case_006, case_007, and case_009 are dominated by symmetric tube envelopes/end rings and were left pose-only rather than treating an envelope-derived centre as an independent landmark.",
+      "case_011 and case_012 have denser overlapping construction, hidden, and dimension lines and need a separate feature review.",
+      "case_016 contains a broken long-shaft view and was intentionally skipped; broken-view pixels must not be fit to the unbroken STEP extent."
+    ]
+  },
+  "cases": {
+    "case_008": {
+      "view_01": {
+        "preview_geometry_bbox": [
+          593,
+          294,
+          662,
+          723
+        ],
+        "dimension_evidence_mm": [
+          160,
+          1000
+        ],
+        "landmarks": [
+          {
+            "label": "upper-left hole centre",
+            "preview_xy": [
+              600,
+              305
+            ],
+            "projected_mm": [
+              -65,
+              475
+            ]
+          },
+          {
+            "label": "second-row right hole centre",
+            "preview_xy": [
+              655,
+              406
+            ],
+            "projected_mm": [
+              65,
+              240
+            ]
+          },
+          {
+            "label": "fourth-row left hole centre",
+            "preview_xy": [
+              600,
+              607
+            ],
+            "projected_mm": [
+              -65,
+              -230
+            ]
+          },
+          {
+            "label": "lower-right hole centre",
+            "preview_xy": [
+              655,
+              708
+            ],
+            "projected_mm": [
+              65,
+              -465
+            ]
+          }
+        ]
+      }
+    },
+    "case_010": {
+      "view_01": {
+        "preview_geometry_bbox": [
+          342,
+          422,
+          996,
+          577
+        ],
+        "dimension_evidence_mm": [
+          916,
+          216
+        ],
+        "landmarks": [
+          {
+            "label": "outer bend vertical tangency",
+            "preview_xy": [
+              342,
+              463
+            ],
+            "projected_mm": [
+              -458,
+              52
+            ]
+          },
+          {
+            "label": "inner bend vertical tangency",
+            "preview_xy": [
+              364,
+              463
+            ],
+            "projected_mm": [
+              -426,
+              52
+            ]
+          },
+          {
+            "label": "outer bend horizontal tangency",
+            "preview_xy": [
+              382,
+              422
+            ],
+            "projected_mm": [
+              -402,
+              108
+            ]
+          },
+          {
+            "label": "inner bend horizontal tangency",
+            "preview_xy": [
+              382,
+              445
+            ],
+            "projected_mm": [
+              -402,
+              76
+            ]
+          }
+        ]
+      }
+    },
+    "case_018": {
+      "view_01": {
+        "preview_geometry_bbox": [
+          419,
+          274,
+          1036,
+          671
+        ],
+        "dimension_evidence_mm": [
+          560,
+          360
+        ],
+        "landmarks": [
+          {
+            "label": "upper-left hole centre",
+            "preview_xy": [
+              463,
+              352
+            ],
+            "projected_mm": [
+              -240,
+              110
+            ]
+          },
+          {
+            "label": "upper-right hole centre",
+            "preview_xy": [
+              992,
+              352
+            ],
+            "projected_mm": [
+              240,
+              110
+            ]
+          },
+          {
+            "label": "lower-left hole centre",
+            "preview_xy": [
+              463,
+              594
+            ],
+            "projected_mm": [
+              -240,
+              -110
+            ]
+          },
+          {
+            "label": "lower-right hole centre",
+            "preview_xy": [
+              992,
+              594
+            ],
+            "projected_mm": [
+              240,
+              -110
+            ]
+          }
+        ]
+      }
+    },
+    "case_019": {
+      "view_01": {
+        "preview_geometry_bbox": [
+          469,
+          166,
+          1106,
+          803
+        ],
+        "dimension_evidence_mm": [
+          105,
+          105
+        ],
+        "landmarks": [
+          {
+            "label": "diameter-85 boss left tangent",
+            "preview_xy": [
+              529.5,
+              484.5
+            ],
+            "projected_mm": [
+              -42.5,
+              0
+            ]
+          },
+          {
+            "label": "diameter-85 boss right tangent",
+            "preview_xy": [
+              1044.5,
+              484.5
+            ],
+            "projected_mm": [
+              42.5,
+              0
+            ]
+          },
+          {
+            "label": "diameter-85 boss top tangent",
+            "preview_xy": [
+              787,
+              227
+            ],
+            "projected_mm": [
+              0,
+              42.5
+            ]
+          },
+          {
+            "label": "diameter-85 boss bottom tangent",
+            "preview_xy": [
+              787,
+              742
+            ],
+            "projected_mm": [
+              0,
+              -42.5
+            ]
+          }
+        ]
+      },
+      "view_02": {
+        "preview_geometry_bbox": [
+          1339,
+          166,
+          1399,
+          803
+        ],
+        "dimension_evidence_mm": [
+          10,
+          105
+        ],
+        "landmarks": [
+          {
+            "label": "upper boss-to-flange step corner",
+            "preview_xy": [
+              1369,
+              227
+            ],
+            "projected_mm": [
+              0,
+              42.5
+            ]
+          },
+          {
+            "label": "lower boss-to-flange step corner",
+            "preview_xy": [
+              1369,
+              742
+            ],
+            "projected_mm": [
+              0,
+              -42.5
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "command": [
+    "geometry-training-handoff/demos/2026-10-17-aligned-triplets-33-v2/scripts/build_all.py",
+    "--cad-python",
+    "/hpc2hdd/home/lwang592/projects/.venvs/process-view-agent-cad/bin/python",
+    "--workers",
+    "3",
+    "--timeout",
+    "300",
+    "case_001",
+    "case_002",
+    "case_003",
+    "case_004",
+    "case_005"
+  ],
+  "results": [
+    {
+      "case_id": "case_001",
+      "exit_code": 0,
+      "timeout": false,
+      "log": "build_logs/20261017T114524878573Z/case_001.log"
+    },
+    {
+      "case_id": "case_002",
+      "exit_code": 1,
+      "timeout": false,
+      "log": "build_logs/20261017T114524878573Z/case_002.log"
+    },
+    {
+      "case_id": "case_003",
+      "exit_code": 1,
+      "timeout": false,
+      "log": "build_logs/20261017T114524878573Z/case_003.log"
+    },
+    {
+      "case_id": "case_004",
+      "exit_code": 1,
+      "timeout": false,
+      "log": "build_logs/20261017T114524878573Z/case_004.log"
+    },
+    {
+      "case_id": "case_005",
+      "exit_code": 0,
+      "timeout": false,
+      "log": "build_logs/20261017T114524878573Z/case_005.log"
+    }
+  ]
+}

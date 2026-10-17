@@ -1,0 +1,156 @@
+{
+  "method": "Agent manually identified object envelopes and independent hole-center landmarks on the original 1800 x 1273 full-page WebP previews. Coordinates refer to those previews, not to padded v1 view images. Envelope coordinates are fitted to the centerline of the printed object stroke; hole centers are independently fitted from their circular strokes. Only views whose drawing dimensions agree with the reference STEP projection are included.",
+  "provenance": {
+    "source_pixels": "Original 1800 x 1273 source/page_XX.webp preview pixels; no registered, rendered, or padded image was used for measurement.",
+    "envelope_measurement": "The four exterior silhouette stroke centerlines were measured first and are the only pixel observations used to solve scale and translation.",
+    "landmark_measurement": "Hole centers were measured independently from local circular-stroke pixels using grayscale circle/center fits after the envelope was fixed; they were not used to adjust the envelope.",
+    "physical_coordinates": "Projected millimetre coordinates come from explicit drawing dimensions corroborated against the reference STEP feature layout. They were not obtained by mapping the measured preview centers back through the fitted envelope.",
+    "holdout_rule": "Every listed hole center is a held-out residual check. No landmark residual was used to change the acceptance thresholds or to fit a non-uniform transform."
+  },
+  "acceptance": {
+    "max_axis_scale_disagreement": 0.02,
+    "max_landmark_error_output_pixels": 5.0
+  },
+  "cases": {
+    "case_029": {
+      "view_01": {
+        "preview_geometry_bbox": [549.8086, 330.0092, 731.9002, 651.4991],
+        "dimension_evidence_mm": [85, 150],
+        "landmarks": [
+          {
+            "label": "upper-left tapped-hole center",
+            "preview_xy": [613.3322, 393.7981],
+            "projected_mm": [-13, 45]
+          },
+          {
+            "label": "upper-right tapped-hole center",
+            "preview_xy": [668.9603, 393.8404],
+            "projected_mm": [13, 45]
+          },
+          {
+            "label": "lower-left tapped-hole center",
+            "preview_xy": [613.3399, 586.7011],
+            "projected_mm": [-13, -45]
+          },
+          {
+            "label": "lower-right tapped-hole center",
+            "preview_xy": [668.9526, 586.6881],
+            "projected_mm": [13, -45]
+          }
+        ]
+      }
+    },
+    "case_030": {
+      "view_01": {
+        "preview_geometry_bbox": [460.8892, 307.4759, 726.5292, 573.1159],
+        "dimension_evidence_mm": [155, 155],
+        "landmarks": [
+          {
+            "label": "right diameter-18 hole center",
+            "preview_xy": [700.6934, 440.3449],
+            "projected_mm": [62.5, 0]
+          },
+          {
+            "label": "left diameter-18 hole center",
+            "preview_xy": [486.7352, 440.3278],
+            "projected_mm": [-62.5, 0]
+          },
+          {
+            "label": "upper diameter-18 hole center",
+            "preview_xy": [593.6551, 333.2957],
+            "projected_mm": [0, 62.5]
+          },
+          {
+            "label": "lower diameter-18 hole center",
+            "preview_xy": [593.6613, 547.3361],
+            "projected_mm": [0, -62.5]
+          }
+        ]
+      }
+    },
+    "case_031": {
+      "view_01": {
+        "preview_geometry_bbox": [389.5789, 293.249, 655.2181, 558.8882],
+        "dimension_evidence_mm": [155, 155],
+        "landmarks": [
+          {
+            "label": "right diameter-18 hole center",
+            "preview_xy": [629.3331, 426.0801],
+            "projected_mm": [62.5, 0]
+          },
+          {
+            "label": "left diameter-18 hole center",
+            "preview_xy": [415.478, 426.0854],
+            "projected_mm": [-62.5, 0]
+          },
+          {
+            "label": "upper diameter-18 hole center",
+            "preview_xy": [522.4391, 319.0325],
+            "projected_mm": [0, 62.5]
+          },
+          {
+            "label": "lower diameter-18 hole center",
+            "preview_xy": [522.4458, 533.0355],
+            "projected_mm": [0, -62.5]
+          }
+        ]
+      }
+    },
+    "case_032": {
+      "view_01": {
+        "preview_geometry_bbox": [497.5219, 314.9274, 818.8589, 636.2644],
+        "dimension_evidence_mm": [150, 150],
+        "landmarks": [
+          {
+            "label": "right diameter-19 hole center",
+            "preview_xy": [787.4731, 475.599],
+            "projected_mm": [60.35, 0]
+          },
+          {
+            "label": "left diameter-19 hole center",
+            "preview_xy": [528.8933, 475.5973],
+            "projected_mm": [-60.35, 0]
+          },
+          {
+            "label": "upper diameter-19 hole center",
+            "preview_xy": [658.199, 346.2729],
+            "projected_mm": [0, 60.35]
+          },
+          {
+            "label": "lower diameter-19 hole center",
+            "preview_xy": [658.2136, 604.9106],
+            "projected_mm": [0, -60.35]
+          }
+        ]
+      }
+    },
+    "case_033": {
+      "view_01": {
+        "preview_geometry_bbox": [317.9392, 272.6597, 1164.1235, 344.2476],
+        "dimension_evidence_mm": [2370, 200],
+        "landmarks": [
+          {
+            "label": "upper first counterbored-hole center",
+            "preview_xy": [357.19, 290.5],
+            "projected_mm": [-1075, 50]
+          },
+          {
+            "label": "lower third counterbored-hole center",
+            "preview_xy": [464.3, 326.28],
+            "projected_mm": [-775, -50]
+          },
+          {
+            "label": "upper ninth counterbored-hole center",
+            "preview_xy": [964.18, 290.49],
+            "projected_mm": [625, 50]
+          },
+          {
+            "label": "lower eleventh counterbored-hole center",
+            "preview_xy": [1071.29, 326.26],
+            "projected_mm": [925, -50]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -52,6 +52,17 @@
       "id": "2026-W42-triplets-33",
       "bundle": "geometry-training-handoff/demos/2026-10-15-real-triplets-33-v1",
       "bundle_sha256": "ee8944f0f809216cb759fe83690e92f451736a5e073ee990cafe92fb934c13c4"
+    },
+    {
+      "week": "2026-W42",
+      "date": "2026-10-17",
+      "title": "真实图纸三元组 v2：统一坐标与 STEP 投影对齐验收",
+      "summary": "33 件方向审计；28 件可逆坐标候选，12 件 16 张外部视图通过像素锚点检查。保留 1 件方向未解决和 4 件构建失败；全部仍待训练验收。",
+      "source": "geometry-training-handoff/demos/2026-10-17-aligned-triplets-33-v2/index.html",
+      "sha256": "dd4b0386527127417811d1553a1db081b6da5c4664d0c1cccc470198901d927f",
+      "id": "2026-W42-aligned-triplets-33",
+      "bundle": "geometry-training-handoff/demos/2026-10-17-aligned-triplets-33-v2",
+      "bundle_sha256": "9c2bc916877eeeee3b115675d59c3089585f10a276ded63f60666663a356c306"
     }
   ]
 }

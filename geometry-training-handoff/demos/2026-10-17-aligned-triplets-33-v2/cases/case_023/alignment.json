@@ -1,0 +1,657 @@
+{
+  "schema_version": 2,
+  "case_id": "case_023",
+  "name": "STKJ-MT01-0049轨道轮轴",
+  "annotation": {
+    "case_id": "case_023",
+    "front_basis": {
+      "right": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    "status": "proposed",
+    "evidence": [
+      "source view_01 is the 220 mm broken longitudinal shaft view, while the reference STEP bounds are 35 by 35 by 220 with the axis along raw Z",
+      "v1 model.py builds the five turned stations along Z and translates them to the reference span z=-50..170",
+      "Raw STEP orthographic inspection confirms that an XZ or YZ longitudinal projection matches the source profile"
+    ],
+    "ambiguities": [
+      "The two ends and shoulder sequence are mirror-symmetric and the part is rotational about Z, so axial reversal, radial camera side, and roll are not feature-distinguishable",
+      "Raw +Z screen-right and +Y screen-up are deterministic representatives only"
+    ],
+    "views": [
+      {
+        "id": "view_01",
+        "kind": "external",
+        "raw_right": [
+          0,
+          0,
+          1
+        ],
+        "raw_up": [
+          0,
+          1,
+          0
+        ],
+        "canonical_role": "front",
+        "confidence": "symmetry_ambiguous",
+        "source_label": "Shaft - broken",
+        "notes": [
+          "Selected camera is raw -X and raw +Z runs left-to-right",
+          "The broken-view drafting compression does not define a physical pixel scale along the omitted middle span"
+        ]
+      }
+    ]
+  },
+  "status": "pose_calibrated_candidate",
+  "training_ready": false,
+  "human_acceptance": "pending",
+  "source_dataset": "2026-10-15-real-triplets-33-v1",
+  "source_views": {
+    "schema_version": 1,
+    "case_id": "case_023",
+    "part_name": "STKJ-MT01-0049轨道轮轴",
+    "annotation_method": "agent_manual_source_image_region_annotation",
+    "purpose": "label_authoring_not_heldout_evaluation",
+    "sources": [
+      {
+        "page": 1,
+        "pdf": "source/page_01.pdf",
+        "pdf_sha256": "ae8037704f8d45ef433fc4fc8dc6e868619c8e6ff5be7bc0c4aa26b62286c6e9",
+        "preview": "source/page_01.webp",
+        "original_size": [
+          2339,
+          1654
+        ],
+        "upright_size": [
+          2339,
+          1654
+        ],
+        "rotation_clockwise_degrees": 0,
+        "original_pdf_local_only": true
+      }
+    ],
+    "views": [
+      {
+        "id": "view_01",
+        "role": "front",
+        "label": "Shaft - broken",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.16,
+          0.12,
+          0.75,
+          0.57
+        ],
+        "bbox_upright_pixels": [
+          374,
+          198,
+          1754,
+          943
+        ],
+        "native_image": "views/view_01_native.png",
+        "image": "views/view_01.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 0.7072463768115942,
+        "padding_xy": [
+          24,
+          268
+        ],
+        "source_to_canvas_matrix": [
+          [
+            0.7072463768115942,
+            0,
+            -240.5101449275362
+          ],
+          [
+            0,
+            0.7072463768115942,
+            127.96521739130435
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": null,
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      }
+    ],
+    "standard_slots": {
+      "front": "view_01",
+      "top": null,
+      "side": null
+    },
+    "extra_view_ids": [],
+    "projection_convention": "unverified",
+    "axis_mapping_to_step": null,
+    "shared_physical_pixel_scale": false,
+    "crop_policy": "uniform 1024 square per view; aspect ratio preserved; source crop and inverse mapping retained; dimensions retained; independent fitting does not imply equal mm per pixel",
+    "review_status": "pending_human_acceptance",
+    "gaps": [
+      "View roles and projection convention need human confirmation.",
+      "Source PDFs retained for manufacturing notes and revision checks."
+    ],
+    "annotation_gt_leakage": false
+  },
+  "source_model_sha256": "704afcf3d8675e840becbad54111a1026a3de1a41c53c2b79fabdfcb5dccf294",
+  "source_reference_sha256": "ac2d82ffd05c63588de1593d8314b40b61447bf176388d6a026c4bc6b082007d",
+  "legacy_geometry_validation": {
+    "schema_version": 1,
+    "case_id": "case_023",
+    "cadquery_version": "2.5.2",
+    "purpose": "GT-assisted label-authoring QA; not held-out model evaluation",
+    "coordinate_alignment": "none; original physical mm frame",
+    "thresholds": {
+      "legacy_volume_relative": 0.02,
+      "legacy_area_relative": 0.05,
+      "legacy_sorted_bbox_relative": 0.02,
+      "additional_symmetric_difference_over_reference_volume": 0.01,
+      "additional_axis_bbox_relative": 0.01
+    },
+    "human_acceptance": "pending",
+    "training_ready": false,
+    "validator_sha256": "6be8bd1e6b1f037d23ea6737834ef426af038fe410bba5ef9cb52fb6628729f7",
+    "model_sha256": "704afcf3d8675e840becbad54111a1026a3de1a41c53c2b79fabdfcb5dccf294",
+    "program_audit": {
+      "status": "passed",
+      "allowed_imports": [
+        "cadquery",
+        "math"
+      ],
+      "external_geometry_reads": false,
+      "execution_mode": "trusted_authored_label_not_model_sandbox"
+    },
+    "execution_status": "success",
+    "reconstructed_sha256": "8dff88b701768647c29a65d1e934a88260b8d651d075d3f0760dbc0dd2abc14d",
+    "reference_sha256": "ac2d82ffd05c63588de1593d8314b40b61447bf176388d6a026c4bc6b082007d",
+    "reference": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 185255.11111296492,
+      "surface_area_mm2": 25071.454784718455,
+      "bounds_mm": [
+        -17.500000000000004,
+        -17.500000000000004,
+        -50.0,
+        17.500000000000004,
+        17.500000000000004,
+        169.99999999999997
+      ],
+      "bbox_mm": [
+        35.00000000000001,
+        35.00000000000001,
+        219.99999999999997
+      ],
+      "face_count": 32
+    },
+    "reconstructed": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 183770.60386438898,
+      "surface_area_mm2": 25357.3651034515,
+      "bounds_mm": [
+        -17.5,
+        -17.5,
+        -50.0,
+        17.5,
+        17.5,
+        170.0
+      ],
+      "bbox_mm": [
+        35.0,
+        35.0,
+        220.0
+      ],
+      "face_count": 15
+    },
+    "metrics": {
+      "volume_relative_error": 0.008013313315122093,
+      "area_relative_error": 0.011403818453618885,
+      "axis_bbox_relative_error": [
+        2.0301221021717145e-16,
+        2.0301221021717145e-16,
+        1.2918958832001823e-16
+      ],
+      "sorted_bbox_relative_error": [
+        2.0301221021717145e-16,
+        2.0301221021717145e-16,
+        1.2918958832001823e-16
+      ],
+      "max_bound_position_error_mm": 2.842170943040401e-14,
+      "intersection_volume_mm3": 183228.15553286916,
+      "iou_same_frame": 0.9861709490732933,
+      "symmetric_difference_volume_mm3": 2569.4039116156055,
+      "symmetric_difference_over_reference_volume": 0.013869543982777531
+    },
+    "legacy_geometry_check": true,
+    "boolean_status": "success",
+    "geometry_gate_pass": false,
+    "status": "needs_geometry_revision",
+    "elapsed_seconds": 0.535
+  },
+  "coordinate_policy": "proper rigid rotation and translation only; mm retained; no mirror or scale",
+  "pixel_registration_status": "not_run",
+  "views": [
+    {
+      "id": "view_01",
+      "kind": "external",
+      "raw_right": [
+        0,
+        0,
+        1
+      ],
+      "raw_up": [
+        0,
+        1,
+        0
+      ],
+      "canonical_role": "front",
+      "confidence": "symmetry_ambiguous",
+      "source_label": "Shaft - broken",
+      "notes": [
+        "Selected camera is raw -X and raw +Z runs left-to-right",
+        "The broken-view drafting compression does not define a physical pixel scale along the omitted middle span"
+      ],
+      "source_image": "../2026-10-15-real-triplets-33-v1/cases/case_023/views/view_01.png",
+      "pair_status": "pose_only_pixel_registration_pending",
+      "canonical_camera": {
+        "screen_right": [
+          1,
+          0,
+          0
+        ],
+        "screen_up": [
+          0,
+          1,
+          0
+        ],
+        "camera_from_direction": [
+          0,
+          0,
+          1
+        ],
+        "view_direction": [
+          0,
+          0,
+          -1
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          3.6363636363636362,
+          0.0,
+          0.0,
+          512.0
+        ],
+        [
+          -0.0,
+          -3.6363636363636362,
+          -0.0,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference_render": "renders/view_01_reference.svg",
+      "reconstructed_render": "renders/view_01_reconstructed.svg"
+    }
+  ],
+  "raw_to_canonical": [
+    [
+      0,
+      0,
+      1,
+      -59.999999999999986
+    ],
+    [
+      0,
+      1,
+      0,
+      -0.0
+    ],
+    [
+      -1,
+      0,
+      0,
+      -0.0
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "canonical_to_raw": [
+    [
+      0,
+      0,
+      -1,
+      0.0
+    ],
+    [
+      0,
+      1,
+      0,
+      0.0
+    ],
+    [
+      1,
+      0,
+      0,
+      59.999999999999986
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "rotation_determinant": 1,
+  "canonical_frame": {
+    "X": "drawing-front right",
+    "Y": "drawing-front up",
+    "Z": "towards front-view camera"
+  },
+  "reference": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 185255.1111129683,
+    "area_mm2": 25071.45478471994,
+    "bounds_mm": [
+      -110.0,
+      -17.5,
+      -17.500000000000014,
+      110.0,
+      17.5,
+      17.500000000000014
+    ],
+    "bbox_mm": [
+      220.0,
+      35.0,
+      35.00000000000003
+    ]
+  },
+  "reconstructed": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 183770.60386438895,
+    "area_mm2": 25357.3651034515,
+    "bounds_mm": [
+      -110.0,
+      -17.5,
+      -17.5,
+      110.0,
+      17.5,
+      17.500000000000014
+    ],
+    "bbox_mm": [
+      220.0,
+      35.0,
+      35.000000000000014
+    ]
+  },
+  "rigid_invariants": {
+    "reference_volume_relative_change": 1.8207657603852567e-14,
+    "reconstructed_volume_relative_change": 1.1102230246251565e-16,
+    "reference_area_relative_change": 5.928590951498336e-14,
+    "reconstructed_area_relative_change": 0.0,
+    "transform_roundtrip_error_mm": 8.881784197001252e-16
+  },
+  "shared_pixels_per_mm": 3.6363636363636362,
+  "canvas_size": [
+    1024,
+    1024
+  ],
+  "reference_sha256": "f98cc01ebb15c81bb7ca5d51758a66799554e50852cce5653b9ba57cd24e09df",
+  "reconstructed_sha256": "9d7b8d5131d7469d47e867bfcdde40750735ade8841a90cf8edfebb1dbf28f72",
+  "model_sha256": "bbf6a315debe93a19f664c787a8e82841824c619568fedb0470b10f4683ac3a6",
+  "builder_sha256": "414c8484644362fb3976d426fb202f8af1fcf67be1eb15bfbe27d8f67cfbc144",
+  "canonical_projections": {
+    "front": {
+      "camera": {
+        "screen_right": [
+          1,
+          0,
+          0
+        ],
+        "screen_up": [
+          0,
+          1,
+          0
+        ],
+        "camera_from_direction": [
+          0,
+          0,
+          1
+        ],
+        "view_direction": [
+          0,
+          0,
+          -1
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          3.6363636363636362,
+          0.0,
+          0.0,
+          512.0
+        ],
+        [
+          -0.0,
+          -3.6363636363636362,
+          -0.0,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference": "renders/front_reference.svg",
+      "reconstructed": "renders/front_reconstructed.svg",
+      "synthetic_reference_only": true
+    },
+    "top": {
+      "camera": {
+        "screen_right": [
+          1,
+          0,
+          0
+        ],
+        "screen_up": [
+          0,
+          0,
+          -1
+        ],
+        "camera_from_direction": [
+          0,
+          1,
+          0
+        ],
+        "view_direction": [
+          0,
+          -1,
+          0
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          3.6363636363636362,
+          0.0,
+          0.0,
+          512.0
+        ],
+        [
+          -0.0,
+          -0.0,
+          3.6363636363636362,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference": "renders/top_reference.svg",
+      "reconstructed": "renders/top_reconstructed.svg",
+      "synthetic_reference_only": true
+    },
+    "right_side": {
+      "camera": {
+        "screen_right": [
+          0,
+          0,
+          -1
+        ],
+        "screen_up": [
+          0,
+          1,
+          0
+        ],
+        "camera_from_direction": [
+          1,
+          0,
+          0
+        ],
+        "view_direction": [
+          -1,
+          0,
+          0
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          0.0,
+          0.0,
+          -3.6363636363636362,
+          512.0
+        ],
+        [
+          -0.0,
+          -3.6363636363636362,
+          -0.0,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference": "renders/right_side_reference.svg",
+      "reconstructed": "renders/right_side_reconstructed.svg",
+      "synthetic_reference_only": true
+    }
+  },
+  "input_view_mask": {
+    "front": true,
+    "top": false,
+    "right_side": false
+  },
+  "elapsed_seconds": 0.421,
+  "export_coordinate_verification": {
+    "status": "passed",
+    "method": "export/reload AABB versus source AABB corners transformed by raw_to_canonical",
+    "signed_axis_permutation_required": true,
+    "cadquery_rotation_contract": {
+      "status": "passed",
+      "rotation_count": 24,
+      "max_abs_bounds_error_mm": 1.0658141036401503e-14,
+      "tolerance_mm": 1e-05,
+      "method": "asymmetric off-origin CadQuery solid; expected AABB from matrix-transformed bbox corners"
+    },
+    "reference": {
+      "status": "passed",
+      "source_bounds_mm": [
+        -17.500000000000004,
+        -17.500000000000004,
+        -50.0,
+        17.500000000000004,
+        17.500000000000004,
+        169.99999999999997
+      ],
+      "expected_bounds_mm": [
+        -109.99999999999999,
+        -17.500000000000004,
+        -17.500000000000004,
+        109.99999999999999,
+        17.500000000000004,
+        17.500000000000004
+      ],
+      "actual_exported_bounds_mm": [
+        -110.0,
+        -17.5,
+        -17.500000000000014,
+        110.0,
+        17.5,
+        17.500000000000014
+      ],
+      "max_abs_bounds_error_mm": 1.4210854715202004e-14,
+      "tolerance_mm": 1e-05,
+      "export": "reference.step"
+    },
+    "reconstructed": {
+      "status": "passed",
+      "source_bounds_mm": [
+        -17.5,
+        -17.5,
+        -50.0,
+        17.5,
+        17.5,
+        170.0
+      ],
+      "expected_bounds_mm": [
+        -109.99999999999999,
+        -17.5,
+        -17.5,
+        110.00000000000001,
+        17.5,
+        17.5
+      ],
+      "actual_exported_bounds_mm": [
+        -110.0,
+        -17.5,
+        -17.5,
+        110.0,
+        17.5,
+        17.500000000000014
+      ],
+      "max_abs_bounds_error_mm": 1.4210854715202004e-14,
+      "tolerance_mm": 1e-05,
+      "export": "reconstructed.step"
+    }
+  },
+  "alignment_review_notes": [],
+  "download": {
+    "zip": "cases/case_023/case_023_alignment_candidate.zip"
+  }
+}

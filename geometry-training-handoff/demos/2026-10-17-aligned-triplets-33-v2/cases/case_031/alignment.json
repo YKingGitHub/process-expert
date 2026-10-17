@@ -1,0 +1,957 @@
+{
+  "schema_version": 2,
+  "case_id": "case_031",
+  "name": "STKJ-MT01-0064 DN50法兰",
+  "annotation": {
+    "case_id": "case_031",
+    "front_basis": {
+      "right": [
+        1,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    "status": "proposed",
+    "evidence": [
+      "source view_01 shows the diameter-59 through bore and raised diameter-106 face inside the diameter-155 flange",
+      "reference STEP bounds are 155 by 155 by 17.5 and v1 model.py puts the raised conical face at raw z=15.5..17.5",
+      "source view_02 has the raised face on screen right, fixing raw +Z as screen right and raw -X as the side camera"
+    ],
+    "ambiguities": [
+      "Four equally spaced holes and concentric circles leave the front roll ambiguous up to quarter-turns",
+      "The +Z camera face and left-side profile are supported; only the in-plane symmetric representative is arbitrary"
+    ],
+    "views": [
+      {
+        "id": "view_01",
+        "kind": "external",
+        "raw_right": [
+          1,
+          0,
+          0
+        ],
+        "raw_up": [
+          0,
+          1,
+          0
+        ],
+        "canonical_role": "front",
+        "confidence": "symmetry_ambiguous",
+        "source_label": "Flange face",
+        "notes": [
+          "Camera raw +Z is feature-supported by the raised face and visible through bore",
+          "The X/Y roll remains fourfold symmetric"
+        ]
+      },
+      {
+        "id": "view_02",
+        "kind": "external",
+        "raw_right": [
+          0,
+          0,
+          1
+        ],
+        "raw_up": [
+          0,
+          1,
+          0
+        ],
+        "canonical_role": "left_side",
+        "confidence": "supported",
+        "source_label": "Thickness",
+        "notes": [
+          "Raw +Z is screen right and the selected side camera is raw -X",
+          "The visible raised-face step rules out the mirrored right-side camera mapping"
+        ]
+      }
+    ]
+  },
+  "status": "pose_calibrated_candidate",
+  "training_ready": false,
+  "human_acceptance": "pending",
+  "source_dataset": "2026-10-15-real-triplets-33-v1",
+  "source_views": {
+    "schema_version": 1,
+    "case_id": "case_031",
+    "part_name": "STKJ-MT01-0064 DN50法兰",
+    "annotation_method": "agent_manual_source_image_region_annotation",
+    "purpose": "label_authoring_not_heldout_evaluation",
+    "sources": [
+      {
+        "page": 1,
+        "pdf": "source/page_01.pdf",
+        "pdf_sha256": "84840c977acd1dc9e07b2c7a2ac0d68d10d0f9d337cb34e93d2824b01fa31d10",
+        "preview": "source/page_01.webp",
+        "original_size": [
+          3308,
+          2339
+        ],
+        "upright_size": [
+          3308,
+          2339
+        ],
+        "rotation_clockwise_degrees": 0,
+        "original_pdf_local_only": true
+      }
+    ],
+    "views": [
+      {
+        "id": "view_01",
+        "role": "front",
+        "label": "Flange face",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.19,
+          0.21,
+          0.44,
+          0.6
+        ],
+        "bbox_upright_pixels": [
+          629,
+          491,
+          1456,
+          1403
+        ],
+        "native_image": "views/view_01_native.png",
+        "image": "views/view_01.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 1.0263157894736843,
+        "padding_xy": [
+          87,
+          64
+        ],
+        "source_to_canvas_matrix": [
+          [
+            1.0263157894736843,
+            0,
+            -558.5526315789474
+          ],
+          [
+            0,
+            1.0263157894736843,
+            -439.92105263157896
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": null,
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_02",
+        "role": "side",
+        "label": "Thickness",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.58,
+          0.2,
+          0.69,
+          0.53
+        ],
+        "bbox_upright_pixels": [
+          1919,
+          468,
+          2283,
+          1240
+        ],
+        "native_image": "views/view_02_native.png",
+        "image": "views/view_02.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 1.2124352331606219,
+        "padding_xy": [
+          291,
+          64
+        ],
+        "source_to_canvas_matrix": [
+          [
+            1.2124352331606219,
+            0,
+            -2035.6632124352332
+          ],
+          [
+            0,
+            1.2124352331606219,
+            -503.41968911917104
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": null,
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      }
+    ],
+    "standard_slots": {
+      "front": "view_01",
+      "top": null,
+      "side": "view_02"
+    },
+    "extra_view_ids": [],
+    "projection_convention": "unverified",
+    "axis_mapping_to_step": null,
+    "shared_physical_pixel_scale": false,
+    "crop_policy": "uniform 1024 square per view; aspect ratio preserved; source crop and inverse mapping retained; dimensions retained; independent fitting does not imply equal mm per pixel",
+    "review_status": "pending_human_acceptance",
+    "gaps": [
+      "View roles and projection convention need human confirmation.",
+      "Source PDFs retained for manufacturing notes and revision checks."
+    ],
+    "annotation_gt_leakage": false
+  },
+  "source_model_sha256": "59d64f597829d79b2156a642905893e6bdc635f9be2aae4a4379cb728401ddbc",
+  "source_reference_sha256": "5b88956969b7cf0afc79642dec82a22eb7db39bf6d870f11a727ce60cb022dd1",
+  "legacy_geometry_validation": {
+    "schema_version": 1,
+    "case_id": "case_031",
+    "cadquery_version": "2.5.2",
+    "purpose": "GT-assisted label-authoring QA; not held-out model evaluation",
+    "coordinate_alignment": "none; original physical mm frame",
+    "thresholds": {
+      "legacy_volume_relative": 0.02,
+      "legacy_area_relative": 0.05,
+      "legacy_sorted_bbox_relative": 0.02,
+      "additional_symmetric_difference_over_reference_volume": 0.01,
+      "additional_axis_bbox_relative": 0.01
+    },
+    "human_acceptance": "pending",
+    "training_ready": false,
+    "validator_sha256": "6be8bd1e6b1f037d23ea6737834ef426af038fe410bba5ef9cb52fb6628729f7",
+    "model_sha256": "59d64f597829d79b2156a642905893e6bdc635f9be2aae4a4379cb728401ddbc",
+    "program_audit": {
+      "status": "passed",
+      "allowed_imports": [
+        "cadquery",
+        "math"
+      ],
+      "external_geometry_reads": false,
+      "execution_mode": "trusted_authored_label_not_model_sandbox"
+    },
+    "execution_status": "success",
+    "reconstructed_sha256": "a0d9cdc02dee5596fd5e408c3d637c64d2cf2d73e35cc403683fdcb104c411ae",
+    "reference_sha256": "5b88956969b7cf0afc79642dec82a22eb7db39bf6d870f11a727ce60cb022dd1",
+    "reference": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 245842.71511279125,
+      "surface_area_mm2": 44802.74424382562,
+      "bounds_mm": [
+        -77.50000000000007,
+        -77.50000000000051,
+        -1.7763568394002505e-12,
+        77.50000000000007,
+        77.50000000000007,
+        17.500000000000092
+      ],
+      "bbox_mm": [
+        155.00000000000014,
+        155.00000000000057,
+        17.50000000000187
+      ],
+      "face_count": 17
+    },
+    "reconstructed": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 247151.9481766488,
+      "surface_area_mm2": 44836.40225540256,
+      "bounds_mm": [
+        -77.5,
+        -77.5,
+        -1e-07,
+        77.5,
+        77.5,
+        17.5000001
+      ],
+      "bbox_mm": [
+        155.0,
+        155.0,
+        17.500000200000002
+      ],
+      "face_count": 10
+    },
+    "metrics": {
+      "volume_relative_error": 0.00532549058147551,
+      "area_relative_error": 0.0007512488831881724,
+      "axis_bbox_relative_error": [
+        9.168293364646446e-16,
+        3.667317345858568e-15,
+        1.1428464777703033e-08
+      ],
+      "sorted_bbox_relative_error": [
+        1.1428464777703033e-08,
+        9.168293364646446e-16,
+        3.667317345858568e-15
+      ],
+      "max_bound_position_error_mm": 9.99999087980541e-08,
+      "intersection_volume_mm3": 245842.71511279113,
+      "iou_same_frame": 0.9947027200330948,
+      "symmetric_difference_volume_mm3": 1309.2330638577696,
+      "symmetric_difference_over_reference_volume": 0.005325490581476457
+    },
+    "legacy_geometry_check": true,
+    "boolean_status": "success",
+    "geometry_gate_pass": true,
+    "status": "geometry_gate_pass_review_pending",
+    "elapsed_seconds": 0.598
+  },
+  "coordinate_policy": "proper rigid rotation and translation only; mm retained; no mirror or scale",
+  "pixel_registration_status": "landmark_calibrated_review_pending",
+  "views": [
+    {
+      "id": "view_01",
+      "kind": "external",
+      "raw_right": [
+        1,
+        0,
+        0
+      ],
+      "raw_up": [
+        0,
+        1,
+        0
+      ],
+      "canonical_role": "front",
+      "confidence": "symmetry_ambiguous",
+      "source_label": "Flange face",
+      "notes": [
+        "Camera raw +Z is feature-supported by the raised face and visible through bore",
+        "The X/Y roll remains fourfold symmetric"
+      ],
+      "source_image": "../2026-10-15-real-triplets-33-v1/cases/case_031/views/view_01.png",
+      "pair_status": "landmark_calibrated_review_pending",
+      "canonical_camera": {
+        "screen_right": [
+          1,
+          0,
+          0
+        ],
+        "screen_up": [
+          0,
+          1,
+          0
+        ],
+        "camera_from_direction": [
+          0,
+          0,
+          1
+        ],
+        "view_direction": [
+          0,
+          0,
+          -1
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          5.16129032258063,
+          0.0,
+          0.0,
+          512.0
+        ],
+        [
+          -0.0,
+          -5.16129032258063,
+          -0.0,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference_render": "renders/view_01_reference.svg",
+      "reconstructed_render": "renders/view_01_reconstructed.svg",
+      "pixel_registration": {
+        "method": "Agent manually identified object envelopes and independent hole-center landmarks on the original 1800 x 1273 full-page WebP previews. Coordinates refer to those previews, not to padded v1 view images. Envelope coordinates are fitted to the centerline of the printed object stroke; hole centers are independently fitted from their circular strokes. Only views whose drawing dimensions agree with the reference STEP projection are included.",
+        "anchor_provenance": {
+          "file": "scripts/pixel_anchors_020_033.json",
+          "sha256": "04625b62fef93452997585913960d6e874a32132d6822c154fed57289e6ac675",
+          "method": "Agent manually identified object envelopes and independent hole-center landmarks on the original 1800 x 1273 full-page WebP previews. Coordinates refer to those previews, not to padded v1 view images. Envelope coordinates are fitted to the centerline of the printed object stroke; hole centers are independently fitted from their circular strokes. Only views whose drawing dimensions agree with the reference STEP projection are included.",
+          "measurement_provenance": {
+            "source_pixels": "Original 1800 x 1273 source/page_XX.webp preview pixels; no registered, rendered, or padded image was used for measurement.",
+            "envelope_measurement": "The four exterior silhouette stroke centerlines were measured first and are the only pixel observations used to solve scale and translation.",
+            "landmark_measurement": "Hole centers were measured independently from local circular-stroke pixels using grayscale circle/center fits after the envelope was fixed; they were not used to adjust the envelope.",
+            "physical_coordinates": "Projected millimetre coordinates come from explicit drawing dimensions corroborated against the reference STEP feature layout. They were not obtained by mapping the measured preview centers back through the fitted envelope.",
+            "holdout_rule": "Every listed hole center is a held-out residual check. No landmark residual was used to change the acceptance thresholds or to fit a non-uniform transform."
+          }
+        },
+        "source_preview_geometry_bbox": [
+          389.5789,
+          293.249,
+          655.2181,
+          558.8882
+        ],
+        "source_geometry_bbox_raw_pixels": [
+          715.959445111111,
+          538.813362922231,
+          1204.145263777778,
+          1026.896700549882
+        ],
+        "physical_dimension_evidence_mm": [
+          155,
+          155
+        ],
+        "source_pixels_per_mm": 3.1492553428848917,
+        "axis_scale_disagreement": 0.0002099442317859905,
+        "raw_upright_page_to_output_pixel": [
+          [
+            1.638892296949349,
+            0,
+            -1061.422408367086
+          ],
+          [
+            0,
+            1.638892296949349,
+            -771.0150811402614
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "native_crop_to_output_pixel": [
+          [
+            1.638892296949349,
+            0,
+            -30.559153585945523
+          ],
+          [
+            0,
+            1.638892296949349,
+            33.681036661868916
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "landmarks": [
+          {
+            "label": "right diameter-18 hole center",
+            "preview_xy": [
+              629.3331,
+              426.0801
+            ],
+            "projected_mm": [
+              62.5,
+              0
+            ],
+            "observed_output_pixel": [
+              834.0784436972365,
+              512.0346298071086
+            ],
+            "expected_step_pixel": [
+              834.5806451612893,
+              512.0
+            ],
+            "error_pixels": 0.5033940147014182
+          },
+          {
+            "label": "left diameter-18 hole center",
+            "preview_xy": [
+              415.478,
+              426.0854
+            ],
+            "projected_mm": [
+              -62.5,
+              0
+            ],
+            "observed_output_pixel": [
+              189.96402437255642,
+              512.0505896312545
+            ],
+            "expected_step_pixel": [
+              189.4193548387106,
+              512.0
+            ],
+            "error_pixels": 0.5470139046590055
+          },
+          {
+            "label": "upper diameter-18 hole center",
+            "preview_xy": [
+              522.4391,
+              319.0325
+            ],
+            "projected_mm": [
+              0,
+              62.5
+            ],
+            "observed_output_pixel": [
+              512.1222839456464,
+              189.6835220280558
+            ],
+            "expected_step_pixel": [
+              512.0,
+              189.4193548387106
+            ],
+            "error_pixels": 0.29109735019298544
+          },
+          {
+            "label": "lower diameter-18 hole center",
+            "preview_xy": [
+              522.4458,
+              533.0355
+            ],
+            "projected_mm": [
+              0,
+              -62.5
+            ],
+            "observed_output_pixel": [
+              512.1424638085975,
+              834.1080968717763
+            ],
+            "expected_step_pixel": [
+              512.0,
+              834.5806451612893
+            ],
+            "error_pixels": 0.49355630143056517
+          }
+        ],
+        "thresholds": {
+          "max_axis_scale_disagreement": 0.02,
+          "max_landmark_error_output_pixels": 5.0
+        },
+        "landmark_gate_pass": true,
+        "full_contour_acceptance": "not_automatically_verified",
+        "no_pixels_redrawn": true
+      },
+      "registered_source": "inputs/view_01_registered.png"
+    },
+    {
+      "id": "view_02",
+      "kind": "external",
+      "raw_right": [
+        0,
+        0,
+        1
+      ],
+      "raw_up": [
+        0,
+        1,
+        0
+      ],
+      "canonical_role": "left_side",
+      "confidence": "supported",
+      "source_label": "Thickness",
+      "notes": [
+        "Raw +Z is screen right and the selected side camera is raw -X",
+        "The visible raised-face step rules out the mirrored right-side camera mapping"
+      ],
+      "source_image": "../2026-10-15-real-triplets-33-v1/cases/case_031/views/view_02.png",
+      "pair_status": "pose_only_pixel_registration_pending",
+      "canonical_camera": {
+        "screen_right": [
+          0,
+          0,
+          1
+        ],
+        "screen_up": [
+          0,
+          1,
+          0
+        ],
+        "camera_from_direction": [
+          -1,
+          0,
+          0
+        ],
+        "view_direction": [
+          1,
+          0,
+          0
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          0.0,
+          0.0,
+          5.16129032258063,
+          512.0
+        ],
+        [
+          -0.0,
+          -5.16129032258063,
+          -0.0,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference_render": "renders/view_02_reference.svg",
+      "reconstructed_render": "renders/view_02_reconstructed.svg"
+    }
+  ],
+  "raw_to_canonical": [
+    [
+      1,
+      0,
+      0,
+      -0.0
+    ],
+    [
+      0,
+      1,
+      0,
+      2.2026824808563106e-13
+    ],
+    [
+      0,
+      0,
+      1,
+      -8.749999999999158
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "canonical_to_raw": [
+    [
+      1,
+      0,
+      0,
+      0.0
+    ],
+    [
+      0,
+      1,
+      0,
+      -2.2026824808563106e-13
+    ],
+    [
+      0,
+      0,
+      1,
+      8.749999999999158
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "rotation_determinant": 1,
+  "canonical_frame": {
+    "X": "drawing-front right",
+    "Y": "drawing-front up",
+    "Z": "towards front-view camera"
+  },
+  "reference": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 245842.71511280639,
+    "area_mm2": 44802.744243826506,
+    "bounds_mm": [
+      -77.5,
+      -77.50000000000023,
+      -8.750000000001,
+      77.5,
+      77.50000000000021,
+      8.750000000001
+    ],
+    "bbox_mm": [
+      155.0,
+      155.00000000000045,
+      17.500000000002
+    ]
+  },
+  "reconstructed": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 247151.94817664876,
+    "area_mm2": 44836.40225540252,
+    "bounds_mm": [
+      -77.5,
+      -77.49999999999979,
+      -8.750000099999,
+      77.5,
+      77.50000000000021,
+      8.750000100001
+    ],
+    "bbox_mm": [
+      155.0,
+      155.0,
+      17.5000002
+    ]
+  },
+  "rigid_invariants": {
+    "reference_volume_relative_change": 6.150635556423367e-14,
+    "reconstructed_volume_relative_change": 1.1102230246251565e-16,
+    "reference_area_relative_change": 1.9761969838327786e-14,
+    "reconstructed_area_relative_change": 7.771561172376096e-16,
+    "transform_roundtrip_error_mm": 2.4233807008389483e-27
+  },
+  "shared_pixels_per_mm": 5.16129032258063,
+  "canvas_size": [
+    1024,
+    1024
+  ],
+  "reference_sha256": "eb22d10648414596697adfcfa376fd3deaf2c92814f8c3217a04c206fa24e31f",
+  "reconstructed_sha256": "2b9cff411f024a327addc09034783318e3424937ad23a94f611456bb94ede4f1",
+  "model_sha256": "a987b0529b1453422fb989e93c4cab103ba494dc7c5e1a15542f26a489e90192",
+  "builder_sha256": "414c8484644362fb3976d426fb202f8af1fcf67be1eb15bfbe27d8f67cfbc144",
+  "canonical_projections": {
+    "front": {
+      "camera": {
+        "screen_right": [
+          1,
+          0,
+          0
+        ],
+        "screen_up": [
+          0,
+          1,
+          0
+        ],
+        "camera_from_direction": [
+          0,
+          0,
+          1
+        ],
+        "view_direction": [
+          0,
+          0,
+          -1
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          5.16129032258063,
+          0.0,
+          0.0,
+          512.0
+        ],
+        [
+          -0.0,
+          -5.16129032258063,
+          -0.0,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference": "renders/front_reference.svg",
+      "reconstructed": "renders/front_reconstructed.svg",
+      "synthetic_reference_only": true
+    },
+    "top": {
+      "camera": {
+        "screen_right": [
+          1,
+          0,
+          0
+        ],
+        "screen_up": [
+          0,
+          0,
+          -1
+        ],
+        "camera_from_direction": [
+          0,
+          1,
+          0
+        ],
+        "view_direction": [
+          0,
+          -1,
+          0
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          5.16129032258063,
+          0.0,
+          0.0,
+          512.0
+        ],
+        [
+          -0.0,
+          -0.0,
+          5.16129032258063,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference": "renders/top_reference.svg",
+      "reconstructed": "renders/top_reconstructed.svg",
+      "synthetic_reference_only": true
+    },
+    "right_side": {
+      "camera": {
+        "screen_right": [
+          0,
+          0,
+          -1
+        ],
+        "screen_up": [
+          0,
+          1,
+          0
+        ],
+        "camera_from_direction": [
+          1,
+          0,
+          0
+        ],
+        "view_direction": [
+          -1,
+          0,
+          0
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          0.0,
+          0.0,
+          -5.16129032258063,
+          512.0
+        ],
+        [
+          -0.0,
+          -5.16129032258063,
+          -0.0,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference": "renders/right_side_reference.svg",
+      "reconstructed": "renders/right_side_reconstructed.svg",
+      "synthetic_reference_only": true
+    }
+  },
+  "input_view_mask": {
+    "front": true,
+    "top": false,
+    "right_side": false
+  },
+  "elapsed_seconds": 0.806,
+  "export_coordinate_verification": {
+    "status": "passed",
+    "method": "export/reload AABB versus source AABB corners transformed by raw_to_canonical",
+    "signed_axis_permutation_required": true,
+    "cadquery_rotation_contract": {
+      "status": "passed",
+      "rotation_count": 24,
+      "max_abs_bounds_error_mm": 1.0658141036401503e-14,
+      "tolerance_mm": 1e-05,
+      "method": "asymmetric off-origin CadQuery solid; expected AABB from matrix-transformed bbox corners"
+    },
+    "reference": {
+      "status": "passed",
+      "source_bounds_mm": [
+        -77.50000000000007,
+        -77.50000000000051,
+        -1.7763568394002505e-12,
+        77.50000000000007,
+        77.50000000000007,
+        17.500000000000092
+      ],
+      "expected_bounds_mm": [
+        -77.50000000000007,
+        -77.50000000000028,
+        -8.750000000000934,
+        77.50000000000007,
+        77.50000000000028,
+        8.750000000000934
+      ],
+      "actual_exported_bounds_mm": [
+        -77.5,
+        -77.50000000000023,
+        -8.750000000001,
+        77.5,
+        77.50000000000021,
+        8.750000000001
+      ],
+      "max_abs_bounds_error_mm": 7.105427357601002e-14,
+      "tolerance_mm": 1e-05,
+      "export": "reference.step"
+    },
+    "reconstructed": {
+      "status": "passed",
+      "source_bounds_mm": [
+        -77.5,
+        -77.5,
+        -1e-07,
+        77.5,
+        77.5,
+        17.5000001
+      ],
+      "expected_bounds_mm": [
+        -77.5,
+        -77.49999999999977,
+        -8.750000099999157,
+        77.5,
+        77.50000000000023,
+        8.750000100000843
+      ],
+      "actual_exported_bounds_mm": [
+        -77.5,
+        -77.49999999999979,
+        -8.750000099999,
+        77.5,
+        77.50000000000021,
+        8.750000100001
+      ],
+      "max_abs_bounds_error_mm": 1.580957587066223e-13,
+      "tolerance_mm": 1e-05,
+      "export": "reconstructed.step"
+    }
+  },
+  "pixel_registration_coverage": {
+    "registered_external_views": 1,
+    "total_external_views": 2,
+    "all_external_views_registered": false
+  },
+  "alignment_review_notes": [],
+  "download": {
+    "zip": "cases/case_031/case_031_alignment_candidate.zip"
+  }
+}

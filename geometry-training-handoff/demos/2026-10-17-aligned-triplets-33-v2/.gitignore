@@ -1,0 +1,4 @@
+cases/*/*.step
+cases/*/projection_paths.json
+__pycache__/
+*.pyc

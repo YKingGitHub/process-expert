@@ -1,0 +1,18 @@
+{
+  "method": "Agent manually identified object envelope and independent feature landmarks on the original full-page previews; not an automatic detector. Rectangle coordinates refer to the 1800 x 1273 preview, not to padded v1 images.",
+  "acceptance": {"max_axis_scale_disagreement": 0.02, "max_landmark_error_output_pixels": 5.0},
+  "cases": {
+    "case_014": {
+      "view_01": {"preview_geometry_bbox": [462,172,690,551], "dimension_evidence_mm": [160,265], "landmarks": [{"label":"left inner fork upper corner", "preview_xy":[512,279], "projected_mm":[-45,57.5]}, {"label":"right inner fork upper corner", "preview_xy":[640,279], "projected_mm":[45,57.5]}]},
+      "view_03": {"preview_geometry_bbox": [462,750,690,908], "dimension_evidence_mm": [160,110], "landmarks": [{"label":"left edge of diameter 45 eye", "preview_xy":[544,829], "projected_mm":[-22.5,0]}, {"label":"right edge of diameter 45 eye", "preview_xy":[608,829], "projected_mm":[22.5,0]}]}
+    },
+    "case_015": {
+      "view_01": {"preview_geometry_bbox": [452,294,1151,506], "dimension_evidence_mm": [245,74], "landmarks": [{"label":"upper closed corner of 20 mm fork slot", "preview_xy":[566,371], "projected_mm":[-82.5,10]}, {"label":"lower closed corner of 20 mm fork slot", "preview_xy":[566,429], "projected_mm":[-82.5,-10]}]},
+      "view_02": {"preview_geometry_bbox": [452,755,1151,842], "dimension_evidence_mm": [245,30], "landmarks": [{"label":"diameter 15 cross hole center", "preview_xy":[495,798.5], "projected_mm":[-107.5,0]}, {"label":"upper shoulder at shaft transition", "preview_xy":[623,755], "projected_mm":[-62.5,15]}]}
+    },
+    "case_017": {
+      "view_01": {"preview_geometry_bbox": [424,225,787,756], "dimension_evidence_mm": [120,175], "landmarks": [{"label":"left upper corner of lower 60 mm slot", "preview_xy":[515,483], "projected_mm":[-30,2.5]}, {"label":"right upper corner of lower 60 mm slot", "preview_xy":[696,483], "projected_mm":[30,2.5]}]},
+      "view_02": {"preview_geometry_bbox": [1055,225,1237,756], "dimension_evidence_mm": [60,175], "landmarks": [{"label":"upper diameter 15 cross hole center", "preview_xy":[1146,271], "projected_mm":[0,72.5]}, {"label":"lower diameter 25 cross hole center", "preview_xy":[1146,650], "projected_mm":[0,-52.5]}]}
+    }
+  }
+}

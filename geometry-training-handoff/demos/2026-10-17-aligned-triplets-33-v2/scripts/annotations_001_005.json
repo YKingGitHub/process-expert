@@ -1,0 +1,233 @@
+{
+  "cases": [
+    {
+      "case_id": "case_001",
+      "front_basis": null,
+      "status": "unresolved",
+      "evidence": [
+        "source view_02 is explicitly labeled Main sectional elevation and contains section hatching; it is not an external front view",
+        "v1 model.py:58-77 and direct reference-STEP inspection place the dominant long tube on raw Z, the triangular forged load path in raw YZ, and the transverse pivot bosses on raw X",
+        "the directed triangular frame and long tube support raw right=+Z/raw up=+Y for the sectional view_02, but that only calibrates the section projection",
+        "source view_01 is an external XZ end/side projection with the long raw-Z member vertical, so raw up=+Z is supported there"
+      ],
+      "ambiguities": [
+        "A sectional projection does not establish the visibility surface or camera side required for an external canonical front",
+        "view_01 does not provide a trustworthy feature that fixes raw +X versus -X on screen; the principal reference geometry is symmetric about its offset X mid-plane",
+        "No supplied external view fixes a complete right/up basis, so assigning the view_02 section basis as front would fabricate an external camera calibration"
+      ],
+      "views": [
+        {
+          "id": "view_01",
+          "kind": "external",
+          "raw_right": null,
+          "raw_up": [0, 0, 1],
+          "canonical_role": "auxiliary",
+          "confidence": "unresolved",
+          "source_label": "End / side",
+          "notes": [
+            "The XZ projection and +Z vertical direction are supported by the long tube",
+            "The horizontal raw-X sign and corresponding raw-Y camera side remain unresolved"
+          ]
+        },
+        {
+          "id": "view_02",
+          "kind": "section",
+          "raw_right": [0, 0, 1],
+          "raw_up": [0, 1, 0],
+          "canonical_role": "auxiliary",
+          "confidence": "supported",
+          "source_label": "Main sectional elevation",
+          "notes": [
+            "This is a YZ section with selected camera raw -X",
+            "Its supported section-plane basis is deliberately not promoted to an external front basis"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "case_002",
+      "front_basis": {
+        "right": [1, 0, 0],
+        "up": [0, 0, 1]
+      },
+      "status": "proposed",
+      "evidence": [
+        "source view_01 places the upper eye at the left, the full lower trunnion near the middle, and the smaller service boss above the barrel toward the right",
+        "v1 model.py:42-63 places the long barrel on raw X, the upper eye at raw X=-430/raw Z=+41, the lower trunnion at raw X=-255/raw Z=-78, and the service boss at raw X=-92/raw Z=+34",
+        "that directed feature order fixes source right=+X and source up=+Z; their cross gives camera raw -Y",
+        "direct reference-STEP inspection confirms the barrel cylinder axes are raw X, the transverse boss axes are raw Y, and the bounds are X=[-500.380,57.658], Y=[-120.015,120.015], Z=[-106.172,68.708]"
+      ],
+      "ambiguities": [
+        "view_04 establishes an end projection but its in-plane raw-Y sign is not feature-distinguishable from the approximately Y-mirrored boss layout",
+        "selected view_04 basis right=+Y/up=+Z gives the canonical right-side camera +X; the reflected/opposite-end candidate remains plausible if hidden-line visibility is not trusted"
+      ],
+      "views": [
+        {
+          "id": "view_01",
+          "kind": "external",
+          "raw_right": [1, 0, 0],
+          "raw_up": [0, 0, 1],
+          "canonical_role": "front",
+          "confidence": "supported",
+          "source_label": "Elevation",
+          "notes": [
+            "Camera is raw -Y",
+            "The ordered upper-eye, lower-trunnion, and service-boss features fix both screen-axis signs"
+          ]
+        },
+        {
+          "id": "view_04",
+          "kind": "external",
+          "raw_right": [0, 1, 0],
+          "raw_up": [0, 0, 1],
+          "canonical_role": "right_side",
+          "confidence": "symmetry_ambiguous",
+          "source_label": "Right end / detail",
+          "notes": [
+            "Selected camera is raw +X and raw +Z is upward",
+            "The raw-Y screen direction is not independently fixed by the near-mirrored end geometry"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "case_003",
+      "front_basis": {
+        "right": [1, 0, 0],
+        "up": [0, 1, 0]
+      },
+      "status": "proposed",
+      "evidence": [
+        "source view_01 shows the long piston running left-to-right and the transverse end tube extending much farther downward than upward",
+        "v1 model.py:52-75 and the reference STEP place the piston on raw X and the transverse tube on raw Y from approximately -196.289 to +49.403",
+        "the negative-Y-dominant transverse tube appearing downward fixes source up=+Y, while the piston-to-cross-tube order fixes source right=+X",
+        "direct reference-STEP inspection confirms bounds X=[-966.216,40.558], Y=[-196.289,49.403], Z=[-62.357,62.357] and a raw-X dominant cylinder axis"
+      ],
+      "ambiguities": [
+        "view_02 establishes an XZ plan projection, but the reference is mirror-symmetric in raw Z at the dominant features, so its vertical Z sign and Y camera side are not independently observable",
+        "selected plan basis right=+X/up=-Z follows the canonical top convention; right=+X/up=+Z with the opposite camera remains symmetry-equivalent"
+      ],
+      "views": [
+        {
+          "id": "view_01",
+          "kind": "external",
+          "raw_right": [1, 0, 0],
+          "raw_up": [0, 1, 0],
+          "canonical_role": "front",
+          "confidence": "supported",
+          "source_label": "Elevation",
+          "notes": [
+            "Camera is raw +Z",
+            "The strongly one-sided raw-Y cross tube fixes the vertical sign rather than merely the projection extents"
+          ]
+        },
+        {
+          "id": "view_02",
+          "kind": "external",
+          "raw_right": [1, 0, 0],
+          "raw_up": [0, 0, -1],
+          "canonical_role": "top",
+          "confidence": "symmetry_ambiguous",
+          "source_label": "Plan",
+          "notes": [
+            "Selected camera is raw +Y",
+            "Raw Z is symmetric at the dominant ears and barrel, so the opposite plan roll/camera candidate is retained"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "case_004",
+      "front_basis": {
+        "right": [1, 0, 0],
+        "up": [0, 1, 0]
+      },
+      "status": "proposed",
+      "evidence": [
+        "source view_01 shows the long piston running left-to-right and the transverse end tube extending much farther downward than upward",
+        "v1 model.py:49-70 and the reference STEP retain the piston on raw X and place the rough-machined transverse tube on raw Y from approximately -197.649 to +49.403",
+        "the negative-Y-dominant transverse tube appearing downward fixes source up=+Y, while the piston-to-cross-tube order fixes source right=+X",
+        "direct reference-STEP inspection confirms bounds X=[-966.216,40.558], Y=[-197.649,49.403], Z=[-62.357,62.357] and a raw-X dominant cylinder axis"
+      ],
+      "ambiguities": [
+        "view_01 contains a local broken-out/partial section, but its dominant part depiction remains the external elevation used for the front basis",
+        "view_02 establishes an XZ plan projection, while the dominant geometry is mirror-symmetric in raw Z; its Z sign and Y camera side therefore remain symmetry-equivalent",
+        "selected plan basis right=+X/up=-Z follows the canonical top convention"
+      ],
+      "views": [
+        {
+          "id": "view_01",
+          "kind": "external",
+          "raw_right": [1, 0, 0],
+          "raw_up": [0, 1, 0],
+          "canonical_role": "front",
+          "confidence": "supported",
+          "source_label": "Elevation",
+          "notes": [
+            "Camera is raw +Z",
+            "The overall view is external even though a local broken-out section exposes internal material"
+          ]
+        },
+        {
+          "id": "view_02",
+          "kind": "external",
+          "raw_right": [1, 0, 0],
+          "raw_up": [0, 0, -1],
+          "canonical_role": "top",
+          "confidence": "symmetry_ambiguous",
+          "source_label": "Plan",
+          "notes": [
+            "Selected camera is raw +Y",
+            "The opposite raw-Z roll and camera side cannot be ruled out from the near-Z-mirrored plan geometry"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "case_005",
+      "front_basis": {
+        "right": [1, 0, 0],
+        "up": [0, 0, 1]
+      },
+      "status": "proposed",
+      "evidence": [
+        "source view_01 places the long barrel to the left, the fork and terminal eyes to the right, and the isolated pivot eye above the barrel",
+        "v1 model.py:62-82 places the barrel along raw X from -509.651, the fork legs toward positive X, and the pivot eye at raw Z=104.676",
+        "the directed barrel-to-fork order fixes source right=+X and the high pivot eye fixes source up=+Z; their cross gives camera raw -Y",
+        "direct reference-STEP inspection confirms the raw-X barrel axis, raw-Y transverse eyes, and bounds X=[-509.651,288.010], Y=[-118.329,118.329], Z=[-35.024,122.456]"
+      ],
+      "ambiguities": [
+        "view_03 establishes an end projection, but the paired fork legs and terminal eyes are mirrored about raw Y=0, so the in-plane raw-Y sign is not independently visible",
+        "selected view_03 basis right=+Y/up=+Z gives camera raw +X; a reflected/opposite-end interpretation remains plausible without a verified projection convention"
+      ],
+      "views": [
+        {
+          "id": "view_01",
+          "kind": "external",
+          "raw_right": [1, 0, 0],
+          "raw_up": [0, 0, 1],
+          "canonical_role": "front",
+          "confidence": "supported",
+          "source_label": "Elevation",
+          "notes": [
+            "Camera is raw -Y",
+            "The high pivot eye and directed barrel-to-fork sequence fix both screen-axis signs"
+          ]
+        },
+        {
+          "id": "view_03",
+          "kind": "external",
+          "raw_right": [0, 1, 0],
+          "raw_up": [0, 0, 1],
+          "canonical_role": "right_side",
+          "confidence": "symmetry_ambiguous",
+          "source_label": "End",
+          "notes": [
+            "Selected camera is raw +X and the upper pivot fixes raw +Z upward",
+            "The mirrored fork pair does not independently fix the raw-Y screen direction"
+          ]
+        }
+      ]
+    }
+  ]
+}

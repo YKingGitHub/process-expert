@@ -1,0 +1,832 @@
+{
+  "schema_version": 2,
+  "case_id": "case_028",
+  "name": "STKJ-MT01-0059双排链轮28A 齿数15",
+  "annotation": {
+    "case_id": "case_028",
+    "front_basis": {
+      "right": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    "status": "proposed",
+    "evidence": [
+      "source view_01 is the 15-tooth face and the reference STEP axial span is 80 along raw X with the approximately 232 mm diameter in raw YZ",
+      "source B-B dimension chain puts the 23.45 mm row at screen left and the 22 mm row at screen right, matching the raw low-X and high-X feature order",
+      "Raw STEP HLR with face camera raw -X and section screen right=+X reproduces the source tooth-row and stepped-bore projections"
+    ],
+    "ambiguities": [
+      "The 15-fold tooth pattern and concentric bore retain tooth-period roll ambiguity; the face alone also weakly constrains the horizontal Z sign",
+      "The low-X versus high-X face choice is taken from B-B and the sheet isometric, not from bbox matching"
+    ],
+    "views": [
+      {
+        "id": "view_01",
+        "kind": "external",
+        "raw_right": [
+          0,
+          0,
+          1
+        ],
+        "raw_up": [
+          0,
+          1,
+          0
+        ],
+        "canonical_role": "front",
+        "confidence": "symmetry_ambiguous",
+        "source_label": "Sprocket face",
+        "notes": [
+          "Projection is raw YZ with selected camera raw -X",
+          "The axial side is section-supported; tooth-period roll remains equivalent"
+        ]
+      },
+      {
+        "id": "view_02",
+        "kind": "section",
+        "raw_right": [
+          1,
+          0,
+          0
+        ],
+        "raw_up": [
+          0,
+          1,
+          0
+        ],
+        "canonical_role": "auxiliary",
+        "confidence": "supported",
+        "source_label": "B-B",
+        "notes": [
+          "Raw +X runs from the 23.45 mm row at left to the 22 mm row at right",
+          "Material hatching and stepped bore require a true centered section"
+        ]
+      },
+      {
+        "id": "view_03",
+        "kind": "specification",
+        "raw_right": null,
+        "raw_up": null,
+        "canonical_role": "auxiliary",
+        "confidence": "supported",
+        "source_label": "Chain parameters",
+        "notes": [
+          "Text-only chain specification block; exclude from geometric view slots"
+        ]
+      }
+    ]
+  },
+  "status": "pose_calibrated_candidate",
+  "training_ready": false,
+  "human_acceptance": "pending",
+  "source_dataset": "2026-10-15-real-triplets-33-v1",
+  "source_views": {
+    "schema_version": 1,
+    "case_id": "case_028",
+    "part_name": "STKJ-MT01-0059双排链轮28A 齿数15",
+    "annotation_method": "agent_manual_source_image_region_annotation",
+    "purpose": "label_authoring_not_heldout_evaluation",
+    "sources": [
+      {
+        "page": 1,
+        "pdf": "source/page_01.pdf",
+        "pdf_sha256": "db7776090ac1a84e41e48e118b7e4dc029a2f50a519279c84fb70a457e7d92d4",
+        "preview": "source/page_01.webp",
+        "original_size": [
+          3308,
+          2339
+        ],
+        "upright_size": [
+          3308,
+          2339
+        ],
+        "rotation_clockwise_degrees": 0,
+        "original_pdf_local_only": true
+      }
+    ],
+    "views": [
+      {
+        "id": "view_01",
+        "role": "front",
+        "label": "Sprocket face",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.16,
+          0.1,
+          0.54,
+          0.65
+        ],
+        "bbox_upright_pixels": [
+          529,
+          234,
+          1786,
+          1520
+        ],
+        "native_image": "views/view_01_native.png",
+        "image": "views/view_01.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 0.7278382581648523,
+        "padding_xy": [
+          54,
+          64
+        ],
+        "source_to_canvas_matrix": [
+          [
+            0.7278382581648523,
+            0,
+            -331.02643856920685
+          ],
+          [
+            0,
+            0.7278382581648523,
+            -106.31415241057542
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": null,
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_02",
+        "role": "section",
+        "label": "B-B",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.56,
+          0.12,
+          0.79,
+          0.67
+        ],
+        "bbox_upright_pixels": [
+          1852,
+          281,
+          2613,
+          1567
+        ],
+        "native_image": "views/view_02_native.png",
+        "image": "views/view_02.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 0.7278382581648523,
+        "padding_xy": [
+          235,
+          64
+        ],
+        "source_to_canvas_matrix": [
+          [
+            0.7278382581648523,
+            0,
+            -1112.9564541213065
+          ],
+          [
+            0,
+            0.7278382581648523,
+            -140.52255054432348
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Sprocket face",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_03",
+        "role": "specification",
+        "label": "Chain parameters",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.82,
+          0.2,
+          0.97,
+          0.4
+        ],
+        "bbox_upright_pixels": [
+          2713,
+          468,
+          3209,
+          936
+        ],
+        "native_image": "views/view_03_native.png",
+        "image": "views/view_03.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 1.967741935483871,
+        "padding_xy": [
+          24,
+          71
+        ],
+        "source_to_canvas_matrix": [
+          [
+            1.967741935483871,
+            0,
+            -5314.483870967742
+          ],
+          [
+            0,
+            1.967741935483871,
+            -849.9032258064516
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": null,
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      }
+    ],
+    "standard_slots": {
+      "front": "view_01",
+      "top": null,
+      "side": null
+    },
+    "extra_view_ids": [
+      "view_02",
+      "view_03"
+    ],
+    "projection_convention": "unverified",
+    "axis_mapping_to_step": null,
+    "shared_physical_pixel_scale": false,
+    "crop_policy": "uniform 1024 square per view; aspect ratio preserved; source crop and inverse mapping retained; dimensions retained; independent fitting does not imply equal mm per pixel",
+    "review_status": "pending_human_acceptance",
+    "gaps": [
+      "View roles and projection convention need human confirmation.",
+      "Source PDFs retained for manufacturing notes and revision checks."
+    ],
+    "annotation_gt_leakage": false
+  },
+  "source_model_sha256": "65b4efeb33ce9800a1ca882d647f388cb09c2778c332cb4779d619511ba9e26e",
+  "source_reference_sha256": "9f09eebd952a5dfb3aeb78917d5a34a6410cee6f76ee0171cd27b6047e5e0947",
+  "legacy_geometry_validation": {
+    "schema_version": 1,
+    "case_id": "case_028",
+    "cadquery_version": "2.5.2",
+    "purpose": "GT-assisted label-authoring QA; not held-out model evaluation",
+    "coordinate_alignment": "none; original physical mm frame",
+    "thresholds": {
+      "legacy_volume_relative": 0.02,
+      "legacy_area_relative": 0.05,
+      "legacy_sorted_bbox_relative": 0.02,
+      "additional_symmetric_difference_over_reference_volume": 0.01,
+      "additional_axis_bbox_relative": 0.01
+    },
+    "human_acceptance": "pending",
+    "training_ready": false,
+    "validator_sha256": "6be8bd1e6b1f037d23ea6737834ef426af038fe410bba5ef9cb52fb6628729f7",
+    "model_sha256": "65b4efeb33ce9800a1ca882d647f388cb09c2778c332cb4779d619511ba9e26e",
+    "program_audit": {
+      "status": "passed",
+      "allowed_imports": [
+        "cadquery",
+        "math"
+      ],
+      "external_geometry_reads": false,
+      "execution_mode": "trusted_authored_label_not_model_sandbox"
+    },
+    "execution_status": "success",
+    "reconstructed_sha256": "66ada3d576706425eb589a8ec88459acd49c056dfe465f37baa930d7268dd4af",
+    "reference_sha256": "9f09eebd952a5dfb3aeb78917d5a34a6410cee6f76ee0171cd27b6047e5e0947",
+    "reference": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 1881937.0524297853,
+      "surface_area_mm2": 161106.2356250684,
+      "bounds_mm": [
+        -3.064999999999998,
+        -114.65546125956517,
+        -116.22197336789633,
+        76.935,
+        116.56190428315864,
+        116.22197336789645
+      ],
+      "bbox_mm": [
+        80.0,
+        231.21736554272383,
+        232.4439467357928
+      ],
+      "face_count": 232
+    },
+    "reconstructed": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 1762879.0142451206,
+      "surface_area_mm2": 173014.5700181053,
+      "bounds_mm": [
+        -3.0650000000000093,
+        -116.12002858167605,
+        -115.9926374807,
+        76.93500000000002,
+        116.12002858167227,
+        114.9751843498155
+      ],
+      "bbox_mm": [
+        80.00000000000003,
+        232.24005716334833,
+        230.9678218305155
+      ],
+      "face_count": 128
+    },
+    "metrics": {
+      "volume_relative_error": 0.06326356029334128,
+      "area_relative_error": 0.07391603650122121,
+      "axis_bbox_relative_error": [
+        3.552713678800501e-16,
+        0.004423074444361009,
+        0.006350455350661914
+      ],
+      "sorted_bbox_relative_error": [
+        3.552713678800501e-16,
+        0.001079260252025541,
+        0.0008771558705128082
+      ],
+      "max_bound_position_error_mm": 1.4645673221108808,
+      "intersection_volume_mm3": 1551471.0365028419,
+      "iou_same_frame": 0.7411444430521411,
+      "symmetric_difference_volume_mm3": 541873.9936692221,
+      "symmetric_difference_over_reference_volume": 0.2879341755717089
+    },
+    "legacy_geometry_check": false,
+    "boolean_status": "success",
+    "geometry_gate_pass": false,
+    "status": "needs_geometry_revision",
+    "elapsed_seconds": 6.656
+  },
+  "coordinate_policy": "proper rigid rotation and translation only; mm retained; no mirror or scale",
+  "pixel_registration_status": "not_run",
+  "views": [
+    {
+      "id": "view_01",
+      "kind": "external",
+      "raw_right": [
+        0,
+        0,
+        1
+      ],
+      "raw_up": [
+        0,
+        1,
+        0
+      ],
+      "canonical_role": "front",
+      "confidence": "symmetry_ambiguous",
+      "source_label": "Sprocket face",
+      "notes": [
+        "Projection is raw YZ with selected camera raw -X",
+        "The axial side is section-supported; tooth-period roll remains equivalent"
+      ],
+      "source_image": "../2026-10-15-real-triplets-33-v1/cases/case_028/views/view_01.png",
+      "pair_status": "pose_only_pixel_registration_pending",
+      "canonical_camera": {
+        "screen_right": [
+          1,
+          0,
+          0
+        ],
+        "screen_up": [
+          0,
+          1,
+          0
+        ],
+        "camera_from_direction": [
+          0,
+          0,
+          1
+        ],
+        "view_direction": [
+          0,
+          0,
+          -1
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          3.4416899697085803,
+          0.0,
+          0.0,
+          512.0
+        ],
+        [
+          -0.0,
+          -3.4416899697085803,
+          -0.0,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference_render": "renders/view_01_reference.svg",
+      "reconstructed_render": "renders/view_01_reconstructed.svg"
+    },
+    {
+      "id": "view_02",
+      "kind": "section",
+      "raw_right": [
+        1,
+        0,
+        0
+      ],
+      "raw_up": [
+        0,
+        1,
+        0
+      ],
+      "canonical_role": "auxiliary",
+      "confidence": "supported",
+      "source_label": "B-B",
+      "notes": [
+        "Raw +X runs from the 23.45 mm row at left to the 22 mm row at right",
+        "Material hatching and stepped bore require a true centered section"
+      ],
+      "source_image": "../2026-10-15-real-triplets-33-v1/cases/case_028/views/view_02.png",
+      "pair_status": "not_pairable",
+      "reason": "Section plane/offset not calibrated; no external render is substituted for a section"
+    },
+    {
+      "id": "view_03",
+      "kind": "specification",
+      "raw_right": null,
+      "raw_up": null,
+      "canonical_role": "auxiliary",
+      "confidence": "supported",
+      "source_label": "Chain parameters",
+      "notes": [
+        "Text-only chain specification block; exclude from geometric view slots"
+      ],
+      "source_image": "../2026-10-15-real-triplets-33-v1/cases/case_028/views/view_03.png",
+      "pair_status": "not_pairable",
+      "reason": "No supported external orthographic camera for this annotation"
+    }
+  ],
+  "raw_to_canonical": [
+    [
+      0,
+      0,
+      1,
+      -6.394884621840902e-14
+    ],
+    [
+      0,
+      1,
+      0,
+      -0.953221511796734
+    ],
+    [
+      -1,
+      0,
+      0,
+      36.935
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "canonical_to_raw": [
+    [
+      0,
+      0,
+      -1,
+      36.935
+    ],
+    [
+      0,
+      1,
+      0,
+      0.953221511796734
+    ],
+    [
+      1,
+      0,
+      0,
+      6.394884621840902e-14
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "rotation_determinant": 1,
+  "canonical_frame": {
+    "X": "drawing-front right",
+    "Y": "drawing-front up",
+    "Z": "towards front-view camera"
+  },
+  "reference": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 1881937.0524299443,
+    "area_mm2": 161106.23562509273,
+    "bounds_mm": [
+      -116.22197336788724,
+      -115.60868277135157,
+      -40.00000000000001,
+      116.22197336789,
+      115.608682771353,
+      40.00000000000001
+    ],
+    "bbox_mm": [
+      232.44394673577725,
+      231.21736554270456,
+      80.00000000000001
+    ]
+  },
+  "reconstructed": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 1762879.0142450063,
+    "area_mm2": 173014.5700180989,
+    "bounds_mm": [
+      -115.9926374807,
+      -117.07325009347605,
+      -40.00000000000002,
+      114.9751843498155,
+      115.16680706988203,
+      40.00000000000002
+    ],
+    "bbox_mm": [
+      230.9678218305155,
+      232.24005716335807,
+      80.00000000000004
+    ]
+  },
+  "rigid_invariants": {
+    "reference_volume_relative_change": 8.459899447643693e-14,
+    "reconstructed_volume_relative_change": 6.483702463810914e-14,
+    "reference_area_relative_change": 1.509903313490213e-13,
+    "reconstructed_area_relative_change": 3.697042672001771e-14,
+    "transform_roundtrip_error_mm": 1.4210854715202004e-14
+  },
+  "shared_pixels_per_mm": 3.4416899697085803,
+  "canvas_size": [
+    1024,
+    1024
+  ],
+  "reference_sha256": "88406842706ce5e7fc17a040c683f8343796c6e94071be5aed6feabe3839bd73",
+  "reconstructed_sha256": "249c405ed12c14b9a11efe964b214e8a7739458678d28050d06240396ad4221e",
+  "model_sha256": "99fe9be687cfbdd0ce79aba08298d85112343e1ddea8d70701551e370a090ab4",
+  "builder_sha256": "414c8484644362fb3976d426fb202f8af1fcf67be1eb15bfbe27d8f67cfbc144",
+  "canonical_projections": {
+    "front": {
+      "camera": {
+        "screen_right": [
+          1,
+          0,
+          0
+        ],
+        "screen_up": [
+          0,
+          1,
+          0
+        ],
+        "camera_from_direction": [
+          0,
+          0,
+          1
+        ],
+        "view_direction": [
+          0,
+          0,
+          -1
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          3.4416899697085803,
+          0.0,
+          0.0,
+          512.0
+        ],
+        [
+          -0.0,
+          -3.4416899697085803,
+          -0.0,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference": "renders/front_reference.svg",
+      "reconstructed": "renders/front_reconstructed.svg",
+      "synthetic_reference_only": true
+    },
+    "top": {
+      "camera": {
+        "screen_right": [
+          1,
+          0,
+          0
+        ],
+        "screen_up": [
+          0,
+          0,
+          -1
+        ],
+        "camera_from_direction": [
+          0,
+          1,
+          0
+        ],
+        "view_direction": [
+          0,
+          -1,
+          0
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          3.4416899697085803,
+          0.0,
+          0.0,
+          512.0
+        ],
+        [
+          -0.0,
+          -0.0,
+          3.4416899697085803,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference": "renders/top_reference.svg",
+      "reconstructed": "renders/top_reconstructed.svg",
+      "synthetic_reference_only": true
+    },
+    "right_side": {
+      "camera": {
+        "screen_right": [
+          0,
+          0,
+          -1
+        ],
+        "screen_up": [
+          0,
+          1,
+          0
+        ],
+        "camera_from_direction": [
+          1,
+          0,
+          0
+        ],
+        "view_direction": [
+          -1,
+          0,
+          0
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          0.0,
+          0.0,
+          -3.4416899697085803,
+          512.0
+        ],
+        [
+          -0.0,
+          -3.4416899697085803,
+          -0.0,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference": "renders/right_side_reference.svg",
+      "reconstructed": "renders/right_side_reconstructed.svg",
+      "synthetic_reference_only": true
+    }
+  },
+  "input_view_mask": {
+    "front": true,
+    "top": false,
+    "right_side": false
+  },
+  "elapsed_seconds": 9.783,
+  "export_coordinate_verification": {
+    "status": "passed",
+    "method": "export/reload AABB versus source AABB corners transformed by raw_to_canonical",
+    "signed_axis_permutation_required": true,
+    "cadquery_rotation_contract": {
+      "status": "passed",
+      "rotation_count": 24,
+      "max_abs_bounds_error_mm": 1.0658141036401503e-14,
+      "tolerance_mm": 1e-05,
+      "method": "asymmetric off-origin CadQuery solid; expected AABB from matrix-transformed bbox corners"
+    },
+    "reference": {
+      "status": "passed",
+      "source_bounds_mm": [
+        -3.064999999999998,
+        -114.65546125956517,
+        -116.22197336789633,
+        76.935,
+        116.56190428315864,
+        116.22197336789645
+      ],
+      "expected_bounds_mm": [
+        -116.2219733678964,
+        -115.60868277136191,
+        -40.0,
+        116.2219733678964,
+        115.60868277136191,
+        40.0
+      ],
+      "actual_exported_bounds_mm": [
+        -116.22197336788724,
+        -115.60868277135157,
+        -40.00000000000001,
+        116.22197336789,
+        115.608682771353,
+        40.00000000000001
+      ],
+      "max_abs_bounds_error_mm": 1.0345502232667059e-11,
+      "tolerance_mm": 1e-05,
+      "export": "reference.step"
+    },
+    "reconstructed": {
+      "status": "passed",
+      "source_bounds_mm": [
+        -3.0650000000000093,
+        -116.12002858167605,
+        -115.9926374807,
+        76.93500000000002,
+        116.12002858167227,
+        114.9751843498155
+      ],
+      "expected_bounds_mm": [
+        -115.99263748070007,
+        -117.07325009347278,
+        -40.000000000000014,
+        114.97518434981544,
+        115.16680706987555,
+        40.000000000000014
+      ],
+      "actual_exported_bounds_mm": [
+        -115.9926374807,
+        -117.07325009347605,
+        -40.00000000000002,
+        114.9751843498155,
+        115.16680706988203,
+        40.00000000000002
+      ],
+      "max_abs_bounds_error_mm": 6.480149750132114e-12,
+      "tolerance_mm": 1e-05,
+      "export": "reconstructed.step"
+    }
+  },
+  "alignment_review_notes": [
+    "The drawing diameter 213.79 is a pitch-circle annotation, not the tooth-tip envelope. Pixel calibration is pending semantic feature matching; do not infer a drawing-STEP size conflict from the bounding box."
+  ],
+  "download": {
+    "zip": "cases/case_028/case_028_alignment_candidate.zip"
+  }
+}

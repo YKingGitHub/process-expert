@@ -1,0 +1,1864 @@
+{
+  "schema_version": 2,
+  "case_id": "case_005",
+  "name": "41608-3",
+  "annotation": {
+    "case_id": "case_005",
+    "front_basis": {
+      "right": [
+        1,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        0,
+        1
+      ]
+    },
+    "status": "proposed",
+    "evidence": [
+      "source view_01 places the long barrel to the left, the fork and terminal eyes to the right, and the isolated pivot eye above the barrel",
+      "v1 model.py:62-82 places the barrel along raw X from -509.651, the fork legs toward positive X, and the pivot eye at raw Z=104.676",
+      "the directed barrel-to-fork order fixes source right=+X and the high pivot eye fixes source up=+Z; their cross gives camera raw -Y",
+      "direct reference-STEP inspection confirms the raw-X barrel axis, raw-Y transverse eyes, and bounds X=[-509.651,288.010], Y=[-118.329,118.329], Z=[-35.024,122.456]"
+    ],
+    "ambiguities": [
+      "view_03 establishes an end projection, but the paired fork legs and terminal eyes are mirrored about raw Y=0, so the in-plane raw-Y sign is not independently visible",
+      "selected view_03 basis right=+Y/up=+Z gives camera raw +X; a reflected/opposite-end interpretation remains plausible without a verified projection convention"
+    ],
+    "views": [
+      {
+        "id": "view_01",
+        "kind": "external",
+        "raw_right": [
+          1,
+          0,
+          0
+        ],
+        "raw_up": [
+          0,
+          0,
+          1
+        ],
+        "canonical_role": "front",
+        "confidence": "supported",
+        "source_label": "Elevation",
+        "notes": [
+          "Camera is raw -Y",
+          "The high pivot eye and directed barrel-to-fork sequence fix both screen-axis signs"
+        ]
+      },
+      {
+        "id": "view_03",
+        "kind": "external",
+        "raw_right": [
+          0,
+          1,
+          0
+        ],
+        "raw_up": [
+          0,
+          0,
+          1
+        ],
+        "canonical_role": "right_side",
+        "confidence": "symmetry_ambiguous",
+        "source_label": "End",
+        "notes": [
+          "Selected camera is raw +X and the upper pivot fixes raw +Z upward",
+          "The mirrored fork pair does not independently fix the raw-Y screen direction"
+        ]
+      }
+    ]
+  },
+  "status": "pose_calibrated_candidate",
+  "training_ready": false,
+  "human_acceptance": "pending",
+  "source_dataset": "2026-10-15-real-triplets-33-v1",
+  "source_views": {
+    "schema_version": 1,
+    "case_id": "case_005",
+    "part_name": "41608-3",
+    "annotation_method": "agent_manual_source_image_region_annotation",
+    "purpose": "label_authoring_not_heldout_evaluation",
+    "sources": [
+      {
+        "page": 1,
+        "pdf": "source/page_01.pdf",
+        "pdf_sha256": "5d5e668915dd69d0c596e9d9aba9105513a903e1f03af3102a19026447b62485",
+        "preview": "source/page_01.webp",
+        "original_size": [
+          1700,
+          2200
+        ],
+        "upright_size": [
+          2200,
+          1700
+        ],
+        "rotation_clockwise_degrees": 90,
+        "original_pdf_local_only": true
+      },
+      {
+        "page": 2,
+        "pdf": "source/page_02.pdf",
+        "pdf_sha256": "74f0eba2b62b56de1e0041aab38ff82a6f9b5fd82f6d77ae70f3736bdc32c985",
+        "preview": "source/page_02.webp",
+        "original_size": [
+          1700,
+          2200
+        ],
+        "upright_size": [
+          2200,
+          1700
+        ],
+        "rotation_clockwise_degrees": 90,
+        "original_pdf_local_only": true
+      }
+    ],
+    "views": [
+      {
+        "id": "view_01",
+        "role": "front",
+        "label": "Elevation",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.31,
+          0.13,
+          0.95,
+          0.44
+        ],
+        "bbox_upright_pixels": [
+          682,
+          221,
+          2090,
+          748
+        ],
+        "native_image": "views/view_01_native.png",
+        "image": "views/view_01.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 0.6931818181818182,
+        "padding_xy": [
+          24,
+          349
+        ],
+        "source_to_canvas_matrix": [
+          [
+            0.6931818181818182,
+            0,
+            -448.75000000000006
+          ],
+          [
+            0,
+            0.6931818181818182,
+            195.80681818181816
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": null,
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_02",
+        "role": "section",
+        "label": "Longitudinal section",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.33,
+          0.45,
+          0.91,
+          0.74
+        ],
+        "bbox_upright_pixels": [
+          726,
+          765,
+          2002,
+          1258
+        ],
+        "native_image": "views/view_02_native.png",
+        "image": "views/view_02.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 0.7648902821316614,
+        "padding_xy": [
+          24,
+          343
+        ],
+        "source_to_canvas_matrix": [
+          [
+            0.7648902821316614,
+            0,
+            -531.3103448275862
+          ],
+          [
+            0,
+            0.7648902821316614,
+            -242.141065830721
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_03",
+        "role": "side",
+        "label": "End",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.045,
+          0.13,
+          0.29,
+          0.43
+        ],
+        "bbox_upright_pixels": [
+          99,
+          221,
+          638,
+          731
+        ],
+        "native_image": "views/view_03_native.png",
+        "image": "views/view_03.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 1.810760667903525,
+        "padding_xy": [
+          24,
+          70
+        ],
+        "source_to_canvas_matrix": [
+          [
+            1.810760667903525,
+            0,
+            -155.26530612244898
+          ],
+          [
+            0,
+            1.810760667903525,
+            -330.178107606679
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": null,
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_04",
+        "role": "detail",
+        "label": "K",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.05,
+          0.46,
+          0.125,
+          0.58
+        ],
+        "bbox_upright_pixels": [
+          110,
+          782,
+          275,
+          986
+        ],
+        "native_image": "views/view_04_native.png",
+        "image": "views/view_04.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 4.588235294117647,
+        "padding_xy": [
+          133,
+          64
+        ],
+        "source_to_canvas_matrix": [
+          [
+            4.588235294117647,
+            0,
+            -371.70588235294116
+          ],
+          [
+            0,
+            4.588235294117647,
+            -3523.9999999999995
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_05",
+        "role": "detail",
+        "label": "L",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.16,
+          0.48,
+          0.29,
+          0.58
+        ],
+        "bbox_upright_pixels": [
+          352,
+          816,
+          638,
+          986
+        ],
+        "native_image": "views/view_05_native.png",
+        "image": "views/view_05.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 3.4125874125874125,
+        "padding_xy": [
+          24,
+          242
+        ],
+        "source_to_canvas_matrix": [
+          [
+            3.4125874125874125,
+            0,
+            -1177.2307692307693
+          ],
+          [
+            0,
+            3.4125874125874125,
+            -2542.6713286713284
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_06",
+        "role": "section",
+        "label": "A-A",
+        "source_page": 2,
+        "bbox_upright_normalized": [
+          0.04,
+          0.07,
+          0.15,
+          0.21
+        ],
+        "bbox_upright_pixels": [
+          88,
+          119,
+          330,
+          357
+        ],
+        "native_image": "views/view_06_native.png",
+        "image": "views/view_06.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 3.9327731092436973,
+        "padding_xy": [
+          36,
+          64
+        ],
+        "source_to_canvas_matrix": [
+          [
+            3.9327731092436973,
+            0,
+            -310.08403361344534
+          ],
+          [
+            0,
+            3.9327731092436973,
+            -404.0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_07",
+        "role": "section",
+        "label": "B-B",
+        "source_page": 2,
+        "bbox_upright_normalized": [
+          0.18,
+          0.07,
+          0.29,
+          0.22
+        ],
+        "bbox_upright_pixels": [
+          396,
+          119,
+          638,
+          374
+        ],
+        "native_image": "views/view_07_native.png",
+        "image": "views/view_07.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 3.6705882352941175,
+        "padding_xy": [
+          68,
+          64
+        ],
+        "source_to_canvas_matrix": [
+          [
+            3.6705882352941175,
+            0,
+            -1385.5529411764705
+          ],
+          [
+            0,
+            3.6705882352941175,
+            -372.79999999999995
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_08",
+        "role": "section",
+        "label": "C-C",
+        "source_page": 2,
+        "bbox_upright_normalized": [
+          0.3,
+          0.08,
+          0.4,
+          0.24
+        ],
+        "bbox_upright_pixels": [
+          660,
+          136,
+          880,
+          408
+        ],
+        "native_image": "views/view_08_native.png",
+        "image": "views/view_08.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 3.4411764705882355,
+        "padding_xy": [
+          133,
+          64
+        ],
+        "source_to_canvas_matrix": [
+          [
+            3.4411764705882355,
+            0,
+            -2138.1764705882356
+          ],
+          [
+            0,
+            3.4411764705882355,
+            -404.0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_09",
+        "role": "section",
+        "label": "D-D",
+        "source_page": 2,
+        "bbox_upright_normalized": [
+          0.41,
+          0.12,
+          0.6,
+          0.31
+        ],
+        "bbox_upright_pixels": [
+          902,
+          204,
+          1320,
+          527
+        ],
+        "native_image": "views/view_09_native.png",
+        "image": "views/view_09.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 2.334928229665072,
+        "padding_xy": [
+          24,
+          155
+        ],
+        "source_to_canvas_matrix": [
+          [
+            2.334928229665072,
+            0,
+            -2082.105263157895
+          ],
+          [
+            0,
+            2.334928229665072,
+            -321.3253588516747
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_10",
+        "role": "section",
+        "label": "E-E",
+        "source_page": 2,
+        "bbox_upright_normalized": [
+          0.04,
+          0.23,
+          0.29,
+          0.47
+        ],
+        "bbox_upright_pixels": [
+          88,
+          391,
+          638,
+          799
+        ],
+        "native_image": "views/view_10_native.png",
+        "image": "views/view_10.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 1.7745454545454546,
+        "padding_xy": [
+          24,
+          170
+        ],
+        "source_to_canvas_matrix": [
+          [
+            1.7745454545454546,
+            0,
+            -132.16
+          ],
+          [
+            0,
+            1.7745454545454546,
+            -523.8472727272728
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_11",
+        "role": "section",
+        "label": "F-F",
+        "source_page": 2,
+        "bbox_upright_normalized": [
+          0.3,
+          0.26,
+          0.45,
+          0.52
+        ],
+        "bbox_upright_pixels": [
+          660,
+          442,
+          990,
+          884
+        ],
+        "native_image": "views/view_11_native.png",
+        "image": "views/view_11.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 2.1176470588235294,
+        "padding_xy": [
+          162,
+          64
+        ],
+        "source_to_canvas_matrix": [
+          [
+            2.1176470588235294,
+            0,
+            -1235.6470588235295
+          ],
+          [
+            0,
+            2.1176470588235294,
+            -872.0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_12",
+        "role": "section",
+        "label": "G-G",
+        "source_page": 2,
+        "bbox_upright_normalized": [
+          0.45,
+          0.31,
+          0.7,
+          0.54
+        ],
+        "bbox_upright_pixels": [
+          990,
+          527,
+          1540,
+          918
+        ],
+        "native_image": "views/view_12_native.png",
+        "image": "views/view_12.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 1.7745454545454546,
+        "padding_xy": [
+          24,
+          185
+        ],
+        "source_to_canvas_matrix": [
+          [
+            1.7745454545454546,
+            0,
+            -1732.8000000000002
+          ],
+          [
+            0,
+            1.7745454545454546,
+            -750.1854545454546
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_13",
+        "role": "section",
+        "label": "H-H",
+        "source_page": 2,
+        "bbox_upright_normalized": [
+          0.78,
+          0.39,
+          0.9,
+          0.59
+        ],
+        "bbox_upright_pixels": [
+          1716,
+          663,
+          1980,
+          1003
+        ],
+        "native_image": "views/view_13_native.png",
+        "image": "views/view_13.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 2.7529411764705882,
+        "padding_xy": [
+          148,
+          64
+        ],
+        "source_to_canvas_matrix": [
+          [
+            2.7529411764705882,
+            0,
+            -4576.047058823529
+          ],
+          [
+            0,
+            2.7529411764705882,
+            -1761.2
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_14",
+        "role": "detail",
+        "label": "A",
+        "source_page": 2,
+        "bbox_upright_normalized": [
+          0.03,
+          0.45,
+          0.3,
+          0.69
+        ],
+        "bbox_upright_pixels": [
+          66,
+          765,
+          660,
+          1173
+        ],
+        "native_image": "views/view_14_native.png",
+        "image": "views/view_14.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 1.6430976430976432,
+        "padding_xy": [
+          24,
+          197
+        ],
+        "source_to_canvas_matrix": [
+          [
+            1.6430976430976432,
+            0,
+            -84.44444444444444
+          ],
+          [
+            0,
+            1.6430976430976432,
+            -1059.969696969697
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_15",
+        "role": "detail",
+        "label": "B",
+        "source_page": 2,
+        "bbox_upright_normalized": [
+          0.31,
+          0.54,
+          0.44,
+          0.7
+        ],
+        "bbox_upright_pixels": [
+          682,
+          918,
+          968,
+          1190
+        ],
+        "native_image": "views/view_15_native.png",
+        "image": "views/view_15.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 3.4125874125874125,
+        "padding_xy": [
+          24,
+          68
+        ],
+        "source_to_canvas_matrix": [
+          [
+            3.4125874125874125,
+            0,
+            -2303.3846153846152
+          ],
+          [
+            0,
+            3.4125874125874125,
+            -3064.755244755245
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_16",
+        "role": "detail",
+        "label": "C",
+        "source_page": 2,
+        "bbox_upright_normalized": [
+          0.45,
+          0.56,
+          0.68,
+          0.75
+        ],
+        "bbox_upright_pixels": [
+          990,
+          952,
+          1496,
+          1275
+        ],
+        "native_image": "views/view_16_native.png",
+        "image": "views/view_16.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 1.9288537549407114,
+        "padding_xy": [
+          24,
+          220
+        ],
+        "source_to_canvas_matrix": [
+          [
+            1.9288537549407114,
+            0,
+            -1885.5652173913043
+          ],
+          [
+            0,
+            1.9288537549407114,
+            -1616.2687747035573
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_17",
+        "role": "detail",
+        "label": "M",
+        "source_page": 2,
+        "bbox_upright_normalized": [
+          0.62,
+          0.39,
+          0.81,
+          0.6
+        ],
+        "bbox_upright_pixels": [
+          1364,
+          663,
+          1782,
+          1020
+        ],
+        "native_image": "views/view_17_native.png",
+        "image": "views/view_17.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 2.334928229665072,
+        "padding_xy": [
+          24,
+          115
+        ],
+        "source_to_canvas_matrix": [
+          [
+            2.334928229665072,
+            0,
+            -3160.8421052631584
+          ],
+          [
+            0,
+            2.334928229665072,
+            -1433.0574162679427
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_18",
+        "role": "detail",
+        "label": "D",
+        "source_page": 2,
+        "bbox_upright_normalized": [
+          0.035,
+          0.66,
+          0.31,
+          0.89
+        ],
+        "bbox_upright_pixels": [
+          77,
+          1122,
+          682,
+          1513
+        ],
+        "native_image": "views/view_18_native.png",
+        "image": "views/view_18.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 1.6132231404958677,
+        "padding_xy": [
+          24,
+          216
+        ],
+        "source_to_canvas_matrix": [
+          [
+            1.6132231404958677,
+            0,
+            -100.2181818181818
+          ],
+          [
+            0,
+            1.6132231404958677,
+            -1594.0363636363636
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_19",
+        "role": "detail",
+        "label": "E",
+        "source_page": 2,
+        "bbox_upright_normalized": [
+          0.3,
+          0.77,
+          0.42,
+          0.9
+        ],
+        "bbox_upright_pixels": [
+          660,
+          1309,
+          924,
+          1530
+        ],
+        "native_image": "views/view_19_native.png",
+        "image": "views/view_19.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 3.696969696969697,
+        "padding_xy": [
+          24,
+          123
+        ],
+        "source_to_canvas_matrix": [
+          [
+            3.696969696969697,
+            0,
+            -2416.0
+          ],
+          [
+            0,
+            3.696969696969697,
+            -4716.333333333333
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_20",
+        "role": "detail",
+        "label": "F",
+        "source_page": 2,
+        "bbox_upright_normalized": [
+          0.43,
+          0.67,
+          0.63,
+          0.91
+        ],
+        "bbox_upright_pixels": [
+          946,
+          1139,
+          1386,
+          1547
+        ],
+        "native_image": "views/view_20_native.png",
+        "image": "views/view_20.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 2.2181818181818183,
+        "padding_xy": [
+          24,
+          79
+        ],
+        "source_to_canvas_matrix": [
+          [
+            2.2181818181818183,
+            0,
+            -2074.4
+          ],
+          [
+            0,
+            2.2181818181818183,
+            -2447.509090909091
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_21",
+        "role": "detail",
+        "label": "H",
+        "source_page": 2,
+        "bbox_upright_normalized": [
+          0.58,
+          0.73,
+          0.71,
+          0.91
+        ],
+        "bbox_upright_pixels": [
+          1276,
+          1241,
+          1562,
+          1547
+        ],
+        "native_image": "views/view_21_native.png",
+        "image": "views/view_21.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 3.0588235294117645,
+        "padding_xy": [
+          74,
+          64
+        ],
+        "source_to_canvas_matrix": [
+          [
+            3.0588235294117645,
+            0,
+            -3829.0588235294117
+          ],
+          [
+            0,
+            3.0588235294117645,
+            -3731.9999999999995
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_22",
+        "role": "auxiliary",
+        "label": "A-A",
+        "source_page": 2,
+        "bbox_upright_normalized": [
+          0.67,
+          0.59,
+          0.81,
+          0.77
+        ],
+        "bbox_upright_pixels": [
+          1474,
+          1003,
+          1782,
+          1309
+        ],
+        "native_image": "views/view_22_native.png",
+        "image": "views/view_22.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 3.0588235294117645,
+        "padding_xy": [
+          41,
+          64
+        ],
+        "source_to_canvas_matrix": [
+          [
+            3.0588235294117645,
+            0,
+            -4467.7058823529405
+          ],
+          [
+            0,
+            3.0588235294117645,
+            -3004.0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_23",
+        "role": "auxiliary",
+        "label": "B-B",
+        "source_page": 2,
+        "bbox_upright_normalized": [
+          0.79,
+          0.57,
+          0.97,
+          0.79
+        ],
+        "bbox_upright_pixels": [
+          1738,
+          969,
+          2134,
+          1343
+        ],
+        "native_image": "views/view_23_native.png",
+        "image": "views/view_23.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 2.4646464646464645,
+        "padding_xy": [
+          24,
+          71
+        ],
+        "source_to_canvas_matrix": [
+          [
+            2.4646464646464645,
+            0,
+            -4259.555555555556
+          ],
+          [
+            0,
+            2.4646464646464645,
+            -2317.242424242424
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      }
+    ],
+    "standard_slots": {
+      "front": "view_01",
+      "top": null,
+      "side": "view_03"
+    },
+    "extra_view_ids": [
+      "view_02",
+      "view_04",
+      "view_05",
+      "view_06",
+      "view_07",
+      "view_08",
+      "view_09",
+      "view_10",
+      "view_11",
+      "view_12",
+      "view_13",
+      "view_14",
+      "view_15",
+      "view_16",
+      "view_17",
+      "view_18",
+      "view_19",
+      "view_20",
+      "view_21",
+      "view_22",
+      "view_23"
+    ],
+    "projection_convention": "unverified",
+    "axis_mapping_to_step": null,
+    "shared_physical_pixel_scale": false,
+    "crop_policy": "uniform 1024 square per view; aspect ratio preserved; source crop and inverse mapping retained; dimensions retained; independent fitting does not imply equal mm per pixel",
+    "review_status": "pending_human_acceptance",
+    "gaps": [
+      "View roles and relationships are provisional; review source pages.",
+      "Pixel crop removes surrounding context; source PDFs retained for tolerances, materials and revision checks.",
+      "Section/detail groups on dense legacy sheets need further splitting."
+    ],
+    "annotation_gt_leakage": false
+  },
+  "source_model_sha256": "0c67926215ba79f4cd230ffc2ef2745a3a590900ff9ac1beeffce383876cc9e4",
+  "source_reference_sha256": "5983c802f8908b0621e88640803c330aae7508d5cacb017cd32729832a317914",
+  "legacy_geometry_validation": {
+    "schema_version": 1,
+    "case_id": "case_005",
+    "cadquery_version": "2.5.2",
+    "purpose": "GT-assisted label-authoring QA; not held-out model evaluation",
+    "coordinate_alignment": "none; original physical mm frame",
+    "thresholds": {
+      "legacy_volume_relative": 0.02,
+      "legacy_area_relative": 0.05,
+      "legacy_sorted_bbox_relative": 0.02,
+      "additional_symmetric_difference_over_reference_volume": 0.01,
+      "additional_axis_bbox_relative": 0.01
+    },
+    "human_acceptance": "pending",
+    "training_ready": false,
+    "validator_sha256": "6be8bd1e6b1f037d23ea6737834ef426af038fe410bba5ef9cb52fb6628729f7",
+    "model_sha256": "0c67926215ba79f4cd230ffc2ef2745a3a590900ff9ac1beeffce383876cc9e4",
+    "program_audit": {
+      "status": "passed",
+      "allowed_imports": [
+        "cadquery",
+        "math"
+      ],
+      "external_geometry_reads": false,
+      "execution_mode": "trusted_authored_label_not_model_sandbox"
+    },
+    "execution_status": "success",
+    "reconstructed_sha256": "0a56ccb61dc222bf2033f9cedac7dcaffdcd3bad6e8944cf542b4b1d2dcc8f0b",
+    "reference_sha256": "5983c802f8908b0621e88640803c330aae7508d5cacb017cd32729832a317914",
+    "reference": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 1366585.8336607781,
+      "surface_area_mm2": 264067.1668645319,
+      "bounds_mm": [
+        -509.6510000020068,
+        -118.32857116521001,
+        -35.0240001003,
+        288.01026307502,
+        118.32857116521001,
+        122.4560000001
+      ],
+      "bbox_mm": [
+        797.6612630770269,
+        236.65714233042002,
+        157.4800001004
+      ],
+      "face_count": 575
+    },
+    "reconstructed": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 1424733.4232945547,
+      "surface_area_mm2": 253385.7628061484,
+      "bounds_mm": [
+        -509.651,
+        -118.329,
+        -35.024,
+        288.01000000000005,
+        118.329,
+        122.456
+      ],
+      "bbox_mm": [
+        797.6610000000001,
+        236.658,
+        157.48000000000002
+      ],
+      "face_count": 79
+    },
+    "metrics": {
+      "volume_relative_error": 0.04254953344424197,
+      "area_relative_error": 0.04044957267960195,
+      "axis_bbox_relative_error": [
+        3.298104584079587e-07,
+        3.6241018188849857e-06,
+        6.375411018287232e-10
+      ],
+      "sorted_bbox_relative_error": [
+        6.375411018287232e-10,
+        3.6241018188849857e-06,
+        3.298104584079587e-07
+      ],
+      "max_bound_position_error_mm": 0.0004288347899858991,
+      "intersection_volume_mm3": 223673.78337199797,
+      "iou_same_frame": 0.08711240927659886,
+      "symmetric_difference_volume_mm3": 2343971.690211337,
+      "symmetric_difference_over_reference_volume": 1.715202684292695
+    },
+    "legacy_geometry_check": false,
+    "boolean_status": "success",
+    "geometry_gate_pass": false,
+    "status": "needs_geometry_revision",
+    "elapsed_seconds": 12.285
+  },
+  "coordinate_policy": "proper rigid rotation and translation only; mm retained; no mirror or scale",
+  "pixel_registration_status": "not_run",
+  "views": [
+    {
+      "id": "view_01",
+      "kind": "external",
+      "raw_right": [
+        1,
+        0,
+        0
+      ],
+      "raw_up": [
+        0,
+        0,
+        1
+      ],
+      "canonical_role": "front",
+      "confidence": "supported",
+      "source_label": "Elevation",
+      "notes": [
+        "Camera is raw -Y",
+        "The high pivot eye and directed barrel-to-fork sequence fix both screen-axis signs"
+      ],
+      "source_image": "../2026-10-15-real-triplets-33-v1/cases/case_005/views/view_01.png",
+      "pair_status": "pose_only_pixel_registration_pending",
+      "canonical_camera": {
+        "screen_right": [
+          1,
+          0,
+          0
+        ],
+        "screen_up": [
+          0,
+          1,
+          0
+        ],
+        "camera_from_direction": [
+          0,
+          0,
+          1
+        ],
+        "view_direction": [
+          0,
+          0,
+          -1
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          1.0029319927286737,
+          0.0,
+          0.0,
+          512.0
+        ],
+        [
+          -0.0,
+          -1.0029319927286737,
+          -0.0,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference_render": "renders/view_01_reference.svg",
+      "reconstructed_render": "renders/view_01_reconstructed.svg"
+    },
+    {
+      "id": "view_03",
+      "kind": "external",
+      "raw_right": [
+        0,
+        1,
+        0
+      ],
+      "raw_up": [
+        0,
+        0,
+        1
+      ],
+      "canonical_role": "right_side",
+      "confidence": "symmetry_ambiguous",
+      "source_label": "End",
+      "notes": [
+        "Selected camera is raw +X and the upper pivot fixes raw +Z upward",
+        "The mirrored fork pair does not independently fix the raw-Y screen direction"
+      ],
+      "source_image": "../2026-10-15-real-triplets-33-v1/cases/case_005/views/view_03.png",
+      "pair_status": "pose_only_pixel_registration_pending",
+      "canonical_camera": {
+        "screen_right": [
+          0,
+          0,
+          -1
+        ],
+        "screen_up": [
+          0,
+          1,
+          0
+        ],
+        "camera_from_direction": [
+          1,
+          0,
+          0
+        ],
+        "view_direction": [
+          -1,
+          0,
+          0
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          0.0,
+          0.0,
+          -1.0029319927286737,
+          512.0
+        ],
+        [
+          -0.0,
+          -1.0029319927286737,
+          -0.0,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference_render": "renders/view_03_reference.svg",
+      "reconstructed_render": "renders/view_03_reconstructed.svg"
+    }
+  ],
+  "raw_to_canonical": [
+    [
+      1,
+      0,
+      0,
+      110.8203684634934
+    ],
+    [
+      0,
+      0,
+      1,
+      -43.7159999499
+    ],
+    [
+      0,
+      -1,
+      0,
+      -0.0
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "canonical_to_raw": [
+    [
+      1,
+      0,
+      0,
+      -110.8203684634934
+    ],
+    [
+      0,
+      0,
+      -1,
+      0.0
+    ],
+    [
+      0,
+      1,
+      0,
+      43.7159999499
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "rotation_determinant": 1,
+  "canonical_frame": {
+    "X": "drawing-front right",
+    "Y": "drawing-front up",
+    "Z": "towards front-view camera"
+  },
+  "reference": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 1366585.620771217,
+    "area_mm2": 264067.1523548962,
+    "bounds_mm": [
+      -398.8306315385068,
+      -78.7400000502,
+      -118.32857116521,
+      398.8306314385,
+      78.7400000502,
+      118.32857116521001
+    ],
+    "bbox_mm": [
+      797.6612629770068,
+      157.4800001004,
+      236.65714233042002
+    ]
+  },
+  "reconstructed": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 1424733.423294537,
+    "area_mm2": 253385.76280614678,
+    "bounds_mm": [
+      -398.83063153650005,
+      -78.73999994990001,
+      -118.329,
+      398.83036846349,
+      78.74000005010001,
+      118.329
+    ],
+    "bbox_mm": [
+      797.66099999999,
+      157.48000000000002,
+      236.658
+    ]
+  },
+  "rigid_invariants": {
+    "reference_volume_relative_change": 1.5578206358224378e-07,
+    "reconstructed_volume_relative_change": 1.2434497875801753e-14,
+    "reference_area_relative_change": 5.494676169615076e-08,
+    "reconstructed_area_relative_change": 6.439293542825908e-15,
+    "transform_roundtrip_error_mm": 5.684341886080802e-14
+  },
+  "shared_pixels_per_mm": 1.0029319927286737,
+  "canvas_size": [
+    1024,
+    1024
+  ],
+  "reference_sha256": "e14f0fdc8300834a3c9ac764c072cdac7e9160c3771736b55b01298e97b4aef0",
+  "reconstructed_sha256": "3afc8fc80a0371ef1ceb006a705d0ddb151c95f75fd1526f61b5f148eb73270b",
+  "model_sha256": "9f3287a077e19cb6554cf916a8f0ec47589154e0e1a968e611551244636a4603",
+  "builder_sha256": "414c8484644362fb3976d426fb202f8af1fcf67be1eb15bfbe27d8f67cfbc144",
+  "canonical_projections": {
+    "front": {
+      "camera": {
+        "screen_right": [
+          1,
+          0,
+          0
+        ],
+        "screen_up": [
+          0,
+          1,
+          0
+        ],
+        "camera_from_direction": [
+          0,
+          0,
+          1
+        ],
+        "view_direction": [
+          0,
+          0,
+          -1
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          1.0029319927286737,
+          0.0,
+          0.0,
+          512.0
+        ],
+        [
+          -0.0,
+          -1.0029319927286737,
+          -0.0,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference": "renders/front_reference.svg",
+      "reconstructed": "renders/front_reconstructed.svg",
+      "synthetic_reference_only": true
+    },
+    "top": {
+      "camera": {
+        "screen_right": [
+          1,
+          0,
+          0
+        ],
+        "screen_up": [
+          0,
+          0,
+          -1
+        ],
+        "camera_from_direction": [
+          0,
+          1,
+          0
+        ],
+        "view_direction": [
+          0,
+          -1,
+          0
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          1.0029319927286737,
+          0.0,
+          0.0,
+          512.0
+        ],
+        [
+          -0.0,
+          -0.0,
+          1.0029319927286737,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference": "renders/top_reference.svg",
+      "reconstructed": "renders/top_reconstructed.svg",
+      "synthetic_reference_only": true
+    },
+    "right_side": {
+      "camera": {
+        "screen_right": [
+          0,
+          0,
+          -1
+        ],
+        "screen_up": [
+          0,
+          1,
+          0
+        ],
+        "camera_from_direction": [
+          1,
+          0,
+          0
+        ],
+        "view_direction": [
+          -1,
+          0,
+          0
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          0.0,
+          0.0,
+          -1.0029319927286737,
+          512.0
+        ],
+        [
+          -0.0,
+          -1.0029319927286737,
+          -0.0,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference": "renders/right_side_reference.svg",
+      "reconstructed": "renders/right_side_reconstructed.svg",
+      "synthetic_reference_only": true
+    }
+  },
+  "input_view_mask": {
+    "front": true,
+    "top": false,
+    "right_side": true
+  },
+  "elapsed_seconds": 14.364,
+  "export_coordinate_verification": {
+    "status": "passed",
+    "method": "export/reload AABB versus source AABB corners transformed by raw_to_canonical",
+    "signed_axis_permutation_required": true,
+    "cadquery_rotation_contract": {
+      "status": "passed",
+      "rotation_count": 24,
+      "max_abs_bounds_error_mm": 1.0658141036401503e-14,
+      "tolerance_mm": 1e-05,
+      "method": "asymmetric off-origin CadQuery solid; expected AABB from matrix-transformed bbox corners"
+    },
+    "reference": {
+      "status": "passed",
+      "source_bounds_mm": [
+        -509.6510000020068,
+        -118.32857116521001,
+        -35.0240001003,
+        288.01026307502,
+        118.32857116521001,
+        122.4560000001
+      ],
+      "expected_bounds_mm": [
+        -398.83063153851344,
+        -78.7400000502,
+        -118.32857116521001,
+        398.83063153851344,
+        78.7400000502,
+        118.32857116521001
+      ],
+      "actual_exported_bounds_mm": [
+        -398.8306315385068,
+        -78.7400000502,
+        -118.32857116521,
+        398.8306314385,
+        78.7400000502,
+        118.32857116521001
+      ],
+      "max_abs_bounds_error_mm": 1.0001343753174297e-07,
+      "tolerance_mm": 1e-05,
+      "export": "reference.step"
+    },
+    "reconstructed": {
+      "status": "passed",
+      "source_bounds_mm": [
+        -509.651,
+        -118.329,
+        -35.024,
+        288.01000000000005,
+        118.329,
+        122.456
+      ],
+      "expected_bounds_mm": [
+        -398.83063153650664,
+        -78.73999994990001,
+        -118.329,
+        398.8303684634934,
+        78.74000005010001,
+        118.329
+      ],
+      "actual_exported_bounds_mm": [
+        -398.83063153650005,
+        -78.73999994990001,
+        -118.329,
+        398.83036846349,
+        78.74000005010001,
+        118.329
+      ],
+      "max_abs_bounds_error_mm": 6.59383658785373e-12,
+      "tolerance_mm": 1e-05,
+      "export": "reconstructed.step"
+    }
+  },
+  "alignment_review_notes": [],
+  "download": {
+    "zip": "cases/case_005/case_005_alignment_candidate.zip"
+  }
+}

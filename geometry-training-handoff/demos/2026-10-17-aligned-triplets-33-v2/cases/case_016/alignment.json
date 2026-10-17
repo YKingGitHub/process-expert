@@ -1,0 +1,791 @@
+{
+  "schema_version": 2,
+  "case_id": "case_016",
+  "name": "STKJ-MT01-0042传动轴",
+  "annotation": {
+    "case_id": "case_016",
+    "front_basis": {
+      "right": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    "status": "proposed",
+    "evidence": [
+      "source view_01 is the 660 by 90 broken longitudinal view and view_02 is the diameter-90 end view",
+      "v1 model.py:6 is a diameter-90 cylinder extruded 660 along raw +Z",
+      "v1 validation.json reports exact same-frame geometry against the reference STEP"
+    ],
+    "ambiguities": [
+      "A plain cylinder is invariant under axial reversal and every roll about Z; +Z screen-right and +Y screen-up are deterministic representatives only",
+      "The end view cannot distinguish camera +Z from -Z or any X/Y roll"
+    ],
+    "views": [
+      {
+        "id": "view_01",
+        "kind": "external",
+        "raw_right": [
+          0,
+          0,
+          1
+        ],
+        "raw_up": [
+          0,
+          1,
+          0
+        ],
+        "canonical_role": "front",
+        "confidence": "symmetry_ambiguous",
+        "source_label": "Longitudinal - broken",
+        "notes": [
+          "Selected camera is -X; camera +X and any radial up direction are equivalent"
+        ]
+      },
+      {
+        "id": "view_02",
+        "kind": "external",
+        "raw_right": [
+          1,
+          0,
+          0
+        ],
+        "raw_up": [
+          0,
+          1,
+          0
+        ],
+        "canonical_role": "right_side",
+        "confidence": "symmetry_ambiguous",
+        "source_label": "End",
+        "notes": [
+          "Selected camera is +Z; the opposite end and all in-plane rolls are indistinguishable"
+        ]
+      }
+    ]
+  },
+  "status": "pose_calibrated_candidate",
+  "training_ready": false,
+  "human_acceptance": "pending",
+  "source_dataset": "2026-10-15-real-triplets-33-v1",
+  "source_views": {
+    "schema_version": 1,
+    "case_id": "case_016",
+    "part_name": "STKJ-MT01-0042传动轴",
+    "annotation_method": "agent_manual_source_image_region_annotation",
+    "purpose": "label_authoring_not_heldout_evaluation",
+    "sources": [
+      {
+        "page": 1,
+        "pdf": "source/page_01.pdf",
+        "pdf_sha256": "8a2e81226712a317e0dff0dea0f9c6aa0d5113d5a670cf95bd7f0f7a685ca73e",
+        "preview": "source/page_01.webp",
+        "original_size": [
+          2339,
+          1654
+        ],
+        "upright_size": [
+          2339,
+          1654
+        ],
+        "rotation_clockwise_degrees": 0,
+        "original_pdf_local_only": true
+      }
+    ],
+    "views": [
+      {
+        "id": "view_01",
+        "role": "front",
+        "label": "Longitudinal - broken",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.17,
+          0.17,
+          0.59,
+          0.57
+        ],
+        "bbox_upright_pixels": [
+          398,
+          281,
+          1380,
+          943
+        ],
+        "native_image": "views/view_01_native.png",
+        "image": "views/view_01.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 0.9938900203665988,
+        "padding_xy": [
+          24,
+          203
+        ],
+        "source_to_canvas_matrix": [
+          [
+            0.9938900203665988,
+            0,
+            -371.5682281059063
+          ],
+          [
+            0,
+            0.9938900203665988,
+            -76.28309572301424
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": null,
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_02",
+        "role": "side",
+        "label": "End",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.65,
+          0.26,
+          0.89,
+          0.57
+        ],
+        "bbox_upright_pixels": [
+          1520,
+          430,
+          2082,
+          943
+        ],
+        "native_image": "views/view_02_native.png",
+        "image": "views/view_02.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 1.7366548042704626,
+        "padding_xy": [
+          24,
+          86
+        ],
+        "source_to_canvas_matrix": [
+          [
+            1.7366548042704626,
+            0,
+            -2615.715302491103
+          ],
+          [
+            0,
+            1.7366548042704626,
+            -660.7615658362989
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": null,
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      }
+    ],
+    "standard_slots": {
+      "front": "view_01",
+      "top": null,
+      "side": "view_02"
+    },
+    "extra_view_ids": [],
+    "projection_convention": "unverified",
+    "axis_mapping_to_step": null,
+    "shared_physical_pixel_scale": false,
+    "crop_policy": "uniform 1024 square per view; aspect ratio preserved; source crop and inverse mapping retained; dimensions retained; independent fitting does not imply equal mm per pixel",
+    "review_status": "pending_human_acceptance",
+    "gaps": [
+      "View roles and projection convention need human confirmation.",
+      "Source PDFs retained for manufacturing notes and revision checks."
+    ],
+    "annotation_gt_leakage": false
+  },
+  "source_model_sha256": "65ca0acd4c175975bbbffaef3eebb972cf61b3f82033c4b9fcc2703d0de52ab1",
+  "source_reference_sha256": "44895a79ac2403d9b9921fad0c8354ca1b7ae6c5314103f7c5f3c79762cc4dd2",
+  "legacy_geometry_validation": {
+    "schema_version": 1,
+    "case_id": "case_016",
+    "cadquery_version": "2.5.2",
+    "purpose": "GT-assisted label-authoring QA; not held-out model evaluation",
+    "coordinate_alignment": "none; original physical mm frame",
+    "thresholds": {
+      "legacy_volume_relative": 0.02,
+      "legacy_area_relative": 0.05,
+      "legacy_sorted_bbox_relative": 0.02,
+      "additional_symmetric_difference_over_reference_volume": 0.01,
+      "additional_axis_bbox_relative": 0.01
+    },
+    "human_acceptance": "pending",
+    "training_ready": false,
+    "validator_sha256": "6be8bd1e6b1f037d23ea6737834ef426af038fe410bba5ef9cb52fb6628729f7",
+    "model_sha256": "65ca0acd4c175975bbbffaef3eebb972cf61b3f82033c4b9fcc2703d0de52ab1",
+    "program_audit": {
+      "status": "passed",
+      "allowed_imports": [
+        "cadquery",
+        "math"
+      ],
+      "external_geometry_reads": false,
+      "execution_mode": "trusted_authored_label_not_model_sandbox"
+    },
+    "execution_status": "success",
+    "reconstructed_sha256": "a0b22cb013051285f76a6df952eba2c2cbfeff6e2994315f7a4b027bbdf657d4",
+    "reference_sha256": "44895a79ac2403d9b9921fad0c8354ca1b7ae6c5314103f7c5f3c79762cc4dd2",
+    "reference": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 4198738.58152276,
+      "surface_area_mm2": 199334.0538702724,
+      "bounds_mm": [
+        -45.00000000000001,
+        -45.00000000000001,
+        0.0,
+        45.00000000000001,
+        45.00000000000001,
+        660.0
+      ],
+      "bbox_mm": [
+        90.00000000000001,
+        90.00000000000001,
+        660.0
+      ],
+      "face_count": 4
+    },
+    "reconstructed": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 4198738.581522758,
+      "surface_area_mm2": 199334.05387028467,
+      "bounds_mm": [
+        -45.0,
+        -45.0,
+        0.0,
+        45.0,
+        45.0,
+        660.0
+      ],
+      "bbox_mm": [
+        90.0,
+        90.0,
+        660.0
+      ],
+      "face_count": 3
+    },
+    "metrics": {
+      "volume_relative_error": 4.436201761709656e-16,
+      "area_relative_error": 6.161424109066026e-14,
+      "axis_bbox_relative_error": [
+        1.578983857244667e-16,
+        1.578983857244667e-16,
+        0.0
+      ],
+      "sorted_bbox_relative_error": [
+        1.578983857244667e-16,
+        1.578983857244667e-16,
+        0.0
+      ],
+      "max_bound_position_error_mm": 7.105427357601002e-15,
+      "intersection_volume_mm3": 4198738.58152276,
+      "iou_same_frame": 1.0000000000000004,
+      "symmetric_difference_volume_mm3": 0.0,
+      "symmetric_difference_over_reference_volume": 0.0
+    },
+    "legacy_geometry_check": true,
+    "boolean_status": "success",
+    "geometry_gate_pass": true,
+    "status": "geometry_gate_pass_review_pending",
+    "elapsed_seconds": 0.076
+  },
+  "coordinate_policy": "proper rigid rotation and translation only; mm retained; no mirror or scale",
+  "pixel_registration_status": "not_run",
+  "views": [
+    {
+      "id": "view_01",
+      "kind": "external",
+      "raw_right": [
+        0,
+        0,
+        1
+      ],
+      "raw_up": [
+        0,
+        1,
+        0
+      ],
+      "canonical_role": "front",
+      "confidence": "symmetry_ambiguous",
+      "source_label": "Longitudinal - broken",
+      "notes": [
+        "Selected camera is -X; camera +X and any radial up direction are equivalent"
+      ],
+      "source_image": "../2026-10-15-real-triplets-33-v1/cases/case_016/views/view_01.png",
+      "pair_status": "pose_only_pixel_registration_pending",
+      "canonical_camera": {
+        "screen_right": [
+          1,
+          0,
+          0
+        ],
+        "screen_up": [
+          0,
+          1,
+          0
+        ],
+        "camera_from_direction": [
+          0,
+          0,
+          1
+        ],
+        "view_direction": [
+          0,
+          0,
+          -1
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          1.2121212121212122,
+          0.0,
+          0.0,
+          512.0
+        ],
+        [
+          -0.0,
+          -1.2121212121212122,
+          -0.0,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference_render": "renders/view_01_reference.svg",
+      "reconstructed_render": "renders/view_01_reconstructed.svg"
+    },
+    {
+      "id": "view_02",
+      "kind": "external",
+      "raw_right": [
+        1,
+        0,
+        0
+      ],
+      "raw_up": [
+        0,
+        1,
+        0
+      ],
+      "canonical_role": "right_side",
+      "confidence": "symmetry_ambiguous",
+      "source_label": "End",
+      "notes": [
+        "Selected camera is +Z; the opposite end and all in-plane rolls are indistinguishable"
+      ],
+      "source_image": "../2026-10-15-real-triplets-33-v1/cases/case_016/views/view_02.png",
+      "pair_status": "pose_only_pixel_registration_pending",
+      "canonical_camera": {
+        "screen_right": [
+          0,
+          0,
+          -1
+        ],
+        "screen_up": [
+          0,
+          1,
+          0
+        ],
+        "camera_from_direction": [
+          1,
+          0,
+          0
+        ],
+        "view_direction": [
+          -1,
+          0,
+          0
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          0.0,
+          0.0,
+          -1.2121212121212122,
+          512.0
+        ],
+        [
+          -0.0,
+          -1.2121212121212122,
+          -0.0,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference_render": "renders/view_02_reference.svg",
+      "reconstructed_render": "renders/view_02_reconstructed.svg"
+    }
+  ],
+  "raw_to_canonical": [
+    [
+      0,
+      0,
+      1,
+      -330.0
+    ],
+    [
+      0,
+      1,
+      0,
+      -0.0
+    ],
+    [
+      -1,
+      0,
+      0,
+      -0.0
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "canonical_to_raw": [
+    [
+      0,
+      0,
+      -1,
+      0.0
+    ],
+    [
+      0,
+      1,
+      0,
+      0.0
+    ],
+    [
+      1,
+      0,
+      0,
+      330.0
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "rotation_determinant": 1,
+  "canonical_frame": {
+    "X": "drawing-front right",
+    "Y": "drawing-front up",
+    "Z": "towards front-view camera"
+  },
+  "reference": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 4198738.581522943,
+    "area_mm2": 199334.0538702847,
+    "bounds_mm": [
+      -330.0,
+      -45.0,
+      -45.00000000000007,
+      330.0,
+      45.0,
+      45.00000000000007
+    ],
+    "bbox_mm": [
+      660.0,
+      90.0,
+      90.00000000000014
+    ]
+  },
+  "reconstructed": {
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 4198738.581522758,
+    "area_mm2": 199334.05387028467,
+    "bounds_mm": [
+      -330.0,
+      -45.0,
+      -45.0,
+      330.0,
+      45.0,
+      45.00000000000007
+    ],
+    "bbox_mm": [
+      660.0,
+      90.0,
+      90.00000000000007
+    ]
+  },
+  "rigid_invariants": {
+    "reference_volume_relative_change": 4.374278717023117e-14,
+    "reconstructed_volume_relative_change": 0.0,
+    "reference_area_relative_change": 6.17284001691587e-14,
+    "reconstructed_area_relative_change": 0.0,
+    "transform_roundtrip_error_mm": 0.0
+  },
+  "shared_pixels_per_mm": 1.2121212121212122,
+  "canvas_size": [
+    1024,
+    1024
+  ],
+  "reference_sha256": "06744254efb990fb548bd6b16872a0a32c5a292b8b2f97c4b15c46047fe749df",
+  "reconstructed_sha256": "cbb281d9fd833f26e0ecd84019b933308bf22ac643ba924aae24822ac6699dfe",
+  "model_sha256": "b9026e7792249f82d515fcc831900d2a482a9de8c3e329d97f7ee65a07eeba1a",
+  "builder_sha256": "414c8484644362fb3976d426fb202f8af1fcf67be1eb15bfbe27d8f67cfbc144",
+  "canonical_projections": {
+    "front": {
+      "camera": {
+        "screen_right": [
+          1,
+          0,
+          0
+        ],
+        "screen_up": [
+          0,
+          1,
+          0
+        ],
+        "camera_from_direction": [
+          0,
+          0,
+          1
+        ],
+        "view_direction": [
+          0,
+          0,
+          -1
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          1.2121212121212122,
+          0.0,
+          0.0,
+          512.0
+        ],
+        [
+          -0.0,
+          -1.2121212121212122,
+          -0.0,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference": "renders/front_reference.svg",
+      "reconstructed": "renders/front_reconstructed.svg",
+      "synthetic_reference_only": true
+    },
+    "top": {
+      "camera": {
+        "screen_right": [
+          1,
+          0,
+          0
+        ],
+        "screen_up": [
+          0,
+          0,
+          -1
+        ],
+        "camera_from_direction": [
+          0,
+          1,
+          0
+        ],
+        "view_direction": [
+          0,
+          -1,
+          0
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          1.2121212121212122,
+          0.0,
+          0.0,
+          512.0
+        ],
+        [
+          -0.0,
+          -0.0,
+          1.2121212121212122,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference": "renders/top_reference.svg",
+      "reconstructed": "renders/top_reconstructed.svg",
+      "synthetic_reference_only": true
+    },
+    "right_side": {
+      "camera": {
+        "screen_right": [
+          0,
+          0,
+          -1
+        ],
+        "screen_up": [
+          0,
+          1,
+          0
+        ],
+        "camera_from_direction": [
+          1,
+          0,
+          0
+        ],
+        "view_direction": [
+          -1,
+          0,
+          0
+        ],
+        "projection": "orthographic"
+      },
+      "canonical_mm_to_pixel": [
+        [
+          0.0,
+          0.0,
+          -1.2121212121212122,
+          512.0
+        ],
+        [
+          -0.0,
+          -1.2121212121212122,
+          -0.0,
+          512.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reference": "renders/right_side_reference.svg",
+      "reconstructed": "renders/right_side_reconstructed.svg",
+      "synthetic_reference_only": true
+    }
+  },
+  "input_view_mask": {
+    "front": true,
+    "top": false,
+    "right_side": true
+  },
+  "elapsed_seconds": 0.055,
+  "export_coordinate_verification": {
+    "status": "passed",
+    "method": "export/reload AABB versus source AABB corners transformed by raw_to_canonical",
+    "signed_axis_permutation_required": true,
+    "cadquery_rotation_contract": {
+      "status": "passed",
+      "rotation_count": 24,
+      "max_abs_bounds_error_mm": 1.0658141036401503e-14,
+      "tolerance_mm": 1e-05,
+      "method": "asymmetric off-origin CadQuery solid; expected AABB from matrix-transformed bbox corners"
+    },
+    "reference": {
+      "status": "passed",
+      "source_bounds_mm": [
+        -45.00000000000001,
+        -45.00000000000001,
+        0.0,
+        45.00000000000001,
+        45.00000000000001,
+        660.0
+      ],
+      "expected_bounds_mm": [
+        -330.0,
+        -45.00000000000001,
+        -45.00000000000001,
+        330.0,
+        45.00000000000001,
+        45.00000000000001
+      ],
+      "actual_exported_bounds_mm": [
+        -330.0,
+        -45.0,
+        -45.00000000000007,
+        330.0,
+        45.0,
+        45.00000000000007
+      ],
+      "max_abs_bounds_error_mm": 6.394884621840902e-14,
+      "tolerance_mm": 1e-05,
+      "export": "reference.step"
+    },
+    "reconstructed": {
+      "status": "passed",
+      "source_bounds_mm": [
+        -45.0,
+        -45.0,
+        0.0,
+        45.0,
+        45.0,
+        660.0
+      ],
+      "expected_bounds_mm": [
+        -330.0,
+        -45.0,
+        -45.0,
+        330.0,
+        45.0,
+        45.0
+      ],
+      "actual_exported_bounds_mm": [
+        -330.0,
+        -45.0,
+        -45.0,
+        330.0,
+        45.0,
+        45.00000000000007
+      ],
+      "max_abs_bounds_error_mm": 7.105427357601002e-14,
+      "tolerance_mm": 1e-05,
+      "export": "reconstructed.step"
+    }
+  },
+  "alignment_review_notes": [],
+  "download": {
+    "zip": "cases/case_016/case_016_alignment_candidate.zip"
+  }
+}

@@ -1,0 +1,705 @@
+{
+  "cases": [
+    {
+      "case_id": "case_020",
+      "front_basis": {
+        "right": [-1, 0, 0],
+        "up": [0, 1, 0]
+      },
+      "status": "proposed",
+      "evidence": [
+        "source view_01 is the diameter-196 gear end; the reference STEP bounds are 196 by 196 in raw XY and 141 along raw Z",
+        "source A-A places the 53 mm internal-gear region at screen left and the remaining axial steps toward screen right, matching raw Z increasing from the authored gear face",
+        "v1 model.py constructs the internal gear and eight blind M8 holes from raw z=0, so the detailed source end is the raw -Z observation side"
+      ],
+      "ambiguities": [
+        "The 40 teeth and eight-hole pitch circle do not distinguish an in-plane half-turn or reflection-equivalent X sign; right=-X is a deterministic representative that keeps up=+Y and camera=-Z",
+        "The radial M12 port helps the axial section but is not sufficiently visible in the external end crop to remove all roll ambiguity"
+      ],
+      "views": [
+        {
+          "id": "view_01",
+          "kind": "external",
+          "raw_right": [-1, 0, 0],
+          "raw_up": [0, 1, 0],
+          "canonical_role": "front",
+          "confidence": "symmetry_ambiguous",
+          "source_label": "Gear end",
+          "notes": [
+            "Projection plane is raw XY and the selected camera is raw -Z looking toward +Z",
+            "The plane and detailed z=0 face are supported; the in-plane X sign remains symmetry-equivalent"
+          ]
+        },
+        {
+          "id": "view_02",
+          "kind": "section",
+          "raw_right": [0, 0, 1],
+          "raw_up": [0, 1, 0],
+          "canonical_role": "auxiliary",
+          "confidence": "supported",
+          "source_label": "A-A",
+          "notes": [
+            "Centered axial section uses raw YZ, with raw +Z running from the gear region at left to the 141 mm rear face at right",
+            "It requires a section plane; an external side projection must not be substituted"
+          ]
+        },
+        {
+          "id": "view_03",
+          "kind": "detail",
+          "raw_right": null,
+          "raw_up": null,
+          "canonical_role": "auxiliary",
+          "confidence": "unresolved",
+          "source_label": "I",
+          "notes": [
+            "Local enlarged threaded-port detail, not a complete orthographic exterior view",
+            "Its local crop transform and section offset are not calibrated in this annotation"
+          ]
+        },
+        {
+          "id": "view_04",
+          "kind": "specification",
+          "raw_right": null,
+          "raw_up": null,
+          "canonical_role": "auxiliary",
+          "confidence": "supported",
+          "source_label": "Gear parameters",
+          "notes": [
+            "Text-only gear parameter block; retain as metadata and exclude from three-view image inputs"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "case_021",
+      "front_basis": {
+        "right": [0, 1, 0],
+        "up": [0, 0, 1]
+      },
+      "status": "proposed",
+      "evidence": [
+        "source view_01 runs from the diameter-76 flange/socket end at screen left to the M50 shank at screen right over 200 mm",
+        "reference STEP bounds are 76 in raw X, 200 in raw Y, and 76 in raw Z; v1 model.py rotates the authored shaft axis to raw +Y",
+        "source view_02 shows the hex socket in the flange end, fixing its camera to the raw -Y end rather than the opposite shank end"
+      ],
+      "ambiguities": [
+        "The turned body is rotationally symmetric about Y and the regular hex socket is mirror-symmetric, so +Z versus -Z as front up cannot be distinguished from silhouette alone",
+        "The selected up=+Z and camera=+X form a deterministic right-handed longitudinal view consistent with the end view on the sheet"
+      ],
+      "views": [
+        {
+          "id": "view_01",
+          "kind": "external",
+          "raw_right": [0, 1, 0],
+          "raw_up": [0, 0, 1],
+          "canonical_role": "front",
+          "confidence": "symmetry_ambiguous",
+          "source_label": "Pin - thread symbolic",
+          "notes": [
+            "Raw +Y is screen right, supported by the flange-left and shank-right ordering",
+            "Selected camera is raw +X; the opposite radial camera is rotationally equivalent"
+          ]
+        },
+        {
+          "id": "view_02",
+          "kind": "external",
+          "raw_right": [1, 0, 0],
+          "raw_up": [0, 0, 1],
+          "canonical_role": "left_side",
+          "confidence": "symmetry_ambiguous",
+          "source_label": "End",
+          "notes": [
+            "Camera is raw -Y and therefore sees the flange-end blind hex socket",
+            "Hexagonal symmetry leaves the in-plane half-turn and mirror-equivalent sign unresolved"
+          ]
+        },
+        {
+          "id": "view_03",
+          "kind": "section",
+          "raw_right": [0, 1, 0],
+          "raw_up": [0, 0, 1],
+          "canonical_role": "auxiliary",
+          "confidence": "supported",
+          "source_label": "B-B",
+          "notes": [
+            "Longitudinal section keeps flange/socket at raw low Y on the left and the 200 mm shank end at high Y on the right",
+            "It is not pairable to an external front render without an explicit section operation"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "case_022",
+      "front_basis": {
+        "right": [1, 0, 0],
+        "up": [0, 1, 0]
+      },
+      "status": "proposed",
+      "evidence": [
+        "source view_01 is a diameter-150 end view, matching the raw XY flange envelope of the reference STEP",
+        "v1 model.py and the raw STEP place the diameter-150 running flange at the high-Z end of the 115 mm axis, so the supplied end view is observed from raw +Z",
+        "source A-A shows the smaller barrel at screen left and the large flange at screen right, matching raw +Z as section screen right"
+      ],
+      "ambiguities": [
+        "All end-view features are concentric, so the X/Y roll and radial signs are not physically observable",
+        "right=+X and up=+Y are selected as the canonical representative after the +Z camera side is fixed by the flange"
+      ],
+      "views": [
+        {
+          "id": "view_01",
+          "kind": "external",
+          "raw_right": [1, 0, 0],
+          "raw_up": [0, 1, 0],
+          "canonical_role": "front",
+          "confidence": "symmetry_ambiguous",
+          "source_label": "End",
+          "notes": [
+            "Camera is raw +Z and the projection plane is raw XY",
+            "Camera side is feature-supported; in-plane roll remains rotationally ambiguous"
+          ]
+        },
+        {
+          "id": "view_02",
+          "kind": "section",
+          "raw_right": [0, 0, 1],
+          "raw_up": [0, 1, 0],
+          "canonical_role": "auxiliary",
+          "confidence": "supported",
+          "source_label": "A-A",
+          "notes": [
+            "Centered YZ axial section has raw low Z barrel at left and high Z flange at right",
+            "The crop is a material section and must not be treated as an external side view"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "case_023",
+      "front_basis": {
+        "right": [0, 0, 1],
+        "up": [0, 1, 0]
+      },
+      "status": "proposed",
+      "evidence": [
+        "source view_01 is the 220 mm broken longitudinal shaft view, while the reference STEP bounds are 35 by 35 by 220 with the axis along raw Z",
+        "v1 model.py builds the five turned stations along Z and translates them to the reference span z=-50..170",
+        "Raw STEP orthographic inspection confirms that an XZ or YZ longitudinal projection matches the source profile"
+      ],
+      "ambiguities": [
+        "The two ends and shoulder sequence are mirror-symmetric and the part is rotational about Z, so axial reversal, radial camera side, and roll are not feature-distinguishable",
+        "Raw +Z screen-right and +Y screen-up are deterministic representatives only"
+      ],
+      "views": [
+        {
+          "id": "view_01",
+          "kind": "external",
+          "raw_right": [0, 0, 1],
+          "raw_up": [0, 1, 0],
+          "canonical_role": "front",
+          "confidence": "symmetry_ambiguous",
+          "source_label": "Shaft - broken",
+          "notes": [
+            "Selected camera is raw -X and raw +Z runs left-to-right",
+            "The broken-view drafting compression does not define a physical pixel scale along the omitted middle span"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "case_024",
+      "front_basis": {
+        "right": [1, 0, 0],
+        "up": [0, 1, 0]
+      },
+      "status": "proposed",
+      "evidence": [
+        "source view_01 is the diameter-80 annular face and view_02 is the 8 mm thickness view",
+        "reference STEP bounds are 80 by 80 by 8 and v1 model.py is an annulus extruded along raw +Z",
+        "v1 validation reports effectively exact same-frame geometry for the nominal annular extrusion"
+      ],
+      "ambiguities": [
+        "The annulus is rotationally symmetric and its two faces are identical, so front/back, X/Y roll, and the side-camera sign are unobservable",
+        "The selected front and right-side candidates are deterministic canonical representatives"
+      ],
+      "views": [
+        {
+          "id": "view_01",
+          "kind": "external",
+          "raw_right": [1, 0, 0],
+          "raw_up": [0, 1, 0],
+          "canonical_role": "front",
+          "confidence": "symmetry_ambiguous",
+          "source_label": "Plate face",
+          "notes": [
+            "Projection plane XY is dimension-supported; selected camera is raw +Z"
+          ]
+        },
+        {
+          "id": "view_02",
+          "kind": "external",
+          "raw_right": [0, 0, -1],
+          "raw_up": [0, 1, 0],
+          "canonical_role": "right_side",
+          "confidence": "symmetry_ambiguous",
+          "source_label": "Thickness",
+          "notes": [
+            "Selected canonical right-side candidate uses camera raw +X",
+            "The equivalent left-side candidate right=+Z/up=+Y produces the same crop"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "case_025",
+      "front_basis": {
+        "right": [0, 0, 1],
+        "up": [0, 1, 0]
+      },
+      "status": "proposed",
+      "evidence": [
+        "source view_01 is the 22-tooth sprocket face while the reference STEP has its 90 mm axial span along raw X and its approximately 333 mm diameter in raw YZ",
+        "source B-B places the 10 mm bore recess at screen left and the longer opposite recess at screen right, matching raw +X as section screen right",
+        "Raw STEP HLR inspection with face camera raw -X and section right=+X reproduces the two-row face/profile ordering shown on the source sheet"
+      ],
+      "ambiguities": [
+        "The 22-fold tooth pattern and concentric bore do not distinguish the YZ in-plane sign from the external face alone",
+        "The selected right=+Z/up=+Y fixes camera=-X using the axial section and sheet isometric; an equivalent tooth-period roll remains possible"
+      ],
+      "views": [
+        {
+          "id": "view_01",
+          "kind": "external",
+          "raw_right": [0, 0, 1],
+          "raw_up": [0, 1, 0],
+          "canonical_role": "front",
+          "confidence": "symmetry_ambiguous",
+          "source_label": "Sprocket face",
+          "notes": [
+            "Projection plane is raw YZ and selected camera is raw -X",
+            "The face plane and camera side are supported; tooth-period roll remains equivalent"
+          ]
+        },
+        {
+          "id": "view_02",
+          "kind": "section",
+          "raw_right": [1, 0, 0],
+          "raw_up": [0, 1, 0],
+          "canonical_role": "auxiliary",
+          "confidence": "supported",
+          "source_label": "B-B",
+          "notes": [
+            "Centered axial section has raw +X left-to-right and raw +Y upward",
+            "It exposes material and stepped bores, so no external side projection can replace it"
+          ]
+        },
+        {
+          "id": "view_03",
+          "kind": "specification",
+          "raw_right": null,
+          "raw_up": null,
+          "canonical_role": "auxiliary",
+          "confidence": "supported",
+          "source_label": "Chain parameters",
+          "notes": [
+            "Text-only chain specification block; exclude from three-view image channels"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "case_026",
+      "front_basis": {
+        "right": [0, 0, 1],
+        "up": [0, 1, 0]
+      },
+      "status": "proposed",
+      "evidence": [
+        "source view_01 is the 17-tooth keyed face; the keyway is at screen top and the reference STEP keyway is at raw +Y",
+        "reference STEP axial span is 74.76 along raw X and the approximately 186 mm sprocket diameter lies in raw YZ",
+        "Source B-B and raw STEP HLR agree on an axial section with raw +X left-to-right and two tooth rows at the ends"
+      ],
+      "ambiguities": [
+        "The two axial tooth rows are symmetric and the keyed face is mirror-symmetric about raw Y, so the observed X side and Z sign are not fully feature-distinguishable",
+        "right=+Z/up=+Y/camera=-X is selected consistently with B-B; camera +X with right=-Z is an equivalent external-face candidate"
+      ],
+      "views": [
+        {
+          "id": "view_01",
+          "kind": "external",
+          "raw_right": [0, 0, 1],
+          "raw_up": [0, 1, 0],
+          "canonical_role": "front",
+          "confidence": "symmetry_ambiguous",
+          "source_label": "Sprocket face",
+          "notes": [
+            "Raw +Y screen-up is fixed by the keyway; selected camera is raw -X",
+            "Raw Z horizontal sign remains mirror-equivalent"
+          ]
+        },
+        {
+          "id": "view_02",
+          "kind": "section",
+          "raw_right": [1, 0, 0],
+          "raw_up": [0, 1, 0],
+          "canonical_role": "auxiliary",
+          "confidence": "symmetry_ambiguous",
+          "source_label": "B-B",
+          "notes": [
+            "Centered axial section is represented with raw +X screen-right and +Y screen-up",
+            "Axial reversal is visually equivalent because the two rows are symmetric; a section operation is still mandatory"
+          ]
+        },
+        {
+          "id": "view_03",
+          "kind": "specification",
+          "raw_right": null,
+          "raw_up": null,
+          "canonical_role": "auxiliary",
+          "confidence": "supported",
+          "source_label": "Chain parameters",
+          "notes": [
+            "Text-only chain specification block; do not use as a geometric view"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "case_027",
+      "front_basis": {
+        "right": [0, 0, -1],
+        "up": [0, 1, 0]
+      },
+      "status": "proposed",
+      "evidence": [
+        "source view_01 keyway is at screen top and the reference STEP keyway is at raw +Y, fixing screen up=+Y",
+        "Raw STEP HLR shows the tooth plate at low raw X and the long hub toward high raw X; source B-B shows the hub on screen left and tooth plate on screen right, fixing section screen right=-X",
+        "The source isometric exposes the high-X hub face in front of the tooth plate, supporting a raw +X camera for the supplied face view"
+      ],
+      "ambiguities": [
+        "The keyed face is mirror-symmetric about raw Y, so raw Z versus -Z as horizontal cannot be separated by silhouette alone",
+        "right=-Z/up=+Y is selected to combine the feature-supported +X camera with the source keyway-up orientation"
+      ],
+      "views": [
+        {
+          "id": "view_01",
+          "kind": "external",
+          "raw_right": [0, 0, -1],
+          "raw_up": [0, 1, 0],
+          "canonical_role": "front",
+          "confidence": "symmetry_ambiguous",
+          "source_label": "Sprocket face",
+          "notes": [
+            "Camera is raw +X and raw +Y is screen-up",
+            "The horizontal Z sign is the remaining mirror-equivalent choice"
+          ]
+        },
+        {
+          "id": "view_02",
+          "kind": "section",
+          "raw_right": [-1, 0, 0],
+          "raw_up": [0, 1, 0],
+          "canonical_role": "auxiliary",
+          "confidence": "supported",
+          "source_label": "B-B",
+          "notes": [
+            "Raw high-X hub face is at screen left and the low-X tooth plate is at screen right",
+            "This is a centered material section, not an external side silhouette"
+          ]
+        },
+        {
+          "id": "view_03",
+          "kind": "specification",
+          "raw_right": null,
+          "raw_up": null,
+          "canonical_role": "auxiliary",
+          "confidence": "supported",
+          "source_label": "Chain parameters",
+          "notes": [
+            "Text-only chain specification block; exclude from image-view training"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "case_028",
+      "front_basis": {
+        "right": [0, 0, 1],
+        "up": [0, 1, 0]
+      },
+      "status": "proposed",
+      "evidence": [
+        "source view_01 is the 15-tooth face and the reference STEP axial span is 80 along raw X with the approximately 232 mm diameter in raw YZ",
+        "source B-B dimension chain puts the 23.45 mm row at screen left and the 22 mm row at screen right, matching the raw low-X and high-X feature order",
+        "Raw STEP HLR with face camera raw -X and section screen right=+X reproduces the source tooth-row and stepped-bore projections"
+      ],
+      "ambiguities": [
+        "The 15-fold tooth pattern and concentric bore retain tooth-period roll ambiguity; the face alone also weakly constrains the horizontal Z sign",
+        "The low-X versus high-X face choice is taken from B-B and the sheet isometric, not from bbox matching"
+      ],
+      "views": [
+        {
+          "id": "view_01",
+          "kind": "external",
+          "raw_right": [0, 0, 1],
+          "raw_up": [0, 1, 0],
+          "canonical_role": "front",
+          "confidence": "symmetry_ambiguous",
+          "source_label": "Sprocket face",
+          "notes": [
+            "Projection is raw YZ with selected camera raw -X",
+            "The axial side is section-supported; tooth-period roll remains equivalent"
+          ]
+        },
+        {
+          "id": "view_02",
+          "kind": "section",
+          "raw_right": [1, 0, 0],
+          "raw_up": [0, 1, 0],
+          "canonical_role": "auxiliary",
+          "confidence": "supported",
+          "source_label": "B-B",
+          "notes": [
+            "Raw +X runs from the 23.45 mm row at left to the 22 mm row at right",
+            "Material hatching and stepped bore require a true centered section"
+          ]
+        },
+        {
+          "id": "view_03",
+          "kind": "specification",
+          "raw_right": null,
+          "raw_up": null,
+          "canonical_role": "auxiliary",
+          "confidence": "supported",
+          "source_label": "Chain parameters",
+          "notes": [
+            "Text-only chain specification block; exclude from geometric view slots"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "case_029",
+      "front_basis": {
+        "right": [1, 0, 0],
+        "up": [0, 1, 0]
+      },
+      "status": "proposed",
+      "evidence": [
+        "source view_01 is 85 horizontally by 150 vertically with a 26 by 90 four-hole pattern",
+        "reference STEP bounds are 85 in raw X, 150 in raw Y, and 15 in raw Z; v1 model.py constructs the same plate directly in XY",
+        "source view_02 is the 15 mm thickness projection"
+      ],
+      "ambiguities": [
+        "The rectangular outline and four-hole pattern are mirror-symmetric in X and Y, and both broad faces are equivalent",
+        "The thickness crop cannot distinguish right-side from left-side observation; canonical right-side is selected as a deterministic representative"
+      ],
+      "views": [
+        {
+          "id": "view_01",
+          "kind": "external",
+          "raw_right": [1, 0, 0],
+          "raw_up": [0, 1, 0],
+          "canonical_role": "front",
+          "confidence": "symmetry_ambiguous",
+          "source_label": "Plate face",
+          "notes": [
+            "Projection plane XY is dimension-supported; selected camera is raw +Z"
+          ]
+        },
+        {
+          "id": "view_02",
+          "kind": "external",
+          "raw_right": [0, 0, -1],
+          "raw_up": [0, 1, 0],
+          "canonical_role": "right_side",
+          "confidence": "symmetry_ambiguous",
+          "source_label": "Thickness",
+          "notes": [
+            "Selected camera is raw +X and screen right is raw -Z",
+            "The left-side candidate camera=-X/right=+Z is visually identical"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "case_030",
+      "front_basis": {
+        "right": [1, 0, 0],
+        "up": [0, 1, 0]
+      },
+      "status": "proposed",
+      "evidence": [
+        "source view_01 shows the raised diameter-106 face inside the diameter-155 flange, identifying the raw +Z observation side",
+        "reference STEP bounds are 155 by 155 by 17.5 and v1 model.py places the 2 mm raised conical face above the 15.5 mm base along raw +Z",
+        "source view_02 places the raised face on screen right, fixing thickness screen right=+Z and camera raw -X"
+      ],
+      "ambiguities": [
+        "The four-hole circular pattern is invariant under quarter-turns, so front X/Y roll is only defined up to 90 degrees",
+        "A global half-turn in the face plane is geometrically equivalent even though the +Z face and left-side camera are feature-supported"
+      ],
+      "views": [
+        {
+          "id": "view_01",
+          "kind": "external",
+          "raw_right": [1, 0, 0],
+          "raw_up": [0, 1, 0],
+          "canonical_role": "front",
+          "confidence": "symmetry_ambiguous",
+          "source_label": "Flange face",
+          "notes": [
+            "Camera raw +Z is supported by the visible raised face",
+            "In-plane quarter-turns remain symmetry-equivalent"
+          ]
+        },
+        {
+          "id": "view_02",
+          "kind": "external",
+          "raw_right": [0, 0, 1],
+          "raw_up": [0, 1, 0],
+          "canonical_role": "left_side",
+          "confidence": "supported",
+          "source_label": "Thickness",
+          "notes": [
+            "Raised raw +Z face is on screen right, and right=+Z/up=+Y gives camera raw -X",
+            "This is a left-side rather than canonical right-side view relative to the selected front"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "case_031",
+      "front_basis": {
+        "right": [1, 0, 0],
+        "up": [0, 1, 0]
+      },
+      "status": "proposed",
+      "evidence": [
+        "source view_01 shows the diameter-59 through bore and raised diameter-106 face inside the diameter-155 flange",
+        "reference STEP bounds are 155 by 155 by 17.5 and v1 model.py puts the raised conical face at raw z=15.5..17.5",
+        "source view_02 has the raised face on screen right, fixing raw +Z as screen right and raw -X as the side camera"
+      ],
+      "ambiguities": [
+        "Four equally spaced holes and concentric circles leave the front roll ambiguous up to quarter-turns",
+        "The +Z camera face and left-side profile are supported; only the in-plane symmetric representative is arbitrary"
+      ],
+      "views": [
+        {
+          "id": "view_01",
+          "kind": "external",
+          "raw_right": [1, 0, 0],
+          "raw_up": [0, 1, 0],
+          "canonical_role": "front",
+          "confidence": "symmetry_ambiguous",
+          "source_label": "Flange face",
+          "notes": [
+            "Camera raw +Z is feature-supported by the raised face and visible through bore",
+            "The X/Y roll remains fourfold symmetric"
+          ]
+        },
+        {
+          "id": "view_02",
+          "kind": "external",
+          "raw_right": [0, 0, 1],
+          "raw_up": [0, 1, 0],
+          "canonical_role": "left_side",
+          "confidence": "supported",
+          "source_label": "Thickness",
+          "notes": [
+            "Raw +Z is screen right and the selected side camera is raw -X",
+            "The visible raised-face step rules out the mirrored right-side camera mapping"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "case_032",
+      "front_basis": {
+        "right": [1, 0, 0],
+        "up": [0, 0, -1]
+      },
+      "status": "proposed",
+      "evidence": [
+        "source view_01 is the diameter-150 gasket face with diameter-60 bore and four diameter-19 holes",
+        "reference STEP bounds are 150 in raw X, 3 in raw Y, and 150 in raw Z, so the face projection is raw XZ rather than XY",
+        "v1 model.py creates the gasket in XY and rotates it -90 degrees about X, mapping authored +X to raw +X, authored +Y to raw -Z, and thickness to raw +Y"
+      ],
+      "ambiguities": [
+        "Both faces are identical and the four-hole pattern is fourfold symmetric, so the raw Y camera side and face roll are not physically observable",
+        "right=+X/up=-Z/camera=+Y preserves the authored face orientation and is a deterministic representative"
+      ],
+      "views": [
+        {
+          "id": "view_01",
+          "kind": "external",
+          "raw_right": [1, 0, 0],
+          "raw_up": [0, 0, -1],
+          "canonical_role": "front",
+          "confidence": "symmetry_ambiguous",
+          "source_label": "Gasket face",
+          "notes": [
+            "Projection is raw XZ with selected camera raw +Y",
+            "The plane is dimension-supported; face side and quarter-turn roll are symmetry-equivalent"
+          ]
+        },
+        {
+          "id": "view_02",
+          "kind": "external",
+          "raw_right": [0, -1, 0],
+          "raw_up": [0, 0, -1],
+          "canonical_role": "right_side",
+          "confidence": "symmetry_ambiguous",
+          "source_label": "Thickness",
+          "notes": [
+            "Selected canonical right-side camera is raw +X; raw -Y is screen right and raw -Z is screen up",
+            "The opposite raw X side and thickness sign are visually identical for this planar gasket"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "case_033",
+      "front_basis": {
+        "right": [1, 0, 0],
+        "up": [0, 1, 0]
+      },
+      "status": "proposed",
+      "evidence": [
+        "source view_01 is 2370 horizontally by 200 vertically with two 12-hole rows, matching the reference STEP raw X and Y extents",
+        "reference STEP thickness is 20 along raw Z and v1 model.py constructs the plate and symmetric counterbores directly in raw XY",
+        "source A-A is a 2370 mm longitudinal thickness section, not an independent exterior top or side view"
+      ],
+      "ambiguities": [
+        "The hole layout is mirror-symmetric about the plate midplanes and counterbores are present on both broad faces, so X/Y signs and front camera side are not feature-distinguishable",
+        "The A-A thickness direction is also sign-ambiguous; the chosen basis follows the downward section arrows without claiming a unique physical face"
+      ],
+      "views": [
+        {
+          "id": "view_01",
+          "kind": "external",
+          "raw_right": [1, 0, 0],
+          "raw_up": [0, 1, 0],
+          "canonical_role": "front",
+          "confidence": "symmetry_ambiguous",
+          "source_label": "Plate face",
+          "notes": [
+            "Projection plane XY is dimension-supported; selected camera is raw +Z",
+            "Raw X and Y signs are deterministic representatives for a doubly symmetric layout"
+          ]
+        },
+        {
+          "id": "view_02",
+          "kind": "section",
+          "raw_right": [1, 0, 0],
+          "raw_up": [0, 0, -1],
+          "canonical_role": "auxiliary",
+          "confidence": "symmetry_ambiguous",
+          "source_label": "A-A",
+          "notes": [
+            "Longitudinal XZ section keeps raw +X screen-right and selects raw -Z screen-up, with camera raw +Y",
+            "The opposite thickness sign is equivalent because both broad-face counterbores are symmetric; a real section is still required"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/tmp/process-expert-triplets-20261015/geometry-training-handoff/demos/2026-10-17-aligned-triplets-33-v2/scripts/build_case.py", line 180, in <module>
+    if __name__=='__main__': main()
+  File "/tmp/process-expert-triplets-20261015/geometry-training-handoff/demos/2026-10-17-aligned-triplets-33-v2/scripts/build_case.py", line 134, in main
+    raise ValueError('Rigid transform invariant failed')
+ValueError: Rigid transform invariant failed

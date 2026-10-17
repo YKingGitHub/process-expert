@@ -1,0 +1,10 @@
+{
+  "case_002": ["Blocked: exported/reloaded reference STEP volume differs from the raw reference by -1.2066987581382804e-6 relative, beyond the unchanged 1e-6 invariance gate. Area change is 1.6337039765446093e-7. The cause is not resolved; no aligned candidate is released."],
+  "case_003": ["Blocked: exported/reloaded reference STEP volume differs from the raw reference by 0.0005490145603652685 relative, beyond the unchanged 1e-6 invariance gate. Area change is -1.0788630988578518e-7. This numerical discrepancy is not a claim that the rigid transform intentionally changed geometry."],
+  "case_004": ["Blocked: exported/reloaded reference STEP volume differs from the raw reference by 0.00038837122165813476 relative, beyond the unchanged 1e-6 invariance gate. Area change is 2.0379148479854337e-7. Cause remains unresolved; incomplete generated assets are quarantined."],
+  "case_021": ["The independent per-case build timed out at 300 seconds. Its canonical renders were not accepted or published as completed; original v1 data remains available."],
+  "case_025": ["The drawing diameter 312.34 marks an internal pitch circle, not the tooth-tip envelope. It cannot be compared directly with the STEP axis-aligned bounding box. Pixel calibration is pending semantic feature matching, not declared a drawing-STEP size conflict."],
+  "case_026": ["The nominal diameter and the axis-aligned bounds of phase-dependent discrete teeth are not interchangeable. No envelope-based pixel registration is claimed."],
+  "case_027": ["The drawing diameter 172.79 is a pitch-circle annotation, not the tooth-tip envelope. Pixel calibration is pending semantic feature matching; do not infer a drawing-STEP size conflict from the bounding box."],
+  "case_028": ["The drawing diameter 213.79 is a pitch-circle annotation, not the tooth-tip envelope. Pixel calibration is pending semantic feature matching; do not infer a drawing-STEP size conflict from the bounding box."]
+}

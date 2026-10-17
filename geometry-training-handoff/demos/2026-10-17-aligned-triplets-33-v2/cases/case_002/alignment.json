@@ -1,0 +1,806 @@
+{
+  "schema_version": 2,
+  "case_id": "case_002",
+  "name": "41602-3 (machin part)",
+  "status": "build_failed",
+  "reason": "See preserved build log; no aligned training tuple is accepted.",
+  "annotation": {
+    "case_id": "case_002",
+    "front_basis": {
+      "right": [
+        1,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        0,
+        1
+      ]
+    },
+    "status": "proposed",
+    "evidence": [
+      "source view_01 places the upper eye at the left, the full lower trunnion near the middle, and the smaller service boss above the barrel toward the right",
+      "v1 model.py:42-63 places the long barrel on raw X, the upper eye at raw X=-430/raw Z=+41, the lower trunnion at raw X=-255/raw Z=-78, and the service boss at raw X=-92/raw Z=+34",
+      "that directed feature order fixes source right=+X and source up=+Z; their cross gives camera raw -Y",
+      "direct reference-STEP inspection confirms the barrel cylinder axes are raw X, the transverse boss axes are raw Y, and the bounds are X=[-500.380,57.658], Y=[-120.015,120.015], Z=[-106.172,68.708]"
+    ],
+    "ambiguities": [
+      "view_04 establishes an end projection but its in-plane raw-Y sign is not feature-distinguishable from the approximately Y-mirrored boss layout",
+      "selected view_04 basis right=+Y/up=+Z gives the canonical right-side camera +X; the reflected/opposite-end candidate remains plausible if hidden-line visibility is not trusted"
+    ],
+    "views": [
+      {
+        "id": "view_01",
+        "kind": "external",
+        "raw_right": [
+          1,
+          0,
+          0
+        ],
+        "raw_up": [
+          0,
+          0,
+          1
+        ],
+        "canonical_role": "front",
+        "confidence": "supported",
+        "source_label": "Elevation",
+        "notes": [
+          "Camera is raw -Y",
+          "The ordered upper-eye, lower-trunnion, and service-boss features fix both screen-axis signs"
+        ]
+      },
+      {
+        "id": "view_04",
+        "kind": "external",
+        "raw_right": [
+          0,
+          1,
+          0
+        ],
+        "raw_up": [
+          0,
+          0,
+          1
+        ],
+        "canonical_role": "right_side",
+        "confidence": "symmetry_ambiguous",
+        "source_label": "Right end / detail",
+        "notes": [
+          "Selected camera is raw +X and raw +Z is upward",
+          "The raw-Y screen direction is not independently fixed by the near-mirrored end geometry"
+        ]
+      }
+    ]
+  },
+  "training_ready": false,
+  "human_acceptance": "pending",
+  "pixel_registration_status": "not_run",
+  "views": [
+    {
+      "id": "view_01",
+      "kind": "external",
+      "raw_right": [
+        1,
+        0,
+        0
+      ],
+      "raw_up": [
+        0,
+        0,
+        1
+      ],
+      "canonical_role": "front",
+      "confidence": "supported",
+      "source_label": "Elevation",
+      "notes": [
+        "Camera is raw -Y",
+        "The ordered upper-eye, lower-trunnion, and service-boss features fix both screen-axis signs"
+      ],
+      "source_image": "../2026-10-15-real-triplets-33-v1/cases/case_002/views/view_01.png",
+      "pair_status": "not_pairable",
+      "reason": "See preserved build log; no aligned training tuple is accepted."
+    },
+    {
+      "id": "view_04",
+      "kind": "external",
+      "raw_right": [
+        0,
+        1,
+        0
+      ],
+      "raw_up": [
+        0,
+        0,
+        1
+      ],
+      "canonical_role": "right_side",
+      "confidence": "symmetry_ambiguous",
+      "source_label": "Right end / detail",
+      "notes": [
+        "Selected camera is raw +X and raw +Z is upward",
+        "The raw-Y screen direction is not independently fixed by the near-mirrored end geometry"
+      ],
+      "source_image": "../2026-10-15-real-triplets-33-v1/cases/case_002/views/view_04.png",
+      "pair_status": "not_pairable",
+      "reason": "See preserved build log; no aligned training tuple is accepted."
+    }
+  ],
+  "source_views": {
+    "schema_version": 1,
+    "case_id": "case_002",
+    "part_name": "41602-3 (machin part)",
+    "annotation_method": "agent_manual_source_image_region_annotation",
+    "purpose": "label_authoring_not_heldout_evaluation",
+    "sources": [
+      {
+        "page": 1,
+        "pdf": "source/page_01.pdf",
+        "pdf_sha256": "91c9bec726a6ef5516b900c44ebc0cdb378688783d14473f6d58ddc2d46d11ab",
+        "preview": "source/page_01.webp",
+        "original_size": [
+          6504,
+          4598
+        ],
+        "upright_size": [
+          6504,
+          4598
+        ],
+        "rotation_clockwise_degrees": 0,
+        "original_pdf_local_only": true
+      },
+      {
+        "page": 2,
+        "pdf": "source/page_02.pdf",
+        "pdf_sha256": "1a889bec2086e24d3df5316d82596be9a973fade2dfced49129abad4cdd168a9",
+        "preview": "source/page_02.webp",
+        "original_size": [
+          6464,
+          4570
+        ],
+        "upright_size": [
+          6464,
+          4570
+        ],
+        "rotation_clockwise_degrees": 0,
+        "original_pdf_local_only": true
+      }
+    ],
+    "views": [
+      {
+        "id": "view_01",
+        "role": "front",
+        "label": "Elevation",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.28,
+          0.07,
+          0.78,
+          0.39
+        ],
+        "bbox_upright_pixels": [
+          1821,
+          322,
+          5073,
+          1793
+        ],
+        "native_image": "views/view_01_native.png",
+        "image": "views/view_01.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 0.3001230012300123,
+        "padding_xy": [
+          24,
+          311
+        ],
+        "source_to_canvas_matrix": [
+          [
+            0.3001230012300123,
+            0,
+            -522.5239852398523
+          ],
+          [
+            0,
+            0.3001230012300123,
+            214.36039360393605
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": null,
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_02",
+        "role": "section",
+        "label": "Longitudinal section",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.28,
+          0.4,
+          0.77,
+          0.77
+        ],
+        "bbox_upright_pixels": [
+          1821,
+          1839,
+          5008,
+          3540
+        ],
+        "native_image": "views/view_02_native.png",
+        "image": "views/view_02.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 0.30624411672419205,
+        "padding_xy": [
+          24,
+          271
+        ],
+        "source_to_canvas_matrix": [
+          [
+            0.30624411672419205,
+            0,
+            -533.6705365547538
+          ],
+          [
+            0,
+            0.30624411672419205,
+            -292.18293065578916
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_03",
+        "role": "section",
+        "label": "Left sections",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.03,
+          0.06,
+          0.28,
+          0.75
+        ],
+        "bbox_upright_pixels": [
+          195,
+          276,
+          1821,
+          3448
+        ],
+        "native_image": "views/view_03_native.png",
+        "image": "views/view_03.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 0.29508196721311475,
+        "padding_xy": [
+          272,
+          64
+        ],
+        "source_to_canvas_matrix": [
+          [
+            0.29508196721311475,
+            0,
+            214.45901639344262
+          ],
+          [
+            0,
+            0.29508196721311475,
+            -17.44262295081967
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_04",
+        "role": "side",
+        "label": "Right end / detail",
+        "source_page": 1,
+        "bbox_upright_normalized": [
+          0.77,
+          0.44,
+          0.94,
+          0.82
+        ],
+        "bbox_upright_pixels": [
+          5008,
+          2023,
+          6114,
+          3770
+        ],
+        "native_image": "views/view_04_native.png",
+        "image": "views/view_04.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 0.5357756153405838,
+        "padding_xy": [
+          215,
+          64
+        ],
+        "source_to_canvas_matrix": [
+          [
+            0.5357756153405838,
+            0,
+            -2468.164281625644
+          ],
+          [
+            0,
+            0.5357756153405838,
+            -1019.8740698340011
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_05",
+        "role": "detail_group",
+        "label": "Upper detail row",
+        "source_page": 2,
+        "bbox_upright_normalized": [
+          0.03,
+          0.03,
+          0.95,
+          0.27
+        ],
+        "bbox_upright_pixels": [
+          194,
+          137,
+          6141,
+          1234
+        ],
+        "native_image": "views/view_05_native.png",
+        "image": "views/view_05.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 0.16411636119051623,
+        "padding_xy": [
+          24,
+          442
+        ],
+        "source_to_canvas_matrix": [
+          [
+            0.16411636119051623,
+            0,
+            -7.838574070960149
+          ],
+          [
+            0,
+            0.16411636119051623,
+            419.5160585168993
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_06",
+        "role": "detail_group",
+        "label": "Second detail row",
+        "source_page": 2,
+        "bbox_upright_normalized": [
+          0.03,
+          0.27,
+          0.95,
+          0.48
+        ],
+        "bbox_upright_pixels": [
+          194,
+          1234,
+          6141,
+          2194
+        ],
+        "native_image": "views/view_06_native.png",
+        "image": "views/view_06.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 0.16411636119051623,
+        "padding_xy": [
+          24,
+          453
+        ],
+        "source_to_canvas_matrix": [
+          [
+            0.16411636119051623,
+            0,
+            -7.838574070960149
+          ],
+          [
+            0,
+            0.16411636119051623,
+            250.48041029090297
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_07",
+        "role": "detail_group",
+        "label": "Lower-left sections",
+        "source_page": 2,
+        "bbox_upright_normalized": [
+          0.03,
+          0.52,
+          0.24,
+          0.91
+        ],
+        "bbox_upright_pixels": [
+          194,
+          2376,
+          1551,
+          4159
+        ],
+        "native_image": "views/view_07_native.png",
+        "image": "views/view_07.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 0.5249579360628155,
+        "padding_xy": [
+          156,
+          64
+        ],
+        "source_to_canvas_matrix": [
+          [
+            0.5249579360628155,
+            0,
+            54.158160403813795
+          ],
+          [
+            0,
+            0.5249579360628155,
+            -1183.3000560852497
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_08",
+        "role": "detail_group",
+        "label": "Middle sections",
+        "source_page": 2,
+        "bbox_upright_normalized": [
+          0.24,
+          0.51,
+          0.75,
+          0.76
+        ],
+        "bbox_upright_pixels": [
+          1551,
+          2331,
+          4848,
+          3473
+        ],
+        "native_image": "views/view_08_native.png",
+        "image": "views/view_08.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 0.2960266909311495,
+        "padding_xy": [
+          24,
+          363
+        ],
+        "source_to_canvas_matrix": [
+          [
+            0.2960266909311495,
+            0,
+            -435.1373976342129
+          ],
+          [
+            0,
+            0.2960266909311495,
+            -327.03821656050957
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_09",
+        "role": "detail_group",
+        "label": "Lower sections",
+        "source_page": 2,
+        "bbox_upright_normalized": [
+          0.26,
+          0.76,
+          0.81,
+          0.95
+        ],
+        "bbox_upright_pixels": [
+          1681,
+          3473,
+          5236,
+          4342
+        ],
+        "native_image": "views/view_09_native.png",
+        "image": "views/view_09.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 0.2745428973277075,
+        "padding_xy": [
+          24,
+          412
+        ],
+        "source_to_canvas_matrix": [
+          [
+            0.2745428973277075,
+            0,
+            -437.5066104078763
+          ],
+          [
+            0,
+            0.2745428973277075,
+            -541.4874824191281
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      },
+      {
+        "id": "view_10",
+        "role": "detail_group",
+        "label": "Right details",
+        "source_page": 2,
+        "bbox_upright_normalized": [
+          0.75,
+          0.51,
+          0.95,
+          0.8
+        ],
+        "bbox_upright_pixels": [
+          4848,
+          2331,
+          6141,
+          3656
+        ],
+        "native_image": "views/view_10_native.png",
+        "image": "views/view_10.png",
+        "canvas_size": [
+          1024,
+          1024
+        ],
+        "resize_scale_px_per_source_px": 0.7064150943396227,
+        "padding_xy": [
+          55,
+          64
+        ],
+        "source_to_canvas_matrix": [
+          [
+            0.7064150943396227,
+            0,
+            -3369.7003773584906
+          ],
+          [
+            0,
+            0.7064150943396227,
+            -1582.6535849056604
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "parent_source_label": "Elevation",
+        "orientation_status": "provisional_agent_annotation",
+        "gt_used_for_crop": false
+      }
+    ],
+    "standard_slots": {
+      "front": "view_01",
+      "top": null,
+      "side": "view_04"
+    },
+    "extra_view_ids": [
+      "view_02",
+      "view_03",
+      "view_05",
+      "view_06",
+      "view_07",
+      "view_08",
+      "view_09",
+      "view_10"
+    ],
+    "projection_convention": "unverified",
+    "axis_mapping_to_step": null,
+    "shared_physical_pixel_scale": false,
+    "crop_policy": "uniform 1024 square per view; aspect ratio preserved; source crop and inverse mapping retained; dimensions retained; independent fitting does not imply equal mm per pixel",
+    "review_status": "pending_human_acceptance",
+    "gaps": [
+      "View roles and relationships are provisional; review source pages.",
+      "Pixel crop removes surrounding context; source PDFs retained for tolerances, materials and revision checks.",
+      "Section/detail groups on dense legacy sheets need further splitting."
+    ],
+    "annotation_gt_leakage": false
+  },
+  "legacy_geometry_validation": {
+    "schema_version": 1,
+    "case_id": "case_002",
+    "cadquery_version": "2.5.2",
+    "purpose": "GT-assisted label-authoring QA; not held-out model evaluation",
+    "coordinate_alignment": "none; original physical mm frame",
+    "thresholds": {
+      "legacy_volume_relative": 0.02,
+      "legacy_area_relative": 0.05,
+      "legacy_sorted_bbox_relative": 0.02,
+      "additional_symmetric_difference_over_reference_volume": 0.01,
+      "additional_axis_bbox_relative": 0.01
+    },
+    "human_acceptance": "pending",
+    "training_ready": false,
+    "validator_sha256": "6be8bd1e6b1f037d23ea6737834ef426af038fe410bba5ef9cb52fb6628729f7",
+    "model_sha256": "c434390d2873f4b8b06ece9534487c6f106c2f2223515497398939f5ce703ae6",
+    "program_audit": {
+      "status": "passed",
+      "allowed_imports": [
+        "cadquery",
+        "math"
+      ],
+      "external_geometry_reads": false,
+      "execution_mode": "trusted_authored_label_not_model_sandbox"
+    },
+    "execution_status": "success",
+    "reconstructed_sha256": "89ce7c82fa4899b7e7a0394144e38b5d17fc790ecd68cacd44d40b84722756c9",
+    "reference_sha256": "11d9ad12e334cdcc2f648305ba900e4a559249f6338bf006ea3ecd19de36f691",
+    "reference": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 2620935.239227337,
+      "surface_area_mm2": 457773.155342725,
+      "bounds_mm": [
+        -500.3800003509379,
+        -120.01500046992365,
+        -106.1720001004,
+        57.658220169436234,
+        120.01500035036511,
+        68.70756234960197
+      ],
+      "bbox_mm": [
+        558.0382205203741,
+        240.03000082028876,
+        174.87956245000197
+      ],
+      "face_count": 1075
+    },
+    "reconstructed": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 3114651.661000619,
+      "surface_area_mm2": 404425.20643666823,
+      "bounds_mm": [
+        -500.38022010000003,
+        -120.015001,
+        -106.172,
+        57.6580011,
+        120.015001,
+        68.70800009999999
+      ],
+      "bbox_mm": [
+        558.0382212000001,
+        240.030002,
+        174.8800001
+      ],
+      "face_count": 111
+    },
+    "metrics": {
+      "volume_relative_error": 0.18837414003362865,
+      "area_relative_error": 0.11653795833902993,
+      "axis_bbox_relative_error": [
+        1.2178842170854613e-09,
+        4.914849100355149e-09,
+        2.5025794431797904e-06
+      ],
+      "sorted_bbox_relative_error": [
+        2.5025794431797904e-06,
+        4.914849100355149e-09,
+        1.2178842170854613e-09
+      ],
+      "max_bound_position_error_mm": 0.000437750398020853,
+      "intersection_volume_mm3": 452777.58111363975,
+      "iou_same_frame": 0.08570772741605402,
+      "symmetric_difference_volume_mm3": 4830031.738000677,
+      "symmetric_difference_over_reference_volume": 1.8428657319379596
+    },
+    "legacy_geometry_check": false,
+    "boolean_status": "success",
+    "geometry_gate_pass": false,
+    "status": "needs_geometry_revision",
+    "elapsed_seconds": 34.974
+  },
+  "build_result": {
+    "case_id": "case_002",
+    "exit_code": 1,
+    "timeout": false,
+    "log": "build_logs/20261017T114524878573Z/case_002.log"
+  },
+  "alignment_review_notes": [
+    "Blocked: exported/reloaded reference STEP volume differs from the raw reference by -1.2066987581382804e-6 relative, beyond the unchanged 1e-6 invariance gate. Area change is 1.6337039765446093e-7. The cause is not resolved; no aligned candidate is released."
+  ],
+  "source_model_sha256": "c434390d2873f4b8b06ece9534487c6f106c2f2223515497398939f5ce703ae6",
+  "source_reference_sha256": "11d9ad12e334cdcc2f648305ba900e4a559249f6338bf006ea3ecd19de36f691",
+  "quarantined_attempt": {
+    "local_directory": "/tmp/cad-alignment-failed-case_002-_igj68lh",
+    "files_sha256": {
+      "reconstructed.step": "7c10c7c613aa156a890963ba3682ba4920599b0d9e1cfceae6eb783c7c71c0db",
+      "model.py": "fb62ecbe290f348b04aadb11e01728f6ff1e341c8eabe0e1134ed66baa2792df",
+      "reference.step": "1f6b11a5379344afd00978cca03453daedd3c2e1e9ac23655b1331070c5cece9"
+    },
+    "reason": "Incomplete generated assets retained locally, excluded from published training candidates"
+  },
+  "download": {
+    "zip": "cases/case_002/case_002_alignment_candidate.zip"
+  }
+}

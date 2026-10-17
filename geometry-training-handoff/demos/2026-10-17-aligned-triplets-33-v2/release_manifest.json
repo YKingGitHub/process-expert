@@ -1,0 +1,19 @@
+{
+  "files_sha256": {
+    "scripts/alignment_math.py": "b981c685d74d1aa9b63fd89cddd2f7ba20b09ff643ce52f359976007a0b0f2b8",
+    "scripts/annotations_001_005.json": "f6289f38fb5be969622b8c12f109cdec1937606fccbfa4e32bcf6c75dfc7dd06",
+    "scripts/annotations_006_019.json": "642fbc0e86d45c7e708d502551ce3dca17013d72ec700c82015a5574b3f24544",
+    "scripts/annotations_020_033.json": "b593a6ebf10d1f91b2c26680c0b3ac468c63beaa9941601772268ef3fccca294",
+    "scripts/build_all.py": "a47c3f4fe5ffba75ce967e7d1d6cf91d893c6540fc3f981b4e9e0c58e9cccb9d",
+    "scripts/build_case.py": "414c8484644362fb3976d426fb202f8af1fcf67be1eb15bfbe27d8f67cfbc144",
+    "scripts/inspection_notes.json": "9e9f8e8754fca7c03772c2d0e2785d9578c1f22acfe8f389fb8a82025b109927",
+    "scripts/package_dataset.py": "36e8119b410a960778bcdfcd3a7b1fc3b06e8309c91c46a86a95e6794fc09de4",
+    "scripts/pixel_anchors.json": "b3f9944982f3b968e6b3040d5b1e0d489cda102fc4592d565c1f90d7b827031b",
+    "scripts/pixel_anchors_006_019.json": "bac2bc7798f99e81e383375fb696c420943a884ccc472541cfd7244b3db99d9e",
+    "scripts/pixel_anchors_020_033.json": "04625b62fef93452997585913960d6e874a32132d6822c154fed57289e6ac675",
+    "scripts/register_pixels.py": "146a3c56d7ae5405ea24c1de02cfb8dc36d873f0704283b7f2d5de99f058afcf",
+    "scripts/test_alignment.py": "7579f52a53d13f7f5e58664f5ab6ad6383b93effd0ac98b4fbc00b897061faf4",
+    "scripts/verify_exports.py": "43f6ada2cef3913775d0f1608c864d670babc5378aa17f3fc96965446efd77d0"
+  },
+  "note": "Release-time script/annotation/anchor snapshot; each successful case records its actual builder hash separately."
+}
